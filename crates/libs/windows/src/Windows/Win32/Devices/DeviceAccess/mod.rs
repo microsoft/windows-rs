@@ -1,13 +1,13 @@
 pub const CLSID_DeviceIoControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[inline]
-pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(deviceinterfacepath: Param0, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync> {
+pub unsafe fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32, createasync: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
+    CreateDeviceAccessInstance(::core::mem::transmute(deviceinterfacepath), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 pub const DEV_PORT_1394: u32 = 8u32;
@@ -124,19 +124,14 @@ impl ::core::convert::From<ICreateDeviceAccessAsync> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICreateDeviceAccessAsync> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICreateDeviceAccessAsync) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICreateDeviceAccessAsync> for ::windows::core::IUnknown {
     fn from(value: &ICreateDeviceAccessAsync) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICreateDeviceAccessAsync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICreateDeviceAccessAsync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICreateDeviceAccessAsync {
@@ -177,8 +172,8 @@ impl IDeviceIoControl {
         (::windows::core::Interface::vtable(self).DeviceIoControlSync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
-    pub unsafe fn DeviceIoControlAsync<'a, Param5: ::windows::core::IntoParam<'a, IDeviceRequestCompletionCallback>>(&self, iocontrolcode: u32, inputbuffer: &[u8], outputbuffer: &mut [u8], requestcompletioncallback: Param5, cancelcontext: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceIoControlAsync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, requestcompletioncallback.into_param().abi(), ::core::mem::transmute(cancelcontext)).ok()
+    pub unsafe fn DeviceIoControlAsync<'a, Param5: ::std::convert::Into<::windows::core::InParam<'a, IDeviceRequestCompletionCallback>>>(&self, iocontrolcode: u32, inputbuffer: &[u8], outputbuffer: &mut [u8], requestcompletioncallback: Param5, cancelcontext: *mut usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeviceIoControlAsync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputbuffer)), inputbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffer)), outputbuffer.len() as _, requestcompletioncallback.into().abi(), ::core::mem::transmute(cancelcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub unsafe fn CancelOperation(&self, cancelcontext: usize) -> ::windows::core::Result<()> {
@@ -190,19 +185,14 @@ impl ::core::convert::From<IDeviceIoControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDeviceIoControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDeviceIoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDeviceIoControl> for ::windows::core::IUnknown {
     fn from(value: &IDeviceIoControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceIoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceIoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDeviceIoControl {
@@ -247,19 +237,14 @@ impl ::core::convert::From<IDeviceRequestCompletionCallback> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDeviceRequestCompletionCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDeviceRequestCompletionCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDeviceRequestCompletionCallback> for ::windows::core::IUnknown {
     fn from(value: &IDeviceRequestCompletionCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceRequestCompletionCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceRequestCompletionCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDeviceRequestCompletionCallback {

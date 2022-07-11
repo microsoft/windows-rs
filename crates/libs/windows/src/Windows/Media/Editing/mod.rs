@@ -13,9 +13,9 @@ impl BackgroundAudioTrack {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrimTimeFromStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -28,9 +28,9 @@ impl BackgroundAudioTrack {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrimTimeFromEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -61,9 +61,9 @@ impl BackgroundAudioTrack {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -114,18 +114,18 @@ impl BackgroundAudioTrack {
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`*"]
-    pub fn CreateFromEmbeddedAudioTrack<'a, Param0: ::windows::core::IntoParam<'a, EmbeddedAudioTrack>>(embeddedaudiotrack: Param0) -> ::windows::core::Result<BackgroundAudioTrack> {
+    pub fn CreateFromEmbeddedAudioTrack<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmbeddedAudioTrack>>>(embeddedaudiotrack: Param0) -> ::windows::core::Result<BackgroundAudioTrack> {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(::windows::core::Interface::as_raw(this), embeddedaudiotrack.into_param().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(::windows::core::Interface::as_raw(this), embeddedaudiotrack.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>> {
+    pub fn CreateFromFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>> {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>(result__)
         })
     }
     #[doc(hidden)]
@@ -174,14 +174,9 @@ impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundAudioTrack> for ::windows::core::IInspectable {
@@ -194,14 +189,9 @@ impl ::core::convert::From<&BackgroundAudioTrack> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundAudioTrack> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
@@ -260,14 +250,9 @@ impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmbeddedAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmbeddedAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IUnknown {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmbeddedAudioTrack> for ::windows::core::IInspectable {
@@ -280,14 +265,9 @@ impl ::core::convert::From<&EmbeddedAudioTrack> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmbeddedAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmbeddedAudioTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmbeddedAudioTrack> for &::windows::core::IInspectable {
+    fn from(value: &EmbeddedAudioTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmbeddedAudioTrack {}
@@ -697,9 +677,9 @@ impl MediaClip {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrimTimeFromStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromStart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -712,9 +692,9 @@ impl MediaClip {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrimTimeFromEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimTimeFromEnd)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -833,34 +813,34 @@ impl MediaClip {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI"))]
-    pub fn CreateFromColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(color: Param0, originalduration: Param1) -> ::windows::core::Result<MediaClip> {
+    pub fn CreateFromColor(color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip> {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromColor)(::windows::core::Interface::as_raw(this), color.into_param().abi(), originalduration.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaClip>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromColor)(::windows::core::Interface::as_raw(this), color, originalduration, result__.as_mut_ptr()).from_abi::<MediaClip>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>> {
+    pub fn CreateFromFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>> {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaClip>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaClip>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromImageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(file: Param0, originalduration: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>> {
+    pub fn CreateFromImageFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>> {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromImageFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), originalduration.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaClip>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromImageFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), originalduration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaClip>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateFromSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(surface: Param0, originalduration: Param1) -> ::windows::core::Result<MediaClip> {
+    pub fn CreateFromSurface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(surface: Param0, originalduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip> {
         Self::IMediaClipStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromSurface)(::windows::core::Interface::as_raw(this), surface.into_param().abi(), originalduration.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaClip>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromSurface)(::windows::core::Interface::as_raw(this), surface.try_into().map_err(|e| e.into())?.abi(), originalduration, result__.as_mut_ptr()).from_abi::<MediaClip>(result__)
         })
     }
     #[doc(hidden)]
@@ -914,14 +894,9 @@ impl ::core::convert::From<&MediaClip> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaClip {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaClip {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaClip> for &::windows::core::IUnknown {
+    fn from(value: &MediaClip) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaClip> for ::windows::core::IInspectable {
@@ -934,14 +909,9 @@ impl ::core::convert::From<&MediaClip> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaClip {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaClip {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaClip> for &::windows::core::IInspectable {
+    fn from(value: &MediaClip) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaClip {}
@@ -1003,56 +973,56 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, timefromstart: Param0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
+    pub fn GetThumbnailAsync<'a, Param3: ::std::convert::Into<VideoFramePrecision>>(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), timefromstart.into_param().abi(), scaledwidth, scaledheight, frameprecision, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), timefromstart, scaledwidth, scaledheight, frameprecision.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>>(&self, timesfromstart: Param0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>> {
+    pub fn GetThumbnailsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::Into<VideoFramePrecision>>(&self, timesfromstart: Param0, scaledwidth: i32, scaledheight: i32, frameprecision: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailsAsync)(::windows::core::Interface::as_raw(this), timesfromstart.into_param().abi(), scaledwidth, scaledheight, frameprecision, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailsAsync)(::windows::core::Interface::as_raw(this), timesfromstart.try_into().map_err(|e| e.into())?.abi(), scaledwidth, scaledheight, frameprecision.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, destination: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
+    pub fn RenderToFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, destination: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderToFileAsync)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
+            (::windows::core::Interface::vtable(this).RenderToFileAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithTrimmingPreferenceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, destination: Param0, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
+    pub fn RenderToFileWithTrimmingPreferenceAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<MediaTrimmingPreference>>(&self, destination: Param0, trimmingpreference: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), trimmingpreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
+            (::windows::core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithProfileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, destination: Param0, trimmingpreference: MediaTrimmingPreference, encodingprofile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
+    pub fn RenderToFileWithProfileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<MediaTrimmingPreference>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>>(&self, destination: Param0, trimmingpreference: Param1, encodingprofile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderToFileWithProfileAsync)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), trimmingpreference, encodingprofile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
+            (::windows::core::Interface::vtable(this).RenderToFileWithProfileAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference.into(), encodingprofile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_MediaProperties\"`*"]
@@ -1075,11 +1045,11 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Core\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
-    pub fn GenerateMediaStreamSourceWithProfile<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, encodingprofile: Param0) -> ::windows::core::Result<super::Core::MediaStreamSource> {
+    pub fn GenerateMediaStreamSourceWithProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>>(&self, encodingprofile: Param0) -> ::windows::core::Result<super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Core::MediaStreamSource>(result__)
+            (::windows::core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(::windows::core::Interface::as_raw(this), encodingprofile.into().abi(), result__.as_mut_ptr()).from_abi::<super::Core::MediaStreamSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Core\"`*"]
@@ -1102,10 +1072,10 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>> {
+    pub fn LoadAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>> {
         Self::IMediaCompositionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaComposition>>(result__)
+            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaComposition>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1154,14 +1124,9 @@ impl ::core::convert::From<&MediaComposition> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaComposition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaComposition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaComposition> for &::windows::core::IUnknown {
+    fn from(value: &MediaComposition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaComposition> for ::windows::core::IInspectable {
@@ -1174,14 +1139,9 @@ impl ::core::convert::From<&MediaComposition> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaComposition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaComposition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaComposition> for &::windows::core::IInspectable {
+    fn from(value: &MediaComposition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaComposition {}
@@ -1201,15 +1161,15 @@ impl MediaOverlay {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPosition(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1263,18 +1223,18 @@ impl MediaOverlay {
         unsafe { (::windows::core::Interface::vtable(this).SetAudioEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Editing\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, MediaClip>>(clip: Param0) -> ::windows::core::Result<MediaOverlay> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaClip>>>(clip: Param0) -> ::windows::core::Result<MediaOverlay> {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), clip.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), clip.into().abi(), result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithPositionAndOpacity<'a, Param0: ::windows::core::IntoParam<'a, MediaClip>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(clip: Param0, position: Param1, opacity: f64) -> ::windows::core::Result<MediaOverlay> {
+    pub fn CreateWithPositionAndOpacity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaClip>>>(clip: Param0, position: super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay> {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPositionAndOpacity)(::windows::core::Interface::as_raw(this), clip.into_param().abi(), position.into_param().abi(), opacity, result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithPositionAndOpacity)(::windows::core::Interface::as_raw(this), clip.into().abi(), position, opacity, result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
         })
     }
     #[doc(hidden)]
@@ -1323,14 +1283,9 @@ impl ::core::convert::From<&MediaOverlay> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaOverlay> for &::windows::core::IUnknown {
+    fn from(value: &MediaOverlay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaOverlay> for ::windows::core::IInspectable {
@@ -1343,14 +1298,9 @@ impl ::core::convert::From<&MediaOverlay> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaOverlay> for &::windows::core::IInspectable {
+    fn from(value: &MediaOverlay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaOverlay {}
@@ -1394,10 +1344,10 @@ impl MediaOverlayLayer {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_Effects\"`*"]
     #[cfg(feature = "Media_Effects")]
-    pub fn CreateWithCompositorDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::Effects::IVideoCompositorDefinition>>(compositordefinition: Param0) -> ::windows::core::Result<MediaOverlayLayer> {
+    pub fn CreateWithCompositorDefinition<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Effects::IVideoCompositorDefinition>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(compositordefinition: Param0) -> ::windows::core::Result<MediaOverlayLayer> {
         Self::IMediaOverlayLayerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithCompositorDefinition)(::windows::core::Interface::as_raw(this), compositordefinition.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaOverlayLayer>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithCompositorDefinition)(::windows::core::Interface::as_raw(this), compositordefinition.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<MediaOverlayLayer>(result__)
         })
     }
     #[doc(hidden)]
@@ -1446,14 +1396,9 @@ impl ::core::convert::From<&MediaOverlayLayer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaOverlayLayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaOverlayLayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaOverlayLayer> for &::windows::core::IUnknown {
+    fn from(value: &MediaOverlayLayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaOverlayLayer> for ::windows::core::IInspectable {
@@ -1466,14 +1411,9 @@ impl ::core::convert::From<&MediaOverlayLayer> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaOverlayLayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaOverlayLayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaOverlayLayer> for &::windows::core::IInspectable {
+    fn from(value: &MediaOverlayLayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaOverlayLayer {}

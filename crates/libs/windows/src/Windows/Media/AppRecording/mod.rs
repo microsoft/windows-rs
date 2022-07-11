@@ -12,20 +12,20 @@ impl AppRecordingManager {
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn StartRecordingToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
+    pub fn StartRecordingToFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartRecordingToFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartRecordingToFileAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn RecordTimeSpanToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, starttime: Param0, duration: Param1, file: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
+    pub fn RecordTimeSpanToFileAsync<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), duration.into_param().abi(), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
+            (::windows::core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows::core::Interface::as_raw(this), starttime, duration, file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation_Collections\"`*"]
@@ -39,11 +39,11 @@ impl AppRecordingManager {
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SaveScreenshotToFilesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, folder: Param0, filenameprefix: Param1, option: AppRecordingSaveScreenshotOption, requestedformats: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>> {
+    pub fn SaveScreenshotToFilesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFolder>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<AppRecordingSaveScreenshotOption>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, folder: Param0, filenameprefix: Param1, option: Param2, requestedformats: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Interface::as_raw(this), folder.into_param().abi(), filenameprefix.into_param().abi(), option, requestedformats.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>(result__)
+            (::windows::core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Interface::as_raw(this), folder.into().abi(), filenameprefix.into().abi(), option.into(), requestedformats.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`*"]
@@ -99,14 +99,9 @@ impl ::core::convert::From<&AppRecordingManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppRecordingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppRecordingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingManager> for &::windows::core::IUnknown {
+    fn from(value: &AppRecordingManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppRecordingManager> for ::windows::core::IInspectable {
@@ -119,14 +114,9 @@ impl ::core::convert::From<&AppRecordingManager> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppRecordingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppRecordingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingManager> for &::windows::core::IInspectable {
+    fn from(value: &AppRecordingManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppRecordingManager {}
@@ -209,14 +199,9 @@ impl ::core::convert::From<&AppRecordingResult> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppRecordingResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppRecordingResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingResult> for &::windows::core::IUnknown {
+    fn from(value: &AppRecordingResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppRecordingResult> for ::windows::core::IInspectable {
@@ -229,14 +214,9 @@ impl ::core::convert::From<&AppRecordingResult> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppRecordingResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppRecordingResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingResult> for &::windows::core::IInspectable {
+    fn from(value: &AppRecordingResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppRecordingResult {}
@@ -345,14 +325,9 @@ impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppRecordingSaveScreenshotResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppRecordingSaveScreenshotResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for &::windows::core::IUnknown {
+    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppRecordingSaveScreenshotResult> for ::windows::core::IInspectable {
@@ -365,14 +340,9 @@ impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppRecordingSaveScreenshotResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppRecordingSaveScreenshotResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for &::windows::core::IInspectable {
+    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppRecordingSaveScreenshotResult {}
@@ -439,14 +409,9 @@ impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppRecordingSavedScreenshotInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppRecordingSavedScreenshotInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for &::windows::core::IUnknown {
+    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppRecordingSavedScreenshotInfo> for ::windows::core::IInspectable {
@@ -459,14 +424,9 @@ impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppRecordingSavedScreenshotInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppRecordingSavedScreenshotInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for &::windows::core::IInspectable {
+    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppRecordingSavedScreenshotInfo {}
@@ -549,14 +509,9 @@ impl ::core::convert::From<&AppRecordingStatus> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppRecordingStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppRecordingStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingStatus> for &::windows::core::IUnknown {
+    fn from(value: &AppRecordingStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppRecordingStatus> for ::windows::core::IInspectable {
@@ -569,14 +524,9 @@ impl ::core::convert::From<&AppRecordingStatus> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppRecordingStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppRecordingStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingStatus> for &::windows::core::IInspectable {
+    fn from(value: &AppRecordingStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppRecordingStatus {}
@@ -698,14 +648,9 @@ impl ::core::convert::From<&AppRecordingStatusDetails> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppRecordingStatusDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppRecordingStatusDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingStatusDetails> for &::windows::core::IUnknown {
+    fn from(value: &AppRecordingStatusDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppRecordingStatusDetails> for ::windows::core::IInspectable {
@@ -718,14 +663,9 @@ impl ::core::convert::From<&AppRecordingStatusDetails> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppRecordingStatusDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppRecordingStatusDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppRecordingStatusDetails> for &::windows::core::IInspectable {
+    fn from(value: &AppRecordingStatusDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppRecordingStatusDetails {}

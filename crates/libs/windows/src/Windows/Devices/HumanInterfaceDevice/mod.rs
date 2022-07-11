@@ -88,14 +88,9 @@ impl ::core::convert::From<&HidBooleanControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidBooleanControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidBooleanControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidBooleanControl> for &::windows::core::IUnknown {
+    fn from(value: &HidBooleanControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidBooleanControl> for ::windows::core::IInspectable {
@@ -108,14 +103,9 @@ impl ::core::convert::From<&HidBooleanControl> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidBooleanControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidBooleanControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidBooleanControl> for &::windows::core::IInspectable {
+    fn from(value: &HidBooleanControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidBooleanControl {}
@@ -222,14 +212,9 @@ impl ::core::convert::From<&HidBooleanControlDescription> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidBooleanControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidBooleanControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidBooleanControlDescription> for &::windows::core::IUnknown {
+    fn from(value: &HidBooleanControlDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidBooleanControlDescription> for ::windows::core::IInspectable {
@@ -242,14 +227,9 @@ impl ::core::convert::From<&HidBooleanControlDescription> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidBooleanControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidBooleanControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidBooleanControlDescription> for &::windows::core::IInspectable {
+    fn from(value: &HidBooleanControlDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
@@ -331,14 +311,9 @@ impl ::core::convert::From<&HidCollection> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidCollection> for &::windows::core::IUnknown {
+    fn from(value: &HidCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidCollection> for ::windows::core::IInspectable {
@@ -351,14 +326,9 @@ impl ::core::convert::From<&HidCollection> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidCollection> for &::windows::core::IInspectable {
+    fn from(value: &HidCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidCollection {}
@@ -523,54 +493,54 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendOutputReportAsync<'a, Param0: ::windows::core::IntoParam<'a, HidOutputReport>>(&self, outputreport: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendOutputReportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidOutputReport>>>(&self, outputreport: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendOutputReportAsync)(::windows::core::Interface::as_raw(this), outputreport.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendOutputReportAsync)(::windows::core::Interface::as_raw(this), outputreport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendFeatureReportAsync<'a, Param0: ::windows::core::IntoParam<'a, HidFeatureReport>>(&self, featurereport: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendFeatureReportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidFeatureReport>>>(&self, featurereport: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendFeatureReportAsync)(::windows::core::Interface::as_raw(this), featurereport.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendFeatureReportAsync)(::windows::core::Interface::as_raw(this), featurereport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
+    pub fn GetBooleanControlDescriptions<'a, Param0: ::std::convert::Into<HidReportType>>(&self, reporttype: Param0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype.into(), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
+    pub fn GetNumericControlDescriptions<'a, Param0: ::std::convert::Into<HidReportType>>(&self, reporttype: Param0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype.into(), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InputReportReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>>(&self, reporthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InputReportReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>>>(&self, reporthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).InputReportReceived)(::windows::core::Interface::as_raw(this), reporthandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).InputReportReceived)(::windows::core::Interface::as_raw(this), reporthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveInputReportReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveInputReportReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveInputReportReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveInputReportReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetDeviceSelector(usagepage: u16, usageid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -588,10 +558,10 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::super::Storage::FileAccessMode>>(deviceid: Param0, accessmode: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), accessmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -640,14 +610,9 @@ impl ::core::convert::From<&HidDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidDevice> for &::windows::core::IUnknown {
+    fn from(value: &HidDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidDevice> for ::windows::core::IInspectable {
@@ -660,14 +625,9 @@ impl ::core::convert::From<&HidDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidDevice> for &::windows::core::IInspectable {
+    fn from(value: &HidDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -685,15 +645,11 @@ impl ::core::convert::TryFrom<&HidDevice> for super::super::Foundation::IClosabl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for HidDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &HidDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&HidDevice> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &HidDevice) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for HidDevice {}
@@ -721,9 +677,9 @@ impl HidFeatureReport {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
@@ -734,11 +690,11 @@ impl HidFeatureReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetBooleanControlByDescription<'a, Param0: ::windows::core::IntoParam<'a, HidBooleanControlDescription>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -750,11 +706,11 @@ impl HidFeatureReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetNumericControlByDescription<'a, Param0: ::windows::core::IntoParam<'a, HidNumericControlDescription>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -798,14 +754,9 @@ impl ::core::convert::From<&HidFeatureReport> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidFeatureReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidFeatureReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidFeatureReport> for &::windows::core::IUnknown {
+    fn from(value: &HidFeatureReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidFeatureReport> for ::windows::core::IInspectable {
@@ -818,14 +769,9 @@ impl ::core::convert::From<&HidFeatureReport> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidFeatureReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidFeatureReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidFeatureReport> for &::windows::core::IInspectable {
+    fn from(value: &HidFeatureReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidFeatureReport {}
@@ -878,11 +824,11 @@ impl HidInputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetBooleanControlByDescription<'a, Param0: ::windows::core::IntoParam<'a, HidBooleanControlDescription>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -894,11 +840,11 @@ impl HidInputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetNumericControlByDescription<'a, Param0: ::windows::core::IntoParam<'a, HidNumericControlDescription>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -942,14 +888,9 @@ impl ::core::convert::From<&HidInputReport> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidInputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidInputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidInputReport> for &::windows::core::IUnknown {
+    fn from(value: &HidInputReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidInputReport> for ::windows::core::IInspectable {
@@ -962,14 +903,9 @@ impl ::core::convert::From<&HidInputReport> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidInputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidInputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidInputReport> for &::windows::core::IInspectable {
+    fn from(value: &HidInputReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidInputReport {}
@@ -1027,14 +963,9 @@ impl ::core::convert::From<&HidInputReportReceivedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidInputReportReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidInputReportReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidInputReportReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &HidInputReportReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidInputReportReceivedEventArgs> for ::windows::core::IInspectable {
@@ -1047,14 +978,9 @@ impl ::core::convert::From<&HidInputReportReceivedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidInputReportReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidInputReportReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidInputReportReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &HidInputReportReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
@@ -1170,14 +1096,9 @@ impl ::core::convert::From<&HidNumericControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidNumericControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidNumericControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidNumericControl> for &::windows::core::IUnknown {
+    fn from(value: &HidNumericControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidNumericControl> for ::windows::core::IInspectable {
@@ -1190,14 +1111,9 @@ impl ::core::convert::From<&HidNumericControl> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidNumericControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidNumericControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidNumericControl> for &::windows::core::IInspectable {
+    fn from(value: &HidNumericControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidNumericControl {}
@@ -1376,14 +1292,9 @@ impl ::core::convert::From<&HidNumericControlDescription> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidNumericControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidNumericControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidNumericControlDescription> for &::windows::core::IUnknown {
+    fn from(value: &HidNumericControlDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidNumericControlDescription> for ::windows::core::IInspectable {
@@ -1396,14 +1307,9 @@ impl ::core::convert::From<&HidNumericControlDescription> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidNumericControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidNumericControlDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidNumericControlDescription> for &::windows::core::IInspectable {
+    fn from(value: &HidNumericControlDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidNumericControlDescription {}
@@ -1431,9 +1337,9 @@ impl HidOutputReport {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
@@ -1444,11 +1350,11 @@ impl HidOutputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetBooleanControlByDescription<'a, Param0: ::windows::core::IntoParam<'a, HidBooleanControlDescription>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1460,11 +1366,11 @@ impl HidOutputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetNumericControlByDescription<'a, Param0: ::windows::core::IntoParam<'a, HidNumericControlDescription>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -1508,14 +1414,9 @@ impl ::core::convert::From<&HidOutputReport> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidOutputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidOutputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidOutputReport> for &::windows::core::IUnknown {
+    fn from(value: &HidOutputReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HidOutputReport> for ::windows::core::IInspectable {
@@ -1528,14 +1429,9 @@ impl ::core::convert::From<&HidOutputReport> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidOutputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidOutputReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HidOutputReport> for &::windows::core::IInspectable {
+    fn from(value: &HidOutputReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HidOutputReport {}

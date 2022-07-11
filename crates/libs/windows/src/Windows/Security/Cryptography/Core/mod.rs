@@ -184,46 +184,46 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportDefaultPrivateKeyBlob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keyblob: Param0) -> ::windows::core::Result<CryptographicKey> {
+    pub fn ImportDefaultPrivateKeyBlob<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, keyblob: Param0) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(::windows::core::Interface::as_raw(this), keyblob.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportKeyPairWithBlobType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keyblob: Param0, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<CryptographicKey> {
+    pub fn ImportKeyPairWithBlobType<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<CryptographicPrivateKeyBlobType>>(&self, keyblob: Param0, blobtype: Param1) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.into_param().abi(), blobtype, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype.into(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportDefaultPublicKeyBlob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keyblob: Param0) -> ::windows::core::Result<CryptographicKey> {
+    pub fn ImportDefaultPublicKeyBlob<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, keyblob: Param0) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(::windows::core::Interface::as_raw(this), keyblob.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportPublicKeyWithBlobType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keyblob: Param0, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey> {
+    pub fn ImportPublicKeyWithBlobType<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<CryptographicPublicKeyBlobType>>(&self, keyblob: Param0, blobtype: Param1) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.into_param().abi(), blobtype, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype.into(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn CreateKeyPairWithCurveName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, curvename: Param0) -> ::windows::core::Result<CryptographicKey> {
+    pub fn CreateKeyPairWithCurveName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, curvename: Param0) -> ::windows::core::Result<CryptographicKey> {
         let this = &::windows::core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveName)(::windows::core::Interface::as_raw(this), curvename.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).CreateKeyPairWithCurveName)(::windows::core::Interface::as_raw(this), curvename.into().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -235,10 +235,10 @@ impl AsymmetricKeyAlgorithmProvider {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn OpenAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(algorithm: Param0) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider> {
+    pub fn OpenAlgorithm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(algorithm: Param0) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider> {
         Self::IAsymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into_param().abi(), result__.as_mut_ptr()).from_abi::<AsymmetricKeyAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<AsymmetricKeyAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -287,14 +287,9 @@ impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AsymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AsymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for &::windows::core::IUnknown {
+    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AsymmetricKeyAlgorithmProvider> for ::windows::core::IInspectable {
@@ -307,14 +302,9 @@ impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AsymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AsymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AsymmetricKeyAlgorithmProvider> for &::windows::core::IInspectable {
+    fn from(value: &AsymmetricKeyAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
@@ -358,98 +348,115 @@ pub struct CryptographicEngine;
 impl CryptographicEngine {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Encrypt<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, iv: Param2) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Encrypt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1, iv: Param2) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Encrypt)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), iv.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Encrypt)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), iv.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Decrypt<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, iv: Param2) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Decrypt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1, iv: Param2) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Decrypt)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), iv.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Decrypt)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), iv.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncryptAndAuthenticate<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param3: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, nonce: Param2, authenticateddata: Param3) -> ::windows::core::Result<EncryptedAndAuthenticatedData> {
+    pub fn EncryptAndAuthenticate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1, nonce: Param2, authenticateddata: Param3) -> ::windows::core::Result<EncryptedAndAuthenticatedData> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).EncryptAndAuthenticate)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), nonce.into_param().abi(), authenticateddata.into_param().abi(), result__.as_mut_ptr()).from_abi::<EncryptedAndAuthenticatedData>(result__)
+            (::windows::core::Interface::vtable(this).EncryptAndAuthenticate)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), nonce.try_into().map_err(|e| e.into())?.abi(), authenticateddata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<EncryptedAndAuthenticatedData>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecryptAndAuthenticate<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param3: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param4: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, nonce: Param2, authenticationtag: Param3, authenticateddata: Param4) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn DecryptAndAuthenticate<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+        Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E3>,
+        E3: ::std::convert::Into<::windows::core::Error>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+    >(
+        key: Param0,
+        data: Param1,
+        nonce: Param2,
+        authenticationtag: Param3,
+        authenticateddata: Param4,
+    ) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DecryptAndAuthenticate)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), nonce.into_param().abi(), authenticationtag.into_param().abi(), authenticateddata.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).DecryptAndAuthenticate)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), nonce.try_into().map_err(|e| e.into())?.abi(), authenticationtag.try_into().map_err(|e| e.into())?.abi(), authenticateddata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Sign<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Sign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Sign)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Sign)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifySignature<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, signature: Param2) -> ::windows::core::Result<bool> {
+    pub fn VerifySignature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1, signature: Param2) -> ::windows::core::Result<bool> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).VerifySignature)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), signature.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).VerifySignature)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), signature.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn DeriveKeyMaterial<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, KeyDerivationParameters>>(key: Param0, parameters: Param1, desiredkeysize: u32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn DeriveKeyMaterial<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, KeyDerivationParameters>>>(key: Param0, parameters: Param1, desiredkeysize: u32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeriveKeyMaterial)(::windows::core::Interface::as_raw(this), key.into_param().abi(), parameters.into_param().abi(), desiredkeysize, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).DeriveKeyMaterial)(::windows::core::Interface::as_raw(this), key.into().abi(), parameters.into().abi(), desiredkeysize, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignHashedData<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn SignHashedData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SignHashedData)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).SignHashedData)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifySignatureWithHashInput<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, signature: Param2) -> ::windows::core::Result<bool> {
+    pub fn VerifySignatureWithHashInput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1, signature: Param2) -> ::windows::core::Result<bool> {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).VerifySignatureWithHashInput)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), signature.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).VerifySignatureWithHashInput)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), signature.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn DecryptAsync<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1, iv: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn DecryptAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1, iv: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DecryptAsync)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), iv.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).DecryptAsync)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), iv.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SignAsync<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn SignAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SignAsync)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).SignAsync)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SignHashedDataAsync<'a, Param0: ::windows::core::IntoParam<'a, CryptographicKey>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn SignHashedDataAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CryptographicKey>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(key: Param0, data: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SignHashedDataAsync)(::windows::core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).SignHashedDataAsync)(::windows::core::Interface::as_raw(this), key.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -472,9 +479,9 @@ pub struct CryptographicHash(::windows::core::IUnknown);
 impl CryptographicHash {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Append<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), data.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -526,14 +533,9 @@ impl ::core::convert::From<&CryptographicHash> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CryptographicHash {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CryptographicHash {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CryptographicHash> for &::windows::core::IUnknown {
+    fn from(value: &CryptographicHash) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CryptographicHash> for ::windows::core::IInspectable {
@@ -546,14 +548,9 @@ impl ::core::convert::From<&CryptographicHash> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CryptographicHash {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CryptographicHash {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CryptographicHash> for &::windows::core::IInspectable {
+    fn from(value: &CryptographicHash) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CryptographicHash {}
@@ -581,11 +578,11 @@ impl CryptographicKey {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportPrivateKeyWithBlobType(&self, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ExportPrivateKeyWithBlobType<'a, Param0: ::std::convert::Into<CryptographicPrivateKeyBlobType>>(&self, blobtype: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ExportPrivateKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ExportPrivateKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
@@ -599,11 +596,11 @@ impl CryptographicKey {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ExportPublicKeyWithBlobType<'a, Param0: ::std::convert::Into<CryptographicPublicKeyBlobType>>(&self, blobtype: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ExportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ExportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -647,14 +644,9 @@ impl ::core::convert::From<&CryptographicKey> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CryptographicKey {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CryptographicKey {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CryptographicKey> for &::windows::core::IUnknown {
+    fn from(value: &CryptographicKey) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CryptographicKey> for ::windows::core::IInspectable {
@@ -667,14 +659,9 @@ impl ::core::convert::From<&CryptographicKey> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CryptographicKey {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CryptographicKey {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CryptographicKey> for &::windows::core::IInspectable {
+    fn from(value: &CryptographicKey) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CryptographicKey {}
@@ -1187,14 +1174,9 @@ impl ::core::convert::From<&EncryptedAndAuthenticatedData> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EncryptedAndAuthenticatedData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EncryptedAndAuthenticatedData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EncryptedAndAuthenticatedData> for &::windows::core::IUnknown {
+    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EncryptedAndAuthenticatedData> for ::windows::core::IInspectable {
@@ -1207,14 +1189,9 @@ impl ::core::convert::From<&EncryptedAndAuthenticatedData> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EncryptedAndAuthenticatedData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EncryptedAndAuthenticatedData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EncryptedAndAuthenticatedData> for &::windows::core::IInspectable {
+    fn from(value: &EncryptedAndAuthenticatedData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
@@ -1288,11 +1265,11 @@ impl HashAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn HashData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn HashData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).HashData)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).HashData)(::windows::core::Interface::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -1304,10 +1281,10 @@ impl HashAlgorithmProvider {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn OpenAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(algorithm: Param0) -> ::windows::core::Result<HashAlgorithmProvider> {
+    pub fn OpenAlgorithm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(algorithm: Param0) -> ::windows::core::Result<HashAlgorithmProvider> {
         Self::IHashAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into_param().abi(), result__.as_mut_ptr()).from_abi::<HashAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<HashAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -1356,14 +1333,9 @@ impl ::core::convert::From<&HashAlgorithmProvider> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HashAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HashAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HashAlgorithmProvider> for &::windows::core::IUnknown {
+    fn from(value: &HashAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HashAlgorithmProvider> for ::windows::core::IInspectable {
@@ -1376,14 +1348,9 @@ impl ::core::convert::From<&HashAlgorithmProvider> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HashAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HashAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HashAlgorithmProvider> for &::windows::core::IInspectable {
+    fn from(value: &HashAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HashAlgorithmProvider {}
@@ -2205,18 +2172,18 @@ impl KeyDerivationAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicKey> {
+    pub fn CreateKey<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateKey)(::windows::core::Interface::as_raw(this), keymaterial.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).CreateKey)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn OpenAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(algorithm: Param0) -> ::windows::core::Result<KeyDerivationAlgorithmProvider> {
+    pub fn OpenAlgorithm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(algorithm: Param0) -> ::windows::core::Result<KeyDerivationAlgorithmProvider> {
         Self::IKeyDerivationAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into_param().abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -2265,14 +2232,9 @@ impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyDerivationAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyDerivationAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for &::windows::core::IUnknown {
+    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<KeyDerivationAlgorithmProvider> for ::windows::core::IInspectable {
@@ -2285,14 +2247,9 @@ impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyDerivationAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyDerivationAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&KeyDerivationAlgorithmProvider> for &::windows::core::IInspectable {
+    fn from(value: &KeyDerivationAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
@@ -2312,9 +2269,9 @@ impl KeyDerivationParameters {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetKdfGenericBinary<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKdfGenericBinary<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKdfGenericBinary)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKdfGenericBinary)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<u32> {
@@ -2333,39 +2290,57 @@ impl KeyDerivationParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn SetCapi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<()> {
+    pub fn SetCapi1KdfTargetAlgorithm<'a, Param0: ::std::convert::Into<Capi1KdfTargetAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyDerivationParameters2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForPbkdf2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(pbkdf2salt: Param0, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters> {
+    pub fn BuildForPbkdf2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(pbkdf2salt: Param0, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters> {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).BuildForPbkdf2)(::windows::core::Interface::as_raw(this), pbkdf2salt.into_param().abi(), iterationcount, result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
+            (::windows::core::Interface::vtable(this).BuildForPbkdf2)(::windows::core::Interface::as_raw(this), pbkdf2salt.try_into().map_err(|e| e.into())?.abi(), iterationcount, result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP800108<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(label: Param0, context: Param1) -> ::windows::core::Result<KeyDerivationParameters> {
+    pub fn BuildForSP800108<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(label: Param0, context: Param1) -> ::windows::core::Result<KeyDerivationParameters> {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).BuildForSP800108)(::windows::core::Interface::as_raw(this), label.into_param().abi(), context.into_param().abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
+            (::windows::core::Interface::vtable(this).BuildForSP800108)(::windows::core::Interface::as_raw(this), label.try_into().map_err(|e| e.into())?.abi(), context.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP80056a<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param3: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param4: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(algorithmid: Param0, partyuinfo: Param1, partyvinfo: Param2, supppubinfo: Param3, suppprivinfo: Param4) -> ::windows::core::Result<KeyDerivationParameters> {
+    pub fn BuildForSP80056a<
+        'a,
+        Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+        Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E3>,
+        E3: ::std::convert::Into<::windows::core::Error>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+    >(
+        algorithmid: Param0,
+        partyuinfo: Param1,
+        partyvinfo: Param2,
+        supppubinfo: Param3,
+        suppprivinfo: Param4,
+    ) -> ::windows::core::Result<KeyDerivationParameters> {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).BuildForSP80056a)(::windows::core::Interface::as_raw(this), algorithmid.into_param().abi(), partyuinfo.into_param().abi(), partyvinfo.into_param().abi(), supppubinfo.into_param().abi(), suppprivinfo.into_param().abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
+            (::windows::core::Interface::vtable(this).BuildForSP80056a)(::windows::core::Interface::as_raw(this), algorithmid.try_into().map_err(|e| e.into())?.abi(), partyuinfo.try_into().map_err(|e| e.into())?.abi(), partyvinfo.try_into().map_err(|e| e.into())?.abi(), supppubinfo.try_into().map_err(|e| e.into())?.abi(), suppprivinfo.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<KeyDerivationParameters> {
+    pub fn BuildForCapi1Kdf<'a, Param0: ::std::convert::Into<Capi1KdfTargetAlgorithm>>(capi1kdftargetalgorithm: Param0) -> ::windows::core::Result<KeyDerivationParameters> {
         Self::IKeyDerivationParametersStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).BuildForCapi1Kdf)(::windows::core::Interface::as_raw(this), capi1kdftargetalgorithm, result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
+            (::windows::core::Interface::vtable(this).BuildForCapi1Kdf)(::windows::core::Interface::as_raw(this), capi1kdftargetalgorithm.into(), result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
         })
     }
     #[doc(hidden)]
@@ -2419,14 +2394,9 @@ impl ::core::convert::From<&KeyDerivationParameters> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyDerivationParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyDerivationParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&KeyDerivationParameters> for &::windows::core::IUnknown {
+    fn from(value: &KeyDerivationParameters) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<KeyDerivationParameters> for ::windows::core::IInspectable {
@@ -2439,14 +2409,9 @@ impl ::core::convert::From<&KeyDerivationParameters> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyDerivationParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyDerivationParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&KeyDerivationParameters> for &::windows::core::IInspectable {
+    fn from(value: &KeyDerivationParameters) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for KeyDerivationParameters {}
@@ -2527,27 +2492,27 @@ impl MacAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicKey> {
+    pub fn CreateKey<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateKey)(::windows::core::Interface::as_raw(this), keymaterial.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).CreateKey)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateHash<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicHash> {
+    pub fn CreateHash<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicHash> {
         let this = &::windows::core::Interface::cast::<IMacAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateHash)(::windows::core::Interface::as_raw(this), keymaterial.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicHash>(result__)
+            (::windows::core::Interface::vtable(this).CreateHash)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicHash>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn OpenAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(algorithm: Param0) -> ::windows::core::Result<MacAlgorithmProvider> {
+    pub fn OpenAlgorithm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(algorithm: Param0) -> ::windows::core::Result<MacAlgorithmProvider> {
         Self::IMacAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into_param().abi(), result__.as_mut_ptr()).from_abi::<MacAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<MacAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -2596,14 +2561,9 @@ impl ::core::convert::From<&MacAlgorithmProvider> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MacAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MacAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MacAlgorithmProvider> for &::windows::core::IUnknown {
+    fn from(value: &MacAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MacAlgorithmProvider> for ::windows::core::IInspectable {
@@ -2616,14 +2576,9 @@ impl ::core::convert::From<&MacAlgorithmProvider> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MacAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MacAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MacAlgorithmProvider> for &::windows::core::IInspectable {
+    fn from(value: &MacAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
@@ -2633,18 +2588,18 @@ pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
-    pub fn OpenKeyPairFromCertificateAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Certificates::Certificate>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(certificate: Param0, hashalgorithmname: Param1, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>> {
+    pub fn OpenKeyPairFromCertificateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Certificates::Certificate>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<CryptographicPadding>>(certificate: Param0, hashalgorithmname: Param1, padding: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>> {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into_param().abi(), hashalgorithmname.into_param().abi(), padding, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>(result__)
+            (::windows::core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenPublicKeyFromCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Certificates::Certificate>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(certificate: Param0, hashalgorithmname: Param1, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey> {
+    pub fn OpenPublicKeyFromCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Certificates::Certificate>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<CryptographicPadding>>(certificate: Param0, hashalgorithmname: Param1, padding: Param2) -> ::windows::core::Result<CryptographicKey> {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPublicKeyFromCertificate)(::windows::core::Interface::as_raw(this), certificate.into_param().abi(), hashalgorithmname.into_param().abi(), padding, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).OpenPublicKeyFromCertificate)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding.into(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         })
     }
     #[doc(hidden)]
@@ -2823,18 +2778,18 @@ impl SymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicKey> {
+    pub fn CreateSymmetricKey<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, keymaterial: Param0) -> ::windows::core::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSymmetricKey)(::windows::core::Interface::as_raw(this), keymaterial.into_param().abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).CreateSymmetricKey)(::windows::core::Interface::as_raw(this), keymaterial.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn OpenAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(algorithm: Param0) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider> {
+    pub fn OpenAlgorithm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(algorithm: Param0) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider> {
         Self::ISymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into_param().abi(), result__.as_mut_ptr()).from_abi::<SymmetricKeyAlgorithmProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenAlgorithm)(::windows::core::Interface::as_raw(this), algorithm.into().abi(), result__.as_mut_ptr()).from_abi::<SymmetricKeyAlgorithmProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -2883,14 +2838,9 @@ impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for &::windows::core::IUnknown {
+    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SymmetricKeyAlgorithmProvider> for ::windows::core::IInspectable {
@@ -2903,14 +2853,9 @@ impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SymmetricKeyAlgorithmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SymmetricKeyAlgorithmProvider> for &::windows::core::IInspectable {
+    fn from(value: &SymmetricKeyAlgorithmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}

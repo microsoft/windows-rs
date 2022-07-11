@@ -28,19 +28,14 @@ impl ::core::convert::From<IOpcCertificateEnumerator> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcCertificateEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcCertificateEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcCertificateEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcCertificateEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcCertificateEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcCertificateEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcCertificateEnumerator {
@@ -106,19 +101,14 @@ impl ::core::convert::From<IOpcCertificateSet> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcCertificateSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcCertificateSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcCertificateSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcCertificateSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcCertificateSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcCertificateSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcCertificateSet {
@@ -236,19 +226,14 @@ impl ::core::convert::From<IOpcDigitalSignature> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcDigitalSignature> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcDigitalSignature) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcDigitalSignature> for ::windows::core::IUnknown {
     fn from(value: &IOpcDigitalSignature) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcDigitalSignature {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcDigitalSignature {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcDigitalSignature {
@@ -326,19 +311,14 @@ impl ::core::convert::From<IOpcDigitalSignatureEnumerator> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcDigitalSignatureEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcDigitalSignatureEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcDigitalSignatureEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcDigitalSignatureEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcDigitalSignatureEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcDigitalSignatureEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcDigitalSignatureEnumerator {
@@ -388,8 +368,8 @@ impl IOpcDigitalSignatureManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignatureOriginPartName<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signatureoriginpartname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureOriginPartName)(::windows::core::Interface::as_raw(self), signatureoriginpartname.into_param().abi()).ok()
+    pub unsafe fn SetSignatureOriginPartName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, signatureoriginpartname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignatureOriginPartName)(::windows::core::Interface::as_raw(self), signatureoriginpartname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureEnumerator(&self) -> ::windows::core::Result<IOpcDigitalSignatureEnumerator> {
@@ -398,8 +378,8 @@ impl IOpcDigitalSignatureManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RemoveSignature<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signaturepartname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveSignature)(::windows::core::Interface::as_raw(self), signaturepartname.into_param().abi()).ok()
+    pub unsafe fn RemoveSignature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, signaturepartname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveSignature)(::windows::core::Interface::as_raw(self), signaturepartname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreateSigningOptions(&self) -> ::windows::core::Result<IOpcSigningOptions> {
@@ -408,20 +388,20 @@ impl IOpcDigitalSignatureManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn Validate<'a, Param0: ::windows::core::IntoParam<'a, IOpcDigitalSignature>>(&self, signature: Param0, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), signature.into_param().abi(), ::core::mem::transmute(certificate), ::core::mem::transmute(validationresult)).ok()
+    pub unsafe fn Validate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcDigitalSignature>>>(&self, signature: Param0, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), signature.into().abi(), ::core::mem::transmute(certificate), ::core::mem::transmute(validationresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn Sign<'a, Param1: ::windows::core::IntoParam<'a, IOpcSigningOptions>>(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: Param1) -> ::windows::core::Result<IOpcDigitalSignature> {
+    pub unsafe fn Sign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IOpcSigningOptions>>>(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: Param1) -> ::windows::core::Result<IOpcDigitalSignature> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Sign)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(certificate), signingoptions.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignature>(result__)
+        (::windows::core::Interface::vtable(self).Sign)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(certificate), signingoptions.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignature>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ReplaceSignatureXml<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signaturepartname: Param0, newsignaturexml: *const u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature> {
+    pub unsafe fn ReplaceSignatureXml<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, signaturepartname: Param0, newsignaturexml: *const u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReplaceSignatureXml)(::windows::core::Interface::as_raw(self), signaturepartname.into_param().abi(), ::core::mem::transmute(newsignaturexml), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignature>(result__)
+        (::windows::core::Interface::vtable(self).ReplaceSignatureXml)(::windows::core::Interface::as_raw(self), signaturepartname.into().abi(), ::core::mem::transmute(newsignaturexml), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignature>(result__)
     }
 }
 impl ::core::convert::From<IOpcDigitalSignatureManager> for ::windows::core::IUnknown {
@@ -429,19 +409,14 @@ impl ::core::convert::From<IOpcDigitalSignatureManager> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcDigitalSignatureManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcDigitalSignatureManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcDigitalSignatureManager> for ::windows::core::IUnknown {
     fn from(value: &IOpcDigitalSignatureManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcDigitalSignatureManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcDigitalSignatureManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcDigitalSignatureManager {
@@ -507,15 +482,15 @@ impl IOpcFactory {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePartUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
+    pub unsafe fn CreatePartUri(&self, pwzuri: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePartUri)(::windows::core::Interface::as_raw(self), pwzuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
+        (::windows::core::Interface::vtable(self).CreatePartUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwzuri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateStreamOnFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, filename: Param0, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+    pub unsafe fn CreateStreamOnFile<'a, Param1: ::std::convert::Into<OPC_STREAM_IO_MODE>>(&self, filename: ::windows::core::PCWSTR, iomode: Param1, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStreamOnFile)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), ::core::mem::transmute(iomode), ::core::mem::transmute(securityattributes), ::core::mem::transmute(dwflagsandattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).CreateStreamOnFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), iomode.into(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(dwflagsandattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreatePackage(&self) -> ::windows::core::Result<IOpcPackage> {
@@ -524,19 +499,19 @@ impl IOpcFactory {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ReadPackageFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, stream: Param0, flags: OPC_READ_FLAGS) -> ::windows::core::Result<IOpcPackage> {
+    pub unsafe fn ReadPackageFromStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>, Param1: ::std::convert::Into<OPC_READ_FLAGS>>(&self, stream: Param0, flags: Param1) -> ::windows::core::Result<IOpcPackage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReadPackageFromStream)(::windows::core::Interface::as_raw(self), stream.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPackage>(result__)
+        (::windows::core::Interface::vtable(self).ReadPackageFromStream)(::windows::core::Interface::as_raw(self), stream.into().abi(), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPackage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn WritePackageToStream<'a, Param0: ::windows::core::IntoParam<'a, IOpcPackage>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, package: Param0, flags: OPC_WRITE_FLAGS, stream: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WritePackageToStream)(::windows::core::Interface::as_raw(self), package.into_param().abi(), ::core::mem::transmute(flags), stream.into_param().abi()).ok()
+    pub unsafe fn WritePackageToStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPackage>>, Param1: ::std::convert::Into<OPC_WRITE_FLAGS>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>>(&self, package: Param0, flags: Param1, stream: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WritePackageToStream)(::windows::core::Interface::as_raw(self), package.into().abi(), flags.into(), stream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn CreateDigitalSignatureManager<'a, Param0: ::windows::core::IntoParam<'a, IOpcPackage>>(&self, package: Param0) -> ::windows::core::Result<IOpcDigitalSignatureManager> {
+    pub unsafe fn CreateDigitalSignatureManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPackage>>>(&self, package: Param0) -> ::windows::core::Result<IOpcDigitalSignatureManager> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDigitalSignatureManager)(::windows::core::Interface::as_raw(self), package.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignatureManager>(result__)
+        (::windows::core::Interface::vtable(self).CreateDigitalSignatureManager)(::windows::core::Interface::as_raw(self), package.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcDigitalSignatureManager>(result__)
     }
 }
 impl ::core::convert::From<IOpcFactory> for ::windows::core::IUnknown {
@@ -544,19 +519,14 @@ impl ::core::convert::From<IOpcFactory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcFactory> for ::windows::core::IUnknown {
     fn from(value: &IOpcFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcFactory {
@@ -626,19 +596,14 @@ impl ::core::convert::From<IOpcPackage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcPackage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcPackage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcPackage> for ::windows::core::IUnknown {
     fn from(value: &IOpcPackage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPackage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPackage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcPackage {
@@ -705,19 +670,14 @@ impl ::core::convert::From<IOpcPart> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcPart> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcPart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcPart> for ::windows::core::IUnknown {
     fn from(value: &IOpcPart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcPart {
@@ -788,19 +748,14 @@ impl ::core::convert::From<IOpcPartEnumerator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcPartEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcPartEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcPartEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcPartEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPartEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPartEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcPartEnumerator {
@@ -844,26 +799,26 @@ pub struct IOpcPartSet(::windows::core::IUnknown);
 impl IOpcPartSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPart<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, name: Param0) -> ::windows::core::Result<IOpcPart> {
+    pub unsafe fn GetPart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, name: Param0) -> ::windows::core::Result<IOpcPart> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPart)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPart>(result__)
+        (::windows::core::Interface::vtable(self).GetPart)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPart>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePart<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, contenttype: Param1, compressionoptions: OPC_COMPRESSION_OPTIONS) -> ::windows::core::Result<IOpcPart> {
+    pub unsafe fn CreatePart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>, Param2: ::std::convert::Into<OPC_COMPRESSION_OPTIONS>>(&self, name: Param0, contenttype: ::windows::core::PCWSTR, compressionoptions: Param2) -> ::windows::core::Result<IOpcPart> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePart)(::windows::core::Interface::as_raw(self), name.into_param().abi(), contenttype.into_param().abi(), ::core::mem::transmute(compressionoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPart>(result__)
+        (::windows::core::Interface::vtable(self).CreatePart)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(contenttype), compressionoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPart>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeletePart<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeletePart)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn DeletePart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeletePart)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn PartExists<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn PartExists<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).PartExists)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).PartExists)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcPartEnumerator> {
@@ -876,19 +831,14 @@ impl ::core::convert::From<IOpcPartSet> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcPartSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcPartSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcPartSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcPartSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPartSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPartSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcPartSet {
@@ -941,24 +891,24 @@ pub struct IOpcPartUri(::windows::core::IUnknown);
 impl IOpcPartUri {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pbstrproperty), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetPropertyBSTR<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0, pbstrproperty: *mut super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(pbstrproperty), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pcchproperty), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetPropertyLength<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(pcchproperty), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pdwproperty), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetPropertyDWORD<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(pdwproperty), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn HasProperty(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn HasProperty<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.HasProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.HasProperty)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1082,9 +1032,9 @@ impl IOpcPartUri {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, puri: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>>(&self, puri: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), puri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), puri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1094,21 +1044,21 @@ impl IOpcPartUri {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRelativeUri<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, targetparturi: Param0) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
+    pub unsafe fn GetRelativeUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, targetparturi: Param0) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetRelativeUri)(::windows::core::Interface::as_raw(self), targetparturi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IUri>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRelativeUri)(::windows::core::Interface::as_raw(self), targetparturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CombinePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, relativeuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
+    pub unsafe fn CombinePartUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>>(&self, relativeuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CombinePartUri)(::windows::core::Interface::as_raw(self), relativeuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
+        (::windows::core::Interface::vtable(self).base__.CombinePartUri)(::windows::core::Interface::as_raw(self), relativeuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ComparePartUri<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn ComparePartUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, parturi: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ComparePartUri)(::windows::core::Interface::as_raw(self), parturi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ComparePartUri)(::windows::core::Interface::as_raw(self), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1130,26 +1080,26 @@ impl ::core::convert::From<IOpcPartUri> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IOpcPartUri> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcPartUri) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IOpcPartUri> for ::windows::core::IUnknown {
     fn from(value: &IOpcPartUri) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPartUri {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPartUri {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IOpcPartUri> for super::super::super::System::Com::IUri {
     fn from(value: IOpcPartUri) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IOpcPartUri> for &'a super::super::super::System::Com::IUri {
+    fn from(value: &'a IOpcPartUri) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1160,20 +1110,14 @@ impl ::core::convert::From<&IOpcPartUri> for super::super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for IOpcPartUri {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for &'a IOpcPartUri {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IOpcPartUri> for IOpcUri {
     fn from(value: IOpcPartUri) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IOpcPartUri> for &'a IOpcUri {
+    fn from(value: &'a IOpcPartUri) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1181,18 +1125,6 @@ impl ::core::convert::From<IOpcPartUri> for IOpcUri {
 impl ::core::convert::From<&IOpcPartUri> for IOpcUri {
     fn from(value: &IOpcPartUri) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IOpcUri> for IOpcPartUri {
-    fn into_param(self) -> ::windows::core::Param<'a, IOpcUri> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IOpcUri> for &'a IOpcPartUri {
-    fn into_param(self) -> ::windows::core::Param<'a, IOpcUri> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1275,19 +1207,14 @@ impl ::core::convert::From<IOpcRelationship> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcRelationship> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcRelationship) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcRelationship> for ::windows::core::IUnknown {
     fn from(value: &IOpcRelationship) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelationship {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationship {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcRelationship {
@@ -1358,19 +1285,14 @@ impl ::core::convert::From<IOpcRelationshipEnumerator> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcRelationshipEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcRelationshipEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcRelationshipEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcRelationshipEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelationshipEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcRelationshipEnumerator {
@@ -1428,19 +1350,14 @@ impl ::core::convert::From<IOpcRelationshipSelector> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcRelationshipSelector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcRelationshipSelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcRelationshipSelector> for ::windows::core::IUnknown {
     fn from(value: &IOpcRelationshipSelector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelationshipSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcRelationshipSelector {
@@ -1502,19 +1419,14 @@ impl ::core::convert::From<IOpcRelationshipSelectorEnumerator> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcRelationshipSelectorEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcRelationshipSelectorEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcRelationshipSelectorEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcRelationshipSelectorEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelationshipSelectorEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSelectorEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcRelationshipSelectorEnumerator {
@@ -1557,13 +1469,13 @@ pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
 pub struct IOpcRelationshipSelectorSet(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Create<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: Param1) -> ::windows::core::Result<IOpcRelationshipSelector> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<OPC_RELATIONSHIP_SELECTOR>>(&self, selector: Param0, selectioncriterion: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationshipSelector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(selector), selectioncriterion.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelector>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), selector.into(), ::core::mem::transmute(selectioncriterion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelector>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcRelationshipSelector>>(&self, relationshipselector: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), relationshipselector.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcRelationshipSelector>>>(&self, relationshipselector: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), relationshipselector.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
@@ -1576,19 +1488,14 @@ impl ::core::convert::From<IOpcRelationshipSelectorSet> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcRelationshipSelectorSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcRelationshipSelectorSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcRelationshipSelectorSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcRelationshipSelectorSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelationshipSelectorSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSelectorSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcRelationshipSelectorSet {
@@ -1624,25 +1531,25 @@ pub struct IOpcRelationshipSelectorSet_Vtbl {
 pub struct IOpcRelationshipSet(::windows::core::IUnknown);
 impl IOpcRelationshipSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn GetRelationship<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<IOpcRelationship> {
+    pub unsafe fn GetRelationship(&self, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
+        (::windows::core::Interface::vtable(self).GetRelationship)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateRelationship<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, relationshipidentifier: Param0, relationshiptype: Param1, targeturi: Param2, targetmode: OPC_URI_TARGET_MODE) -> ::windows::core::Result<IOpcRelationship> {
+    pub unsafe fn CreateRelationship<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>, Param3: ::std::convert::Into<OPC_URI_TARGET_MODE>>(&self, relationshipidentifier: ::windows::core::PCWSTR, relationshiptype: ::windows::core::PCWSTR, targeturi: Param2, targetmode: Param3) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), relationshiptype.into_param().abi(), targeturi.into_param().abi(), ::core::mem::transmute(targetmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
+        (::windows::core::Interface::vtable(self).CreateRelationship)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier), ::core::mem::transmute(relationshiptype), targeturi.into().abi(), targetmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn DeleteRelationship<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi()).ok()
+    pub unsafe fn DeleteRelationship(&self, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteRelationship)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RelationshipExists<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn RelationshipExists(&self, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).RelationshipExists)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).RelationshipExists)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
@@ -1650,9 +1557,9 @@ impl IOpcRelationshipSet {
         (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn GetEnumeratorForType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, relationshiptype: Param0) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
+    pub unsafe fn GetEnumeratorForType(&self, relationshiptype: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEnumeratorForType)(::windows::core::Interface::as_raw(self), relationshiptype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).GetEnumeratorForType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshiptype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1666,19 +1573,14 @@ impl ::core::convert::From<IOpcRelationshipSet> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcRelationshipSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcRelationshipSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcRelationshipSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcRelationshipSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelationshipSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcRelationshipSet {
@@ -1736,19 +1638,14 @@ impl ::core::convert::From<IOpcSignatureCustomObject> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureCustomObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureCustomObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureCustomObject> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureCustomObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureCustomObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureCustomObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureCustomObject {
@@ -1809,19 +1706,14 @@ impl ::core::convert::From<IOpcSignatureCustomObjectEnumerator> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureCustomObjectEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureCustomObjectEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureCustomObjectEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureCustomObjectEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureCustomObjectEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureCustomObjectEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureCustomObjectEnumerator {
@@ -1869,8 +1761,8 @@ impl IOpcSignatureCustomObjectSet {
         (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(xmlmarkup)), xmlmarkup.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureCustomObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureCustomObject>>(&self, customobject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), customobject.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSignatureCustomObject>>>(&self, customobject: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), customobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
@@ -1883,19 +1775,14 @@ impl ::core::convert::From<IOpcSignatureCustomObjectSet> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureCustomObjectSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureCustomObjectSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureCustomObjectSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureCustomObjectSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureCustomObjectSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureCustomObjectSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureCustomObjectSet {
@@ -1961,19 +1848,14 @@ impl ::core::convert::From<IOpcSignaturePartReference> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignaturePartReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignaturePartReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignaturePartReference> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignaturePartReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignaturePartReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignaturePartReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignaturePartReference {
@@ -2041,19 +1923,14 @@ impl ::core::convert::From<IOpcSignaturePartReferenceEnumerator> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignaturePartReferenceEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignaturePartReferenceEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignaturePartReferenceEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignaturePartReferenceEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignaturePartReferenceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignaturePartReferenceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignaturePartReferenceEnumerator {
@@ -2097,13 +1974,13 @@ pub struct IOpcSignaturePartReferenceSet(::windows::core::IUnknown);
 impl IOpcSignaturePartReferenceSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, parturi: Param0, digestmethod: Param1, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignaturePartReference> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>, Param2: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, parturi: Param0, digestmethod: ::windows::core::PCWSTR, transformmethod: Param2) -> ::windows::core::Result<IOpcSignaturePartReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), parturi.into_param().abi(), digestmethod.into_param().abi(), ::core::mem::transmute(transformmethod), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignaturePartReference>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), parturi.into().abi(), ::core::mem::transmute(digestmethod), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignaturePartReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignaturePartReference>>(&self, partreference: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), partreference.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSignaturePartReference>>>(&self, partreference: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), partreference.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
@@ -2116,19 +1993,14 @@ impl ::core::convert::From<IOpcSignaturePartReferenceSet> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignaturePartReferenceSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignaturePartReferenceSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignaturePartReferenceSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignaturePartReferenceSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignaturePartReferenceSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignaturePartReferenceSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignaturePartReferenceSet {
@@ -2202,19 +2074,14 @@ impl ::core::convert::From<IOpcSignatureReference> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureReference> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureReference {
@@ -2283,19 +2150,14 @@ impl ::core::convert::From<IOpcSignatureReferenceEnumerator> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureReferenceEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureReferenceEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureReferenceEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureReferenceEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureReferenceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureReferenceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureReferenceEnumerator {
@@ -2339,13 +2201,13 @@ pub struct IOpcSignatureReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureReferenceSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, referenceuri: Param0, referenceid: Param1, r#type: Param2, digestmethod: Param3, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureReference> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>, Param4: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, referenceuri: Param0, referenceid: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, digestmethod: ::windows::core::PCWSTR, transformmethod: Param4) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), referenceuri.into_param().abi(), referenceid.into_param().abi(), r#type.into_param().abi(), digestmethod.into_param().abi(), ::core::mem::transmute(transformmethod), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureReference>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), referenceuri.into().abi(), ::core::mem::transmute(referenceid), ::core::mem::transmute(r#type), ::core::mem::transmute(digestmethod), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureReference>>(&self, reference: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), reference.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSignatureReference>>>(&self, reference: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), reference.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
@@ -2358,19 +2220,14 @@ impl ::core::convert::From<IOpcSignatureReferenceSet> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureReferenceSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureReferenceSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureReferenceSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureReferenceSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureReferenceSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureReferenceSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureReferenceSet {
@@ -2444,19 +2301,14 @@ impl ::core::convert::From<IOpcSignatureRelationshipReference> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureRelationshipReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureRelationshipReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureRelationshipReference> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureRelationshipReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureRelationshipReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureRelationshipReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureRelationshipReference {
@@ -2525,19 +2377,14 @@ impl ::core::convert::From<IOpcSignatureRelationshipReferenceEnumerator> for ::w
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureRelationshipReferenceEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureRelationshipReferenceEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureRelationshipReferenceEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureRelationshipReferenceEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureRelationshipReferenceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureRelationshipReferenceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceEnumerator {
@@ -2581,9 +2428,9 @@ pub struct IOpcSignatureRelationshipReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReferenceSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, IOpcUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IOpcRelationshipSelectorSet>>(&self, sourceuri: Param0, digestmethod: Param1, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: Param3, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcUri>>, Param2: ::std::convert::Into<OPC_RELATIONSHIPS_SIGNING_OPTION>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOpcRelationshipSelectorSet>>, Param4: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, sourceuri: Param0, digestmethod: ::windows::core::PCWSTR, relationshipsigningoption: Param2, selectorset: Param3, transformmethod: Param4) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), sourceuri.into_param().abi(), digestmethod.into_param().abi(), ::core::mem::transmute(relationshipsigningoption), selectorset.into_param().abi(), ::core::mem::transmute(transformmethod), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureRelationshipReference>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), sourceuri.into().abi(), ::core::mem::transmute(digestmethod), relationshipsigningoption.into(), selectorset.into().abi(), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureRelationshipReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreateRelationshipSelectorSet(&self) -> ::windows::core::Result<IOpcRelationshipSelectorSet> {
@@ -2591,8 +2438,8 @@ impl IOpcSignatureRelationshipReferenceSet {
         (::windows::core::Interface::vtable(self).CreateRelationshipSelectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureRelationshipReference>>(&self, relationshipreference: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), relationshipreference.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSignatureRelationshipReference>>>(&self, relationshipreference: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), relationshipreference.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
@@ -2605,19 +2452,14 @@ impl ::core::convert::From<IOpcSignatureRelationshipReferenceSet> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSignatureRelationshipReferenceSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSignatureRelationshipReferenceSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSignatureRelationshipReferenceSet> for ::windows::core::IUnknown {
     fn from(value: &IOpcSignatureRelationshipReferenceSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSignatureRelationshipReferenceSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureRelationshipReferenceSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceSet {
@@ -2662,8 +2504,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetSignatureId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetSignatureId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, signatureid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureId)(::windows::core::Interface::as_raw(self), signatureid.into_param().abi()).ok()
+    pub unsafe fn SetSignatureId(&self, signatureid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignatureId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signatureid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2671,8 +2513,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetSignatureMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetSignatureMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, signaturemethod: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureMethod)(::windows::core::Interface::as_raw(self), signaturemethod.into_param().abi()).ok()
+    pub unsafe fn SetSignatureMethod(&self, signaturemethod: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignatureMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturemethod)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDefaultDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2680,8 +2522,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetDefaultDigestMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, digestmethod: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), digestmethod.into_param().abi()).ok()
+    pub unsafe fn SetDefaultDigestMethod(&self, digestmethod: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestmethod)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCertificateEmbeddingOption(&self) -> ::windows::core::Result<OPC_CERTIFICATE_EMBEDDING_OPTION> {
@@ -2689,8 +2531,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetCertificateEmbeddingOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OPC_CERTIFICATE_EMBEDDING_OPTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetCertificateEmbeddingOption(&self, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCertificateEmbeddingOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(embeddingoption)).ok()
+    pub unsafe fn SetCertificateEmbeddingOption<'a, Param0: ::std::convert::Into<OPC_CERTIFICATE_EMBEDDING_OPTION>>(&self, embeddingoption: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCertificateEmbeddingOption)(::windows::core::Interface::as_raw(self), embeddingoption.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetTimeFormat(&self) -> ::windows::core::Result<OPC_SIGNATURE_TIME_FORMAT> {
@@ -2698,8 +2540,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetTimeFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OPC_SIGNATURE_TIME_FORMAT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetTimeFormat(&self, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimeFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timeformat)).ok()
+    pub unsafe fn SetTimeFormat<'a, Param0: ::std::convert::Into<OPC_SIGNATURE_TIME_FORMAT>>(&self, timeformat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTimeFormat)(::windows::core::Interface::as_raw(self), timeformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignaturePartReferenceSet(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceSet> {
@@ -2734,8 +2576,8 @@ impl IOpcSigningOptions {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSignaturePartName<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, signaturepartname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignaturePartName)(::windows::core::Interface::as_raw(self), signaturepartname.into_param().abi()).ok()
+    pub unsafe fn SetSignaturePartName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, signaturepartname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignaturePartName)(::windows::core::Interface::as_raw(self), signaturepartname.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IOpcSigningOptions> for ::windows::core::IUnknown {
@@ -2743,19 +2585,14 @@ impl ::core::convert::From<IOpcSigningOptions> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOpcSigningOptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcSigningOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOpcSigningOptions> for ::windows::core::IUnknown {
     fn from(value: &IOpcSigningOptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigningOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSigningOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOpcSigningOptions {
@@ -2814,24 +2651,24 @@ pub struct IOpcUri(::windows::core::IUnknown);
 impl IOpcUri {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pbstrproperty), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetPropertyBSTR<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0, pbstrproperty: *mut super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(pbstrproperty), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pcchproperty), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetPropertyLength<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(pcchproperty), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(pdwproperty), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetPropertyDWORD<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(pdwproperty), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn HasProperty(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn HasProperty<'a, Param0: ::std::convert::Into<super::super::super::System::Com::Uri_PROPERTY>>(&self, uriprop: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.HasProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uriprop), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.HasProperty)(::windows::core::Interface::as_raw(self), uriprop.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2955,9 +2792,9 @@ impl IOpcUri {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, puri: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>>(&self, puri: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), puri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), puri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2967,20 +2804,26 @@ impl IOpcUri {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRelativeUri<'a, Param0: ::windows::core::IntoParam<'a, IOpcPartUri>>(&self, targetparturi: Param0) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
+    pub unsafe fn GetRelativeUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>>(&self, targetparturi: Param0) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRelativeUri)(::windows::core::Interface::as_raw(self), targetparturi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IUri>(result__)
+        (::windows::core::Interface::vtable(self).GetRelativeUri)(::windows::core::Interface::as_raw(self), targetparturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IUri>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CombinePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri>>(&self, relativeuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
+    pub unsafe fn CombinePartUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>>(&self, relativeuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CombinePartUri)(::windows::core::Interface::as_raw(self), relativeuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
+        (::windows::core::Interface::vtable(self).CombinePartUri)(::windows::core::Interface::as_raw(self), relativeuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IOpcUri> for ::windows::core::IUnknown {
     fn from(value: IOpcUri) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IOpcUri> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOpcUri) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2991,20 +2834,14 @@ impl ::core::convert::From<&IOpcUri> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcUri {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcUri {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IOpcUri> for super::super::super::System::Com::IUri {
     fn from(value: IOpcUri) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IOpcUri> for &'a super::super::super::System::Com::IUri {
+    fn from(value: &'a IOpcUri) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3012,18 +2849,6 @@ impl ::core::convert::From<IOpcUri> for super::super::super::System::Com::IUri {
 impl ::core::convert::From<&IOpcUri> for super::super::super::System::Com::IUri {
     fn from(value: &IOpcUri) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for IOpcUri {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for &'a IOpcUri {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

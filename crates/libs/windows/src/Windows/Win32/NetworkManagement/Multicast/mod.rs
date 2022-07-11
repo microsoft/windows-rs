@@ -207,12 +207,12 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn McastEnumerateScopes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(addrfamily: u16, requery: Param1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
+pub unsafe fn McastEnumerateScopes<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(addrfamily: u16, requery: Param1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn McastEnumerateScopes(addrfamily: u16, requery: super::super::Foundation::BOOL, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(McastEnumerateScopes(::core::mem::transmute(addrfamily), requery.into_param().abi(), ::core::mem::transmute(pscopelist), ::core::mem::transmute(pscopelen), ::core::mem::transmute(pscopecount)))
+    ::core::mem::transmute(McastEnumerateScopes(::core::mem::transmute(addrfamily), requery.into(), ::core::mem::transmute(pscopelist), ::core::mem::transmute(pscopelen), ::core::mem::transmute(pscopecount)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]

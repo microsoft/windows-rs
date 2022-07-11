@@ -4,10 +4,10 @@ pub struct ApplicationDataManager(::windows::core::IUnknown);
 impl ApplicationDataManager {
     #[doc = "*Required features: `\"Management_Core\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn CreateForPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<super::super::Storage::ApplicationData> {
+    pub fn CreateForPackageFamily<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(packagefamilyname: Param0) -> ::windows::core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::ApplicationData>(result__)
+            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::ApplicationData>(result__)
         })
     }
     #[doc(hidden)]
@@ -56,14 +56,9 @@ impl ::core::convert::From<&ApplicationDataManager> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ApplicationDataManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ApplicationDataManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ApplicationDataManager> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationDataManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ApplicationDataManager> for ::windows::core::IInspectable {
@@ -76,14 +71,9 @@ impl ::core::convert::From<&ApplicationDataManager> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ApplicationDataManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ApplicationDataManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ApplicationDataManager> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationDataManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ApplicationDataManager {}

@@ -39,24 +39,24 @@ pub struct ContactPickerUI(::windows::core::IUnknown);
 impl ContactPickerUI {
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn AddContact<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Contact>>(&self, id: Param0, contact: Param1) -> ::windows::core::Result<AddContactResult> {
+    pub fn AddContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>>(&self, id: Param0, contact: Param1) -> ::windows::core::Result<AddContactResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<AddContactResult>::zeroed();
-            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), id.into_param().abi(), contact.into_param().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
+            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), id.into().abi(), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    pub fn RemoveContact<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContact)(::windows::core::Interface::as_raw(this), id.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContact)(::windows::core::Interface::as_raw(this), id.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    pub fn ContainsContact<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<bool> {
+    pub fn ContainsContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -78,25 +78,25 @@ impl ContactPickerUI {
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContactRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ContactRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ContactRemoved)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ContactRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveContactRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveContactRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContactRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContactRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    pub fn AddContact2<'a, Param0: ::windows::core::IntoParam<'a, super::Contact>>(&self, contact: Param0) -> ::windows::core::Result<AddContactResult> {
+    pub fn AddContact2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>>(&self, contact: Param0) -> ::windows::core::Result<AddContactResult> {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<AddContactResult>::zeroed();
-            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), contact.into_param().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
+            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"Foundation_Collections\"`*"]
@@ -149,14 +149,9 @@ impl ::core::convert::From<&ContactPickerUI> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactPickerUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactPickerUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPickerUI> for &::windows::core::IUnknown {
+    fn from(value: &ContactPickerUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactPickerUI> for ::windows::core::IInspectable {
@@ -169,14 +164,9 @@ impl ::core::convert::From<&ContactPickerUI> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactPickerUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactPickerUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPickerUI> for &::windows::core::IInspectable {
+    fn from(value: &ContactPickerUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
@@ -232,14 +222,9 @@ impl ::core::convert::From<&ContactRemovedEventArgs> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactRemovedEventArgs> for ::windows::core::IInspectable {
@@ -252,14 +237,9 @@ impl ::core::convert::From<&ContactRemovedEventArgs> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc(hidden)]

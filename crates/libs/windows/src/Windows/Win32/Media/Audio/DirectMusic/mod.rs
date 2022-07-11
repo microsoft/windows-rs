@@ -1957,13 +1957,13 @@ impl IDirectMusic {
         (::windows::core::Interface::vtable(self).EnumPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pportcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn CreateMusicBuffer<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateMusicBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbufferdesc), ::core::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
+    pub unsafe fn CreateMusicBuffer<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateMusicBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbufferdesc), ::core::mem::transmute(ppbuffer), punkouter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePort<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreatePort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsidport), ::core::mem::transmute(pportparams), ::core::mem::transmute(ppport), punkouter.into_param().abi()).ok()
+    pub unsafe fn CreatePort<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreatePort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsidport), ::core::mem::transmute(pportparams), ::core::mem::transmute(ppport), punkouter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()> {
@@ -1979,8 +1979,8 @@ impl IDirectMusic {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -1988,8 +1988,8 @@ impl IDirectMusic {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
-    pub unsafe fn SetDirectSound<'a, Param0: ::windows::core::IntoParam<'a, super::DirectSound::IDirectSound>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>, Param1: ::std::convert::Into<super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
     }
 }
 impl ::core::convert::From<IDirectMusic> for ::windows::core::IUnknown {
@@ -1997,19 +1997,14 @@ impl ::core::convert::From<IDirectMusic> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusic> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusic) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusic> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusic) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusic {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusic {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusic {
@@ -2064,13 +2059,13 @@ impl IDirectMusic8 {
         (::windows::core::Interface::vtable(self).base__.EnumPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pportcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn CreateMusicBuffer<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreateMusicBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbufferdesc), ::core::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
+    pub unsafe fn CreateMusicBuffer<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreateMusicBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbufferdesc), ::core::mem::transmute(ppbuffer), punkouter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePort<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreatePort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsidport), ::core::mem::transmute(pportparams), ::core::mem::transmute(ppport), punkouter.into_param().abi()).ok()
+    pub unsafe fn CreatePort<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreatePort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsidport), ::core::mem::transmute(pportparams), ::core::mem::transmute(ppport), punkouter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()> {
@@ -2086,8 +2081,8 @@ impl IDirectMusic8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -2095,16 +2090,21 @@ impl IDirectMusic8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
-    pub unsafe fn SetDirectSound<'a, Param0: ::windows::core::IntoParam<'a, super::DirectSound::IDirectSound>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>, Param1: ::std::convert::Into<super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn SetExternalMasterClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::IReferenceClock>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExternalMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
+    pub unsafe fn SetExternalMasterClock<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExternalMasterClock)(::windows::core::Interface::as_raw(self), pclock.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectMusic8> for ::windows::core::IUnknown {
     fn from(value: IDirectMusic8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectMusic8> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusic8) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2113,34 +2113,19 @@ impl ::core::convert::From<&IDirectMusic8> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusic8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusic8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectMusic8> for IDirectMusic {
     fn from(value: IDirectMusic8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectMusic8> for &'a IDirectMusic {
+    fn from(value: &'a IDirectMusic8) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectMusic8> for IDirectMusic {
     fn from(value: &IDirectMusic8) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectMusic> for IDirectMusic8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectMusic> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectMusic> for &'a IDirectMusic8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectMusic> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusic8 {
@@ -2231,19 +2216,14 @@ impl ::core::convert::From<IDirectMusicBuffer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicBuffer> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicBuffer {
@@ -2294,8 +2274,8 @@ impl IDirectMusicCollection {
         (::windows::core::Interface::vtable(self).GetInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpatch), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicInstrument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn EnumInstrument<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: Param2, dwnamelen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwpatch), pwszname.into_param().abi(), ::core::mem::transmute(dwnamelen)).ok()
+    pub unsafe fn EnumInstrument(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: ::windows::core::PCWSTR, dwnamelen: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwpatch), ::core::mem::transmute(pwszname), ::core::mem::transmute(dwnamelen)).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicCollection> for ::windows::core::IUnknown {
@@ -2303,19 +2283,14 @@ impl ::core::convert::From<IDirectMusicCollection> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicCollection> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicCollection {
@@ -2359,19 +2334,14 @@ impl ::core::convert::From<IDirectMusicDownload> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicDownload> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicDownload) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicDownload> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicDownload) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicDownload {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicDownload {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicDownload {
@@ -2409,19 +2379,14 @@ impl ::core::convert::From<IDirectMusicDownloadedInstrument> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicDownloadedInstrument> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicDownloadedInstrument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicDownloadedInstrument> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicDownloadedInstrument) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicDownloadedInstrument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicDownloadedInstrument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
@@ -2467,19 +2432,14 @@ impl ::core::convert::From<IDirectMusicInstrument> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicInstrument> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicInstrument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicInstrument> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicInstrument) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicInstrument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicInstrument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicInstrument {
@@ -2514,25 +2474,25 @@ pub struct IDirectMusicInstrument_Vtbl {
 pub struct IDirectMusicPort(::windows::core::IUnknown);
 impl IDirectMusicPort {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn PlayBuffer<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PlayBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
+    pub unsafe fn PlayBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicBuffer>>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PlayBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReadNotificationHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReadNotificationHandle)(::windows::core::Interface::as_raw(self), hevent.into_param().abi()).ok()
+    pub unsafe fn SetReadNotificationHandle<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReadNotificationHandle)(::windows::core::Interface::as_raw(self), hevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn Read<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
+    pub unsafe fn Read<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicBuffer>>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), pbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn DownloadInstrument<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicInstrument>>(&self, pinstrument: Param0, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DownloadInstrument)(::windows::core::Interface::as_raw(self), pinstrument.into_param().abi(), ::core::mem::transmute(ppdownloadedinstrument), ::core::mem::transmute(pnoteranges), ::core::mem::transmute(dwnumnoteranges)).ok()
+    pub unsafe fn DownloadInstrument<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicInstrument>>>(&self, pinstrument: Param0, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DownloadInstrument)(::windows::core::Interface::as_raw(self), pinstrument.into().abi(), ::core::mem::transmute(ppdownloadedinstrument), ::core::mem::transmute(pnoteranges), ::core::mem::transmute(dwnumnoteranges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn UnloadInstrument<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicDownloadedInstrument>>(&self, pdownloadedinstrument: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnloadInstrument)(::windows::core::Interface::as_raw(self), pdownloadedinstrument.into_param().abi()).ok()
+    pub unsafe fn UnloadInstrument<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicDownloadedInstrument>>>(&self, pdownloadedinstrument: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnloadInstrument)(::windows::core::Interface::as_raw(self), pdownloadedinstrument.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
@@ -2566,8 +2526,8 @@ impl IDirectMusicPort {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, factive: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), factive.into_param().abi()).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, factive: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), factive.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
@@ -2579,8 +2539,8 @@ impl IDirectMusicPort {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub unsafe fn SetDirectSound<'a, Param0: ::windows::core::IntoParam<'a, super::DirectSound::IDirectSound>, Param1: ::windows::core::IntoParam<'a, super::DirectSound::IDirectSoundBuffer>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSoundBuffer>>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into().abi(), pdirectsoundbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::core::Result<()> {
@@ -2592,19 +2552,14 @@ impl ::core::convert::From<IDirectMusicPort> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicPort> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicPort> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicPort) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicPort {
@@ -2684,12 +2639,12 @@ impl IDirectMusicPortDownload {
         (::windows::core::Interface::vtable(self).GetAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwappend)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn Download<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicDownload>>(&self, pidmdownload: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), pidmdownload.into_param().abi()).ok()
+    pub unsafe fn Download<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicDownload>>>(&self, pidmdownload: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), pidmdownload.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn Unload<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicDownload>>(&self, pidmdownload: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), pidmdownload.into_param().abi()).ok()
+    pub unsafe fn Unload<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicDownload>>>(&self, pidmdownload: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), pidmdownload.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicPortDownload> for ::windows::core::IUnknown {
@@ -2697,19 +2652,14 @@ impl ::core::convert::From<IDirectMusicPortDownload> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicPortDownload> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicPortDownload) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicPortDownload> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicPortDownload) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicPortDownload {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicPortDownload {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicPortDownload {
@@ -2767,8 +2717,8 @@ impl IDirectMusicSynth {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unload<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), hdownload.into_param().abi(), ::core::mem::transmute(lpfreehandle), huserdata.into_param().abi()).ok()
+    pub unsafe fn Unload<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), hdownload.into(), ::core::mem::transmute(lpfreehandle), huserdata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()> {
@@ -2783,8 +2733,8 @@ impl IDirectMusicSynth {
         (::windows::core::Interface::vtable(self).GetPortCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn SetMasterClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::IReferenceClock>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
+    pub unsafe fn SetMasterClock<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
@@ -2793,12 +2743,12 @@ impl IDirectMusicSynth {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn SetSynthSink<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicSynthSink>>(&self, psynthsink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSynthSink)(::windows::core::Interface::as_raw(self), psynthsink.into_param().abi()).ok()
+    pub unsafe fn SetSynthSink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicSynthSink>>>(&self, psynthsink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSynthSink)(::windows::core::Interface::as_raw(self), psynthsink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()> {
@@ -2826,19 +2776,14 @@ impl ::core::convert::From<IDirectMusicSynth> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicSynth> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicSynth) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicSynth> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicSynth) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicSynth {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicSynth {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicSynth {
@@ -2919,8 +2864,8 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unload<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unload)(::windows::core::Interface::as_raw(self), hdownload.into_param().abi(), ::core::mem::transmute(lpfreehandle), huserdata.into_param().abi()).ok()
+    pub unsafe fn Unload<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Unload)(::windows::core::Interface::as_raw(self), hdownload.into(), ::core::mem::transmute(lpfreehandle), huserdata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()> {
@@ -2935,8 +2880,8 @@ impl IDirectMusicSynth8 {
         (::windows::core::Interface::vtable(self).base__.GetPortCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn SetMasterClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::IReferenceClock>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
+    pub unsafe fn SetMasterClock<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
@@ -2945,12 +2890,12 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn SetSynthSink<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicSynthSink>>(&self, psynthsink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSynthSink)(::windows::core::Interface::as_raw(self), psynthsink.into_param().abi()).ok()
+    pub unsafe fn SetSynthSink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicSynthSink>>>(&self, psynthsink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSynthSink)(::windows::core::Interface::as_raw(self), psynthsink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()> {
@@ -2999,19 +2944,14 @@ impl ::core::convert::From<IDirectMusicSynth8> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicSynth8> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicSynth8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicSynth8> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicSynth8) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicSynth8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicSynth8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDirectMusicSynth8> for IDirectMusicSynth {
@@ -3019,19 +2959,14 @@ impl ::core::convert::From<IDirectMusicSynth8> for IDirectMusicSynth {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicSynth8> for &'a IDirectMusicSynth {
+    fn from(value: &'a IDirectMusicSynth8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicSynth8> for IDirectMusicSynth {
     fn from(value: &IDirectMusicSynth8) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectMusicSynth> for IDirectMusicSynth8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectMusicSynth> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectMusicSynth> for &'a IDirectMusicSynth8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectMusicSynth> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicSynth8 {
@@ -3072,12 +3007,12 @@ pub struct IDirectMusicSynth8_Vtbl {
 pub struct IDirectMusicSynthSink(::windows::core::IUnknown);
 impl IDirectMusicSynthSink {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn Init<'a, Param0: ::windows::core::IntoParam<'a, IDirectMusicSynth>>(&self, psynth: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), psynth.into_param().abi()).ok()
+    pub unsafe fn Init<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicSynth>>>(&self, psynth: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), psynth.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn SetMasterClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::IReferenceClock>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
+    pub unsafe fn SetMasterClock<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::IReferenceClock>>>(&self, pclock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
@@ -3086,8 +3021,8 @@ impl IDirectMusicSynthSink {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> ::windows::core::Result<()> {
@@ -3099,8 +3034,8 @@ impl IDirectMusicSynthSink {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub unsafe fn SetDirectSound<'a, Param0: ::windows::core::IntoParam<'a, super::DirectSound::IDirectSound>, Param1: ::windows::core::IntoParam<'a, super::DirectSound::IDirectSoundBuffer>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSound>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::DirectSound::IDirectSoundBuffer>>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into().abi(), pdirectsoundbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetDesiredBufferSize(&self, pdwbuffersizeinsamples: *mut u32) -> ::windows::core::Result<()> {
@@ -3112,19 +3047,14 @@ impl ::core::convert::From<IDirectMusicSynthSink> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicSynthSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicSynthSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicSynthSink> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicSynthSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicSynthSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicSynthSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicSynthSink {
@@ -3171,8 +3101,8 @@ pub struct IDirectMusicSynthSink_Vtbl {
 pub struct IDirectMusicThru(::windows::core::IUnknown);
 impl IDirectMusicThru {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn ThruChannel<'a, Param4: ::windows::core::IntoParam<'a, IDirectMusicPort>>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ThruChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsourcechannelgroup), ::core::mem::transmute(dwsourcechannel), ::core::mem::transmute(dwdestinationchannelgroup), ::core::mem::transmute(dwdestinationchannel), pdestinationport.into_param().abi()).ok()
+    pub unsafe fn ThruChannel<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicPort>>>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ThruChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsourcechannelgroup), ::core::mem::transmute(dwsourcechannel), ::core::mem::transmute(dwdestinationchannelgroup), ::core::mem::transmute(dwdestinationchannel), pdestinationport.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicThru> for ::windows::core::IUnknown {
@@ -3180,19 +3110,14 @@ impl ::core::convert::From<IDirectMusicThru> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectMusicThru> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectMusicThru) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectMusicThru> for ::windows::core::IUnknown {
     fn from(value: &IDirectMusicThru) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectMusicThru {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectMusicThru {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectMusicThru {

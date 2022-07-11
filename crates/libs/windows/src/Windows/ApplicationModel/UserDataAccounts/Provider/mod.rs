@@ -49,19 +49,14 @@ impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUserDataAccountProviderOperation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUserDataAccountProviderOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUserDataAccountProviderOperation> for ::windows::core::IUnknown {
     fn from(value: &IUserDataAccountProviderOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUserDataAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUserDataAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
@@ -69,19 +64,14 @@ impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUserDataAccountProviderOperation> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IUserDataAccountProviderOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
     fn from(value: &IUserDataAccountProviderOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUserDataAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IUserDataAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUserDataAccountProviderOperation {
@@ -214,14 +204,9 @@ impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for &::windows::core::IUnknown {
+    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserDataAccountPartnerAccountInfo> for ::windows::core::IInspectable {
@@ -234,14 +219,9 @@ impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for &::windows::core::IInspectable {
+    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
@@ -268,9 +248,9 @@ impl UserDataAccountProviderAddAccountOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
-    pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdataaccountid: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, userdataaccountid: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), userdataaccountid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), userdataaccountid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
@@ -321,14 +301,9 @@ impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for &::windows::core::IUnknown {
+    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserDataAccountProviderAddAccountOperation> for ::windows::core::IInspectable {
@@ -341,14 +316,9 @@ impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for &::windows::core::IInspectable {
+    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<UserDataAccountProviderAddAccountOperation> for IUserDataAccountProviderOperation {
@@ -363,14 +333,11 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderAddAccountOperation> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderOperation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderOperation> {
-        ::core::convert::TryInto::<IUserDataAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderAddAccountOperation> for ::windows::core::InParam<'a, IUserDataAccountProviderOperation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserDataAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation {}
@@ -510,14 +477,9 @@ impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for &::windows::core::IUnknown {
+    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserDataAccountProviderResolveErrorsOperation> for ::windows::core::IInspectable {
@@ -530,14 +492,9 @@ impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for &::windows::core::IInspectable {
+    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<UserDataAccountProviderResolveErrorsOperation> for IUserDataAccountProviderOperation {
@@ -552,14 +509,11 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderResolveErrorsOperation> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderOperation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderOperation> {
-        ::core::convert::TryInto::<IUserDataAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderResolveErrorsOperation> for ::windows::core::InParam<'a, IUserDataAccountProviderOperation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserDataAccountProviderResolveErrorsOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderResolveErrorsOperation {}
@@ -630,14 +584,9 @@ impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for &::windows::core::IUnknown {
+    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserDataAccountProviderSettingsOperation> for ::windows::core::IInspectable {
@@ -650,14 +599,9 @@ impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for &::windows::core::IInspectable {
+    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<UserDataAccountProviderSettingsOperation> for IUserDataAccountProviderOperation {
@@ -672,14 +616,11 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderSettingsOperation> for IUs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderOperation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderOperation> {
-        ::core::convert::TryInto::<IUserDataAccountProviderOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderSettingsOperation> for ::windows::core::InParam<'a, IUserDataAccountProviderOperation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserDataAccountProviderSettingsOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderSettingsOperation {}

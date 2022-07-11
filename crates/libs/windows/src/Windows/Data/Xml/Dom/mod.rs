@@ -35,9 +35,9 @@ impl DtdEntity {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -128,35 +128,35 @@ impl DtdEntity {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -197,40 +197,40 @@ impl DtdEntity {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -250,9 +250,9 @@ impl DtdEntity {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for DtdEntity {
@@ -295,14 +295,9 @@ impl ::core::convert::From<&DtdEntity> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DtdEntity> for &::windows::core::IUnknown {
+    fn from(value: &DtdEntity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DtdEntity> for ::windows::core::IInspectable {
@@ -315,14 +310,9 @@ impl ::core::convert::From<&DtdEntity> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DtdEntity> for &::windows::core::IInspectable {
+    fn from(value: &DtdEntity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DtdEntity> for IXmlNode {
@@ -337,14 +327,11 @@ impl ::core::convert::TryFrom<&DtdEntity> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DtdEntity> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DtdEntity) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DtdEntity> for IXmlNodeSelector {
@@ -359,14 +346,11 @@ impl ::core::convert::TryFrom<&DtdEntity> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DtdEntity> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DtdEntity) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DtdEntity> for IXmlNodeSerializer {
@@ -381,14 +365,11 @@ impl ::core::convert::TryFrom<&DtdEntity> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &DtdEntity {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DtdEntity> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DtdEntity) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DtdEntity {}
@@ -422,9 +403,9 @@ impl DtdNotation {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -515,35 +496,35 @@ impl DtdNotation {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -584,40 +565,40 @@ impl DtdNotation {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -637,9 +618,9 @@ impl DtdNotation {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for DtdNotation {
@@ -682,14 +663,9 @@ impl ::core::convert::From<&DtdNotation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DtdNotation> for &::windows::core::IUnknown {
+    fn from(value: &DtdNotation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DtdNotation> for ::windows::core::IInspectable {
@@ -702,14 +678,9 @@ impl ::core::convert::From<&DtdNotation> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DtdNotation> for &::windows::core::IInspectable {
+    fn from(value: &DtdNotation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DtdNotation> for IXmlNode {
@@ -724,14 +695,11 @@ impl ::core::convert::TryFrom<&DtdNotation> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DtdNotation> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DtdNotation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DtdNotation> for IXmlNodeSelector {
@@ -746,14 +714,11 @@ impl ::core::convert::TryFrom<&DtdNotation> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DtdNotation> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DtdNotation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DtdNotation> for IXmlNodeSerializer {
@@ -768,14 +733,11 @@ impl ::core::convert::TryFrom<&DtdNotation> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &DtdNotation {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DtdNotation> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DtdNotation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DtdNotation {}
@@ -850,9 +812,9 @@ impl IXmlCharacterData {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
@@ -871,14 +833,14 @@ impl IXmlCharacterData {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn AppendData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
@@ -886,9 +848,9 @@ impl IXmlCharacterData {
         unsafe { (::windows::core::Interface::vtable(this).DeleteData)(::windows::core::Interface::as_raw(this), offset, count).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
+    pub fn ReplaceData<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -899,9 +861,9 @@ impl IXmlCharacterData {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -992,35 +954,35 @@ impl IXmlCharacterData {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -1061,40 +1023,40 @@ impl IXmlCharacterData {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -1114,13 +1076,18 @@ impl IXmlCharacterData {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IXmlCharacterData> for ::windows::core::IUnknown {
     fn from(value: IXmlCharacterData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlCharacterData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXmlCharacterData) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1129,34 +1096,19 @@ impl ::core::convert::From<&IXmlCharacterData> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXmlCharacterData> for ::windows::core::IInspectable {
     fn from(value: IXmlCharacterData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlCharacterData> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IXmlCharacterData) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IXmlCharacterData> for ::windows::core::IInspectable {
     fn from(value: &IXmlCharacterData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IXmlCharacterData> for IXmlNode {
@@ -1171,14 +1123,11 @@ impl ::core::convert::TryFrom<&IXmlCharacterData> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlCharacterData> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlCharacterData) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IXmlCharacterData> for IXmlNodeSelector {
@@ -1193,14 +1142,11 @@ impl ::core::convert::TryFrom<&IXmlCharacterData> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlCharacterData> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlCharacterData) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IXmlCharacterData> for IXmlNodeSerializer {
@@ -1215,14 +1161,11 @@ impl ::core::convert::TryFrom<&IXmlCharacterData> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &IXmlCharacterData {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlCharacterData> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlCharacterData) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IXmlCharacterData {
@@ -1504,9 +1447,9 @@ impl IXmlNode {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -1597,35 +1540,35 @@ impl IXmlNode {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -1666,40 +1609,40 @@ impl IXmlNode {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -1719,13 +1662,18 @@ impl IXmlNode {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IXmlNode> for ::windows::core::IUnknown {
     fn from(value: IXmlNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlNode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXmlNode) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1734,34 +1682,19 @@ impl ::core::convert::From<&IXmlNode> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXmlNode> for ::windows::core::IInspectable {
     fn from(value: IXmlNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlNode> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IXmlNode) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IXmlNode> for ::windows::core::IInspectable {
     fn from(value: &IXmlNode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IXmlNode> for IXmlNodeSelector {
@@ -1776,14 +1709,11 @@ impl ::core::convert::TryFrom<&IXmlNode> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlNode> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlNode) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IXmlNode> for IXmlNodeSerializer {
@@ -1798,14 +1728,11 @@ impl ::core::convert::TryFrom<&IXmlNode> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &IXmlNode {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlNode> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlNode) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IXmlNode {
@@ -1882,35 +1809,35 @@ pub struct IXmlNodeList_Vtbl {
 pub struct IXmlNodeSelector(::windows::core::IUnknown);
 impl IXmlNodeSelector {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
 }
@@ -1919,19 +1846,14 @@ impl ::core::convert::From<IXmlNodeSelector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXmlNodeSelector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXmlNodeSelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXmlNodeSelector> for ::windows::core::IUnknown {
     fn from(value: &IXmlNodeSelector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlNodeSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlNodeSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IXmlNodeSelector> for ::windows::core::IInspectable {
@@ -1939,19 +1861,14 @@ impl ::core::convert::From<IXmlNodeSelector> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXmlNodeSelector> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IXmlNodeSelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXmlNodeSelector> for ::windows::core::IInspectable {
     fn from(value: &IXmlNodeSelector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlNodeSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlNodeSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXmlNodeSelector {
@@ -2011,13 +1928,18 @@ impl IXmlNodeSerializer {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IXmlNodeSerializer> for ::windows::core::IUnknown {
     fn from(value: IXmlNodeSerializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlNodeSerializer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXmlNodeSerializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2026,34 +1948,19 @@ impl ::core::convert::From<&IXmlNodeSerializer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXmlNodeSerializer> for ::windows::core::IInspectable {
     fn from(value: IXmlNodeSerializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlNodeSerializer> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IXmlNodeSerializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IXmlNodeSerializer> for ::windows::core::IInspectable {
     fn from(value: &IXmlNodeSerializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXmlNodeSerializer {
@@ -2127,9 +2034,9 @@ impl IXmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
@@ -2148,14 +2055,14 @@ impl IXmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn AppendData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
@@ -2163,9 +2070,9 @@ impl IXmlText {
         unsafe { (::windows::core::Interface::vtable(this).DeleteData)(::windows::core::Interface::as_raw(this), offset, count).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
+    pub fn ReplaceData<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -2176,9 +2083,9 @@ impl IXmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -2269,35 +2176,35 @@ impl IXmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -2338,40 +2245,40 @@ impl IXmlText {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -2391,13 +2298,18 @@ impl IXmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IXmlText> for ::windows::core::IUnknown {
     fn from(value: IXmlText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlText> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXmlText) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2406,34 +2318,19 @@ impl ::core::convert::From<&IXmlText> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXmlText> for ::windows::core::IInspectable {
     fn from(value: IXmlText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IXmlText> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IXmlText) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IXmlText> for ::windows::core::IInspectable {
     fn from(value: &IXmlText) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IXmlText> for IXmlCharacterData {
@@ -2448,14 +2345,11 @@ impl ::core::convert::TryFrom<&IXmlText> for IXmlCharacterData {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for &IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::core::convert::TryInto::<IXmlCharacterData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlText> for ::windows::core::InParam<'a, IXmlCharacterData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IXmlText> for IXmlNode {
@@ -2470,14 +2364,11 @@ impl ::core::convert::TryFrom<&IXmlText> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlText> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IXmlText> for IXmlNodeSelector {
@@ -2492,14 +2383,11 @@ impl ::core::convert::TryFrom<&IXmlText> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlText> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IXmlText> for IXmlNodeSerializer {
@@ -2514,14 +2402,11 @@ impl ::core::convert::TryFrom<&IXmlText> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &IXmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IXmlText> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IXmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IXmlText {
@@ -2631,9 +2516,9 @@ impl XmlAttribute {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -2644,9 +2529,9 @@ impl XmlAttribute {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -2737,35 +2622,35 @@ impl XmlAttribute {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -2806,40 +2691,40 @@ impl XmlAttribute {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -2859,9 +2744,9 @@ impl XmlAttribute {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlAttribute {
@@ -2904,14 +2789,9 @@ impl ::core::convert::From<&XmlAttribute> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlAttribute> for &::windows::core::IUnknown {
+    fn from(value: &XmlAttribute) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlAttribute> for ::windows::core::IInspectable {
@@ -2924,14 +2804,9 @@ impl ::core::convert::From<&XmlAttribute> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlAttribute> for &::windows::core::IInspectable {
+    fn from(value: &XmlAttribute) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlAttribute> for IXmlNode {
@@ -2946,14 +2821,11 @@ impl ::core::convert::TryFrom<&XmlAttribute> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlAttribute> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlAttribute) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlAttribute> for IXmlNodeSelector {
@@ -2968,14 +2840,11 @@ impl ::core::convert::TryFrom<&XmlAttribute> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlAttribute> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlAttribute) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlAttribute> for IXmlNodeSerializer {
@@ -2990,14 +2859,11 @@ impl ::core::convert::TryFrom<&XmlAttribute> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlAttribute {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlAttribute> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlAttribute) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlAttribute {}
@@ -3015,9 +2881,9 @@ impl XmlCDataSection {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
@@ -3036,14 +2902,14 @@ impl XmlCDataSection {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn AppendData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
@@ -3051,9 +2917,9 @@ impl XmlCDataSection {
         unsafe { (::windows::core::Interface::vtable(this).DeleteData)(::windows::core::Interface::as_raw(this), offset, count).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
+    pub fn ReplaceData<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -3064,9 +2930,9 @@ impl XmlCDataSection {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -3157,35 +3023,35 @@ impl XmlCDataSection {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3226,40 +3092,40 @@ impl XmlCDataSection {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3279,9 +3145,9 @@ impl XmlCDataSection {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
@@ -3332,14 +3198,9 @@ impl ::core::convert::From<&XmlCDataSection> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlCDataSection> for &::windows::core::IUnknown {
+    fn from(value: &XmlCDataSection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlCDataSection> for ::windows::core::IInspectable {
@@ -3352,14 +3213,9 @@ impl ::core::convert::From<&XmlCDataSection> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlCDataSection> for &::windows::core::IInspectable {
+    fn from(value: &XmlCDataSection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlCharacterData {
@@ -3374,14 +3230,11 @@ impl ::core::convert::TryFrom<&XmlCDataSection> for IXmlCharacterData {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for &XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::core::convert::TryInto::<IXmlCharacterData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlCDataSection> for ::windows::core::InParam<'a, IXmlCharacterData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlCDataSection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlNode {
@@ -3396,14 +3249,11 @@ impl ::core::convert::TryFrom<&XmlCDataSection> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlCDataSection> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlCDataSection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlNodeSelector {
@@ -3418,14 +3268,11 @@ impl ::core::convert::TryFrom<&XmlCDataSection> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlCDataSection> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlCDataSection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlNodeSerializer {
@@ -3440,14 +3287,11 @@ impl ::core::convert::TryFrom<&XmlCDataSection> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlCDataSection> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlCDataSection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlText {
@@ -3462,14 +3306,11 @@ impl ::core::convert::TryFrom<&XmlCDataSection> for IXmlText {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlText> for XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlText> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlCDataSection {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlText> {
-        ::core::convert::TryInto::<IXmlText>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlCDataSection> for ::windows::core::InParam<'a, IXmlText> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlCDataSection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlCDataSection {}
@@ -3487,9 +3328,9 @@ impl XmlComment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
@@ -3508,14 +3349,14 @@ impl XmlComment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn AppendData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
@@ -3523,9 +3364,9 @@ impl XmlComment {
         unsafe { (::windows::core::Interface::vtable(this).DeleteData)(::windows::core::Interface::as_raw(this), offset, count).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
+    pub fn ReplaceData<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -3536,9 +3377,9 @@ impl XmlComment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -3629,35 +3470,35 @@ impl XmlComment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3698,40 +3539,40 @@ impl XmlComment {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3751,9 +3592,9 @@ impl XmlComment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlComment {
@@ -3796,14 +3637,9 @@ impl ::core::convert::From<&XmlComment> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlComment> for &::windows::core::IUnknown {
+    fn from(value: &XmlComment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlComment> for ::windows::core::IInspectable {
@@ -3816,14 +3652,9 @@ impl ::core::convert::From<&XmlComment> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlComment> for &::windows::core::IInspectable {
+    fn from(value: &XmlComment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlComment> for IXmlCharacterData {
@@ -3838,14 +3669,11 @@ impl ::core::convert::TryFrom<&XmlComment> for IXmlCharacterData {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for &XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::core::convert::TryInto::<IXmlCharacterData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlComment> for ::windows::core::InParam<'a, IXmlCharacterData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlComment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlComment> for IXmlNode {
@@ -3860,14 +3688,11 @@ impl ::core::convert::TryFrom<&XmlComment> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlComment> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlComment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlComment> for IXmlNodeSelector {
@@ -3882,14 +3707,11 @@ impl ::core::convert::TryFrom<&XmlComment> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlComment> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlComment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlComment> for IXmlNodeSerializer {
@@ -3904,14 +3726,11 @@ impl ::core::convert::TryFrom<&XmlComment> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlComment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlComment> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlComment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlComment {}
@@ -3952,11 +3771,11 @@ impl XmlDocument {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tagname: Param0) -> ::windows::core::Result<XmlElement> {
+    pub fn CreateElement<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tagname: Param0) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateElement)(::windows::core::Interface::as_raw(this), tagname.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
+            (::windows::core::Interface::vtable(this).CreateElement)(::windows::core::Interface::as_raw(this), tagname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3968,59 +3787,59 @@ impl XmlDocument {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateTextNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<XmlText> {
+    pub fn CreateTextNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<XmlText> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTextNode)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlText>(result__)
+            (::windows::core::Interface::vtable(this).CreateTextNode)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlText>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<XmlComment> {
+    pub fn CreateComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<XmlComment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateComment)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlComment>(result__)
+            (::windows::core::Interface::vtable(this).CreateComment)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlComment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateProcessingInstruction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, target: Param0, data: Param1) -> ::windows::core::Result<XmlProcessingInstruction> {
+    pub fn CreateProcessingInstruction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, target: Param0, data: Param1) -> ::windows::core::Result<XmlProcessingInstruction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateProcessingInstruction)(::windows::core::Interface::as_raw(this), target.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlProcessingInstruction>(result__)
+            (::windows::core::Interface::vtable(this).CreateProcessingInstruction)(::windows::core::Interface::as_raw(this), target.into().abi(), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlProcessingInstruction>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<XmlAttribute> {
+    pub fn CreateAttribute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAttribute)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).CreateAttribute)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateEntityReference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<XmlEntityReference> {
+    pub fn CreateEntityReference<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<XmlEntityReference> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEntityReference)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlEntityReference>(result__)
+            (::windows::core::Interface::vtable(this).CreateEntityReference)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<XmlEntityReference>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetElementsByTagName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tagname: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn GetElementsByTagName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tagname: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetElementsByTagName)(::windows::core::Interface::as_raw(this), tagname.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).GetElementsByTagName)(::windows::core::Interface::as_raw(this), tagname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateCDataSection<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<XmlCDataSection> {
+    pub fn CreateCDataSection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<XmlCDataSection> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCDataSection)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlCDataSection>(result__)
+            (::windows::core::Interface::vtable(this).CreateCDataSection)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlCDataSection>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4032,98 +3851,98 @@ impl XmlDocument {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::core::Result<XmlAttribute> {
+    pub fn CreateAttributeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).CreateAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), qualifiedname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn CreateElementNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::core::Result<XmlElement> {
+    pub fn CreateElementNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateElementNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
+            (::windows::core::Interface::vtable(this).CreateElementNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), qualifiedname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetElementById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, elementid: Param0) -> ::windows::core::Result<XmlElement> {
+    pub fn GetElementById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, elementid: Param0) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetElementById)(::windows::core::Interface::as_raw(this), elementid.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
+            (::windows::core::Interface::vtable(this).GetElementById)(::windows::core::Interface::as_raw(this), elementid.into().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ImportNode<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, node: Param0, deep: bool) -> ::windows::core::Result<IXmlNode> {
+    pub fn ImportNode<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, node: Param0, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportNode)(::windows::core::Interface::as_raw(this), node.into_param().abi(), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ImportNode)(::windows::core::Interface::as_raw(this), node.try_into().map_err(|e| e.into())?.abi(), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn LoadXml<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xml: Param0) -> ::windows::core::Result<()> {
+    pub fn LoadXml<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xml: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LoadXml)(::windows::core::Interface::as_raw(this), xml.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LoadXml)(::windows::core::Interface::as_raw(this), xml.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn LoadXmlWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(&self, xml: Param0, loadsettings: Param1) -> ::windows::core::Result<()> {
+    pub fn LoadXmlWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, XmlLoadSettings>>>(&self, xml: Param0, loadsettings: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LoadXmlWithSettings)(::windows::core::Interface::as_raw(this), xml.into_param().abi(), loadsettings.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LoadXmlWithSettings)(::windows::core::Interface::as_raw(this), xml.into().abi(), loadsettings.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SaveToFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadXmlFromBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
+    pub fn LoadXmlFromBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LoadXmlFromBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LoadXmlFromBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadXmlFromBufferWithSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(&self, buffer: Param0, loadsettings: Param1) -> ::windows::core::Result<()> {
+    pub fn LoadXmlFromBufferWithSettings<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, XmlLoadSettings>>>(&self, buffer: Param0, loadsettings: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), loadsettings.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), loadsettings.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadFromUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
+    pub fn LoadFromUriAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(uri: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromUriAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromUriAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadFromUriWithSettingsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(uri: Param0, loadsettings: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
+    pub fn LoadFromUriWithSettingsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, XmlLoadSettings>>>(uri: Param0, loadsettings: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), loadsettings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), loadsettings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
+    pub fn LoadFromFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromFileWithSettingsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, XmlLoadSettings>>(file: Param0, loadsettings: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
+    pub fn LoadFromFileWithSettingsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, XmlLoadSettings>>>(file: Param0, loadsettings: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), loadsettings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), loadsettings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4135,9 +3954,9 @@ impl XmlDocument {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -4228,35 +4047,35 @@ impl XmlDocument {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4297,40 +4116,40 @@ impl XmlDocument {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4350,9 +4169,9 @@ impl XmlDocument {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc(hidden)]
     pub fn IXmlDocumentStatics<R, F: FnOnce(&IXmlDocumentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -4400,14 +4219,9 @@ impl ::core::convert::From<&XmlDocument> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDocument> for &::windows::core::IUnknown {
+    fn from(value: &XmlDocument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlDocument> for ::windows::core::IInspectable {
@@ -4420,14 +4234,9 @@ impl ::core::convert::From<&XmlDocument> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDocument> for &::windows::core::IInspectable {
+    fn from(value: &XmlDocument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlDocument> for IXmlNode {
@@ -4442,14 +4251,11 @@ impl ::core::convert::TryFrom<&XmlDocument> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocument> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocument) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlDocument> for IXmlNodeSelector {
@@ -4464,14 +4270,11 @@ impl ::core::convert::TryFrom<&XmlDocument> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocument> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocument) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlDocument> for IXmlNodeSerializer {
@@ -4486,14 +4289,11 @@ impl ::core::convert::TryFrom<&XmlDocument> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocument> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocument) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlDocument {}
@@ -4511,9 +4311,9 @@ impl XmlDocumentFragment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -4604,35 +4404,35 @@ impl XmlDocumentFragment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4673,40 +4473,40 @@ impl XmlDocumentFragment {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4726,9 +4526,9 @@ impl XmlDocumentFragment {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlDocumentFragment {
@@ -4771,14 +4571,9 @@ impl ::core::convert::From<&XmlDocumentFragment> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDocumentFragment> for &::windows::core::IUnknown {
+    fn from(value: &XmlDocumentFragment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlDocumentFragment> for ::windows::core::IInspectable {
@@ -4791,14 +4586,9 @@ impl ::core::convert::From<&XmlDocumentFragment> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDocumentFragment> for &::windows::core::IInspectable {
+    fn from(value: &XmlDocumentFragment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlDocumentFragment> for IXmlNode {
@@ -4813,14 +4603,11 @@ impl ::core::convert::TryFrom<&XmlDocumentFragment> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocumentFragment> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocumentFragment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlDocumentFragment> for IXmlNodeSelector {
@@ -4835,14 +4622,11 @@ impl ::core::convert::TryFrom<&XmlDocumentFragment> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocumentFragment> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocumentFragment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlDocumentFragment> for IXmlNodeSerializer {
@@ -4857,14 +4641,11 @@ impl ::core::convert::TryFrom<&XmlDocumentFragment> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocumentFragment> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocumentFragment) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlDocumentFragment {}
@@ -4906,9 +4687,9 @@ impl XmlDocumentType {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -4999,35 +4780,35 @@ impl XmlDocumentType {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5068,40 +4849,40 @@ impl XmlDocumentType {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5121,9 +4902,9 @@ impl XmlDocumentType {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlDocumentType {
@@ -5166,14 +4947,9 @@ impl ::core::convert::From<&XmlDocumentType> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDocumentType> for &::windows::core::IUnknown {
+    fn from(value: &XmlDocumentType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlDocumentType> for ::windows::core::IInspectable {
@@ -5186,14 +4962,9 @@ impl ::core::convert::From<&XmlDocumentType> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDocumentType> for &::windows::core::IInspectable {
+    fn from(value: &XmlDocumentType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlDocumentType> for IXmlNode {
@@ -5208,14 +4979,11 @@ impl ::core::convert::TryFrom<&XmlDocumentType> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocumentType> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocumentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlDocumentType> for IXmlNodeSelector {
@@ -5230,14 +4998,11 @@ impl ::core::convert::TryFrom<&XmlDocumentType> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocumentType> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocumentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlDocumentType> for IXmlNodeSerializer {
@@ -5252,14 +5017,11 @@ impl ::core::convert::TryFrom<&XmlDocumentType> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlDocumentType> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlDocumentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlDocumentType {}
@@ -5269,11 +5031,11 @@ unsafe impl ::core::marker::Sync for XmlDocumentType {}
 pub struct XmlDomImplementation(::windows::core::IUnknown);
 impl XmlDomImplementation {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn HasFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, feature: Param0, version: Param1) -> ::windows::core::Result<bool> {
+    pub fn HasFeature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, feature: Param0, version: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasFeature)(::windows::core::Interface::as_raw(this), feature.into_param().abi(), version.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasFeature)(::windows::core::Interface::as_raw(this), feature.into().abi(), version.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -5317,14 +5079,9 @@ impl ::core::convert::From<&XmlDomImplementation> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDomImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDomImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDomImplementation> for &::windows::core::IUnknown {
+    fn from(value: &XmlDomImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlDomImplementation> for ::windows::core::IInspectable {
@@ -5337,14 +5094,9 @@ impl ::core::convert::From<&XmlDomImplementation> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDomImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDomImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlDomImplementation> for &::windows::core::IInspectable {
+    fn from(value: &XmlDomImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XmlDomImplementation {}
@@ -5362,87 +5114,87 @@ impl XmlElement {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetAttribute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, attributename: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAttribute)(::windows::core::Interface::as_raw(this), attributename.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAttribute)(::windows::core::Interface::as_raw(this), attributename.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0, attributevalue: Param1) -> ::windows::core::Result<()> {
+    pub fn SetAttribute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, attributename: Param0, attributevalue: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttribute)(::windows::core::Interface::as_raw(this), attributename.into_param().abi(), attributevalue.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAttribute)(::windows::core::Interface::as_raw(this), attributename.into().abi(), attributevalue.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAttribute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, attributename: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAttribute)(::windows::core::Interface::as_raw(this), attributename.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAttribute)(::windows::core::Interface::as_raw(this), attributename.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetAttributeNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attributename: Param0) -> ::windows::core::Result<XmlAttribute> {
+    pub fn GetAttributeNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, attributename: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAttributeNode)(::windows::core::Interface::as_raw(this), attributename.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).GetAttributeNode)(::windows::core::Interface::as_raw(this), attributename.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetAttributeNode<'a, Param0: ::windows::core::IntoParam<'a, XmlAttribute>>(&self, newattribute: Param0) -> ::windows::core::Result<XmlAttribute> {
+    pub fn SetAttributeNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XmlAttribute>>>(&self, newattribute: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAttributeNode)(::windows::core::Interface::as_raw(this), newattribute.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).SetAttributeNode)(::windows::core::Interface::as_raw(this), newattribute.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveAttributeNode<'a, Param0: ::windows::core::IntoParam<'a, XmlAttribute>>(&self, attributenode: Param0) -> ::windows::core::Result<XmlAttribute> {
+    pub fn RemoveAttributeNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XmlAttribute>>>(&self, attributenode: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveAttributeNode)(::windows::core::Interface::as_raw(this), attributenode.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).RemoveAttributeNode)(::windows::core::Interface::as_raw(this), attributenode.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetElementsByTagName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tagname: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn GetElementsByTagName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tagname: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetElementsByTagName)(::windows::core::Interface::as_raw(this), tagname.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).GetElementsByTagName)(::windows::core::Interface::as_raw(this), tagname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1, value: Param2) -> ::windows::core::Result<()> {
+    pub fn SetAttributeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, qualifiedname: Param1, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), qualifiedname.into().abi(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetAttributeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), localname.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), localname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveAttributeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<()> {
+    pub fn RemoveAttributeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), localname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), localname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetAttributeNodeNS<'a, Param0: ::windows::core::IntoParam<'a, XmlAttribute>>(&self, newattribute: Param0) -> ::windows::core::Result<XmlAttribute> {
+    pub fn SetAttributeNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XmlAttribute>>>(&self, newattribute: Param0) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAttributeNodeNS)(::windows::core::Interface::as_raw(this), newattribute.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).SetAttributeNodeNS)(::windows::core::Interface::as_raw(this), newattribute.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetAttributeNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<XmlAttribute> {
+    pub fn GetAttributeNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::core::Result<XmlAttribute> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAttributeNodeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), localname.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
+            (::windows::core::Interface::vtable(this).GetAttributeNodeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), localname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5454,9 +5206,9 @@ impl XmlElement {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -5547,35 +5299,35 @@ impl XmlElement {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5616,40 +5368,40 @@ impl XmlElement {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5669,9 +5421,9 @@ impl XmlElement {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlElement {
@@ -5714,14 +5466,9 @@ impl ::core::convert::From<&XmlElement> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlElement> for &::windows::core::IUnknown {
+    fn from(value: &XmlElement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlElement> for ::windows::core::IInspectable {
@@ -5734,14 +5481,9 @@ impl ::core::convert::From<&XmlElement> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlElement> for &::windows::core::IInspectable {
+    fn from(value: &XmlElement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlElement> for IXmlNode {
@@ -5756,14 +5498,11 @@ impl ::core::convert::TryFrom<&XmlElement> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlElement> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlElement) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlElement> for IXmlNodeSelector {
@@ -5778,14 +5517,11 @@ impl ::core::convert::TryFrom<&XmlElement> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlElement> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlElement) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlElement> for IXmlNodeSerializer {
@@ -5800,14 +5536,11 @@ impl ::core::convert::TryFrom<&XmlElement> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlElement> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlElement) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlElement {}
@@ -5825,9 +5558,9 @@ impl XmlEntityReference {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -5918,35 +5651,35 @@ impl XmlEntityReference {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5987,40 +5720,40 @@ impl XmlEntityReference {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -6040,9 +5773,9 @@ impl XmlEntityReference {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlEntityReference {
@@ -6085,14 +5818,9 @@ impl ::core::convert::From<&XmlEntityReference> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlEntityReference> for &::windows::core::IUnknown {
+    fn from(value: &XmlEntityReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlEntityReference> for ::windows::core::IInspectable {
@@ -6105,14 +5833,9 @@ impl ::core::convert::From<&XmlEntityReference> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlEntityReference> for &::windows::core::IInspectable {
+    fn from(value: &XmlEntityReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlEntityReference> for IXmlNode {
@@ -6127,14 +5850,11 @@ impl ::core::convert::TryFrom<&XmlEntityReference> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlEntityReference> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlEntityReference) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlEntityReference> for IXmlNodeSelector {
@@ -6149,14 +5869,11 @@ impl ::core::convert::TryFrom<&XmlEntityReference> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlEntityReference> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlEntityReference) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlEntityReference> for IXmlNodeSerializer {
@@ -6171,14 +5888,11 @@ impl ::core::convert::TryFrom<&XmlEntityReference> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlEntityReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlEntityReference> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlEntityReference) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlEntityReference {}
@@ -6300,14 +6014,9 @@ impl ::core::convert::From<&XmlLoadSettings> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlLoadSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlLoadSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlLoadSettings> for &::windows::core::IUnknown {
+    fn from(value: &XmlLoadSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlLoadSettings> for ::windows::core::IInspectable {
@@ -6320,14 +6029,9 @@ impl ::core::convert::From<&XmlLoadSettings> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlLoadSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlLoadSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlLoadSettings> for &::windows::core::IInspectable {
+    fn from(value: &XmlLoadSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XmlLoadSettings {}
@@ -6365,11 +6069,11 @@ impl XmlNamedNodeMap {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`*"]
@@ -6398,51 +6102,51 @@ impl XmlNamedNodeMap {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetNamedItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn GetNamedItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedItem)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedItem)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNamedItem<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, node: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SetNamedItem<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, node: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetNamedItem)(::windows::core::Interface::as_raw(this), node.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SetNamedItem)(::windows::core::Interface::as_raw(this), node.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveNamedItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveNamedItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveNamedItem)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveNamedItem)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn GetNamedItemNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn GetNamedItemNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedItemNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedItemNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveNamedItemNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveNamedItemNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveNamedItemNS)(::windows::core::Interface::as_raw(this), namespaceuri.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveNamedItemNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNamedItemNS<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, node: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SetNamedItemNS<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, node: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetNamedItemNS)(::windows::core::Interface::as_raw(this), node.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SetNamedItemNS)(::windows::core::Interface::as_raw(this), node.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
 }
@@ -6502,14 +6206,9 @@ impl ::core::convert::From<&XmlNamedNodeMap> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlNamedNodeMap> for &::windows::core::IUnknown {
+    fn from(value: &XmlNamedNodeMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlNamedNodeMap> for ::windows::core::IInspectable {
@@ -6522,14 +6221,9 @@ impl ::core::convert::From<&XmlNamedNodeMap> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlNamedNodeMap> for &::windows::core::IInspectable {
+    fn from(value: &XmlNamedNodeMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6547,15 +6241,11 @@ impl ::core::convert::TryFrom<&XmlNamedNodeMap> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> for XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> for &XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlNamedNodeMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlNamedNodeMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6573,15 +6263,11 @@ impl ::core::convert::TryFrom<&XmlNamedNodeMap> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> for XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> for &XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlNamedNodeMap> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlNamedNodeMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlNamedNodeMap {}
@@ -6619,11 +6305,11 @@ impl XmlNodeList {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`*"]
@@ -6708,14 +6394,9 @@ impl ::core::convert::From<&XmlNodeList> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlNodeList> for &::windows::core::IUnknown {
+    fn from(value: &XmlNodeList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlNodeList> for ::windows::core::IInspectable {
@@ -6728,14 +6409,9 @@ impl ::core::convert::From<&XmlNodeList> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlNodeList> for &::windows::core::IInspectable {
+    fn from(value: &XmlNodeList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6753,15 +6429,11 @@ impl ::core::convert::TryFrom<&XmlNodeList> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> for XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> for &XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlNodeList> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IXmlNode>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlNodeList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6779,15 +6451,11 @@ impl ::core::convert::TryFrom<&XmlNodeList> for super::super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> for XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> for &XmlNodeList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlNodeList> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<IXmlNode>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlNodeList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlNodeList {}
@@ -6805,9 +6473,9 @@ impl XmlProcessingInstruction {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -6898,35 +6566,35 @@ impl XmlProcessingInstruction {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -6967,40 +6635,40 @@ impl XmlProcessingInstruction {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -7020,9 +6688,9 @@ impl XmlProcessingInstruction {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn Target(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -7041,9 +6709,9 @@ impl XmlProcessingInstruction {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for XmlProcessingInstruction {
@@ -7086,14 +6754,9 @@ impl ::core::convert::From<&XmlProcessingInstruction> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlProcessingInstruction> for &::windows::core::IUnknown {
+    fn from(value: &XmlProcessingInstruction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlProcessingInstruction> for ::windows::core::IInspectable {
@@ -7106,14 +6769,9 @@ impl ::core::convert::From<&XmlProcessingInstruction> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlProcessingInstruction> for &::windows::core::IInspectable {
+    fn from(value: &XmlProcessingInstruction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlProcessingInstruction> for IXmlNode {
@@ -7128,14 +6786,11 @@ impl ::core::convert::TryFrom<&XmlProcessingInstruction> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlProcessingInstruction> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlProcessingInstruction) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlProcessingInstruction> for IXmlNodeSelector {
@@ -7150,14 +6805,11 @@ impl ::core::convert::TryFrom<&XmlProcessingInstruction> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlProcessingInstruction> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlProcessingInstruction) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlProcessingInstruction> for IXmlNodeSerializer {
@@ -7172,14 +6824,11 @@ impl ::core::convert::TryFrom<&XmlProcessingInstruction> for IXmlNodeSerializer 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlProcessingInstruction> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlProcessingInstruction) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlProcessingInstruction {}
@@ -7197,9 +6846,9 @@ impl XmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
@@ -7218,14 +6867,14 @@ impl XmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn AppendData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AppendData)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, data: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertData)(::windows::core::Interface::as_raw(this), offset, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::core::Result<()> {
@@ -7233,9 +6882,9 @@ impl XmlText {
         unsafe { (::windows::core::Interface::vtable(this).DeleteData)(::windows::core::Interface::as_raw(this), offset, count).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceData<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
+    pub fn ReplaceData<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceData)(::windows::core::Interface::as_raw(this), offset, count, data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -7246,9 +6895,9 @@ impl XmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
@@ -7339,35 +6988,35 @@ impl XmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn InsertBefore<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn InsertBefore<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn ReplaceChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>, Param1: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn ReplaceChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), referencechild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn RemoveChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn RemoveChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, childnode: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn AppendChild<'a, Param0: ::windows::core::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn AppendChild<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, newchild: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -7408,40 +7057,40 @@ impl XmlText {
         unsafe { (::windows::core::Interface::vtable(this).Normalize)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetPrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, xpath: Param0) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectSingleNodeNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
+    pub fn SelectSingleNodeNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SelectNodesNS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
+    pub fn SelectNodesNS<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into_param().abi(), namespaces.into_param().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
+            (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -7461,9 +7110,9 @@ impl XmlText {
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    pub fn SetInnerText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInnerText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInnerText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
@@ -7514,14 +7163,9 @@ impl ::core::convert::From<&XmlText> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlText> for &::windows::core::IUnknown {
+    fn from(value: &XmlText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XmlText> for ::windows::core::IInspectable {
@@ -7534,14 +7178,9 @@ impl ::core::convert::From<&XmlText> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XmlText> for &::windows::core::IInspectable {
+    fn from(value: &XmlText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<XmlText> for IXmlCharacterData {
@@ -7556,14 +7195,11 @@ impl ::core::convert::TryFrom<&XmlText> for IXmlCharacterData {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlCharacterData> for &XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlCharacterData> {
-        ::core::convert::TryInto::<IXmlCharacterData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlText> for ::windows::core::InParam<'a, IXmlCharacterData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlText> for IXmlNode {
@@ -7578,14 +7214,11 @@ impl ::core::convert::TryFrom<&XmlText> for IXmlNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNode> for &XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNode> {
-        ::core::convert::TryInto::<IXmlNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlText> for ::windows::core::InParam<'a, IXmlNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlText> for IXmlNodeSelector {
@@ -7600,14 +7233,11 @@ impl ::core::convert::TryFrom<&XmlText> for IXmlNodeSelector {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSelector> for &XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSelector> {
-        ::core::convert::TryInto::<IXmlNodeSelector>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlText> for ::windows::core::InParam<'a, IXmlNodeSelector> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlText> for IXmlNodeSerializer {
@@ -7622,14 +7252,11 @@ impl ::core::convert::TryFrom<&XmlText> for IXmlNodeSerializer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlNodeSerializer> {
-        ::core::convert::TryInto::<IXmlNodeSerializer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlText> for ::windows::core::InParam<'a, IXmlNodeSerializer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<XmlText> for IXmlText {
@@ -7644,14 +7271,11 @@ impl ::core::convert::TryFrom<&XmlText> for IXmlText {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXmlText> for XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlText> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlText {
-    fn into_param(self) -> ::windows::core::Param<'a, IXmlText> {
-        ::core::convert::TryInto::<IXmlText>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&XmlText> for ::windows::core::InParam<'a, IXmlText> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &XmlText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for XmlText {}

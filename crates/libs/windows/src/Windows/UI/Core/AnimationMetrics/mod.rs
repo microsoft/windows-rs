@@ -46,10 +46,10 @@ impl AnimationDescription {
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
-    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<AnimationEffect>, Param1: ::std::convert::Into<AnimationEffectTarget>>(effect: Param0, target: Param1) -> ::windows::core::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect, target, result__.as_mut_ptr()).from_abi::<AnimationDescription>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect.into(), target.into(), result__.as_mut_ptr()).from_abi::<AnimationDescription>(result__)
         })
     }
     #[doc(hidden)]
@@ -98,14 +98,9 @@ impl ::core::convert::From<&AnimationDescription> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AnimationDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AnimationDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AnimationDescription> for &::windows::core::IUnknown {
+    fn from(value: &AnimationDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AnimationDescription> for ::windows::core::IInspectable {
@@ -118,14 +113,9 @@ impl ::core::convert::From<&AnimationDescription> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AnimationDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AnimationDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AnimationDescription> for &::windows::core::IInspectable {
+    fn from(value: &AnimationDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AnimationDescription {}
@@ -360,19 +350,14 @@ impl ::core::convert::From<IPropertyAnimation> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPropertyAnimation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPropertyAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPropertyAnimation> for ::windows::core::IUnknown {
     fn from(value: &IPropertyAnimation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPropertyAnimation> for ::windows::core::IInspectable {
@@ -380,19 +365,14 @@ impl ::core::convert::From<IPropertyAnimation> for ::windows::core::IInspectable
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPropertyAnimation> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPropertyAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPropertyAnimation> for ::windows::core::IInspectable {
     fn from(value: &IPropertyAnimation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPropertyAnimation {
@@ -576,14 +556,9 @@ impl ::core::convert::From<&OpacityAnimation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OpacityAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OpacityAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OpacityAnimation> for &::windows::core::IUnknown {
+    fn from(value: &OpacityAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OpacityAnimation> for ::windows::core::IInspectable {
@@ -596,14 +571,9 @@ impl ::core::convert::From<&OpacityAnimation> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OpacityAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OpacityAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OpacityAnimation> for &::windows::core::IInspectable {
+    fn from(value: &OpacityAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<OpacityAnimation> for IPropertyAnimation {
@@ -618,14 +588,11 @@ impl ::core::convert::TryFrom<&OpacityAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for OpacityAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &OpacityAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&OpacityAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &OpacityAnimation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for OpacityAnimation {}
@@ -719,14 +686,9 @@ impl ::core::convert::From<&PropertyAnimation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PropertyAnimation> for &::windows::core::IUnknown {
+    fn from(value: &PropertyAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PropertyAnimation> for ::windows::core::IInspectable {
@@ -739,14 +701,9 @@ impl ::core::convert::From<&PropertyAnimation> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PropertyAnimation> for &::windows::core::IInspectable {
+    fn from(value: &PropertyAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PropertyAnimation> for IPropertyAnimation {
@@ -761,14 +718,11 @@ impl ::core::convert::TryFrom<&PropertyAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for PropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &PropertyAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PropertyAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PropertyAnimation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PropertyAnimation {}
@@ -940,14 +894,9 @@ impl ::core::convert::From<&ScaleAnimation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScaleAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScaleAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ScaleAnimation> for &::windows::core::IUnknown {
+    fn from(value: &ScaleAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ScaleAnimation> for ::windows::core::IInspectable {
@@ -960,14 +909,9 @@ impl ::core::convert::From<&ScaleAnimation> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ScaleAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScaleAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ScaleAnimation> for &::windows::core::IInspectable {
+    fn from(value: &ScaleAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ScaleAnimation> for IPropertyAnimation {
@@ -982,14 +926,11 @@ impl ::core::convert::TryFrom<&ScaleAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for ScaleAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &ScaleAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ScaleAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ScaleAnimation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ScaleAnimation {}
@@ -1083,14 +1024,9 @@ impl ::core::convert::From<&TranslationAnimation> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TranslationAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TranslationAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TranslationAnimation> for &::windows::core::IUnknown {
+    fn from(value: &TranslationAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TranslationAnimation> for ::windows::core::IInspectable {
@@ -1103,14 +1039,9 @@ impl ::core::convert::From<&TranslationAnimation> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TranslationAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TranslationAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TranslationAnimation> for &::windows::core::IInspectable {
+    fn from(value: &TranslationAnimation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<TranslationAnimation> for IPropertyAnimation {
@@ -1125,14 +1056,11 @@ impl ::core::convert::TryFrom<&TranslationAnimation> for IPropertyAnimation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for TranslationAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &TranslationAnimation {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyAnimation> {
-        ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TranslationAnimation> for ::windows::core::InParam<'a, IPropertyAnimation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TranslationAnimation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TranslationAnimation {}

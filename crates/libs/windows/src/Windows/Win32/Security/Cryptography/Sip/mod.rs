@@ -61,12 +61,12 @@ pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPPutSignedDataMsg<'a, Param1: ::std::convert::Into<super::CERT_QUERY_ENCODING_TYPE>>(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: Param1, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPPutSignedDataMsg(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(dwencodingtype), ::core::mem::transmute(pdwindex), ::core::mem::transmute(cbsigneddatamsg), ::core::mem::transmute(pbsigneddatamsg)))
+    ::core::mem::transmute(CryptSIPPutSignedDataMsg(::core::mem::transmute(psubjectinfo), dwencodingtype.into(), ::core::mem::transmute(pdwindex), ::core::mem::transmute(cbsigneddatamsg), ::core::mem::transmute(pbsigneddatamsg)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -91,22 +91,22 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filename: Param0, hfilein: Param1, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPRetrieveSubjectGuid<'a, Param1: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(filename: ::windows::core::PCWSTR, hfilein: Param1, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CryptSIPRetrieveSubjectGuid(filename: ::windows::core::PCWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPRetrieveSubjectGuid(filename.into_param().abi(), hfilein.into_param().abi(), ::core::mem::transmute(pgsubject)))
+    ::core::mem::transmute(CryptSIPRetrieveSubjectGuid(::core::mem::transmute(filename), hfilein.into(), ::core::mem::transmute(pgsubject)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filename: Param0, hfilein: Param1, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<'a, Param1: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(filename: ::windows::core::PCWSTR, hfilein: Param1, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: ::windows::core::PCWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPRetrieveSubjectGuidForCatalogFile(filename.into_param().abi(), hfilein.into_param().abi(), ::core::mem::transmute(pgsubject)))
+    ::core::mem::transmute(CryptSIPRetrieveSubjectGuidForCatalogFile(::core::mem::transmute(filename), hfilein.into(), ::core::mem::transmute(pgsubject)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

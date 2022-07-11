@@ -3,17 +3,22 @@
 pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-    pub unsafe fn TriggerContentPrefetcherTask<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi()).ok()
+    pub unsafe fn TriggerContentPrefetcherTask(&self, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(packagefullname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-    pub unsafe fn IsRegisteredForContentPrefetch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<u8> {
+    pub unsafe fn IsRegisteredForContentPrefetch(&self, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(packagefullname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {
     fn from(value: IContentPrefetcherTaskTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IContentPrefetcherTaskTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContentPrefetcherTaskTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -22,34 +27,19 @@ impl ::core::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
     fn from(value: IContentPrefetcherTaskTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IContentPrefetcherTaskTrigger> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContentPrefetcherTaskTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
     fn from(value: &IContentPrefetcherTaskTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
@@ -14103,24 +14093,24 @@ impl ::core::default::Default for WS_XML_WRITER_TEXT_ENCODING {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwnd: Param0, pwszrpid: Param1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION> {
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pwszrpid: ::windows::core::PCWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WebAuthNAuthenticatorGetAssertion(hwnd: super::super::Foundation::HWND, pwszrpid: ::windows::core::PCWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion: *mut *mut WEBAUTHN_ASSERTION) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut WEBAUTHN_ASSERTION>::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into_param().abi(), pwszrpid.into_param().abi(), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_ASSERTION>(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into(), ::core::mem::transmute(pwszrpid), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_ASSERTION>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION> {
+pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WebAuthNAuthenticatorMakeCredential(hwnd: super::super::Foundation::HWND, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation: *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>::zeroed();
-    WebAuthNAuthenticatorMakeCredential(hwnd.into_param().abi(), ::core::mem::transmute(prpinformation), ::core::mem::transmute(puserinformation), ::core::mem::transmute(ppubkeycredparams), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthnmakecredentialoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>(result__)
+    WebAuthNAuthenticatorMakeCredential(hwnd.into(), ::core::mem::transmute(prpinformation), ::core::mem::transmute(puserinformation), ::core::mem::transmute(ppubkeycredparams), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthnmakecredentialoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14264,12 +14254,12 @@ pub unsafe fn WsAcceptChannel(listener: *const WS_LISTENER, channel: *const WS_C
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, headerattributes: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsAddCustomHeader<'a, Param2: ::std::convert::Into<WS_WRITE_OPTION>>(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: Param2, value: *const ::core::ffi::c_void, valuesize: u32, headerattributes: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, headerattributes: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsAddCustomHeader(::core::mem::transmute(message), ::core::mem::transmute(headerdescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(headerattributes), ::core::mem::transmute(error)).ok()
+    WsAddCustomHeader(::core::mem::transmute(message), ::core::mem::transmute(headerdescription), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(headerattributes), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14283,12 +14273,12 @@ pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING)
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsAddMappedHeader<'a, Param2: ::std::convert::Into<WS_TYPE>, Param3: ::std::convert::Into<WS_WRITE_OPTION>>(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: Param2, writeoption: Param3, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsAddMappedHeader(::core::mem::transmute(message), ::core::mem::transmute(headername), ::core::mem::transmute(valuetype), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsAddMappedHeader(::core::mem::transmute(message), ::core::mem::transmute(headername), valuetype.into(), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14310,12 +14300,12 @@ pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut ::core::
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsAsyncExecute<'a, Param2: ::std::convert::Into<WS_CALLBACK_MODEL>>(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: Param2, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: *mut ::core::ffi::c_void, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsAsyncExecute(::core::mem::transmute(asyncstate), ::core::mem::transmute(operation), ::core::mem::transmute(callbackmodel), ::core::mem::transmute(callbackstate), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+    WsAsyncExecute(::core::mem::transmute(asyncstate), ::core::mem::transmute(operation), callbackmodel.into(), ::core::mem::transmute(callbackstate), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14401,12 +14391,12 @@ pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_REA
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: &[WS_CHANNEL_PROPERTY], securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateChannel<'a, Param0: ::std::convert::Into<WS_CHANNEL_TYPE>, Param1: ::std::convert::Into<WS_CHANNEL_BINDING>>(channeltype: Param0, channelbinding: Param1, properties: &[WS_CHANNEL_PROPERTY], securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *const WS_CHANNEL_PROPERTY, propertycount: u32, securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsCreateChannel(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(channel), ::core::mem::transmute(error)).ok()
+    WsCreateChannel(channeltype.into(), channelbinding.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(channel), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14430,13 +14420,13 @@ pub unsafe fn WsCreateError(properties: &[WS_ERROR_PROPERTY]) -> ::windows::core
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP) -> ::windows::core::Result<WS_FAULT> {
+pub unsafe fn WsCreateFaultFromError<'a, Param2: ::std::convert::Into<WS_FAULT_DISCLOSURE>>(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: Param2, heap: *const WS_HEAP) -> ::windows::core::Result<WS_FAULT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<WS_FAULT>::zeroed();
-    WsCreateFaultFromError(::core::mem::transmute(error), ::core::mem::transmute(faulterrorcode), ::core::mem::transmute(faultdisclosure), ::core::mem::transmute(heap), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WS_FAULT>(result__)
+    WsCreateFaultFromError(::core::mem::transmute(error), ::core::mem::transmute(faulterrorcode), faultdisclosure.into(), ::core::mem::transmute(heap), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WS_FAULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14449,21 +14439,21 @@ pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: *const W
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: &[WS_LISTENER_PROPERTY], securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateListener<'a, Param0: ::std::convert::Into<WS_CHANNEL_TYPE>, Param1: ::std::convert::Into<WS_CHANNEL_BINDING>>(channeltype: Param0, channelbinding: Param1, properties: &[WS_LISTENER_PROPERTY], securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *const WS_LISTENER_PROPERTY, propertycount: u32, securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsCreateListener(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(listener), ::core::mem::transmute(error)).ok()
+    WsCreateListener(channeltype.into(), channelbinding.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(listener), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: &[WS_MESSAGE_PROPERTY], message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateMessage<'a, Param0: ::std::convert::Into<WS_ENVELOPE_VERSION>, Param1: ::std::convert::Into<WS_ADDRESSING_VERSION>>(envelopeversion: Param0, addressingversion: Param1, properties: &[WS_MESSAGE_PROPERTY], message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: *const WS_MESSAGE_PROPERTY, propertycount: u32, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsCreateMessage(::core::mem::transmute(envelopeversion), ::core::mem::transmute(addressingversion), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(message), ::core::mem::transmute(error)).ok()
+    WsCreateMessage(envelopeversion.into(), addressingversion.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(message), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14495,20 +14485,20 @@ pub unsafe fn WsCreateReader(properties: &[WS_XML_READER_PROPERTY], reader: *mut
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: &[WS_SERVICE_ENDPOINT_PROPERTY], addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceEndpointFromTemplate<'a, Param0: ::std::convert::Into<WS_CHANNEL_TYPE>, Param7: ::std::convert::Into<WS_BINDING_TEMPLATE_TYPE>>(channeltype: Param0, properties: &[WS_SERVICE_ENDPOINT_PROPERTY], addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: Param7, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: *mut ::core::ffi::c_void, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
     WsCreateServiceEndpointFromTemplate(
-        ::core::mem::transmute(channeltype),
+        channeltype.into(),
         ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)),
         properties.len() as _,
         ::core::mem::transmute(addressurl),
         ::core::mem::transmute(contract),
         ::core::mem::transmute(authorizationcallback),
         ::core::mem::transmute(heap),
-        ::core::mem::transmute(templatetype),
+        templatetype.into(),
         ::core::mem::transmute(templatevalue),
         ::core::mem::transmute(templatesize),
         ::core::mem::transmute(templatedescription),
@@ -14530,21 +14520,21 @@ pub unsafe fn WsCreateServiceHost(endpoints: &[*const WS_SERVICE_ENDPOINT], serv
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: &[WS_PROXY_PROPERTY], channelproperties: &[WS_CHANNEL_PROPERTY], serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceProxy<'a, Param0: ::std::convert::Into<WS_CHANNEL_TYPE>, Param1: ::std::convert::Into<WS_CHANNEL_BINDING>>(channeltype: Param0, channelbinding: Param1, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: &[WS_PROXY_PROPERTY], channelproperties: &[WS_CHANNEL_PROPERTY], serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: *const WS_PROXY_PROPERTY, propertycount: u32, channelproperties: *const WS_CHANNEL_PROPERTY, channelpropertycount: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsCreateServiceProxy(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(securitydescription), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(channelproperties)), channelproperties.len() as _, ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
+    WsCreateServiceProxy(channeltype.into(), channelbinding.into(), ::core::mem::transmute(securitydescription), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(channelproperties)), channelproperties.len() as _, ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: &[WS_PROXY_PROPERTY], templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceProxyFromTemplate<'a, Param0: ::std::convert::Into<WS_CHANNEL_TYPE>, Param3: ::std::convert::Into<WS_BINDING_TEMPLATE_TYPE>>(channeltype: Param0, properties: &[WS_PROXY_PROPERTY], templatetype: Param3, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_PROXY_PROPERTY, propertycount: u32, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsCreateServiceProxyFromTemplate(::core::mem::transmute(channeltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(templatetype), ::core::mem::transmute(templatevalue), ::core::mem::transmute(templatesize), ::core::mem::transmute(templatedescription), ::core::mem::transmute(templatedescriptionsize), ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
+    WsCreateServiceProxyFromTemplate(channeltype.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, templatetype.into(), ::core::mem::transmute(templatevalue), ::core::mem::transmute(templatesize), ::core::mem::transmute(templatedescription), ::core::mem::transmute(templatedescriptionsize), ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14650,12 +14640,12 @@ pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccont
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsFindAttribute<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: Param3, attributeindex: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsFindAttribute<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: Param3, attributeindex: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsFindAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: super::super::Foundation::BOOL, attributeindex: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsFindAttribute(::core::mem::transmute(reader), ::core::mem::transmute(localname), ::core::mem::transmute(ns), required.into_param().abi(), ::core::mem::transmute(attributeindex), ::core::mem::transmute(error)).ok()
+    WsFindAttribute(::core::mem::transmute(reader), ::core::mem::transmute(localname), ::core::mem::transmute(ns), required.into(), ::core::mem::transmute(attributeindex), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14776,41 +14766,41 @@ pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetChannelProperty<'a, Param1: ::std::convert::Into<WS_CHANNEL_PROPERTY_ID>>(channel: *const WS_CHANNEL, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetChannelProperty(::core::mem::transmute(channel), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetChannelProperty(::core::mem::transmute(channel), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, headerattributes: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetCustomHeader<'a, Param2: ::std::convert::Into<WS_REPEATING_HEADER_OPTION>, Param4: ::std::convert::Into<WS_READ_OPTION>>(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: Param2, headerindex: u32, readoption: Param4, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, headerattributes: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, headerattributes: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetCustomHeader(::core::mem::transmute(message), ::core::mem::transmute(customheaderdescription), ::core::mem::transmute(repeatingoption), ::core::mem::transmute(headerindex), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(headerattributes), ::core::mem::transmute(error)).ok()
+    WsGetCustomHeader(::core::mem::transmute(message), ::core::mem::transmute(customheaderdescription), repeatingoption.into(), ::core::mem::transmute(headerindex), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(headerattributes), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetDictionary<'a, Param0: ::std::convert::Into<WS_ENCODING>>(encoding: Param0, dictionary: *mut *mut WS_XML_DICTIONARY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetDictionary(::core::mem::transmute(encoding), ::core::mem::transmute(dictionary), ::core::mem::transmute(error)).ok()
+    WsGetDictionary(encoding.into(), ::core::mem::transmute(dictionary), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetErrorProperty<'a, Param1: ::std::convert::Into<WS_ERROR_PROPERTY_ID>>(error: *const WS_ERROR, id: Param1, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT;
     }
-    WsGetErrorProperty(::core::mem::transmute(error), ::core::mem::transmute(id), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
+    WsGetErrorProperty(::core::mem::transmute(error), id.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14825,30 +14815,30 @@ pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows:
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetFaultErrorDetail<'a, Param2: ::std::convert::Into<WS_READ_OPTION>>(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: Param2, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32) -> ::windows::core::HRESULT;
     }
-    WsGetFaultErrorDetail(::core::mem::transmute(error), ::core::mem::transmute(faultdetaildescription), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
+    WsGetFaultErrorDetail(::core::mem::transmute(error), ::core::mem::transmute(faultdetaildescription), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetFaultErrorProperty<'a, Param1: ::std::convert::Into<WS_FAULT_ERROR_PROPERTY_ID>>(error: *const WS_ERROR, id: Param1, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT;
     }
-    WsGetFaultErrorProperty(::core::mem::transmute(error), ::core::mem::transmute(id), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
+    WsGetFaultErrorProperty(::core::mem::transmute(error), id.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetHeader<'a, Param1: ::std::convert::Into<WS_HEADER_TYPE>, Param2: ::std::convert::Into<WS_TYPE>, Param3: ::std::convert::Into<WS_READ_OPTION>>(message: *const WS_MESSAGE, headertype: Param1, valuetype: Param2, readoption: Param3, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetHeader(::core::mem::transmute(message), ::core::mem::transmute(headertype), ::core::mem::transmute(valuetype), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetHeader(::core::mem::transmute(message), headertype.into(), valuetype.into(), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14861,40 +14851,40 @@ pub unsafe fn WsGetHeaderAttributes(message: *const WS_MESSAGE, reader: *const W
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetHeapProperty(heap: *const WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetHeapProperty<'a, Param1: ::std::convert::Into<WS_HEAP_PROPERTY_ID>>(heap: *const WS_HEAP, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetHeapProperty(heap: *const WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetHeapProperty(::core::mem::transmute(heap), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetHeapProperty(::core::mem::transmute(heap), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetListenerProperty<'a, Param1: ::std::convert::Into<WS_LISTENER_PROPERTY_ID>>(listener: *const WS_LISTENER, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetListenerProperty(::core::mem::transmute(listener), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetListenerProperty(::core::mem::transmute(listener), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetMappedHeader<'a, Param2: ::std::convert::Into<WS_REPEATING_HEADER_OPTION>, Param4: ::std::convert::Into<WS_TYPE>, Param5: ::std::convert::Into<WS_READ_OPTION>>(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: Param2, headerindex: u32, valuetype: Param4, readoption: Param5, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetMappedHeader(::core::mem::transmute(message), ::core::mem::transmute(headername), ::core::mem::transmute(repeatingoption), ::core::mem::transmute(headerindex), ::core::mem::transmute(valuetype), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetMappedHeader(::core::mem::transmute(message), ::core::mem::transmute(headername), repeatingoption.into(), ::core::mem::transmute(headerindex), valuetype.into(), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetMessageProperty<'a, Param1: ::std::convert::Into<WS_MESSAGE_PROPERTY_ID>>(message: *const WS_MESSAGE, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetMessageProperty(::core::mem::transmute(message), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetMessageProperty(::core::mem::transmute(message), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14908,12 +14898,12 @@ pub unsafe fn WsGetMetadataEndpoints(metadata: *const WS_METADATA, endpoints: *m
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetMetadataProperty<'a, Param1: ::std::convert::Into<WS_METADATA_PROPERTY_ID>>(metadata: *const WS_METADATA, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetMetadataProperty(::core::mem::transmute(metadata), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetMetadataProperty(::core::mem::transmute(metadata), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14927,21 +14917,21 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, 
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetNamespaceFromPrefix<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: Param2, ns: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetNamespaceFromPrefix<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: Param2, ns: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: super::super::Foundation::BOOL, ns: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetNamespaceFromPrefix(::core::mem::transmute(reader), ::core::mem::transmute(prefix), required.into_param().abi(), ::core::mem::transmute(ns), ::core::mem::transmute(error)).ok()
+    WsGetNamespaceFromPrefix(::core::mem::transmute(reader), ::core::mem::transmute(prefix), required.into(), ::core::mem::transmute(ns), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetOperationContextProperty<'a, Param1: ::std::convert::Into<WS_OPERATION_CONTEXT_PROPERTY_ID>>(context: *const WS_OPERATION_CONTEXT, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetOperationContextProperty(::core::mem::transmute(context), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetOperationContextProperty(::core::mem::transmute(context), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14954,22 +14944,22 @@ pub unsafe fn WsGetPolicyAlternativeCount(policy: *const WS_POLICY, count: *mut 
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetPolicyProperty<'a, Param1: ::std::convert::Into<WS_POLICY_PROPERTY_ID>>(policy: *const WS_POLICY, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetPolicyProperty(::core::mem::transmute(policy), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetPolicyProperty(::core::mem::transmute(policy), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetPrefixFromNamespace<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: Param2, prefix: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetPrefixFromNamespace<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: Param2, prefix: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: super::super::Foundation::BOOL, prefix: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetPrefixFromNamespace(::core::mem::transmute(writer), ::core::mem::transmute(ns), required.into_param().abi(), ::core::mem::transmute(prefix), ::core::mem::transmute(error)).ok()
+    WsGetPrefixFromNamespace(::core::mem::transmute(writer), ::core::mem::transmute(ns), required.into(), ::core::mem::transmute(prefix), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -14991,48 +14981,48 @@ pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *m
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetReaderProperty(reader: *const WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetReaderProperty<'a, Param1: ::std::convert::Into<WS_XML_READER_PROPERTY_ID>>(reader: *const WS_XML_READER, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetReaderProperty(reader: *const WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetReaderProperty(::core::mem::transmute(reader), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetReaderProperty(::core::mem::transmute(reader), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetSecurityContextProperty(securitycontext: *const WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetSecurityContextProperty<'a, Param1: ::std::convert::Into<WS_SECURITY_CONTEXT_PROPERTY_ID>>(securitycontext: *const WS_SECURITY_CONTEXT, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetSecurityContextProperty(securitycontext: *const WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetSecurityContextProperty(::core::mem::transmute(securitycontext), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetSecurityContextProperty(::core::mem::transmute(securitycontext), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetSecurityTokenProperty(securitytoken: *const WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetSecurityTokenProperty<'a, Param1: ::std::convert::Into<WS_SECURITY_TOKEN_PROPERTY_ID>>(securitytoken: *const WS_SECURITY_TOKEN, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetSecurityTokenProperty(securitytoken: *const WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetSecurityTokenProperty(::core::mem::transmute(securitytoken), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(heap), ::core::mem::transmute(error)).ok()
+    WsGetSecurityTokenProperty(::core::mem::transmute(securitytoken), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(heap), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetServiceHostProperty(servicehost: *const WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetServiceHostProperty<'a, Param1: ::std::convert::Into<WS_SERVICE_PROPERTY_ID>>(servicehost: *const WS_SERVICE_HOST, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetServiceHostProperty(servicehost: *const WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetServiceHostProperty(::core::mem::transmute(servicehost), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetServiceHostProperty(::core::mem::transmute(servicehost), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, id: WS_PROXY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetServiceProxyProperty<'a, Param1: ::std::convert::Into<WS_PROXY_PROPERTY_ID>>(serviceproxy: *const WS_SERVICE_PROXY, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, id: WS_PROXY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetServiceProxyProperty(::core::mem::transmute(serviceproxy), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetServiceProxyProperty(::core::mem::transmute(serviceproxy), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15045,12 +15035,12 @@ pub unsafe fn WsGetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *m
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsGetWriterProperty<'a, Param1: ::std::convert::Into<WS_XML_WRITER_PROPERTY_ID>>(writer: *const WS_XML_WRITER, id: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsGetWriterProperty(::core::mem::transmute(writer), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsGetWriterProperty(::core::mem::transmute(writer), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15064,12 +15054,12 @@ pub unsafe fn WsGetXmlAttribute(reader: *const WS_XML_READER, localname: *const 
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsInitializeMessage(message: *const WS_MESSAGE, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsInitializeMessage<'a, Param1: ::std::convert::Into<WS_MESSAGE_INITIALIZATION>>(message: *const WS_MESSAGE, initialization: Param1, sourcemessage: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsInitializeMessage(message: *const WS_MESSAGE, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsInitializeMessage(::core::mem::transmute(message), ::core::mem::transmute(initialization), ::core::mem::transmute(sourcemessage), ::core::mem::transmute(error)).ok()
+    WsInitializeMessage(::core::mem::transmute(message), initialization.into(), ::core::mem::transmute(sourcemessage), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15083,32 +15073,32 @@ pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerpositio
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsMatchPolicyAlternative<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: Param3, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsMatchPolicyAlternative<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: Param3, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsMatchPolicyAlternative(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: super::super::Foundation::BOOL, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsMatchPolicyAlternative(::core::mem::transmute(policy), ::core::mem::transmute(alternativeindex), ::core::mem::transmute(policyconstraints), matchrequired.into_param().abi(), ::core::mem::transmute(heap), ::core::mem::transmute(error)).ok()
+    WsMatchPolicyAlternative(::core::mem::transmute(policy), ::core::mem::transmute(alternativeindex), ::core::mem::transmute(policyconstraints), matchrequired.into(), ::core::mem::transmute(heap), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsMoveReader<'a, Param1: ::std::convert::Into<WS_MOVE_TO>>(reader: *const WS_XML_READER, moveto: Param1, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsMoveReader(::core::mem::transmute(reader), ::core::mem::transmute(moveto), ::core::mem::transmute(found), ::core::mem::transmute(error)).ok()
+    WsMoveReader(::core::mem::transmute(reader), moveto.into(), ::core::mem::transmute(found), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsMoveWriter<'a, Param1: ::std::convert::Into<WS_MOVE_TO>>(writer: *const WS_XML_WRITER, moveto: Param1, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsMoveWriter(::core::mem::transmute(writer), ::core::mem::transmute(moveto), ::core::mem::transmute(found), ::core::mem::transmute(error)).ok()
+    WsMoveWriter(::core::mem::transmute(writer), moveto.into(), ::core::mem::transmute(found), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15167,32 +15157,32 @@ pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *mut ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadArray<'a, Param3: ::std::convert::Into<WS_VALUE_TYPE>>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: Param3, array: *mut ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *mut ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadArray(::core::mem::transmute(reader), ::core::mem::transmute(localname), ::core::mem::transmute(ns), ::core::mem::transmute(valuetype), ::core::mem::transmute(array), ::core::mem::transmute(arraysize), ::core::mem::transmute(itemoffset), ::core::mem::transmute(itemcount), ::core::mem::transmute(actualitemcount), ::core::mem::transmute(error)).ok()
+    WsReadArray(::core::mem::transmute(reader), ::core::mem::transmute(localname), ::core::mem::transmute(ns), valuetype.into(), ::core::mem::transmute(array), ::core::mem::transmute(arraysize), ::core::mem::transmute(itemoffset), ::core::mem::transmute(itemcount), ::core::mem::transmute(actualitemcount), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadAttribute<'a, Param2: ::std::convert::Into<WS_READ_OPTION>>(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: Param2, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadAttribute(::core::mem::transmute(reader), ::core::mem::transmute(attributedescription), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsReadAttribute(::core::mem::transmute(reader), ::core::mem::transmute(attributedescription), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadBody<'a, Param2: ::std::convert::Into<WS_READ_OPTION>>(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: Param2, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadBody(::core::mem::transmute(message), ::core::mem::transmute(bodydescription), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsReadBody(::core::mem::transmute(message), ::core::mem::transmute(bodydescription), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15224,12 +15214,12 @@ pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], ac
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadElement<'a, Param2: ::std::convert::Into<WS_READ_OPTION>>(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: Param2, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadElement(::core::mem::transmute(reader), ::core::mem::transmute(elementdescription), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsReadElement(::core::mem::transmute(reader), ::core::mem::transmute(elementdescription), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15251,12 +15241,12 @@ pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: *const WS_ER
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadEndpointAddressExtension<'a, Param2: ::std::convert::Into<WS_ENDPOINT_ADDRESS_EXTENSION_TYPE>, Param3: ::std::convert::Into<WS_READ_OPTION>>(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: Param2, readoption: Param3, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadEndpointAddressExtension(::core::mem::transmute(reader), ::core::mem::transmute(endpointaddress), ::core::mem::transmute(extensiontype), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsReadEndpointAddressExtension(::core::mem::transmute(reader), ::core::mem::transmute(endpointaddress), extensiontype.into(), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15352,21 +15342,21 @@ pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: *con
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const ::core::ffi::c_void, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadType<'a, Param1: ::std::convert::Into<WS_TYPE_MAPPING>, Param2: ::std::convert::Into<WS_TYPE>, Param4: ::std::convert::Into<WS_READ_OPTION>>(reader: *const WS_XML_READER, typemapping: Param1, r#type: Param2, typedescription: *const ::core::ffi::c_void, readoption: Param4, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const ::core::ffi::c_void, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadType(::core::mem::transmute(reader), ::core::mem::transmute(typemapping), ::core::mem::transmute(r#type), ::core::mem::transmute(typedescription), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsReadType(::core::mem::transmute(reader), typemapping.into(), r#type.into(), ::core::mem::transmute(typedescription), readoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadValue(reader: *const WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadValue<'a, Param1: ::std::convert::Into<WS_VALUE_TYPE>>(reader: *const WS_XML_READER, valuetype: Param1, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReadValue(reader: *const WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReadValue(::core::mem::transmute(reader), ::core::mem::transmute(valuetype), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsReadValue(::core::mem::transmute(reader), valuetype.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15389,12 +15379,12 @@ pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, index: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReceiveMessage<'a, Param4: ::std::convert::Into<WS_RECEIVE_OPTION>, Param5: ::std::convert::Into<WS_READ_OPTION>>(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: Param4, readbodyoption: Param5, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, index: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount: u32, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, index: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsReceiveMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(::windows::core::as_ptr_or_null(messagedescriptions)), messagedescriptions.len() as _, ::core::mem::transmute(receiveoption), ::core::mem::transmute(readbodyoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(index), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+    WsReceiveMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(::windows::core::as_ptr_or_null(messagedescriptions)), messagedescriptions.len() as _, receiveoption.into(), readbodyoption.into(), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(index), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15417,12 +15407,12 @@ pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *cons
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsRemoveHeader<'a, Param1: ::std::convert::Into<WS_HEADER_TYPE>>(message: *const WS_MESSAGE, headertype: Param1, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsRemoveHeader(::core::mem::transmute(message), ::core::mem::transmute(headertype), ::core::mem::transmute(error)).ok()
+    WsRemoveHeader(::core::mem::transmute(message), headertype.into(), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15446,7 +15436,7 @@ pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: *co
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *const ::core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsRequestReply<'a, Param3: ::std::convert::Into<WS_WRITE_OPTION>, Param8: ::std::convert::Into<WS_READ_OPTION>>(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: Param3, requestbodyvalue: *const ::core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: Param8, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *const ::core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
@@ -15455,12 +15445,12 @@ pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const 
         ::core::mem::transmute(channel),
         ::core::mem::transmute(requestmessage),
         ::core::mem::transmute(requestmessagedescription),
-        ::core::mem::transmute(writeoption),
+        writeoption.into(),
         ::core::mem::transmute(requestbodyvalue),
         ::core::mem::transmute(requestbodyvaluesize),
         ::core::mem::transmute(replymessage),
         ::core::mem::transmute(replymessagedescription),
-        ::core::mem::transmute(readoption),
+        readoption.into(),
         ::core::mem::transmute(heap),
         ::core::mem::transmute(value),
         ::core::mem::transmute(valuesize),
@@ -15561,78 +15551,78 @@ pub unsafe fn WsRevokeSecurityContext(securitycontext: *const WS_SECURITY_CONTEX
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSendFaultMessageForError<'a, Param4: ::std::convert::Into<WS_FAULT_DISCLOSURE>>(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: Param4, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSendFaultMessageForError(::core::mem::transmute(channel), ::core::mem::transmute(replymessage), ::core::mem::transmute(faulterror), ::core::mem::transmute(faulterrorcode), ::core::mem::transmute(faultdisclosure), ::core::mem::transmute(requestmessage), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+    WsSendFaultMessageForError(::core::mem::transmute(channel), ::core::mem::transmute(replymessage), ::core::mem::transmute(faulterror), ::core::mem::transmute(faulterrorcode), faultdisclosure.into(), ::core::mem::transmute(requestmessage), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: *const ::core::ffi::c_void, bodyvaluesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSendMessage<'a, Param3: ::std::convert::Into<WS_WRITE_OPTION>>(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: Param3, bodyvalue: *const ::core::ffi::c_void, bodyvaluesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: *const ::core::ffi::c_void, bodyvaluesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSendMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(messagedescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(bodyvalue), ::core::mem::transmute(bodyvaluesize), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+    WsSendMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(messagedescription), writeoption.into(), ::core::mem::transmute(bodyvalue), ::core::mem::transmute(bodyvaluesize), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: *const ::core::ffi::c_void, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSendReplyMessage<'a, Param3: ::std::convert::Into<WS_WRITE_OPTION>>(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: Param3, replybodyvalue: *const ::core::ffi::c_void, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: *const ::core::ffi::c_void, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSendReplyMessage(::core::mem::transmute(channel), ::core::mem::transmute(replymessage), ::core::mem::transmute(replymessagedescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(replybodyvalue), ::core::mem::transmute(replybodyvaluesize), ::core::mem::transmute(requestmessage), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+    WsSendReplyMessage(::core::mem::transmute(channel), ::core::mem::transmute(replymessage), ::core::mem::transmute(replymessagedescription), writeoption.into(), ::core::mem::transmute(replybodyvalue), ::core::mem::transmute(replybodyvaluesize), ::core::mem::transmute(requestmessage), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetChannelProperty<'a, Param1: ::std::convert::Into<WS_CHANNEL_PROPERTY_ID>>(channel: *const WS_CHANNEL, id: Param1, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSetChannelProperty(::core::mem::transmute(channel), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsSetChannelProperty(::core::mem::transmute(channel), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetErrorProperty<'a, Param1: ::std::convert::Into<WS_ERROR_PROPERTY_ID>>(error: *const WS_ERROR, id: Param1, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::HRESULT;
     }
-    WsSetErrorProperty(::core::mem::transmute(error), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
+    WsSetErrorProperty(::core::mem::transmute(error), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetFaultErrorDetail<'a, Param2: ::std::convert::Into<WS_WRITE_OPTION>>(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: Param2, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::HRESULT;
     }
-    WsSetFaultErrorDetail(::core::mem::transmute(error), ::core::mem::transmute(faultdetaildescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
+    WsSetFaultErrorDetail(::core::mem::transmute(error), ::core::mem::transmute(faultdetaildescription), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetFaultErrorProperty<'a, Param1: ::std::convert::Into<WS_FAULT_ERROR_PROPERTY_ID>>(error: *const WS_ERROR, id: Param1, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::HRESULT;
     }
-    WsSetFaultErrorProperty(::core::mem::transmute(error), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
+    WsSetFaultErrorProperty(::core::mem::transmute(error), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetHeader<'a, Param1: ::std::convert::Into<WS_HEADER_TYPE>, Param2: ::std::convert::Into<WS_TYPE>, Param3: ::std::convert::Into<WS_WRITE_OPTION>>(message: *const WS_MESSAGE, headertype: Param1, valuetype: Param2, writeoption: Param3, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSetHeader(::core::mem::transmute(message), ::core::mem::transmute(headertype), ::core::mem::transmute(valuetype), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsSetHeader(::core::mem::transmute(message), headertype.into(), valuetype.into(), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15654,21 +15644,21 @@ pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetListenerProperty<'a, Param1: ::std::convert::Into<WS_LISTENER_PROPERTY_ID>>(listener: *const WS_LISTENER, id: Param1, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSetListenerProperty(::core::mem::transmute(listener), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsSetListenerProperty(::core::mem::transmute(listener), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetMessageProperty<'a, Param1: ::std::convert::Into<WS_MESSAGE_PROPERTY_ID>>(message: *const WS_MESSAGE, id: Param1, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsSetMessageProperty(::core::mem::transmute(message), ::core::mem::transmute(id), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsSetMessageProperty(::core::mem::transmute(message), id.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15763,32 +15753,32 @@ pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: *const WS_ERROR) -> 
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *const ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteArray<'a, Param3: ::std::convert::Into<WS_VALUE_TYPE>>(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: Param3, array: *const ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *const ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteArray(::core::mem::transmute(writer), ::core::mem::transmute(localname), ::core::mem::transmute(ns), ::core::mem::transmute(valuetype), ::core::mem::transmute(array), ::core::mem::transmute(arraysize), ::core::mem::transmute(itemoffset), ::core::mem::transmute(itemcount), ::core::mem::transmute(error)).ok()
+    WsWriteArray(::core::mem::transmute(writer), ::core::mem::transmute(localname), ::core::mem::transmute(ns), valuetype.into(), ::core::mem::transmute(array), ::core::mem::transmute(arraysize), ::core::mem::transmute(itemoffset), ::core::mem::transmute(itemcount), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteAttribute<'a, Param2: ::std::convert::Into<WS_WRITE_OPTION>>(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: Param2, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteAttribute(::core::mem::transmute(writer), ::core::mem::transmute(attributedescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsWriteAttribute(::core::mem::transmute(writer), ::core::mem::transmute(attributedescription), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteBody<'a, Param2: ::std::convert::Into<WS_WRITE_OPTION>>(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: Param2, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteBody(::core::mem::transmute(message), ::core::mem::transmute(bodydescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsWriteBody(::core::mem::transmute(message), ::core::mem::transmute(bodydescription), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15820,12 +15810,12 @@ pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[u8], error
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteElement<'a, Param2: ::std::convert::Into<WS_WRITE_OPTION>>(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: Param2, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteElement(::core::mem::transmute(writer), ::core::mem::transmute(elementdescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsWriteElement(::core::mem::transmute(writer), ::core::mem::transmute(elementdescription), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15921,12 +15911,12 @@ pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: *const 
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteStartAttribute<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: Param4, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteStartAttribute<'a, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: Param4, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteStartAttribute(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteStartAttribute(::core::mem::transmute(writer), ::core::mem::transmute(prefix), ::core::mem::transmute(localname), ::core::mem::transmute(ns), singlequote.into_param().abi(), ::core::mem::transmute(error)).ok()
+    WsWriteStartAttribute(::core::mem::transmute(writer), ::core::mem::transmute(prefix), ::core::mem::transmute(localname), ::core::mem::transmute(ns), singlequote.into(), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15958,21 +15948,21 @@ pub unsafe fn WsWriteText(writer: *const WS_XML_WRITER, text: *const WS_XML_TEXT
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const ::core::ffi::c_void, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteType<'a, Param1: ::std::convert::Into<WS_TYPE_MAPPING>, Param2: ::std::convert::Into<WS_TYPE>, Param4: ::std::convert::Into<WS_WRITE_OPTION>>(writer: *const WS_XML_WRITER, typemapping: Param1, r#type: Param2, typedescription: *const ::core::ffi::c_void, writeoption: Param4, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const ::core::ffi::c_void, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteType(::core::mem::transmute(writer), ::core::mem::transmute(typemapping), ::core::mem::transmute(r#type), ::core::mem::transmute(typedescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsWriteType(::core::mem::transmute(writer), typemapping.into(), r#type.into(), ::core::mem::transmute(typedescription), writeoption.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteValue(writer: *const WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteValue<'a, Param1: ::std::convert::Into<WS_VALUE_TYPE>>(writer: *const WS_XML_WRITER, valuetype: Param1, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteValue(writer: *const WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteValue(::core::mem::transmute(writer), ::core::mem::transmute(valuetype), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
+    WsWriteValue(::core::mem::transmute(writer), valuetype.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -15995,12 +15985,12 @@ pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteXmlnsAttribute<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: Param3, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteXmlnsAttribute<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: Param3, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WsWriteXmlnsAttribute(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
     }
-    WsWriteXmlnsAttribute(::core::mem::transmute(writer), ::core::mem::transmute(prefix), ::core::mem::transmute(ns), singlequote.into_param().abi(), ::core::mem::transmute(error)).ok()
+    WsWriteXmlnsAttribute(::core::mem::transmute(writer), ::core::mem::transmute(prefix), ::core::mem::transmute(ns), singlequote.into(), ::core::mem::transmute(error)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

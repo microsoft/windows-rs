@@ -12,19 +12,14 @@ impl ::core::convert::From<IWebApplicationActivation> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebApplicationActivation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationActivation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebApplicationActivation> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationActivation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationActivation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationActivation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWebApplicationActivation {
@@ -78,21 +73,15 @@ impl ::core::convert::From<IWebApplicationAuthoringMode> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWebApplicationAuthoringMode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationAuthoringMode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWebApplicationAuthoringMode> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationAuthoringMode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationAuthoringMode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationAuthoringMode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -102,21 +91,15 @@ impl ::core::convert::From<IWebApplicationAuthoringMode> for super::super::super
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWebApplicationAuthoringMode> for &'a super::super::super::Com::IServiceProvider {
+    fn from(value: &'a IWebApplicationAuthoringMode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWebApplicationAuthoringMode> for super::super::super::Com::IServiceProvider {
     fn from(value: &IWebApplicationAuthoringMode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Com::IServiceProvider> for IWebApplicationAuthoringMode {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Com::IServiceProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Com::IServiceProvider> for &'a IWebApplicationAuthoringMode {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Com::IServiceProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -174,8 +157,8 @@ impl IWebApplicationHost {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
-    pub unsafe fn Advise<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, interfaceid: *const ::windows::core::GUID, callback: Param1, cookie: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interfaceid), callback.into_param().abi(), ::core::mem::transmute(cookie)).ok()
+    pub unsafe fn Advise<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, interfaceid: *const ::windows::core::GUID, callback: Param1, cookie: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interfaceid), callback.into().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn Unadvise(&self, cookie: u32) -> ::windows::core::Result<()> {
@@ -187,19 +170,14 @@ impl ::core::convert::From<IWebApplicationHost> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebApplicationHost> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebApplicationHost> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationHost) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWebApplicationHost {
@@ -244,23 +222,23 @@ pub struct IWebApplicationNavigationEvents(::windows::core::IUnknown);
 impl IWebApplicationNavigationEvents {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn BeforeNavigate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1, navigationflags: u32, targetframename: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeforeNavigate)(::windows::core::Interface::as_raw(self), htmlwindow.into_param().abi(), url.into_param().abi(), ::core::mem::transmute(navigationflags), targetframename.into_param().abi()).ok()
+    pub unsafe fn BeforeNavigate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>>(&self, htmlwindow: Param0, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeforeNavigate)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), ::core::mem::transmute(url), ::core::mem::transmute(navigationflags), ::core::mem::transmute(targetframename)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn NavigateComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NavigateComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into_param().abi(), url.into_param().abi()).ok()
+    pub unsafe fn NavigateComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>>(&self, htmlwindow: Param0, url: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NavigateComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), ::core::mem::transmute(url)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn NavigateError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1, targetframename: Param2, statuscode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NavigateError)(::windows::core::Interface::as_raw(self), htmlwindow.into_param().abi(), url.into_param().abi(), targetframename.into_param().abi(), ::core::mem::transmute(statuscode)).ok()
+    pub unsafe fn NavigateError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>>(&self, htmlwindow: Param0, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NavigateError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), ::core::mem::transmute(url), ::core::mem::transmute(targetframename), ::core::mem::transmute(statuscode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn DocumentComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DocumentComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into_param().abi(), url.into_param().abi()).ok()
+    pub unsafe fn DocumentComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>>(&self, htmlwindow: Param0, url: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DocumentComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), ::core::mem::transmute(url)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn DownloadBegin(&self) -> ::windows::core::Result<()> {
@@ -276,19 +254,14 @@ impl ::core::convert::From<IWebApplicationNavigationEvents> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebApplicationNavigationEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationNavigationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebApplicationNavigationEvents> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationNavigationEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationNavigationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationNavigationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWebApplicationNavigationEvents {
@@ -340,13 +313,13 @@ pub struct IWebApplicationScriptEvents(::windows::core::IUnknown);
 impl IWebApplicationScriptEvents {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn BeforeScriptExecute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>(&self, htmlwindow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeforeScriptExecute)(::windows::core::Interface::as_raw(self), htmlwindow.into_param().abi()).ok()
+    pub unsafe fn BeforeScriptExecute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>>(&self, htmlwindow: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeforeScriptExecute)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn ScriptError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>, Param1: ::windows::core::IntoParam<'a, super::IActiveScriptError>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::BOOL>>(&self, htmlwindow: Param0, scripterror: Param1, url: Param2, errorhandled: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScriptError)(::windows::core::Interface::as_raw(self), htmlwindow.into_param().abi(), scripterror.into_param().abi(), url.into_param().abi(), errorhandled.into_param().abi()).ok()
+    pub unsafe fn ScriptError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::IActiveScriptError>>, Param3: ::std::convert::Into<super::super::super::super::Foundation::BOOL>>(&self, htmlwindow: Param0, scripterror: Param1, url: ::windows::core::PCWSTR, errorhandled: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ScriptError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), scripterror.into().abi(), ::core::mem::transmute(url), errorhandled.into()).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationScriptEvents> for ::windows::core::IUnknown {
@@ -354,19 +327,14 @@ impl ::core::convert::From<IWebApplicationScriptEvents> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebApplicationScriptEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationScriptEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebApplicationScriptEvents> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationScriptEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationScriptEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationScriptEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWebApplicationScriptEvents {
@@ -416,19 +384,14 @@ impl ::core::convert::From<IWebApplicationUIEvents> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebApplicationUIEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationUIEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebApplicationUIEvents> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationUIEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationUIEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationUIEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWebApplicationUIEvents {
@@ -475,19 +438,14 @@ impl ::core::convert::From<IWebApplicationUpdateEvents> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebApplicationUpdateEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebApplicationUpdateEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebApplicationUpdateEvents> for ::windows::core::IUnknown {
     fn from(value: &IWebApplicationUpdateEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebApplicationUpdateEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebApplicationUpdateEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWebApplicationUpdateEvents {

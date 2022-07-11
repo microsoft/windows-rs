@@ -75,14 +75,9 @@ impl ::core::convert::From<&Direct3D11CaptureFrame> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Direct3D11CaptureFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Direct3D11CaptureFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Direct3D11CaptureFrame> for &::windows::core::IUnknown {
+    fn from(value: &Direct3D11CaptureFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Direct3D11CaptureFrame> for ::windows::core::IInspectable {
@@ -95,14 +90,9 @@ impl ::core::convert::From<&Direct3D11CaptureFrame> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Direct3D11CaptureFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Direct3D11CaptureFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Direct3D11CaptureFrame> for &::windows::core::IInspectable {
+    fn from(value: &Direct3D11CaptureFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -120,15 +110,11 @@ impl ::core::convert::TryFrom<&Direct3D11CaptureFrame> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for Direct3D11CaptureFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &Direct3D11CaptureFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Direct3D11CaptureFrame> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Direct3D11CaptureFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Direct3D11CaptureFrame {}
@@ -145,9 +131,9 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Recreate<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Param3: ::windows::core::IntoParam<'a, super::SizeInt32>>(&self, device: Param0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: Param3) -> ::windows::core::Result<()> {
+    pub fn Recreate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<super::DirectX::DirectXPixelFormat>>(&self, device: Param0, pixelformat: Param1, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Recreate)(::windows::core::Interface::as_raw(this), device.into_param().abi(), pixelformat, numberofbuffers, size.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Recreate)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat.into(), numberofbuffers, size).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn TryGetNextFrame(&self) -> ::windows::core::Result<Direct3D11CaptureFrame> {
@@ -159,25 +145,25 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn FrameArrived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).FrameArrived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FrameArrived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveFrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFrameArrived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFrameArrived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`*"]
-    pub fn CreateCaptureSession<'a, Param0: ::windows::core::IntoParam<'a, GraphicsCaptureItem>>(&self, item: Param0) -> ::windows::core::Result<GraphicsCaptureSession> {
+    pub fn CreateCaptureSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GraphicsCaptureItem>>>(&self, item: Param0) -> ::windows::core::Result<GraphicsCaptureSession> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCaptureSession)(::windows::core::Interface::as_raw(this), item.into_param().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateCaptureSession)(::windows::core::Interface::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"System\"`*"]
@@ -191,18 +177,18 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Param3: ::windows::core::IntoParam<'a, super::SizeInt32>>(device: Param0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: Param3) -> ::windows::core::Result<Direct3D11CaptureFramePool> {
+    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<super::DirectX::DirectXPixelFormat>>(device: Param0, pixelformat: Param1, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<Direct3D11CaptureFramePool> {
         Self::IDirect3D11CaptureFramePoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), device.into_param().abi(), pixelformat, numberofbuffers, size.into_param().abi(), result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat.into(), numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFreeThreaded<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Param3: ::windows::core::IntoParam<'a, super::SizeInt32>>(device: Param0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: Param3) -> ::windows::core::Result<Direct3D11CaptureFramePool> {
+    pub fn CreateFreeThreaded<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<super::DirectX::DirectXPixelFormat>>(device: Param0, pixelformat: Param1, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<Direct3D11CaptureFramePool> {
         Self::IDirect3D11CaptureFramePoolStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFreeThreaded)(::windows::core::Interface::as_raw(this), device.into_param().abi(), pixelformat, numberofbuffers, size.into_param().abi(), result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
+            (::windows::core::Interface::vtable(this).CreateFreeThreaded)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat.into(), numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
         })
     }
     #[doc(hidden)]
@@ -256,14 +242,9 @@ impl ::core::convert::From<&Direct3D11CaptureFramePool> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Direct3D11CaptureFramePool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Direct3D11CaptureFramePool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Direct3D11CaptureFramePool> for &::windows::core::IUnknown {
+    fn from(value: &Direct3D11CaptureFramePool) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Direct3D11CaptureFramePool> for ::windows::core::IInspectable {
@@ -276,14 +257,9 @@ impl ::core::convert::From<&Direct3D11CaptureFramePool> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Direct3D11CaptureFramePool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Direct3D11CaptureFramePool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Direct3D11CaptureFramePool> for &::windows::core::IInspectable {
+    fn from(value: &Direct3D11CaptureFramePool) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -301,15 +277,11 @@ impl ::core::convert::TryFrom<&Direct3D11CaptureFramePool> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for Direct3D11CaptureFramePool {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &Direct3D11CaptureFramePool {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Direct3D11CaptureFramePool> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Direct3D11CaptureFramePool) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Direct3D11CaptureFramePool {}
@@ -319,10 +291,10 @@ pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`, `\"Security_Authorization_AppCapabilityAccess\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]
-    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
+    pub fn RequestAccessAsync<'a, Param0: ::std::convert::Into<GraphicsCaptureAccessKind>>(request: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), request, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), request.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>>(result__)
         })
     }
     #[doc(hidden)]
@@ -390,40 +362,40 @@ impl GraphicsCaptureItem {
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateFromVisual<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Composition::Visual>>(visual: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
+    pub fn CreateFromVisual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Composition::Visual>>>(visual: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromVisual)(::windows::core::Interface::as_raw(this), visual.into_param().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromVisual)(::windows::core::Interface::as_raw(this), visual.into().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn TryCreateFromWindowId<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowId>>(windowid: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
+    pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromWindowId)(::windows::core::Interface::as_raw(this), windowid.into_param().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromWindowId)(::windows::core::Interface::as_raw(this), windowid, result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`*"]
-    pub fn TryCreateFromDisplayId<'a, Param0: ::windows::core::IntoParam<'a, super::DisplayId>>(displayid: Param0) -> ::windows::core::Result<GraphicsCaptureItem> {
+    pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromDisplayId)(::windows::core::Interface::as_raw(this), displayid.into_param().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromDisplayId)(::windows::core::Interface::as_raw(this), displayid, result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
         })
     }
     #[doc(hidden)]
@@ -477,14 +449,9 @@ impl ::core::convert::From<&GraphicsCaptureItem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GraphicsCaptureItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GraphicsCaptureItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GraphicsCaptureItem> for &::windows::core::IUnknown {
+    fn from(value: &GraphicsCaptureItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GraphicsCaptureItem> for ::windows::core::IInspectable {
@@ -497,14 +464,9 @@ impl ::core::convert::From<&GraphicsCaptureItem> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GraphicsCaptureItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GraphicsCaptureItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GraphicsCaptureItem> for &::windows::core::IInspectable {
+    fn from(value: &GraphicsCaptureItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
@@ -570,14 +532,9 @@ impl ::core::convert::From<&GraphicsCapturePicker> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GraphicsCapturePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GraphicsCapturePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GraphicsCapturePicker> for &::windows::core::IUnknown {
+    fn from(value: &GraphicsCapturePicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GraphicsCapturePicker> for ::windows::core::IInspectable {
@@ -590,14 +547,9 @@ impl ::core::convert::From<&GraphicsCapturePicker> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GraphicsCapturePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GraphicsCapturePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GraphicsCapturePicker> for &::windows::core::IInspectable {
+    fn from(value: &GraphicsCapturePicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
@@ -696,14 +648,9 @@ impl ::core::convert::From<&GraphicsCaptureSession> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GraphicsCaptureSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GraphicsCaptureSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GraphicsCaptureSession> for &::windows::core::IUnknown {
+    fn from(value: &GraphicsCaptureSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GraphicsCaptureSession> for ::windows::core::IInspectable {
@@ -716,14 +663,9 @@ impl ::core::convert::From<&GraphicsCaptureSession> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GraphicsCaptureSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GraphicsCaptureSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GraphicsCaptureSession> for &::windows::core::IInspectable {
+    fn from(value: &GraphicsCaptureSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -741,15 +683,11 @@ impl ::core::convert::TryFrom<&GraphicsCaptureSession> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for GraphicsCaptureSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &GraphicsCaptureSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GraphicsCaptureSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GraphicsCaptureSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for GraphicsCaptureSession {}

@@ -148,14 +148,9 @@ impl ::core::convert::From<&LanguageFont> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LanguageFont {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LanguageFont {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanguageFont> for &::windows::core::IUnknown {
+    fn from(value: &LanguageFont) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LanguageFont> for ::windows::core::IInspectable {
@@ -168,14 +163,9 @@ impl ::core::convert::From<&LanguageFont> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LanguageFont {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LanguageFont {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanguageFont> for &::windows::core::IInspectable {
+    fn from(value: &LanguageFont) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LanguageFont {}
@@ -273,10 +263,10 @@ impl LanguageFontGroup {
         }
     }
     #[doc = "*Required features: `\"Globalization_Fonts\"`*"]
-    pub fn CreateLanguageFontGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<LanguageFontGroup> {
+    pub fn CreateLanguageFontGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<LanguageFontGroup> {
         Self::ILanguageFontGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLanguageFontGroup)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<LanguageFontGroup>(result__)
+            (::windows::core::Interface::vtable(this).CreateLanguageFontGroup)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<LanguageFontGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -325,14 +315,9 @@ impl ::core::convert::From<&LanguageFontGroup> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LanguageFontGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LanguageFontGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanguageFontGroup> for &::windows::core::IUnknown {
+    fn from(value: &LanguageFontGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LanguageFontGroup> for ::windows::core::IInspectable {
@@ -345,14 +330,9 @@ impl ::core::convert::From<&LanguageFontGroup> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LanguageFontGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LanguageFontGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanguageFontGroup> for &::windows::core::IInspectable {
+    fn from(value: &LanguageFontGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LanguageFontGroup {}

@@ -11,65 +11,65 @@ impl GameList {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
+    pub fn FindAllAsyncPackageFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(packagefamilyname: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GameAdded<'a, Param0: ::windows::core::IntoParam<'a, GameListChangedEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GameAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GameListChangedEventHandler>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).GameAdded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).GameAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveGameAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IGameListStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveGameAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveGameAdded(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IGameListStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveGameAdded)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GameRemoved<'a, Param0: ::windows::core::IntoParam<'a, GameListRemovedEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GameRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GameListRemovedEventHandler>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).GameRemoved)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).GameRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveGameRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IGameListStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveGameRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveGameRemoved(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IGameListStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveGameRemoved)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GameUpdated<'a, Param0: ::windows::core::IntoParam<'a, GameListChangedEventHandler>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GameUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GameListChangedEventHandler>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).GameUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).GameUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveGameUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IGameListStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveGameUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveGameUpdated(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IGameListStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveGameUpdated)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MergeEntriesAsync<'a, Param0: ::windows::core::IntoParam<'a, GameListEntry>, Param1: ::windows::core::IntoParam<'a, GameListEntry>>(left: Param0, right: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>> {
+    pub fn MergeEntriesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GameListEntry>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, GameListEntry>>>(left: Param0, right: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>> {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MergeEntriesAsync)(::windows::core::Interface::as_raw(this), left.into_param().abi(), right.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameListEntry>>(result__)
+            (::windows::core::Interface::vtable(this).MergeEntriesAsync)(::windows::core::Interface::as_raw(this), left.into().abi(), right.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameListEntry>>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UnmergeEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, GameListEntry>>(mergedentry: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
+    pub fn UnmergeEntryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GameListEntry>>>(mergedentry: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UnmergeEntryAsync)(::windows::core::Interface::as_raw(this), mergedentry.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>(result__)
+            (::windows::core::Interface::vtable(this).UnmergeEntryAsync)(::windows::core::Interface::as_raw(this), mergedentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -130,9 +130,9 @@ impl GameListChangedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, GameListEntry>>(&self, game: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GameListEntry>>>(&self, game: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), game.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), game.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -247,11 +247,11 @@ impl GameListEntry {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetCategoryAsync<'a, Param0: ::std::convert::Into<GameListCategory>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
@@ -281,20 +281,20 @@ impl GameListEntry {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SetLauncherExecutableFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, executablefile: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetLauncherExecutableFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, executablefile: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetLauncherExecutableFileAsync)(::windows::core::Interface::as_raw(this), executablefile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetLauncherExecutableFileAsync)(::windows::core::Interface::as_raw(this), executablefile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SetLauncherExecutableFileWithParamsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, executablefile: Param0, launchparams: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetLauncherExecutableFileWithParamsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, executablefile: Param0, launchparams: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetLauncherExecutableFileWithParamsAsync)(::windows::core::Interface::as_raw(this), executablefile.into_param().abi(), launchparams.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetLauncherExecutableFileWithParamsAsync)(::windows::core::Interface::as_raw(this), executablefile.try_into().map_err(|e| e.into())?.abi(), launchparams.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
@@ -307,11 +307,11 @@ impl GameListEntry {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTitleIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetTitleIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetTitleIdAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetTitleIdAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
@@ -363,14 +363,9 @@ impl ::core::convert::From<&GameListEntry> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameListEntry> for &::windows::core::IUnknown {
+    fn from(value: &GameListEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameListEntry> for ::windows::core::IInspectable {
@@ -383,14 +378,9 @@ impl ::core::convert::From<&GameListEntry> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameListEntry> for &::windows::core::IInspectable {
+    fn from(value: &GameListEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<GameListEntry> for IGameListEntry {
@@ -405,14 +395,11 @@ impl ::core::convert::TryFrom<&GameListEntry> for IGameListEntry {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IGameListEntry> for GameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, IGameListEntry> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IGameListEntry> for &GameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, IGameListEntry> {
-        ::core::convert::TryInto::<IGameListEntry>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GameListEntry> for ::windows::core::InParam<'a, IGameListEntry> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GameListEntry) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for GameListEntry {}
@@ -462,9 +449,9 @@ impl GameListRemovedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, identifier: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, identifier: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), identifier.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), identifier.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -575,9 +562,9 @@ impl GameModeConfiguration {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPercentGpuTimeAllocatedToGame<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPercentGpuTimeAllocatedToGame<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPercentGpuTimeAllocatedToGame)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPercentGpuTimeAllocatedToGame)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -590,9 +577,9 @@ impl GameModeConfiguration {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPercentGpuMemoryAllocatedToGame<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPercentGpuMemoryAllocatedToGame<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToGame)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToGame)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -605,9 +592,9 @@ impl GameModeConfiguration {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPercentGpuMemoryAllocatedToSystemCompositor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPercentGpuMemoryAllocatedToSystemCompositor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToSystemCompositor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToSystemCompositor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -620,9 +607,9 @@ impl GameModeConfiguration {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxCpuCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMaxCpuCount<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxCpuCount)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxCpuCount)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -635,9 +622,9 @@ impl GameModeConfiguration {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCpuExclusivityMaskLow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCpuExclusivityMaskLow<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCpuExclusivityMaskLow)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCpuExclusivityMaskLow)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -650,9 +637,9 @@ impl GameModeConfiguration {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCpuExclusivityMaskHigh<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCpuExclusivityMaskHigh<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<i32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCpuExclusivityMaskHigh)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCpuExclusivityMaskHigh)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
     pub fn AffinitizeToExclusiveCpus(&self) -> ::windows::core::Result<bool> {
@@ -717,14 +704,9 @@ impl ::core::convert::From<&GameModeConfiguration> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameModeConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameModeConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameModeConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &GameModeConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameModeConfiguration> for ::windows::core::IInspectable {
@@ -737,14 +719,9 @@ impl ::core::convert::From<&GameModeConfiguration> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameModeConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameModeConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameModeConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &GameModeConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameModeConfiguration {}
@@ -824,14 +801,9 @@ impl ::core::convert::From<&GameModeUserConfiguration> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameModeUserConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &GameModeUserConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameModeUserConfiguration> for ::windows::core::IInspectable {
@@ -844,14 +816,9 @@ impl ::core::convert::From<&GameModeUserConfiguration> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameModeUserConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &GameModeUserConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameModeUserConfiguration {}
@@ -897,11 +864,11 @@ impl IGameListEntry {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetCategoryAsync<'a, Param0: ::std::convert::Into<GameListCategory>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -910,19 +877,14 @@ impl ::core::convert::From<IGameListEntry> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IGameListEntry> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGameListEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IGameListEntry> for ::windows::core::IUnknown {
     fn from(value: &IGameListEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IGameListEntry> for ::windows::core::IInspectable {
@@ -930,19 +892,14 @@ impl ::core::convert::From<IGameListEntry> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IGameListEntry> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IGameListEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IGameListEntry> for ::windows::core::IInspectable {
     fn from(value: &IGameListEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IGameListEntry {

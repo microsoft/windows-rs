@@ -1,62 +1,62 @@
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupEventLogA<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, lpbackupfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BackupEventLogA(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupEventLogA(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()))
+    ::core::mem::transmute(BackupEventLogA(heventlog.into(), ::core::mem::transmute(lpbackupfilename)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn BackupEventLogW<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, lpbackupfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BackupEventLogW(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BackupEventLogW(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()))
+    ::core::mem::transmute(BackupEventLogW(heventlog.into(), ::core::mem::transmute(lpbackupfilename)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClearEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ClearEventLogA<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, lpbackupfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClearEventLogA(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClearEventLogA(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()))
+    ::core::mem::transmute(ClearEventLogA(heventlog.into(), ::core::mem::transmute(lpbackupfilename)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClearEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ClearEventLogW<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, lpbackupfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClearEventLogW(heventlog: EventLogHandle, lpbackupfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClearEventLogW(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()))
+    ::core::mem::transmute(ClearEventLogW(heventlog.into(), ::core::mem::transmute(lpbackupfilename)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseEventLog<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseEventLog<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseEventLog(heventlog: EventLogHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseEventLog(heventlog.into_param().abi()))
+    ::core::mem::transmute(CloseEventLog(heventlog.into()))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeregisterEventSource<'a, Param0: ::windows::core::IntoParam<'a, EventSourceHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeregisterEventSource<'a, Param0: ::std::convert::Into<EventSourceHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeregisterEventSource(heventlog: EventSourceHandle) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeregisterEventSource(heventlog.into_param().abi()))
+    ::core::mem::transmute(DeregisterEventSource(heventlog.into()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -1264,6 +1264,11 @@ impl ::core::fmt::Debug for EventLogHandle {
         f.debug_tuple("EventLogHandle").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<EventLogHandle>> for EventLogHandle {
+    fn from(optional: ::core::option::Option<EventLogHandle>) -> EventLogHandle {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for EventLogHandle {
     type Abi = Self;
 }
@@ -1291,18 +1296,23 @@ impl ::core::fmt::Debug for EventSourceHandle {
         f.debug_tuple("EventSourceHandle").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<EventSourceHandle>> for EventSourceHandle {
+    fn from(optional: ::core::option::Option<EventSourceHandle>) -> EventSourceHandle {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for EventSourceHandle {
     type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtArchiveExportedLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, logfilepath: Param1, locale: u32, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtArchiveExportedLog(session: isize, logfilepath: ::windows::core::PCWSTR, locale: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtArchiveExportedLog(session: isize, logfilepath: ::windows::core::PCWSTR, locale: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtArchiveExportedLog(::core::mem::transmute(session), logfilepath.into_param().abi(), ::core::mem::transmute(locale), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtArchiveExportedLog(::core::mem::transmute(session), ::core::mem::transmute(logfilepath), ::core::mem::transmute(locale), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1317,12 +1327,12 @@ pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtClearLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, channelpath: Param1, targetfilepath: Param2, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtClearLog(session: isize, channelpath: ::windows::core::PCWSTR, targetfilepath: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtClearLog(session: isize, channelpath: ::windows::core::PCWSTR, targetfilepath: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtClearLog(::core::mem::transmute(session), channelpath.into_param().abi(), targetfilepath.into_param().abi(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtClearLog(::core::mem::transmute(session), ::core::mem::transmute(channelpath), ::core::mem::transmute(targetfilepath), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1336,12 +1346,12 @@ pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtCreateBookmark<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(bookmarkxml: Param0) -> isize {
+pub unsafe fn EvtCreateBookmark(bookmarkxml: ::windows::core::PCWSTR) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtCreateBookmark(bookmarkxml: ::windows::core::PCWSTR) -> isize;
     }
-    ::core::mem::transmute(EvtCreateBookmark(bookmarkxml.into_param().abi()))
+    ::core::mem::transmute(EvtCreateBookmark(::core::mem::transmute(bookmarkxml)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1355,12 +1365,12 @@ pub unsafe fn EvtCreateRenderContext(valuepaths: &[::windows::core::PWSTR], flag
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtExportLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, path: Param1, query: Param2, targetfilepath: Param3, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtExportLog(session: isize, path: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, targetfilepath: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtExportLog(session: isize, path: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, targetfilepath: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtExportLog(::core::mem::transmute(session), path.into_param().abi(), query.into_param().abi(), targetfilepath.into_param().abi(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtExportLog(::core::mem::transmute(session), ::core::mem::transmute(path), ::core::mem::transmute(query), ::core::mem::transmute(targetfilepath), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1375,32 +1385,32 @@ pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtGetChannelConfigProperty<'a, Param1: ::std::convert::Into<EVT_CHANNEL_CONFIG_PROPERTY_ID>>(channelconfig: isize, propertyid: Param1, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetChannelConfigProperty(::core::mem::transmute(channelconfig), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    ::core::mem::transmute(EvtGetChannelConfigProperty(::core::mem::transmute(channelconfig), propertyid.into(), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtGetEventInfo<'a, Param1: ::std::convert::Into<EVT_EVENT_PROPERTY_ID>>(event: isize, propertyid: Param1, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetEventInfo(::core::mem::transmute(event), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    ::core::mem::transmute(EvtGetEventInfo(::core::mem::transmute(event), propertyid.into(), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtGetEventMetadataProperty<'a, Param1: ::std::convert::Into<EVT_EVENT_METADATA_PROPERTY_ID>>(eventmetadata: isize, propertyid: Param1, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetEventMetadataProperty(::core::mem::transmute(eventmetadata), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(eventmetadatapropertybuffersize), ::core::mem::transmute(eventmetadatapropertybuffer), ::core::mem::transmute(eventmetadatapropertybufferused)))
+    ::core::mem::transmute(EvtGetEventMetadataProperty(::core::mem::transmute(eventmetadata), propertyid.into(), ::core::mem::transmute(flags), ::core::mem::transmute(eventmetadatapropertybuffersize), ::core::mem::transmute(eventmetadatapropertybuffer), ::core::mem::transmute(eventmetadatapropertybufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1414,12 +1424,12 @@ pub unsafe fn EvtGetExtendedStatus(buffer: &mut [u16], bufferused: *mut u32) -> 
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtGetLogInfo<'a, Param1: ::std::convert::Into<EVT_LOG_PROPERTY_ID>>(log: isize, propertyid: Param1, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetLogInfo(::core::mem::transmute(log), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    ::core::mem::transmute(EvtGetLogInfo(::core::mem::transmute(log), propertyid.into(), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1444,22 +1454,22 @@ pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u3
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtGetPublisherMetadataProperty<'a, Param1: ::std::convert::Into<EVT_PUBLISHER_METADATA_PROPERTY_ID>>(publishermetadata: isize, propertyid: Param1, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetPublisherMetadataProperty(::core::mem::transmute(publishermetadata), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(publishermetadatapropertybuffersize), ::core::mem::transmute(publishermetadatapropertybuffer), ::core::mem::transmute(publishermetadatapropertybufferused)))
+    ::core::mem::transmute(EvtGetPublisherMetadataProperty(::core::mem::transmute(publishermetadata), propertyid.into(), ::core::mem::transmute(flags), ::core::mem::transmute(publishermetadatapropertybuffersize), ::core::mem::transmute(publishermetadatapropertybuffer), ::core::mem::transmute(publishermetadatapropertybufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtGetQueryInfo<'a, Param1: ::std::convert::Into<EVT_QUERY_PROPERTY_ID>>(queryorsubscription: isize, propertyid: Param1, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtGetQueryInfo(::core::mem::transmute(queryorsubscription), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    ::core::mem::transmute(EvtGetQueryInfo(::core::mem::transmute(queryorsubscription), propertyid.into(), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1502,12 +1512,12 @@ pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffer: &mut [
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenChannelConfig<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, channelpath: Param1, flags: u32) -> isize {
+pub unsafe fn EvtOpenChannelConfig(session: isize, channelpath: ::windows::core::PCWSTR, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtOpenChannelConfig(session: isize, channelpath: ::windows::core::PCWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenChannelConfig(::core::mem::transmute(session), channelpath.into_param().abi(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtOpenChannelConfig(::core::mem::transmute(session), ::core::mem::transmute(channelpath), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1529,12 +1539,12 @@ pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> 
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, path: Param1, flags: u32) -> isize {
+pub unsafe fn EvtOpenLog(session: isize, path: ::windows::core::PCWSTR, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtOpenLog(session: isize, path: ::windows::core::PCWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenLog(::core::mem::transmute(session), path.into_param().abi(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtOpenLog(::core::mem::transmute(session), ::core::mem::transmute(path), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -1547,30 +1557,30 @@ pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenPublisherMetadata<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, publisherid: Param1, logfilepath: Param2, locale: u32, flags: u32) -> isize {
+pub unsafe fn EvtOpenPublisherMetadata(session: isize, publisherid: ::windows::core::PCWSTR, logfilepath: ::windows::core::PCWSTR, locale: u32, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtOpenPublisherMetadata(session: isize, publisherid: ::windows::core::PCWSTR, logfilepath: ::windows::core::PCWSTR, locale: u32, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenPublisherMetadata(::core::mem::transmute(session), publisherid.into_param().abi(), logfilepath.into_param().abi(), ::core::mem::transmute(locale), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtOpenPublisherMetadata(::core::mem::transmute(session), ::core::mem::transmute(publisherid), ::core::mem::transmute(logfilepath), ::core::mem::transmute(locale), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> isize {
+pub unsafe fn EvtOpenSession<'a, Param0: ::std::convert::Into<EVT_LOGIN_CLASS>>(loginclass: Param0, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtOpenSession(::core::mem::transmute(loginclass), ::core::mem::transmute(login), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtOpenSession(loginclass.into(), ::core::mem::transmute(login), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtQuery<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, path: Param1, query: Param2, flags: u32) -> isize {
+pub unsafe fn EvtQuery(session: isize, path: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtQuery(session: isize, path: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtQuery(::core::mem::transmute(session), path.into_param().abi(), query.into_param().abi(), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtQuery(::core::mem::transmute(session), ::core::mem::transmute(path), ::core::mem::transmute(query), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1605,22 +1615,22 @@ pub unsafe fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout:
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL {
+pub unsafe fn EvtSetChannelConfigProperty<'a, Param1: ::std::convert::Into<EVT_CHANNEL_CONFIG_PROPERTY_ID>>(channelconfig: isize, propertyid: Param1, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EvtSetChannelConfigProperty(::core::mem::transmute(channelconfig), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvalue)))
+    ::core::mem::transmute(EvtSetChannelConfigProperty(::core::mem::transmute(channelconfig), propertyid.into(), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtSubscribe<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(session: isize, signalevent: Param1, channelpath: Param2, query: Param3, bookmark: isize, context: *const ::core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> isize {
+pub unsafe fn EvtSubscribe<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(session: isize, signalevent: Param1, channelpath: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, bookmark: isize, context: *const ::core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EvtSubscribe(session: isize, signalevent: super::super::Foundation::HANDLE, channelpath: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, bookmark: isize, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EvtSubscribe(::core::mem::transmute(session), signalevent.into_param().abi(), channelpath.into_param().abi(), query.into_param().abi(), ::core::mem::transmute(bookmark), ::core::mem::transmute(context), ::core::mem::transmute(callback), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EvtSubscribe(::core::mem::transmute(session), signalevent.into(), ::core::mem::transmute(channelpath), ::core::mem::transmute(query), ::core::mem::transmute(bookmark), ::core::mem::transmute(context), ::core::mem::transmute(callback), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1635,81 +1645,81 @@ pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetEventLogInformation<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetEventLogInformation<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetEventLogInformation(heventlog: EventLogHandle, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetEventLogInformation(heventlog.into_param().abi(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
+    ::core::mem::transmute(GetEventLogInformation(heventlog.into(), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNumberOfEventLogRecords<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, numberofrecords: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNumberOfEventLogRecords<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, numberofrecords: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetNumberOfEventLogRecords(heventlog: EventLogHandle, numberofrecords: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetNumberOfEventLogRecords(heventlog.into_param().abi(), ::core::mem::transmute(numberofrecords)))
+    ::core::mem::transmute(GetNumberOfEventLogRecords(heventlog.into(), ::core::mem::transmute(numberofrecords)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOldestEventLogRecord<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, oldestrecord: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetOldestEventLogRecord<'a, Param0: ::std::convert::Into<EventLogHandle>>(heventlog: Param0, oldestrecord: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetOldestEventLogRecord(heventlog: EventLogHandle, oldestrecord: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetOldestEventLogRecord(heventlog.into_param().abi(), ::core::mem::transmute(oldestrecord)))
+    ::core::mem::transmute(GetOldestEventLogRecord(heventlog.into(), ::core::mem::transmute(oldestrecord)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NotifyChangeEventLog<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, hevent: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn NotifyChangeEventLog<'a, Param0: ::std::convert::Into<EventLogHandle>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(heventlog: Param0, hevent: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NotifyChangeEventLog(heventlog: EventLogHandle, hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(NotifyChangeEventLog(heventlog.into_param().abi(), hevent.into_param().abi()))
+    ::core::mem::transmute(NotifyChangeEventLog(heventlog.into(), hevent.into()))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpfilename: Param1) -> ::windows::core::Result<EventLogHandle> {
+pub unsafe fn OpenBackupEventLogA(lpuncservername: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> ::windows::core::Result<EventLogHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenBackupEventLogA(lpuncservername: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> EventLogHandle;
     }
-    let result__ = OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
+    let result__ = OpenBackupEventLogA(::core::mem::transmute(lpuncservername), ::core::mem::transmute(lpfilename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpfilename: Param1) -> ::windows::core::Result<EventLogHandle> {
+pub unsafe fn OpenBackupEventLogW(lpuncservername: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<EventLogHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenBackupEventLogW(lpuncservername: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> EventLogHandle;
     }
-    let result__ = OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
+    let result__ = OpenBackupEventLogW(::core::mem::transmute(lpuncservername), ::core::mem::transmute(lpfilename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenEventLogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventLogHandle> {
+pub unsafe fn OpenEventLogA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> ::windows::core::Result<EventLogHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenEventLogA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> EventLogHandle;
     }
-    let result__ = OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+    let result__ = OpenEventLogA(::core::mem::transmute(lpuncservername), ::core::mem::transmute(lpsourcename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventLogHandle> {
+pub unsafe fn OpenEventLogW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> ::windows::core::Result<EventLogHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenEventLogW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> EventLogHandle;
     }
-    let result__ = OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+    let result__ = OpenEventLogW(::core::mem::transmute(lpuncservername), ::core::mem::transmute(lpsourcename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -1777,62 +1787,62 @@ impl ::core::fmt::Debug for REPORT_EVENT_TYPE {
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadEventLogA<'a, Param0: ::std::convert::Into<EventLogHandle>, Param1: ::std::convert::Into<READ_EVENT_LOG_READ_FLAGS>>(heventlog: Param0, dwreadflags: Param1, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadEventLogA(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadEventLogA(heventlog.into_param().abi(), ::core::mem::transmute(dwreadflags), ::core::mem::transmute(dwrecordoffset), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded)))
+    ::core::mem::transmute(ReadEventLogA(heventlog.into(), dwreadflags.into(), ::core::mem::transmute(dwrecordoffset), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadEventLogW<'a, Param0: ::std::convert::Into<EventLogHandle>, Param1: ::std::convert::Into<READ_EVENT_LOG_READ_FLAGS>>(heventlog: Param0, dwreadflags: Param1, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadEventLogW(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadEventLogW(heventlog.into_param().abi(), ::core::mem::transmute(dwreadflags), ::core::mem::transmute(dwrecordoffset), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded)))
+    ::core::mem::transmute(ReadEventLogW(heventlog.into(), dwreadflags.into(), ::core::mem::transmute(dwrecordoffset), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytestoread), ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventSourceHandle> {
+pub unsafe fn RegisterEventSourceA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> ::windows::core::Result<EventSourceHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterEventSourceA(lpuncservername: ::windows::core::PCSTR, lpsourcename: ::windows::core::PCSTR) -> EventSourceHandle;
     }
-    let result__ = RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+    let result__ = RegisterEventSourceA(::core::mem::transmute(lpuncservername), ::core::mem::transmute(lpsourcename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> ::windows::core::Result<EventSourceHandle> {
+pub unsafe fn RegisterEventSourceW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> ::windows::core::Result<EventSourceHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterEventSourceW(lpuncservername: ::windows::core::PCWSTR, lpsourcename: ::windows::core::PCWSTR) -> EventSourceHandle;
     }
-    let result__ = RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
+    let result__ = RegisterEventSourceW(::core::mem::transmute(lpuncservername), ::core::mem::transmute(lpsourcename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportEventA<'a, Param0: ::windows::core::IntoParam<'a, EventSourceHandle>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(heventlog: Param0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Param4, dwdatasize: u32, lpstrings: &[::windows::core::PSTR], lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReportEventA<'a, Param0: ::std::convert::Into<EventSourceHandle>, Param1: ::std::convert::Into<REPORT_EVENT_TYPE>, Param4: ::std::convert::Into<super::super::Foundation::PSID>>(heventlog: Param0, wtype: Param1, wcategory: u16, dweventid: u32, lpusersid: Param4, dwdatasize: u32, lpstrings: &[::windows::core::PSTR], lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReportEventA(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows::core::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReportEventA(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
+    ::core::mem::transmute(ReportEventA(heventlog.into(), wtype.into(), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportEventW<'a, Param0: ::windows::core::IntoParam<'a, EventSourceHandle>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(heventlog: Param0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Param4, dwdatasize: u32, lpstrings: &[::windows::core::PWSTR], lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ReportEventW<'a, Param0: ::std::convert::Into<EventSourceHandle>, Param1: ::std::convert::Into<REPORT_EVENT_TYPE>, Param4: ::std::convert::Into<super::super::Foundation::PSID>>(heventlog: Param0, wtype: Param1, wcategory: u16, dweventid: u32, lpusersid: Param4, dwdatasize: u32, lpstrings: &[::windows::core::PWSTR], lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReportEventW(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows::core::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReportEventW(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
+    ::core::mem::transmute(ReportEventW(heventlog.into(), wtype.into(), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

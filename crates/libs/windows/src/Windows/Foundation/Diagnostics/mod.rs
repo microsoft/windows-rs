@@ -2,35 +2,35 @@
 pub struct AsyncCausalityTracer;
 impl AsyncCausalityTracer {
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn TraceOperationCreation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: Param2, operationid: u64, operationname: Param4, relatedcontext: u64) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCreation)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid.into_param().abi(), operationid, operationname.into_param().abi(), relatedcontext).ok() })
+    pub fn TraceOperationCreation<'a, Param0: ::std::convert::Into<CausalityTraceLevel>, Param1: ::std::convert::Into<CausalitySource>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tracelevel: Param0, source: Param1, platformid: ::windows::core::GUID, operationid: u64, operationname: Param4, relatedcontext: u64) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCreation)(::windows::core::Interface::as_raw(this), tracelevel.into(), source.into(), platformid, operationid, operationname.into().abi(), relatedcontext).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn TraceOperationCompletion<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: Param2, operationid: u64, status: super::AsyncStatus) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCompletion)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid.into_param().abi(), operationid, status).ok() })
+    pub fn TraceOperationCompletion<'a, Param0: ::std::convert::Into<CausalityTraceLevel>, Param1: ::std::convert::Into<CausalitySource>, Param4: ::std::convert::Into<super::AsyncStatus>>(tracelevel: Param0, source: Param1, platformid: ::windows::core::GUID, operationid: u64, status: Param4) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCompletion)(::windows::core::Interface::as_raw(this), tracelevel.into(), source.into(), platformid, operationid, status.into()).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn TraceOperationRelation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: Param2, operationid: u64, relation: CausalityRelation) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationRelation)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid.into_param().abi(), operationid, relation).ok() })
+    pub fn TraceOperationRelation<'a, Param0: ::std::convert::Into<CausalityTraceLevel>, Param1: ::std::convert::Into<CausalitySource>, Param4: ::std::convert::Into<CausalityRelation>>(tracelevel: Param0, source: Param1, platformid: ::windows::core::GUID, operationid: u64, relation: Param4) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationRelation)(::windows::core::Interface::as_raw(this), tracelevel.into(), source.into(), platformid, operationid, relation.into()).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn TraceSynchronousWorkStart<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: Param2, operationid: u64, work: CausalitySynchronousWork) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkStart)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid.into_param().abi(), operationid, work).ok() })
+    pub fn TraceSynchronousWorkStart<'a, Param0: ::std::convert::Into<CausalityTraceLevel>, Param1: ::std::convert::Into<CausalitySource>, Param4: ::std::convert::Into<CausalitySynchronousWork>>(tracelevel: Param0, source: Param1, platformid: ::windows::core::GUID, operationid: u64, work: Param4) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkStart)(::windows::core::Interface::as_raw(this), tracelevel.into(), source.into(), platformid, operationid, work.into()).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn TraceSynchronousWorkCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkCompletion)(::windows::core::Interface::as_raw(this), tracelevel, source, work).ok() })
+    pub fn TraceSynchronousWorkCompletion<'a, Param0: ::std::convert::Into<CausalityTraceLevel>, Param1: ::std::convert::Into<CausalitySource>, Param2: ::std::convert::Into<CausalitySynchronousWork>>(tracelevel: Param0, source: Param1, work: Param2) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkCompletion)(::windows::core::Interface::as_raw(this), tracelevel.into(), source.into(), work.into()).ok() })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn TracingStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventHandler<TracingStatusChangedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn TracingStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::EventHandler<TracingStatusChangedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         Self::IAsyncCausalityTracerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).TracingStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TracingStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveTracingStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTracingStatusChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveTracingStatusChanged(cookie: super::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTracingStatusChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc(hidden)]
     pub fn IAsyncCausalityTracerStatics<R, F: FnOnce(&IAsyncCausalityTracerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -264,14 +264,9 @@ impl ::core::convert::From<&ErrorDetails> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ErrorDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ErrorDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ErrorDetails> for &::windows::core::IUnknown {
+    fn from(value: &ErrorDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ErrorDetails> for ::windows::core::IInspectable {
@@ -284,14 +279,9 @@ impl ::core::convert::From<&ErrorDetails> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ErrorDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ErrorDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ErrorDetails> for &::windows::core::IInspectable {
+    fn from(value: &ErrorDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ErrorDetails {}
@@ -379,19 +369,19 @@ impl FileLoggingSession {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannelWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0, maxlevel: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannelWithLevel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<LoggingLevel>>(&self, loggingchannel: Param0, maxlevel: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi(), maxlevel).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -403,23 +393,23 @@ impl FileLoggingSession {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogFileGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn LogFileGenerated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).LogFileGenerated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LogFileGenerated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLogFileGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLogFileGenerated(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLogFileGenerated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLogFileGenerated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<FileLoggingSession> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<FileLoggingSession> {
         Self::IFileLoggingSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<FileLoggingSession>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<FileLoggingSession>(result__)
         })
     }
     #[doc(hidden)]
@@ -468,14 +458,9 @@ impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IUnknown {
+    fn from(value: &FileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileLoggingSession> for ::windows::core::IInspectable {
@@ -488,14 +473,9 @@ impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IInspectable {
+    fn from(value: &FileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<FileLoggingSession> for super::IClosable {
@@ -510,14 +490,11 @@ impl ::core::convert::TryFrom<&FileLoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileLoggingSession> for IFileLoggingSession {
@@ -532,14 +509,11 @@ impl ::core::convert::TryFrom<&FileLoggingSession> for IFileLoggingSession {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileLoggingSession> for FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileLoggingSession> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileLoggingSession> for &FileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileLoggingSession> {
-        ::core::convert::TryInto::<IFileLoggingSession>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, IFileLoggingSession> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileLoggingSession {}
@@ -596,9 +570,9 @@ pub struct IErrorDetailsStatics_Vtbl {
 pub struct IErrorReportingSettings(::windows::core::IUnknown);
 impl IErrorReportingSettings {
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn SetErrorOptions(&self, value: ErrorOptions) -> ::windows::core::Result<()> {
+    pub fn SetErrorOptions<'a, Param0: ::std::convert::Into<ErrorOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetErrorOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetErrorOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn GetErrorOptions(&self) -> ::windows::core::Result<ErrorOptions> {
@@ -614,19 +588,14 @@ impl ::core::convert::From<IErrorReportingSettings> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IErrorReportingSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IErrorReportingSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IErrorReportingSettings> for ::windows::core::IUnknown {
     fn from(value: &IErrorReportingSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IErrorReportingSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IErrorReportingSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IErrorReportingSettings> for ::windows::core::IInspectable {
@@ -634,19 +603,14 @@ impl ::core::convert::From<IErrorReportingSettings> for ::windows::core::IInspec
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IErrorReportingSettings> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IErrorReportingSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IErrorReportingSettings> for ::windows::core::IInspectable {
     fn from(value: &IErrorReportingSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IErrorReportingSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IErrorReportingSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IErrorReportingSettings {
@@ -696,19 +660,19 @@ impl IFileLoggingSession {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannelWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0, maxlevel: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannelWithLevel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<LoggingLevel>>(&self, loggingchannel: Param0, maxlevel: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi(), maxlevel).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -720,17 +684,17 @@ impl IFileLoggingSession {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogFileGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn LogFileGenerated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).LogFileGenerated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LogFileGenerated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLogFileGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLogFileGenerated(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLogFileGenerated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLogFileGenerated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
@@ -743,19 +707,14 @@ impl ::core::convert::From<IFileLoggingSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileLoggingSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileLoggingSession> for ::windows::core::IUnknown {
     fn from(value: &IFileLoggingSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileLoggingSession> for ::windows::core::IInspectable {
@@ -763,19 +722,14 @@ impl ::core::convert::From<IFileLoggingSession> for ::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileLoggingSession> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileLoggingSession> for ::windows::core::IInspectable {
     fn from(value: &IFileLoggingSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IFileLoggingSession> for super::IClosable {
@@ -790,14 +744,11 @@ impl ::core::convert::TryFrom<&IFileLoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for IFileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &IFileLoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileLoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileLoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IFileLoggingSession {
@@ -944,37 +895,37 @@ impl ILoggingChannel {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventstring: Param0) -> ::windows::core::Result<()> {
+    pub fn LogMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, eventstring: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogMessage)(::windows::core::Interface::as_raw(this), eventstring.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogMessage)(::windows::core::Interface::as_raw(this), eventstring.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogMessageWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventstring: Param0, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogMessageWithLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LoggingLevel>>(&self, eventstring: Param0, level: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogMessageWithLevel)(::windows::core::Interface::as_raw(this), eventstring.into_param().abi(), level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogMessageWithLevel)(::windows::core::Interface::as_raw(this), eventstring.into().abi(), level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogValuePair<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value1: Param0, value2: i32) -> ::windows::core::Result<()> {
+    pub fn LogValuePair<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value1: Param0, value2: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogValuePair)(::windows::core::Interface::as_raw(this), value1.into_param().abi(), value2).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogValuePair)(::windows::core::Interface::as_raw(this), value1.into().abi(), value2).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogValuePairWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value1: Param0, value2: i32, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogValuePairWithLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, value1: Param0, value2: i32, level: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogValuePairWithLevel)(::windows::core::Interface::as_raw(this), value1.into_param().abi(), value2, level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogValuePairWithLevel)(::windows::core::Interface::as_raw(this), value1.into().abi(), value2, level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LoggingEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn LoggingEnabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).LoggingEnabled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LoggingEnabled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLoggingEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingEnabled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingEnabled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
@@ -987,19 +938,14 @@ impl ::core::convert::From<ILoggingChannel> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoggingChannel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILoggingChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoggingChannel> for ::windows::core::IUnknown {
     fn from(value: &ILoggingChannel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILoggingChannel> for ::windows::core::IInspectable {
@@ -1007,19 +953,14 @@ impl ::core::convert::From<ILoggingChannel> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoggingChannel> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILoggingChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoggingChannel> for ::windows::core::IInspectable {
     fn from(value: &ILoggingChannel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ILoggingChannel> for super::IClosable {
@@ -1034,14 +975,11 @@ impl ::core::convert::TryFrom<&ILoggingChannel> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for ILoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &ILoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILoggingChannel> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILoggingChannel) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ILoggingChannel {
@@ -1333,27 +1271,27 @@ impl ILoggingSession {
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SaveToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folder: Param0, filename: Param1) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn SaveToFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folder: Param0, filename: Param1) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), folder.into_param().abi(), filename.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), filename.into().abi(), result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannelWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0, maxlevel: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannelWithLevel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<LoggingLevel>>(&self, loggingchannel: Param0, maxlevel: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi(), maxlevel).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
@@ -1366,19 +1304,14 @@ impl ::core::convert::From<ILoggingSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoggingSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoggingSession> for ::windows::core::IUnknown {
     fn from(value: &ILoggingSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILoggingSession> for ::windows::core::IInspectable {
@@ -1386,19 +1319,14 @@ impl ::core::convert::From<ILoggingSession> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoggingSession> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoggingSession> for ::windows::core::IInspectable {
     fn from(value: &ILoggingSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ILoggingSession> for super::IClosable {
@@ -1413,14 +1341,11 @@ impl ::core::convert::TryFrom<&ILoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for ILoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &ILoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ILoggingSession {
@@ -1489,71 +1414,71 @@ impl ILoggingTarget {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> ::windows::core::Result<bool> {
+    pub fn IsEnabledWithLevel<'a, Param0: ::std::convert::Into<LoggingLevel>>(&self, level: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledWithLevel)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledWithLevel)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> ::windows::core::Result<bool> {
+    pub fn IsEnabledWithLevelAndKeywords<'a, Param0: ::std::convert::Into<LoggingLevel>>(&self, level: Param0, keywords: i64) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(::windows::core::Interface::as_raw(this), level, keywords, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(::windows::core::Interface::as_raw(this), level.into(), keywords, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventname: Param0) -> ::windows::core::Result<()> {
+    pub fn LogEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, eventname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogEvent)(::windows::core::Interface::as_raw(this), eventname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEvent)(::windows::core::Interface::as_raw(this), eventname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, eventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, eventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFields)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFields)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFieldsAndLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, eventname: Param0, fields: Param1, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFieldsAndLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, eventname: Param0, fields: Param1, level: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi(), level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi(), level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param3: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, eventname: Param0, fields: Param1, level: LoggingLevel, options: Param3) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>, Param3: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, eventname: Param0, fields: Param1, level: Param2, options: Param3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi(), level, options.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi(), level.into(), options.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, starteventname: Param0) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, starteventname: Param0) -> ::windows::core::Result<LoggingActivity> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivity)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivity)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, starteventname: Param0, fields: Param1) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, starteventname: Param0, fields: Param1) -> ::windows::core::Result<LoggingActivity> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFields)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFields)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFieldsAndLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, starteventname: Param0, fields: Param1, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, starteventname: Param0, fields: Param1, level: Param2) -> ::windows::core::Result<LoggingActivity> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), level, result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), level.into(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param3: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, starteventname: Param0, fields: Param1, level: LoggingLevel, options: Param3) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>, Param3: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, starteventname: Param0, fields: Param1, level: Param2, options: Param3) -> ::windows::core::Result<LoggingActivity> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), level, options.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), level.into(), options.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
 }
@@ -1562,19 +1487,14 @@ impl ::core::convert::From<ILoggingTarget> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoggingTarget> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILoggingTarget) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoggingTarget> for ::windows::core::IUnknown {
     fn from(value: &ILoggingTarget) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILoggingTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILoggingTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILoggingTarget> for ::windows::core::IInspectable {
@@ -1582,19 +1502,14 @@ impl ::core::convert::From<ILoggingTarget> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoggingTarget> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILoggingTarget) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoggingTarget> for ::windows::core::IInspectable {
     fn from(value: &ILoggingTarget) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILoggingTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILoggingTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILoggingTarget {
@@ -1708,14 +1623,9 @@ impl ::core::convert::From<&LogFileGeneratedEventArgs> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LogFileGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LogFileGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LogFileGeneratedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LogFileGeneratedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LogFileGeneratedEventArgs> for ::windows::core::IInspectable {
@@ -1728,14 +1638,9 @@ impl ::core::convert::From<&LogFileGeneratedEventArgs> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LogFileGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LogFileGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LogFileGeneratedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LogFileGeneratedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LogFileGeneratedEventArgs {}
@@ -1774,32 +1679,32 @@ impl LoggingActivity {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StopActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, stopeventname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopActivity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, stopeventname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopActivity)(::windows::core::Interface::as_raw(this), stopeventname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopActivity)(::windows::core::Interface::as_raw(this), stopeventname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StopActivityWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, stopeventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
+    pub fn StopActivityWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, stopeventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopActivityWithFields)(::windows::core::Interface::as_raw(this), stopeventname.into_param().abi(), fields.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopActivityWithFields)(::windows::core::Interface::as_raw(this), stopeventname.into().abi(), fields.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StopActivityWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param2: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, stopeventname: Param0, fields: Param1, options: Param2) -> ::windows::core::Result<()> {
+    pub fn StopActivityWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, stopeventname: Param0, fields: Param1, options: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), stopeventname.into_param().abi(), fields.into_param().abi(), options.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), stopeventname.into().abi(), fields.into().abi(), options.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn CreateLoggingActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ILoggingChannel>>(activityname: Param0, loggingchannel: Param1) -> ::windows::core::Result<LoggingActivity> {
+    pub fn CreateLoggingActivity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activityname: Param0, loggingchannel: Param1) -> ::windows::core::Result<LoggingActivity> {
         Self::ILoggingActivityFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLoggingActivity)(::windows::core::Interface::as_raw(this), activityname.into_param().abi(), loggingchannel.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).CreateLoggingActivity)(::windows::core::Interface::as_raw(this), activityname.into().abi(), loggingchannel.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn CreateLoggingActivityWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ILoggingChannel>>(activityname: Param0, loggingchannel: Param1, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity> {
+    pub fn CreateLoggingActivityWithLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<LoggingLevel>>(activityname: Param0, loggingchannel: Param1, level: Param2) -> ::windows::core::Result<LoggingActivity> {
         Self::ILoggingActivityFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLoggingActivityWithLevel)(::windows::core::Interface::as_raw(this), activityname.into_param().abi(), loggingchannel.into_param().abi(), level, result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).CreateLoggingActivityWithLevel)(::windows::core::Interface::as_raw(this), activityname.into().abi(), loggingchannel.try_into().map_err(|e| e.into())?.abi(), level.into(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -1811,71 +1716,71 @@ impl LoggingActivity {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> ::windows::core::Result<bool> {
+    pub fn IsEnabledWithLevel<'a, Param0: ::std::convert::Into<LoggingLevel>>(&self, level: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledWithLevel)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledWithLevel)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> ::windows::core::Result<bool> {
+    pub fn IsEnabledWithLevelAndKeywords<'a, Param0: ::std::convert::Into<LoggingLevel>>(&self, level: Param0, keywords: i64) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(::windows::core::Interface::as_raw(this), level, keywords, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(::windows::core::Interface::as_raw(this), level.into(), keywords, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventname: Param0) -> ::windows::core::Result<()> {
+    pub fn LogEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, eventname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEvent)(::windows::core::Interface::as_raw(this), eventname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEvent)(::windows::core::Interface::as_raw(this), eventname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, eventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, eventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFields)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFields)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFieldsAndLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, eventname: Param0, fields: Param1, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFieldsAndLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, eventname: Param0, fields: Param1, level: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi(), level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi(), level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param3: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, eventname: Param0, fields: Param1, level: LoggingLevel, options: Param3) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>, Param3: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, eventname: Param0, fields: Param1, level: Param2, options: Param3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi(), level, options.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi(), level.into(), options.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, starteventname: Param0) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, starteventname: Param0) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivity)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivity)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, starteventname: Param0, fields: Param1) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, starteventname: Param0, fields: Param1) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFields)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFields)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFieldsAndLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, starteventname: Param0, fields: Param1, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, starteventname: Param0, fields: Param1, level: Param2) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), level, result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), level.into(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param3: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, starteventname: Param0, fields: Param1, level: LoggingLevel, options: Param3) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>, Param3: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, starteventname: Param0, fields: Param1, level: Param2, options: Param3) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), level, options.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), level.into(), options.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc(hidden)]
@@ -1924,14 +1829,9 @@ impl ::core::convert::From<&LoggingActivity> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingActivity> for &::windows::core::IUnknown {
+    fn from(value: &LoggingActivity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LoggingActivity> for ::windows::core::IInspectable {
@@ -1944,14 +1844,9 @@ impl ::core::convert::From<&LoggingActivity> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingActivity> for &::windows::core::IInspectable {
+    fn from(value: &LoggingActivity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LoggingActivity> for super::IClosable {
@@ -1966,14 +1861,11 @@ impl ::core::convert::TryFrom<&LoggingActivity> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingActivity> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingActivity) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LoggingActivity> for ILoggingTarget {
@@ -1988,14 +1880,11 @@ impl ::core::convert::TryFrom<&LoggingActivity> for ILoggingTarget {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingTarget> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for &LoggingActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingTarget> {
-        ::core::convert::TryInto::<ILoggingTarget>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingActivity> for ::windows::core::InParam<'a, ILoggingTarget> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingActivity) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LoggingActivity {}
@@ -2034,37 +1923,37 @@ impl LoggingChannel {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventstring: Param0) -> ::windows::core::Result<()> {
+    pub fn LogMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, eventstring: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogMessage)(::windows::core::Interface::as_raw(this), eventstring.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogMessage)(::windows::core::Interface::as_raw(this), eventstring.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogMessageWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventstring: Param0, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogMessageWithLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LoggingLevel>>(&self, eventstring: Param0, level: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogMessageWithLevel)(::windows::core::Interface::as_raw(this), eventstring.into_param().abi(), level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogMessageWithLevel)(::windows::core::Interface::as_raw(this), eventstring.into().abi(), level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogValuePair<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value1: Param0, value2: i32) -> ::windows::core::Result<()> {
+    pub fn LogValuePair<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value1: Param0, value2: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogValuePair)(::windows::core::Interface::as_raw(this), value1.into_param().abi(), value2).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogValuePair)(::windows::core::Interface::as_raw(this), value1.into().abi(), value2).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogValuePairWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value1: Param0, value2: i32, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogValuePairWithLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, value1: Param0, value2: i32, level: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LogValuePairWithLevel)(::windows::core::Interface::as_raw(this), value1.into_param().abi(), value2, level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogValuePairWithLevel)(::windows::core::Interface::as_raw(this), value1.into().abi(), value2, level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LoggingEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn LoggingEnabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).LoggingEnabled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LoggingEnabled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLoggingEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingEnabled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingEnabled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -2076,24 +1965,24 @@ impl LoggingChannel {
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<LoggingChannel> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<LoggingChannel> {
         Self::ILoggingChannelFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingChannel>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn CreateWithOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingChannelOptions>>(name: Param0, options: Param1) -> ::windows::core::Result<LoggingChannel> {
+    pub fn CreateWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingChannelOptions>>>(name: Param0, options: Param1) -> ::windows::core::Result<LoggingChannel> {
         Self::ILoggingChannelFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithOptions)(::windows::core::Interface::as_raw(this), name.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingChannel>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithOptions)(::windows::core::Interface::as_raw(this), name.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn CreateWithOptionsAndId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingChannelOptions>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(name: Param0, options: Param1, id: Param2) -> ::windows::core::Result<LoggingChannel> {
+    pub fn CreateWithOptionsAndId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingChannelOptions>>>(name: Param0, options: Param1, id: ::windows::core::GUID) -> ::windows::core::Result<LoggingChannel> {
         Self::ILoggingChannelFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithOptionsAndId)(::windows::core::Interface::as_raw(this), name.into_param().abi(), options.into_param().abi(), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingChannel>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithOptionsAndId)(::windows::core::Interface::as_raw(this), name.into().abi(), options.into().abi(), id, result__.as_mut_ptr()).from_abi::<LoggingChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
@@ -2105,71 +1994,71 @@ impl LoggingChannel {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn IsEnabledWithLevel(&self, level: LoggingLevel) -> ::windows::core::Result<bool> {
+    pub fn IsEnabledWithLevel<'a, Param0: ::std::convert::Into<LoggingLevel>>(&self, level: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledWithLevel)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledWithLevel)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> ::windows::core::Result<bool> {
+    pub fn IsEnabledWithLevelAndKeywords<'a, Param0: ::std::convert::Into<LoggingLevel>>(&self, level: Param0, keywords: i64) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(::windows::core::Interface::as_raw(this), level, keywords, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledWithLevelAndKeywords)(::windows::core::Interface::as_raw(this), level.into(), keywords, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, eventname: Param0) -> ::windows::core::Result<()> {
+    pub fn LogEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, eventname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEvent)(::windows::core::Interface::as_raw(this), eventname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEvent)(::windows::core::Interface::as_raw(this), eventname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, eventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, eventname: Param0, fields: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFields)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFields)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFieldsAndLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, eventname: Param0, fields: Param1, level: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFieldsAndLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, eventname: Param0, fields: Param1, level: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi(), level).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi(), level.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn LogEventWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param3: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, eventname: Param0, fields: Param1, level: LoggingLevel, options: Param3) -> ::windows::core::Result<()> {
+    pub fn LogEventWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>, Param3: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, eventname: Param0, fields: Param1, level: Param2, options: Param3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), eventname.into_param().abi(), fields.into_param().abi(), level, options.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), eventname.into().abi(), fields.into().abi(), level.into(), options.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, starteventname: Param0) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, starteventname: Param0) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivity)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivity)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, starteventname: Param0, fields: Param1) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>>(&self, starteventname: Param0, fields: Param1) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFields)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFields)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFieldsAndLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>>(&self, starteventname: Param0, fields: Param1, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndLevel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>>(&self, starteventname: Param0, fields: Param1, level: Param2) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), level, result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), level.into(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn StartActivityWithFieldsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, LoggingFields>, Param3: ::windows::core::IntoParam<'a, LoggingOptions>>(&self, starteventname: Param0, fields: Param1, level: LoggingLevel, options: Param3) -> ::windows::core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LoggingFields>>, Param2: ::std::convert::Into<LoggingLevel>, Param3: ::std::convert::Into<::windows::core::InParam<'a, LoggingOptions>>>(&self, starteventname: Param0, fields: Param1, level: Param2, options: Param3) -> ::windows::core::Result<LoggingActivity> {
         let this = &::windows::core::Interface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), starteventname.into_param().abi(), fields.into_param().abi(), level, options.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
+            (::windows::core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows::core::Interface::as_raw(this), starteventname.into().abi(), fields.into().abi(), level.into(), options.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingActivity>(result__)
         }
     }
     #[doc(hidden)]
@@ -2223,14 +2112,9 @@ impl ::core::convert::From<&LoggingChannel> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingChannel> for &::windows::core::IUnknown {
+    fn from(value: &LoggingChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LoggingChannel> for ::windows::core::IInspectable {
@@ -2243,14 +2127,9 @@ impl ::core::convert::From<&LoggingChannel> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingChannel> for &::windows::core::IInspectable {
+    fn from(value: &LoggingChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LoggingChannel> for super::IClosable {
@@ -2265,14 +2144,11 @@ impl ::core::convert::TryFrom<&LoggingChannel> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingChannel) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LoggingChannel> for ILoggingChannel {
@@ -2287,14 +2163,11 @@ impl ::core::convert::TryFrom<&LoggingChannel> for ILoggingChannel {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILoggingChannel> for LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingChannel> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILoggingChannel> for &LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingChannel> {
-        ::core::convert::TryInto::<ILoggingChannel>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<'a, ILoggingChannel> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingChannel) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LoggingChannel> for ILoggingTarget {
@@ -2309,14 +2182,11 @@ impl ::core::convert::TryFrom<&LoggingChannel> for ILoggingTarget {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingTarget> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for &LoggingChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingTarget> {
-        ::core::convert::TryInto::<ILoggingTarget>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingChannel> for ::windows::core::InParam<'a, ILoggingTarget> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingChannel) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LoggingChannel {}
@@ -2341,15 +2211,15 @@ impl LoggingChannelOptions {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn SetGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGroup(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(group: Param0) -> ::windows::core::Result<LoggingChannelOptions> {
+    pub fn Create(group: ::windows::core::GUID) -> ::windows::core::Result<LoggingChannelOptions> {
         Self::ILoggingChannelOptionsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), group.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingChannelOptions>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), group, result__.as_mut_ptr()).from_abi::<LoggingChannelOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -2398,14 +2268,9 @@ impl ::core::convert::From<&LoggingChannelOptions> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoggingChannelOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoggingChannelOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingChannelOptions> for &::windows::core::IUnknown {
+    fn from(value: &LoggingChannelOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LoggingChannelOptions> for ::windows::core::IInspectable {
@@ -2418,14 +2283,9 @@ impl ::core::convert::From<&LoggingChannelOptions> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LoggingChannelOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoggingChannelOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingChannelOptions> for &::windows::core::IInspectable {
+    fn from(value: &LoggingChannelOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LoggingChannelOptions {}
@@ -2498,14 +2358,14 @@ impl LoggingFields {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn BeginStruct<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<()> {
+    pub fn BeginStruct<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).BeginStruct)(::windows::core::Interface::as_raw(this), name.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BeginStruct)(::windows::core::Interface::as_raw(this), name.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn BeginStructWithTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, tags: i32) -> ::windows::core::Result<()> {
+    pub fn BeginStructWithTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).BeginStructWithTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BeginStructWithTags)(::windows::core::Interface::as_raw(this), name.into().abi(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn EndStruct(&self) -> ::windows::core::Result<()> {
@@ -2513,559 +2373,559 @@ impl LoggingFields {
         unsafe { (::windows::core::Interface::vtable(this).EndStruct)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddEmpty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<()> {
+    pub fn AddEmpty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddEmpty)(::windows::core::Interface::as_raw(this), name.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddEmpty)(::windows::core::Interface::as_raw(this), name.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddEmptyWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddEmptyWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, format: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddEmptyWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddEmptyWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddEmptyWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddEmptyWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, format: Param1, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddEmptyWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddEmptyWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt8<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u8) -> ::windows::core::Result<()> {
+    pub fn AddUInt8<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt8)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt8)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt8WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u8, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt8WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u8, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt8WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt8WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt8WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u8, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt8WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u8, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt8WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt8WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt8Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u8]) -> ::windows::core::Result<()> {
+    pub fn AddUInt8Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt8Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt8Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt8ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u8], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt8ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u8], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt8ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt8ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt8ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u8], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt8ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u8], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt8ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt8ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt16<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i16) -> ::windows::core::Result<()> {
+    pub fn AddInt16<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: i16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt16)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt16)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt16WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i16, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddInt16WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: i16, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt16WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt16WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt16WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt16WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: i16, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt16WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt16WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt16Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i16]) -> ::windows::core::Result<()> {
+    pub fn AddInt16Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[i16]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt16Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt16Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt16ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i16], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddInt16ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[i16], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt16ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt16ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt16ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i16], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt16ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[i16], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt16ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt16ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt16<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u16) -> ::windows::core::Result<()> {
+    pub fn AddUInt16<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt16)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt16)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt16WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u16, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt16WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u16, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt16WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt16WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt16WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt16WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u16, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt16WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt16WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt16Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u16]) -> ::windows::core::Result<()> {
+    pub fn AddUInt16Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[u16]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt16Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt16Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt16ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u16], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt16ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u16], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt16ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt16ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt16ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u16], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt16ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u16], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt16ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt16ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt32<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt32<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt32WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i32, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddInt32WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: i32, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt32WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt32WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: i32, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt32Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i32]) -> ::windows::core::Result<()> {
+    pub fn AddInt32Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[i32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt32ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i32], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddInt32ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[i32], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt32ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i32], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt32ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[i32], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt32<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u32) -> ::windows::core::Result<()> {
+    pub fn AddUInt32<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt32)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt32)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt32WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u32, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt32WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u32, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt32WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt32WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt32WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt32WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u32, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt32WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt32WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt32Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u32]) -> ::windows::core::Result<()> {
+    pub fn AddUInt32Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[u32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt32Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt32Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt32ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u32], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt32ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u32], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt32ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt32ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt32ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u32], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt32ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u32], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt32ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt32ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt64<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i64) -> ::windows::core::Result<()> {
+    pub fn AddInt64<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: i64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt64)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt64)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt64WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i64, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddInt64WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: i64, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt64WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt64WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt64WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt64WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: i64, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt64WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt64WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt64Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i64]) -> ::windows::core::Result<()> {
+    pub fn AddInt64Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[i64]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt64Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt64Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt64ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i64], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddInt64ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[i64], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt64ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt64ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddInt64ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[i64], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddInt64ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[i64], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt64ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt64ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt64<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u64) -> ::windows::core::Result<()> {
+    pub fn AddUInt64<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: u64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt64)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt64)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt64WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u64, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt64WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u64, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt64WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt64WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt64WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt64WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u64, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt64WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt64WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt64Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u64]) -> ::windows::core::Result<()> {
+    pub fn AddUInt64Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[u64]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt64Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt64Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt64ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u64], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddUInt64ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u64], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt64ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt64ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddUInt64ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u64], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddUInt64ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u64], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddUInt64ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddUInt64ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSingle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f32) -> ::windows::core::Result<()> {
+    pub fn AddSingle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSingle)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSingle)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSingleWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f32, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddSingleWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: f32, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSingleWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSingleWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSingleWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddSingleWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: f32, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSingleWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSingleWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSingleArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[f32]) -> ::windows::core::Result<()> {
+    pub fn AddSingleArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[f32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSingleArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSingleArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSingleArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[f32], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddSingleArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[f32], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSingleArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSingleArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSingleArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[f32], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddSingleArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[f32], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSingleArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSingleArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDouble<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f64) -> ::windows::core::Result<()> {
+    pub fn AddDouble<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDouble)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDouble)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDoubleWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f64, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddDoubleWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: f64, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDoubleWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddDoubleWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: f64, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDoubleArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[f64]) -> ::windows::core::Result<()> {
+    pub fn AddDoubleArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[f64]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDoubleArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[f64], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddDoubleArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[f64], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDoubleArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[f64], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddDoubleArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[f64], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddChar16<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u16) -> ::windows::core::Result<()> {
+    pub fn AddChar16<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddChar16)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddChar16)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddChar16WithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u16, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddChar16WithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u16, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddChar16WithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddChar16WithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddChar16WithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddChar16WithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: u16, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddChar16WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddChar16WithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddChar16Array<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u16]) -> ::windows::core::Result<()> {
+    pub fn AddChar16Array<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[u16]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddChar16Array)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddChar16Array)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddChar16ArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u16], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddChar16ArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u16], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddChar16ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddChar16ArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddChar16ArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[u16], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddChar16ArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[u16], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddChar16ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddChar16ArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddBoolean<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: bool) -> ::windows::core::Result<()> {
+    pub fn AddBoolean<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddBoolean)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddBoolean)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddBooleanWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: bool, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddBooleanWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: bool, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddBooleanWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddBooleanWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddBooleanWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: bool, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddBooleanWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: bool, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddBooleanWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddBooleanWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddBooleanArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[bool]) -> ::windows::core::Result<()> {
+    pub fn AddBooleanArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[bool]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddBooleanArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddBooleanArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddBooleanArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[bool], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddBooleanArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[bool], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddBooleanArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddBooleanArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddBooleanArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[bool], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddBooleanArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[bool], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddBooleanArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddBooleanArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddString)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddString)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddStringWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddStringWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: Param1, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddStringWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddStringWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: Param1, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddStringArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[::windows::core::HSTRING]) -> ::windows::core::Result<()> {
+    pub fn AddStringArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[::windows::core::HSTRING]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddStringArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[::windows::core::HSTRING], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddStringArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[::windows::core::HSTRING], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddStringArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[::windows::core::HSTRING], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddStringArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[::windows::core::HSTRING], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddGuid)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddGuid)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddGuidWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddGuidWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: ::windows::core::GUID, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddGuidWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddGuidWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddGuidWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddGuidWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: ::windows::core::GUID, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddGuidWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddGuidWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddGuidArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
+    pub fn AddGuidArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddGuidArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddGuidArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddGuidArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[::windows::core::GUID], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddGuidArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[::windows::core::GUID], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddGuidArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddGuidArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddGuidArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[::windows::core::GUID], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddGuidArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[::windows::core::GUID], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddGuidArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddGuidArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDateTime<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::DateTime>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddDateTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: super::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDateTime)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDateTime)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDateTimeWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::DateTime>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddDateTimeWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::DateTime, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDateTimeWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::DateTime>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddDateTimeWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::DateTime, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDateTimeArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::DateTime]) -> ::windows::core::Result<()> {
+    pub fn AddDateTimeArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[super::DateTime]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDateTimeArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::DateTime], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddDateTimeArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::DateTime], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddDateTimeArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::DateTime], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddDateTimeArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::DateTime], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDateTimeArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::TimeSpan>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddTimeSpan<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: super::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpan)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpan)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddTimeSpanWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::TimeSpan>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddTimeSpanWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::TimeSpan, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddTimeSpanWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::TimeSpan>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddTimeSpanWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::TimeSpan, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddTimeSpanArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::TimeSpan]) -> ::windows::core::Result<()> {
+    pub fn AddTimeSpanArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[super::TimeSpan]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddTimeSpanArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::TimeSpan], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddTimeSpanArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::TimeSpan], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddTimeSpanArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::TimeSpan], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddTimeSpanArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::TimeSpan], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddTimeSpanArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddPoint<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Point>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddPoint<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: super::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddPoint)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddPoint)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddPointWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Point>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddPointWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::Point, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddPointWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddPointWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddPointWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Point>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddPointWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::Point, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddPointWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddPointWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddPointArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Point]) -> ::windows::core::Result<()> {
+    pub fn AddPointArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[super::Point]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddPointArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddPointArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddPointArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Point], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddPointArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::Point], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddPointArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddPointArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddPointArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Point], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddPointArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::Point], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddPointArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddPointArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Size>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddSize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: super::Size) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSize)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSize)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSizeWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Size>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddSizeWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::Size, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSizeWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSizeWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSizeWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Size>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddSizeWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::Size, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSizeWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSizeWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSizeArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Size]) -> ::windows::core::Result<()> {
+    pub fn AddSizeArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[super::Size]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSizeArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSizeArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSizeArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Size], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddSizeArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::Size], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSizeArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSizeArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddSizeArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Size], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddSizeArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::Size], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddSizeArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddSizeArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddRect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Rect>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn AddRect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: super::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddRect)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddRect)(::windows::core::Interface::as_raw(this), name.into().abi(), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddRectWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Rect>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddRectWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::Rect, format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddRectWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddRectWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddRectWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Rect>>(&self, name: Param0, value: Param1, format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddRectWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: super::Rect, format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddRectWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddRectWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value, format.into(), tags).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddRectArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Rect]) -> ::windows::core::Result<()> {
+    pub fn AddRectArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, value: &[super::Rect]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddRectArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddRectArray)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddRectArrayWithFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Rect], format: LoggingFieldFormat) -> ::windows::core::Result<()> {
+    pub fn AddRectArrayWithFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::Rect], format: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddRectArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddRectArrayWithFormat)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddRectArrayWithFormatAndTags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: &[super::Rect], format: LoggingFieldFormat, tags: i32) -> ::windows::core::Result<()> {
+    pub fn AddRectArrayWithFormatAndTags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<LoggingFieldFormat>>(&self, name: Param0, value: &[super::Rect], format: Param2, tags: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddRectArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format, tags).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddRectArrayWithFormatAndTags)(::windows::core::Interface::as_raw(this), name.into().abi(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), format.into(), tags).ok() }
     }
 }
 impl ::core::clone::Clone for LoggingFields {
@@ -3108,14 +2968,9 @@ impl ::core::convert::From<&LoggingFields> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoggingFields {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoggingFields {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingFields> for &::windows::core::IUnknown {
+    fn from(value: &LoggingFields) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LoggingFields> for ::windows::core::IInspectable {
@@ -3128,14 +2983,9 @@ impl ::core::convert::From<&LoggingFields> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LoggingFields {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoggingFields {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingFields> for &::windows::core::IInspectable {
+    fn from(value: &LoggingFields) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LoggingFields {}
@@ -3275,9 +3125,9 @@ impl LoggingOptions {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn SetOpcode(&self, value: LoggingOpcode) -> ::windows::core::Result<()> {
+    pub fn SetOpcode<'a, Param0: ::std::convert::Into<LoggingOpcode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOpcode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOpcode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -3288,9 +3138,9 @@ impl LoggingOptions {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn SetActivityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetActivityId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetActivityId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetActivityId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn RelatedActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -3301,9 +3151,9 @@ impl LoggingOptions {
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn SetRelatedActivityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRelatedActivityId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRelatedActivityId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRelatedActivityId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn CreateWithKeywords(keywords: i64) -> ::windows::core::Result<LoggingOptions> {
@@ -3358,14 +3208,9 @@ impl ::core::convert::From<&LoggingOptions> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoggingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoggingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingOptions> for &::windows::core::IUnknown {
+    fn from(value: &LoggingOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LoggingOptions> for ::windows::core::IInspectable {
@@ -3378,14 +3223,9 @@ impl ::core::convert::From<&LoggingOptions> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LoggingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoggingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingOptions> for &::windows::core::IInspectable {
+    fn from(value: &LoggingOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LoggingOptions {}
@@ -3409,33 +3249,33 @@ impl LoggingSession {
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SaveToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folder: Param0, filename: Param1) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn SaveToFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folder: Param0, filename: Param1) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), folder.into_param().abi(), filename.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), filename.into().abi(), result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn AddLoggingChannelWithLevel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0, maxlevel: LoggingLevel) -> ::windows::core::Result<()> {
+    pub fn AddLoggingChannelWithLevel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<LoggingLevel>>(&self, loggingchannel: Param0, maxlevel: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi(), maxlevel).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn RemoveLoggingChannel<'a, Param0: ::windows::core::IntoParam<'a, ILoggingChannel>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLoggingChannel<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, loggingchannel: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<LoggingSession> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<LoggingSession> {
         Self::ILoggingSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<LoggingSession>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<LoggingSession>(result__)
         })
     }
     #[doc(hidden)]
@@ -3484,14 +3324,9 @@ impl ::core::convert::From<&LoggingSession> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingSession> for &::windows::core::IUnknown {
+    fn from(value: &LoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LoggingSession> for ::windows::core::IInspectable {
@@ -3504,14 +3339,9 @@ impl ::core::convert::From<&LoggingSession> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LoggingSession> for &::windows::core::IInspectable {
+    fn from(value: &LoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LoggingSession> for super::IClosable {
@@ -3526,14 +3356,11 @@ impl ::core::convert::TryFrom<&LoggingSession> for super::IClosable {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IClosable> for &LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IClosable> {
-        ::core::convert::TryInto::<super::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LoggingSession> for ILoggingSession {
@@ -3548,14 +3375,11 @@ impl ::core::convert::TryFrom<&LoggingSession> for ILoggingSession {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILoggingSession> for LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingSession> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILoggingSession> for &LoggingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ILoggingSession> {
-        ::core::convert::TryInto::<ILoggingSession>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LoggingSession> for ::windows::core::InParam<'a, ILoggingSession> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LoggingSession {}
@@ -3572,9 +3396,9 @@ impl RuntimeBrokerErrorSettings {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-    pub fn SetErrorOptions(&self, value: ErrorOptions) -> ::windows::core::Result<()> {
+    pub fn SetErrorOptions<'a, Param0: ::std::convert::Into<ErrorOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetErrorOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetErrorOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn GetErrorOptions(&self) -> ::windows::core::Result<ErrorOptions> {
@@ -3625,14 +3449,9 @@ impl ::core::convert::From<&RuntimeBrokerErrorSettings> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RuntimeBrokerErrorSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RuntimeBrokerErrorSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RuntimeBrokerErrorSettings> for &::windows::core::IUnknown {
+    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RuntimeBrokerErrorSettings> for ::windows::core::IInspectable {
@@ -3645,14 +3464,9 @@ impl ::core::convert::From<&RuntimeBrokerErrorSettings> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RuntimeBrokerErrorSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RuntimeBrokerErrorSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RuntimeBrokerErrorSettings> for &::windows::core::IInspectable {
+    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RuntimeBrokerErrorSettings> for IErrorReportingSettings {
@@ -3667,14 +3481,11 @@ impl ::core::convert::TryFrom<&RuntimeBrokerErrorSettings> for IErrorReportingSe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IErrorReportingSettings> for RuntimeBrokerErrorSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, IErrorReportingSettings> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IErrorReportingSettings> for &RuntimeBrokerErrorSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, IErrorReportingSettings> {
-        ::core::convert::TryInto::<IErrorReportingSettings>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RuntimeBrokerErrorSettings> for ::windows::core::InParam<'a, IErrorReportingSettings> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RuntimeBrokerErrorSettings) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RuntimeBrokerErrorSettings {}
@@ -3740,14 +3551,9 @@ impl ::core::convert::From<&TracingStatusChangedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TracingStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TracingStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TracingStatusChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &TracingStatusChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TracingStatusChangedEventArgs> for ::windows::core::IInspectable {
@@ -3760,14 +3566,9 @@ impl ::core::convert::From<&TracingStatusChangedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TracingStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TracingStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TracingStatusChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &TracingStatusChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TracingStatusChangedEventArgs {}

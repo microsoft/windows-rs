@@ -154,15 +154,15 @@ impl SocialDashboardItemUpdater {
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTimestamp(&self, value: super::super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimestamp)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTimestamp)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::SocialItemThumbnail>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetThumbnail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::SocialItemThumbnail>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -193,9 +193,9 @@ impl SocialDashboardItemUpdater {
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetTargetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTargetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -248,15 +248,9 @@ impl ::core::convert::From<&SocialDashboardItemUpdater> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialDashboardItemUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialDashboardItemUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SocialDashboardItemUpdater> for &::windows::core::IUnknown {
+    fn from(value: &SocialDashboardItemUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -272,15 +266,9 @@ impl ::core::convert::From<&SocialDashboardItemUpdater> for ::windows::core::IIn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialDashboardItemUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialDashboardItemUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SocialDashboardItemUpdater> for &::windows::core::IInspectable {
+    fn from(value: &SocialDashboardItemUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -380,15 +368,9 @@ impl ::core::convert::From<&SocialFeedUpdater> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialFeedUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialFeedUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SocialFeedUpdater> for &::windows::core::IUnknown {
+    fn from(value: &SocialFeedUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -404,15 +386,9 @@ impl ::core::convert::From<&SocialFeedUpdater> for ::windows::core::IInspectable
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocialFeedUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialFeedUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SocialFeedUpdater> for &::windows::core::IInspectable {
+    fn from(value: &SocialFeedUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -426,29 +402,29 @@ pub struct SocialInfoProviderManager;
 impl SocialInfoProviderManager {
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateSocialFeedUpdaterAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerremoteid: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>> {
+    pub fn CreateSocialFeedUpdaterAsync<'a, Param0: ::std::convert::Into<super::SocialFeedKind>, Param1: ::std::convert::Into<super::SocialFeedUpdateMode>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(kind: Param0, mode: Param1, ownerremoteid: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>> {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSocialFeedUpdaterAsync)(::windows::core::Interface::as_raw(this), kind, mode, ownerremoteid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>(result__)
+            (::windows::core::Interface::vtable(this).CreateSocialFeedUpdaterAsync)(::windows::core::Interface::as_raw(this), kind.into(), mode.into(), ownerremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateDashboardItemUpdaterAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(ownerremoteid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>> {
+    pub fn CreateDashboardItemUpdaterAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(ownerremoteid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>> {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDashboardItemUpdaterAsync)(::windows::core::Interface::as_raw(this), ownerremoteid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDashboardItemUpdaterAsync)(::windows::core::Interface::as_raw(this), ownerremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn UpdateBadgeCountValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(itemremoteid: Param0, newcount: i32) -> ::windows::core::Result<()> {
-        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateBadgeCountValue)(::windows::core::Interface::as_raw(this), itemremoteid.into_param().abi(), newcount).ok() })
+    pub fn UpdateBadgeCountValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(itemremoteid: Param0, newcount: i32) -> ::windows::core::Result<()> {
+        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateBadgeCountValue)(::windows::core::Interface::as_raw(this), itemremoteid.into().abi(), newcount).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn ReportNewContentAvailable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contactremoteid: Param0, kind: super::SocialFeedKind) -> ::windows::core::Result<()> {
-        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ReportNewContentAvailable)(::windows::core::Interface::as_raw(this), contactremoteid.into_param().abi(), kind).ok() })
+    pub fn ReportNewContentAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::SocialFeedKind>>(contactremoteid: Param0, kind: Param1) -> ::windows::core::Result<()> {
+        Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ReportNewContentAvailable)(::windows::core::Interface::as_raw(this), contactremoteid.into().abi(), kind.into()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]

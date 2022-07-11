@@ -164,33 +164,33 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintTicketValidationRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintTicketValidationRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PrintTicketValidationRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PrintTicketValidationRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePrintTicketValidationRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePrintTicketValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePrintTicketValidationRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePrintTicketValidationRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintDeviceCapabilitiesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintDeviceCapabilitiesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePrintDeviceCapabilitiesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePrintDeviceCapabilitiesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePrintDeviceCapabilitiesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
@@ -238,14 +238,9 @@ impl ::core::convert::From<&PrintSupportExtensionSession> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportExtensionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportExtensionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportExtensionSession> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportExtensionSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportExtensionSession> for ::windows::core::IInspectable {
@@ -258,14 +253,9 @@ impl ::core::convert::From<&PrintSupportExtensionSession> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportExtensionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportExtensionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportExtensionSession> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportExtensionSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportExtensionSession {}
@@ -323,14 +313,9 @@ impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportExtensionTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportExtensionTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportExtensionTriggerDetails> for ::windows::core::IInspectable {
@@ -343,14 +328,9 @@ impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportExtensionTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportExtensionTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportExtensionTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportExtensionTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportExtensionTriggerDetails {}
@@ -370,9 +350,9 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Data::Xml::Dom::XmlDocument>>(&self, updatedpdc: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdatePrintDeviceCapabilities<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::Dom::XmlDocument>>>(&self, updatedpdc: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Interface::as_raw(this), updatedpdc.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Interface::as_raw(this), updatedpdc.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -424,14 +404,9 @@ impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for ::windows::core::IInspectable {
@@ -444,14 +419,9 @@ impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportPrintDeviceCapabilitiesChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportPrintDeviceCapabilitiesChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
@@ -470,9 +440,9 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
-    pub fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus) -> ::windows::core::Result<()> {
+    pub fn SetPrintTicketValidationStatus<'a, Param0: ::std::convert::Into<WorkflowPrintTicketValidationStatus>>(&self, status: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Interface::as_raw(this), status).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Interface::as_raw(this), status.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -524,14 +494,9 @@ impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportPrintTicketValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportPrintTicketValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportPrintTicketValidationRequestedEventArgs> for ::windows::core::IInspectable {
@@ -544,14 +509,9 @@ impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportPrintTicketValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportPrintTicketValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportPrintTicketValidationRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportPrintTicketValidationRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
@@ -619,14 +579,9 @@ impl ::core::convert::From<&PrintSupportSessionInfo> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportSessionInfo> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportSessionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportSessionInfo> for ::windows::core::IInspectable {
@@ -639,14 +594,9 @@ impl ::core::convert::From<&PrintSupportSessionInfo> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportSessionInfo> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportSessionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportSessionInfo {}
@@ -749,14 +699,9 @@ impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportSettingsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -769,14 +714,9 @@ impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportSettingsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -794,15 +734,11 @@ impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> for PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> for &PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
-        ::core::convert::TryInto::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -820,15 +756,11 @@ impl ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for super
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for &PrintSupportSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintSupportSettingsActivatedEventArgs> for ::windows::core::InParam<'a, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintSupportSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportSettingsActivatedEventArgs {}
@@ -864,9 +796,9 @@ impl PrintSupportSettingsUISession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn UpdatePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::PrintTicket::WorkflowPrintTicket>>(&self, printticket: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdatePrintTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTicket::WorkflowPrintTicket>>>(&self, printticket: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintTicket)(::windows::core::Interface::as_raw(this), printticket.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdatePrintTicket)(::windows::core::Interface::as_raw(this), printticket.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
     pub fn SessionInfo(&self) -> ::windows::core::Result<PrintSupportSessionInfo> {
@@ -917,14 +849,9 @@ impl ::core::convert::From<&PrintSupportSettingsUISession> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintSupportSettingsUISession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintSupportSettingsUISession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportSettingsUISession> for &::windows::core::IUnknown {
+    fn from(value: &PrintSupportSettingsUISession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintSupportSettingsUISession> for ::windows::core::IInspectable {
@@ -937,14 +864,9 @@ impl ::core::convert::From<&PrintSupportSettingsUISession> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintSupportSettingsUISession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintSupportSettingsUISession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintSupportSettingsUISession> for &::windows::core::IInspectable {
+    fn from(value: &PrintSupportSettingsUISession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintSupportSettingsUISession {}

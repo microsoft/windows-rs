@@ -8,40 +8,40 @@ pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: *mut u32) -> i32 {
+pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::std::convert::Into<HCOMDB>>(hcomdb: Param0, comnumber: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ComDBClaimNextFreePort(hcomdb.into_param().abi(), ::core::mem::transmute(comnumber)))
+    ::core::mem::transmute(ComDBClaimNextFreePort(hcomdb.into(), ::core::mem::transmute(comnumber)))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
+pub unsafe fn ComDBClaimPort<'a, Param0: ::std::convert::Into<HCOMDB>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: super::super::Foundation::BOOL, forced: *mut super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(ComDBClaimPort(hcomdb.into_param().abi(), ::core::mem::transmute(comnumber), forceclaim.into_param().abi(), ::core::mem::transmute(forced)))
+    ::core::mem::transmute(ComDBClaimPort(hcomdb.into(), ::core::mem::transmute(comnumber), forceclaim.into(), ::core::mem::transmute(forced)))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBClose<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0) -> i32 {
+pub unsafe fn ComDBClose<'a, Param0: ::std::convert::Into<HCOMDB>>(hcomdb: Param0) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBClose(hcomdb: HCOMDB) -> i32;
     }
-    ::core::mem::transmute(ComDBClose(hcomdb.into_param().abi()))
+    ::core::mem::transmute(ComDBClose(hcomdb.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32 {
+pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::std::convert::Into<HCOMDB>>(hcomdb: Param0, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ComDBGetCurrentPortUsage(hcomdb.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(reporttype), ::core::mem::transmute(maxportsreported)))
+    ::core::mem::transmute(ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(reporttype), ::core::mem::transmute(maxportsreported)))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
@@ -54,21 +54,21 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, comnumber: u32) -> i32 {
+pub unsafe fn ComDBReleasePort<'a, Param0: ::std::convert::Into<HCOMDB>>(hcomdb: Param0, comnumber: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32;
     }
-    ::core::mem::transmute(ComDBReleasePort(hcomdb.into_param().abi(), ::core::mem::transmute(comnumber)))
+    ::core::mem::transmute(ComDBReleasePort(hcomdb.into(), ::core::mem::transmute(comnumber)))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCOMDB>>(hcomdb: Param0, newsize: u32) -> i32 {
+pub unsafe fn ComDBResizeDatabase<'a, Param0: ::std::convert::Into<HCOMDB>>(hcomdb: Param0, newsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
     }
-    ::core::mem::transmute(ComDBResizeDatabase(hcomdb.into_param().abi(), ::core::mem::transmute(newsize)))
+    ::core::mem::transmute(ComDBResizeDatabase(hcomdb.into(), ::core::mem::transmute(newsize)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -92,6 +92,11 @@ impl ::core::marker::Copy for HCOMDB {}
 impl ::core::fmt::Debug for HCOMDB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HCOMDB").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HCOMDB>> for HCOMDB {
+    fn from(optional: ::core::option::Option<HCOMDB>) -> HCOMDB {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HCOMDB {

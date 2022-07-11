@@ -104,9 +104,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Format(&self) -> ::windows::core::Result<MdmAlertDataType> {
@@ -117,9 +117,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetFormat(&self, value: MdmAlertDataType) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, Param0: ::std::convert::Into<MdmAlertDataType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Mark(&self) -> ::windows::core::Result<MdmAlertMark> {
@@ -130,9 +130,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetMark(&self, value: MdmAlertMark) -> ::windows::core::Result<()> {
+    pub fn SetMark<'a, Param0: ::std::convert::Into<MdmAlertMark>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMark)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMark)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -143,9 +143,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<u32> {
@@ -164,9 +164,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetTarget<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -177,9 +177,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MdmAlert {
@@ -222,14 +222,9 @@ impl ::core::convert::From<&MdmAlert> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MdmAlert {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MdmAlert {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MdmAlert> for &::windows::core::IUnknown {
+    fn from(value: &MdmAlert) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MdmAlert> for ::windows::core::IInspectable {
@@ -242,14 +237,9 @@ impl ::core::convert::From<&MdmAlert> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MdmAlert {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MdmAlert {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MdmAlert> for &::windows::core::IInspectable {
+    fn from(value: &MdmAlert) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Management\"`*"]
@@ -387,11 +377,11 @@ impl MdmSession {
     }
     #[doc = "*Required features: `\"Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithAlertsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<MdmAlert>>>(&self, alerts: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn StartWithAlertsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<MdmAlert>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, alerts: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartWithAlertsAsync)(::windows::core::Interface::as_raw(this), alerts.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartWithAlertsAsync)(::windows::core::Interface::as_raw(this), alerts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -435,14 +425,9 @@ impl ::core::convert::From<&MdmSession> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MdmSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MdmSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MdmSession> for &::windows::core::IUnknown {
+    fn from(value: &MdmSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MdmSession> for ::windows::core::IInspectable {
@@ -455,14 +440,9 @@ impl ::core::convert::From<&MdmSession> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MdmSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MdmSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MdmSession> for &::windows::core::IInspectable {
+    fn from(value: &MdmSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Management\"`*"]
@@ -484,14 +464,14 @@ impl MdmSessionManager {
         })
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn DeleteSessionById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sessionid: Param0) -> ::windows::core::Result<()> {
-        Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DeleteSessionById)(::windows::core::Interface::as_raw(this), sessionid.into_param().abi()).ok() })
+    pub fn DeleteSessionById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(sessionid: Param0) -> ::windows::core::Result<()> {
+        Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DeleteSessionById)(::windows::core::Interface::as_raw(this), sessionid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn GetSessionById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sessionid: Param0) -> ::windows::core::Result<MdmSession> {
+    pub fn GetSessionById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(sessionid: Param0) -> ::windows::core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSessionById)(::windows::core::Interface::as_raw(this), sessionid.into_param().abi(), result__.as_mut_ptr()).from_abi::<MdmSession>(result__)
+            (::windows::core::Interface::vtable(this).GetSessionById)(::windows::core::Interface::as_raw(this), sessionid.into().abi(), result__.as_mut_ptr()).from_abi::<MdmSession>(result__)
         })
     }
     #[doc(hidden)]

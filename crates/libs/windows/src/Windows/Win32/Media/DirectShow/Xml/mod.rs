@@ -5,17 +5,17 @@ pub struct IXMLGraphBuilder(::windows::core::IUnknown);
 impl IXMLGraphBuilder {
     #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub unsafe fn BuildFromXML<'a, Param0: ::windows::core::IntoParam<'a, super::IGraphBuilder>, Param1: ::windows::core::IntoParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>(&self, pgraph: Param0, pxml: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BuildFromXML)(::windows::core::Interface::as_raw(self), pgraph.into_param().abi(), pxml.into_param().abi()).ok()
+    pub unsafe fn BuildFromXML<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::MsXml::IXMLElement>>>(&self, pgraph: Param0, pxml: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BuildFromXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), pxml.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SaveToXML<'a, Param0: ::windows::core::IntoParam<'a, super::IGraphBuilder>>(&self, pgraph: Param0, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveToXML)(::windows::core::Interface::as_raw(self), pgraph.into_param().abi(), ::core::mem::transmute(pbstrxml)).ok()
+    pub unsafe fn SaveToXML<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>>(&self, pgraph: Param0, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SaveToXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), ::core::mem::transmute(pbstrxml)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
-    pub unsafe fn BuildFromXMLFile<'a, Param0: ::windows::core::IntoParam<'a, super::IGraphBuilder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pgraph: Param0, wszfilename: Param1, wszbaseurl: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BuildFromXMLFile)(::windows::core::Interface::as_raw(self), pgraph.into_param().abi(), wszfilename.into_param().abi(), wszbaseurl.into_param().abi()).ok()
+    pub unsafe fn BuildFromXMLFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>>(&self, pgraph: Param0, wszfilename: ::windows::core::PCWSTR, wszbaseurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BuildFromXMLFile)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), ::core::mem::transmute(wszfilename), ::core::mem::transmute(wszbaseurl)).ok()
     }
 }
 impl ::core::convert::From<IXMLGraphBuilder> for ::windows::core::IUnknown {
@@ -23,19 +23,14 @@ impl ::core::convert::From<IXMLGraphBuilder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXMLGraphBuilder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXMLGraphBuilder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXMLGraphBuilder> for ::windows::core::IUnknown {
     fn from(value: &IXMLGraphBuilder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXMLGraphBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXMLGraphBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXMLGraphBuilder {

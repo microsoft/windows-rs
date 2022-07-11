@@ -48,6 +48,11 @@ impl ::core::fmt::Debug for HTASK {
         f.debug_tuple("HTASK").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HTASK>> for HTASK {
+    fn from(optional: ::core::option::Option<HTASK>) -> HTASK {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HTASK {
     type Abi = Self;
 }
@@ -62,15 +67,15 @@ impl IReferenceClock {
     }
     #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdviseTime<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, basetime: i64, streamtime: i64, hevent: Param2) -> ::windows::core::Result<usize> {
+    pub unsafe fn AdviseTime<'a, Param2: ::std::convert::Into<super::Foundation::HANDLE>>(&self, basetime: i64, streamtime: i64, hevent: Param2) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).AdviseTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(basetime), ::core::mem::transmute(streamtime), hevent.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).AdviseTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(basetime), ::core::mem::transmute(streamtime), hevent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdvisePeriodic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, starttime: i64, periodtime: i64, hsemaphore: Param2) -> ::windows::core::Result<usize> {
+    pub unsafe fn AdvisePeriodic<'a, Param2: ::std::convert::Into<super::Foundation::HANDLE>>(&self, starttime: i64, periodtime: i64, hsemaphore: Param2) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).AdvisePeriodic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(periodtime), hsemaphore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).AdvisePeriodic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(periodtime), hsemaphore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media\"`*"]
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
@@ -82,19 +87,14 @@ impl ::core::convert::From<IReferenceClock> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReferenceClock> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReferenceClock) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReferenceClock> for ::windows::core::IUnknown {
     fn from(value: &IReferenceClock) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReferenceClock {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReferenceClock {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IReferenceClock {
@@ -143,15 +143,15 @@ impl IReferenceClock2 {
     }
     #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdviseTime<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, basetime: i64, streamtime: i64, hevent: Param2) -> ::windows::core::Result<usize> {
+    pub unsafe fn AdviseTime<'a, Param2: ::std::convert::Into<super::Foundation::HANDLE>>(&self, basetime: i64, streamtime: i64, hevent: Param2) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AdviseTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(basetime), ::core::mem::transmute(streamtime), hevent.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).base__.AdviseTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(basetime), ::core::mem::transmute(streamtime), hevent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdvisePeriodic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, starttime: i64, periodtime: i64, hsemaphore: Param2) -> ::windows::core::Result<usize> {
+    pub unsafe fn AdvisePeriodic<'a, Param2: ::std::convert::Into<super::Foundation::HANDLE>>(&self, starttime: i64, periodtime: i64, hsemaphore: Param2) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AdvisePeriodic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(periodtime), hsemaphore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).base__.AdvisePeriodic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(periodtime), hsemaphore.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media\"`*"]
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
@@ -163,19 +163,14 @@ impl ::core::convert::From<IReferenceClock2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReferenceClock2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReferenceClock2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReferenceClock2> for ::windows::core::IUnknown {
     fn from(value: &IReferenceClock2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReferenceClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReferenceClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IReferenceClock2> for IReferenceClock {
@@ -183,19 +178,14 @@ impl ::core::convert::From<IReferenceClock2> for IReferenceClock {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReferenceClock2> for &'a IReferenceClock {
+    fn from(value: &'a IReferenceClock2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReferenceClock2> for IReferenceClock {
     fn from(value: &IReferenceClock2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IReferenceClock> for IReferenceClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IReferenceClock> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IReferenceClock> for &'a IReferenceClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IReferenceClock> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IReferenceClock2 {
@@ -242,19 +232,14 @@ impl ::core::convert::From<IReferenceClockTimerControl> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReferenceClockTimerControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReferenceClockTimerControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReferenceClockTimerControl> for ::windows::core::IUnknown {
     fn from(value: &IReferenceClockTimerControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReferenceClockTimerControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReferenceClockTimerControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IReferenceClockTimerControl {

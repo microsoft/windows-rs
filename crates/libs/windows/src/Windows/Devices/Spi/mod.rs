@@ -118,28 +118,28 @@ impl ISpiDeviceStatics {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn GetBusInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, busid: Param0) -> ::windows::core::Result<SpiBusInfo> {
+    pub fn GetBusInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, busid: Param0) -> ::windows::core::Result<SpiBusInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), busid.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), busid.into().abi(), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SpiConnectionSettings>>(&self, busid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>>(&self, busid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), busid.into_param().abi(), settings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), busid.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
         }
     }
 }
@@ -148,19 +148,14 @@ impl ::core::convert::From<ISpiDeviceStatics> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpiDeviceStatics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpiDeviceStatics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpiDeviceStatics> for ::windows::core::IUnknown {
     fn from(value: &ISpiDeviceStatics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpiDeviceStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpiDeviceStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISpiDeviceStatics> for ::windows::core::IInspectable {
@@ -168,19 +163,14 @@ impl ::core::convert::From<ISpiDeviceStatics> for ::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpiDeviceStatics> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISpiDeviceStatics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpiDeviceStatics> for ::windows::core::IInspectable {
     fn from(value: &ISpiDeviceStatics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISpiDeviceStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISpiDeviceStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpiDeviceStatics {
@@ -300,14 +290,9 @@ impl ::core::convert::From<&SpiBusInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpiBusInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpiBusInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiBusInfo> for &::windows::core::IUnknown {
+    fn from(value: &SpiBusInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpiBusInfo> for ::windows::core::IInspectable {
@@ -320,14 +305,9 @@ impl ::core::convert::From<&SpiBusInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpiBusInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpiBusInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiBusInfo> for &::windows::core::IInspectable {
+    fn from(value: &SpiBusInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpiBusInfo {}
@@ -358,9 +338,9 @@ impl SpiConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn SetMode(&self, value: SpiMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<SpiMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
     pub fn DataBitLength(&self) -> ::windows::core::Result<i32> {
@@ -397,9 +377,9 @@ impl SpiConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn SetSharingMode(&self, value: SpiSharingMode) -> ::windows::core::Result<()> {
+    pub fn SetSharingMode<'a, Param0: ::std::convert::Into<SpiSharingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
     pub fn Create(chipselectline: i32) -> ::windows::core::Result<SpiConnectionSettings> {
@@ -454,14 +434,9 @@ impl ::core::convert::From<&SpiConnectionSettings> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpiConnectionSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpiConnectionSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiConnectionSettings> for &::windows::core::IUnknown {
+    fn from(value: &SpiConnectionSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpiConnectionSettings> for ::windows::core::IInspectable {
@@ -474,14 +449,9 @@ impl ::core::convert::From<&SpiConnectionSettings> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpiConnectionSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpiConnectionSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiConnectionSettings> for &::windows::core::IInspectable {
+    fn from(value: &SpiConnectionSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpiConnectionSettings {}
@@ -491,11 +461,11 @@ unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
 pub struct SpiController(::windows::core::IUnknown);
 impl SpiController {
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn GetDevice<'a, Param0: ::windows::core::IntoParam<'a, SpiConnectionSettings>>(&self, settings: Param0) -> ::windows::core::Result<SpiDevice> {
+    pub fn GetDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>>(&self, settings: Param0) -> ::windows::core::Result<SpiDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDevice)(::windows::core::Interface::as_raw(this), settings.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpiDevice>(result__)
+            (::windows::core::Interface::vtable(this).GetDevice)(::windows::core::Interface::as_raw(this), settings.into().abi(), result__.as_mut_ptr()).from_abi::<SpiDevice>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Spi\"`, `\"Foundation\"`*"]
@@ -508,10 +478,10 @@ impl SpiController {
     }
     #[doc = "*Required features: `\"Devices_Spi\"`, `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, Param0: ::windows::core::IntoParam<'a, Provider::ISpiProvider>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>> {
+    pub fn GetControllersAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::ISpiProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>> {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>(result__)
+            (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -560,14 +530,9 @@ impl ::core::convert::From<&SpiController> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpiController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpiController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiController> for &::windows::core::IUnknown {
+    fn from(value: &SpiController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpiController> for ::windows::core::IInspectable {
@@ -580,14 +545,9 @@ impl ::core::convert::From<&SpiController> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpiController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpiController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiController> for &::windows::core::IInspectable {
+    fn from(value: &SpiController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpiController {}
@@ -646,25 +606,25 @@ impl SpiDevice {
         })
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Spi\"`*"]
-    pub fn GetBusInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(busid: Param0) -> ::windows::core::Result<SpiBusInfo> {
+    pub fn GetBusInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(busid: Param0) -> ::windows::core::Result<SpiBusInfo> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), busid.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetBusInfo)(::windows::core::Interface::as_raw(this), busid.into().abi(), result__.as_mut_ptr()).from_abi::<SpiBusInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Spi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SpiConnectionSettings>>(busid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>>(busid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), busid.into_param().abi(), settings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), busid.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -713,14 +673,9 @@ impl ::core::convert::From<&SpiDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpiDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpiDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiDevice> for &::windows::core::IUnknown {
+    fn from(value: &SpiDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpiDevice> for ::windows::core::IInspectable {
@@ -733,14 +688,9 @@ impl ::core::convert::From<&SpiDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpiDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpiDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpiDevice> for &::windows::core::IInspectable {
+    fn from(value: &SpiDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -758,15 +708,11 @@ impl ::core::convert::TryFrom<&SpiDevice> for super::super::Foundation::IClosabl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SpiDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SpiDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpiDevice> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpiDevice) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpiDevice {}

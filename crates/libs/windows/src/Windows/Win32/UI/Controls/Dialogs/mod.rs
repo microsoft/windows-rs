@@ -1217,21 +1217,21 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
-pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, buf: &mut [u8]) -> i16 {
+pub unsafe fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: &mut [u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
     }
-    ::core::mem::transmute(GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
+    ::core::mem::transmute(GetFileTitleA(::core::mem::transmute(param0), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
-pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, buf: &mut [u16]) -> i16 {
+pub unsafe fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: &mut [u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
     }
-    ::core::mem::transmute(GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
+    ::core::mem::transmute(GetFileTitleW(::core::mem::transmute(param0), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1293,8 +1293,8 @@ impl IPrintDialogCallback {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HandleMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hdlg: Param0, umsg: u32, wparam: Param2, lparam: Param3, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into_param().abi(), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(presult)).ok()
+    pub unsafe fn HandleMessage<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param2: ::std::convert::Into<super::super::super::Foundation::WPARAM>, Param3: ::std::convert::Into<super::super::super::Foundation::LPARAM>>(&self, hdlg: Param0, umsg: u32, wparam: Param2, lparam: Param3, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into(), ::core::mem::transmute(umsg), wparam.into(), lparam.into(), ::core::mem::transmute(presult)).ok()
     }
 }
 impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
@@ -1302,19 +1302,14 @@ impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintDialogCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintDialogCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintDialogCallback> for ::windows::core::IUnknown {
     fn from(value: &IPrintDialogCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintDialogCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintDialogCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrintDialogCallback {
@@ -1371,19 +1366,14 @@ impl ::core::convert::From<IPrintDialogServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintDialogServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintDialogServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintDialogServices> for ::windows::core::IUnknown {
     fn from(value: &IPrintDialogServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintDialogServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintDialogServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrintDialogServices {

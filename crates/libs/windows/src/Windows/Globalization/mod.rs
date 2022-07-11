@@ -19,8 +19,8 @@ impl ApplicationLanguages {
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn SetPrimaryLanguageOverride<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IApplicationLanguagesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPrimaryLanguageOverride)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetPrimaryLanguageOverride<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IApplicationLanguagesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPrimaryLanguageOverride)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -40,10 +40,10 @@ impl ApplicationLanguages {
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn GetLanguagesForUser<'a, Param0: ::windows::core::IntoParam<'a, super::System::User>>(user: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
+    pub fn GetLanguagesForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>>(user: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IApplicationLanguagesStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLanguagesForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetLanguagesForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc(hidden)]
@@ -107,9 +107,9 @@ impl Calendar {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn GetCalendarSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -120,9 +120,9 @@ impl Calendar {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn ChangeCalendarSystem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangeCalendarSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ChangeCalendarSystem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ChangeCalendarSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn GetClock(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -133,9 +133,9 @@ impl Calendar {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn ChangeClock<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangeClock<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ChangeClock)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ChangeClock)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -148,9 +148,9 @@ impl Calendar {
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDateTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDateTime(&self, value: super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDateTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDateTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn SetToNow(&self) -> ::windows::core::Result<()> {
@@ -693,26 +693,26 @@ impl Calendar {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, Calendar>>(&self, other: Param0) -> ::windows::core::Result<i32> {
+    pub fn Compare<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Calendar>>>(&self, other: Param0) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), other.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), other.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CompareDateTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::DateTime>>(&self, other: Param0) -> ::windows::core::Result<i32> {
+    pub fn CompareDateTime(&self, other: super::Foundation::DateTime) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).CompareDateTime)(::windows::core::Interface::as_raw(this), other.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CompareDateTime)(::windows::core::Interface::as_raw(this), other, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, Calendar>>(&self, other: Param0) -> ::windows::core::Result<()> {
+    pub fn CopyTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Calendar>>>(&self, other: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CopyTo)(::windows::core::Interface::as_raw(this), other.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CopyTo)(::windows::core::Interface::as_raw(this), other.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn FirstMinuteInThisHour(&self) -> ::windows::core::Result<i32> {
@@ -780,26 +780,26 @@ impl Calendar {
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCalendarDefaultCalendarAndClock<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(languages: Param0) -> ::windows::core::Result<Calendar> {
+    pub fn CreateCalendarDefaultCalendarAndClock<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(languages: Param0) -> ::windows::core::Result<Calendar> {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(::windows::core::Interface::as_raw(this), languages.into_param().abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
+            (::windows::core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCalendar<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languages: Param0, calendar: Param1, clock: Param2) -> ::windows::core::Result<Calendar> {
+    pub fn CreateCalendar<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languages: Param0, calendar: Param1, clock: Param2) -> ::windows::core::Result<Calendar> {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCalendar)(::windows::core::Interface::as_raw(this), languages.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
+            (::windows::core::Interface::vtable(this).CreateCalendar)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), calendar.into().abi(), clock.into().abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCalendarWithTimeZone<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languages: Param0, calendar: Param1, clock: Param2, timezoneid: Param3) -> ::windows::core::Result<Calendar> {
+    pub fn CreateCalendarWithTimeZone<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languages: Param0, calendar: Param1, clock: Param2, timezoneid: Param3) -> ::windows::core::Result<Calendar> {
         Self::ICalendarFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCalendarWithTimeZone)(::windows::core::Interface::as_raw(this), languages.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), timezoneid.into_param().abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
+            (::windows::core::Interface::vtable(this).CreateCalendarWithTimeZone)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), calendar.into().abi(), clock.into().abi(), timezoneid.into().abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -811,9 +811,9 @@ impl Calendar {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn ChangeTimeZone<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, timezoneid: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangeTimeZone<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, timezoneid: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ChangeTimeZone)(::windows::core::Interface::as_raw(this), timezoneid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ChangeTimeZone)(::windows::core::Interface::as_raw(this), timezoneid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn TimeZoneAsFullString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -882,14 +882,9 @@ impl ::core::convert::From<&Calendar> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Calendar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Calendar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Calendar> for &::windows::core::IUnknown {
+    fn from(value: &Calendar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Calendar> for ::windows::core::IInspectable {
@@ -902,14 +897,9 @@ impl ::core::convert::From<&Calendar> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Calendar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Calendar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Calendar> for &::windows::core::IInspectable {
+    fn from(value: &Calendar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for Calendar {}
@@ -1088,10 +1078,10 @@ impl CurrencyAmount {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(amount: Param0, currency: Param1) -> ::windows::core::Result<CurrencyAmount> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(amount: Param0, currency: Param1) -> ::windows::core::Result<CurrencyAmount> {
         Self::ICurrencyAmountFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), amount.into_param().abi(), currency.into_param().abi(), result__.as_mut_ptr()).from_abi::<CurrencyAmount>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), amount.into().abi(), currency.into().abi(), result__.as_mut_ptr()).from_abi::<CurrencyAmount>(result__)
         })
     }
     #[doc(hidden)]
@@ -1140,14 +1130,9 @@ impl ::core::convert::From<&CurrencyAmount> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CurrencyAmount {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CurrencyAmount {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CurrencyAmount> for &::windows::core::IUnknown {
+    fn from(value: &CurrencyAmount) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CurrencyAmount> for ::windows::core::IInspectable {
@@ -1160,14 +1145,9 @@ impl ::core::convert::From<&CurrencyAmount> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CurrencyAmount {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CurrencyAmount {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CurrencyAmount> for &::windows::core::IInspectable {
+    fn from(value: &CurrencyAmount) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CurrencyAmount {}
@@ -2436,17 +2416,17 @@ impl GeographicRegion {
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn CreateGeographicRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(geographicregioncode: Param0) -> ::windows::core::Result<GeographicRegion> {
+    pub fn CreateGeographicRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(geographicregioncode: Param0) -> ::windows::core::Result<GeographicRegion> {
         Self::IGeographicRegionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateGeographicRegion)(::windows::core::Interface::as_raw(this), geographicregioncode.into_param().abi(), result__.as_mut_ptr()).from_abi::<GeographicRegion>(result__)
+            (::windows::core::Interface::vtable(this).CreateGeographicRegion)(::windows::core::Interface::as_raw(this), geographicregioncode.into().abi(), result__.as_mut_ptr()).from_abi::<GeographicRegion>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn IsSupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(geographicregioncode: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(geographicregioncode: Param0) -> ::windows::core::Result<bool> {
         Self::IGeographicRegionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), geographicregioncode.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), geographicregioncode.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -2500,14 +2480,9 @@ impl ::core::convert::From<&GeographicRegion> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeographicRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeographicRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeographicRegion> for &::windows::core::IUnknown {
+    fn from(value: &GeographicRegion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GeographicRegion> for ::windows::core::IInspectable {
@@ -2520,14 +2495,9 @@ impl ::core::convert::From<&GeographicRegion> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GeographicRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeographicRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeographicRegion> for &::windows::core::IInspectable {
+    fn from(value: &GeographicRegion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GeographicRegion {}
@@ -3372,14 +3342,9 @@ impl ::core::convert::From<&JapanesePhoneme> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JapanesePhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JapanesePhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JapanesePhoneme> for &::windows::core::IUnknown {
+    fn from(value: &JapanesePhoneme) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<JapanesePhoneme> for ::windows::core::IInspectable {
@@ -3392,14 +3357,9 @@ impl ::core::convert::From<&JapanesePhoneme> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JapanesePhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JapanesePhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JapanesePhoneme> for &::windows::core::IInspectable {
+    fn from(value: &JapanesePhoneme) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
@@ -3407,18 +3367,18 @@ pub struct JapanesePhoneticAnalyzer;
 impl JapanesePhoneticAnalyzer {
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWords<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
+    pub fn GetWords<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWords)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<JapanesePhoneme>>(result__)
+            (::windows::core::Interface::vtable(this).GetWords)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<JapanesePhoneme>>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetWordsWithMonoRubyOption<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, monoruby: bool) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
+    pub fn GetWordsWithMonoRubyOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0, monoruby: bool) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWordsWithMonoRubyOption)(::windows::core::Interface::as_raw(this), input.into_param().abi(), monoruby, result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<JapanesePhoneme>>(result__)
+            (::windows::core::Interface::vtable(this).GetWordsWithMonoRubyOption)(::windows::core::Interface::as_raw(this), input.into().abi(), monoruby, result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<JapanesePhoneme>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3484,25 +3444,25 @@ impl Language {
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetExtensionSubtags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, singleton: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
+    pub fn GetExtensionSubtags<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, singleton: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<ILanguageExtensionSubtags>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetExtensionSubtags)(::windows::core::Interface::as_raw(this), singleton.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetExtensionSubtags)(::windows::core::Interface::as_raw(this), singleton.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn CreateLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<Language> {
+    pub fn CreateLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<Language> {
         Self::ILanguageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLanguage)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<Language>(result__)
+            (::windows::core::Interface::vtable(this).CreateLanguage)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<Language>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn IsWellFormed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsWellFormed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<bool> {
         Self::ILanguageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsWellFormed)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsWellFormed)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -3513,18 +3473,18 @@ impl Language {
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
-    pub fn TrySetInputMethodLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetInputMethodLanguageTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<bool> {
         Self::ILanguageStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetInputMethodLanguageTag)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetInputMethodLanguageTag)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMuiCompatibleLanguageListFromLanguageTags<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(languagetags: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    pub fn GetMuiCompatibleLanguageListFromLanguageTags<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(languagetags: Param0) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         Self::ILanguageStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(::windows::core::Interface::as_raw(this), languagetags.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(::windows::core::Interface::as_raw(this), languagetags.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3588,14 +3548,9 @@ impl ::core::convert::From<&Language> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Language {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Language {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Language> for &::windows::core::IUnknown {
+    fn from(value: &Language) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Language> for ::windows::core::IInspectable {
@@ -3608,14 +3563,9 @@ impl ::core::convert::From<&Language> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Language {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Language {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Language> for &::windows::core::IInspectable {
+    fn from(value: &Language) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for Language {}

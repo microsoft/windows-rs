@@ -87,14 +87,9 @@ impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for &::windows::core::IUnknown {
+    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::core::IInspectable {
@@ -107,14 +102,9 @@ impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for &::windows::core::IInspectable {
+    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
@@ -185,14 +175,9 @@ impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for &::windows::core::IUnknown {
+    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::core::IInspectable {
@@ -205,14 +190,9 @@ impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for &::windows::core::IInspectable {
+    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationManager {}

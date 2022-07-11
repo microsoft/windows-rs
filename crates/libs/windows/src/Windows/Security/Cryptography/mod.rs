@@ -44,10 +44,10 @@ pub struct CryptographicBuffer;
 impl CryptographicBuffer {
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(object1: Param0, object2: Param1) -> ::windows::core::Result<bool> {
+    pub fn Compare<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(object1: Param0, object2: Param1) -> ::windows::core::Result<bool> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), object1.into_param().abi(), object2.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), object1.try_into().map_err(|e| e.into())?.abi(), object2.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
@@ -75,55 +75,55 @@ impl CryptographicBuffer {
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CopyToByteArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
-        Self::ICryptographicBufferStatics(|this| unsafe { (::windows::core::Interface::vtable(this).CopyToByteArray)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), value.set_abi_len(), value as *mut _ as _).ok() })
+    pub fn CopyToByteArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(buffer: Param0, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
+        Self::ICryptographicBufferStatics(|this| unsafe { (::windows::core::Interface::vtable(this).CopyToByteArray)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), value.set_abi_len(), value as *mut _ as _).ok() })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecodeFromHexString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn DecodeFromHexString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DecodeFromHexString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).DecodeFromHexString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncodeToHexString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn EncodeToHexString<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(buffer: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).EncodeToHexString)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EncodeToHexString)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecodeFromBase64String<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn DecodeFromBase64String<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DecodeFromBase64String)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).DecodeFromBase64String)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncodeToBase64String<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn EncodeToBase64String<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(buffer: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).EncodeToBase64String)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EncodeToBase64String)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertStringToBinary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0, encoding: BinaryStringEncoding) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn ConvertStringToBinary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<BinaryStringEncoding>>(value: Param0, encoding: Param1) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertStringToBinary)(::windows::core::Interface::as_raw(this), value.into_param().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ConvertStringToBinary)(::windows::core::Interface::as_raw(this), value.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertBinaryToString<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(encoding: BinaryStringEncoding, buffer: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn ConvertBinaryToString<'a, Param0: ::std::convert::Into<BinaryStringEncoding>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(encoding: Param0, buffer: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBinaryToString)(::windows::core::Interface::as_raw(this), encoding, buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConvertBinaryToString)(::windows::core::Interface::as_raw(this), encoding.into(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]

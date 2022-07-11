@@ -129,21 +129,15 @@ impl ::core::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows:
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDClosedCaptionDataReceivedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDClosedCaptionDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &INDClosedCaptionDataReceivedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDClosedCaptionDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDClosedCaptionDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -153,21 +147,15 @@ impl ::core::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows:
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDClosedCaptionDataReceivedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDClosedCaptionDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &INDClosedCaptionDataReceivedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDClosedCaptionDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDClosedCaptionDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -253,21 +241,15 @@ impl ::core::convert::From<INDCustomData> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDCustomData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDCustomData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDCustomData> for ::windows::core::IUnknown {
     fn from(value: &INDCustomData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -277,21 +259,15 @@ impl ::core::convert::From<INDCustomData> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDCustomData> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDCustomData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDCustomData> for ::windows::core::IInspectable {
     fn from(value: &INDCustomData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -368,9 +344,9 @@ pub struct INDDownloadEngine(::windows::core::IUnknown);
 impl INDDownloadEngine {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn Open<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, uri: Param0, sessionidbytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, uri: Param0, sessionidbytes: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Open)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Open)(::windows::core::Interface::as_raw(this), uri.into().abi(), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -392,9 +368,9 @@ impl INDDownloadEngine {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, startposition: Param0) -> ::windows::core::Result<()> {
+    pub fn Seek(&self, startposition: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Seek)(::windows::core::Interface::as_raw(this), startposition.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Seek)(::windows::core::Interface::as_raw(this), startposition).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -440,21 +416,15 @@ impl ::core::convert::From<INDDownloadEngine> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDDownloadEngine> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDDownloadEngine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDDownloadEngine> for ::windows::core::IUnknown {
     fn from(value: &INDDownloadEngine) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDDownloadEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDDownloadEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -464,21 +434,15 @@ impl ::core::convert::From<INDDownloadEngine> for ::windows::core::IInspectable 
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDDownloadEngine> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDDownloadEngine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDDownloadEngine> for ::windows::core::IInspectable {
     fn from(value: &INDDownloadEngine) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDDownloadEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDDownloadEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -576,9 +540,9 @@ impl INDDownloadEngineNotifier {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -606,21 +570,15 @@ impl ::core::convert::From<INDDownloadEngineNotifier> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDDownloadEngineNotifier> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDDownloadEngineNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDDownloadEngineNotifier> for ::windows::core::IUnknown {
     fn from(value: &INDDownloadEngineNotifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -630,21 +588,15 @@ impl ::core::convert::From<INDDownloadEngineNotifier> for ::windows::core::IInsp
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDDownloadEngineNotifier> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDDownloadEngineNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDDownloadEngineNotifier> for ::windows::core::IInspectable {
     fn from(value: &INDDownloadEngineNotifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -733,21 +685,15 @@ impl ::core::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::cor
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDLicenseFetchCompletedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDLicenseFetchCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &INDLicenseFetchCompletedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDLicenseFetchCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDLicenseFetchCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -757,21 +703,15 @@ impl ::core::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::cor
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDLicenseFetchCompletedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDLicenseFetchCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &INDLicenseFetchCompletedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDLicenseFetchCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDLicenseFetchCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -852,14 +792,20 @@ impl INDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, INDCustomData>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows::core::Interface::as_raw(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows::core::Interface::as_raw(this), licensefetchchallengecustomdata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
 impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::core::IUnknown {
     fn from(value: INDLicenseFetchDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDLicenseFetchDescriptor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDLicenseFetchDescriptor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -870,20 +816,14 @@ impl ::core::convert::From<&INDLicenseFetchDescriptor> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::core::IInspectable {
     fn from(value: INDLicenseFetchDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDLicenseFetchDescriptor> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDLicenseFetchDescriptor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -891,18 +831,6 @@ impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::core::IInsp
 impl ::core::convert::From<&INDLicenseFetchDescriptor> for ::windows::core::IInspectable {
     fn from(value: &INDLicenseFetchDescriptor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1002,21 +930,15 @@ impl ::core::convert::From<INDLicenseFetchResult> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDLicenseFetchResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDLicenseFetchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDLicenseFetchResult> for ::windows::core::IUnknown {
     fn from(value: &INDLicenseFetchResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDLicenseFetchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDLicenseFetchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1026,21 +948,15 @@ impl ::core::convert::From<INDLicenseFetchResult> for ::windows::core::IInspecta
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDLicenseFetchResult> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDLicenseFetchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDLicenseFetchResult> for ::windows::core::IInspectable {
     fn from(value: &INDLicenseFetchResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDLicenseFetchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDLicenseFetchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1103,20 +1019,20 @@ impl INDMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows::core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows::core::Interface::as_raw(this), pdtype.into(), transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows::core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), responsedatabytes.len() as u32, ::core::mem::transmute(responsedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows::core::Interface::as_raw(this), pdtype.into(), transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), responsedatabytes.len() as u32, ::core::mem::transmute(responsedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1136,21 +1052,15 @@ impl ::core::convert::From<INDMessenger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDMessenger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDMessenger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDMessenger> for ::windows::core::IUnknown {
     fn from(value: &INDMessenger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1160,21 +1070,15 @@ impl ::core::convert::From<INDMessenger> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDMessenger> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDMessenger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDMessenger> for ::windows::core::IInspectable {
     fn from(value: &INDMessenger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1255,21 +1159,15 @@ impl ::core::convert::From<INDProximityDetectionCompletedEventArgs> for ::window
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDProximityDetectionCompletedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDProximityDetectionCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &INDProximityDetectionCompletedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDProximityDetectionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDProximityDetectionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1279,21 +1177,15 @@ impl ::core::convert::From<INDProximityDetectionCompletedEventArgs> for ::window
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDProximityDetectionCompletedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDProximityDetectionCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &INDProximityDetectionCompletedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDProximityDetectionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDProximityDetectionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1386,21 +1278,15 @@ impl ::core::convert::From<INDRegistrationCompletedEventArgs> for ::windows::cor
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDRegistrationCompletedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDRegistrationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &INDRegistrationCompletedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDRegistrationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDRegistrationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1410,21 +1296,15 @@ impl ::core::convert::From<INDRegistrationCompletedEventArgs> for ::windows::cor
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDRegistrationCompletedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDRegistrationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &INDRegistrationCompletedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDRegistrationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDRegistrationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1505,21 +1385,15 @@ impl ::core::convert::From<INDSendResult> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDSendResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDSendResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDSendResult> for ::windows::core::IUnknown {
     fn from(value: &INDSendResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDSendResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDSendResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1529,21 +1403,15 @@ impl ::core::convert::From<INDSendResult> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDSendResult> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDSendResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDSendResult> for ::windows::core::IInspectable {
     fn from(value: &INDSendResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDSendResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDSendResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1612,21 +1480,15 @@ impl ::core::convert::From<INDStartResult> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStartResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDStartResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDStartResult> for ::windows::core::IUnknown {
     fn from(value: &INDStartResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStartResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStartResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1636,21 +1498,15 @@ impl ::core::convert::From<INDStartResult> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStartResult> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDStartResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDStartResult> for ::windows::core::IInspectable {
     fn from(value: &INDStartResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDStartResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStartResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1704,11 +1560,11 @@ pub struct INDStorageFileHelper(::windows::core::IUnknown);
 impl INDStorageFileHelper {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn GetFileURLs<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    pub fn GetFileURLs<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFileURLs)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetFileURLs)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
 }
@@ -1719,21 +1575,15 @@ impl ::core::convert::From<INDStorageFileHelper> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStorageFileHelper> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDStorageFileHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDStorageFileHelper> for ::windows::core::IUnknown {
     fn from(value: &INDStorageFileHelper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1743,21 +1593,15 @@ impl ::core::convert::From<INDStorageFileHelper> for ::windows::core::IInspectab
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStorageFileHelper> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDStorageFileHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDStorageFileHelper> for ::windows::core::IInspectable {
     fn from(value: &INDStorageFileHelper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1817,11 +1661,11 @@ impl INDStreamParser {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn GetStreamInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Core::IMediaStreamDescriptor>>(&self, descriptor: Param0, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32> {
+    pub fn GetStreamInformation<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, descriptor: Param0, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStreamInformation)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), streamtype, result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetStreamInformation)(::windows::core::Interface::as_raw(this), descriptor.try_into().map_err(|e| e.into())?.abi(), streamtype, result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -1853,21 +1697,15 @@ impl ::core::convert::From<INDStreamParser> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStreamParser> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDStreamParser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDStreamParser> for ::windows::core::IUnknown {
     fn from(value: &INDStreamParser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStreamParser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStreamParser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1877,21 +1715,15 @@ impl ::core::convert::From<INDStreamParser> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStreamParser> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDStreamParser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDStreamParser> for ::windows::core::IInspectable {
     fn from(value: &INDStreamParser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDStreamParser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStreamParser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1961,32 +1793,38 @@ pub struct INDStreamParserNotifier(::windows::core::IUnknown);
 impl INDStreamParserNotifier {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::core::Result<()> {
+    pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows::core::Interface::as_raw(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows::core::Interface::as_raw(this), audiostreamdescriptors.try_into().map_err(|e| e.into())?.abi(), videostreamdescriptors.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnSampleParsed<'a, Param2: ::windows::core::IntoParam<'a, super::super::Core::MediaStreamSample>>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: Param2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnSampleParsed<'a, Param1: ::std::convert::Into<NDMediaStreamType>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Core::MediaStreamSample>>, Param4: ::std::convert::Into<NDClosedCaptionFormat>>(&self, streamid: u32, streamtype: Param1, streamsample: Param2, pts: i64, ccformat: Param4, ccdatabytes: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnSampleParsed)(::windows::core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnSampleParsed)(::windows::core::Interface::as_raw(this), streamid, streamtype.into(), streamsample.into().abi(), pts, ccformat.into(), ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnBeginSetupDecryptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Core::IMediaStreamDescriptor>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, descriptor: Param0, keyid: Param1, probytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnBeginSetupDecryptor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, descriptor: Param0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), keyid.into_param().abi(), probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows::core::Interface::as_raw(this), descriptor.try_into().map_err(|e| e.into())?.abi(), keyid, probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
 impl ::core::convert::From<INDStreamParserNotifier> for ::windows::core::IUnknown {
     fn from(value: INDStreamParserNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStreamParserNotifier> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDStreamParserNotifier) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1997,20 +1835,14 @@ impl ::core::convert::From<&INDStreamParserNotifier> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<INDStreamParserNotifier> for ::windows::core::IInspectable {
     fn from(value: INDStreamParserNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDStreamParserNotifier> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDStreamParserNotifier) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2018,18 +1850,6 @@ impl ::core::convert::From<INDStreamParserNotifier> for ::windows::core::IInspec
 impl ::core::convert::From<&INDStreamParserNotifier> for ::windows::core::IInspectable {
     fn from(value: &INDStreamParserNotifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2219,21 +2039,15 @@ impl ::core::convert::From<INDTransmitterProperties> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDTransmitterProperties> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INDTransmitterProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDTransmitterProperties> for ::windows::core::IUnknown {
     fn from(value: &INDTransmitterProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDTransmitterProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDTransmitterProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2243,21 +2057,15 @@ impl ::core::convert::From<INDTransmitterProperties> for ::windows::core::IInspe
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a INDTransmitterProperties> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a INDTransmitterProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&INDTransmitterProperties> for ::windows::core::IInspectable {
     fn from(value: &INDTransmitterProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDTransmitterProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDTransmitterProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2486,19 +2294,14 @@ impl ::core::convert::From<IPlayReadyDomain> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyDomain> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadyDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyDomain> for ::windows::core::IUnknown {
     fn from(value: &IPlayReadyDomain) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPlayReadyDomain> for ::windows::core::IInspectable {
@@ -2506,19 +2309,14 @@ impl ::core::convert::From<IPlayReadyDomain> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyDomain> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadyDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyDomain> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadyDomain) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPlayReadyDomain {
@@ -2706,19 +2504,14 @@ impl ::core::convert::From<IPlayReadyLicense> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyLicense> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadyLicense) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyLicense> for ::windows::core::IUnknown {
     fn from(value: &IPlayReadyLicense) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPlayReadyLicense> for ::windows::core::IInspectable {
@@ -2726,19 +2519,14 @@ impl ::core::convert::From<IPlayReadyLicense> for ::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyLicense> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadyLicense) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyLicense> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadyLicense) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPlayReadyLicense {
@@ -2812,9 +2600,9 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetContentHeader<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentHeader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentHeader)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentHeader)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -2825,9 +2613,9 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainServiceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -2856,9 +2644,9 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2877,9 +2665,9 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2920,19 +2708,14 @@ impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::win
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyLicenseAcquisitionServiceRequest> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IUnknown {
     fn from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
@@ -2940,19 +2723,14 @@ impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::win
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyLicenseAcquisitionServiceRequest> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -2967,14 +2745,11 @@ impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for s
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
@@ -2989,14 +2764,11 @@ impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &IPlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPlayReadyLicenseAcquisitionServiceRequest {
@@ -3109,13 +2881,18 @@ impl IPlayReadyLicenseSession {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ConfigureMediaProtectionManager<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProtectionManager>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureMediaProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IPlayReadyLicenseSession> for ::windows::core::IUnknown {
     fn from(value: IPlayReadyLicenseSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadyLicenseSession) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3124,34 +2901,19 @@ impl ::core::convert::From<&IPlayReadyLicenseSession> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPlayReadyLicenseSession> for ::windows::core::IInspectable {
     fn from(value: IPlayReadyLicenseSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadyLicenseSession) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IPlayReadyLicenseSession> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadyLicenseSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPlayReadyLicenseSession {
@@ -3194,11 +2956,11 @@ pub struct IPlayReadyLicenseSession2(::windows::core::IUnknown);
 impl IPlayReadyLicenseSession2 {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateLicenseIterable<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateLicenseIterable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLicenseIterable)(::windows::core::Interface::as_raw(this), contentheader.into_param().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
+            (::windows::core::Interface::vtable(this).CreateLicenseIterable)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -3210,13 +2972,18 @@ impl IPlayReadyLicenseSession2 {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ConfigureMediaProtectionManager<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProtectionManager>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureMediaProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyLicenseSession>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IPlayReadyLicenseSession2> for ::windows::core::IUnknown {
     fn from(value: IPlayReadyLicenseSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadyLicenseSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3225,34 +2992,19 @@ impl ::core::convert::From<&IPlayReadyLicenseSession2> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadyLicenseSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicenseSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPlayReadyLicenseSession2> for ::windows::core::IInspectable {
     fn from(value: IPlayReadyLicenseSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession2> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadyLicenseSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IPlayReadyLicenseSession2> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadyLicenseSession2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadyLicenseSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicenseSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
@@ -3267,14 +3019,11 @@ impl ::core::convert::TryFrom<&IPlayReadyLicenseSession2> for IPlayReadyLicenseS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseSession> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession> for &IPlayReadyLicenseSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseSession> {
-        ::core::convert::TryInto::<IPlayReadyLicenseSession>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPlayReadyLicenseSession2> for ::windows::core::InParam<'a, IPlayReadyLicenseSession> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPlayReadyLicenseSession2) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPlayReadyLicenseSession2 {
@@ -3444,9 +3193,9 @@ impl IPlayReadySecureStopServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3465,9 +3214,9 @@ impl IPlayReadySecureStopServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3508,19 +3257,14 @@ impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadySecureStopServiceRequest> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadySecureStopServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::core::IUnknown {
     fn from(value: &IPlayReadySecureStopServiceRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
@@ -3528,19 +3272,14 @@ impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadySecureStopServiceRequest> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadySecureStopServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadySecureStopServiceRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -3555,14 +3294,11 @@ impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for super::IM
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IPlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
@@ -3577,14 +3313,11 @@ impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for IPlayRead
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &IPlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPlayReadySecureStopServiceRequest {
@@ -3659,9 +3392,9 @@ impl IPlayReadyServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3680,9 +3413,9 @@ impl IPlayReadyServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3739,19 +3472,14 @@ impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyServiceRequest> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPlayReadyServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyServiceRequest> for ::windows::core::IUnknown {
     fn from(value: &IPlayReadyServiceRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayReadyServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::core::IInspectable {
@@ -3759,19 +3487,14 @@ impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPlayReadyServiceRequest> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPlayReadyServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPlayReadyServiceRequest> for ::windows::core::IInspectable {
     fn from(value: &IPlayReadyServiceRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlayReadyServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -3786,14 +3509,11 @@ impl ::core::convert::TryFrom<&IPlayReadyServiceRequest> for super::IMediaProtec
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for IPlayReadyServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &IPlayReadyServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPlayReadyServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPlayReadyServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPlayReadyServiceRequest {
@@ -4109,104 +3829,104 @@ pub struct NDClient(::windows::core::IUnknown);
 impl NDClient {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RegistrationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RegistrationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RegistrationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RegistrationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveRegistrationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRegistrationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRegistrationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRegistrationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ProximityDetectionCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ProximityDetectionCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ProximityDetectionCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ProximityDetectionCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveProximityDetectionCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveProximityDetectionCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProximityDetectionCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProximityDetectionCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn LicenseFetchCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn LicenseFetchCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).LicenseFetchCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LicenseFetchCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveLicenseFetchCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLicenseFetchCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseFetchCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseFetchCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ReRegistrationNeeded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ReRegistrationNeeded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ReRegistrationNeeded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReRegistrationNeeded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveReRegistrationNeeded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveReRegistrationNeeded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReRegistrationNeeded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReRegistrationNeeded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ClosedCaptionDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ClosedCaptionDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ClosedCaptionDataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ClosedCaptionDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveClosedCaptionDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosedCaptionDataReceived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosedCaptionDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosedCaptionDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn StartAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, INDCustomData>, Param3: ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, contenturl: Param0, startasyncoptions: u32, registrationcustomdata: Param2, licensefetchdescriptor: Param3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>> {
+    pub fn StartAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, contenturl: Param0, startasyncoptions: u32, registrationcustomdata: Param2, licensefetchdescriptor: Param3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), contenturl.into_param().abi(), startasyncoptions, registrationcustomdata.into_param().abi(), licensefetchdescriptor.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDStartResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), contenturl.into().abi(), startasyncoptions, registrationcustomdata.try_into().map_err(|e| e.into())?.abi(), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDStartResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn LicenseFetchAsync<'a, Param0: ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>> {
+    pub fn LicenseFetchAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LicenseFetchAsync)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>(result__)
+            (::windows::core::Interface::vtable(this).LicenseFetchAsync)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ReRegistrationAsync<'a, Param0: ::windows::core::IntoParam<'a, INDCustomData>>(&self, registrationcustomdata: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReRegistrationAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, registrationcustomdata: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReRegistrationAsync)(::windows::core::Interface::as_raw(this), registrationcustomdata.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ReRegistrationAsync)(::windows::core::Interface::as_raw(this), registrationcustomdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -4217,10 +3937,10 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, INDDownloadEngine>, Param1: ::windows::core::IntoParam<'a, INDStreamParser>, Param2: ::windows::core::IntoParam<'a, INDMessenger>>(downloadengine: Param0, streamparser: Param1, pmessenger: Param2) -> ::windows::core::Result<NDClient> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDDownloadEngine>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, INDStreamParser>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, INDMessenger>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(downloadengine: Param0, streamparser: Param1, pmessenger: Param2) -> ::windows::core::Result<NDClient> {
         Self::INDClientFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), downloadengine.into_param().abi(), streamparser.into_param().abi(), pmessenger.into_param().abi(), result__.as_mut_ptr()).from_abi::<NDClient>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), downloadengine.try_into().map_err(|e| e.into())?.abi(), streamparser.try_into().map_err(|e| e.into())?.abi(), pmessenger.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<NDClient>(result__)
         })
     }
     #[doc(hidden)]
@@ -4280,15 +4000,9 @@ impl ::core::convert::From<&NDClient> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDClient> for &::windows::core::IUnknown {
+    fn from(value: &NDClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4304,15 +4018,9 @@ impl ::core::convert::From<&NDClient> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDClient> for &::windows::core::IInspectable {
+    fn from(value: &NDClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -4490,15 +4198,9 @@ impl ::core::convert::From<&NDCustomData> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDCustomData> for &::windows::core::IUnknown {
+    fn from(value: &NDCustomData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4514,15 +4216,9 @@ impl ::core::convert::From<&NDCustomData> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDCustomData> for &::windows::core::IInspectable {
+    fn from(value: &NDCustomData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4540,15 +4236,11 @@ impl ::core::convert::TryFrom<&NDCustomData> for INDCustomData {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDCustomData> for NDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, INDCustomData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDCustomData> for &NDCustomData {
-    fn into_param(self) -> ::windows::core::Param<'a, INDCustomData> {
-        ::core::convert::TryInto::<INDCustomData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NDCustomData> for ::windows::core::InParam<'a, INDCustomData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NDCustomData) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -4578,9 +4270,9 @@ impl NDDownloadEngineNotifier {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -4651,15 +4343,9 @@ impl ::core::convert::From<&NDDownloadEngineNotifier> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDDownloadEngineNotifier> for &::windows::core::IUnknown {
+    fn from(value: &NDDownloadEngineNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4675,15 +4361,9 @@ impl ::core::convert::From<&NDDownloadEngineNotifier> for ::windows::core::IInsp
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDDownloadEngineNotifier> for &::windows::core::IInspectable {
+    fn from(value: &NDDownloadEngineNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4701,15 +4381,11 @@ impl ::core::convert::TryFrom<&NDDownloadEngineNotifier> for INDDownloadEngineNo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDDownloadEngineNotifier> for NDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, INDDownloadEngineNotifier> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDDownloadEngineNotifier> for &NDDownloadEngineNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, INDDownloadEngineNotifier> {
-        ::core::convert::TryInto::<INDDownloadEngineNotifier>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NDDownloadEngineNotifier> for ::windows::core::InParam<'a, INDDownloadEngineNotifier> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NDDownloadEngineNotifier) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -4747,16 +4423,16 @@ impl NDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, INDCustomData>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows::core::Interface::as_raw(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows::core::Interface::as_raw(this), licensefetchchallengecustomdata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, Param2: ::windows::core::IntoParam<'a, INDCustomData>>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: Param2) -> ::windows::core::Result<NDLicenseFetchDescriptor> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<NDContentIDType>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(contentidtype: Param0, contentidbytes: &[u8], licensefetchchallengecustomdata: Param2) -> ::windows::core::Result<NDLicenseFetchDescriptor> {
         Self::INDLicenseFetchDescriptorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), contentidtype, contentidbytes.len() as u32, ::core::mem::transmute(contentidbytes.as_ptr()), licensefetchchallengecustomdata.into_param().abi(), result__.as_mut_ptr()).from_abi::<NDLicenseFetchDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), contentidtype.into(), contentidbytes.len() as u32, ::core::mem::transmute(contentidbytes.as_ptr()), licensefetchchallengecustomdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<NDLicenseFetchDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -4816,15 +4492,9 @@ impl ::core::convert::From<&NDLicenseFetchDescriptor> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDLicenseFetchDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &NDLicenseFetchDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4840,15 +4510,9 @@ impl ::core::convert::From<&NDLicenseFetchDescriptor> for ::windows::core::IInsp
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDLicenseFetchDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &NDLicenseFetchDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4866,15 +4530,11 @@ impl ::core::convert::TryFrom<&NDLicenseFetchDescriptor> for INDLicenseFetchDesc
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor> for NDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, INDLicenseFetchDescriptor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicenseFetchDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, INDLicenseFetchDescriptor> {
-        ::core::convert::TryInto::<INDLicenseFetchDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NDLicenseFetchDescriptor> for ::windows::core::InParam<'a, INDLicenseFetchDescriptor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NDLicenseFetchDescriptor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -5019,11 +4679,11 @@ impl NDStorageFileHelper {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn GetFileURLs<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    pub fn GetFileURLs<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFileURLs)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetFileURLs)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
 }
@@ -5077,15 +4737,9 @@ impl ::core::convert::From<&NDStorageFileHelper> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDStorageFileHelper> for &::windows::core::IUnknown {
+    fn from(value: &NDStorageFileHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5101,15 +4755,9 @@ impl ::core::convert::From<&NDStorageFileHelper> for ::windows::core::IInspectab
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDStorageFileHelper> for &::windows::core::IInspectable {
+    fn from(value: &NDStorageFileHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5127,15 +4775,11 @@ impl ::core::convert::TryFrom<&NDStorageFileHelper> for INDStorageFileHelper {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDStorageFileHelper> for NDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, INDStorageFileHelper> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDStorageFileHelper> for &NDStorageFileHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, INDStorageFileHelper> {
-        ::core::convert::TryInto::<INDStorageFileHelper>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NDStorageFileHelper> for ::windows::core::InParam<'a, INDStorageFileHelper> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NDStorageFileHelper) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -5153,27 +4797,27 @@ impl NDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::core::Result<()> {
+    pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows::core::Interface::as_raw(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows::core::Interface::as_raw(this), audiostreamdescriptors.try_into().map_err(|e| e.into())?.abi(), videostreamdescriptors.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnSampleParsed<'a, Param2: ::windows::core::IntoParam<'a, super::super::Core::MediaStreamSample>>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: Param2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnSampleParsed<'a, Param1: ::std::convert::Into<NDMediaStreamType>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Core::MediaStreamSample>>, Param4: ::std::convert::Into<NDClosedCaptionFormat>>(&self, streamid: u32, streamtype: Param1, streamsample: Param2, pts: i64, ccformat: Param4, ccdatabytes: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnSampleParsed)(::windows::core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnSampleParsed)(::windows::core::Interface::as_raw(this), streamid, streamtype.into(), streamsample.into().abi(), pts, ccformat.into(), ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnBeginSetupDecryptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Core::IMediaStreamDescriptor>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, descriptor: Param0, keyid: Param1, probytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnBeginSetupDecryptor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, descriptor: Param0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), keyid.into_param().abi(), probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows::core::Interface::as_raw(this), descriptor.try_into().map_err(|e| e.into())?.abi(), keyid, probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5226,15 +4870,9 @@ impl ::core::convert::From<&NDStreamParserNotifier> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDStreamParserNotifier> for &::windows::core::IUnknown {
+    fn from(value: &NDStreamParserNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5250,15 +4888,9 @@ impl ::core::convert::From<&NDStreamParserNotifier> for ::windows::core::IInspec
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDStreamParserNotifier> for &::windows::core::IInspectable {
+    fn from(value: &NDStreamParserNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5276,15 +4908,11 @@ impl ::core::convert::TryFrom<&NDStreamParserNotifier> for INDStreamParserNotifi
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDStreamParserNotifier> for NDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, INDStreamParserNotifier> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDStreamParserNotifier> for &NDStreamParserNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, INDStreamParserNotifier> {
-        ::core::convert::TryInto::<INDStreamParserNotifier>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NDStreamParserNotifier> for ::windows::core::InParam<'a, INDStreamParserNotifier> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NDStreamParserNotifier) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
@@ -5304,20 +4932,20 @@ impl NDTCPMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows::core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows::core::Interface::as_raw(this), pdtype.into(), transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows::core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), responsedatabytes.len() as u32, ::core::mem::transmute(responsedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows::core::Interface::as_raw(this), pdtype.into(), transmitterchannelbytes.len() as u32, ::core::mem::transmute(transmitterchannelbytes.as_ptr()), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), responsedatabytes.len() as u32, ::core::mem::transmute(responsedatabytes.as_ptr()), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -5331,10 +4959,10 @@ impl NDTCPMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(remotehostname: Param0, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(remotehostname: Param0, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger> {
         Self::INDTCPMessengerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), remotehostname.into_param().abi(), remotehostport, result__.as_mut_ptr()).from_abi::<NDTCPMessenger>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), remotehostport, result__.as_mut_ptr()).from_abi::<NDTCPMessenger>(result__)
         })
     }
     #[doc(hidden)]
@@ -5394,15 +5022,9 @@ impl ::core::convert::From<&NDTCPMessenger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDTCPMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDTCPMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDTCPMessenger> for &::windows::core::IUnknown {
+    fn from(value: &NDTCPMessenger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5418,15 +5040,9 @@ impl ::core::convert::From<&NDTCPMessenger> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDTCPMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDTCPMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NDTCPMessenger> for &::windows::core::IInspectable {
+    fn from(value: &NDTCPMessenger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5444,15 +5060,11 @@ impl ::core::convert::TryFrom<&NDTCPMessenger> for INDMessenger {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDMessenger> for NDTCPMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, INDMessenger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, INDMessenger> for &NDTCPMessenger {
-    fn into_param(self) -> ::windows::core::Param<'a, INDMessenger> {
-        ::core::convert::TryInto::<INDMessenger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NDTCPMessenger> for ::windows::core::InParam<'a, INDMessenger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NDTCPMessenger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -5559,18 +5171,18 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(headerbytes: &[u8], licenseacquisitionurl: Param1, licenseacquisitionuserinterfaceurl: Param2, customattributes: Param3, domainserviceid: Param4) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(headerbytes: &[u8], licenseacquisitionurl: Param1, licenseacquisitionuserinterfaceurl: Param2, customattributes: Param3, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows::core::Interface::as_raw(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows::core::Interface::as_raw(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param6: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(contentkeyid: Param0, contentkeyidstring: Param1, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: Param3, licenseacquisitionuserinterfaceurl: Param4, customattributes: Param5, domainserviceid: Param6) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromComponents<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PlayReadyEncryptionAlgorithm>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(contentkeyid: ::windows::core::GUID, contentkeyidstring: Param1, contentencryptionalgorithm: Param2, licenseacquisitionurl: Param3, licenseacquisitionuserinterfaceurl: Param4, customattributes: Param5, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents)(::windows::core::Interface::as_raw(this), contentkeyid.into_param().abi(), contentkeyidstring.into_param().abi(), contentencryptionalgorithm, licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents)(::windows::core::Interface::as_raw(this), contentkeyid, contentkeyidstring.into().abi(), contentencryptionalgorithm.into(), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -5582,10 +5194,10 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents2<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(dwflags: u32, contentkeyids: &[::windows::core::GUID], contentkeyidstrings: &[::windows::core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: Param4, licenseacquisitionuserinterfaceurl: Param5, customattributes: Param6, domainserviceid: Param7) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromComponents2<'a, Param3: ::std::convert::Into<PlayReadyEncryptionAlgorithm>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(dwflags: u32, contentkeyids: &[::windows::core::GUID], contentkeyidstrings: &[::windows::core::HSTRING], contentencryptionalgorithm: Param3, licenseacquisitionurl: Param4, licenseacquisitionuserinterfaceurl: Param5, customattributes: Param6, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows::core::Interface::as_raw(this), dwflags, contentkeyids.len() as u32, ::core::mem::transmute(contentkeyids.as_ptr()), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows::core::Interface::as_raw(this), dwflags, contentkeyids.len() as u32, ::core::mem::transmute(contentkeyids.as_ptr()), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm.into(), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[doc(hidden)]
@@ -5639,14 +5251,9 @@ impl ::core::convert::From<&PlayReadyContentHeader> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyContentHeader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyContentHeader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyContentHeader> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyContentHeader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyContentHeader> for ::windows::core::IInspectable {
@@ -5659,24 +5266,19 @@ impl ::core::convert::From<&PlayReadyContentHeader> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyContentHeader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyContentHeader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyContentHeader> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyContentHeader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 pub struct PlayReadyContentResolver;
 impl PlayReadyContentResolver {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ServiceRequest<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0) -> ::windows::core::Result<IPlayReadyServiceRequest> {
+    pub fn ServiceRequest<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(contentheader: Param0) -> ::windows::core::Result<IPlayReadyServiceRequest> {
         Self::IPlayReadyContentResolver(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceRequest)(::windows::core::Interface::as_raw(this), contentheader.into_param().abi(), result__.as_mut_ptr()).from_abi::<IPlayReadyServiceRequest>(result__)
+            (::windows::core::Interface::vtable(this).ServiceRequest)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), result__.as_mut_ptr()).from_abi::<IPlayReadyServiceRequest>(result__)
         })
     }
     #[doc(hidden)]
@@ -5808,14 +5410,9 @@ impl ::core::convert::From<&PlayReadyDomain> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomain> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyDomain> for ::windows::core::IInspectable {
@@ -5828,14 +5425,9 @@ impl ::core::convert::From<&PlayReadyDomain> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomain> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyDomain> for IPlayReadyDomain {
@@ -5850,14 +5442,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomain> for IPlayReadyDomain {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyDomain> for PlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyDomain> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyDomain> for &PlayReadyDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyDomain> {
-        ::core::convert::TryInto::<IPlayReadyDomain>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomain> for ::windows::core::InParam<'a, IPlayReadyDomain> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomain) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
@@ -5877,10 +5466,10 @@ impl PlayReadyDomainIterable {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(domainaccountid: Param0) -> ::windows::core::Result<PlayReadyDomainIterable> {
+    pub fn CreateInstance(domainaccountid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyDomainIterable> {
         Self::IPlayReadyDomainIterableFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), domainaccountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlayReadyDomainIterable>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), domainaccountid, result__.as_mut_ptr()).from_abi::<PlayReadyDomainIterable>(result__)
         })
     }
     #[doc(hidden)]
@@ -5955,15 +5544,9 @@ impl ::core::convert::From<&PlayReadyDomainIterable> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyDomainIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainIterable> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyDomainIterable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -5979,15 +5562,9 @@ impl ::core::convert::From<&PlayReadyDomainIterable> for ::windows::core::IInspe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyDomainIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainIterable> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyDomainIterable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6005,15 +5582,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomainIterable> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> for PlayReadyDomainIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> for &PlayReadyDomainIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomainIterable> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomainIterable) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
@@ -6109,15 +5682,9 @@ impl ::core::convert::From<&PlayReadyDomainIterator> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyDomainIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainIterator> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyDomainIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6133,15 +5700,9 @@ impl ::core::convert::From<&PlayReadyDomainIterator> for ::windows::core::IInspe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyDomainIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainIterator> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyDomainIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6159,15 +5720,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomainIterator> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> for PlayReadyDomainIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> for &PlayReadyDomainIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomainIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomainIterator) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -6206,9 +5763,9 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainAccountId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainAccountId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainAccountId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn DomainFriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6219,9 +5776,9 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainFriendlyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -6232,9 +5789,9 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainServiceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6247,9 +5804,9 @@ impl PlayReadyDomainJoinServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6268,9 +5825,9 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6346,14 +5903,9 @@ impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::core::IInspectable {
@@ -6366,14 +5918,9 @@ impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -6388,14 +5935,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for super::IMe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomainJoinServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for IPlayReadyServiceRequest {
@@ -6410,14 +5954,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyDomainJoinServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomainJoinServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -6456,9 +5997,9 @@ impl PlayReadyDomainLeaveServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainAccountId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainAccountId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainAccountId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -6469,9 +6010,9 @@ impl PlayReadyDomainLeaveServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainServiceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6484,9 +6025,9 @@ impl PlayReadyDomainLeaveServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6505,9 +6046,9 @@ impl PlayReadyDomainLeaveServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6583,14 +6124,9 @@ impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::core::IInspectable {
@@ -6603,14 +6139,9 @@ impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -6625,14 +6156,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for super::IM
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomainLeaveServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for IPlayReadyServiceRequest {
@@ -6647,14 +6175,11 @@ impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for IPlayRead
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyDomainLeaveServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyDomainLeaveServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -6777,11 +6302,11 @@ impl PlayReadyITADataGenerator {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GenerateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(&self, guidcpsystemid: Param0, countofstreams: u32, configuration: Param2, format: PlayReadyITADataFormat) -> ::windows::core::Result<::windows::core::Array<u8>> {
+    pub fn GenerateData<'a, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::Into<PlayReadyITADataFormat>>(&self, guidcpsystemid: ::windows::core::GUID, countofstreams: u32, configuration: Param2, format: Param3) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<u8>>::zeroed();
-            (::windows::core::Interface::vtable(this).GenerateData)(::windows::core::Interface::as_raw(this), guidcpsystemid.into_param().abi(), countofstreams, configuration.into_param().abi(), format, ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).GenerateData)(::windows::core::Interface::as_raw(this), guidcpsystemid, countofstreams, configuration.try_into().map_err(|e| e.into())?.abi(), format.into(), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
 }
@@ -6825,14 +6350,9 @@ impl ::core::convert::From<&PlayReadyITADataGenerator> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyITADataGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyITADataGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyITADataGenerator> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyITADataGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyITADataGenerator> for ::windows::core::IInspectable {
@@ -6845,14 +6365,9 @@ impl ::core::convert::From<&PlayReadyITADataGenerator> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyITADataGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyITADataGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyITADataGenerator> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyITADataGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -6893,9 +6408,9 @@ impl PlayReadyIndividualizationServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6914,9 +6429,9 @@ impl PlayReadyIndividualizationServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6992,14 +6507,9 @@ impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::core::IInspectable {
@@ -7012,14 +6522,9 @@ impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -7034,14 +6539,11 @@ impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for sup
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyIndividualizationServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for IPlayReadyServiceRequest {
@@ -7056,14 +6558,11 @@ impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for IPl
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyIndividualizationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyIndividualizationServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -7200,14 +6699,9 @@ impl ::core::convert::From<&PlayReadyLicense> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicense> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyLicense) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyLicense> for ::windows::core::IInspectable {
@@ -7220,14 +6714,9 @@ impl ::core::convert::From<&PlayReadyLicense> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicense> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyLicense) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyLicense> for IPlayReadyLicense {
@@ -7242,14 +6731,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicense> for IPlayReadyLicense {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicense> for PlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicense> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicense> for &PlayReadyLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicense> {
-        ::core::convert::TryInto::<IPlayReadyLicense>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicense> for ::windows::core::InParam<'a, IPlayReadyLicense> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicense) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -7288,9 +6774,9 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetContentHeader<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentHeader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentHeader)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentHeader)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -7301,9 +6787,9 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainServiceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainServiceId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn SessionId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -7315,11 +6801,11 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateLicenseIterable<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateLicenseIterable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
         let this = &::windows::core::Interface::cast::<IPlayReadyLicenseAcquisitionServiceRequest3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLicenseIterable)(::windows::core::Interface::as_raw(this), contentheader.into_param().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
+            (::windows::core::Interface::vtable(this).CreateLicenseIterable)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
@@ -7333,9 +6819,9 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -7354,9 +6840,9 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7432,14 +6918,9 @@ impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
@@ -7452,14 +6933,9 @@ impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -7474,14 +6950,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for su
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
@@ -7496,14 +6969,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for IP
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> for PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyLicenseAcquisitionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
@@ -7518,14 +6988,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for IP
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
@@ -7552,10 +7019,10 @@ impl PlayReadyLicenseIterable {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
         Self::IPlayReadyLicenseIterableFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), contentheader.into_param().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
         })
     }
     #[doc(hidden)]
@@ -7630,15 +7097,9 @@ impl ::core::convert::From<&PlayReadyLicenseIterable> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyLicenseIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseIterable> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyLicenseIterable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -7654,15 +7115,9 @@ impl ::core::convert::From<&PlayReadyLicenseIterable> for ::windows::core::IInsp
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyLicenseIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseIterable> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyLicenseIterable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -7680,15 +7135,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseIterable> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> for PlayReadyLicenseIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> for &PlayReadyLicenseIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseIterable> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseIterable) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
@@ -7784,15 +7235,9 @@ impl ::core::convert::From<&PlayReadyLicenseIterator> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyLicenseIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseIterator> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyLicenseIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -7808,15 +7253,9 @@ impl ::core::convert::From<&PlayReadyLicenseIterator> for ::windows::core::IInsp
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyLicenseIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseIterator> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyLicenseIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -7834,15 +7273,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseIterator> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> for PlayReadyLicenseIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> for &PlayReadyLicenseIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseIterator) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -7850,10 +7285,10 @@ pub struct PlayReadyLicenseManagement;
 impl PlayReadyLicenseManagement {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteLicenses<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn DeleteLicenses<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(contentheader: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IPlayReadyLicenseManagement(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteLicenses)(::windows::core::Interface::as_raw(this), contentheader.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteLicenses)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -7878,25 +7313,25 @@ impl PlayReadyLicenseSession {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ConfigureMediaProtectionManager<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProtectionManager>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureMediaProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateLicenseIterable<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateLicenseIterable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
         let this = &::windows::core::Interface::cast::<IPlayReadyLicenseSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLicenseIterable)(::windows::core::Interface::as_raw(this), contentheader.into_param().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
+            (::windows::core::Interface::vtable(this).CreateLicenseIterable)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(configuration: Param0) -> ::windows::core::Result<PlayReadyLicenseSession> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(configuration: Param0) -> ::windows::core::Result<PlayReadyLicenseSession> {
         Self::IPlayReadyLicenseSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), configuration.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlayReadyLicenseSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PlayReadyLicenseSession>(result__)
         })
     }
     #[doc(hidden)]
@@ -7945,14 +7380,9 @@ impl ::core::convert::From<&PlayReadyLicenseSession> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseSession> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyLicenseSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyLicenseSession> for ::windows::core::IInspectable {
@@ -7965,14 +7395,9 @@ impl ::core::convert::From<&PlayReadyLicenseSession> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyLicenseSession> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyLicenseSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession {
@@ -7987,14 +7412,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for IPlayReadyLicenseSes
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession> for PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseSession> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession> for &PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseSession> {
-        ::core::convert::TryInto::<IPlayReadyLicenseSession>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseSession> for ::windows::core::InParam<'a, IPlayReadyLicenseSession> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
@@ -8009,14 +7431,11 @@ impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for IPlayReadyLicenseSes
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession2> for PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseSession2> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession2> for &PlayReadyLicenseSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyLicenseSession2> {
-        ::core::convert::TryInto::<IPlayReadyLicenseSession2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyLicenseSession> for ::windows::core::InParam<'a, IPlayReadyLicenseSession2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyLicenseSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -8070,9 +7489,9 @@ impl PlayReadyMeteringReportServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8091,9 +7510,9 @@ impl PlayReadyMeteringReportServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8169,14 +7588,9 @@ impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::core::IInspectable {
@@ -8189,14 +7603,9 @@ impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -8211,14 +7620,11 @@ impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for super:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyMeteringReportServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for IPlayReadyServiceRequest {
@@ -8233,14 +7639,11 @@ impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for IPlayR
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyMeteringReportServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyMeteringReportServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -8281,9 +7684,9 @@ impl PlayReadyRevocationServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8302,9 +7705,9 @@ impl PlayReadyRevocationServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8380,14 +7783,9 @@ impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadyRevocationServiceRequest> for ::windows::core::IInspectable {
@@ -8400,14 +7798,9 @@ impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -8422,14 +7815,11 @@ impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for super::IMe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyRevocationServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadyRevocationServiceRequest> for IPlayReadyServiceRequest {
@@ -8444,14 +7834,11 @@ impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyRevocationServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadyRevocationServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
@@ -8549,15 +7936,9 @@ impl ::core::convert::From<&PlayReadySecureStopIterable> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadySecureStopIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySecureStopIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySecureStopIterable> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadySecureStopIterable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -8573,15 +7954,9 @@ impl ::core::convert::From<&PlayReadySecureStopIterable> for ::windows::core::II
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadySecureStopIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySecureStopIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySecureStopIterable> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadySecureStopIterable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -8599,15 +7974,11 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopIterable> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> for PlayReadySecureStopIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> for &PlayReadySecureStopIterable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopIterable> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadySecureStopIterable) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
@@ -8703,15 +8074,9 @@ impl ::core::convert::From<&PlayReadySecureStopIterator> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadySecureStopIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySecureStopIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySecureStopIterator> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadySecureStopIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -8727,15 +8092,9 @@ impl ::core::convert::From<&PlayReadySecureStopIterator> for ::windows::core::II
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadySecureStopIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySecureStopIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySecureStopIterator> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadySecureStopIterator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -8753,15 +8112,11 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopIterator> for super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> for PlayReadySecureStopIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> for &PlayReadySecureStopIterator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopIterator> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadySecureStopIterator) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -8834,10 +8189,10 @@ impl PlayReadySecureStopServiceRequest {
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn CreateInstanceFromSessionID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(sessionid: Param0, publishercertbytes: &[u8]) -> ::windows::core::Result<PlayReadySecureStopServiceRequest> {
+    pub fn CreateInstanceFromSessionID(sessionid: ::windows::core::GUID, publishercertbytes: &[u8]) -> ::windows::core::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromSessionID)(::windows::core::Interface::as_raw(this), sessionid.into_param().abi(), publishercertbytes.len() as u32, ::core::mem::transmute(publishercertbytes.as_ptr()), result__.as_mut_ptr()).from_abi::<PlayReadySecureStopServiceRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromSessionID)(::windows::core::Interface::as_raw(this), sessionid, publishercertbytes.len() as u32, ::core::mem::transmute(publishercertbytes.as_ptr()), result__.as_mut_ptr()).from_abi::<PlayReadySecureStopServiceRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
@@ -8851,9 +8206,9 @@ impl PlayReadySecureStopServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8872,9 +8227,9 @@ impl PlayReadySecureStopServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8955,14 +8310,9 @@ impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
@@ -8975,14 +8325,9 @@ impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -8997,14 +8342,11 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for super::IMe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, super::IMediaProtectionServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for IPlayReadySecureStopServiceRequest {
@@ -9019,14 +8361,11 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadySecureStopServiceRequest> for PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadySecureStopServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadySecureStopServiceRequest> for &PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadySecureStopServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadySecureStopServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, IPlayReadySecureStopServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
@@ -9041,14 +8380,11 @@ impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for IPlayReady
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadySecureStopServiceRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, IPlayReadyServiceRequest> {
-        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for ::windows::core::InParam<'a, IPlayReadyServiceRequest> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -9122,14 +8458,9 @@ impl ::core::convert::From<&PlayReadySoapMessage> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReadySoapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySoapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySoapMessage> for &::windows::core::IUnknown {
+    fn from(value: &PlayReadySoapMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlayReadySoapMessage> for ::windows::core::IInspectable {
@@ -9142,14 +8473,9 @@ impl ::core::convert::From<&PlayReadySoapMessage> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayReadySoapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySoapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlayReadySoapMessage> for &::windows::core::IInspectable {
+    fn from(value: &PlayReadySoapMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -9226,10 +8552,10 @@ impl PlayReadyStatics {
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn CheckSupportedHardware(hwdrmfeature: PlayReadyHardwareDRMFeatures) -> ::windows::core::Result<bool> {
+    pub fn CheckSupportedHardware<'a, Param0: ::std::convert::Into<PlayReadyHardwareDRMFeatures>>(hwdrmfeature: Param0) -> ::windows::core::Result<bool> {
         Self::IPlayReadyStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckSupportedHardware)(::windows::core::Interface::as_raw(this), hwdrmfeature, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CheckSupportedHardware)(::windows::core::Interface::as_raw(this), hwdrmfeature.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]

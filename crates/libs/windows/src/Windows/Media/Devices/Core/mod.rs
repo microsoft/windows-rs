@@ -56,20 +56,20 @@ impl CameraIntrinsics {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn ProjectOntoFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, coordinate: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn ProjectOntoFrame(&self, coordinate: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::zeroed();
-            (::windows::core::Interface::vtable(this).ProjectOntoFrame)(::windows::core::Interface::as_raw(this), coordinate.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).ProjectOntoFrame)(::windows::core::Interface::as_raw(this), coordinate, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn UnprojectAtUnitDepth<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, pixelcoordinate: Param0) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector2> {
+    pub fn UnprojectAtUnitDepth(&self, pixelcoordinate: super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Numerics::Vector2>::zeroed();
-            (::windows::core::Interface::vtable(this).UnprojectAtUnitDepth)(::windows::core::Interface::as_raw(this), pixelcoordinate.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector2>(result__)
+            (::windows::core::Interface::vtable(this).UnprojectAtUnitDepth)(::windows::core::Interface::as_raw(this), pixelcoordinate, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation_Numerics\"`*"]
@@ -95,11 +95,11 @@ impl CameraIntrinsics {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DistortPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, input: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn DistortPoint(&self, input: super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::zeroed();
-            (::windows::core::Interface::vtable(this).DistortPoint)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).DistortPoint)(::windows::core::Interface::as_raw(this), input, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
@@ -110,11 +110,11 @@ impl CameraIntrinsics {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UndistortPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, input: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn UndistortPoint(&self, input: super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::zeroed();
-            (::windows::core::Interface::vtable(this).UndistortPoint)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).UndistortPoint)(::windows::core::Interface::as_raw(this), input, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
@@ -125,10 +125,10 @@ impl CameraIntrinsics {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>>(focallength: Param0, principalpoint: Param1, radialdistortion: Param2, tangentialdistortion: Param3, imagewidth: u32, imageheight: u32) -> ::windows::core::Result<CameraIntrinsics> {
+    pub fn Create(focallength: super::super::super::Foundation::Numerics::Vector2, principalpoint: super::super::super::Foundation::Numerics::Vector2, radialdistortion: super::super::super::Foundation::Numerics::Vector3, tangentialdistortion: super::super::super::Foundation::Numerics::Vector2, imagewidth: u32, imageheight: u32) -> ::windows::core::Result<CameraIntrinsics> {
         Self::ICameraIntrinsicsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), focallength.into_param().abi(), principalpoint.into_param().abi(), radialdistortion.into_param().abi(), tangentialdistortion.into_param().abi(), imagewidth, imageheight, result__.as_mut_ptr()).from_abi::<CameraIntrinsics>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), focallength, principalpoint, radialdistortion, tangentialdistortion, imagewidth, imageheight, result__.as_mut_ptr()).from_abi::<CameraIntrinsics>(result__)
         })
     }
     #[doc(hidden)]
@@ -177,14 +177,9 @@ impl ::core::convert::From<&CameraIntrinsics> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CameraIntrinsics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CameraIntrinsics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraIntrinsics> for &::windows::core::IUnknown {
+    fn from(value: &CameraIntrinsics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CameraIntrinsics> for ::windows::core::IInspectable {
@@ -197,14 +192,9 @@ impl ::core::convert::From<&CameraIntrinsics> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CameraIntrinsics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CameraIntrinsics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraIntrinsics> for &::windows::core::IInspectable {
+    fn from(value: &CameraIntrinsics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CameraIntrinsics {}
@@ -221,33 +211,33 @@ impl DepthCorrelatedCoordinateMapper {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UnprojectPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoint: Param0, targetcoordinatesystem: Param1) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn UnprojectPoint<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: Param1) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Numerics::Vector3>::zeroed();
-            (::windows::core::Interface::vtable(this).UnprojectPoint)(::windows::core::Interface::as_raw(this), sourcepoint.into_param().abi(), targetcoordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).UnprojectPoint)(::windows::core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UnprojectPoints<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: Param1, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<()> {
+    pub fn UnprojectPoints<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: Param1, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UnprojectPoints)(::windows::core::Interface::as_raw(this), sourcepoints.len() as u32, ::core::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UnprojectPoints)(::windows::core::Interface::as_raw(this), sourcepoints.len() as u32, ::core::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
-    pub fn MapPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param2: ::windows::core::IntoParam<'a, CameraIntrinsics>>(&self, sourcepoint: Param0, targetcoordinatesystem: Param1, targetcameraintrinsics: Param2) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn MapPoint<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, CameraIntrinsics>>>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: Param1, targetcameraintrinsics: Param2) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::zeroed();
-            (::windows::core::Interface::vtable(this).MapPoint)(::windows::core::Interface::as_raw(this), sourcepoint.into_param().abi(), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).MapPoint)(::windows::core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into().abi(), targetcameraintrinsics.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
-    pub fn MapPoints<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param2: ::windows::core::IntoParam<'a, CameraIntrinsics>>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: Param1, targetcameraintrinsics: Param2, results: &mut [super::super::super::Foundation::Point]) -> ::windows::core::Result<()> {
+    pub fn MapPoints<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, CameraIntrinsics>>>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: Param1, targetcameraintrinsics: Param2, results: &mut [super::super::super::Foundation::Point]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MapPoints)(::windows::core::Interface::as_raw(this), sourcepoints.len() as u32, ::core::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MapPoints)(::windows::core::Interface::as_raw(this), sourcepoints.len() as u32, ::core::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into().abi(), targetcameraintrinsics.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
     }
 }
 impl ::core::clone::Clone for DepthCorrelatedCoordinateMapper {
@@ -290,14 +280,9 @@ impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for &::windows::core::IUnknown {
+    fn from(value: &DepthCorrelatedCoordinateMapper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DepthCorrelatedCoordinateMapper> for ::windows::core::IInspectable {
@@ -310,14 +295,9 @@ impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for &::windows::core::IInspectable {
+    fn from(value: &DepthCorrelatedCoordinateMapper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -335,15 +315,11 @@ impl ::core::convert::TryFrom<&DepthCorrelatedCoordinateMapper> for super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for DepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &DepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DepthCorrelatedCoordinateMapper> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DepthCorrelatedCoordinateMapper) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DepthCorrelatedCoordinateMapper {}
@@ -441,14 +417,9 @@ impl ::core::convert::From<&FrameControlCapabilities> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameControlCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &FrameControlCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameControlCapabilities> for ::windows::core::IInspectable {
@@ -461,14 +432,9 @@ impl ::core::convert::From<&FrameControlCapabilities> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameControlCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &FrameControlCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -525,9 +491,9 @@ impl FrameController {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPhotoConfirmationEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPhotoConfirmationEnabled<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPhotoConfirmationEnabled)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPhotoConfirmationEnabled)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
     pub fn FlashControl(&self) -> ::windows::core::Result<FrameFlashControl> {
@@ -578,14 +544,9 @@ impl ::core::convert::From<&FrameController> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameController> for &::windows::core::IUnknown {
+    fn from(value: &FrameController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameController> for ::windows::core::IInspectable {
@@ -598,14 +559,9 @@ impl ::core::convert::From<&FrameController> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameController> for &::windows::core::IInspectable {
+    fn from(value: &FrameController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FrameController {}
@@ -690,14 +646,9 @@ impl ::core::convert::From<&FrameExposureCapabilities> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExposureCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &FrameExposureCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameExposureCapabilities> for ::windows::core::IInspectable {
@@ -710,14 +661,9 @@ impl ::core::convert::From<&FrameExposureCapabilities> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameExposureCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &FrameExposureCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -797,14 +743,9 @@ impl ::core::convert::From<&FrameExposureCompensationCapabilities> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExposureCompensationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureCompensationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureCompensationCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &FrameExposureCompensationCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameExposureCompensationCapabilities> for ::windows::core::IInspectable {
@@ -817,14 +758,9 @@ impl ::core::convert::From<&FrameExposureCompensationCapabilities> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameExposureCompensationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureCompensationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureCompensationCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &FrameExposureCompensationCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -842,9 +778,9 @@ impl FrameExposureCompensationControl {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<f32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<f32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FrameExposureCompensationControl {
@@ -887,14 +823,9 @@ impl ::core::convert::From<&FrameExposureCompensationControl> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureCompensationControl> for &::windows::core::IUnknown {
+    fn from(value: &FrameExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameExposureCompensationControl> for ::windows::core::IInspectable {
@@ -907,14 +838,9 @@ impl ::core::convert::From<&FrameExposureCompensationControl> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureCompensationControl> for &::windows::core::IInspectable {
+    fn from(value: &FrameExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -945,9 +871,9 @@ impl FrameExposureControl {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FrameExposureControl {
@@ -990,14 +916,9 @@ impl ::core::convert::From<&FrameExposureControl> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureControl> for &::windows::core::IUnknown {
+    fn from(value: &FrameExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameExposureControl> for ::windows::core::IInspectable {
@@ -1010,14 +931,9 @@ impl ::core::convert::From<&FrameExposureControl> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameExposureControl> for &::windows::core::IInspectable {
+    fn from(value: &FrameExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1089,14 +1005,9 @@ impl ::core::convert::From<&FrameFlashCapabilities> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFlashCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFlashCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFlashCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &FrameFlashCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameFlashCapabilities> for ::windows::core::IInspectable {
@@ -1109,14 +1020,9 @@ impl ::core::convert::From<&FrameFlashCapabilities> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameFlashCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFlashCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFlashCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &FrameFlashCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1132,9 +1038,9 @@ impl FrameFlashControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
-    pub fn SetMode(&self, value: FrameFlashMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<FrameFlashMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
     pub fn Auto(&self) -> ::windows::core::Result<bool> {
@@ -1216,14 +1122,9 @@ impl ::core::convert::From<&FrameFlashControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFlashControl> for &::windows::core::IUnknown {
+    fn from(value: &FrameFlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameFlashControl> for ::windows::core::IInspectable {
@@ -1236,14 +1137,9 @@ impl ::core::convert::From<&FrameFlashControl> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameFlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFlashControl> for &::windows::core::IInspectable {
+    fn from(value: &FrameFlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1358,14 +1254,9 @@ impl ::core::convert::From<&FrameFocusCapabilities> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFocusCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFocusCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFocusCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &FrameFocusCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameFocusCapabilities> for ::windows::core::IInspectable {
@@ -1378,14 +1269,9 @@ impl ::core::convert::From<&FrameFocusCapabilities> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameFocusCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFocusCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFocusCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &FrameFocusCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1403,9 +1289,9 @@ impl FrameFocusControl {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FrameFocusControl {
@@ -1448,14 +1334,9 @@ impl ::core::convert::From<&FrameFocusControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFocusControl> for &::windows::core::IUnknown {
+    fn from(value: &FrameFocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameFocusControl> for ::windows::core::IInspectable {
@@ -1468,14 +1349,9 @@ impl ::core::convert::From<&FrameFocusControl> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameFocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameFocusControl> for &::windows::core::IInspectable {
+    fn from(value: &FrameFocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1555,14 +1431,9 @@ impl ::core::convert::From<&FrameIsoSpeedCapabilities> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameIsoSpeedCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameIsoSpeedCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameIsoSpeedCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &FrameIsoSpeedCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameIsoSpeedCapabilities> for ::windows::core::IInspectable {
@@ -1575,14 +1446,9 @@ impl ::core::convert::From<&FrameIsoSpeedCapabilities> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameIsoSpeedCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameIsoSpeedCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameIsoSpeedCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &FrameIsoSpeedCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1613,9 +1479,9 @@ impl FrameIsoSpeedControl {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FrameIsoSpeedControl {
@@ -1658,14 +1524,9 @@ impl ::core::convert::From<&FrameIsoSpeedControl> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameIsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameIsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameIsoSpeedControl> for &::windows::core::IUnknown {
+    fn from(value: &FrameIsoSpeedControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FrameIsoSpeedControl> for ::windows::core::IInspectable {
@@ -1678,14 +1539,9 @@ impl ::core::convert::From<&FrameIsoSpeedControl> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FrameIsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameIsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FrameIsoSpeedControl> for &::windows::core::IInspectable {
+    fn from(value: &FrameIsoSpeedControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc(hidden)]
@@ -2133,11 +1989,11 @@ impl VariablePhotoSequenceController {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::MediaProperties::IMediaEncodingProperties>>(&self, captureproperties: Param0) -> ::windows::core::Result<super::super::MediaProperties::MediaRatio> {
+    pub fn GetHighestConcurrentFrameRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::MediaProperties::IMediaEncodingProperties>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, captureproperties: Param0) -> ::windows::core::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows::core::Interface::as_raw(this), captureproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::MediaProperties::MediaRatio>(result__)
+            (::windows::core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows::core::Interface::as_raw(this), captureproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::MediaProperties::MediaRatio>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Media_MediaProperties\"`*"]
@@ -2207,14 +2063,9 @@ impl ::core::convert::From<&VariablePhotoSequenceController> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VariablePhotoSequenceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VariablePhotoSequenceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VariablePhotoSequenceController> for &::windows::core::IUnknown {
+    fn from(value: &VariablePhotoSequenceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VariablePhotoSequenceController> for ::windows::core::IInspectable {
@@ -2227,14 +2078,9 @@ impl ::core::convert::From<&VariablePhotoSequenceController> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VariablePhotoSequenceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VariablePhotoSequenceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VariablePhotoSequenceController> for &::windows::core::IInspectable {
+    fn from(value: &VariablePhotoSequenceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "implement")]

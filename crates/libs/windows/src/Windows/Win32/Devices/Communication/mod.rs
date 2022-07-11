@@ -1,42 +1,42 @@
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpdef: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBA(lpdef: ::windows::core::PCSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildCommDCBA(lpdef: ::windows::core::PCSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BuildCommDCBA(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb)))
+    ::core::mem::transmute(BuildCommDCBA(::core::mem::transmute(lpdef), ::core::mem::transmute(lpdcb)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBAndTimeoutsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpdef: Param0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBAndTimeoutsA(lpdef: ::windows::core::PCSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildCommDCBAndTimeoutsA(lpdef: ::windows::core::PCSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BuildCommDCBAndTimeoutsA(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts)))
+    ::core::mem::transmute(BuildCommDCBAndTimeoutsA(::core::mem::transmute(lpdef), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBAndTimeoutsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpdef: Param0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBAndTimeoutsW(lpdef: ::windows::core::PCWSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildCommDCBAndTimeoutsW(lpdef: ::windows::core::PCWSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BuildCommDCBAndTimeoutsW(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts)))
+    ::core::mem::transmute(BuildCommDCBAndTimeoutsW(::core::mem::transmute(lpdef), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpdef: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBW(lpdef: ::windows::core::PCWSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildCommDCBW(lpdef: ::windows::core::PCWSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BuildCommDCBW(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb)))
+    ::core::mem::transmute(BuildCommDCBW(::core::mem::transmute(lpdef), ::core::mem::transmute(lpdcb)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
@@ -423,42 +423,42 @@ impl ::core::default::Default for COMSTAT {
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClearCommBreak<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn ClearCommBreak<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClearCommBreak(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClearCommBreak(hfile.into_param().abi()))
+    ::core::mem::transmute(ClearCommBreak(hfile.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClearCommError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lperrors: *mut CLEAR_COMM_ERROR_FLAGS, lpstat: *mut COMSTAT) -> super::super::Foundation::BOOL {
+pub unsafe fn ClearCommError<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lperrors: *mut CLEAR_COMM_ERROR_FLAGS, lpstat: *mut COMSTAT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClearCommError(hfile: super::super::Foundation::HANDLE, lperrors: *mut CLEAR_COMM_ERROR_FLAGS, lpstat: *mut COMSTAT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ClearCommError(hfile.into_param().abi(), ::core::mem::transmute(lperrors), ::core::mem::transmute(lpstat)))
+    ::core::mem::transmute(ClearCommError(hfile.into(), ::core::mem::transmute(lperrors), ::core::mem::transmute(lpstat)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommConfigDialogA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszname: Param0, hwnd: Param1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL {
+pub unsafe fn CommConfigDialogA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszname: ::windows::core::PCSTR, hwnd: Param1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CommConfigDialogA(lpszname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CommConfigDialogA(lpszname.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(lpcc)))
+    ::core::mem::transmute(CommConfigDialogA(::core::mem::transmute(lpszname), hwnd.into(), ::core::mem::transmute(lpcc)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommConfigDialogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszname: Param0, hwnd: Param1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL {
+pub unsafe fn CommConfigDialogW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszname: ::windows::core::PCWSTR, hwnd: Param1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CommConfigDialogW(lpszname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CommConfigDialogW(lpszname.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(lpcc)))
+    ::core::mem::transmute(CommConfigDialogW(::core::mem::transmute(lpszname), hwnd.into(), ::core::mem::transmute(lpcc)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
@@ -632,42 +632,42 @@ impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EscapeCommFunction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL {
+pub unsafe fn EscapeCommFunction<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<ESCAPE_COMM_FUNCTION>>(hfile: Param0, dwfunc: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EscapeCommFunction(hfile: super::super::Foundation::HANDLE, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EscapeCommFunction(hfile.into_param().abi(), ::core::mem::transmute(dwfunc)))
+    ::core::mem::transmute(EscapeCommFunction(hfile.into(), dwfunc.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommConfig<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hcommdev: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommConfig<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hcommdev: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCommConfig(hcommdev.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
+    ::core::mem::transmute(GetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpevtmask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommMask<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpevtmask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCommMask(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCommMask(hfile.into_param().abi(), ::core::mem::transmute(lpevtmask)))
+    ::core::mem::transmute(GetCommMask(hfile.into(), ::core::mem::transmute(lpevtmask)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommModemStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommModemStatus<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCommModemStatus(hfile: super::super::Foundation::HANDLE, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCommModemStatus(hfile.into_param().abi(), ::core::mem::transmute(lpmodemstat)))
+    ::core::mem::transmute(GetCommModemStatus(hfile.into(), ::core::mem::transmute(lpmodemstat)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[inline]
@@ -681,52 +681,52 @@ pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcommprop: *mut COMMPROP) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommProperties<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpcommprop: *mut COMMPROP) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCommProperties(hfile: super::super::Foundation::HANDLE, lpcommprop: *mut COMMPROP) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCommProperties(hfile.into_param().abi(), ::core::mem::transmute(lpcommprop)))
+    ::core::mem::transmute(GetCommProperties(hfile.into(), ::core::mem::transmute(lpcommprop)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommState<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCommState(hfile.into_param().abi(), ::core::mem::transmute(lpdcb)))
+    ::core::mem::transmute(GetCommState(hfile.into(), ::core::mem::transmute(lpdcb)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommTimeouts<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommTimeouts<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetCommTimeouts(hfile.into_param().abi(), ::core::mem::transmute(lpcommtimeouts)))
+    ::core::mem::transmute(GetCommTimeouts(hfile.into(), ::core::mem::transmute(lpcommtimeouts)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDefaultCommConfigA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszname: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDefaultCommConfigA(lpszname: ::windows::core::PCSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDefaultCommConfigA(lpszname: ::windows::core::PCSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDefaultCommConfigA(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
+    ::core::mem::transmute(GetDefaultCommConfigA(::core::mem::transmute(lpszname), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDefaultCommConfigW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszname: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDefaultCommConfigW(lpszname: ::windows::core::PCWSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDefaultCommConfigW(lpszname: ::windows::core::PCWSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDefaultCommConfigW(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
+    ::core::mem::transmute(GetDefaultCommConfigW(::core::mem::transmute(lpszname), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MAXLENGTH_NAI: u32 = 72u32;
@@ -1398,113 +1398,113 @@ impl ::core::ops::Not for PURGE_COMM_FLAGS {
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PurgeComm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL {
+pub unsafe fn PurgeComm<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<PURGE_COMM_FLAGS>>(hfile: Param0, dwflags: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PurgeComm(hfile: super::super::Foundation::HANDLE, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PurgeComm(hfile.into_param().abi(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PurgeComm(hfile.into(), dwflags.into()))
 }
 pub const SID_3GPP_SUPSVCMODEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommBreak<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommBreak<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCommBreak(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCommBreak(hfile.into_param().abi()))
+    ::core::mem::transmute(SetCommBreak(hfile.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommConfig<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hcommdev: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommConfig<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hcommdev: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCommConfig(hcommdev.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(SetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommMask<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<COMM_EVENT_MASK>>(hfile: Param0, dwevtmask: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCommMask(hfile.into_param().abi(), ::core::mem::transmute(dwevtmask)))
+    ::core::mem::transmute(SetCommMask(hfile.into(), dwevtmask.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpdcb: *const DCB) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommState<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpdcb: *const DCB) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *const DCB) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCommState(hfile.into_param().abi(), ::core::mem::transmute(lpdcb)))
+    ::core::mem::transmute(SetCommState(hfile.into(), ::core::mem::transmute(lpdcb)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommTimeouts<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcommtimeouts: *const COMMTIMEOUTS) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommTimeouts<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpcommtimeouts: *const COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *const COMMTIMEOUTS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCommTimeouts(hfile.into_param().abi(), ::core::mem::transmute(lpcommtimeouts)))
+    ::core::mem::transmute(SetCommTimeouts(hfile.into(), ::core::mem::transmute(lpcommtimeouts)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultCommConfigA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszname: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDefaultCommConfigA(lpszname: ::windows::core::PCSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDefaultCommConfigA(lpszname: ::windows::core::PCSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultCommConfigA(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(SetDefaultCommConfigA(::core::mem::transmute(lpszname), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultCommConfigW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszname: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDefaultCommConfigW(lpszname: ::windows::core::PCWSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDefaultCommConfigW(lpszname: ::windows::core::PCWSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultCommConfigW(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(SetDefaultCommConfigW(::core::mem::transmute(lpszname), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupComm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwinqueue: u32, dwoutqueue: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupComm<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, dwinqueue: u32, dwoutqueue: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetupComm(hfile: super::super::Foundation::HANDLE, dwinqueue: u32, dwoutqueue: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetupComm(hfile.into_param().abi(), ::core::mem::transmute(dwinqueue), ::core::mem::transmute(dwoutqueue)))
+    ::core::mem::transmute(SetupComm(hfile.into(), ::core::mem::transmute(dwinqueue), ::core::mem::transmute(dwoutqueue)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TransmitCommChar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(hfile: Param0, cchar: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn TransmitCommChar<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::CHAR>>(hfile: Param0, cchar: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TransmitCommChar(hfile: super::super::Foundation::HANDLE, cchar: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TransmitCommChar(hfile.into_param().abi(), cchar.into_param().abi()))
+    ::core::mem::transmute(TransmitCommChar(hfile.into(), cchar.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WaitCommEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WaitCommEvent<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WaitCommEvent(hfile.into_param().abi(), ::core::mem::transmute(lpevtmask), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(WaitCommEvent(hfile.into(), ::core::mem::transmute(lpevtmask), ::core::mem::transmute(lpoverlapped)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

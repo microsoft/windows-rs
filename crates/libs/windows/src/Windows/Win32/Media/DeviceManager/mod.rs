@@ -21,19 +21,14 @@ impl ::core::convert::From<IComponentAuthenticate> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IComponentAuthenticate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IComponentAuthenticate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IComponentAuthenticate> for ::windows::core::IUnknown {
     fn from(value: &IComponentAuthenticate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComponentAuthenticate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IComponentAuthenticate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IComponentAuthenticate {
@@ -123,19 +118,14 @@ impl ::core::convert::From<IMDSPDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPDevice> for ::windows::core::IUnknown {
     fn from(value: &IMDSPDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPDevice {
@@ -232,9 +222,9 @@ impl IMDSPDevice2 {
         (::windows::core::Interface::vtable(self).base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -256,19 +246,14 @@ impl ::core::convert::From<IMDSPDevice2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPDevice2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPDevice2> for ::windows::core::IUnknown {
     fn from(value: &IMDSPDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMDSPDevice2> for IMDSPDevice {
@@ -276,19 +261,14 @@ impl ::core::convert::From<IMDSPDevice2> for IMDSPDevice {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPDevice2> for &'a IMDSPDevice {
+    fn from(value: &'a IMDSPDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPDevice2> for IMDSPDevice {
     fn from(value: &IMDSPDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPDevice> for IMDSPDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPDevice> for &'a IMDSPDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPDevice2 {
@@ -381,9 +361,9 @@ impl IMDSPDevice3 {
         (::windows::core::Interface::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -401,33 +381,38 @@ impl IMDSPDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetProperty(&self, pwszpropname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwszpropname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszpropname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwszpropname.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn SetProperty(&self, pwszpropname: ::windows::core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszpropname), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
+    pub unsafe fn GetFormatCapability<'a, Param0: ::std::convert::Into<WMDM_FORMATCODE>>(&self, format: Param0) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = ::core::mem::MaybeUninit::<WMDM_FORMAT_CAPABILITY>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
+        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _, ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(pnoutbuffersize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn FindStorage<'a, Param0: ::std::convert::Into<WMDM_FIND_SCOPE>>(&self, findscope: Param0, pwszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), ::core::mem::transmute(pwszuniqueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
 impl ::core::convert::From<IMDSPDevice3> for ::windows::core::IUnknown {
     fn from(value: IMDSPDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPDevice3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -436,18 +421,13 @@ impl ::core::convert::From<&IMDSPDevice3> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPDevice3> for IMDSPDevice {
     fn from(value: IMDSPDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPDevice3> for &'a IMDSPDevice {
+    fn from(value: &'a IMDSPDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -456,34 +436,19 @@ impl ::core::convert::From<&IMDSPDevice3> for IMDSPDevice {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMDSPDevice> for IMDSPDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPDevice> for &'a IMDSPDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPDevice3> for IMDSPDevice2 {
     fn from(value: IMDSPDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPDevice3> for &'a IMDSPDevice2 {
+    fn from(value: &'a IMDSPDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMDSPDevice3> for IMDSPDevice2 {
     fn from(value: &IMDSPDevice3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPDevice2> for IMDSPDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPDevice2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPDevice2> for &'a IMDSPDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPDevice2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPDevice3 {
@@ -570,19 +535,14 @@ impl ::core::convert::From<IMDSPDeviceControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPDeviceControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPDeviceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPDeviceControl> for ::windows::core::IUnknown {
     fn from(value: &IMDSPDeviceControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPDeviceControl {
@@ -626,9 +586,9 @@ pub struct IMDSPDeviceControl_Vtbl {
 pub struct IMDSPDirectTransfer(::windows::core::IUnknown);
 impl IMDSPDirectTransfer {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn TransferToDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwszsourcefilepath: Param0, psourceoperation: Param1, fuflags: u32, pwszdestinationname: Param3, psourcemetadata: Param4, ptransferprogress: Param5) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn TransferToDevice<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, pwszsourcefilepath: ::windows::core::PCWSTR, psourceoperation: Param1, fuflags: u32, pwszdestinationname: ::windows::core::PCWSTR, psourcemetadata: Param4, ptransferprogress: Param5) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).TransferToDevice)(::windows::core::Interface::as_raw(self), pwszsourcefilepath.into_param().abi(), psourceoperation.into_param().abi(), ::core::mem::transmute(fuflags), pwszdestinationname.into_param().abi(), psourcemetadata.into_param().abi(), ptransferprogress.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).TransferToDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszsourcefilepath), psourceoperation.into().abi(), ::core::mem::transmute(fuflags), ::core::mem::transmute(pwszdestinationname), psourcemetadata.into().abi(), ptransferprogress.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
 impl ::core::convert::From<IMDSPDirectTransfer> for ::windows::core::IUnknown {
@@ -636,19 +596,14 @@ impl ::core::convert::From<IMDSPDirectTransfer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPDirectTransfer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPDirectTransfer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPDirectTransfer> for ::windows::core::IUnknown {
     fn from(value: &IMDSPDirectTransfer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPDirectTransfer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPDirectTransfer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPDirectTransfer {
@@ -705,19 +660,14 @@ impl ::core::convert::From<IMDSPEnumDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPEnumDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPEnumDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPEnumDevice> for ::windows::core::IUnknown {
     fn from(value: &IMDSPEnumDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPEnumDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPEnumDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPEnumDevice {
@@ -777,19 +727,14 @@ impl ::core::convert::From<IMDSPEnumStorage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPEnumStorage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPEnumStorage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPEnumStorage> for ::windows::core::IUnknown {
     fn from(value: &IMDSPEnumStorage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPEnumStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPEnumStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPEnumStorage {
@@ -838,20 +783,20 @@ impl IMDSPObject {
         (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(dwoffset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwsznewname: Param0, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, pwsznewname: ::windows::core::PCWSTR, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsznewname), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>, Param2: ::windows::core::IntoParam<'a, IMDSPStorage>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi(), ptarget.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorage>>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi(), ptarget.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -863,19 +808,14 @@ impl ::core::convert::From<IMDSPObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPObject> for ::windows::core::IUnknown {
     fn from(value: &IMDSPObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPObject {
@@ -928,20 +868,20 @@ impl IMDSPObject2 {
         (::windows::core::Interface::vtable(self).base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(dwoffset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, pwsznewname: Param0, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, pwsznewname: ::windows::core::PCWSTR, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsznewname), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>, Param2: ::windows::core::IntoParam<'a, IMDSPStorage>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi(), ptarget.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorage>>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi(), ptarget.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -961,19 +901,14 @@ impl ::core::convert::From<IMDSPObject2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPObject2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPObject2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPObject2> for ::windows::core::IUnknown {
     fn from(value: &IMDSPObject2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPObject2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPObject2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMDSPObject2> for IMDSPObject {
@@ -981,19 +916,14 @@ impl ::core::convert::From<IMDSPObject2> for IMDSPObject {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPObject2> for &'a IMDSPObject {
+    fn from(value: &'a IMDSPObject2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPObject2> for IMDSPObject {
     fn from(value: &IMDSPObject2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPObject> for IMDSPObject2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPObject> for &'a IMDSPObject2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPObject2 {
@@ -1066,19 +996,14 @@ impl ::core::convert::From<IMDSPObjectInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPObjectInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPObjectInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPObjectInfo> for ::windows::core::IUnknown {
     fn from(value: &IMDSPObjectInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPObjectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPObjectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPObjectInfo {
@@ -1127,19 +1052,14 @@ impl ::core::convert::From<IMDSPRevoked> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPRevoked> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPRevoked) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPRevoked> for ::windows::core::IUnknown {
     fn from(value: &IMDSPRevoked) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPRevoked {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPRevoked {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPRevoked {
@@ -1206,9 +1126,9 @@ impl IMDSPStorage {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
@@ -1225,19 +1145,14 @@ impl ::core::convert::From<IMDSPStorage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPStorage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPStorage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPStorage> for ::windows::core::IUnknown {
     fn from(value: &IMDSPStorage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPStorage {
@@ -1322,9 +1237,9 @@ impl IMDSPStorage2 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
@@ -1336,15 +1251,15 @@ impl IMDSPStorage2 {
         (::windows::core::Interface::vtable(self).base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1362,19 +1277,14 @@ impl ::core::convert::From<IMDSPStorage2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPStorage2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPStorage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPStorage2> for ::windows::core::IUnknown {
     fn from(value: &IMDSPStorage2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMDSPStorage2> for IMDSPStorage {
@@ -1382,19 +1292,14 @@ impl ::core::convert::From<IMDSPStorage2> for IMDSPStorage {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPStorage2> for &'a IMDSPStorage {
+    fn from(value: &'a IMDSPStorage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPStorage2> for IMDSPStorage {
     fn from(value: &IMDSPStorage2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage> for IMDSPStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage> for &'a IMDSPStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPStorage2 {
@@ -1473,9 +1378,9 @@ impl IMDSPStorage3 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
@@ -1487,15 +1392,15 @@ impl IMDSPStorage3 {
         (::windows::core::Interface::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1508,16 +1413,21 @@ impl IMDSPStorage3 {
         (::windows::core::Interface::vtable(self).base__.GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
+    pub unsafe fn GetMetadata<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMDSPStorage3> for ::windows::core::IUnknown {
     fn from(value: IMDSPStorage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPStorage3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPStorage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1526,18 +1436,13 @@ impl ::core::convert::From<&IMDSPStorage3> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPStorage3> for IMDSPStorage {
     fn from(value: IMDSPStorage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPStorage3> for &'a IMDSPStorage {
+    fn from(value: &'a IMDSPStorage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1546,34 +1451,19 @@ impl ::core::convert::From<&IMDSPStorage3> for IMDSPStorage {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage> for IMDSPStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage> for &'a IMDSPStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPStorage3> for IMDSPStorage2 {
     fn from(value: IMDSPStorage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPStorage3> for &'a IMDSPStorage2 {
+    fn from(value: &'a IMDSPStorage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMDSPStorage3> for IMDSPStorage2 {
     fn from(value: &IMDSPStorage3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage2> for IMDSPStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage2> for &'a IMDSPStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPStorage3 {
@@ -1641,9 +1531,9 @@ impl IMDSPStorage4 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage> {
@@ -1655,15 +1545,15 @@ impl IMDSPStorage4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), ::core::mem::transmute(pwszname), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1676,12 +1566,12 @@ impl IMDSPStorage4 {
         (::windows::core::Interface::vtable(self).base__.base__.GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
+    pub unsafe fn GetMetadata<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetReferences(&self, ppispstorage: &[::core::option::Option<IMDSPStorage>]) -> ::windows::core::Result<()> {
@@ -1692,18 +1582,18 @@ impl IMDSPStorage4 {
         (::windows::core::Interface::vtable(self).GetReferences)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwrefs), ::core::mem::transmute(pppispstorage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateStorageWithMetadata<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, dwattributes: u32, pwszname: Param1, pmetadata: Param2, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorageWithMetadata<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, dwattributes: u32, pwszname: ::windows::core::PCWSTR, pmetadata: Param2, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStorageWithMetadata)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), pwszname.into_param().abi(), pmetadata.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).CreateStorageWithMetadata)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pwszname), pmetadata.into().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetSpecifiedMetadata<'a, Param2: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, ppwszpropnames: &[::windows::core::PWSTR], pmetadata: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::windows::core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), pmetadata.into_param().abi()).ok()
+    pub unsafe fn GetSpecifiedMetadata<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, ppwszpropnames: &[::windows::core::PWSTR], pmetadata: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::windows::core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IMDSPStorage> {
+    pub unsafe fn FindStorage<'a, Param0: ::std::convert::Into<WMDM_FIND_SCOPE>>(&self, findscope: Param0, pwszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), ::core::mem::transmute(pwszuniqueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetParent(&self) -> ::windows::core::Result<IMDSPStorage> {
@@ -1716,23 +1606,23 @@ impl ::core::convert::From<IMDSPStorage4> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPStorage4> for ::windows::core::IUnknown {
     fn from(value: &IMDSPStorage4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPStorage4> for IMDSPStorage {
     fn from(value: IMDSPStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a IMDSPStorage {
+    fn from(value: &'a IMDSPStorage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1741,18 +1631,13 @@ impl ::core::convert::From<&IMDSPStorage4> for IMDSPStorage {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage> for IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage> for &'a IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPStorage4> for IMDSPStorage2 {
     fn from(value: IMDSPStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a IMDSPStorage2 {
+    fn from(value: &'a IMDSPStorage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1761,34 +1646,19 @@ impl ::core::convert::From<&IMDSPStorage4> for IMDSPStorage2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage2> for IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage2> for &'a IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDSPStorage4> for IMDSPStorage3 {
     fn from(value: IMDSPStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a IMDSPStorage3 {
+    fn from(value: &'a IMDSPStorage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMDSPStorage4> for IMDSPStorage3 {
     fn from(value: &IMDSPStorage4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage3> for IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDSPStorage3> for &'a IMDSPStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDSPStorage3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPStorage4 {
@@ -1853,8 +1723,8 @@ impl IMDSPStorageGlobals {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Initialize<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IMDSPDevice> {
@@ -1872,19 +1742,14 @@ impl ::core::convert::From<IMDSPStorageGlobals> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDSPStorageGlobals> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDSPStorageGlobals) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDSPStorageGlobals> for ::windows::core::IUnknown {
     fn from(value: &IMDSPStorageGlobals) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDSPStorageGlobals {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDSPStorageGlobals {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDSPStorageGlobals {
@@ -1941,19 +1806,14 @@ impl ::core::convert::From<IMDServiceProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDServiceProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDServiceProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDServiceProvider> for ::windows::core::IUnknown {
     fn from(value: &IMDServiceProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDServiceProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDServiceProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDServiceProvider {
@@ -1998,12 +1858,17 @@ impl IMDServiceProvider2 {
         (::windows::core::Interface::vtable(self).base__.EnumDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicepath: Param0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), pwszdevicepath.into_param().abi(), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
+    pub unsafe fn CreateDevice(&self, pwszdevicepath: ::windows::core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszdevicepath), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
     }
 }
 impl ::core::convert::From<IMDServiceProvider2> for ::windows::core::IUnknown {
     fn from(value: IMDServiceProvider2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDServiceProvider2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDServiceProvider2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2012,34 +1877,19 @@ impl ::core::convert::From<&IMDServiceProvider2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDServiceProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDServiceProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDServiceProvider2> for IMDServiceProvider {
     fn from(value: IMDServiceProvider2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDServiceProvider2> for &'a IMDServiceProvider {
+    fn from(value: &'a IMDServiceProvider2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMDServiceProvider2> for IMDServiceProvider {
     fn from(value: &IMDServiceProvider2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDServiceProvider> for IMDServiceProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDServiceProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDServiceProvider> for &'a IMDServiceProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDServiceProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDServiceProvider2 {
@@ -2083,8 +1933,8 @@ impl IMDServiceProvider3 {
         (::windows::core::Interface::vtable(self).base__.base__.EnumDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicepath: Param0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), pwszdevicepath.into_param().abi(), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
+    pub unsafe fn CreateDevice(&self, pwszdevicepath: ::windows::core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszdevicepath), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()> {
@@ -2096,23 +1946,23 @@ impl ::core::convert::From<IMDServiceProvider3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMDServiceProvider3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMDServiceProvider3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMDServiceProvider3> for ::windows::core::IUnknown {
     fn from(value: &IMDServiceProvider3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMDServiceProvider3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMDServiceProvider3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDServiceProvider3> for IMDServiceProvider {
     fn from(value: IMDServiceProvider3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDServiceProvider3> for &'a IMDServiceProvider {
+    fn from(value: &'a IMDServiceProvider3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2121,34 +1971,19 @@ impl ::core::convert::From<&IMDServiceProvider3> for IMDServiceProvider {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMDServiceProvider> for IMDServiceProvider3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDServiceProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDServiceProvider> for &'a IMDServiceProvider3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDServiceProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMDServiceProvider3> for IMDServiceProvider2 {
     fn from(value: IMDServiceProvider3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMDServiceProvider3> for &'a IMDServiceProvider2 {
+    fn from(value: &'a IMDServiceProvider3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMDServiceProvider3> for IMDServiceProvider2 {
     fn from(value: &IMDServiceProvider3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDServiceProvider2> for IMDServiceProvider3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDServiceProvider2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMDServiceProvider2> for &'a IMDServiceProvider3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMDServiceProvider2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMDServiceProvider3 {
@@ -2194,19 +2029,14 @@ impl ::core::convert::From<ISCPSecureAuthenticate> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureAuthenticate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureAuthenticate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureAuthenticate> for ::windows::core::IUnknown {
     fn from(value: &ISCPSecureAuthenticate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureAuthenticate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureAuthenticate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureAuthenticate {
@@ -2255,19 +2085,14 @@ impl ::core::convert::From<ISCPSecureAuthenticate2> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureAuthenticate2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureAuthenticate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureAuthenticate2> for ::windows::core::IUnknown {
     fn from(value: &ISCPSecureAuthenticate2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureAuthenticate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureAuthenticate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
@@ -2275,19 +2100,14 @@ impl ::core::convert::From<ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureAuthenticate2> for &'a ISCPSecureAuthenticate {
+    fn from(value: &'a ISCPSecureAuthenticate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
     fn from(value: &ISCPSecureAuthenticate2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureAuthenticate> for ISCPSecureAuthenticate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureAuthenticate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureAuthenticate> for &'a ISCPSecureAuthenticate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureAuthenticate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureAuthenticate2 {
@@ -2338,19 +2158,14 @@ impl ::core::convert::From<ISCPSecureExchange> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureExchange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureExchange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureExchange> for ::windows::core::IUnknown {
     fn from(value: &ISCPSecureExchange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureExchange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureExchange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureExchange {
@@ -2398,12 +2213,17 @@ impl ISCPSecureExchange2 {
         (::windows::core::Interface::vtable(self).base__.TransferComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn TransferContainerData2<'a, Param2: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: &[u8], pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransferContainerData2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into_param().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn TransferContainerData2<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>>(&self, pdata: &[u8], pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransferContainerData2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
 }
 impl ::core::convert::From<ISCPSecureExchange2> for ::windows::core::IUnknown {
     fn from(value: ISCPSecureExchange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureExchange2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureExchange2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2412,34 +2232,19 @@ impl ::core::convert::From<&ISCPSecureExchange2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureExchange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureExchange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISCPSecureExchange2> for ISCPSecureExchange {
     fn from(value: ISCPSecureExchange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureExchange2> for &'a ISCPSecureExchange {
+    fn from(value: &'a ISCPSecureExchange2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISCPSecureExchange2> for ISCPSecureExchange {
     fn from(value: &ISCPSecureExchange2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureExchange> for ISCPSecureExchange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureExchange> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureExchange> for &'a ISCPSecureExchange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureExchange> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureExchange2 {
@@ -2485,25 +2290,30 @@ impl ISCPSecureExchange3 {
         (::windows::core::Interface::vtable(self).base__.base__.TransferComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn TransferContainerData2<'a, Param2: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: &[u8], pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TransferContainerData2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into_param().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn TransferContainerData2<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>>(&self, pdata: &[u8], pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TransferContainerData2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn TransferContainerDataOnClearChannel<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdevice: Param0, pdata: &[u8], pprogresscallback: Param3) -> ::windows::core::Result<u32> {
+    pub unsafe fn TransferContainerDataOnClearChannel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>>(&self, pdevice: Param0, pdata: &[u8], pprogresscallback: Param3) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).TransferContainerDataOnClearChannel)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TransferContainerDataOnClearChannel)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, pprogresscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetObjectDataOnClearChannel<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>>(&self, pdevice: Param0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectDataOnClearChannel)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
+    pub unsafe fn GetObjectDataOnClearChannel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>>(&self, pdevice: Param0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjectDataOnClearChannel)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn TransferCompleteForDevice<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>>(&self, pdevice: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransferCompleteForDevice)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi()).ok()
+    pub unsafe fn TransferCompleteForDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>>(&self, pdevice: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransferCompleteForDevice)(::windows::core::Interface::as_raw(self), pdevice.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISCPSecureExchange3> for ::windows::core::IUnknown {
     fn from(value: ISCPSecureExchange3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureExchange3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureExchange3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2512,18 +2322,13 @@ impl ::core::convert::From<&ISCPSecureExchange3> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureExchange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureExchange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISCPSecureExchange3> for ISCPSecureExchange {
     fn from(value: ISCPSecureExchange3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureExchange3> for &'a ISCPSecureExchange {
+    fn from(value: &'a ISCPSecureExchange3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2532,34 +2337,19 @@ impl ::core::convert::From<&ISCPSecureExchange3> for ISCPSecureExchange {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureExchange> for ISCPSecureExchange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureExchange> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureExchange> for &'a ISCPSecureExchange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureExchange> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISCPSecureExchange3> for ISCPSecureExchange2 {
     fn from(value: ISCPSecureExchange3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureExchange3> for &'a ISCPSecureExchange2 {
+    fn from(value: &'a ISCPSecureExchange3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISCPSecureExchange3> for ISCPSecureExchange2 {
     fn from(value: &ISCPSecureExchange3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureExchange2> for ISCPSecureExchange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureExchange2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureExchange2> for &'a ISCPSecureExchange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureExchange2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureExchange3 {
@@ -2599,16 +2389,16 @@ impl ISCPSecureQuery {
         (::windows::core::Interface::vtable(self).GetDataDemands)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfuflags), ::core::mem::transmute(pdwminrightsdata), ::core::mem::transmute(pdwminexaminedata), ::core::mem::transmute(pdwmindecidedata), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn ExamineData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExamineData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn ExamineData(&self, fuflags: u32, pwszextension: ::windows::core::PCWSTR, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExamineData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(pwszextension), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn MakeDecision<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MakeDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn GetRights<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
 }
 impl ::core::convert::From<ISCPSecureQuery> for ::windows::core::IUnknown {
@@ -2616,19 +2406,14 @@ impl ::core::convert::From<ISCPSecureQuery> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureQuery> for ::windows::core::IUnknown {
     fn from(value: &ISCPSecureQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureQuery {
@@ -2669,19 +2454,19 @@ impl ISCPSecureQuery2 {
         (::windows::core::Interface::vtable(self).base__.GetDataDemands)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfuflags), ::core::mem::transmute(pdwminrightsdata), ::core::mem::transmute(pdwminexaminedata), ::core::mem::transmute(pdwmindecidedata), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn ExamineData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ExamineData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn ExamineData(&self, fuflags: u32, pwszextension: ::windows::core::PCWSTR, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ExamineData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(pwszextension), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MakeDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn MakeDecision<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.MakeDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn GetRights<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeDecision2<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>, Param15: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MakeDecision2)(
             ::windows::core::Interface::as_raw(self),
             ::core::mem::transmute(fuflags),
@@ -2690,7 +2475,7 @@ impl ISCPSecureQuery2 {
             ::core::mem::transmute(dwappsec),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)),
             pbspsessionkey.len() as _,
-            pstorageglobals.into_param().abi(),
+            pstorageglobals.into().abi(),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pappcertapp)),
             pappcertapp.len() as _,
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pappcertsp)),
@@ -2699,7 +2484,7 @@ impl ISCPSecureQuery2 {
             ::core::mem::transmute(pdwrevocationurllen),
             ::core::mem::transmute(pdwrevocationbitflag),
             ::core::mem::transmute(pqwfilesize),
-            punknown.into_param().abi(),
+            punknown.into().abi(),
             ::core::mem::transmute(ppexchange),
             ::core::mem::transmute(abmac),
         )
@@ -2711,19 +2496,14 @@ impl ::core::convert::From<ISCPSecureQuery2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureQuery2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureQuery2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureQuery2> for ::windows::core::IUnknown {
     fn from(value: &ISCPSecureQuery2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISCPSecureQuery2> for ISCPSecureQuery {
@@ -2731,19 +2511,14 @@ impl ::core::convert::From<ISCPSecureQuery2> for ISCPSecureQuery {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureQuery2> for &'a ISCPSecureQuery {
+    fn from(value: &'a ISCPSecureQuery2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureQuery2> for ISCPSecureQuery {
     fn from(value: &ISCPSecureQuery2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureQuery> for ISCPSecureQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureQuery> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureQuery> for &'a ISCPSecureQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureQuery> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureQuery2 {
@@ -2781,19 +2556,19 @@ impl ISCPSecureQuery3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetDataDemands)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfuflags), ::core::mem::transmute(pdwminrightsdata), ::core::mem::transmute(pdwminexaminedata), ::core::mem::transmute(pdwmindecidedata), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn ExamineData<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ExamineData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), pwszextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn ExamineData(&self, fuflags: u32, pwszextension: ::windows::core::PCWSTR, pdata: &[u8], abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ExamineData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(pwszextension), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn MakeDecision<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.MakeDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into_param().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn MakeDecision<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.MakeDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fuflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(dwappsec), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstorageglobals.into().abi(), ::core::mem::transmute(ppexchange), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetRights<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
+    pub unsafe fn GetRights<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn MakeDecision2<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeDecision2<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>, Param15: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param15, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.MakeDecision2)(
             ::windows::core::Interface::as_raw(self),
             ::core::mem::transmute(fuflags),
@@ -2802,7 +2577,7 @@ impl ISCPSecureQuery3 {
             ::core::mem::transmute(dwappsec),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)),
             pbspsessionkey.len() as _,
-            pstorageglobals.into_param().abi(),
+            pstorageglobals.into().abi(),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pappcertapp)),
             pappcertapp.len() as _,
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pappcertsp)),
@@ -2811,18 +2586,18 @@ impl ISCPSecureQuery3 {
             ::core::mem::transmute(pdwrevocationurllen),
             ::core::mem::transmute(pdwrevocationbitflag),
             ::core::mem::transmute(pqwfilesize),
-            punknown.into_param().abi(),
+            punknown.into().abi(),
             ::core::mem::transmute(ppexchange),
             ::core::mem::transmute(abmac),
         )
         .ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetRightsOnClearChannel<'a, Param4: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprogresscallback: Param5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRightsOnClearChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into_param().abi(), pprogresscallback.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
+    pub unsafe fn GetRightsOnClearChannel<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: Param4, pprogresscallback: Param5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRightsOnClearChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), pdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)), pbspsessionkey.len() as _, pstgglobals.into().abi(), pprogresscallback.into().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn MakeDecisionOnClearChannel<'a, Param6: ::windows::core::IntoParam<'a, IMDSPStorageGlobals>, Param7: ::windows::core::IntoParam<'a, IWMDMProgress3>, Param16: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pprogresscallback: Param7, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param16, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeDecisionOnClearChannel<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, IMDSPStorageGlobals>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>, Param16: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: Param6, pprogresscallback: Param7, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Param16, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MakeDecisionOnClearChannel)(
             ::windows::core::Interface::as_raw(self),
             ::core::mem::transmute(fuflags),
@@ -2831,8 +2606,8 @@ impl ISCPSecureQuery3 {
             ::core::mem::transmute(dwappsec),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pbspsessionkey)),
             pbspsessionkey.len() as _,
-            pstorageglobals.into_param().abi(),
-            pprogresscallback.into_param().abi(),
+            pstorageglobals.into().abi(),
+            pprogresscallback.into().abi(),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pappcertapp)),
             pappcertapp.len() as _,
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pappcertsp)),
@@ -2841,7 +2616,7 @@ impl ISCPSecureQuery3 {
             ::core::mem::transmute(pdwrevocationurllen),
             ::core::mem::transmute(pdwrevocationbitflag),
             ::core::mem::transmute(pqwfilesize),
-            punknown.into_param().abi(),
+            punknown.into().abi(),
             ::core::mem::transmute(ppexchange),
         )
         .ok()
@@ -2852,23 +2627,23 @@ impl ::core::convert::From<ISCPSecureQuery3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSecureQuery3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSecureQuery3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSecureQuery3> for ::windows::core::IUnknown {
     fn from(value: &ISCPSecureQuery3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSecureQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSecureQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISCPSecureQuery3> for ISCPSecureQuery {
     fn from(value: ISCPSecureQuery3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureQuery3> for &'a ISCPSecureQuery {
+    fn from(value: &'a ISCPSecureQuery3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2877,34 +2652,19 @@ impl ::core::convert::From<&ISCPSecureQuery3> for ISCPSecureQuery {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureQuery> for ISCPSecureQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureQuery> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureQuery> for &'a ISCPSecureQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureQuery> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISCPSecureQuery3> for ISCPSecureQuery2 {
     fn from(value: ISCPSecureQuery3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISCPSecureQuery3> for &'a ISCPSecureQuery2 {
+    fn from(value: &'a ISCPSecureQuery3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISCPSecureQuery3> for ISCPSecureQuery2 {
     fn from(value: &ISCPSecureQuery3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureQuery2> for ISCPSecureQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureQuery2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISCPSecureQuery2> for &'a ISCPSecureQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISCPSecureQuery2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSecureQuery3 {
@@ -2939,8 +2699,8 @@ pub struct ISCPSecureQuery3_Vtbl {
 pub struct ISCPSession(::windows::core::IUnknown);
 impl ISCPSession {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn BeginSession<'a, Param0: ::windows::core::IntoParam<'a, IMDSPDevice>>(&self, pidevice: Param0, pctx: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), pidevice.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
+    pub unsafe fn BeginSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMDSPDevice>>>(&self, pidevice: Param0, pctx: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), pidevice.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EndSession(&self, pctx: &[u8]) -> ::windows::core::Result<()> {
@@ -2957,19 +2717,14 @@ impl ::core::convert::From<ISCPSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISCPSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISCPSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISCPSession> for ::windows::core::IUnknown {
     fn from(value: &ISCPSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISCPSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISCPSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISCPSession {
@@ -3060,19 +2815,14 @@ impl ::core::convert::From<IWMDMDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMDevice> for ::windows::core::IUnknown {
     fn from(value: &IWMDMDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMDevice {
@@ -3169,9 +2919,9 @@ impl IWMDMDevice2 {
         (::windows::core::Interface::vtable(self).base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -3193,19 +2943,14 @@ impl ::core::convert::From<IWMDMDevice2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMDevice2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMDevice2> for ::windows::core::IUnknown {
     fn from(value: &IWMDMDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMDMDevice2> for IWMDMDevice {
@@ -3213,19 +2958,14 @@ impl ::core::convert::From<IWMDMDevice2> for IWMDMDevice {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMDevice2> for &'a IWMDMDevice {
+    fn from(value: &'a IWMDMDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMDevice2> for IWMDMDevice {
     fn from(value: &IWMDMDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMDevice> for IWMDMDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMDevice> for &'a IWMDMDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMDevice2 {
@@ -3318,9 +3058,9 @@ impl IWMDMDevice3 {
         (::windows::core::Interface::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -3338,33 +3078,38 @@ impl IWMDMDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetProperty(&self, pwszpropname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwszpropname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszpropname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpropname: Param0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwszpropname.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn SetProperty(&self, pwszpropname: ::windows::core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszpropname), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
+    pub unsafe fn GetFormatCapability<'a, Param0: ::std::convert::Into<WMDM_FORMATCODE>>(&self, format: Param0) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = ::core::mem::MaybeUninit::<WMDM_FORMAT_CAPABILITY>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
+        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _, ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(pnoutbuffersize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn FindStorage<'a, Param0: ::std::convert::Into<WMDM_FIND_SCOPE>>(&self, findscope: Param0, pwszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), ::core::mem::transmute(pwszuniqueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
 }
 impl ::core::convert::From<IWMDMDevice3> for ::windows::core::IUnknown {
     fn from(value: IWMDMDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMDevice3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3373,18 +3118,13 @@ impl ::core::convert::From<&IWMDMDevice3> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMDevice3> for IWMDMDevice {
     fn from(value: IWMDMDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMDevice3> for &'a IWMDMDevice {
+    fn from(value: &'a IWMDMDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3393,34 +3133,19 @@ impl ::core::convert::From<&IWMDMDevice3> for IWMDMDevice {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDMDevice> for IWMDMDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMDevice> for &'a IWMDMDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMDevice3> for IWMDMDevice2 {
     fn from(value: IWMDMDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMDevice3> for &'a IWMDMDevice2 {
+    fn from(value: &'a IWMDMDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDMDevice3> for IWMDMDevice2 {
     fn from(value: &IWMDMDevice3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMDevice2> for IWMDMDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMDevice2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMDevice2> for &'a IWMDMDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMDevice2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMDevice3 {
@@ -3507,19 +3232,14 @@ impl ::core::convert::From<IWMDMDeviceControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMDeviceControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMDeviceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMDeviceControl> for ::windows::core::IUnknown {
     fn from(value: &IWMDMDeviceControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMDeviceControl {
@@ -3563,12 +3283,12 @@ pub struct IWMDMDeviceControl_Vtbl {
 pub struct IWMDMDeviceSession(::windows::core::IUnknown);
 impl IWMDMDeviceSession {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
+    pub unsafe fn BeginSession<'a, Param0: ::std::convert::Into<WMDM_SESSION_TYPE>>(&self, r#type: Param0, pctx: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
+    pub unsafe fn EndSession<'a, Param0: ::std::convert::Into<WMDM_SESSION_TYPE>>(&self, r#type: Param0, pctx: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EndSession)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
 }
 impl ::core::convert::From<IWMDMDeviceSession> for ::windows::core::IUnknown {
@@ -3576,19 +3296,14 @@ impl ::core::convert::From<IWMDMDeviceSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMDeviceSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMDeviceSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMDeviceSession> for ::windows::core::IUnknown {
     fn from(value: &IWMDMDeviceSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMDeviceSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMDeviceSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMDeviceSession {
@@ -3646,19 +3361,14 @@ impl ::core::convert::From<IWMDMEnumDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMEnumDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMEnumDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMEnumDevice> for ::windows::core::IUnknown {
     fn from(value: &IWMDMEnumDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMEnumDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMEnumDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMEnumDevice {
@@ -3718,19 +3428,14 @@ impl ::core::convert::From<IWMDMEnumStorage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMEnumStorage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMEnumStorage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMEnumStorage> for ::windows::core::IUnknown {
     fn from(value: &IWMDMEnumStorage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMEnumStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMEnumStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMEnumStorage {
@@ -3774,24 +3479,24 @@ impl IWMDMLogger {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enable)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn Enable<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Enable)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetLogFileName(&self, pszfilename: ::windows::core::PSTR, nmaxchars: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLogFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfilename), ::core::mem::transmute(nmaxchars)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetLogFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, pszfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogFileName)(::windows::core::Interface::as_raw(self), pszfilename.into_param().abi()).ok()
+    pub unsafe fn SetLogFileName(&self, pszfilename: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLogFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn LogString<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, dwflags: u32, pszsrcname: Param1, pszlog: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LogString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszsrcname.into_param().abi(), pszlog.into_param().abi()).ok()
+    pub unsafe fn LogString(&self, dwflags: u32, pszsrcname: ::windows::core::PCSTR, pszlog: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LogString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszsrcname), ::core::mem::transmute(pszlog)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn LogDword<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, dwflags: u32, pszsrcname: Param1, pszlogformat: Param2, dwlog: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LogDword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszsrcname.into_param().abi(), pszlogformat.into_param().abi(), ::core::mem::transmute(dwlog)).ok()
+    pub unsafe fn LogDword(&self, dwflags: u32, pszsrcname: ::windows::core::PCSTR, pszlogformat: ::windows::core::PCSTR, dwlog: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LogDword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszsrcname), ::core::mem::transmute(pszlogformat), ::core::mem::transmute(dwlog)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -3811,19 +3516,14 @@ impl ::core::convert::From<IWMDMLogger> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMLogger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMLogger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMLogger> for ::windows::core::IUnknown {
     fn from(value: &IWMDMLogger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMLogger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMLogger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMLogger {
@@ -3871,12 +3571,12 @@ pub struct IWMDMLogger_Vtbl {
 pub struct IWMDMMetaData(::windows::core::IUnknown);
 impl IWMDMMetaData {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn AddItem<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: Param1, pvalue: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), pwsztagname.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalue)), pvalue.len() as _).ok()
+    pub unsafe fn AddItem<'a, Param0: ::std::convert::Into<WMDM_TAG_DATATYPE>>(&self, r#type: Param0, pwsztagname: ::windows::core::PCWSTR, pvalue: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(pwsztagname), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalue)), pvalue.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn QueryByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztagname: Param0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryByName)(::windows::core::Interface::as_raw(self), pwsztagname.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
+    pub unsafe fn QueryByName(&self, pwsztagname: ::windows::core::PCWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).QueryByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsztagname), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()> {
@@ -3893,19 +3593,14 @@ impl ::core::convert::From<IWMDMMetaData> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMMetaData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMMetaData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMMetaData> for ::windows::core::IUnknown {
     fn from(value: &IWMDMMetaData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMMetaData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMMetaData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMMetaData {
@@ -3942,8 +3637,8 @@ pub struct IWMDMMetaData_Vtbl {
 pub struct IWMDMNotification(::windows::core::IUnknown);
 impl IWMDMNotification {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn WMDMMessage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwmessagetype: u32, pwszcanonicalname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WMDMMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmessagetype), pwszcanonicalname.into_param().abi()).ok()
+    pub unsafe fn WMDMMessage(&self, dwmessagetype: u32, pwszcanonicalname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WMDMMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmessagetype), ::core::mem::transmute(pwszcanonicalname)).ok()
     }
 }
 impl ::core::convert::From<IWMDMNotification> for ::windows::core::IUnknown {
@@ -3951,19 +3646,14 @@ impl ::core::convert::From<IWMDMNotification> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMNotification> for ::windows::core::IUnknown {
     fn from(value: &IWMDMNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMNotification {
@@ -4035,19 +3725,14 @@ impl ::core::convert::From<IWMDMObjectInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMObjectInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMObjectInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMObjectInfo> for ::windows::core::IUnknown {
     fn from(value: &IWMDMObjectInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMObjectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMObjectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMObjectInfo {
@@ -4125,8 +3810,8 @@ impl IWMDMOperation {
         (::windows::core::Interface::vtable(self).TransferObjectData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
+    pub unsafe fn End<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMDMOperation> for ::windows::core::IUnknown {
@@ -4134,19 +3819,14 @@ impl ::core::convert::From<IWMDMOperation> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMOperation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMOperation> for ::windows::core::IUnknown {
     fn from(value: &IWMDMOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMOperation {
@@ -4233,8 +3913,8 @@ impl IWMDMOperation2 {
         (::windows::core::Interface::vtable(self).base__.TransferObjectData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
+    pub unsafe fn End<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -4252,19 +3932,14 @@ impl ::core::convert::From<IWMDMOperation2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMOperation2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMOperation2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMOperation2> for ::windows::core::IUnknown {
     fn from(value: &IWMDMOperation2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMOperation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMOperation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMDMOperation2> for IWMDMOperation {
@@ -4272,19 +3947,14 @@ impl ::core::convert::From<IWMDMOperation2> for IWMDMOperation {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMOperation2> for &'a IWMDMOperation {
+    fn from(value: &'a IWMDMOperation2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMOperation2> for IWMDMOperation {
     fn from(value: &IWMDMOperation2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMOperation> for IWMDMOperation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMOperation> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMOperation> for &'a IWMDMOperation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMOperation> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMOperation2 {
@@ -4363,8 +4033,8 @@ impl IWMDMOperation3 {
         (::windows::core::Interface::vtable(self).base__.TransferObjectData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize), ::core::mem::transmute(abmac)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
+    pub unsafe fn End<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
@@ -4376,19 +4046,14 @@ impl ::core::convert::From<IWMDMOperation3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMOperation3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMOperation3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMOperation3> for ::windows::core::IUnknown {
     fn from(value: &IWMDMOperation3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMOperation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMOperation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMDMOperation3> for IWMDMOperation {
@@ -4396,19 +4061,14 @@ impl ::core::convert::From<IWMDMOperation3> for IWMDMOperation {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMOperation3> for &'a IWMDMOperation {
+    fn from(value: &'a IWMDMOperation3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMOperation3> for IWMDMOperation {
     fn from(value: &IWMDMOperation3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMOperation> for IWMDMOperation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMOperation> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMOperation> for &'a IWMDMOperation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMOperation> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMOperation3 {
@@ -4459,19 +4119,14 @@ impl ::core::convert::From<IWMDMProgress> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMProgress> for ::windows::core::IUnknown {
     fn from(value: &IWMDMProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMProgress {
@@ -4528,19 +4183,14 @@ impl ::core::convert::From<IWMDMProgress2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMProgress2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMProgress2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMProgress2> for ::windows::core::IUnknown {
     fn from(value: &IWMDMProgress2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMProgress2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMProgress2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMDMProgress2> for IWMDMProgress {
@@ -4548,19 +4198,14 @@ impl ::core::convert::From<IWMDMProgress2> for IWMDMProgress {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMProgress2> for &'a IWMDMProgress {
+    fn from(value: &'a IWMDMProgress2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMProgress2> for IWMDMProgress {
     fn from(value: &IWMDMProgress2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMProgress> for IWMDMProgress2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMProgress> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMProgress> for &'a IWMDMProgress2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMProgress> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMProgress2 {
@@ -4610,20 +4255,25 @@ impl IWMDMProgress3 {
         (::windows::core::Interface::vtable(self).base__.End2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrcompletioncode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Begin3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, eventid: Param0, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin3)(::windows::core::Interface::as_raw(self), eventid.into_param().abi(), ::core::mem::transmute(dwestimatedticks), ::core::mem::transmute(pcontext)).ok()
+    pub unsafe fn Begin3(&self, eventid: ::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(dwestimatedticks), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Progress3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, eventid: Param0, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Progress3)(::windows::core::Interface::as_raw(self), eventid.into_param().abi(), ::core::mem::transmute(dwtranspiredticks), ::core::mem::transmute(pcontext)).ok()
+    pub unsafe fn Progress3(&self, eventid: ::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Progress3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(dwtranspiredticks), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn End3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, eventid: Param0, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).End3)(::windows::core::Interface::as_raw(self), eventid.into_param().abi(), ::core::mem::transmute(hrcompletioncode), ::core::mem::transmute(pcontext)).ok()
+    pub unsafe fn End3(&self, eventid: ::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).End3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(hrcompletioncode), ::core::mem::transmute(pcontext)).ok()
     }
 }
 impl ::core::convert::From<IWMDMProgress3> for ::windows::core::IUnknown {
     fn from(value: IWMDMProgress3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMProgress3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMProgress3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4632,18 +4282,13 @@ impl ::core::convert::From<&IWMDMProgress3> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMProgress3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMProgress3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMProgress3> for IWMDMProgress {
     fn from(value: IWMDMProgress3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMProgress3> for &'a IWMDMProgress {
+    fn from(value: &'a IWMDMProgress3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4652,34 +4297,19 @@ impl ::core::convert::From<&IWMDMProgress3> for IWMDMProgress {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDMProgress> for IWMDMProgress3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMProgress> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMProgress> for &'a IWMDMProgress3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMProgress> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMProgress3> for IWMDMProgress2 {
     fn from(value: IWMDMProgress3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMProgress3> for &'a IWMDMProgress2 {
+    fn from(value: &'a IWMDMProgress3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDMProgress3> for IWMDMProgress2 {
     fn from(value: &IWMDMProgress3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMProgress2> for IWMDMProgress3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMProgress2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMProgress2> for &'a IWMDMProgress3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMProgress2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMProgress3 {
@@ -4724,19 +4354,14 @@ impl ::core::convert::From<IWMDMRevoked> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMRevoked> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMRevoked) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMRevoked> for ::windows::core::IUnknown {
     fn from(value: &IWMDMRevoked) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMRevoked {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMRevoked {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMRevoked {
@@ -4816,19 +4441,14 @@ impl ::core::convert::From<IWMDMStorage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorage> for ::windows::core::IUnknown {
     fn from(value: &IWMDMStorage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorage {
@@ -4917,9 +4537,9 @@ impl IWMDMStorage2 {
         (::windows::core::Interface::vtable(self).base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -4937,19 +4557,14 @@ impl ::core::convert::From<IWMDMStorage2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorage2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorage2> for ::windows::core::IUnknown {
     fn from(value: &IWMDMStorage2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMDMStorage2> for IWMDMStorage {
@@ -4957,19 +4572,14 @@ impl ::core::convert::From<IWMDMStorage2> for IWMDMStorage {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorage2> for &'a IWMDMStorage {
+    fn from(value: &'a IWMDMStorage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorage2> for IWMDMStorage {
     fn from(value: &IWMDMStorage2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage> for IWMDMStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage> for &'a IWMDMStorage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorage2 {
@@ -5052,9 +4662,9 @@ impl IWMDMStorage3 {
         (::windows::core::Interface::vtable(self).base__.base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -5072,8 +4682,8 @@ impl IWMDMStorage3 {
         (::windows::core::Interface::vtable(self).GetMetadata)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMMetaData>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData> {
@@ -5090,23 +4700,23 @@ impl ::core::convert::From<IWMDMStorage3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorage3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorage3> for ::windows::core::IUnknown {
     fn from(value: &IWMDMStorage3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorage3> for IWMDMStorage {
     fn from(value: IWMDMStorage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorage3> for &'a IWMDMStorage {
+    fn from(value: &'a IWMDMStorage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5115,34 +4725,19 @@ impl ::core::convert::From<&IWMDMStorage3> for IWMDMStorage {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage> for IWMDMStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage> for &'a IWMDMStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorage3> for IWMDMStorage2 {
     fn from(value: IWMDMStorage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorage3> for &'a IWMDMStorage2 {
+    fn from(value: &'a IWMDMStorage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDMStorage3> for IWMDMStorage2 {
     fn from(value: &IWMDMStorage3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage2> for IWMDMStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage2> for &'a IWMDMStorage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorage3 {
@@ -5220,9 +4815,9 @@ impl IWMDMStorage4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SendOpaqueCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetStorage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszstoragename: Param0) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage(&self, pszstoragename: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstoragename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -5240,8 +4835,8 @@ impl IWMDMStorage4 {
         (::windows::core::Interface::vtable(self).base__.GetMetadata)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMMetaData>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::core::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into_param().abi()).ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>>(&self, pmetadata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMetadata)(::windows::core::Interface::as_raw(self), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData> {
@@ -5261,8 +4856,8 @@ impl IWMDMStorage4 {
         (::windows::core::Interface::vtable(self).GetReferences)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwrefs), ::core::mem::transmute(pppiwmdmstorage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetRightsWithProgress<'a, Param0: ::windows::core::IntoParam<'a, IWMDMProgress3>>(&self, piprogresscallback: Param0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRightsWithProgress)(::windows::core::Interface::as_raw(self), piprogresscallback.into_param().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
+    pub unsafe fn GetRightsWithProgress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress3>>>(&self, piprogresscallback: Param0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRightsWithProgress)(::windows::core::Interface::as_raw(self), piprogresscallback.into().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[::windows::core::PWSTR]) -> ::windows::core::Result<IWMDMMetaData> {
@@ -5270,9 +4865,9 @@ impl IWMDMStorage4 {
         (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::windows::core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMMetaData>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn FindStorage<'a, Param0: ::std::convert::Into<WMDM_FIND_SCOPE>>(&self, findscope: Param0, pwszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), ::core::mem::transmute(pwszuniqueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetParent(&self) -> ::windows::core::Result<IWMDMStorage> {
@@ -5285,23 +4880,23 @@ impl ::core::convert::From<IWMDMStorage4> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorage4> for ::windows::core::IUnknown {
     fn from(value: &IWMDMStorage4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorage4> for IWMDMStorage {
     fn from(value: IWMDMStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a IWMDMStorage {
+    fn from(value: &'a IWMDMStorage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5310,18 +4905,13 @@ impl ::core::convert::From<&IWMDMStorage4> for IWMDMStorage {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage> for IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage> for &'a IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorage4> for IWMDMStorage2 {
     fn from(value: IWMDMStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a IWMDMStorage2 {
+    fn from(value: &'a IWMDMStorage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5330,34 +4920,19 @@ impl ::core::convert::From<&IWMDMStorage4> for IWMDMStorage2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage2> for IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage2> for &'a IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorage4> for IWMDMStorage3 {
     fn from(value: IWMDMStorage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a IWMDMStorage3 {
+    fn from(value: &'a IWMDMStorage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDMStorage4> for IWMDMStorage3 {
     fn from(value: &IWMDMStorage4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage3> for IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorage3> for &'a IWMDMStorage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorage3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorage4 {
@@ -5396,25 +4971,25 @@ pub struct IWMDMStorage4_Vtbl {
 pub struct IWMDMStorageControl(::windows::core::IUnknown);
 impl IWMDMStorageControl {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn Insert<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pwszfile: ::windows::core::PCWSTR, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfile), poperation.into().abi(), pprogress.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Rename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pwsznewname: ::windows::core::PCWSTR, pprogress: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwsznewname), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Read<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
+    pub unsafe fn Read<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>>(&self, fumode: u32, pwszfile: ::windows::core::PCWSTR, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfile), pprogress.into().abi(), poperation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMStorage>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMStorage>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMDMStorageControl> for ::windows::core::IUnknown {
@@ -5422,19 +4997,14 @@ impl ::core::convert::From<IWMDMStorageControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorageControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorageControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorageControl> for ::windows::core::IUnknown {
     fn from(value: &IWMDMStorageControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorageControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorageControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorageControl {
@@ -5472,33 +5042,38 @@ pub struct IWMDMStorageControl_Vtbl {
 pub struct IWMDMStorageControl2(::windows::core::IUnknown);
 impl IWMDMStorageControl2 {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn Insert<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pwszfile: ::windows::core::PCWSTR, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfile), poperation.into().abi(), pprogress.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Rename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pwsznewname: ::windows::core::PCWSTR, pprogress: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwsznewname), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Read<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
+    pub unsafe fn Read<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>>(&self, fumode: u32, pwszfile: ::windows::core::PCWSTR, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfile), pprogress.into().abi(), poperation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMStorage>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMStorage>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, pwszfilesource: Param1, pwszfiledest: Param2, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Insert2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
+    pub unsafe fn Insert2<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fumode: u32, pwszfilesource: ::windows::core::PCWSTR, pwszfiledest: ::windows::core::PCWSTR, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Insert2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfilesource), ::core::mem::transmute(pwszfiledest), poperation.into().abi(), pprogress.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
 }
 impl ::core::convert::From<IWMDMStorageControl2> for ::windows::core::IUnknown {
     fn from(value: IWMDMStorageControl2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorageControl2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorageControl2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5507,34 +5082,19 @@ impl ::core::convert::From<&IWMDMStorageControl2> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorageControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorageControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorageControl2> for IWMDMStorageControl {
     fn from(value: IWMDMStorageControl2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorageControl2> for &'a IWMDMStorageControl {
+    fn from(value: &'a IWMDMStorageControl2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDMStorageControl2> for IWMDMStorageControl {
     fn from(value: &IWMDMStorageControl2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorageControl> for IWMDMStorageControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorageControl> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorageControl> for &'a IWMDMStorageControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorageControl> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorageControl2 {
@@ -5568,37 +5128,42 @@ pub struct IWMDMStorageControl2_Vtbl {
 pub struct IWMDMStorageControl3(::windows::core::IUnknown);
 impl IWMDMStorageControl3 {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMOperation>, Param3: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
+    pub unsafe fn Insert<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pwszfile: ::windows::core::PCWSTR, poperation: Param2, pprogress: Param3) -> ::windows::core::Result<IWMDMStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfile), poperation.into().abi(), pprogress.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Delete<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Rename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pwsznewname: ::windows::core::PCWSTR, pprogress: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwsznewname), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Read<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
+    pub unsafe fn Read<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>>(&self, fumode: u32, pwszfile: ::windows::core::PCWSTR, pprogress: Param2, poperation: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfile), pprogress.into().abi(), poperation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Move<'a, Param1: ::windows::core::IntoParam<'a, IWMDMStorage>, Param2: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMStorage>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Insert2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWMDMOperation>, Param4: ::windows::core::IntoParam<'a, IWMDMProgress>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, pwszfilesource: Param1, pwszfiledest: Param2, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Insert2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
+    pub unsafe fn Insert2<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fumode: u32, pwszfilesource: ::windows::core::PCWSTR, pwszfiledest: ::windows::core::PCWSTR, poperation: Param3, pprogress: Param4, punknown: Param5, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Insert2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(pwszfilesource), ::core::mem::transmute(pwszfiledest), poperation.into().abi(), pprogress.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Insert3<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IWMDMOperation>, Param5: ::windows::core::IntoParam<'a, IWMDMProgress>, Param6: ::windows::core::IntoParam<'a, IWMDMMetaData>, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, fumode: u32, futype: u32, pwszfilesource: Param2, pwszfiledest: Param3, poperation: Param4, pprogress: Param5, pmetadata: Param6, punknown: Param7, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Insert3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(futype), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), pmetadata.into_param().abi(), punknown.into_param().abi(), ::core::mem::transmute(ppnewobject)).ok()
+    pub unsafe fn Insert3<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWMDMOperation>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IWMDMMetaData>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fumode: u32, futype: u32, pwszfilesource: ::windows::core::PCWSTR, pwszfiledest: ::windows::core::PCWSTR, poperation: Param4, pprogress: Param5, pmetadata: Param6, punknown: Param7, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Insert3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), ::core::mem::transmute(futype), ::core::mem::transmute(pwszfilesource), ::core::mem::transmute(pwszfiledest), poperation.into().abi(), pprogress.into().abi(), pmetadata.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject)).ok()
     }
 }
 impl ::core::convert::From<IWMDMStorageControl3> for ::windows::core::IUnknown {
     fn from(value: IWMDMStorageControl3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorageControl3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorageControl3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5607,18 +5172,13 @@ impl ::core::convert::From<&IWMDMStorageControl3> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorageControl3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorageControl3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorageControl3> for IWMDMStorageControl {
     fn from(value: IWMDMStorageControl3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorageControl3> for &'a IWMDMStorageControl {
+    fn from(value: &'a IWMDMStorageControl3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5627,34 +5187,19 @@ impl ::core::convert::From<&IWMDMStorageControl3> for IWMDMStorageControl {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorageControl> for IWMDMStorageControl3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorageControl> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorageControl> for &'a IWMDMStorageControl3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorageControl> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDMStorageControl3> for IWMDMStorageControl2 {
     fn from(value: IWMDMStorageControl3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDMStorageControl3> for &'a IWMDMStorageControl2 {
+    fn from(value: &'a IWMDMStorageControl3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDMStorageControl3> for IWMDMStorageControl2 {
     fn from(value: &IWMDMStorageControl3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorageControl2> for IWMDMStorageControl3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorageControl2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDMStorageControl2> for &'a IWMDMStorageControl3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDMStorageControl2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorageControl3 {
@@ -5714,8 +5259,8 @@ impl IWMDMStorageGlobals {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Initialize<'a, Param1: ::windows::core::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMDMProgress>>>(&self, fumode: u32, pprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fumode), pprogress.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMDMStorageGlobals> for ::windows::core::IUnknown {
@@ -5723,19 +5268,14 @@ impl ::core::convert::From<IWMDMStorageGlobals> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDMStorageGlobals> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDMStorageGlobals) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDMStorageGlobals> for ::windows::core::IUnknown {
     fn from(value: &IWMDMStorageGlobals) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDMStorageGlobals {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDMStorageGlobals {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDMStorageGlobals {
@@ -5795,19 +5335,14 @@ impl ::core::convert::From<IWMDeviceManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDeviceManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDeviceManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDeviceManager> for ::windows::core::IUnknown {
     fn from(value: &IWMDeviceManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDeviceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDeviceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDeviceManager {
@@ -5858,9 +5393,9 @@ impl IWMDeviceManager2 {
         (::windows::core::Interface::vtable(self).base__.EnumDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetDeviceFromCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcanonicalname: Param0) -> ::windows::core::Result<IWMDMDevice> {
+    pub unsafe fn GetDeviceFromCanonicalName(&self, pwszcanonicalname: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDeviceFromCanonicalName)(::windows::core::Interface::as_raw(self), pwszcanonicalname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMDevice>(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceFromCanonicalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcanonicalname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices2(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
@@ -5877,19 +5412,14 @@ impl ::core::convert::From<IWMDeviceManager2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDeviceManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDeviceManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDeviceManager2> for ::windows::core::IUnknown {
     fn from(value: &IWMDeviceManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDeviceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDeviceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMDeviceManager2> for IWMDeviceManager {
@@ -5897,19 +5427,14 @@ impl ::core::convert::From<IWMDeviceManager2> for IWMDeviceManager {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDeviceManager2> for &'a IWMDeviceManager {
+    fn from(value: &'a IWMDeviceManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDeviceManager2> for IWMDeviceManager {
     fn from(value: &IWMDeviceManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDeviceManager> for IWMDeviceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDeviceManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDeviceManager> for &'a IWMDeviceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDeviceManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDeviceManager2 {
@@ -5960,9 +5485,9 @@ impl IWMDeviceManager3 {
         (::windows::core::Interface::vtable(self).base__.base__.EnumDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetDeviceFromCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcanonicalname: Param0) -> ::windows::core::Result<IWMDMDevice> {
+    pub unsafe fn GetDeviceFromCanonicalName(&self, pwszcanonicalname: ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDeviceFromCanonicalName)(::windows::core::Interface::as_raw(self), pwszcanonicalname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMDevice>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDeviceFromCanonicalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcanonicalname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn EnumDevices2(&self) -> ::windows::core::Result<IWMDMEnumDevice> {
@@ -5983,23 +5508,23 @@ impl ::core::convert::From<IWMDeviceManager3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMDeviceManager3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMDeviceManager3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMDeviceManager3> for ::windows::core::IUnknown {
     fn from(value: &IWMDeviceManager3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMDeviceManager3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMDeviceManager3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDeviceManager3> for IWMDeviceManager {
     fn from(value: IWMDeviceManager3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDeviceManager3> for &'a IWMDeviceManager {
+    fn from(value: &'a IWMDeviceManager3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6008,34 +5533,19 @@ impl ::core::convert::From<&IWMDeviceManager3> for IWMDeviceManager {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMDeviceManager> for IWMDeviceManager3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDeviceManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDeviceManager> for &'a IWMDeviceManager3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDeviceManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMDeviceManager3> for IWMDeviceManager2 {
     fn from(value: IWMDeviceManager3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMDeviceManager3> for &'a IWMDeviceManager2 {
+    fn from(value: &'a IWMDeviceManager3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMDeviceManager3> for IWMDeviceManager2 {
     fn from(value: &IWMDeviceManager3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDeviceManager2> for IWMDeviceManager3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDeviceManager2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMDeviceManager2> for &'a IWMDeviceManager3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMDeviceManager2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMDeviceManager3 {

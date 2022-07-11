@@ -448,21 +448,15 @@ impl ::core::convert::From<IRDPSRAPIApplication> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIApplication> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIApplication> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -472,21 +466,15 @@ impl ::core::convert::From<IRDPSRAPIApplication> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIApplication> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIApplication> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -567,21 +555,15 @@ impl ::core::convert::From<IRDPSRAPIApplicationFilter> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationFilter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIApplicationFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIApplicationFilter> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIApplicationFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIApplicationFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIApplicationFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -591,21 +573,15 @@ impl ::core::convert::From<IRDPSRAPIApplicationFilter> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationFilter> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIApplicationFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIApplicationFilter> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIApplicationFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIApplicationFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIApplicationFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -674,21 +650,15 @@ impl ::core::convert::From<IRDPSRAPIApplicationList> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIApplicationList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIApplicationList> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIApplicationList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIApplicationList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIApplicationList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -698,21 +668,15 @@ impl ::core::convert::From<IRDPSRAPIApplicationList> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIApplicationList> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIApplicationList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIApplicationList> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIApplicationList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIApplicationList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIApplicationList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -774,8 +738,8 @@ impl IRDPSRAPIAttendee {
         (::windows::core::Interface::vtable(self).ControlLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CTRL_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControlLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnewval)).ok()
+    pub unsafe fn SetControlLevel<'a, Param0: ::std::convert::Into<CTRL_LEVEL>>(&self, pnewval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetControlLevel)(::windows::core::Interface::as_raw(self), pnewval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -805,21 +769,15 @@ impl ::core::convert::From<IRDPSRAPIAttendee> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendee> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIAttendee) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIAttendee> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIAttendee) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIAttendee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIAttendee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -829,21 +787,15 @@ impl ::core::convert::From<IRDPSRAPIAttendee> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendee> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIAttendee) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIAttendee> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIAttendee) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIAttendee {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIAttendee {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -921,21 +873,15 @@ impl ::core::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeDisconnectInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIAttendeeDisconnectInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIAttendeeDisconnectInfo> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIAttendeeDisconnectInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIAttendeeDisconnectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIAttendeeDisconnectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -945,21 +891,15 @@ impl ::core::convert::From<IRDPSRAPIAttendeeDisconnectInfo> for super::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeDisconnectInfo> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIAttendeeDisconnectInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIAttendeeDisconnectInfo> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIAttendeeDisconnectInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIAttendeeDisconnectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIAttendeeDisconnectInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1024,21 +964,15 @@ impl ::core::convert::From<IRDPSRAPIAttendeeManager> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIAttendeeManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIAttendeeManager> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIAttendeeManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIAttendeeManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIAttendeeManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1048,21 +982,15 @@ impl ::core::convert::From<IRDPSRAPIAttendeeManager> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAttendeeManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIAttendeeManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIAttendeeManager> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIAttendeeManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIAttendeeManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIAttendeeManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1132,19 +1060,14 @@ impl ::core::convert::From<IRDPSRAPIAudioStream> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPIAudioStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIAudioStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPIAudioStream> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIAudioStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIAudioStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIAudioStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPIAudioStream {
@@ -1183,9 +1106,9 @@ pub struct IRDPSRAPIClipboardUseEvents(::windows::core::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnPasteFromClipboard<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, clipboardformat: u32, pattendee: Param1) -> ::windows::core::Result<i16> {
+    pub unsafe fn OnPasteFromClipboard<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, clipboardformat: u32, pattendee: Param1) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).OnPasteFromClipboard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clipboardformat), pattendee.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).OnPasteFromClipboard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clipboardformat), pattendee.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 impl ::core::convert::From<IRDPSRAPIClipboardUseEvents> for ::windows::core::IUnknown {
@@ -1193,19 +1116,14 @@ impl ::core::convert::From<IRDPSRAPIClipboardUseEvents> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPIClipboardUseEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIClipboardUseEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPIClipboardUseEvents> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIClipboardUseEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIClipboardUseEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIClipboardUseEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPIClipboardUseEvents {
@@ -1243,8 +1161,8 @@ pub struct IRDPSRAPIDebug(::windows::core::IUnknown);
 impl IRDPSRAPIDebug {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCLXCmdLine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, clxcmdline: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCLXCmdLine)(::windows::core::Interface::as_raw(self), clxcmdline.into_param().abi()).ok()
+    pub unsafe fn SetCLXCmdLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, clxcmdline: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCLXCmdLine)(::windows::core::Interface::as_raw(self), clxcmdline.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1258,19 +1176,14 @@ impl ::core::convert::From<IRDPSRAPIDebug> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPIDebug> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIDebug) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPIDebug> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIDebug) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIDebug {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIDebug {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPIDebug {
@@ -1341,21 +1254,15 @@ impl ::core::convert::From<IRDPSRAPIFrameBuffer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIFrameBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIFrameBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIFrameBuffer> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIFrameBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIFrameBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIFrameBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1365,21 +1272,15 @@ impl ::core::convert::From<IRDPSRAPIFrameBuffer> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIFrameBuffer> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIFrameBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIFrameBuffer> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIFrameBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIFrameBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIFrameBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1470,21 +1371,15 @@ impl ::core::convert::From<IRDPSRAPIInvitation> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIInvitation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIInvitation> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIInvitation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1494,21 +1389,15 @@ impl ::core::convert::From<IRDPSRAPIInvitation> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitation> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIInvitation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIInvitation> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIInvitation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1571,9 +1460,9 @@ impl IRDPSRAPIInvitationManager {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, item: Param0) -> ::windows::core::Result<IRDPSRAPIInvitation> {
+    pub unsafe fn get_Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, item: Param0) -> ::windows::core::Result<IRDPSRAPIInvitation> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), item.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIInvitation>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), item.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIInvitation>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -1582,14 +1471,20 @@ impl IRDPSRAPIInvitationManager {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateInvitation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthstring: Param0, bstrgroupname: Param1, bstrpassword: Param2, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation> {
+    pub unsafe fn CreateInvitation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrauthstring: Param0, bstrgroupname: Param1, bstrpassword: Param2, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInvitation)(::windows::core::Interface::as_raw(self), bstrauthstring.into_param().abi(), bstrgroupname.into_param().abi(), bstrpassword.into_param().abi(), ::core::mem::transmute(attendeelimit), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIInvitation>(result__)
+        (::windows::core::Interface::vtable(self).CreateInvitation)(::windows::core::Interface::as_raw(self), bstrauthstring.into().abi(), bstrgroupname.into().abi(), bstrpassword.into().abi(), ::core::mem::transmute(attendeelimit), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIInvitation>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPIInvitationManager> for ::windows::core::IUnknown {
     fn from(value: IRDPSRAPIInvitationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitationManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIInvitationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1600,20 +1495,14 @@ impl ::core::convert::From<&IRDPSRAPIInvitationManager> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIInvitationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIInvitationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPIInvitationManager> for super::Com::IDispatch {
     fn from(value: IRDPSRAPIInvitationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIInvitationManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIInvitationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1621,18 +1510,6 @@ impl ::core::convert::From<IRDPSRAPIInvitationManager> for super::Com::IDispatch
 impl ::core::convert::From<&IRDPSRAPIInvitationManager> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIInvitationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIInvitationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIInvitationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1690,19 +1567,14 @@ impl ::core::convert::From<IRDPSRAPIPerfCounterLogger> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPIPerfCounterLogger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIPerfCounterLogger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPIPerfCounterLogger> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIPerfCounterLogger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIPerfCounterLogger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIPerfCounterLogger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPIPerfCounterLogger {
@@ -1737,9 +1609,9 @@ pub struct IRDPSRAPIPerfCounterLoggingManager(::windows::core::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLogger<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcountername: Param0) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger> {
+    pub unsafe fn CreateLogger<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcountername: Param0) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLogger)(::windows::core::Interface::as_raw(self), bstrcountername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIPerfCounterLogger>(result__)
+        (::windows::core::Interface::vtable(self).CreateLogger)(::windows::core::Interface::as_raw(self), bstrcountername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIPerfCounterLogger>(result__)
     }
 }
 impl ::core::convert::From<IRDPSRAPIPerfCounterLoggingManager> for ::windows::core::IUnknown {
@@ -1747,19 +1619,14 @@ impl ::core::convert::From<IRDPSRAPIPerfCounterLoggingManager> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPIPerfCounterLoggingManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIPerfCounterLoggingManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPIPerfCounterLoggingManager> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIPerfCounterLoggingManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIPerfCounterLoggingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIPerfCounterLoggingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPIPerfCounterLoggingManager {
@@ -1799,19 +1666,25 @@ pub struct IRDPSRAPISessionProperties(::windows::core::IUnknown);
 impl IRDPSRAPISessionProperties {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn get_Property<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, propertyname: Param0, newval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), newval.into_param().abi()).ok()
+    pub unsafe fn put_Property<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, propertyname: Param0, newval: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), newval.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPISessionProperties> for ::windows::core::IUnknown {
     fn from(value: IRDPSRAPISessionProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISessionProperties> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPISessionProperties) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1822,20 +1695,14 @@ impl ::core::convert::From<&IRDPSRAPISessionProperties> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPISessionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPISessionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPISessionProperties> for super::Com::IDispatch {
     fn from(value: IRDPSRAPISessionProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISessionProperties> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPISessionProperties) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1843,18 +1710,6 @@ impl ::core::convert::From<IRDPSRAPISessionProperties> for super::Com::IDispatch
 impl ::core::convert::From<&IRDPSRAPISessionProperties> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPISessionProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPISessionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPISessionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1959,8 +1814,8 @@ impl IRDPSRAPISharingSession {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConnectToClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi()).ok()
+    pub unsafe fn ConnectToClient<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrconnectionstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
@@ -1978,21 +1833,15 @@ impl ::core::convert::From<IRDPSRAPISharingSession> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPISharingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPISharingSession> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPISharingSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPISharingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPISharingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2002,21 +1851,15 @@ impl ::core::convert::From<IRDPSRAPISharingSession> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPISharingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPISharingSession> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPISharingSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPISharingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPISharingSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2145,8 +1988,8 @@ impl IRDPSRAPISharingSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConnectToClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi()).ok()
+    pub unsafe fn ConnectToClient<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrconnectionstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
@@ -2158,8 +2001,8 @@ impl IRDPSRAPISharingSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConnectUsingTransportStream<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pstream: Param0, bstrgroup: Param1, bstrauthenticatedattendeename: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectUsingTransportStream)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), bstrgroup.into_param().abi(), bstrauthenticatedattendeename.into_param().abi()).ok()
+    pub unsafe fn ConnectUsingTransportStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStream>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, pstream: Param0, bstrgroup: Param1, bstrauthenticatedattendeename: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectUsingTransportStream)(::windows::core::Interface::as_raw(self), pstream.into().abi(), bstrgroup.into().abi(), bstrauthenticatedattendeename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2169,13 +2012,19 @@ impl IRDPSRAPISharingSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SendControlLevelChangeResponse<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPIAttendee>>(&self, pattendee: Param0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendControlLevelChangeResponse)(::windows::core::Interface::as_raw(self), pattendee.into_param().abi(), ::core::mem::transmute(requestedlevel), ::core::mem::transmute(reasoncode)).ok()
+    pub unsafe fn SendControlLevelChangeResponse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPIAttendee>>, Param1: ::std::convert::Into<CTRL_LEVEL>>(&self, pattendee: Param0, requestedlevel: Param1, reasoncode: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendControlLevelChangeResponse)(::windows::core::Interface::as_raw(self), pattendee.into().abi(), requestedlevel.into(), ::core::mem::transmute(reasoncode)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPISharingSession2> for ::windows::core::IUnknown {
     fn from(value: IRDPSRAPISharingSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPISharingSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2186,20 +2035,14 @@ impl ::core::convert::From<&IRDPSRAPISharingSession2> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPISharingSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPISharingSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPISharingSession2> for super::Com::IDispatch {
     fn from(value: IRDPSRAPISharingSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPISharingSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2210,20 +2053,14 @@ impl ::core::convert::From<&IRDPSRAPISharingSession2> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPISharingSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPISharingSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPISharingSession2> for IRDPSRAPISharingSession {
     fn from(value: IRDPSRAPISharingSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPISharingSession2> for &'a IRDPSRAPISharingSession {
+    fn from(value: &'a IRDPSRAPISharingSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2231,18 +2068,6 @@ impl ::core::convert::From<IRDPSRAPISharingSession2> for IRDPSRAPISharingSession
 impl ::core::convert::From<&IRDPSRAPISharingSession2> for IRDPSRAPISharingSession {
     fn from(value: &IRDPSRAPISharingSession2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRDPSRAPISharingSession> for IRDPSRAPISharingSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRDPSRAPISharingSession> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRDPSRAPISharingSession> for &'a IRDPSRAPISharingSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRDPSRAPISharingSession> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2329,21 +2154,15 @@ impl ::core::convert::From<IRDPSRAPITcpConnectionInfo> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPITcpConnectionInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPITcpConnectionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPITcpConnectionInfo> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPITcpConnectionInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPITcpConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPITcpConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2353,21 +2172,15 @@ impl ::core::convert::From<IRDPSRAPITcpConnectionInfo> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPITcpConnectionInfo> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPITcpConnectionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPITcpConnectionInfo> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPITcpConnectionInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPITcpConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPITcpConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2422,20 +2235,20 @@ impl IRDPSRAPITransportStream {
         (::windows::core::Interface::vtable(self).AllocBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxpayload), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPITransportStreamBuffer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn FreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
+    pub unsafe fn FreeBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn WriteBuffer<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
+    pub unsafe fn WriteBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn ReadBuffer<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
+    pub unsafe fn ReadBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamEvents>>(&self, pcallbacks: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), pcallbacks.into_param().abi()).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamEvents>>>(&self, pcallbacks: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), pcallbacks.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -2447,19 +2260,14 @@ impl ::core::convert::From<IRDPSRAPITransportStream> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPITransportStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPITransportStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPITransportStream> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPITransportStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPITransportStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPITransportStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPITransportStream {
@@ -2540,8 +2348,8 @@ impl IRDPSRAPITransportStreamBuffer {
         (::windows::core::Interface::vtable(self).Context)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
+    pub unsafe fn SetContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), pcontext.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRDPSRAPITransportStreamBuffer> for ::windows::core::IUnknown {
@@ -2549,19 +2357,14 @@ impl ::core::convert::From<IRDPSRAPITransportStreamBuffer> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPITransportStreamBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPITransportStreamBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPITransportStreamBuffer> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPITransportStreamBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPITransportStreamBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPITransportStreamBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPITransportStreamBuffer {
@@ -2604,12 +2407,12 @@ pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
 pub struct IRDPSRAPITransportStreamEvents(::windows::core::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn OnWriteCompleted<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
-        (::windows::core::Interface::vtable(self).OnWriteCompleted)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi())
+    pub unsafe fn OnWriteCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>>(&self, pbuffer: Param0) {
+        (::windows::core::Interface::vtable(self).OnWriteCompleted)(::windows::core::Interface::as_raw(self), pbuffer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn OnReadCompleted<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
-        (::windows::core::Interface::vtable(self).OnReadCompleted)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi())
+    pub unsafe fn OnReadCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPITransportStreamBuffer>>>(&self, pbuffer: Param0) {
+        (::windows::core::Interface::vtable(self).OnReadCompleted)(::windows::core::Interface::as_raw(self), pbuffer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn OnStreamClosed(&self, hrreason: ::windows::core::HRESULT) {
@@ -2621,19 +2424,14 @@ impl ::core::convert::From<IRDPSRAPITransportStreamEvents> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPSRAPITransportStreamEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPITransportStreamEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPSRAPITransportStreamEvents> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPITransportStreamEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPITransportStreamEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPITransportStreamEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPSRAPITransportStreamEvents {
@@ -2672,8 +2470,8 @@ pub struct IRDPSRAPIViewer(::windows::core::IUnknown);
 impl IRDPSRAPIViewer {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0, bstrname: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi()).ok()
+    pub unsafe fn Connect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrconnectionstring: Param0, bstrname: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into().abi(), bstrname.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
@@ -2713,13 +2511,13 @@ impl IRDPSRAPIViewer {
         (::windows::core::Interface::vtable(self).SmartSizing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ctrllevel)).ok()
+    pub unsafe fn RequestControl<'a, Param0: ::std::convert::Into<CTRL_LEVEL>>(&self, ctrllevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestControl)(::windows::core::Interface::as_raw(self), ctrllevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisconnectedText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisconnectedtext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisconnectedText)(::windows::core::Interface::as_raw(self), bstrdisconnectedtext.into_param().abi()).ok()
+    pub unsafe fn SetDisconnectedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdisconnectedtext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisconnectedText)(::windows::core::Interface::as_raw(self), bstrdisconnectedtext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2739,14 +2537,20 @@ impl IRDPSRAPIViewer {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartReverseConnectListener<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0, bstrusername: Param1, bstrpassword: Param2) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn StartReverseConnectListener<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrconnectionstring: Param0, bstrusername: Param1, bstrpassword: Param2) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).StartReverseConnectListener)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StartReverseConnectListener)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into().abi(), bstrusername.into().abi(), bstrpassword.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPIViewer> for ::windows::core::IUnknown {
     fn from(value: IRDPSRAPIViewer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIViewer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIViewer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2757,20 +2561,14 @@ impl ::core::convert::From<&IRDPSRAPIViewer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIViewer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIViewer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPIViewer> for super::Com::IDispatch {
     fn from(value: IRDPSRAPIViewer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIViewer> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIViewer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2778,18 +2576,6 @@ impl ::core::convert::From<IRDPSRAPIViewer> for super::Com::IDispatch {
 impl ::core::convert::From<&IRDPSRAPIViewer> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIViewer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIViewer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIViewer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2872,12 +2658,12 @@ pub struct IRDPSRAPIVirtualChannel(::windows::core::IUnknown);
 impl IRDPSRAPIVirtualChannel {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi(), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(channelsendflags)).ok()
+    pub unsafe fn SendData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi(), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(channelsendflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(accesstype)).ok()
+    pub unsafe fn SetAccess<'a, Param1: ::std::convert::Into<CHANNEL_ACCESS_ENUM>>(&self, lattendeeid: i32, accesstype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lattendeeid), accesstype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2903,21 +2689,15 @@ impl ::core::convert::From<IRDPSRAPIVirtualChannel> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIVirtualChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIVirtualChannel> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIVirtualChannel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIVirtualChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIVirtualChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2927,21 +2707,15 @@ impl ::core::convert::From<IRDPSRAPIVirtualChannel> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannel> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIVirtualChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIVirtualChannel> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIVirtualChannel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIVirtualChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIVirtualChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2999,20 +2773,26 @@ impl IRDPSRAPIVirtualChannelManager {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, item: Param0) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
+    pub unsafe fn get_Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, item: Param0) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), item.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIVirtualChannel>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), item.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIVirtualChannel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateVirtualChannel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrchannelname: Param0, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
+    pub unsafe fn CreateVirtualChannel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<CHANNEL_PRIORITY>>(&self, bstrchannelname: Param0, priority: Param1, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), bstrchannelname.into_param().abi(), ::core::mem::transmute(priority), ::core::mem::transmute(channelflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIVirtualChannel>(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), bstrchannelname.into().abi(), priority.into(), ::core::mem::transmute(channelflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIVirtualChannel>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPIVirtualChannelManager> for ::windows::core::IUnknown {
     fn from(value: IRDPSRAPIVirtualChannelManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannelManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIVirtualChannelManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3023,20 +2803,14 @@ impl ::core::convert::From<&IRDPSRAPIVirtualChannelManager> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIVirtualChannelManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIVirtualChannelManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRDPSRAPIVirtualChannelManager> for super::Com::IDispatch {
     fn from(value: IRDPSRAPIVirtualChannelManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIVirtualChannelManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIVirtualChannelManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3044,18 +2818,6 @@ impl ::core::convert::From<IRDPSRAPIVirtualChannelManager> for super::Com::IDisp
 impl ::core::convert::From<&IRDPSRAPIVirtualChannelManager> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIVirtualChannelManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIVirtualChannelManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIVirtualChannelManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3147,21 +2909,15 @@ impl ::core::convert::From<IRDPSRAPIWindow> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIWindow> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIWindow> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIWindow) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3171,21 +2927,15 @@ impl ::core::convert::From<IRDPSRAPIWindow> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIWindow> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIWindow> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIWindow) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3257,21 +3007,15 @@ impl ::core::convert::From<IRDPSRAPIWindowList> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIWindowList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPSRAPIWindowList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIWindowList> for ::windows::core::IUnknown {
     fn from(value: &IRDPSRAPIWindowList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPSRAPIWindowList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPSRAPIWindowList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3281,21 +3025,15 @@ impl ::core::convert::From<IRDPSRAPIWindowList> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRDPSRAPIWindowList> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRDPSRAPIWindowList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRDPSRAPIWindowList> for super::Com::IDispatch {
     fn from(value: &IRDPSRAPIWindowList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRDPSRAPIWindowList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRDPSRAPIWindowList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3339,8 +3077,8 @@ pub struct IRDPSRAPIWindowList_Vtbl {
 pub struct IRDPViewerInputSink(::windows::core::IUnknown);
 impl IRDPViewerInputSink {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMouseButtonEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buttontype), ::core::mem::transmute(vbbuttondown), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
+    pub unsafe fn SendMouseButtonEvent<'a, Param0: ::std::convert::Into<RDPSRAPI_MOUSE_BUTTON_TYPE>>(&self, buttontype: Param0, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMouseButtonEvent)(::windows::core::Interface::as_raw(self), buttontype.into(), ::core::mem::transmute(vbbuttondown), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
@@ -3351,8 +3089,8 @@ impl IRDPViewerInputSink {
         (::windows::core::Interface::vtable(self).SendMouseWheelEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wheelrotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendKeyboardEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(codetype), ::core::mem::transmute(keycode), ::core::mem::transmute(vbkeyup), ::core::mem::transmute(vbrepeat), ::core::mem::transmute(vbextended)).ok()
+    pub unsafe fn SendKeyboardEvent<'a, Param0: ::std::convert::Into<RDPSRAPI_KBD_CODE_TYPE>>(&self, codetype: Param0, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendKeyboardEvent)(::windows::core::Interface::as_raw(self), codetype.into(), ::core::mem::transmute(keycode), ::core::mem::transmute(vbkeyup), ::core::mem::transmute(vbrepeat), ::core::mem::transmute(vbextended)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> ::windows::core::Result<()> {
@@ -3376,19 +3114,14 @@ impl ::core::convert::From<IRDPViewerInputSink> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRDPViewerInputSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRDPViewerInputSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRDPViewerInputSink> for ::windows::core::IUnknown {
     fn from(value: &IRDPViewerInputSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRDPViewerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRDPViewerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRDPViewerInputSink {
@@ -3659,21 +3392,15 @@ impl ::core::convert::From<_IRDPSessionEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IRDPSessionEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IRDPSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IRDPSessionEvents> for ::windows::core::IUnknown {
     fn from(value: &_IRDPSessionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IRDPSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IRDPSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3683,21 +3410,15 @@ impl ::core::convert::From<_IRDPSessionEvents> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IRDPSessionEvents> for &'a super::Com::IDispatch {
+    fn from(value: &'a _IRDPSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IRDPSessionEvents> for super::Com::IDispatch {
     fn from(value: &_IRDPSessionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for _IRDPSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a _IRDPSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

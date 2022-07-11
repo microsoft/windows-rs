@@ -237,19 +237,14 @@ impl ::core::convert::From<ILearningModelFeatureDescriptor> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelFeatureDescriptor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelFeatureDescriptor> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelFeatureDescriptor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILearningModelFeatureDescriptor> for ::windows::core::IInspectable {
@@ -257,19 +252,14 @@ impl ::core::convert::From<ILearningModelFeatureDescriptor> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelFeatureDescriptor> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILearningModelFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelFeatureDescriptor> for ::windows::core::IInspectable {
     fn from(value: &ILearningModelFeatureDescriptor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILearningModelFeatureDescriptor {
@@ -326,19 +316,14 @@ impl ::core::convert::From<ILearningModelFeatureValue> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelFeatureValue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelFeatureValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelFeatureValue> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelFeatureValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILearningModelFeatureValue> for ::windows::core::IInspectable {
@@ -346,19 +331,14 @@ impl ::core::convert::From<ILearningModelFeatureValue> for ::windows::core::IIns
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelFeatureValue> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILearningModelFeatureValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelFeatureValue> for ::windows::core::IInspectable {
     fn from(value: &ILearningModelFeatureValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILearningModelFeatureValue {
@@ -403,19 +383,14 @@ impl ::core::convert::From<ILearningModelOperatorProvider> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelOperatorProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelOperatorProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelOperatorProvider> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelOperatorProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILearningModelOperatorProvider> for ::windows::core::IInspectable {
@@ -423,19 +398,14 @@ impl ::core::convert::From<ILearningModelOperatorProvider> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelOperatorProvider> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILearningModelOperatorProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelOperatorProvider> for ::windows::core::IInspectable {
     fn from(value: &ILearningModelOperatorProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILearningModelOperatorProvider {
@@ -669,19 +639,14 @@ impl ::core::convert::From<ITensor> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITensor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITensor> for ::windows::core::IUnknown {
     fn from(value: &ITensor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ITensor> for ::windows::core::IInspectable {
@@ -689,19 +654,14 @@ impl ::core::convert::From<ITensor> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITensor> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ITensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITensor> for ::windows::core::IInspectable {
     fn from(value: &ITensor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ITensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ITensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ITensor> for ILearningModelFeatureValue {
@@ -716,14 +676,11 @@ impl ::core::convert::TryFrom<&ITensor> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for ITensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &ITensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ITensor> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ITensor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ITensor {
@@ -1649,14 +1606,9 @@ impl ::core::convert::From<&ImageFeatureDescriptor> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageFeatureDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &ImageFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ImageFeatureDescriptor> for ::windows::core::IInspectable {
@@ -1669,14 +1621,9 @@ impl ::core::convert::From<&ImageFeatureDescriptor> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ImageFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageFeatureDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &ImageFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ImageFeatureDescriptor> for ILearningModelFeatureDescriptor {
@@ -1691,14 +1638,11 @@ impl ::core::convert::TryFrom<&ImageFeatureDescriptor> for ILearningModelFeature
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for ImageFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &ImageFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ImageFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ImageFeatureDescriptor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ImageFeatureDescriptor {}
@@ -1718,10 +1662,10 @@ impl ImageFeatureValue {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Media\"`*"]
     #[cfg(feature = "Media")]
-    pub fn CreateFromVideoFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::VideoFrame>>(image: Param0) -> ::windows::core::Result<ImageFeatureValue> {
+    pub fn CreateFromVideoFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Media::VideoFrame>>>(image: Param0) -> ::windows::core::Result<ImageFeatureValue> {
         Self::IImageFeatureValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromVideoFrame)(::windows::core::Interface::as_raw(this), image.into_param().abi(), result__.as_mut_ptr()).from_abi::<ImageFeatureValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromVideoFrame)(::windows::core::Interface::as_raw(this), image.into().abi(), result__.as_mut_ptr()).from_abi::<ImageFeatureValue>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -1778,14 +1722,9 @@ impl ::core::convert::From<&ImageFeatureValue> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageFeatureValue> for &::windows::core::IUnknown {
+    fn from(value: &ImageFeatureValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ImageFeatureValue> for ::windows::core::IInspectable {
@@ -1798,14 +1737,9 @@ impl ::core::convert::From<&ImageFeatureValue> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ImageFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageFeatureValue> for &::windows::core::IInspectable {
+    fn from(value: &ImageFeatureValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ImageFeatureValue> for ILearningModelFeatureValue {
@@ -1820,14 +1754,11 @@ impl ::core::convert::TryFrom<&ImageFeatureValue> for ILearningModelFeatureValue
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for ImageFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &ImageFeatureValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ImageFeatureValue> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ImageFeatureValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ImageFeatureValue {}
@@ -1911,64 +1842,64 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromStorageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(modelfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStorageFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromStorageFileAsync)(::windows::core::Interface::as_raw(this), modelfile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStorageFileAsync)(::windows::core::Interface::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn LoadFromFilePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromFilePath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(filepath: Param0) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromFilePath)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFilePath)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromStream<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromStream)(::windows::core::Interface::as_raw(this), modelstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStream)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromStorageFileWithOperatorProviderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(modelfile: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStorageFileWithOperatorProviderAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(modelfile: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelfile.into_param().abi(), operatorprovider.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamWithOperatorProviderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStreamWithOperatorProviderAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelstream.into_param().abi(), operatorprovider.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn LoadFromFilePathWithOperatorProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(filepath: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromFilePathWithOperatorProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(filepath: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), operatorprovider.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Interface::as_raw(this), filepath.into().abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromStreamWithOperatorProvider<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(::windows::core::Interface::as_raw(this), modelstream.into_param().abi(), operatorprovider.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
         })
     }
     #[doc(hidden)]
@@ -2017,14 +1948,9 @@ impl ::core::convert::From<&LearningModel> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModel> for &::windows::core::IUnknown {
+    fn from(value: &LearningModel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LearningModel> for ::windows::core::IInspectable {
@@ -2037,14 +1963,9 @@ impl ::core::convert::From<&LearningModel> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModel> for &::windows::core::IInspectable {
+    fn from(value: &LearningModel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2062,15 +1983,11 @@ impl ::core::convert::TryFrom<&LearningModel> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for LearningModel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &LearningModel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModel> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModel) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LearningModel {}
@@ -2089,15 +2006,15 @@ impl LearningModelBinding {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Bind<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn Bind<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BindWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, name: Param0, value: Param1, props: Param2) -> ::windows::core::Result<()> {
+    pub fn BindWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, name: Param0, value: Param1, props: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), props.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), props.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -2105,19 +2022,19 @@ impl LearningModelBinding {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromSession<'a, Param0: ::windows::core::IntoParam<'a, LearningModelSession>>(session: Param0) -> ::windows::core::Result<LearningModelBinding> {
+    pub fn CreateFromSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSession>>>(session: Param0) -> ::windows::core::Result<LearningModelBinding> {
         Self::ILearningModelBindingFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromSession)(::windows::core::Interface::as_raw(this), session.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBinding>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromSession)(::windows::core::Interface::as_raw(this), session.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBinding>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
@@ -2131,11 +2048,11 @@ impl LearningModelBinding {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
@@ -2206,14 +2123,9 @@ impl ::core::convert::From<&LearningModelBinding> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelBinding> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelBinding) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LearningModelBinding> for ::windows::core::IInspectable {
@@ -2226,14 +2138,9 @@ impl ::core::convert::From<&LearningModelBinding> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelBinding> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelBinding) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2251,15 +2158,11 @@ impl ::core::convert::TryFrom<&LearningModelBinding> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelBinding) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2277,15 +2180,11 @@ impl ::core::convert::TryFrom<&LearningModelBinding> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for &LearningModelBinding {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModelBinding> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelBinding) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LearningModelBinding {}
@@ -2313,18 +2212,18 @@ impl LearningModelDevice {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Create(devicekind: LearningModelDeviceKind) -> ::windows::core::Result<LearningModelDevice> {
+    pub fn Create<'a, Param0: ::std::convert::Into<LearningModelDeviceKind>>(devicekind: Param0) -> ::windows::core::Result<LearningModelDevice> {
         Self::ILearningModelDeviceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), devicekind, result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), devicekind.into(), result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromDirect3D11Device<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(device: Param0) -> ::windows::core::Result<LearningModelDevice> {
+    pub fn CreateFromDirect3D11Device<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(device: Param0) -> ::windows::core::Result<LearningModelDevice> {
         Self::ILearningModelDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromDirect3D11Device)(::windows::core::Interface::as_raw(this), device.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromDirect3D11Device)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
         })
     }
     #[doc(hidden)]
@@ -2378,14 +2277,9 @@ impl ::core::convert::From<&LearningModelDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelDevice> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LearningModelDevice> for ::windows::core::IInspectable {
@@ -2398,14 +2292,9 @@ impl ::core::convert::From<&LearningModelDevice> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelDevice> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LearningModelDevice {}
@@ -2525,14 +2414,9 @@ impl ::core::convert::From<&LearningModelEvaluationResult> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelEvaluationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelEvaluationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelEvaluationResult> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelEvaluationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LearningModelEvaluationResult> for ::windows::core::IInspectable {
@@ -2545,14 +2429,9 @@ impl ::core::convert::From<&LearningModelEvaluationResult> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelEvaluationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelEvaluationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelEvaluationResult> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelEvaluationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
@@ -2665,58 +2544,58 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EvaluateAsync<'a, Param0: ::windows::core::IntoParam<'a, LearningModelBinding>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
+    pub fn EvaluateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), bindings.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), bindings.into().abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeaturesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
+    pub fn EvaluateFeaturesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Evaluate<'a, Param0: ::windows::core::IntoParam<'a, LearningModelBinding>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
+    pub fn Evaluate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Evaluate)(::windows::core::Interface::as_raw(this), bindings.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
+            (::windows::core::Interface::vtable(this).Evaluate)(::windows::core::Interface::as_raw(this), bindings.into().abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeatures<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
+    pub fn EvaluateFeatures<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateFeatures)(::windows::core::Interface::as_raw(this), features.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateFeatures)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModel>>(model: Param0) -> ::windows::core::Result<LearningModelSession> {
+    pub fn CreateFromModel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>>(model: Param0) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromModel)(::windows::core::Interface::as_raw(this), model.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromModel)(::windows::core::Interface::as_raw(this), model.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromModelOnDevice<'a, Param0: ::windows::core::IntoParam<'a, LearningModel>, Param1: ::windows::core::IntoParam<'a, LearningModelDevice>>(model: Param0, devicetorunon: Param1) -> ::windows::core::Result<LearningModelSession> {
+    pub fn CreateFromModelOnDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>>(model: Param0, devicetorunon: Param1) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromModelOnDevice)(::windows::core::Interface::as_raw(this), model.into_param().abi(), devicetorunon.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromModelOnDevice)(::windows::core::Interface::as_raw(this), model.into().abi(), devicetorunon.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromModelOnDeviceWithSessionOptions<'a, Param0: ::windows::core::IntoParam<'a, LearningModel>, Param1: ::windows::core::IntoParam<'a, LearningModelDevice>, Param2: ::windows::core::IntoParam<'a, LearningModelSessionOptions>>(model: Param0, devicetorunon: Param1, learningmodelsessionoptions: Param2) -> ::windows::core::Result<LearningModelSession> {
+    pub fn CreateFromModelOnDeviceWithSessionOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSessionOptions>>>(model: Param0, devicetorunon: Param1, learningmodelsessionoptions: Param2) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Interface::as_raw(this), model.into_param().abi(), devicetorunon.into_param().abi(), learningmodelsessionoptions.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Interface::as_raw(this), model.into().abi(), devicetorunon.into().abi(), learningmodelsessionoptions.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
     #[doc(hidden)]
@@ -2770,14 +2649,9 @@ impl ::core::convert::From<&LearningModelSession> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelSession> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LearningModelSession> for ::windows::core::IInspectable {
@@ -2790,14 +2664,9 @@ impl ::core::convert::From<&LearningModelSession> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelSession> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2815,15 +2684,11 @@ impl ::core::convert::TryFrom<&LearningModelSession> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for LearningModelSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &LearningModelSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModelSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LearningModelSession {}
@@ -2866,9 +2731,9 @@ impl LearningModelSessionOptions {
         unsafe { (::windows::core::Interface::vtable(this).SetCloseModelOnSessionCreation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn OverrideNamedDimension<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, dimension: u32) -> ::windows::core::Result<()> {
+    pub fn OverrideNamedDimension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, dimension: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).OverrideNamedDimension)(::windows::core::Interface::as_raw(this), name.into_param().abi(), dimension).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OverrideNamedDimension)(::windows::core::Interface::as_raw(this), name.into().abi(), dimension).ok() }
     }
 }
 impl ::core::clone::Clone for LearningModelSessionOptions {
@@ -2911,14 +2776,9 @@ impl ::core::convert::From<&LearningModelSessionOptions> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelSessionOptions> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelSessionOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LearningModelSessionOptions> for ::windows::core::IInspectable {
@@ -2931,14 +2791,9 @@ impl ::core::convert::From<&LearningModelSessionOptions> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelSessionOptions> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelSessionOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LearningModelSessionOptions {}
@@ -3036,14 +2891,9 @@ impl ::core::convert::From<&MapFeatureDescriptor> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapFeatureDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &MapFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapFeatureDescriptor> for ::windows::core::IInspectable {
@@ -3056,14 +2906,9 @@ impl ::core::convert::From<&MapFeatureDescriptor> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapFeatureDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &MapFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MapFeatureDescriptor> for ILearningModelFeatureDescriptor {
@@ -3078,14 +2923,11 @@ impl ::core::convert::TryFrom<&MapFeatureDescriptor> for ILearningModelFeatureDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for MapFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &MapFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MapFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MapFeatureDescriptor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MapFeatureDescriptor {}
@@ -3175,14 +3017,9 @@ impl ::core::convert::From<&SequenceFeatureDescriptor> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SequenceFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SequenceFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SequenceFeatureDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &SequenceFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SequenceFeatureDescriptor> for ::windows::core::IInspectable {
@@ -3195,14 +3032,9 @@ impl ::core::convert::From<&SequenceFeatureDescriptor> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SequenceFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SequenceFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SequenceFeatureDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &SequenceFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SequenceFeatureDescriptor> for ILearningModelFeatureDescriptor {
@@ -3217,14 +3049,11 @@ impl ::core::convert::TryFrom<&SequenceFeatureDescriptor> for ILearningModelFeat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for SequenceFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &SequenceFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SequenceFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SequenceFeatureDescriptor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SequenceFeatureDescriptor {}
@@ -3291,26 +3120,26 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorBoolean> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[bool]) -> ::windows::core::Result<TensorBoolean> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[bool]) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<bool>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorBoolean> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<bool>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -3322,10 +3151,10 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorBoolean> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
         })
     }
     #[doc(hidden)]
@@ -3379,14 +3208,9 @@ impl ::core::convert::From<&TensorBoolean> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorBoolean> for &::windows::core::IUnknown {
+    fn from(value: &TensorBoolean) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorBoolean> for ::windows::core::IInspectable {
@@ -3399,14 +3223,9 @@ impl ::core::convert::From<&TensorBoolean> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorBoolean> for &::windows::core::IInspectable {
+    fn from(value: &TensorBoolean) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3424,15 +3243,11 @@ impl ::core::convert::TryFrom<&TensorBoolean> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorBoolean> for ILearningModelFeatureValue {
@@ -3447,14 +3262,11 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3472,15 +3284,11 @@ impl ::core::convert::TryFrom<&TensorBoolean> for super::super::Foundation::IMem
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorBoolean> for ITensor {
@@ -3495,14 +3303,11 @@ impl ::core::convert::TryFrom<&TensorBoolean> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorBoolean {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorBoolean> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorBoolean) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorBoolean {}
@@ -3569,26 +3374,26 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorDouble> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[f64]) -> ::windows::core::Result<TensorDouble> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[f64]) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f64>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorDouble> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f64>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -3600,10 +3405,10 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorDouble> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
         })
     }
     #[doc(hidden)]
@@ -3657,14 +3462,9 @@ impl ::core::convert::From<&TensorDouble> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorDouble> for &::windows::core::IUnknown {
+    fn from(value: &TensorDouble) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorDouble> for ::windows::core::IInspectable {
@@ -3677,14 +3477,9 @@ impl ::core::convert::From<&TensorDouble> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorDouble> for &::windows::core::IInspectable {
+    fn from(value: &TensorDouble) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3702,15 +3497,11 @@ impl ::core::convert::TryFrom<&TensorDouble> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorDouble> for ILearningModelFeatureValue {
@@ -3725,14 +3516,11 @@ impl ::core::convert::TryFrom<&TensorDouble> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3750,15 +3538,11 @@ impl ::core::convert::TryFrom<&TensorDouble> for super::super::Foundation::IMemo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorDouble> for ITensor {
@@ -3773,14 +3557,11 @@ impl ::core::convert::TryFrom<&TensorDouble> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorDouble {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorDouble> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorDouble) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorDouble {}
@@ -3879,14 +3660,9 @@ impl ::core::convert::From<&TensorFeatureDescriptor> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorFeatureDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &TensorFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorFeatureDescriptor> for ::windows::core::IInspectable {
@@ -3899,14 +3675,9 @@ impl ::core::convert::From<&TensorFeatureDescriptor> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorFeatureDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &TensorFeatureDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<TensorFeatureDescriptor> for ILearningModelFeatureDescriptor {
@@ -3921,14 +3692,11 @@ impl ::core::convert::TryFrom<&TensorFeatureDescriptor> for ILearningModelFeatur
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for TensorFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &TensorFeatureDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureDescriptor> {
-        ::core::convert::TryInto::<ILearningModelFeatureDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFeatureDescriptor> for ::windows::core::InParam<'a, ILearningModelFeatureDescriptor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFeatureDescriptor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorFeatureDescriptor {}
@@ -3995,26 +3763,26 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorFloat> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[f32]) -> ::windows::core::Result<TensorFloat> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[f32]) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -4026,10 +3794,10 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorFloat> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
         })
     }
     #[doc(hidden)]
@@ -4083,14 +3851,9 @@ impl ::core::convert::From<&TensorFloat> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorFloat> for &::windows::core::IUnknown {
+    fn from(value: &TensorFloat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorFloat> for ::windows::core::IInspectable {
@@ -4103,14 +3866,9 @@ impl ::core::convert::From<&TensorFloat> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorFloat> for &::windows::core::IInspectable {
+    fn from(value: &TensorFloat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4128,15 +3886,11 @@ impl ::core::convert::TryFrom<&TensorFloat> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat> for ILearningModelFeatureValue {
@@ -4151,14 +3905,11 @@ impl ::core::convert::TryFrom<&TensorFloat> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4176,15 +3927,11 @@ impl ::core::convert::TryFrom<&TensorFloat> for super::super::Foundation::IMemor
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat> for ITensor {
@@ -4199,14 +3946,11 @@ impl ::core::convert::TryFrom<&TensorFloat> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorFloat {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorFloat {}
@@ -4273,26 +4017,26 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -4304,10 +4048,10 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -4361,14 +4105,9 @@ impl ::core::convert::From<&TensorFloat16Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorFloat16Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorFloat16Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorFloat16Bit> for ::windows::core::IInspectable {
@@ -4381,14 +4120,9 @@ impl ::core::convert::From<&TensorFloat16Bit> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorFloat16Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorFloat16Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4406,15 +4140,11 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat16Bit> for ILearningModelFeatureValue {
@@ -4429,14 +4159,11 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ILearningModelFeatureValue 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4454,15 +4181,11 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorFloat16Bit> for ITensor {
@@ -4477,14 +4200,11 @@ impl ::core::convert::TryFrom<&TensorFloat16Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorFloat16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorFloat16Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorFloat16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorFloat16Bit {}
@@ -4551,26 +4271,26 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[i16]) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[i16]) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i16>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i16>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -4582,10 +4302,10 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -4639,14 +4359,9 @@ impl ::core::convert::From<&TensorInt16Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt16Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorInt16Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorInt16Bit> for ::windows::core::IInspectable {
@@ -4659,14 +4374,9 @@ impl ::core::convert::From<&TensorInt16Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt16Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorInt16Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4684,15 +4394,11 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt16Bit> for ILearningModelFeatureValue {
@@ -4707,14 +4413,11 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4732,15 +4435,11 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt16Bit> for ITensor {
@@ -4755,14 +4454,11 @@ impl ::core::convert::TryFrom<&TensorInt16Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt16Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt16Bit {}
@@ -4829,26 +4525,26 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[i32]) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[i32]) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -4860,10 +4556,10 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -4917,14 +4613,9 @@ impl ::core::convert::From<&TensorInt32Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt32Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorInt32Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorInt32Bit> for ::windows::core::IInspectable {
@@ -4937,14 +4628,9 @@ impl ::core::convert::From<&TensorInt32Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt32Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorInt32Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4962,15 +4648,11 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt32Bit> for ILearningModelFeatureValue {
@@ -4985,14 +4667,11 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5010,15 +4689,11 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt32Bit> for ITensor {
@@ -5033,14 +4708,11 @@ impl ::core::convert::TryFrom<&TensorInt32Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt32Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt32Bit {}
@@ -5107,26 +4779,26 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[i64]) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[i64]) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -5138,10 +4810,10 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -5195,14 +4867,9 @@ impl ::core::convert::From<&TensorInt64Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt64Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorInt64Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorInt64Bit> for ::windows::core::IInspectable {
@@ -5215,14 +4882,9 @@ impl ::core::convert::From<&TensorInt64Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt64Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorInt64Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5240,15 +4902,11 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt64Bit> for ILearningModelFeatureValue {
@@ -5263,14 +4921,11 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5288,15 +4943,11 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt64Bit> for ITensor {
@@ -5311,14 +4962,11 @@ impl ::core::convert::TryFrom<&TensorInt64Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt64Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt64Bit {}
@@ -5385,26 +5033,26 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[u8]) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u8]) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u8>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -5416,10 +5064,10 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -5473,14 +5121,9 @@ impl ::core::convert::From<&TensorInt8Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt8Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorInt8Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorInt8Bit> for ::windows::core::IInspectable {
@@ -5493,14 +5136,9 @@ impl ::core::convert::From<&TensorInt8Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorInt8Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorInt8Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5518,15 +5156,11 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt8Bit> for ILearningModelFeatureValue {
@@ -5541,14 +5175,11 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5566,15 +5197,11 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for super::super::Foundation::IMem
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorInt8Bit> for ITensor {
@@ -5589,14 +5216,11 @@ impl ::core::convert::TryFrom<&TensorInt8Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorInt8Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorInt8Bit {}
@@ -5711,26 +5335,26 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorString> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorString> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -5791,14 +5415,9 @@ impl ::core::convert::From<&TensorString> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorString> for &::windows::core::IUnknown {
+    fn from(value: &TensorString) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorString> for ::windows::core::IInspectable {
@@ -5811,14 +5430,9 @@ impl ::core::convert::From<&TensorString> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorString> for &::windows::core::IInspectable {
+    fn from(value: &TensorString) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5836,15 +5450,11 @@ impl ::core::convert::TryFrom<&TensorString> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorString> for ILearningModelFeatureValue {
@@ -5859,14 +5469,11 @@ impl ::core::convert::TryFrom<&TensorString> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5884,15 +5491,11 @@ impl ::core::convert::TryFrom<&TensorString> for super::super::Foundation::IMemo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorString> for ITensor {
@@ -5907,14 +5510,11 @@ impl ::core::convert::TryFrom<&TensorString> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorString {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorString> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorString) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorString {}
@@ -5981,26 +5581,26 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u16>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u16>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -6012,10 +5612,10 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -6069,14 +5669,9 @@ impl ::core::convert::From<&TensorUInt16Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt16Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorUInt16Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorUInt16Bit> for ::windows::core::IInspectable {
@@ -6089,14 +5684,9 @@ impl ::core::convert::From<&TensorUInt16Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt16Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorUInt16Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6114,15 +5704,11 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt16Bit> for ILearningModelFeatureValue {
@@ -6137,14 +5723,11 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6162,15 +5745,11 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for super::super::Foundation::IM
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt16Bit> for ITensor {
@@ -6185,14 +5764,11 @@ impl ::core::convert::TryFrom<&TensorUInt16Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt16Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt16Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt16Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt16Bit {}
@@ -6259,26 +5835,26 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -6290,10 +5866,10 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -6347,14 +5923,9 @@ impl ::core::convert::From<&TensorUInt32Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt32Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorUInt32Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorUInt32Bit> for ::windows::core::IInspectable {
@@ -6367,14 +5938,9 @@ impl ::core::convert::From<&TensorUInt32Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt32Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorUInt32Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6392,15 +5958,11 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt32Bit> for ILearningModelFeatureValue {
@@ -6415,14 +5977,11 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6440,15 +5999,11 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for super::super::Foundation::IM
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt32Bit> for ITensor {
@@ -6463,14 +6018,11 @@ impl ::core::convert::TryFrom<&TensorUInt32Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt32Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt32Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt32Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt32Bit {}
@@ -6537,26 +6089,26 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u64>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u64>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -6568,10 +6120,10 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -6625,14 +6177,9 @@ impl ::core::convert::From<&TensorUInt64Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt64Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorUInt64Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorUInt64Bit> for ::windows::core::IInspectable {
@@ -6645,14 +6192,9 @@ impl ::core::convert::From<&TensorUInt64Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt64Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorUInt64Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6670,15 +6212,11 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt64Bit> for ILearningModelFeatureValue {
@@ -6693,14 +6231,11 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6718,15 +6253,11 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for super::super::Foundation::IM
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt64Bit> for ITensor {
@@ -6741,14 +6272,11 @@ impl ::core::convert::TryFrom<&TensorUInt64Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt64Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt64Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt64Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt64Bit {}
@@ -6815,26 +6343,26 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u8>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
@@ -6846,10 +6374,10 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
         })
     }
     #[doc(hidden)]
@@ -6903,14 +6431,9 @@ impl ::core::convert::From<&TensorUInt8Bit> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt8Bit> for &::windows::core::IUnknown {
+    fn from(value: &TensorUInt8Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TensorUInt8Bit> for ::windows::core::IInspectable {
@@ -6923,14 +6446,9 @@ impl ::core::convert::From<&TensorUInt8Bit> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorUInt8Bit> for &::windows::core::IInspectable {
+    fn from(value: &TensorUInt8Bit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6948,15 +6466,11 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt8Bit> for ILearningModelFeatureValue {
@@ -6971,14 +6485,11 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ILearningModelFeatureValue {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelFeatureValue> {
-        ::core::convert::TryInto::<ILearningModelFeatureValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, ILearningModelFeatureValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -6996,15 +6507,11 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for super::super::Foundation::IMe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer> for &TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<TensorUInt8Bit> for ITensor {
@@ -7019,14 +6526,11 @@ impl ::core::convert::TryFrom<&TensorUInt8Bit> for ITensor {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt8Bit {
-    fn into_param(self) -> ::windows::core::Param<'a, ITensor> {
-        ::core::convert::TryInto::<ITensor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorUInt8Bit> for ::windows::core::InParam<'a, ITensor> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorUInt8Bit) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TensorUInt8Bit {}

@@ -22,6 +22,11 @@ impl ::core::fmt::Debug for HPSS {
         f.debug_tuple("HPSS").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HPSS>> for HPSS {
+    fn from(optional: ::core::option::Option<HPSS>) -> HPSS {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HPSS {
     type Abi = Self;
 }
@@ -47,6 +52,11 @@ impl ::core::marker::Copy for HPSSWALK {}
 impl ::core::fmt::Debug for HPSSWALK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HPSSWALK").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HPSSWALK>> for HPSSWALK {
+    fn from(optional: ::core::option::Option<HPSSWALK>) -> HPSSWALK {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HPSSWALK {
@@ -1373,41 +1383,41 @@ impl ::core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
+pub unsafe fn PssCaptureSnapshot<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<PSS_CAPTURE_FLAGS>>(processhandle: Param0, captureflags: Param1, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32;
     }
-    ::core::mem::transmute(PssCaptureSnapshot(processhandle.into_param().abi(), ::core::mem::transmute(captureflags), ::core::mem::transmute(threadcontextflags), ::core::mem::transmute(snapshothandle)))
+    ::core::mem::transmute(PssCaptureSnapshot(processhandle.into(), captureflags.into(), ::core::mem::transmute(threadcontextflags), ::core::mem::transmute(snapshothandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, HPSS>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
+pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<HPSS>, Param2: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<PSS_DUPLICATE_FLAGS>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32;
     }
-    ::core::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into_param().abi(), snapshothandle.into_param().abi(), targetprocesshandle.into_param().abi(), ::core::mem::transmute(targetsnapshothandle), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into(), snapshothandle.into(), targetprocesshandle.into(), ::core::mem::transmute(targetsnapshothandle), flags.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
+pub unsafe fn PssFreeSnapshot<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32;
     }
-    ::core::mem::transmute(PssFreeSnapshot(processhandle.into_param().abi(), snapshothandle.into_param().abi()))
+    ::core::mem::transmute(PssFreeSnapshot(processhandle.into(), snapshothandle.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::core::IntoParam<'a, HPSS>>(snapshothandle: Param0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
+pub unsafe fn PssQuerySnapshot<'a, Param0: ::std::convert::Into<HPSS>, Param1: ::std::convert::Into<PSS_QUERY_INFORMATION_CLASS>>(snapshothandle: Param0, informationclass: Param1, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    ::core::mem::transmute(PssQuerySnapshot(snapshothandle.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(PssQuerySnapshot(snapshothandle.into(), informationclass.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
@@ -1420,48 +1430,48 @@ pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhan
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
+pub unsafe fn PssWalkMarkerFree<'a, Param0: ::std::convert::Into<HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32;
     }
-    ::core::mem::transmute(PssWalkMarkerFree(walkmarkerhandle.into_param().abi()))
+    ::core::mem::transmute(PssWalkMarkerFree(walkmarkerhandle.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
+pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::std::convert::Into<HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: *mut usize) -> u32;
     }
-    ::core::mem::transmute(PssWalkMarkerGetPosition(walkmarkerhandle.into_param().abi(), ::core::mem::transmute(position)))
+    ::core::mem::transmute(PssWalkMarkerGetPosition(walkmarkerhandle.into(), ::core::mem::transmute(position)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
+pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::std::convert::Into<HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK) -> u32;
     }
-    ::core::mem::transmute(PssWalkMarkerSeekToBeginning(walkmarkerhandle.into_param().abi()))
+    ::core::mem::transmute(PssWalkMarkerSeekToBeginning(walkmarkerhandle.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
+pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::std::convert::Into<HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
     }
-    ::core::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into_param().abi(), ::core::mem::transmute(position)))
+    ::core::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into(), ::core::mem::transmute(position)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssWalkSnapshot<'a, Param0: ::windows::core::IntoParam<'a, HPSS>, Param2: ::windows::core::IntoParam<'a, HPSSWALK>>(snapshothandle: Param0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: Param2, buffer: &mut [u8]) -> u32 {
+pub unsafe fn PssWalkSnapshot<'a, Param0: ::std::convert::Into<HPSS>, Param1: ::std::convert::Into<PSS_WALK_INFORMATION_CLASS>, Param2: ::std::convert::Into<HPSSWALK>>(snapshothandle: Param0, informationclass: Param1, walkmarkerhandle: Param2, buffer: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    ::core::mem::transmute(PssWalkSnapshot(snapshothandle.into_param().abi(), ::core::mem::transmute(informationclass), walkmarkerhandle.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
+    ::core::mem::transmute(PssWalkSnapshot(snapshothandle.into(), informationclass.into(), walkmarkerhandle.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -70,10 +70,10 @@ impl DisplayAdapter {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
-    pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::DisplayAdapterId>>(id: Param0) -> ::windows::core::Result<DisplayAdapter> {
+    pub fn FromId(id: super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::Result<DisplayAdapter> {
         Self::IDisplayAdapterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayAdapter>(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), id, result__.as_mut_ptr()).from_abi::<DisplayAdapter>(result__)
         })
     }
     #[doc(hidden)]
@@ -122,14 +122,9 @@ impl ::core::convert::From<&DisplayAdapter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayAdapter> for &::windows::core::IUnknown {
+    fn from(value: &DisplayAdapter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayAdapter> for ::windows::core::IInspectable {
@@ -142,14 +137,9 @@ impl ::core::convert::From<&DisplayAdapter> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayAdapter> for &::windows::core::IInspectable {
+    fn from(value: &DisplayAdapter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayAdapter {}
@@ -226,19 +216,19 @@ unsafe impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
 pub struct DisplayDevice(::windows::core::IUnknown);
 impl DisplayDevice {
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateScanoutSource<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplaySource> {
+    pub fn CreateScanoutSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplaySource> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateScanoutSource)(::windows::core::Interface::as_raw(this), target.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplaySource>(result__)
+            (::windows::core::Interface::vtable(this).CreateScanoutSource)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplaySource>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreatePrimary<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, DisplayPrimaryDescription>>(&self, target: Param0, desc: Param1) -> ::windows::core::Result<DisplaySurface> {
+    pub fn CreatePrimary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayPrimaryDescription>>>(&self, target: Param0, desc: Param1) -> ::windows::core::Result<DisplaySurface> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePrimary)(::windows::core::Interface::as_raw(this), target.into_param().abi(), desc.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplaySurface>(result__)
+            (::windows::core::Interface::vtable(this).CreatePrimary)(::windows::core::Interface::as_raw(this), target.into().abi(), desc.into().abi(), result__.as_mut_ptr()).from_abi::<DisplaySurface>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -251,41 +241,41 @@ impl DisplayDevice {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreatePeriodicFence<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, target: Param0, offsetfromvblank: Param1) -> ::windows::core::Result<DisplayFence> {
+    pub fn CreatePeriodicFence<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePeriodicFence)(::windows::core::Interface::as_raw(this), target.into_param().abi(), offsetfromvblank.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayFence>(result__)
+            (::windows::core::Interface::vtable(this).CreatePeriodicFence)(::windows::core::Interface::as_raw(this), target.into().abi(), offsetfromvblank, result__.as_mut_ptr()).from_abi::<DisplayFence>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn WaitForVBlank<'a, Param0: ::windows::core::IntoParam<'a, DisplaySource>>(&self, source: Param0) -> ::windows::core::Result<()> {
+    pub fn WaitForVBlank<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WaitForVBlank)(::windows::core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WaitForVBlank)(::windows::core::Interface::as_raw(this), source.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateSimpleScanout<'a, Param0: ::windows::core::IntoParam<'a, DisplaySource>, Param1: ::windows::core::IntoParam<'a, DisplaySurface>>(&self, psource: Param0, psurface: Param1, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout> {
+    pub fn CreateSimpleScanout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>>(&self, psource: Param0, psurface: Param1, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSimpleScanout)(::windows::core::Interface::as_raw(this), psource.into_param().abi(), psurface.into_param().abi(), subresourceindex, syncinterval, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Interface::vtable(this).CreateSimpleScanout)(::windows::core::Interface::as_raw(this), psource.into().abi(), psurface.into().abi(), subresourceindex, syncinterval, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool> {
+    pub fn IsCapabilitySupported<'a, Param0: ::std::convert::Into<DisplayDeviceCapability>>(&self, capability: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsCapabilitySupported)(::windows::core::Interface::as_raw(this), capability, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCapabilitySupported)(::windows::core::Interface::as_raw(this), capability.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
-    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, DisplaySource>, Param1: ::windows::core::IntoParam<'a, DisplaySurface>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>>(&self, source: Param0, surface: Param1, subresourceindex: u32, syncinterval: u32, dirtyrects: Param4, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout> {
+    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>, Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, Error = E4>, E4: ::std::convert::Into<::windows::core::Error>, Param5: ::std::convert::Into<DisplayScanoutOptions>>(&self, source: Param0, surface: Param1, subresourceindex: u32, syncinterval: u32, dirtyrects: Param4, options: Param5) -> ::windows::core::Result<DisplayScanout> {
         let this = &::windows::core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Interface::as_raw(this), source.into_param().abi(), surface.into_param().abi(), subresourceindex, syncinterval, dirtyrects.into_param().abi(), options, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Interface::as_raw(this), source.into().abi(), surface.into().abi(), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options.into(), result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
         }
     }
 }
@@ -329,14 +319,9 @@ impl ::core::convert::From<&DisplayDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayDevice> for &::windows::core::IUnknown {
+    fn from(value: &DisplayDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayDevice> for ::windows::core::IInspectable {
@@ -349,14 +334,9 @@ impl ::core::convert::From<&DisplayDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayDevice> for &::windows::core::IInspectable {
+    fn from(value: &DisplayDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayDevice {}
@@ -438,14 +418,9 @@ impl ::core::convert::From<&DisplayFence> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayFence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayFence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayFence> for &::windows::core::IUnknown {
+    fn from(value: &DisplayFence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayFence> for ::windows::core::IInspectable {
@@ -458,14 +433,9 @@ impl ::core::convert::From<&DisplayFence> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayFence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayFence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayFence> for &::windows::core::IInspectable {
+    fn from(value: &DisplayFence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayFence {}
@@ -499,17 +469,17 @@ impl DisplayManager {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryAcquireTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayManagerResult> {
+    pub fn TryAcquireTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<DisplayManagerResult>::zeroed();
-            (::windows::core::Interface::vtable(this).TryAcquireTarget)(::windows::core::Interface::as_raw(this), target.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResult>(result__)
+            (::windows::core::Interface::vtable(this).TryAcquireTarget)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ReleaseTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<()> {
+    pub fn ReleaseTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReleaseTarget)(::windows::core::Interface::as_raw(this), target.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReleaseTarget)(::windows::core::Interface::as_raw(this), target.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn TryReadCurrentStateForAllTargets(&self) -> ::windows::core::Result<DisplayManagerResultWithState> {
@@ -521,98 +491,98 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndReadCurrentState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
+    pub fn TryAcquireTargetsAndReadCurrentState<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryAcquireTargetsAndReadCurrentState)(::windows::core::Interface::as_raw(this), targets.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Interface::vtable(this).TryAcquireTargetsAndReadCurrentState)(::windows::core::Interface::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndCreateEmptyState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
+    pub fn TryAcquireTargetsAndCreateEmptyState<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryAcquireTargetsAndCreateEmptyState)(::windows::core::Interface::as_raw(this), targets.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Interface::vtable(this).TryAcquireTargetsAndCreateEmptyState)(::windows::core::Interface::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndCreateSubstate<'a, Param0: ::windows::core::IntoParam<'a, DisplayState>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, existingstate: Param0, targets: Param1) -> ::windows::core::Result<DisplayManagerResultWithState> {
+    pub fn TryAcquireTargetsAndCreateSubstate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayState>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, existingstate: Param0, targets: Param1) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryAcquireTargetsAndCreateSubstate)(::windows::core::Interface::as_raw(this), existingstate.into_param().abi(), targets.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Interface::vtable(this).TryAcquireTargetsAndCreateSubstate)(::windows::core::Interface::as_raw(this), existingstate.into().abi(), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateDisplayDevice<'a, Param0: ::windows::core::IntoParam<'a, DisplayAdapter>>(&self, adapter: Param0) -> ::windows::core::Result<DisplayDevice> {
+    pub fn CreateDisplayDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayAdapter>>>(&self, adapter: Param0) -> ::windows::core::Result<DisplayDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDisplayDevice)(::windows::core::Interface::as_raw(this), adapter.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayDevice>(result__)
+            (::windows::core::Interface::vtable(this).CreateDisplayDevice)(::windows::core::Interface::as_raw(this), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayDevice>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Enabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Enabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveEnabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnabled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnabled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Disabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Disabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDisabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDisabled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDisabled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PathsFailedOrInvalidated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PathsFailedOrInvalidated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PathsFailedOrInvalidated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PathsFailedOrInvalidated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePathsFailedOrInvalidated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePathsFailedOrInvalidated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePathsFailedOrInvalidated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePathsFailedOrInvalidated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
@@ -625,10 +595,10 @@ impl DisplayManager {
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn Create(options: DisplayManagerOptions) -> ::windows::core::Result<DisplayManager> {
+    pub fn Create<'a, Param0: ::std::convert::Into<DisplayManagerOptions>>(options: Param0) -> ::windows::core::Result<DisplayManager> {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayManager>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -677,14 +647,9 @@ impl ::core::convert::From<&DisplayManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManager> for &::windows::core::IUnknown {
+    fn from(value: &DisplayManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayManager> for ::windows::core::IInspectable {
@@ -697,14 +662,9 @@ impl ::core::convert::From<&DisplayManager> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManager> for &::windows::core::IInspectable {
+    fn from(value: &DisplayManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -722,15 +682,11 @@ impl ::core::convert::TryFrom<&DisplayManager> for super::super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for DisplayManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &DisplayManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DisplayManager> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DisplayManager) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DisplayManager {}
@@ -802,14 +758,9 @@ impl ::core::convert::From<&DisplayManagerChangedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayManagerChangedEventArgs> for ::windows::core::IInspectable {
@@ -822,14 +773,9 @@ impl ::core::convert::From<&DisplayManagerChangedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
@@ -901,14 +847,9 @@ impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayManagerDisabledEventArgs> for ::windows::core::IInspectable {
@@ -921,14 +862,9 @@ impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
@@ -1000,14 +936,9 @@ impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayManagerEnabledEventArgs> for ::windows::core::IInspectable {
@@ -1020,14 +951,9 @@ impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
@@ -1162,14 +1088,9 @@ impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::core::IInspectable {
@@ -1182,14 +1103,9 @@ impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
@@ -1300,14 +1216,9 @@ impl ::core::convert::From<&DisplayManagerResultWithState> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerResultWithState> for &::windows::core::IUnknown {
+    fn from(value: &DisplayManagerResultWithState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayManagerResultWithState> for ::windows::core::IInspectable {
@@ -1320,14 +1231,9 @@ impl ::core::convert::From<&DisplayManagerResultWithState> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayManagerResultWithState> for &::windows::core::IInspectable {
+    fn from(value: &DisplayManagerResultWithState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
@@ -1389,19 +1295,19 @@ impl DisplayModeInfo {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::core::Result<DisplayBitsPerChannel> {
+    pub fn GetWireFormatSupportedBitsPerChannel<'a, Param0: ::std::convert::Into<DisplayWireFormatPixelEncoding>>(&self, encoding: Param0) -> ::windows::core::Result<DisplayBitsPerChannel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<DisplayBitsPerChannel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Interface::as_raw(this), encoding, result__.as_mut_ptr()).from_abi::<DisplayBitsPerChannel>(result__)
+            (::windows::core::Interface::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Interface::as_raw(this), encoding.into(), result__.as_mut_ptr()).from_abi::<DisplayBitsPerChannel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsWireFormatSupported<'a, Param0: ::windows::core::IntoParam<'a, DisplayWireFormat>>(&self, wireformat: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsWireFormatSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>>(&self, wireformat: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsWireFormatSupported)(::windows::core::Interface::as_raw(this), wireformat.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsWireFormatSupported)(::windows::core::Interface::as_raw(this), wireformat.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
@@ -1463,14 +1369,9 @@ impl ::core::convert::From<&DisplayModeInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayModeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayModeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayModeInfo> for &::windows::core::IUnknown {
+    fn from(value: &DisplayModeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayModeInfo> for ::windows::core::IInspectable {
@@ -1483,14 +1384,9 @@ impl ::core::convert::From<&DisplayModeInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayModeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayModeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayModeInfo> for &::windows::core::IInspectable {
+    fn from(value: &DisplayModeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayModeInfo {}
@@ -1596,9 +1492,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
-    pub fn SetSourceResolution<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSourceResolution<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourceResolution)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourceResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -1611,9 +1507,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetSourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
+    pub fn SetSourcePixelFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourcePixelFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourcePixelFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
@@ -1639,9 +1535,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
-    pub fn SetTargetResolution<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTargetResolution<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetResolution)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -1654,9 +1550,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPresentationRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPresentationRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPresentationRate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPresentationRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1669,9 +1565,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsInterlaced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsInterlaced<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsInterlaced)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsInterlaced)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn WireFormat(&self) -> ::windows::core::Result<DisplayWireFormat> {
@@ -1682,9 +1578,9 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetWireFormat<'a, Param0: ::windows::core::IntoParam<'a, DisplayWireFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWireFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWireFormat)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWireFormat)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn Rotation(&self) -> ::windows::core::Result<DisplayRotation> {
@@ -1695,9 +1591,9 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetRotation(&self, value: DisplayRotation) -> ::windows::core::Result<()> {
+    pub fn SetRotation<'a, Param0: ::std::convert::Into<DisplayRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn Scaling(&self) -> ::windows::core::Result<DisplayPathScaling> {
@@ -1708,23 +1604,23 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetScaling(&self, value: DisplayPathScaling) -> ::windows::core::Result<()> {
+    pub fn SetScaling<'a, Param0: ::std::convert::Into<DisplayPathScaling>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaling)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaling)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
+    pub fn FindModes<'a, Param0: ::std::convert::Into<DisplayModeQueryOptions>>(&self, flags: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindModes)(::windows::core::Interface::as_raw(this), flags, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
+            (::windows::core::Interface::vtable(this).FindModes)(::windows::core::Interface::as_raw(this), flags.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ApplyPropertiesFromMode<'a, Param0: ::windows::core::IntoParam<'a, DisplayModeInfo>>(&self, moderesult: Param0) -> ::windows::core::Result<()> {
+    pub fn ApplyPropertiesFromMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayModeInfo>>>(&self, moderesult: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ApplyPropertiesFromMode)(::windows::core::Interface::as_raw(this), moderesult.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ApplyPropertiesFromMode)(::windows::core::Interface::as_raw(this), moderesult.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1746,9 +1642,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPhysicalPresentationRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPhysicalPresentationRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPhysicalPresentationRate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPhysicalPresentationRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayPath {
@@ -1791,14 +1687,9 @@ impl ::core::convert::From<&DisplayPath> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayPath> for &::windows::core::IUnknown {
+    fn from(value: &DisplayPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayPath> for ::windows::core::IInspectable {
@@ -1811,14 +1702,9 @@ impl ::core::convert::From<&DisplayPath> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayPath> for &::windows::core::IInspectable {
+    fn from(value: &DisplayPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayPath {}
@@ -2050,18 +1936,18 @@ impl DisplayPrimaryDescription {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateInstance<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param5) -> ::windows::core::Result<DisplayPrimaryDescription> {
+    pub fn CreateInstance<'a, Param2: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>, Param3: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>>(width: u32, height: u32, pixelformat: Param2, colorspace: Param3, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, pixelformat.into(), colorspace.into(), isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Param6: ::windows::core::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(extraproperties: Param0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param6) -> ::windows::core::Result<DisplayPrimaryDescription> {
+    pub fn CreateWithProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>, Param4: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>>(extraproperties: Param0, width: u32, height: u32, pixelformat: Param3, colorspace: Param4, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.into_param().abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), width, height, pixelformat.into(), colorspace.into(), isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
     #[doc(hidden)]
@@ -2115,14 +2001,9 @@ impl ::core::convert::From<&DisplayPrimaryDescription> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayPrimaryDescription> for &::windows::core::IUnknown {
+    fn from(value: &DisplayPrimaryDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayPrimaryDescription> for ::windows::core::IInspectable {
@@ -2135,14 +2016,9 @@ impl ::core::convert::From<&DisplayPrimaryDescription> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayPrimaryDescription> for &::windows::core::IInspectable {
+    fn from(value: &DisplayPrimaryDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
@@ -2227,14 +2103,9 @@ impl ::core::convert::From<&DisplayScanout> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayScanout {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayScanout {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayScanout> for &::windows::core::IUnknown {
+    fn from(value: &DisplayScanout) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayScanout> for ::windows::core::IInspectable {
@@ -2247,14 +2118,9 @@ impl ::core::convert::From<&DisplayScanout> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayScanout {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayScanout {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayScanout> for &::windows::core::IInspectable {
+    fn from(value: &DisplayScanout) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayScanout {}
@@ -2344,11 +2210,11 @@ impl DisplaySource {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, key: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn GetMetadata(&self, key: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMetadata)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetMetadata)(::windows::core::Interface::as_raw(this), key, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2361,18 +2227,18 @@ impl DisplaySource {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for DisplaySource {
@@ -2415,14 +2281,9 @@ impl ::core::convert::From<&DisplaySource> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplaySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplaySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplaySource> for &::windows::core::IUnknown {
+    fn from(value: &DisplaySource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplaySource> for ::windows::core::IInspectable {
@@ -2435,14 +2296,9 @@ impl ::core::convert::From<&DisplaySource> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplaySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplaySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplaySource> for &::windows::core::IInspectable {
+    fn from(value: &DisplaySource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplaySource {}
@@ -2532,64 +2388,64 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ConnectTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
+    pub fn ConnectTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectTarget)(::windows::core::Interface::as_raw(this), target.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Interface::vtable(this).ConnectTarget)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ConnectTargetToView<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, DisplayView>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<DisplayPath> {
+    pub fn ConnectTargetToView<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectTargetToView)(::windows::core::Interface::as_raw(this), target.into_param().abi(), view.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Interface::vtable(this).ConnectTargetToView)(::windows::core::Interface::as_raw(this), target.into().abi(), view.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CanConnectTargetToView<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, DisplayView>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<bool> {
+    pub fn CanConnectTargetToView<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).CanConnectTargetToView)(::windows::core::Interface::as_raw(this), target.into_param().abi(), view.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanConnectTargetToView)(::windows::core::Interface::as_raw(this), target.into().abi(), view.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetViewForTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayView> {
+    pub fn GetViewForTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayView> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetViewForTarget)(::windows::core::Interface::as_raw(this), target.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayView>(result__)
+            (::windows::core::Interface::vtable(this).GetViewForTarget)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayView>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetPathForTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
+    pub fn GetPathForTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPathForTarget)(::windows::core::Interface::as_raw(this), target.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Interface::vtable(this).GetPathForTarget)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn DisconnectTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<()> {
+    pub fn DisconnectTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DisconnectTarget)(::windows::core::Interface::as_raw(this), target.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DisconnectTarget)(::windows::core::Interface::as_raw(this), target.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
+    pub fn TryFunctionalize<'a, Param0: ::std::convert::Into<DisplayStateFunctionalizeOptions>>(&self, options: Param0) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryFunctionalize)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
+            (::windows::core::Interface::vtable(this).TryFunctionalize)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryApply(&self, options: DisplayStateApplyOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
+    pub fn TryApply<'a, Param0: ::std::convert::Into<DisplayStateApplyOptions>>(&self, options: Param0) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryApply)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
+            (::windows::core::Interface::vtable(this).TryApply)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2641,14 +2497,9 @@ impl ::core::convert::From<&DisplayState> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayState> for &::windows::core::IUnknown {
+    fn from(value: &DisplayState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayState> for ::windows::core::IInspectable {
@@ -2661,14 +2512,9 @@ impl ::core::convert::From<&DisplayState> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayState> for &::windows::core::IInspectable {
+    fn from(value: &DisplayState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayState {}
@@ -2861,14 +2707,9 @@ impl ::core::convert::From<&DisplayStateOperationResult> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayStateOperationResult> for &::windows::core::IUnknown {
+    fn from(value: &DisplayStateOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayStateOperationResult> for ::windows::core::IInspectable {
@@ -2881,14 +2722,9 @@ impl ::core::convert::From<&DisplayStateOperationResult> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayStateOperationResult> for &::windows::core::IInspectable {
+    fn from(value: &DisplayStateOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
@@ -2977,14 +2813,9 @@ impl ::core::convert::From<&DisplaySurface> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplaySurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplaySurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplaySurface> for &::windows::core::IUnknown {
+    fn from(value: &DisplaySurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplaySurface> for ::windows::core::IInspectable {
@@ -2997,14 +2828,9 @@ impl ::core::convert::From<&DisplaySurface> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplaySurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplaySurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplaySurface> for &::windows::core::IInspectable {
+    fn from(value: &DisplaySurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplaySurface {}
@@ -3111,19 +2937,19 @@ impl DisplayTarget {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsSame<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsSame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsSame)(::windows::core::Interface::as_raw(this), othertarget.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSame)(::windows::core::Interface::as_raw(this), othertarget.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEqual)(::windows::core::Interface::as_raw(this), othertarget.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEqual)(::windows::core::Interface::as_raw(this), othertarget.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3167,14 +2993,9 @@ impl ::core::convert::From<&DisplayTarget> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTarget> for &::windows::core::IUnknown {
+    fn from(value: &DisplayTarget) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayTarget> for ::windows::core::IInspectable {
@@ -3187,14 +3008,9 @@ impl ::core::convert::From<&DisplayTarget> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTarget> for &::windows::core::IInspectable {
+    fn from(value: &DisplayTarget) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayTarget {}
@@ -3240,19 +3056,19 @@ unsafe impl ::windows::core::RuntimeType for DisplayTargetPersistence {
 pub struct DisplayTask(::windows::core::IUnknown);
 impl DisplayTask {
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetScanout<'a, Param0: ::windows::core::IntoParam<'a, DisplayScanout>>(&self, scanout: Param0) -> ::windows::core::Result<()> {
+    pub fn SetScanout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayScanout>>>(&self, scanout: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScanout)(::windows::core::Interface::as_raw(this), scanout.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScanout)(::windows::core::Interface::as_raw(this), scanout.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetWait<'a, Param0: ::windows::core::IntoParam<'a, DisplayFence>>(&self, readyfence: Param0, readyfencevalue: u64) -> ::windows::core::Result<()> {
+    pub fn SetWait<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>>(&self, readyfence: Param0, readyfencevalue: u64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWait)(::windows::core::Interface::as_raw(this), readyfence.into_param().abi(), readyfencevalue).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWait)(::windows::core::Interface::as_raw(this), readyfence.into().abi(), readyfencevalue).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetSignal<'a, Param1: ::windows::core::IntoParam<'a, DisplayFence>>(&self, signalkind: DisplayTaskSignalKind, fence: Param1) -> ::windows::core::Result<()> {
+    pub fn SetSignal<'a, Param0: ::std::convert::Into<DisplayTaskSignalKind>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>>(&self, signalkind: Param0, fence: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplayTask2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignal)(::windows::core::Interface::as_raw(this), signalkind, fence.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignal)(::windows::core::Interface::as_raw(this), signalkind.into(), fence.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayTask {
@@ -3295,14 +3111,9 @@ impl ::core::convert::From<&DisplayTask> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTask> for &::windows::core::IUnknown {
+    fn from(value: &DisplayTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayTask> for ::windows::core::IInspectable {
@@ -3315,14 +3126,9 @@ impl ::core::convert::From<&DisplayTask> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTask> for &::windows::core::IInspectable {
+    fn from(value: &DisplayTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayTask {}
@@ -3341,16 +3147,16 @@ impl DisplayTaskPool {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn ExecuteTask<'a, Param0: ::windows::core::IntoParam<'a, DisplayTask>>(&self, task: Param0) -> ::windows::core::Result<()> {
+    pub fn ExecuteTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>>(&self, task: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ExecuteTask)(::windows::core::Interface::as_raw(this), task.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ExecuteTask)(::windows::core::Interface::as_raw(this), task.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryExecuteTask<'a, Param0: ::windows::core::IntoParam<'a, DisplayTask>>(&self, task: Param0) -> ::windows::core::Result<DisplayTaskResult> {
+    pub fn TryExecuteTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>>(&self, task: Param0) -> ::windows::core::Result<DisplayTaskResult> {
         let this = &::windows::core::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryExecuteTask)(::windows::core::Interface::as_raw(this), task.into_param().abi(), result__.as_mut_ptr()).from_abi::<DisplayTaskResult>(result__)
+            (::windows::core::Interface::vtable(this).TryExecuteTask)(::windows::core::Interface::as_raw(this), task.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayTaskResult>(result__)
         }
     }
 }
@@ -3394,14 +3200,9 @@ impl ::core::convert::From<&DisplayTaskPool> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayTaskPool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayTaskPool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTaskPool> for &::windows::core::IUnknown {
+    fn from(value: &DisplayTaskPool) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayTaskPool> for ::windows::core::IInspectable {
@@ -3414,14 +3215,9 @@ impl ::core::convert::From<&DisplayTaskPool> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayTaskPool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayTaskPool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTaskPool> for &::windows::core::IInspectable {
+    fn from(value: &DisplayTaskPool) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayTaskPool {}
@@ -3495,14 +3291,9 @@ impl ::core::convert::From<&DisplayTaskResult> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayTaskResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayTaskResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTaskResult> for &::windows::core::IUnknown {
+    fn from(value: &DisplayTaskResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayTaskResult> for ::windows::core::IInspectable {
@@ -3515,14 +3306,9 @@ impl ::core::convert::From<&DisplayTaskResult> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayTaskResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayTaskResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayTaskResult> for &::windows::core::IInspectable {
+    fn from(value: &DisplayTaskResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayTaskResult {}
@@ -3585,14 +3371,14 @@ impl DisplayView {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
-    pub fn SetContentResolution<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentResolution<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentResolution)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetPrimaryPath<'a, Param0: ::windows::core::IntoParam<'a, DisplayPath>>(&self, path: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrimaryPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayPath>>>(&self, path: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryPath)(::windows::core::Interface::as_raw(this), path.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryPath)(::windows::core::Interface::as_raw(this), path.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3644,14 +3430,9 @@ impl ::core::convert::From<&DisplayView> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayView> for &::windows::core::IUnknown {
+    fn from(value: &DisplayView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayView> for ::windows::core::IInspectable {
@@ -3664,14 +3445,9 @@ impl ::core::convert::From<&DisplayView> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayView> for &::windows::core::IInspectable {
+    fn from(value: &DisplayView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayView {}
@@ -3730,18 +3506,18 @@ impl DisplayWireFormat {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<DisplayWireFormatPixelEncoding>, Param2: ::std::convert::Into<DisplayWireFormatColorSpace>, Param3: ::std::convert::Into<DisplayWireFormatEotf>, Param4: ::std::convert::Into<DisplayWireFormatHdrMetadata>>(pixelencoding: Param0, bitsperchannel: i32, colorspace: Param2, eotf: Param3, hdrmetadata: Param4) -> ::windows::core::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), pixelencoding.into(), bitsperchannel, colorspace.into(), eotf.into(), hdrmetadata.into(), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>>(extraproperties: Param0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat> {
+    pub fn CreateWithProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<DisplayWireFormatPixelEncoding>, Param3: ::std::convert::Into<DisplayWireFormatColorSpace>, Param4: ::std::convert::Into<DisplayWireFormatEotf>, Param5: ::std::convert::Into<DisplayWireFormatHdrMetadata>>(extraproperties: Param0, pixelencoding: Param1, bitsperchannel: i32, colorspace: Param3, eotf: Param4, hdrmetadata: Param5) -> ::windows::core::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.into_param().abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), pixelencoding.into(), bitsperchannel, colorspace.into(), eotf.into(), hdrmetadata.into(), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
         })
     }
     #[doc(hidden)]
@@ -3795,14 +3571,9 @@ impl ::core::convert::From<&DisplayWireFormat> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayWireFormat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayWireFormat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayWireFormat> for &::windows::core::IUnknown {
+    fn from(value: &DisplayWireFormat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayWireFormat> for ::windows::core::IInspectable {
@@ -3815,14 +3586,9 @@ impl ::core::convert::From<&DisplayWireFormat> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayWireFormat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayWireFormat {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayWireFormat> for &::windows::core::IInspectable {
+    fn from(value: &DisplayWireFormat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayWireFormat {}

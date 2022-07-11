@@ -94,9 +94,9 @@ impl AddPackageOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetTargetVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTargetVolume<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -136,9 +136,9 @@ impl AddPackageOptions {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExternalLocationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExternalLocationUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StubPackageOption(&self) -> ::windows::core::Result<StubPackageOption> {
@@ -149,9 +149,9 @@ impl AddPackageOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::core::Result<()> {
+    pub fn SetStubPackageOption<'a, Param0: ::std::convert::Into<StubPackageOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
@@ -324,14 +324,9 @@ impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AddPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AddPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IUnknown {
+    fn from(value: &AddPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AddPackageOptions> for ::windows::core::IInspectable {
@@ -344,14 +339,9 @@ impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AddPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AddPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IInspectable {
+    fn from(value: &AddPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AddPackageOptions {}
@@ -361,20 +351,20 @@ unsafe impl ::core::marker::Sync for AddPackageOptions {}
 pub struct AppInstallerManager(::windows::core::IUnknown);
 impl AppInstallerManager {
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetAutoUpdateSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, AutoUpdateSettingsOptions>>(&self, packagefamilyname: Param0, appinstallerinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn SetAutoUpdateSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, AutoUpdateSettingsOptions>>>(&self, packagefamilyname: Param0, appinstallerinfo: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSettings)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), appinstallerinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSettings)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), appinstallerinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn ClearAutoUpdateSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<()> {
+    pub fn ClearAutoUpdateSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearAutoUpdateSettings)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearAutoUpdateSettings)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PauseAutoUpdatesUntil<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, packagefamilyname: Param0, datetime: Param1) -> ::windows::core::Result<()> {
+    pub fn PauseAutoUpdatesUntil<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0, datetime: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PauseAutoUpdatesUntil)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), datetime.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PauseAutoUpdatesUntil)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), datetime).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AppInstallerManager> {
@@ -436,14 +426,9 @@ impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppInstallerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppInstallerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IUnknown {
+    fn from(value: &AppInstallerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppInstallerManager> for ::windows::core::IInspectable {
@@ -456,14 +441,9 @@ impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppInstallerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppInstallerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IInspectable {
+    fn from(value: &AppInstallerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppInstallerManager {}
@@ -490,9 +470,9 @@ impl AutoUpdateSettingsOptions {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::PackageVersion>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVersion(&self, value: super::super::ApplicationModel::PackageVersion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -505,9 +485,9 @@ impl AutoUpdateSettingsOptions {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAppInstallerUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppInstallerUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppInstallerUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppInstallerUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn OnLaunch(&self) -> ::windows::core::Result<bool> {
@@ -638,10 +618,10 @@ impl AutoUpdateSettingsOptions {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn CreateFromAppInstallerInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::AppInstallerInfo>>(appinstallerinfo: Param0) -> ::windows::core::Result<AutoUpdateSettingsOptions> {
+    pub fn CreateFromAppInstallerInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppInstallerInfo>>>(appinstallerinfo: Param0) -> ::windows::core::Result<AutoUpdateSettingsOptions> {
         Self::IAutoUpdateSettingsOptionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAppInstallerInfo)(::windows::core::Interface::as_raw(this), appinstallerinfo.into_param().abi(), result__.as_mut_ptr()).from_abi::<AutoUpdateSettingsOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromAppInstallerInfo)(::windows::core::Interface::as_raw(this), appinstallerinfo.into().abi(), result__.as_mut_ptr()).from_abi::<AutoUpdateSettingsOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -690,14 +670,9 @@ impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AutoUpdateSettingsOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutoUpdateSettingsOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IUnknown {
+    fn from(value: &AutoUpdateSettingsOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
@@ -710,14 +685,9 @@ impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AutoUpdateSettingsOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutoUpdateSettingsOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IInspectable {
+    fn from(value: &AutoUpdateSettingsOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
@@ -764,9 +734,9 @@ impl CreateSharedPackageContainerOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::core::Result<()> {
+    pub fn SetCreateCollisionOption<'a, Param0: ::std::convert::Into<SharedPackageContainerCreationCollisionOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCreateCollisionOption)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCreateCollisionOption)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for CreateSharedPackageContainerOptions {
@@ -809,14 +779,9 @@ impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
@@ -829,14 +794,9 @@ impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CreateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
@@ -910,14 +870,9 @@ impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IUnknown {
+    fn from(value: &CreateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
@@ -930,14 +885,9 @@ impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CreateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IInspectable {
+    fn from(value: &CreateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
@@ -1020,14 +970,9 @@ impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeleteSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeleteSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
@@ -1040,14 +985,9 @@ impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeleteSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeleteSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
@@ -1113,14 +1053,9 @@ impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeleteSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeleteSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IUnknown {
+    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
@@ -1133,14 +1068,9 @@ impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeleteSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeleteSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IInspectable {
+    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
@@ -1363,14 +1293,9 @@ impl ::core::convert::From<&DeploymentResult> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeploymentResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeploymentResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeploymentResult> for &::windows::core::IUnknown {
+    fn from(value: &DeploymentResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeploymentResult> for ::windows::core::IInspectable {
@@ -1383,14 +1308,9 @@ impl ::core::convert::From<&DeploymentResult> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeploymentResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeploymentResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeploymentResult> for &::windows::core::IInspectable {
+    fn from(value: &DeploymentResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DeploymentResult {}
@@ -1415,9 +1335,9 @@ impl FindSharedPackageContainerOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1428,9 +1348,9 @@ impl FindSharedPackageContainerOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPackageFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FindSharedPackageContainerOptions {
@@ -1473,14 +1393,9 @@ impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FindSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FindSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &FindSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
@@ -1493,14 +1408,9 @@ impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FindSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FindSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &FindSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FindSharedPackageContainerOptions {}
@@ -2549,14 +2459,9 @@ impl ::core::convert::From<&PackageAllUserProvisioningOptions> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageAllUserProvisioningOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageAllUserProvisioningOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageAllUserProvisioningOptions> for &::windows::core::IUnknown {
+    fn from(value: &PackageAllUserProvisioningOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageAllUserProvisioningOptions> for ::windows::core::IInspectable {
@@ -2569,14 +2474,9 @@ impl ::core::convert::From<&PackageAllUserProvisioningOptions> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageAllUserProvisioningOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageAllUserProvisioningOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageAllUserProvisioningOptions> for &::windows::core::IInspectable {
+    fn from(value: &PackageAllUserProvisioningOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
@@ -2630,47 +2530,47 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn AddPackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdatePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn UpdatePackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdatePackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).UpdatePackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RemovePackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageAsync)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StagePackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, packageuri: Param0, dependencypackageuris: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, manifesturi: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RegisterPackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>>(&self, manifesturi: Param0, dependencypackageuris: Param1, deploymentoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageAsync)(::windows::core::Interface::as_raw(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageAsync)(::windows::core::Interface::as_raw(this), manifesturi.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2684,227 +2584,227 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagename: Param0, packagepublisher: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagename: Param0, packagepublisher: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows::core::Interface::as_raw(this), packagename.into().abi(), packagepublisher.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagename.into().abi(), packagepublisher.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindUsers<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<PackageUserInformation>> {
+    pub fn FindUsers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<PackageUserInformation>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindUsers)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<PackageUserInformation>>(result__)
+            (::windows::core::Interface::vtable(this).FindUsers)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<PackageUserInformation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetPackageState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, packagestate: PackageState) -> ::windows::core::Result<()> {
+    pub fn SetPackageState<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageState>>(&self, packagefullname: Param0, packagestate: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageState)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), packagestate).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageState)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), packagestate.into()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackageByPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::ApplicationModel::Package> {
+    pub fn FindPackageByPackageFullName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Package>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CleanupPackageForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagename: Param0, usersecurityid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn CleanupPackageForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagename: Param0, usersecurityid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CleanupPackageForUserAsync)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), usersecurityid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).CleanupPackageForUserAsync)(::windows::core::Interface::as_raw(this), packagename.into().abi(), usersecurityid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackageByUserSecurityIdPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagefullname: Param1) -> ::windows::core::Result<super::super::ApplicationModel::Package> {
+    pub fn FindPackageByUserSecurityIdPackageFullName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagefullname: Param1) -> ::windows::core::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Package>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProvisionPackageForAllUsersWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PackageAllUserProvisioningOptions>>(&self, mainpackagefamilyname: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn ProvisionPackageForAllUsersWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PackageAllUserProvisioningOptions>>>(&self, mainpackagefamilyname: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager10>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersWithOptionsAsync)(::windows::core::Interface::as_raw(this), mainpackagefamilyname.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersWithOptionsAsync)(::windows::core::Interface::as_raw(this), mainpackagefamilyname.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, removaloptions: RemovalOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RemovePackageWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<RemovalOptions>>(&self, packagefullname: Param0, removaloptions: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageWithOptionsAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), removaloptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageWithOptionsAsync)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), removaloptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StagePackageWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageWithOptionsAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageWithOptionsAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageByFullNameAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, mainpackagefullname: Param0, dependencypackagefullnames: Param1, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RegisterPackageByFullNameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>>(&self, mainpackagefullname: Param0, dependencypackagefullnames: Param1, deploymentoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageByFullNameAsync)(::windows::core::Interface::as_raw(this), mainpackagefullname.into_param().abi(), dependencypackagefullnames.into_param().abi(), deploymentoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageByFullNameAsync)(::windows::core::Interface::as_raw(this), mainpackagefullname.into().abi(), dependencypackagefullnames.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesWithPackageTypes<'a, Param0: ::std::convert::Into<PackageTypes>>(&self, packagetypes: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageTypes>>(&self, usersecurityid: Param0, packagetypes: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisherWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagename: Param0, packagepublisher: Param1, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisherWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PackageTypes>>(&self, packagename: Param0, packagepublisher: Param1, packagetypes: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), packagename.into().abi(), packagepublisher.into().abi(), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<PackageTypes>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2, packagetypes: Param3) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagename.into().abi(), packagepublisher.into().abi(), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyNameWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyNameWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageTypes>>(&self, packagefamilyname: Param0, packagetypes: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagefamilyname: Param1, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PackageTypes>>(&self, usersecurityid: Param0, packagefamilyname: Param1, packagetypes: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagefamilyname.into().abi(), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StageUserDataAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StageUserDataAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StageUserDataAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StageUserDataAsync)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddPackageVolumeAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagestorepath: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PackageVolume>> {
+    pub fn AddPackageVolumeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagestorepath: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PackageVolume>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageVolumeAsync)(::windows::core::Interface::as_raw(this), packagestorepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PackageVolume>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageVolumeAsync)(::windows::core::Interface::as_raw(this), packagestorepath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PackageVolume>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageToVolumeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions, targetvolume: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn AddPackageToVolumeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>, Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: Param2, targetvolume: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), targetvolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn ClearPackageStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, status: PackageStatus) -> ::windows::core::Result<()> {
+    pub fn ClearPackageStatus<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageStatus>>(&self, packagefullname: Param0, status: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ClearPackageStatus)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), status).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearPackageStatus)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), status.into()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageWithAppDataVolumeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>>(&self, manifesturi: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions, appdatavolume: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RegisterPackageWithAppDataVolumeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>, Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, manifesturi: Param0, dependencypackageuris: Param1, deploymentoptions: Param2, appdatavolume: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageWithAppDataVolumeAsync)(::windows::core::Interface::as_raw(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageWithAppDataVolumeAsync)(::windows::core::Interface::as_raw(this), manifesturi.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), appdatavolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn FindPackageVolumeByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, volumename: Param0) -> ::windows::core::Result<PackageVolume> {
+    pub fn FindPackageVolumeByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, volumename: Param0) -> ::windows::core::Result<PackageVolume> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageVolumeByName)(::windows::core::Interface::as_raw(this), volumename.into_param().abi(), result__.as_mut_ptr()).from_abi::<PackageVolume>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageVolumeByName)(::windows::core::Interface::as_raw(this), volumename.into().abi(), result__.as_mut_ptr()).from_abi::<PackageVolume>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2926,66 +2826,66 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MovePackageToVolumeAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, PackageVolume>>(&self, packagefullname: Param0, deploymentoptions: DeploymentOptions, targetvolume: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn MovePackageToVolumeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<DeploymentOptions>, Param2: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, packagefullname: Param0, deploymentoptions: Param1, targetvolume: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MovePackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).MovePackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), deploymentoptions.into(), targetvolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageVolumeAsync<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, volume: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RemovePackageVolumeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, volume: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageVolumeAsync)(::windows::core::Interface::as_raw(this), volume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageVolumeAsync)(::windows::core::Interface::as_raw(this), volume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetDefaultPackageVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, volume: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultPackageVolume<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, volume: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultPackageVolume)(::windows::core::Interface::as_raw(this), volume.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultPackageVolume)(::windows::core::Interface::as_raw(this), volume.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetPackageStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, status: PackageStatus) -> ::windows::core::Result<()> {
+    pub fn SetPackageStatus<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageStatus>>(&self, packagefullname: Param0, status: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageStatus)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), status).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageStatus)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), status.into()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPackageVolumeOfflineAsync<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, packagevolume: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn SetPackageVolumeOfflineAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, packagevolume: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPackageVolumeOfflineAsync)(::windows::core::Interface::as_raw(this), packagevolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SetPackageVolumeOfflineAsync)(::windows::core::Interface::as_raw(this), packagevolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPackageVolumeOnlineAsync<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, packagevolume: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn SetPackageVolumeOnlineAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, packagevolume: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPackageVolumeOnlineAsync)(::windows::core::Interface::as_raw(this), packagevolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SetPackageVolumeOnlineAsync)(::windows::core::Interface::as_raw(this), packagevolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageToVolumeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions, targetvolume: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StagePackageToVolumeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>, Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: Param2, targetvolume: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), targetvolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StageUserDataWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, deploymentoptions: DeploymentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StageUserDataWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<DeploymentOptions>>(&self, packagefullname: Param0, deploymentoptions: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StageUserDataWithOptionsAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), deploymentoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StageUserDataWithOptionsAsync)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), deploymentoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2999,11 +2899,22 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageToVolumeAndOptionalPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(
+    pub fn AddPackageToVolumeAndOptionalPackagesAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::Into<DeploymentOptions>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+        Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E5>,
+        E5: ::std::convert::Into<::windows::core::Error>,
+    >(
         &self,
         packageuri: Param0,
         dependencypackageuris: Param1,
-        deploymentoptions: DeploymentOptions,
+        deploymentoptions: Param2,
         targetvolume: Param3,
         optionalpackagefamilynames: Param4,
         externalpackageuris: Param5,
@@ -3011,16 +2922,27 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), externalpackageuris.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), targetvolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), externalpackageuris.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageToVolumeAndOptionalPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(
+    pub fn StagePackageToVolumeAndOptionalPackagesAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::Into<DeploymentOptions>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+        Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E5>,
+        E5: ::std::convert::Into<::windows::core::Error>,
+    >(
         &self,
         packageuri: Param0,
         dependencypackageuris: Param1,
-        deploymentoptions: DeploymentOptions,
+        deploymentoptions: Param2,
         targetvolume: Param3,
         optionalpackagefamilynames: Param4,
         externalpackageuris: Param5,
@@ -3028,16 +2950,23 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), externalpackageuris.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), targetvolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), externalpackageuris.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, mainpackagefamilyname: Param0, dependencypackagefamilynames: Param1, deploymentoptions: DeploymentOptions, appdatavolume: Param3, optionalpackagefamilynames: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<DeploymentOptions>, Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>, Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>, E4: ::std::convert::Into<::windows::core::Error>>(
+        &self,
+        mainpackagefamilyname: Param0,
+        dependencypackagefamilynames: Param1,
+        deploymentoptions: Param2,
+        appdatavolume: Param3,
+        optionalpackagefamilynames: Param4,
+    ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageByFamilyNameAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), mainpackagefamilyname.into_param().abi(), dependencypackagefamilynames.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageByFamilyNameAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), mainpackagefamilyname.into().abi(), dependencypackagefamilynames.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), appdatavolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3050,38 +2979,51 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProvisionPackageForAllUsersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn ProvisionPackageForAllUsersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersAsync)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersAsync)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddPackageByAppInstallerFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, PackageVolume>>(&self, appinstallerfileuri: Param0, options: AddPackageByAppInstallerOptions, targetvolume: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn AddPackageByAppInstallerFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<AddPackageByAppInstallerOptions>, Param2: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, appinstallerfileuri: Param0, options: Param1, targetvolume: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageByAppInstallerFileAsync)(::windows::core::Interface::as_raw(this), appinstallerfileuri.into_param().abi(), options, targetvolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageByAppInstallerFileAsync)(::windows::core::Interface::as_raw(this), appinstallerfileuri.into().abi(), options.into(), targetvolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAddPackageByAppInstallerFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, PackageVolume>>(&self, appinstallerfileuri: Param0, options: AddPackageByAppInstallerOptions, targetvolume: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RequestAddPackageByAppInstallerFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<AddPackageByAppInstallerOptions>, Param2: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, appinstallerfileuri: Param0, options: Param1, targetvolume: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddPackageByAppInstallerFileAsync)(::windows::core::Interface::as_raw(this), appinstallerfileuri.into_param().abi(), options, targetvolume.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddPackageByAppInstallerFileAsync)(::windows::core::Interface::as_raw(this), appinstallerfileuri.into().abi(), options.into(), targetvolume.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddPackageToVolumeAndRelatedSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(
+    pub fn AddPackageToVolumeAndRelatedSetAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::Into<DeploymentOptions>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+        Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E5>,
+        E5: ::std::convert::Into<::windows::core::Error>,
+        Param6: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E6>,
+        E6: ::std::convert::Into<::windows::core::Error>,
+    >(
         &self,
         packageuri: Param0,
         dependencypackageuris: Param1,
-        options: DeploymentOptions,
+        options: Param2,
         targetvolume: Param3,
         optionalpackagefamilynames: Param4,
         packageuristoinstall: Param5,
@@ -3090,16 +3032,29 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), options, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), packageuristoinstall.into_param().abi(), relatedpackageuris.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), options.into(), targetvolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), packageuristoinstall.try_into().map_err(|e| e.into())?.abi(), relatedpackageuris.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StagePackageToVolumeAndRelatedSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(
+    pub fn StagePackageToVolumeAndRelatedSetAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::Into<DeploymentOptions>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+        Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E5>,
+        E5: ::std::convert::Into<::windows::core::Error>,
+        Param6: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E6>,
+        E6: ::std::convert::Into<::windows::core::Error>,
+    >(
         &self,
         packageuri: Param0,
         dependencypackageuris: Param1,
-        options: DeploymentOptions,
+        options: Param2,
         targetvolume: Param3,
         optionalpackagefamilynames: Param4,
         packageuristoinstall: Param5,
@@ -3108,16 +3063,27 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), options, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), packageuristoinstall.into_param().abi(), relatedpackageuris.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), options.into(), targetvolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), packageuristoinstall.try_into().map_err(|e| e.into())?.abi(), relatedpackageuris.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAddPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(
+    pub fn RequestAddPackageAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::Into<DeploymentOptions>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+        Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E5>,
+        E5: ::std::convert::Into<::windows::core::Error>,
+    >(
         &self,
         packageuri: Param0,
         dependencypackageuris: Param1,
-        deploymentoptions: DeploymentOptions,
+        deploymentoptions: Param2,
         targetvolume: Param3,
         optionalpackagefamilynames: Param4,
         relatedpackageuris: Param5,
@@ -3125,16 +3091,29 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddPackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), relatedpackageuris.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddPackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), targetvolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), relatedpackageuris.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAddPackageAndRelatedSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::core::IntoParam<'a, PackageVolume>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(
+    pub fn RequestAddPackageAndRelatedSetAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::Into<DeploymentOptions>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+        Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E5>,
+        E5: ::std::convert::Into<::windows::core::Error>,
+        Param6: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E6>,
+        E6: ::std::convert::Into<::windows::core::Error>,
+    >(
         &self,
         packageuri: Param0,
         dependencypackageuris: Param1,
-        deploymentoptions: DeploymentOptions,
+        deploymentoptions: Param2,
         targetvolume: Param3,
         optionalpackagefamilynames: Param4,
         relatedpackageuris: Param5,
@@ -3143,16 +3122,16 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager7>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddPackageAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), relatedpackageuris.into_param().abi(), packageuristoinstall.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddPackageAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), dependencypackageuris.try_into().map_err(|e| e.into())?.abi(), deploymentoptions.into(), targetvolume.into().abi(), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), relatedpackageuris.try_into().map_err(|e| e.into())?.abi(), packageuristoinstall.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeprovisionPackageForAllUsersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn DeprovisionPackageForAllUsersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager8>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeprovisionPackageForAllUsersAsync)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).DeprovisionPackageForAllUsersAsync)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3166,51 +3145,51 @@ impl PackageManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddPackageByUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, AddPackageOptions>>(&self, packageuri: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn AddPackageByUriAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, AddPackageOptions>>>(&self, packageuri: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageByUriAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageByUriAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StagePackageByUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, StagePackageOptions>>(&self, packageuri: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StagePackageByUriAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, StagePackageOptions>>>(&self, packageuri: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageByUriAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageByUriAsync)(::windows::core::Interface::as_raw(this), packageuri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RegisterPackageByUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, RegisterPackageOptions>>(&self, manifesturi: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RegisterPackageByUriAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RegisterPackageOptions>>>(&self, manifesturi: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageByUriAsync)(::windows::core::Interface::as_raw(this), manifesturi.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageByUriAsync)(::windows::core::Interface::as_raw(this), manifesturi.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterPackagesByFullNameAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, RegisterPackageOptions>>(&self, packagefullnames: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RegisterPackagesByFullNameAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RegisterPackageOptions>>>(&self, packagefullnames: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackagesByFullNameAsync)(::windows::core::Interface::as_raw(this), packagefullnames.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackagesByFullNameAsync)(::windows::core::Interface::as_raw(this), packagefullnames.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetPackageStubPreference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0, usestub: PackageStubPreference) -> ::windows::core::Result<()> {
+    pub fn SetPackageStubPreference<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageStubPreference>>(&self, packagefamilyname: Param0, usestub: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageStubPreference)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), usestub).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageStubPreference)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), usestub.into()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn GetPackageStubPreference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<PackageStubPreference> {
+    pub fn GetPackageStubPreference<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<PackageStubPreference> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PackageStubPreference>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPackageStubPreference)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<PackageStubPreference>(result__)
+            (::windows::core::Interface::vtable(this).GetPackageStubPreference)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<PackageStubPreference>(result__)
         }
     }
 }
@@ -3254,14 +3233,9 @@ impl ::core::convert::From<&PackageManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageManager> for &::windows::core::IUnknown {
+    fn from(value: &PackageManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageManager> for ::windows::core::IInspectable {
@@ -3274,14 +3248,9 @@ impl ::core::convert::From<&PackageManager> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageManager> for &::windows::core::IInspectable {
+    fn from(value: &PackageManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageManager {}
@@ -3292,20 +3261,20 @@ pub struct PackageManagerDebugSettings(::windows::core::IUnknown);
 impl PackageManagerDebugSettings {
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn SetContentGroupStateAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Package>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, package: Param0, contentgroupname: Param1, state: super::super::ApplicationModel::PackageContentGroupState) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetContentGroupStateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<super::super::ApplicationModel::PackageContentGroupState>>(&self, package: Param0, contentgroupname: Param1, state: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetContentGroupStateAsync)(::windows::core::Interface::as_raw(this), package.into_param().abi(), contentgroupname.into_param().abi(), state, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetContentGroupStateAsync)(::windows::core::Interface::as_raw(this), package.into().abi(), contentgroupname.into().abi(), state.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn SetContentGroupStateWithPercentageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Package>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, package: Param0, contentgroupname: Param1, state: super::super::ApplicationModel::PackageContentGroupState, completionpercentage: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetContentGroupStateWithPercentageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<super::super::ApplicationModel::PackageContentGroupState>>(&self, package: Param0, contentgroupname: Param1, state: Param2, completionpercentage: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetContentGroupStateWithPercentageAsync)(::windows::core::Interface::as_raw(this), package.into_param().abi(), contentgroupname.into_param().abi(), state, completionpercentage, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetContentGroupStateWithPercentageAsync)(::windows::core::Interface::as_raw(this), package.into().abi(), contentgroupname.into().abi(), state.into(), completionpercentage, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -3349,14 +3318,9 @@ impl ::core::convert::From<&PackageManagerDebugSettings> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageManagerDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageManagerDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageManagerDebugSettings> for &::windows::core::IUnknown {
+    fn from(value: &PackageManagerDebugSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageManagerDebugSettings> for ::windows::core::IInspectable {
@@ -3369,14 +3333,9 @@ impl ::core::convert::From<&PackageManagerDebugSettings> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageManagerDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageManagerDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageManagerDebugSettings> for &::windows::core::IInspectable {
+    fn from(value: &PackageManagerDebugSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
@@ -3645,14 +3604,9 @@ impl ::core::convert::From<&PackageUserInformation> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageUserInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageUserInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUserInformation> for &::windows::core::IUnknown {
+    fn from(value: &PackageUserInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageUserInformation> for ::windows::core::IInspectable {
@@ -3665,14 +3619,9 @@ impl ::core::convert::From<&PackageUserInformation> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageUserInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageUserInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUserInformation> for &::windows::core::IInspectable {
+    fn from(value: &PackageUserInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageUserInformation {}
@@ -3740,119 +3689,119 @@ impl PackageVolume {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagename: Param0, packagepublisher: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagename: Param0, packagepublisher: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows::core::Interface::as_raw(this), packagename.into().abi(), packagepublisher.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesWithPackageTypes<'a, Param0: ::std::convert::Into<PackageTypes>>(&self, packagetypes: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByNamePublisherWithPackagesTypes<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagetypes: PackageTypes, packagename: Param1, packagepublisher: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisherWithPackagesTypes<'a, Param0: ::std::convert::Into<PackageTypes>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagetypes: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackagesTypes)(::windows::core::Interface::as_raw(this), packagetypes, packagename.into_param().abi(), packagepublisher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackagesTypes)(::windows::core::Interface::as_raw(this), packagetypes.into(), packagename.into().abi(), packagepublisher.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByPackageFamilyNameWithPackageTypes<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagetypes: PackageTypes, packagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyNameWithPackageTypes<'a, Param0: ::std::convert::Into<PackageTypes>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagetypes: Param0, packagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes, packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes.into(), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackageByPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackageByPackageFullName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagename.into().abi(), packagepublisher.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageTypes>>(&self, usersecurityid: Param0, packagetypes: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagetypes.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes, packagename: Param2, packagepublisher: Param3) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageTypes>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagetypes: Param1, packagename: Param2, packagepublisher: Param3) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, packagename.into_param().abi(), packagepublisher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagetypes.into(), packagename.into().abi(), packagepublisher.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes, packagefamilyname: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PackageTypes>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagetypes: Param1, packagefamilyname: Param2) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagetypes.into(), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindPackageByUserSecurityIdPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, usersecurityid: Param0, packagefullname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackageByUserSecurityIdPackageFullName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, usersecurityid: Param0, packagefullname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::windows::core::Interface::as_raw(this), usersecurityid.into().abi(), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3921,14 +3870,9 @@ impl ::core::convert::From<&PackageVolume> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageVolume> for &::windows::core::IUnknown {
+    fn from(value: &PackageVolume) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageVolume> for ::windows::core::IInspectable {
@@ -3941,14 +3885,9 @@ impl ::core::convert::From<&PackageVolume> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageVolume> for &::windows::core::IInspectable {
+    fn from(value: &PackageVolume) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageVolume {}
@@ -3982,9 +3921,9 @@ impl RegisterPackageOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetAppDataVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppDataVolume<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppDataVolume)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppDataVolume)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4006,9 +3945,9 @@ impl RegisterPackageOptions {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExternalLocationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExternalLocationUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
@@ -4155,14 +4094,9 @@ impl ::core::convert::From<&RegisterPackageOptions> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RegisterPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RegisterPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RegisterPackageOptions> for &::windows::core::IUnknown {
+    fn from(value: &RegisterPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RegisterPackageOptions> for ::windows::core::IInspectable {
@@ -4175,14 +4109,9 @@ impl ::core::convert::From<&RegisterPackageOptions> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RegisterPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RegisterPackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RegisterPackageOptions> for &::windows::core::IInspectable {
+    fn from(value: &RegisterPackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RegisterPackageOptions {}
@@ -4281,11 +4210,11 @@ impl SharedPackageContainer {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn RemovePackageFamily<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, UpdateSharedPackageContainerOptions>>(&self, packagefamilyname: Param0, options: Param1) -> ::windows::core::Result<UpdateSharedPackageContainerResult> {
+    pub fn RemovePackageFamily<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, UpdateSharedPackageContainerOptions>>>(&self, packagefamilyname: Param0, options: Param1) -> ::windows::core::Result<UpdateSharedPackageContainerResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<UpdateSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<UpdateSharedPackageContainerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4337,14 +4266,9 @@ impl ::core::convert::From<&SharedPackageContainer> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SharedPackageContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SharedPackageContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SharedPackageContainer> for &::windows::core::IUnknown {
+    fn from(value: &SharedPackageContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SharedPackageContainer> for ::windows::core::IInspectable {
@@ -4357,14 +4281,9 @@ impl ::core::convert::From<&SharedPackageContainer> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SharedPackageContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SharedPackageContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SharedPackageContainer> for &::windows::core::IInspectable {
+    fn from(value: &SharedPackageContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SharedPackageContainer {}
@@ -4409,27 +4328,27 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerCreationColli
 pub struct SharedPackageContainerManager(::windows::core::IUnknown);
 impl SharedPackageContainerManager {
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn CreateContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, CreateSharedPackageContainerOptions>>(&self, name: Param0, options: Param1) -> ::windows::core::Result<CreateSharedPackageContainerResult> {
+    pub fn CreateContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, CreateSharedPackageContainerOptions>>>(&self, name: Param0, options: Param1) -> ::windows::core::Result<CreateSharedPackageContainerResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<CreateSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<CreateSharedPackageContainerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn DeleteContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, DeleteSharedPackageContainerOptions>>(&self, id: Param0, options: Param1) -> ::windows::core::Result<DeleteSharedPackageContainerResult> {
+    pub fn DeleteContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DeleteSharedPackageContainerOptions>>>(&self, id: Param0, options: Param1) -> ::windows::core::Result<DeleteSharedPackageContainerResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteContainer)(::windows::core::Interface::as_raw(this), id.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<DeleteSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).DeleteContainer)(::windows::core::Interface::as_raw(this), id.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<DeleteSharedPackageContainerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn GetContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<SharedPackageContainer> {
+    pub fn GetContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<SharedPackageContainer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetContainer)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<SharedPackageContainer>(result__)
+            (::windows::core::Interface::vtable(this).GetContainer)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<SharedPackageContainer>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -4443,11 +4362,11 @@ impl SharedPackageContainerManager {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindContainersWithOptions<'a, Param0: ::windows::core::IntoParam<'a, FindSharedPackageContainerOptions>>(&self, options: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>> {
+    pub fn FindContainersWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, FindSharedPackageContainerOptions>>>(&self, options: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindContainersWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
+            (::windows::core::Interface::vtable(this).FindContainersWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4458,10 +4377,10 @@ impl SharedPackageContainerManager {
         })
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(usersid: Param0) -> ::windows::core::Result<SharedPackageContainerManager> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(usersid: Param0) -> ::windows::core::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), usersid.into_param().abi(), result__.as_mut_ptr()).from_abi::<SharedPackageContainerManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), usersid.into().abi(), result__.as_mut_ptr()).from_abi::<SharedPackageContainerManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4517,14 +4436,9 @@ impl ::core::convert::From<&SharedPackageContainerManager> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SharedPackageContainerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SharedPackageContainerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SharedPackageContainerManager> for &::windows::core::IUnknown {
+    fn from(value: &SharedPackageContainerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SharedPackageContainerManager> for ::windows::core::IInspectable {
@@ -4537,14 +4451,9 @@ impl ::core::convert::From<&SharedPackageContainerManager> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SharedPackageContainerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SharedPackageContainerManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SharedPackageContainerManager> for &::windows::core::IInspectable {
+    fn from(value: &SharedPackageContainerManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SharedPackageContainerManager {}
@@ -4562,10 +4471,10 @@ impl SharedPackageContainerMember {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<SharedPackageContainerMember> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(packagefamilyname: Param0) -> ::windows::core::Result<SharedPackageContainerMember> {
         Self::ISharedPackageContainerMemberFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<SharedPackageContainerMember>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<SharedPackageContainerMember>(result__)
         })
     }
     #[doc(hidden)]
@@ -4614,14 +4523,9 @@ impl ::core::convert::From<&SharedPackageContainerMember> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SharedPackageContainerMember {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SharedPackageContainerMember {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SharedPackageContainerMember> for &::windows::core::IUnknown {
+    fn from(value: &SharedPackageContainerMember) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SharedPackageContainerMember> for ::windows::core::IInspectable {
@@ -4634,14 +4538,9 @@ impl ::core::convert::From<&SharedPackageContainerMember> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SharedPackageContainerMember {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SharedPackageContainerMember {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SharedPackageContainerMember> for &::windows::core::IInspectable {
+    fn from(value: &SharedPackageContainerMember) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
@@ -4713,9 +4612,9 @@ impl StagePackageOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetTargetVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTargetVolume<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PackageVolume>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4755,9 +4654,9 @@ impl StagePackageOptions {
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExternalLocationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExternalLocationUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StubPackageOption(&self) -> ::windows::core::Result<StubPackageOption> {
@@ -4768,9 +4667,9 @@ impl StagePackageOptions {
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
-    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::core::Result<()> {
+    pub fn SetStubPackageOption<'a, Param0: ::std::convert::Into<StubPackageOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
@@ -4891,14 +4790,9 @@ impl ::core::convert::From<&StagePackageOptions> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StagePackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StagePackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StagePackageOptions> for &::windows::core::IUnknown {
+    fn from(value: &StagePackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StagePackageOptions> for ::windows::core::IInspectable {
@@ -4911,14 +4805,9 @@ impl ::core::convert::From<&StagePackageOptions> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StagePackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StagePackageOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StagePackageOptions> for &::windows::core::IInspectable {
+    fn from(value: &StagePackageOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StagePackageOptions {}
@@ -5037,14 +4926,9 @@ impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UpdateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UpdateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for &::windows::core::IUnknown {
+    fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UpdateSharedPackageContainerOptions> for ::windows::core::IInspectable {
@@ -5057,14 +4941,9 @@ impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UpdateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UpdateSharedPackageContainerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for &::windows::core::IInspectable {
+    fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerOptions {}
@@ -5130,14 +5009,9 @@ impl ::core::convert::From<&UpdateSharedPackageContainerResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UpdateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UpdateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UpdateSharedPackageContainerResult> for &::windows::core::IUnknown {
+    fn from(value: &UpdateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UpdateSharedPackageContainerResult> for ::windows::core::IInspectable {
@@ -5150,14 +5024,9 @@ impl ::core::convert::From<&UpdateSharedPackageContainerResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UpdateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UpdateSharedPackageContainerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UpdateSharedPackageContainerResult> for &::windows::core::IInspectable {
+    fn from(value: &UpdateSharedPackageContainerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}

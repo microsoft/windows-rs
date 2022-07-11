@@ -24,19 +24,14 @@ impl ::core::convert::From<IItemEnumerator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IItemEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IItemEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IItemEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IItemEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IItemEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IItemEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IItemEnumerator {
@@ -79,13 +74,13 @@ pub struct ISettingsContext(::windows::core::IUnknown);
 impl ISettingsContext {
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ITargetInfo>>(&self, pstream: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi()).ok()
+    pub unsafe fn Serialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITargetInfo>>>(&self, pstream: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ptarget.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Deserialize<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ITargetInfo>>(&self, pstream: Param0, ptarget: Param1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Deserialize)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi(), ::core::mem::transmute(pppresults), ::core::mem::transmute(pcresultcount)).ok()
+    pub unsafe fn Deserialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITargetInfo>>>(&self, pstream: Param0, ptarget: Param1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Deserialize)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ptarget.into().abi(), ::core::mem::transmute(pppresults), ::core::mem::transmute(pcresultcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn SetUserData(&self, puserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -102,12 +97,12 @@ impl ISettingsContext {
         (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetStoredSettings<'a, Param0: ::windows::core::IntoParam<'a, ISettingsIdentity>>(&self, pidentity: Param0, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStoredSettings)(::windows::core::Interface::as_raw(self), pidentity.into_param().abi(), ::core::mem::transmute(ppaddedsettings), ::core::mem::transmute(ppmodifiedsettings), ::core::mem::transmute(ppdeletedsettings)).ok()
+    pub unsafe fn GetStoredSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>>(&self, pidentity: Param0, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStoredSettings)(::windows::core::Interface::as_raw(self), pidentity.into().abi(), ::core::mem::transmute(ppaddedsettings), ::core::mem::transmute(ppmodifiedsettings), ::core::mem::transmute(ppdeletedsettings)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn RevertSetting<'a, Param0: ::windows::core::IntoParam<'a, ISettingsIdentity>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pidentity: Param0, pwzsetting: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RevertSetting)(::windows::core::Interface::as_raw(self), pidentity.into_param().abi(), pwzsetting.into_param().abi()).ok()
+    pub unsafe fn RevertSetting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>>(&self, pidentity: Param0, pwzsetting: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RevertSetting)(::windows::core::Interface::as_raw(self), pidentity.into().abi(), ::core::mem::transmute(pwzsetting)).ok()
     }
 }
 impl ::core::convert::From<ISettingsContext> for ::windows::core::IUnknown {
@@ -115,19 +110,14 @@ impl ::core::convert::From<ISettingsContext> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISettingsContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISettingsContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISettingsContext> for ::windows::core::IUnknown {
     fn from(value: &ISettingsContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISettingsContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISettingsContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISettingsContext {
@@ -173,14 +163,14 @@ pub struct ISettingsContext_Vtbl {
 pub struct ISettingsEngine(::windows::core::IUnknown);
 impl ISettingsEngine {
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator> {
+    pub unsafe fn GetNamespaces<'a, Param0: ::std::convert::Into<WcmNamespaceEnumerationFlags>>(&self, flags: Param0, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetNamespace<'a, Param0: ::windows::core::IntoParam<'a, ISettingsIdentity>>(&self, settingsid: Param0, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace> {
+    pub unsafe fn GetNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>, Param1: ::std::convert::Into<WcmNamespaceAccess>>(&self, settingsid: Param0, access: Param1, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNamespace)(::windows::core::Interface::as_raw(self), settingsid.into_param().abi(), ::core::mem::transmute(access), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsNamespace>(result__)
+        (::windows::core::Interface::vtable(self).GetNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), access.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -208,14 +198,14 @@ impl ISettingsEngine {
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterNamespace<'a, Param0: ::windows::core::IntoParam<'a, ISettingsIdentity>, Param1: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, settingsid: Param0, stream: Param1, pushsettings: Param2) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn RegisterNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, settingsid: Param0, stream: Param1, pushsettings: Param2) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterNamespace)(::windows::core::Interface::as_raw(self), settingsid.into_param().abi(), stream.into_param().abi(), pushsettings.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).RegisterNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), stream.into().abi(), pushsettings.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnregisterNamespace<'a, Param0: ::windows::core::IntoParam<'a, ISettingsIdentity>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, settingsid: Param0, removesettings: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterNamespace)(::windows::core::Interface::as_raw(self), settingsid.into_param().abi(), removesettings.into_param().abi()).ok()
+    pub unsafe fn UnregisterNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, settingsid: Param0, removesettings: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), removesettings.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn CreateTargetInfo(&self) -> ::windows::core::Result<ITargetInfo> {
@@ -228,8 +218,8 @@ impl ISettingsEngine {
         (::windows::core::Interface::vtable(self).GetTargetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITargetInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetTargetInfo<'a, Param0: ::windows::core::IntoParam<'a, ITargetInfo>>(&self, target: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetInfo)(::windows::core::Interface::as_raw(self), target.into_param().abi()).ok()
+    pub unsafe fn SetTargetInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITargetInfo>>>(&self, target: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetInfo)(::windows::core::Interface::as_raw(self), target.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn CreateSettingsContext(&self, flags: u32, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsContext> {
@@ -237,12 +227,12 @@ impl ISettingsEngine {
         (::windows::core::Interface::vtable(self).CreateSettingsContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetSettingsContext<'a, Param0: ::windows::core::IntoParam<'a, ISettingsContext>>(&self, settingscontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSettingsContext)(::windows::core::Interface::as_raw(self), settingscontext.into_param().abi()).ok()
+    pub unsafe fn SetSettingsContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsContext>>>(&self, settingscontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSettingsContext)(::windows::core::Interface::as_raw(self), settingscontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn ApplySettingsContext<'a, Param0: ::windows::core::IntoParam<'a, ISettingsContext>>(&self, settingscontext: Param0, pppwzidentities: *mut *mut ::windows::core::PWSTR, pcidentities: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplySettingsContext)(::windows::core::Interface::as_raw(self), settingscontext.into_param().abi(), ::core::mem::transmute(pppwzidentities), ::core::mem::transmute(pcidentities)).ok()
+    pub unsafe fn ApplySettingsContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsContext>>>(&self, settingscontext: Param0, pppwzidentities: *mut *mut ::windows::core::PWSTR, pcidentities: *mut usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ApplySettingsContext)(::windows::core::Interface::as_raw(self), settingscontext.into().abi(), ::core::mem::transmute(pppwzidentities), ::core::mem::transmute(pcidentities)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn GetSettingsContext(&self) -> ::windows::core::Result<ISettingsContext> {
@@ -255,19 +245,14 @@ impl ::core::convert::From<ISettingsEngine> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISettingsEngine> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISettingsEngine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISettingsEngine> for ::windows::core::IUnknown {
     fn from(value: &ISettingsEngine) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISettingsEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISettingsEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISettingsEngine {
@@ -326,13 +311,13 @@ pub struct ISettingsIdentity(::windows::core::IUnknown);
 impl ISettingsIdentity {
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttribute<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, reserved: *const ::core::ffi::c_void, name: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetAttribute(&self, reserved: *const ::core::ffi::c_void, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reserved), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reserved), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetAttribute<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, reserved: *const ::core::ffi::c_void, name: Param1, value: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reserved), name.into_param().abi(), value.into_param().abi()).ok()
+    pub unsafe fn SetAttribute(&self, reserved: *const ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reserved), ::core::mem::transmute(name), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
@@ -349,19 +334,14 @@ impl ::core::convert::From<ISettingsIdentity> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISettingsIdentity> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISettingsIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISettingsIdentity> for ::windows::core::IUnknown {
     fn from(value: &ISettingsIdentity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISettingsIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISettingsIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISettingsIdentity {
@@ -447,23 +427,23 @@ impl ISettingsItem {
         (::windows::core::Interface::vtable(self).Children)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetChild<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<ISettingsItem> {
+    pub unsafe fn GetChild(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetChild)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
+        (::windows::core::Interface::vtable(self).GetChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetSettingByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<ISettingsItem> {
+    pub unsafe fn GetSettingByPath(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSettingByPath)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
+        (::windows::core::Interface::vtable(self).GetSettingByPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn CreateSettingByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<ISettingsItem> {
+    pub unsafe fn CreateSettingByPath(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSettingByPath)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
+        (::windows::core::Interface::vtable(self).CreateSettingByPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn RemoveSettingByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveSettingByPath)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn RemoveSettingByPath(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveSettingByPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -477,8 +457,8 @@ impl ISettingsItem {
         (::windows::core::Interface::vtable(self).CreateListElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keydata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn RemoveListElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, elementname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveListElement)(::windows::core::Interface::as_raw(self), elementname.into_param().abi()).ok()
+    pub unsafe fn RemoveListElement(&self, elementname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveListElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(elementname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn Attributes(&self) -> ::windows::core::Result<IItemEnumerator> {
@@ -487,9 +467,9 @@ impl ISettingsItem {
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetAttribute(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -504,9 +484,9 @@ impl ISettingsItem {
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetRestriction<'a, Param0: ::std::convert::Into<WcmRestrictionFacets>>(&self, restrictionfacet: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestriction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restrictionfacet), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetRestriction)(::windows::core::Interface::as_raw(self), restrictionfacet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -520,19 +500,14 @@ impl ::core::convert::From<ISettingsItem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISettingsItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISettingsItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISettingsItem> for ::windows::core::IUnknown {
     fn from(value: &ISettingsItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISettingsItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISettingsItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISettingsItem {
@@ -628,29 +603,29 @@ impl ISettingsNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pushsettings: Param0) -> ::windows::core::Result<ISettingsResult> {
+    pub unsafe fn Save<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pushsettings: Param0) -> ::windows::core::Result<ISettingsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), pushsettings.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsResult>(result__)
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), pushsettings.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetSettingByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<ISettingsItem> {
+    pub unsafe fn GetSettingByPath(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSettingByPath)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
+        (::windows::core::Interface::vtable(self).GetSettingByPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn CreateSettingByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<ISettingsItem> {
+    pub unsafe fn CreateSettingByPath(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<ISettingsItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSettingByPath)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
+        (::windows::core::Interface::vtable(self).CreateSettingByPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn RemoveSettingByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveSettingByPath)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn RemoveSettingByPath(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveSettingByPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetAttribute(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<ISettingsNamespace> for ::windows::core::IUnknown {
@@ -658,19 +633,14 @@ impl ::core::convert::From<ISettingsNamespace> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISettingsNamespace> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISettingsNamespace) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISettingsNamespace> for ::windows::core::IUnknown {
     fn from(value: &ISettingsNamespace) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISettingsNamespace {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISettingsNamespace {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISettingsNamespace {
@@ -754,19 +724,14 @@ impl ::core::convert::From<ISettingsResult> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISettingsResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISettingsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISettingsResult> for ::windows::core::IUnknown {
     fn from(value: &ISettingsResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISettingsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISettingsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISettingsResult {
@@ -819,8 +784,8 @@ impl ITargetInfo {
         (::windows::core::Interface::vtable(self).GetTargetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WcmTargetMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetTargetMode(&self, targetmode: WcmTargetMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetmode)).ok()
+    pub unsafe fn SetTargetMode<'a, Param0: ::std::convert::Into<WcmTargetMode>>(&self, targetmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetMode)(::windows::core::Interface::as_raw(self), targetmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -829,8 +794,8 @@ impl ITargetInfo {
         (::windows::core::Interface::vtable(self).GetTemporaryStoreLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetTemporaryStoreLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, temporarystorelocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTemporaryStoreLocation)(::windows::core::Interface::as_raw(self), temporarystorelocation.into_param().abi()).ok()
+    pub unsafe fn SetTemporaryStoreLocation(&self, temporarystorelocation: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTemporaryStoreLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(temporarystorelocation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -839,8 +804,8 @@ impl ITargetInfo {
         (::windows::core::Interface::vtable(self).GetTargetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetTargetID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, targetid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetID)(::windows::core::Interface::as_raw(self), targetid.into_param().abi()).ok()
+    pub unsafe fn SetTargetID(&self, targetid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -849,19 +814,19 @@ impl ITargetInfo {
         (::windows::core::Interface::vtable(self).GetTargetProcessorArchitecture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetTargetProcessorArchitecture<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, processorarchitecture: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetProcessorArchitecture)(::windows::core::Interface::as_raw(self), processorarchitecture.into_param().abi()).ok()
+    pub unsafe fn SetTargetProcessorArchitecture(&self, processorarchitecture: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetProcessorArchitecture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(processorarchitecture)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, offline: Param0, property: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, offline: Param0, property: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), offline.into_param().abi(), property.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), offline.into(), ::core::mem::transmute(property), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, offline: Param0, property: Param1, value: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), offline.into_param().abi(), property.into_param().abi(), value.into_param().abi()).ok()
+    pub unsafe fn SetProperty<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, offline: Param0, property: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), offline.into(), ::core::mem::transmute(property), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IItemEnumerator> {
@@ -870,39 +835,39 @@ impl ITargetInfo {
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExpandTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, offline: Param0, location: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn ExpandTarget<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, offline: Param0, location: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).ExpandTarget)(::windows::core::Interface::as_raw(self), offline.into_param().abi(), location.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExpandTarget)(::windows::core::Interface::as_raw(self), offline.into(), ::core::mem::transmute(location), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExpandTargetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, offline: Param0, location: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn ExpandTargetPath<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, offline: Param0, location: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).ExpandTargetPath)(::windows::core::Interface::as_raw(self), offline.into_param().abi(), location.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExpandTargetPath)(::windows::core::Interface::as_raw(self), offline.into(), ::core::mem::transmute(location), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetModulePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, module: Param0, path: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModulePath)(::windows::core::Interface::as_raw(self), module.into_param().abi(), path.into_param().abi()).ok()
+    pub unsafe fn SetModulePath(&self, module: ::windows::core::PCWSTR, path: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetModulePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(module), ::core::mem::transmute(path)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadModule<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, module: Param0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
+    pub unsafe fn LoadModule(&self, module: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HINSTANCE>::zeroed();
-        (::windows::core::Interface::vtable(self).LoadModule)(::windows::core::Interface::as_raw(self), module.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HINSTANCE>(result__)
+        (::windows::core::Interface::vtable(self).LoadModule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(module), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HINSTANCE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetWow64Context<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, installermodule: Param0, wow64context: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWow64Context)(::windows::core::Interface::as_raw(self), installermodule.into_param().abi(), ::core::mem::transmute(wow64context)).ok()
+    pub unsafe fn SetWow64Context(&self, installermodule: ::windows::core::PCWSTR, wow64context: *const u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWow64Context)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(installermodule), ::core::mem::transmute(wow64context)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TranslateWow64<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, clientarchitecture: Param0, value: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn TranslateWow64(&self, clientarchitecture: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).TranslateWow64)(::windows::core::Interface::as_raw(self), clientarchitecture.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TranslateWow64)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clientarchitecture), ::core::mem::transmute(value), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetSchemaHiveLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzhivedir: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSchemaHiveLocation)(::windows::core::Interface::as_raw(self), pwzhivedir.into_param().abi()).ok()
+    pub unsafe fn SetSchemaHiveLocation(&self, pwzhivedir: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSchemaHiveLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwzhivedir)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -911,8 +876,8 @@ impl ITargetInfo {
         (::windows::core::Interface::vtable(self).GetSchemaHiveLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetSchemaHiveMountName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzmountname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSchemaHiveMountName)(::windows::core::Interface::as_raw(self), pwzmountname.into_param().abi()).ok()
+    pub unsafe fn SetSchemaHiveMountName(&self, pwzmountname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSchemaHiveMountName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwzmountname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -926,19 +891,14 @@ impl ::core::convert::From<ITargetInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITargetInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITargetInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITargetInfo> for ::windows::core::IUnknown {
     fn from(value: &ITargetInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITargetInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITargetInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITargetInfo {

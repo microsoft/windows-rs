@@ -115,19 +115,14 @@ impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILowLevelDevicesAggregateProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILowLevelDevicesAggregateProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::core::IUnknown {
     fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
@@ -135,19 +130,14 @@ impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILowLevelDevicesAggregateProvider> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILowLevelDevicesAggregateProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
     fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILowLevelDevicesAggregateProvider {
@@ -295,10 +285,28 @@ impl LowLevelDevicesAggregateProvider {
     }
     #[doc = "*Required features: `\"Devices\"`, `\"Devices_Adc_Provider\"`, `\"Devices_Gpio_Provider\"`, `\"Devices_I2c_Provider\"`, `\"Devices_Pwm_Provider\"`, `\"Devices_Spi_Provider\"`*"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, Adc::Provider::IAdcControllerProvider>, Param1: ::windows::core::IntoParam<'a, Pwm::Provider::IPwmControllerProvider>, Param2: ::windows::core::IntoParam<'a, Gpio::Provider::IGpioControllerProvider>, Param3: ::windows::core::IntoParam<'a, I2c::Provider::II2cControllerProvider>, Param4: ::windows::core::IntoParam<'a, Spi::Provider::ISpiControllerProvider>>(adc: Param0, pwm: Param1, gpio: Param2, i2c: Param3, spi: Param4) -> ::windows::core::Result<LowLevelDevicesAggregateProvider> {
+    pub fn Create<
+        'a,
+        Param0: ::std::convert::TryInto<::windows::core::InParam<'a, Adc::Provider::IAdcControllerProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        Param1: ::std::convert::TryInto<::windows::core::InParam<'a, Pwm::Provider::IPwmControllerProvider>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        Param2: ::std::convert::TryInto<::windows::core::InParam<'a, Gpio::Provider::IGpioControllerProvider>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+        Param3: ::std::convert::TryInto<::windows::core::InParam<'a, I2c::Provider::II2cControllerProvider>, Error = E3>,
+        E3: ::std::convert::Into<::windows::core::Error>,
+        Param4: ::std::convert::TryInto<::windows::core::InParam<'a, Spi::Provider::ISpiControllerProvider>, Error = E4>,
+        E4: ::std::convert::Into<::windows::core::Error>,
+    >(
+        adc: Param0,
+        pwm: Param1,
+        gpio: Param2,
+        i2c: Param3,
+        spi: Param4,
+    ) -> ::windows::core::Result<LowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), adc.into_param().abi(), pwm.into_param().abi(), gpio.into_param().abi(), i2c.into_param().abi(), spi.into_param().abi(), result__.as_mut_ptr()).from_abi::<LowLevelDevicesAggregateProvider>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), adc.try_into().map_err(|e| e.into())?.abi(), pwm.try_into().map_err(|e| e.into())?.abi(), gpio.try_into().map_err(|e| e.into())?.abi(), i2c.try_into().map_err(|e| e.into())?.abi(), spi.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LowLevelDevicesAggregateProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -347,14 +355,9 @@ impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for &::windows::core::IUnknown {
+    fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LowLevelDevicesAggregateProvider> for ::windows::core::IInspectable {
@@ -367,14 +370,9 @@ impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for &::windows::core::IInspectable {
+    fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
@@ -389,14 +387,11 @@ impl ::core::convert::TryFrom<&LowLevelDevicesAggregateProvider> for ILowLevelDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider> for LowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ILowLevelDevicesAggregateProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider> for &LowLevelDevicesAggregateProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ILowLevelDevicesAggregateProvider> {
-        ::core::convert::TryInto::<ILowLevelDevicesAggregateProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LowLevelDevicesAggregateProvider> for ::windows::core::InParam<'a, ILowLevelDevicesAggregateProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LowLevelDevicesAggregateProvider) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LowLevelDevicesAggregateProvider {}
@@ -413,8 +408,8 @@ impl LowLevelDevicesController {
         })
     }
     #[doc = "*Required features: `\"Devices\"`*"]
-    pub fn SetDefaultProvider<'a, Param0: ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetDefaultProvider)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetDefaultProvider<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILowLevelDevicesAggregateProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetDefaultProvider)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -462,14 +457,9 @@ impl ::core::convert::From<&LowLevelDevicesController> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LowLevelDevicesController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LowLevelDevicesController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLevelDevicesController> for &::windows::core::IUnknown {
+    fn from(value: &LowLevelDevicesController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LowLevelDevicesController> for ::windows::core::IInspectable {
@@ -482,14 +472,9 @@ impl ::core::convert::From<&LowLevelDevicesController> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LowLevelDevicesController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LowLevelDevicesController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLevelDevicesController> for &::windows::core::IInspectable {
+    fn from(value: &LowLevelDevicesController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LowLevelDevicesController {}

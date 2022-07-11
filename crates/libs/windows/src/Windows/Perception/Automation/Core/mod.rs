@@ -3,8 +3,8 @@ pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
     #[doc = "*Required features: `\"Perception_Automation_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActivationFactoryProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IGetActivationFactory>>(provider: Param0) -> ::windows::core::Result<()> {
-        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetActivationFactoryProvider)(::windows::core::Interface::as_raw(this), provider.into_param().abi()).ok() })
+    pub fn SetActivationFactoryProvider<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IGetActivationFactory>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<()> {
+        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetActivationFactoryProvider)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

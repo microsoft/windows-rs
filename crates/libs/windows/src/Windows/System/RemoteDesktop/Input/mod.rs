@@ -67,10 +67,10 @@ impl RemoteTextConnection {
         unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, RemoteTextConnectionDataHandler>>(connectionid: Param0, pduforwarder: Param1) -> ::windows::core::Result<RemoteTextConnection> {
+    pub fn CreateInstance<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, RemoteTextConnectionDataHandler>>>(connectionid: ::windows::core::GUID, pduforwarder: Param1) -> ::windows::core::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid, pduforwarder.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)
         })
     }
     #[doc(hidden)]
@@ -119,14 +119,9 @@ impl ::core::convert::From<&RemoteTextConnection> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteTextConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteTextConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteTextConnection> for &::windows::core::IUnknown {
+    fn from(value: &RemoteTextConnection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteTextConnection> for ::windows::core::IInspectable {
@@ -139,14 +134,9 @@ impl ::core::convert::From<&RemoteTextConnection> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteTextConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteTextConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteTextConnection> for &::windows::core::IInspectable {
+    fn from(value: &RemoteTextConnection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -164,15 +154,11 @@ impl ::core::convert::TryFrom<&RemoteTextConnection> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for RemoteTextConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &RemoteTextConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteTextConnection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteTextConnection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteTextConnection {}

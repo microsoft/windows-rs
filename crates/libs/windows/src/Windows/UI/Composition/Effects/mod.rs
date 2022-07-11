@@ -62,9 +62,9 @@ impl SceneLightingEffect {
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), name.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), name.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn AmbientAmount(&self) -> ::windows::core::Result<f32> {
@@ -103,9 +103,9 @@ impl SceneLightingEffect {
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetNormalMapSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNormalMapSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalMapSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalMapSource)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SpecularAmount(&self) -> ::windows::core::Result<f32> {
@@ -142,9 +142,9 @@ impl SceneLightingEffect {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
-    pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> ::windows::core::Result<()> {
+    pub fn SetReflectanceModel<'a, Param0: ::std::convert::Into<SceneLightingEffectReflectanceModel>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for SceneLightingEffect {
@@ -187,14 +187,9 @@ impl ::core::convert::From<&SceneLightingEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SceneLightingEffect> for &::windows::core::IUnknown {
+    fn from(value: &SceneLightingEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SceneLightingEffect> for ::windows::core::IInspectable {
@@ -207,14 +202,9 @@ impl ::core::convert::From<&SceneLightingEffect> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SceneLightingEffect> for &::windows::core::IInspectable {
+    fn from(value: &SceneLightingEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Graphics_Effects")]
@@ -232,15 +222,11 @@ impl ::core::convert::TryFrom<&SceneLightingEffect> for super::super::super::Gra
     }
 }
 #[cfg(feature = "Graphics_Effects")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffect> for SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Graphics::Effects::IGraphicsEffect> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Graphics_Effects")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffect> for &SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Graphics::Effects::IGraphicsEffect> {
-        ::core::convert::TryInto::<super::super::super::Graphics::Effects::IGraphicsEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffect> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Graphics_Effects")]
@@ -258,15 +244,11 @@ impl ::core::convert::TryFrom<&SceneLightingEffect> for super::super::super::Gra
     }
 }
 #[cfg(feature = "Graphics_Effects")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource> for SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Graphics_Effects")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource> for &SceneLightingEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource> {
-        ::core::convert::TryInto::<super::super::super::Graphics::Effects::IGraphicsEffectSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SceneLightingEffect {}

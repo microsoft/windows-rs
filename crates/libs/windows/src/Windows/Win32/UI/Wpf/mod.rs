@@ -10,9 +10,9 @@ pub struct IMILBitmapEffect(::windows::core::IUnknown);
 impl IMILBitmapEffect {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetOutput<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, pcontext: Param1) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
+    pub unsafe fn GetOutput<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, uiindex: u32, pcontext: Param1) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOutput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), pcontext.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Imaging::IWICBitmapSource>(result__)
+        (::windows::core::Interface::vtable(self).GetOutput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), pcontext.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Imaging::IWICBitmapSource>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetParentEffect(&self) -> ::windows::core::Result<IMILBitmapEffectGroup> {
@@ -21,8 +21,8 @@ impl IMILBitmapEffect {
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn SetInputSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::IWICBitmapSource>>(&self, uiindex: u32, pbitmapsource: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInputSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), pbitmapsource.into_param().abi()).ok()
+    pub unsafe fn SetInputSource<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::IWICBitmapSource>>>(&self, uiindex: u32, pbitmapsource: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInputSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), pbitmapsource.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMILBitmapEffect> for ::windows::core::IUnknown {
@@ -30,19 +30,14 @@ impl ::core::convert::From<IMILBitmapEffect> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffect> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffect> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffect {
@@ -99,19 +94,14 @@ impl ::core::convert::From<IMILBitmapEffectConnections> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnections> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectConnections) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectConnections> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectConnections) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectConnections {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectConnections {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectConnections {
@@ -171,19 +161,14 @@ impl ::core::convert::From<IMILBitmapEffectConnectionsInfo> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnectionsInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectConnectionsInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectConnectionsInfo> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectConnectionsInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectConnectionsInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectConnectionsInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectConnectionsInfo {
@@ -255,19 +240,14 @@ impl ::core::convert::From<IMILBitmapEffectConnector> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectConnector> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMILBitmapEffectConnector> for IMILBitmapEffectConnectorInfo {
@@ -275,19 +255,14 @@ impl ::core::convert::From<IMILBitmapEffectConnector> for IMILBitmapEffectConnec
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnector> for &'a IMILBitmapEffectConnectorInfo {
+    fn from(value: &'a IMILBitmapEffectConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectConnector> for IMILBitmapEffectConnectorInfo {
     fn from(value: &IMILBitmapEffectConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnectorInfo> for IMILBitmapEffectConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnectorInfo> for &'a IMILBitmapEffectConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectConnector {
@@ -347,19 +322,14 @@ impl ::core::convert::From<IMILBitmapEffectConnectorInfo> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnectorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectConnectorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectConnectorInfo> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectConnectorInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectConnectorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectConnectorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectConnectorInfo {
@@ -397,12 +367,12 @@ pub struct IMILBitmapEffectEvents(::windows::core::IUnknown);
 impl IMILBitmapEffectEvents {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PropertyChange<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, peffect: Param0, bstrpropertyname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PropertyChange)(::windows::core::Interface::as_raw(self), peffect.into_param().abi(), bstrpropertyname.into_param().abi()).ok()
+    pub unsafe fn PropertyChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffect>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, peffect: Param0, bstrpropertyname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PropertyChange)(::windows::core::Interface::as_raw(self), peffect.into().abi(), bstrpropertyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn DirtyRegion<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffect>>(&self, peffect: Param0, prect: *const MilRectD) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DirtyRegion)(::windows::core::Interface::as_raw(self), peffect.into_param().abi(), ::core::mem::transmute(prect)).ok()
+    pub unsafe fn DirtyRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffect>>>(&self, peffect: Param0, prect: *const MilRectD) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DirtyRegion)(::windows::core::Interface::as_raw(self), peffect.into().abi(), ::core::mem::transmute(prect)).ok()
     }
 }
 impl ::core::convert::From<IMILBitmapEffectEvents> for ::windows::core::IUnknown {
@@ -410,19 +380,14 @@ impl ::core::convert::From<IMILBitmapEffectEvents> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectEvents> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectEvents {
@@ -480,19 +445,14 @@ impl ::core::convert::From<IMILBitmapEffectFactory> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectFactory> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectFactory {
@@ -538,8 +498,8 @@ impl IMILBitmapEffectGroup {
         (::windows::core::Interface::vtable(self).GetInteriorOutputConnector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffect>>(&self, peffect: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), peffect.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffect>>>(&self, peffect: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), peffect.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMILBitmapEffectGroup> for ::windows::core::IUnknown {
@@ -547,19 +507,14 @@ impl ::core::convert::From<IMILBitmapEffectGroup> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectGroup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectGroup> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectGroup {
@@ -595,8 +550,8 @@ pub struct IMILBitmapEffectGroup_Vtbl {
 pub struct IMILBitmapEffectGroupImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectGroupImpl {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn Preprocess<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Preprocess)(::windows::core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
+    pub unsafe fn Preprocess<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Preprocess)(::windows::core::Interface::as_raw(self), pcontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetNumberChildren(&self) -> ::windows::core::Result<u32> {
@@ -614,19 +569,14 @@ impl ::core::convert::From<IMILBitmapEffectGroupImpl> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectGroupImpl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectGroupImpl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectGroupImpl> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectGroupImpl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectGroupImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectGroupImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectGroupImpl {
@@ -662,13 +612,13 @@ pub struct IMILBitmapEffectGroupImpl_Vtbl {
 pub struct IMILBitmapEffectImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectImpl {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn IsInPlaceModificationAllowed<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectOutputConnector>>(&self, poutputconnector: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsInPlaceModificationAllowed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectOutputConnector>>>(&self, poutputconnector: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsInPlaceModificationAllowed)(::windows::core::Interface::as_raw(self), poutputconnector.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsInPlaceModificationAllowed)(::windows::core::Interface::as_raw(self), poutputconnector.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn SetParentEffect<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectGroup>>(&self, pparenteffect: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentEffect)(::windows::core::Interface::as_raw(self), pparenteffect.into_param().abi()).ok()
+    pub unsafe fn SetParentEffect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectGroup>>>(&self, pparenteffect: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParentEffect)(::windows::core::Interface::as_raw(self), pparenteffect.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -683,17 +633,17 @@ impl IMILBitmapEffectImpl {
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetInputBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInputBitmapSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), prendercontext.into_param().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
+    pub unsafe fn GetInputBitmapSource<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetInputBitmapSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), prendercontext.into().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetOutputBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOutputBitmapSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), prendercontext.into_param().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
+    pub unsafe fn GetOutputBitmapSource<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetOutputBitmapSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), prendercontext.into().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pinner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pinner.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pinner: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pinner.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMILBitmapEffectImpl> for ::windows::core::IUnknown {
@@ -701,19 +651,14 @@ impl ::core::convert::From<IMILBitmapEffectImpl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectImpl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectImpl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectImpl> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectImpl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectImpl {
@@ -792,8 +737,8 @@ impl IMILBitmapEffectInputConnector {
         (::windows::core::Interface::vtable(self).base__.GetBitmapEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffect>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn ConnectTo<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectOutputConnector>>(&self, pconnector: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectTo)(::windows::core::Interface::as_raw(self), pconnector.into_param().abi()).ok()
+    pub unsafe fn ConnectTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectOutputConnector>>>(&self, pconnector: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectTo)(::windows::core::Interface::as_raw(self), pconnector.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn GetConnection(&self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector> {
@@ -806,23 +751,23 @@ impl ::core::convert::From<IMILBitmapEffectInputConnector> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectInputConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectInputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectInputConnector> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectInputConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMILBitmapEffectInputConnector> for IMILBitmapEffectConnectorInfo {
     fn from(value: IMILBitmapEffectInputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectInputConnector> for &'a IMILBitmapEffectConnectorInfo {
+    fn from(value: &'a IMILBitmapEffectInputConnector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -831,34 +776,19 @@ impl ::core::convert::From<&IMILBitmapEffectInputConnector> for IMILBitmapEffect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnectorInfo> for IMILBitmapEffectInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnectorInfo> for &'a IMILBitmapEffectInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMILBitmapEffectInputConnector> for IMILBitmapEffectConnector {
     fn from(value: IMILBitmapEffectInputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectInputConnector> for &'a IMILBitmapEffectConnector {
+    fn from(value: &'a IMILBitmapEffectInputConnector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMILBitmapEffectInputConnector> for IMILBitmapEffectConnector {
     fn from(value: &IMILBitmapEffectInputConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnector> for IMILBitmapEffectInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnector> for &'a IMILBitmapEffectInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectInputConnector {
@@ -903,19 +833,14 @@ impl ::core::convert::From<IMILBitmapEffectInteriorInputConnector> for ::windows
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectInteriorInputConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectInteriorInputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectInteriorInputConnector> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectInteriorInputConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectInteriorInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectInteriorInputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectInteriorInputConnector {
@@ -959,19 +884,14 @@ impl ::core::convert::From<IMILBitmapEffectInteriorOutputConnector> for ::window
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectInteriorOutputConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectInteriorOutputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectInteriorOutputConnector> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectInteriorOutputConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectInteriorOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectInteriorOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectInteriorOutputConnector {
@@ -1050,23 +970,23 @@ impl ::core::convert::From<IMILBitmapEffectOutputConnector> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectOutputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectOutputConnector> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectOutputConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnectorInfo {
     fn from(value: IMILBitmapEffectOutputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnector> for &'a IMILBitmapEffectConnectorInfo {
+    fn from(value: &'a IMILBitmapEffectOutputConnector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1075,34 +995,19 @@ impl ::core::convert::From<&IMILBitmapEffectOutputConnector> for IMILBitmapEffec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnectorInfo> for IMILBitmapEffectOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnectorInfo> for &'a IMILBitmapEffectOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnector {
     fn from(value: IMILBitmapEffectOutputConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnector> for &'a IMILBitmapEffectConnector {
+    fn from(value: &'a IMILBitmapEffectOutputConnector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnector {
     fn from(value: &IMILBitmapEffectOutputConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnector> for IMILBitmapEffectOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMILBitmapEffectConnector> for &'a IMILBitmapEffectOutputConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectOutputConnector {
@@ -1137,12 +1042,12 @@ pub struct IMILBitmapEffectOutputConnector_Vtbl {
 pub struct IMILBitmapEffectOutputConnectorImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectOutputConnectorImpl {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn AddBackLink<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectInputConnector>>(&self, pconnection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddBackLink)(::windows::core::Interface::as_raw(self), pconnection.into_param().abi()).ok()
+    pub unsafe fn AddBackLink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectInputConnector>>>(&self, pconnection: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddBackLink)(::windows::core::Interface::as_raw(self), pconnection.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn RemoveBackLink<'a, Param0: ::windows::core::IntoParam<'a, IMILBitmapEffectInputConnector>>(&self, pconnection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveBackLink)(::windows::core::Interface::as_raw(self), pconnection.into_param().abi()).ok()
+    pub unsafe fn RemoveBackLink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectInputConnector>>>(&self, pconnection: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveBackLink)(::windows::core::Interface::as_raw(self), pconnection.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMILBitmapEffectOutputConnectorImpl> for ::windows::core::IUnknown {
@@ -1150,19 +1055,14 @@ impl ::core::convert::From<IMILBitmapEffectOutputConnectorImpl> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnectorImpl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectOutputConnectorImpl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectOutputConnectorImpl> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectOutputConnectorImpl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectOutputConnectorImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectOutputConnectorImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectOutputConnectorImpl {
@@ -1198,16 +1098,16 @@ pub struct IMILBitmapEffectPrimitive(::windows::core::IUnknown);
 impl IMILBitmapEffectPrimitive {
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetOutput<'a, Param1: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, pcontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOutput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), pcontext.into_param().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
+    pub unsafe fn GetOutput<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, uiindex: u32, pcontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetOutput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), pcontext.into().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn TransformPoint<'a, Param3: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: Param3, pfpointtransformed: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransformPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(p), ::core::mem::transmute(fforwardtransform), pcontext.into_param().abi(), ::core::mem::transmute(pfpointtransformed)).ok()
+    pub unsafe fn TransformPoint<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: Param3, pfpointtransformed: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransformPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(p), ::core::mem::transmute(fforwardtransform), pcontext.into().abi(), ::core::mem::transmute(pfpointtransformed)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
-    pub unsafe fn TransformRect<'a, Param3: ::windows::core::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransformRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(p), ::core::mem::transmute(fforwardtransform), pcontext.into_param().abi()).ok()
+    pub unsafe fn TransformRect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransformRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), ::core::mem::transmute(p), ::core::mem::transmute(fforwardtransform), pcontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> ::windows::core::Result<i16> {
@@ -1230,19 +1130,14 @@ impl ::core::convert::From<IMILBitmapEffectPrimitive> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectPrimitive> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectPrimitive) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectPrimitive> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectPrimitive) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectPrimitive {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectPrimitive {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectPrimitive {
@@ -1301,19 +1196,14 @@ impl ::core::convert::From<IMILBitmapEffectPrimitiveImpl> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectPrimitiveImpl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectPrimitiveImpl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectPrimitiveImpl> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectPrimitiveImpl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectPrimitiveImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectPrimitiveImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectPrimitiveImpl {
@@ -1387,19 +1277,14 @@ impl ::core::convert::From<IMILBitmapEffectRenderContext> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectRenderContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectRenderContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectRenderContext> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectRenderContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectRenderContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectRenderContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectRenderContext {
@@ -1466,19 +1351,14 @@ impl ::core::convert::From<IMILBitmapEffectRenderContextImpl> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffectRenderContextImpl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffectRenderContextImpl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffectRenderContextImpl> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffectRenderContextImpl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffectRenderContextImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffectRenderContextImpl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffectRenderContextImpl {
@@ -1541,19 +1421,14 @@ impl ::core::convert::From<IMILBitmapEffects> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMILBitmapEffects> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMILBitmapEffects) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMILBitmapEffects> for ::windows::core::IUnknown {
     fn from(value: &IMILBitmapEffects) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMILBitmapEffects {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMILBitmapEffects {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMILBitmapEffects {

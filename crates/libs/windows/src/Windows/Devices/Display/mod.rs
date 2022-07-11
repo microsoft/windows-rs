@@ -164,11 +164,11 @@ impl DisplayMonitor {
         }
     }
     #[doc = "*Required features: `\"Devices_Display\"`*"]
-    pub fn GetDescriptor(&self, descriptorkind: DisplayMonitorDescriptorKind) -> ::windows::core::Result<::windows::core::Array<u8>> {
+    pub fn GetDescriptor<'a, Param0: ::std::convert::Into<DisplayMonitorDescriptorKind>>(&self, descriptorkind: Param0) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<u8>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptor)(::windows::core::Interface::as_raw(this), descriptorkind, ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).GetDescriptor)(::windows::core::Interface::as_raw(this), descriptorkind.into(), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Devices_Display\"`*"]
@@ -188,18 +188,18 @@ impl DisplayMonitor {
     }
     #[doc = "*Required features: `\"Devices_Display\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Display\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromInterfaceIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceinterfaceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
+    pub fn FromInterfaceIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceinterfaceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromInterfaceIdAsync)(::windows::core::Interface::as_raw(this), deviceinterfaceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>(result__)
+            (::windows::core::Interface::vtable(this).FromInterfaceIdAsync)(::windows::core::Interface::as_raw(this), deviceinterfaceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>(result__)
         })
     }
     #[doc(hidden)]
@@ -248,14 +248,9 @@ impl ::core::convert::From<&DisplayMonitor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayMonitor> for &::windows::core::IUnknown {
+    fn from(value: &DisplayMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayMonitor> for ::windows::core::IInspectable {
@@ -268,14 +263,9 @@ impl ::core::convert::From<&DisplayMonitor> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayMonitor> for &::windows::core::IInspectable {
+    fn from(value: &DisplayMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayMonitor {}

@@ -68,14 +68,9 @@ impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FindAllAccountsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FindAllAccountsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IUnknown {
+    fn from(value: &FindAllAccountsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IInspectable {
@@ -88,14 +83,9 @@ impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FindAllAccountsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FindAllAccountsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IInspectable {
+    fn from(value: &FindAllAccountsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FindAllAccountsResult {}
@@ -561,14 +551,9 @@ impl ::core::convert::From<&WebAccountEventArgs> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccountEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAccountEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WebAccountEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebAccountEventArgs> for ::windows::core::IInspectable {
@@ -581,14 +566,9 @@ impl ::core::convert::From<&WebAccountEventArgs> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAccountEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAccountEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WebAccountEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WebAccountEventArgs {}
@@ -599,63 +579,63 @@ pub struct WebAccountMonitor(::windows::core::IUnknown);
 impl WebAccountMonitor {
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveUpdated(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoved(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DefaultSignInAccountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn DefaultSignInAccountChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDefaultSignInAccountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDefaultSignInAccountChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccountPictureUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn AccountPictureUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IWebAccountMonitor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AccountPictureUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AccountPictureUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAccountPictureUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAccountPictureUpdated(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebAccountMonitor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountPictureUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountPictureUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for WebAccountMonitor {
@@ -698,14 +678,9 @@ impl ::core::convert::From<&WebAccountMonitor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccountMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAccountMonitor> for &::windows::core::IUnknown {
+    fn from(value: &WebAccountMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebAccountMonitor> for ::windows::core::IInspectable {
@@ -718,14 +693,9 @@ impl ::core::convert::From<&WebAccountMonitor> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAccountMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAccountMonitor> for &::windows::core::IInspectable {
+    fn from(value: &WebAccountMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WebAccountMonitor {}
@@ -735,114 +705,114 @@ pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTokenSilentlyAsync<'a, Param0: ::windows::core::IntoParam<'a, WebTokenRequest>>(request: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
+    pub fn GetTokenSilentlyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WebTokenRequest>>>(request: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenSilentlyAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetTokenSilentlyAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn GetTokenSilentlyWithWebAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, WebTokenRequest>, Param1: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccount>>(request: Param0, webaccount: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
+    pub fn GetTokenSilentlyWithWebAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WebTokenRequest>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccount>>>(request: Param0, webaccount: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenSilentlyWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), webaccount.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetTokenSilentlyWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestTokenAsync<'a, Param0: ::windows::core::IntoParam<'a, WebTokenRequest>>(request: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
+    pub fn RequestTokenAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WebTokenRequest>>>(request: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTokenAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestTokenAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn RequestTokenWithWebAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, WebTokenRequest>, Param1: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccount>>(request: Param0, webaccount: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
+    pub fn RequestTokenWithWebAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WebTokenRequest>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccount>>>(request: Param0, webaccount: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTokenWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), webaccount.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestTokenWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(provider: Param0, webaccountid: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>> {
+    pub fn FindAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(provider: Param0, webaccountid: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountAsync)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), webaccountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>(result__)
+            (::windows::core::Interface::vtable(this).FindAccountAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), webaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindAccountProviderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountproviderid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountproviderid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountProviderAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Interface::vtable(this).FindAccountProviderAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindAccountProviderWithAuthorityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountproviderid: Param0, authority: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderWithAuthorityAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountproviderid: Param0, authority: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into_param().abi(), authority.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into().abi(), authority.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "System"))]
-    pub fn FindAccountProviderWithAuthorityForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::System::User>>(webaccountproviderid: Param0, authority: Param1, user: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderWithAuthorityForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::System::User>>>(webaccountproviderid: Param0, authority: Param1, user: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into_param().abi(), authority.into_param().abi(), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into().abi(), authority.into().abi(), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn CreateWebAccountMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::super::super::Credentials::WebAccount>>>(webaccounts: Param0) -> ::windows::core::Result<WebAccountMonitor> {
+    pub fn CreateWebAccountMonitor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::super::super::Credentials::WebAccount>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(webaccounts: Param0) -> ::windows::core::Result<WebAccountMonitor> {
         Self::IWebAuthenticationCoreManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWebAccountMonitor)(::windows::core::Interface::as_raw(this), webaccounts.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebAccountMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateWebAccountMonitor)(::windows::core::Interface::as_raw(this), webaccounts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<WebAccountMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindAllAccountsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>>(provider: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>> {
+    pub fn FindAllAccountsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>>(provider: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAccountsAsync)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAccountsAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindAllAccountsWithClientIdAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(provider: Param0, clientid: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>> {
+    pub fn FindAllAccountsWithClientIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(provider: Param0, clientid: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAccountsWithClientIdAsync)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), clientid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAccountsWithClientIdAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), clientid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindSystemAccountProviderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountproviderid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountproviderid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindSystemAccountProviderAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Interface::vtable(this).FindSystemAccountProviderAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn FindSystemAccountProviderWithAuthorityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(webaccountproviderid: Param0, authority: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderWithAuthorityAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountproviderid: Param0, authority: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into_param().abi(), authority.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into().abi(), authority.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "System"))]
-    pub fn FindSystemAccountProviderWithAuthorityForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::System::User>>(webaccountproviderid: Param0, authority: Param1, user: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderWithAuthorityForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::System::User>>>(webaccountproviderid: Param0, authority: Param1, user: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into_param().abi(), authority.into_param().abi(), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), webaccountproviderid.into().abi(), authority.into().abi(), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc(hidden)]
@@ -899,10 +869,10 @@ impl WebProviderError {
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-    pub fn Create<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(errorcode: u32, errormessage: Param1) -> ::windows::core::Result<WebProviderError> {
+    pub fn Create<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(errorcode: u32, errormessage: Param1) -> ::windows::core::Result<WebProviderError> {
         Self::IWebProviderErrorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), errorcode, errormessage.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), errorcode, errormessage.into().abi(), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         })
     }
     #[doc(hidden)]
@@ -951,14 +921,9 @@ impl ::core::convert::From<&WebProviderError> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebProviderError> for &::windows::core::IUnknown {
+    fn from(value: &WebProviderError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebProviderError> for ::windows::core::IInspectable {
@@ -971,14 +936,9 @@ impl ::core::convert::From<&WebProviderError> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebProviderError> for &::windows::core::IInspectable {
+    fn from(value: &WebProviderError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WebProviderError {}
@@ -1047,40 +1007,40 @@ impl WebTokenRequest {
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-    pub fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCorrelationId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebTokenRequest3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(provider: Param0, scope: Param1, clientid: Param2) -> ::windows::core::Result<WebTokenRequest> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(provider: Param0, scope: Param1, clientid: Param2) -> ::windows::core::Result<WebTokenRequest> {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), scope.into_param().abi(), clientid.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), provider.into().abi(), scope.into().abi(), clientid.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithPromptType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(provider: Param0, scope: Param1, clientid: Param2, prompttype: WebTokenRequestPromptType) -> ::windows::core::Result<WebTokenRequest> {
+    pub fn CreateWithPromptType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<WebTokenRequestPromptType>>(provider: Param0, scope: Param1, clientid: Param2, prompttype: Param3) -> ::windows::core::Result<WebTokenRequest> {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPromptType)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), scope.into_param().abi(), clientid.into_param().abi(), prompttype, result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithPromptType)(::windows::core::Interface::as_raw(this), provider.into().abi(), scope.into().abi(), clientid.into().abi(), prompttype.into(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>>(provider: Param0) -> ::windows::core::Result<WebTokenRequest> {
+    pub fn CreateWithProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>>(provider: Param0) -> ::windows::core::Result<WebTokenRequest> {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProvider)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProvider)(::windows::core::Interface::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithScope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccountProvider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(provider: Param0, scope: Param1) -> ::windows::core::Result<WebTokenRequest> {
+    pub fn CreateWithScope<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(provider: Param0, scope: Param1) -> ::windows::core::Result<WebTokenRequest> {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithScope)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), scope.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithScope)(::windows::core::Interface::as_raw(this), provider.into().abi(), scope.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc(hidden)]
@@ -1129,14 +1089,9 @@ impl ::core::convert::From<&WebTokenRequest> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebTokenRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebTokenRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebTokenRequest> for &::windows::core::IUnknown {
+    fn from(value: &WebTokenRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebTokenRequest> for ::windows::core::IInspectable {
@@ -1149,14 +1104,9 @@ impl ::core::convert::From<&WebTokenRequest> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebTokenRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebTokenRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebTokenRequest> for &::windows::core::IInspectable {
+    fn from(value: &WebTokenRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WebTokenRequest {}
@@ -1274,14 +1224,9 @@ impl ::core::convert::From<&WebTokenRequestResult> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebTokenRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebTokenRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebTokenRequestResult> for &::windows::core::IUnknown {
+    fn from(value: &WebTokenRequestResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebTokenRequestResult> for ::windows::core::IInspectable {
@@ -1294,14 +1239,9 @@ impl ::core::convert::From<&WebTokenRequestResult> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebTokenRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebTokenRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebTokenRequestResult> for &::windows::core::IInspectable {
+    fn from(value: &WebTokenRequestResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WebTokenRequestResult {}
@@ -1390,26 +1330,26 @@ impl WebTokenResponse {
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-    pub fn CreateWithToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(token: Param0) -> ::windows::core::Result<WebTokenResponse> {
+    pub fn CreateWithToken<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(token: Param0) -> ::windows::core::Result<WebTokenResponse> {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithToken)(::windows::core::Interface::as_raw(this), token.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithToken)(::windows::core::Interface::as_raw(this), token.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithTokenAndAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccount>>(token: Param0, webaccount: Param1) -> ::windows::core::Result<WebTokenResponse> {
+    pub fn CreateWithTokenAndAccount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccount>>>(token: Param0, webaccount: Param1) -> ::windows::core::Result<WebTokenResponse> {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTokenAndAccount)(::windows::core::Interface::as_raw(this), token.into_param().abi(), webaccount.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTokenAndAccount)(::windows::core::Interface::as_raw(this), token.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithTokenAccountAndError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Credentials::WebAccount>, Param2: ::windows::core::IntoParam<'a, WebProviderError>>(token: Param0, webaccount: Param1, error: Param2) -> ::windows::core::Result<WebTokenResponse> {
+    pub fn CreateWithTokenAccountAndError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccount>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, WebProviderError>>>(token: Param0, webaccount: Param1, error: Param2) -> ::windows::core::Result<WebTokenResponse> {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTokenAccountAndError)(::windows::core::Interface::as_raw(this), token.into_param().abi(), webaccount.into_param().abi(), error.into_param().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTokenAccountAndError)(::windows::core::Interface::as_raw(this), token.into().abi(), webaccount.into().abi(), error.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
     #[doc(hidden)]
@@ -1458,14 +1398,9 @@ impl ::core::convert::From<&WebTokenResponse> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebTokenResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebTokenResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebTokenResponse> for &::windows::core::IUnknown {
+    fn from(value: &WebTokenResponse) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebTokenResponse> for ::windows::core::IInspectable {
@@ -1478,14 +1413,9 @@ impl ::core::convert::From<&WebTokenResponse> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebTokenResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebTokenResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebTokenResponse> for &::windows::core::IInspectable {
+    fn from(value: &WebTokenResponse) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WebTokenResponse {}

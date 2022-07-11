@@ -89,26 +89,26 @@ impl PreallocatedWorkItem {
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItem<'a, Param0: ::windows::core::IntoParam<'a, super::WorkItemHandler>>(handler: Param0) -> ::windows::core::Result<PreallocatedWorkItem> {
+    pub fn CreateWorkItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::WorkItemHandler>>>(handler: Param0) -> ::windows::core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWorkItem)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWorkItem)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItemWithPriority<'a, Param0: ::windows::core::IntoParam<'a, super::WorkItemHandler>>(handler: Param0, priority: super::WorkItemPriority) -> ::windows::core::Result<PreallocatedWorkItem> {
+    pub fn CreateWorkItemWithPriority<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::WorkItemHandler>>, Param1: ::std::convert::Into<super::WorkItemPriority>>(handler: Param0, priority: Param1) -> ::windows::core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), priority, result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority.into(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItemWithPriorityAndOptions<'a, Param0: ::windows::core::IntoParam<'a, super::WorkItemHandler>>(handler: Param0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::core::Result<PreallocatedWorkItem> {
+    pub fn CreateWorkItemWithPriorityAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::WorkItemHandler>>, Param1: ::std::convert::Into<super::WorkItemPriority>, Param2: ::std::convert::Into<super::WorkItemOptions>>(handler: Param0, priority: Param1, options: Param2) -> ::windows::core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), priority, options, result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority.into(), options.into(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[doc(hidden)]
@@ -157,14 +157,9 @@ impl ::core::convert::From<&PreallocatedWorkItem> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PreallocatedWorkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PreallocatedWorkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PreallocatedWorkItem> for &::windows::core::IUnknown {
+    fn from(value: &PreallocatedWorkItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PreallocatedWorkItem> for ::windows::core::IInspectable {
@@ -177,14 +172,9 @@ impl ::core::convert::From<&PreallocatedWorkItem> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PreallocatedWorkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PreallocatedWorkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PreallocatedWorkItem> for &::windows::core::IInspectable {
+    fn from(value: &PreallocatedWorkItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PreallocatedWorkItem {}
@@ -198,9 +188,9 @@ impl SignalHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, SignalNotifier>>(&self, signalnotifier: Param0, timedout: bool) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SignalNotifier>>>(&self, signalnotifier: Param0, timedout: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), signalnotifier.into_param().abi(), timedout).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), signalnotifier.into().abi(), timedout).ok() }
     }
 }
 #[repr(C)]
@@ -289,33 +279,33 @@ impl SignalNotifier {
         unsafe { (::windows::core::Interface::vtable(this).Terminate)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`*"]
-    pub fn AttachToEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SignalHandler>>(name: Param0, handler: Param1) -> ::windows::core::Result<SignalNotifier> {
+    pub fn AttachToEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>>(name: Param0, handler: Param1) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToEvent)(::windows::core::Interface::as_raw(this), name.into_param().abi(), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToEvent)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttachToEventWithTimeout<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SignalHandler>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(name: Param0, handler: Param1, timeout: Param2) -> ::windows::core::Result<SignalNotifier> {
+    pub fn AttachToEventWithTimeout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>>(name: Param0, handler: Param1, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToEventWithTimeout)(::windows::core::Interface::as_raw(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToEventWithTimeout)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`*"]
-    pub fn AttachToSemaphore<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SignalHandler>>(name: Param0, handler: Param1) -> ::windows::core::Result<SignalNotifier> {
+    pub fn AttachToSemaphore<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>>(name: Param0, handler: Param1) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToSemaphore)(::windows::core::Interface::as_raw(this), name.into_param().abi(), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToSemaphore)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttachToSemaphoreWithTimeout<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SignalHandler>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(name: Param0, handler: Param1, timeout: Param2) -> ::windows::core::Result<SignalNotifier> {
+    pub fn AttachToSemaphoreWithTimeout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SignalHandler>>>(name: Param0, handler: Param1, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows::core::Interface::as_raw(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
+            (::windows::core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc(hidden)]
@@ -364,14 +354,9 @@ impl ::core::convert::From<&SignalNotifier> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SignalNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SignalNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SignalNotifier> for &::windows::core::IUnknown {
+    fn from(value: &SignalNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SignalNotifier> for ::windows::core::IInspectable {
@@ -384,14 +369,9 @@ impl ::core::convert::From<&SignalNotifier> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SignalNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SignalNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SignalNotifier> for &::windows::core::IInspectable {
+    fn from(value: &SignalNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SignalNotifier {}

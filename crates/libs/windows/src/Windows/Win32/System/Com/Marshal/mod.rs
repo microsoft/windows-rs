@@ -152,89 +152,89 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *const u32, param1: *const u8, 
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoGetMarshalSizeMax<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pulsize: *mut u32, riid: *const ::windows::core::GUID, punk: Param2, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn CoGetMarshalSizeMax<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(pulsize: *mut u32, riid: *const ::windows::core::GUID, punk: Param2, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoGetMarshalSizeMax(pulsize: *mut u32, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::HRESULT;
     }
-    CoGetMarshalSizeMax(::core::mem::transmute(pulsize), ::core::mem::transmute(riid), punk.into_param().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+    CoGetMarshalSizeMax(::core::mem::transmute(pulsize), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoGetStandardMarshal<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, punk: Param1, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<IMarshal> {
+pub unsafe fn CoGetStandardMarshal<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(riid: *const ::windows::core::GUID, punk: Param1, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<IMarshal> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoGetStandardMarshal(riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32, ppmarshal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CoGetStandardMarshal(::core::mem::transmute(riid), punk.into_param().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
+    CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoGetStdMarshalEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkouter: Param0, smexflags: u32) -> ::windows::core::Result<::windows::core::IUnknown> {
+pub unsafe fn CoGetStdMarshalEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(punkouter: Param0, smexflags: u32) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoGetStdMarshalEx(punkouter: *mut ::core::ffi::c_void, smexflags: u32, ppunkinner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CoGetStdMarshalEx(punkouter.into_param().abi(), ::core::mem::transmute(smexflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CoGetStdMarshalEx(punkouter.into().abi(), ::core::mem::transmute(smexflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoMarshalHresult<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+pub unsafe fn CoMarshalHresult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(pstm: Param0, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoMarshalHresult(pstm: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    CoMarshalHresult(pstm.into_param().abi(), ::core::mem::transmute(hresult)).ok()
+    CoMarshalHresult(pstm.into().abi(), ::core::mem::transmute(hresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoMarshalInterThreadInterfaceInStream<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, punk: Param1) -> ::windows::core::Result<super::IStream> {
+pub unsafe fn CoMarshalInterThreadInterfaceInStream<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(riid: *const ::windows::core::GUID, punk: Param1) -> ::windows::core::Result<super::IStream> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoMarshalInterThreadInterfaceInStream(riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CoMarshalInterThreadInterfaceInStream(::core::mem::transmute(riid), punk.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
+    CoMarshalInterThreadInterfaceInStream(::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoMarshalInterface<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pstm: Param0, riid: *const ::windows::core::GUID, punk: Param2, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn CoMarshalInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(pstm: Param0, riid: *const ::windows::core::GUID, punk: Param2, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoMarshalInterface(pstm: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::HRESULT;
     }
-    CoMarshalInterface(pstm.into_param().abi(), ::core::mem::transmute(riid), punk.into_param().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+    CoMarshalInterface(pstm.into().abi(), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoReleaseMarshalData<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn CoReleaseMarshalData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(pstm: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoReleaseMarshalData(pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CoReleaseMarshalData(pstm.into_param().abi()).ok()
+    CoReleaseMarshalData(pstm.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoUnmarshalHresult<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0) -> ::windows::core::Result<::windows::core::HRESULT> {
+pub unsafe fn CoUnmarshalHresult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(pstm: Param0) -> ::windows::core::Result<::windows::core::HRESULT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoUnmarshalHresult(pstm: *mut ::core::ffi::c_void, phresult: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
-    CoUnmarshalHresult(pstm.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+    CoUnmarshalHresult(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
-pub unsafe fn CoUnmarshalInterface<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>, T: ::windows::core::Interface>(pstm: Param0) -> ::windows::core::Result<T> {
+pub unsafe fn CoUnmarshalInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>, T: ::windows::core::Interface>(pstm: Param0) -> ::windows::core::Result<T> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoUnmarshalInterface(pstm: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::option::Option::None;
-    CoUnmarshalInterface(pstm.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    CoUnmarshalInterface(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -881,16 +881,16 @@ impl IMarshal {
         (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(psize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn MarshalInterface<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+    pub unsafe fn MarshalInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn UnmarshalInterface<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnmarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    pub unsafe fn UnmarshalInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnmarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn ReleaseMarshalData<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseMarshalData)(::windows::core::Interface::as_raw(self), pstm.into_param().abi()).ok()
+    pub unsafe fn ReleaseMarshalData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReleaseMarshalData)(::windows::core::Interface::as_raw(self), pstm.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn DisconnectObject(&self, dwreserved: u32) -> ::windows::core::Result<()> {
@@ -902,19 +902,14 @@ impl ::core::convert::From<IMarshal> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMarshal> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMarshal) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMarshal> for ::windows::core::IUnknown {
     fn from(value: &IMarshal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMarshal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMarshal {
@@ -961,16 +956,16 @@ impl IMarshal2 {
         (::windows::core::Interface::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(psize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn MarshalInterface<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
+    pub unsafe fn MarshalInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(mshlflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn UnmarshalInterface<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnmarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    pub unsafe fn UnmarshalInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UnmarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn ReleaseMarshalData<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReleaseMarshalData)(::windows::core::Interface::as_raw(self), pstm.into_param().abi()).ok()
+    pub unsafe fn ReleaseMarshalData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ReleaseMarshalData)(::windows::core::Interface::as_raw(self), pstm.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn DisconnectObject(&self, dwreserved: u32) -> ::windows::core::Result<()> {
@@ -982,19 +977,14 @@ impl ::core::convert::From<IMarshal2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMarshal2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMarshal2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMarshal2> for ::windows::core::IUnknown {
     fn from(value: &IMarshal2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMarshal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMarshal2> for IMarshal {
@@ -1002,19 +992,14 @@ impl ::core::convert::From<IMarshal2> for IMarshal {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMarshal2> for &'a IMarshal {
+    fn from(value: &'a IMarshal2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMarshal2> for IMarshal {
     fn from(value: &IMarshal2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMarshal> for IMarshal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMarshal> for &'a IMarshal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMarshal2 {
@@ -1055,21 +1040,21 @@ impl IMarshalingStream {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbwritten)))
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
+    pub unsafe fn Seek<'a, Param1: ::std::convert::Into<super::STREAM_SEEK>>(&self, dlibmove: i64, dworigin: Param1) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(libnewsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+    pub unsafe fn CopyTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn Commit(&self, grfcommitflags: super::STGC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
+    pub unsafe fn Commit<'a, Param0: ::std::convert::Into<super::STGC>>(&self, grfcommitflags: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
@@ -1094,13 +1079,18 @@ impl IMarshalingStream {
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
+    pub unsafe fn GetMarshalingContextAttribute<'a, Param0: ::std::convert::Into<super::CO_MARSHALING_CONTEXT_ATTRIBUTES>>(&self, attribute: Param0) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attribute), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), attribute.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IMarshalingStream> for ::windows::core::IUnknown {
     fn from(value: IMarshalingStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMarshalingStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMarshalingStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1109,18 +1099,13 @@ impl ::core::convert::From<&IMarshalingStream> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMarshalingStream> for super::ISequentialStream {
     fn from(value: IMarshalingStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMarshalingStream> for &'a super::ISequentialStream {
+    fn from(value: &'a IMarshalingStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1129,34 +1114,19 @@ impl ::core::convert::From<&IMarshalingStream> for super::ISequentialStream {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::ISequentialStream> for IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::ISequentialStream> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::ISequentialStream> for &'a IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::ISequentialStream> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMarshalingStream> for super::IStream {
     fn from(value: IMarshalingStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMarshalingStream> for &'a super::IStream {
+    fn from(value: &'a IMarshalingStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMarshalingStream> for super::IStream {
     fn from(value: &IMarshalingStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IStream> for IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IStream> for &'a IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMarshalingStream {

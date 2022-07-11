@@ -3,12 +3,12 @@ pub const CFSTR_ACLUI_SID_INFO_LIST: &str = "CFSTR_ACLUI_SID_INFO_LIST";
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, ISecurityInformation>>(psi: Param0) -> ::windows::core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE> {
+pub unsafe fn CreateSecurityPage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>>(psi: Param0) -> ::windows::core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateSecurityPage(psi: *mut ::core::ffi::c_void) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
     }
-    let result__ = CreateSecurityPage(psi.into_param().abi());
+    let result__ = CreateSecurityPage(psi.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
@@ -65,22 +65,22 @@ impl ::core::default::Default for EFFPERM_RESULT_LIST {
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EditSecurity<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>>(hwndowner: Param0, psi: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi()))
+    ::core::mem::transmute(EditSecurity(hwndowner.into(), psi.into().abi()))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1, usipage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
+pub unsafe fn EditSecurityAdvanced<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>, Param2: ::std::convert::Into<SI_PAGE_TYPE>>(hwndowner: Param0, psi: Param1, usipage: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: *mut ::core::ffi::c_void, usipage: SI_PAGE_TYPE) -> ::windows::core::HRESULT;
     }
-    EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), ::core::mem::transmute(usipage)).ok()
+    EditSecurityAdvanced(hwndowner.into(), psi.into().abi(), usipage.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
@@ -88,8 +88,8 @@ pub struct IEffectivePermission(::windows::core::IUnknown);
 impl IEffectivePermission {
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectivePermission<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::PSECURITY_DESCRIPTOR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: Param2, psd: Param3, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEffectivePermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into_param().abi(), pszservername.into_param().abi(), psd.into_param().abi(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
+    pub unsafe fn GetEffectivePermission<'a, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>, Param3: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: ::windows::core::PCWSTR, psd: Param3, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetEffectivePermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into(), ::core::mem::transmute(pszservername), psd.into(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
 impl ::core::convert::From<IEffectivePermission> for ::windows::core::IUnknown {
@@ -97,19 +97,14 @@ impl ::core::convert::From<IEffectivePermission> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEffectivePermission> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEffectivePermission) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEffectivePermission> for ::windows::core::IUnknown {
     fn from(value: &IEffectivePermission) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEffectivePermission {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEffectivePermission {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEffectivePermission {
@@ -147,11 +142,11 @@ pub struct IEffectivePermission2(::windows::core::IUnknown);
 impl IEffectivePermission2 {
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(
+    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::std::convert::Into<super::super::super::Foundation::PSID>, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>>(
         &self,
         psid: Param0,
         pdevicesid: Param1,
-        pszservername: Param2,
+        pszservername: ::windows::core::PCWSTR,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
         pusergroups: *const super::super::TOKEN_GROUPS,
@@ -166,9 +161,9 @@ impl IEffectivePermission2 {
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             ::windows::core::Interface::as_raw(self),
-            psid.into_param().abi(),
-            pdevicesid.into_param().abi(),
-            pszservername.into_param().abi(),
+            psid.into(),
+            pdevicesid.into(),
+            ::core::mem::transmute(pszservername),
             ::core::mem::transmute(psecurityobjects),
             ::core::mem::transmute(dwsecurityobjectcount),
             ::core::mem::transmute(pusergroups),
@@ -189,19 +184,14 @@ impl ::core::convert::From<IEffectivePermission2> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEffectivePermission2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEffectivePermission2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEffectivePermission2> for ::windows::core::IUnknown {
     fn from(value: &IEffectivePermission2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEffectivePermission2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEffectivePermission2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEffectivePermission2 {
@@ -260,16 +250,16 @@ impl ISecurityInformation {
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSecurity<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into_param().abi()).ok()
+    pub unsafe fn GetSecurity<'a, Param0: ::std::convert::Into<super::super::OBJECT_SECURITY_INFORMATION>, Param2: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, requestedinformation: Param0, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), requestedinformation.into(), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-    pub unsafe fn SetSecurity<'a, Param1: ::windows::core::IntoParam<'a, super::super::PSECURITY_DESCRIPTOR>>(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()).ok()
+    pub unsafe fn SetSecurity<'a, Param0: ::std::convert::Into<super::super::OBJECT_SECURITY_INFORMATION>, Param1: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>>(&self, securityinformation: Param0, psecuritydescriptor: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), securityinformation.into(), psecuritydescriptor.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-    pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAccessRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
+    pub unsafe fn GetAccessRights<'a, Param1: ::std::convert::Into<SECURITY_INFO_PAGE_FLAGS>>(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: Param1, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAccessRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), dwflags.into(), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
     pub unsafe fn MapGeneric(&self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()> {
@@ -281,8 +271,8 @@ impl ISecurityInformation {
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn PropertySheetPageCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PropertySheetPageCallback)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(upage)).ok()
+    pub unsafe fn PropertySheetPageCallback<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::super::UI::Controls::PSPCB_MESSAGE>, Param2: ::std::convert::Into<SI_PAGE_TYPE>>(&self, hwnd: Param0, umsg: Param1, upage: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PropertySheetPageCallback)(::windows::core::Interface::as_raw(self), hwnd.into(), umsg.into(), upage.into()).ok()
     }
 }
 impl ::core::convert::From<ISecurityInformation> for ::windows::core::IUnknown {
@@ -290,19 +280,14 @@ impl ::core::convert::From<ISecurityInformation> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISecurityInformation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISecurityInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISecurityInformation> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISecurityInformation {
@@ -366,19 +351,14 @@ impl ::core::convert::From<ISecurityInformation2> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISecurityInformation2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISecurityInformation2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISecurityInformation2> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISecurityInformation2 {
@@ -425,8 +405,8 @@ impl ISecurityInformation3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenElevatedEditor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenElevatedEditor)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(upage)).ok()
+    pub unsafe fn OpenElevatedEditor<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<SI_PAGE_TYPE>>(&self, hwnd: Param0, upage: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenElevatedEditor)(::windows::core::Interface::as_raw(self), hwnd.into(), upage.into()).ok()
     }
 }
 impl ::core::convert::From<ISecurityInformation3> for ::windows::core::IUnknown {
@@ -434,19 +414,14 @@ impl ::core::convert::From<ISecurityInformation3> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISecurityInformation3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISecurityInformation3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISecurityInformation3> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISecurityInformation3 {
@@ -494,19 +469,14 @@ impl ::core::convert::From<ISecurityInformation4> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISecurityInformation4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISecurityInformation4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISecurityInformation4> for ::windows::core::IUnknown {
     fn from(value: &ISecurityInformation4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityInformation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityInformation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISecurityInformation4 {
@@ -552,19 +522,14 @@ impl ::core::convert::From<ISecurityObjectTypeInfo> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISecurityObjectTypeInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISecurityObjectTypeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISecurityObjectTypeInfo> for ::windows::core::IUnknown {
     fn from(value: &ISecurityObjectTypeInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISecurityObjectTypeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISecurityObjectTypeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISecurityObjectTypeInfo {

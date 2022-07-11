@@ -662,6 +662,11 @@ impl ::core::fmt::Debug for HRASCONN {
         f.debug_tuple("HRASCONN").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HRASCONN>> for HRASCONN {
+    fn from(optional: ::core::option::Option<HRASCONN>) -> HRASCONN {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HRASCONN {
     type Abi = Self;
 }
@@ -2857,32 +2862,32 @@ pub const MPR_VS_Ikev2Only: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
+pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmAddGroupMembershipEntry(hprotocol.into_param().abi(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmAddGroupMembershipEntry(hprotocol.into(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0) -> u32 {
+pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprotocol: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MgmDeRegisterMProtocol(hprotocol.into_param().abi()))
+    ::core::mem::transmute(MgmDeRegisterMProtocol(hprotocol.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
+pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(MgmDeleteGroupMembershipEntry(hprotocol.into_param().abi(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(MgmDeleteGroupMembershipEntry(hprotocol.into(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -2954,32 +2959,32 @@ pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pd
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
+pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MgmGroupEnumerationEnd(henum.into_param().abi()))
+    ::core::mem::transmute(MgmGroupEnumerationEnd(henum.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
+pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(henum: Param0, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MgmGroupEnumerationGetNext(henum.into_param().abi(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
+    ::core::mem::transmute(MgmGroupEnumerationGetNext(henum.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<MGM_ENUM_TYPES>>(hprotocol: Param0, metenumtype: Param1, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into_param().abi(), ::core::mem::transmute(metenumtype), ::core::mem::transmute(phenumhandle)))
+    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into(), metenumtype.into(), ::core::mem::transmute(phenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2994,22 +2999,22 @@ pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwpro
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
+pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
-    ::core::mem::transmute(MgmReleaseInterfaceOwnership(hprotocol.into_param().abi(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
+    ::core::mem::transmute(MgmReleaseInterfaceOwnership(hprotocol.into(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
+pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
-    ::core::mem::transmute(MgmTakeInterfaceOwnership(hprotocol.into_param().abi(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
+    ::core::mem::transmute(MgmTakeInterfaceOwnership(hprotocol.into(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3023,12 +3028,12 @@ pub unsafe fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1) -> u32 {
+pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminConnectionClearStats(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionClearStats(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi()))
+    ::core::mem::transmute(MprAdminConnectionClearStats(::core::mem::transmute(hrasserver), hrasconnection.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3052,42 +3057,42 @@ pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const 
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
+pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminConnectionGetInfo(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into_param().abi(), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminConnectionGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into(), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasconnection: *mut RAS_CONNECTION_EX) -> u32 {
+pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasconnection: *mut RAS_CONNECTION_EX) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionGetInfoEx(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi(), ::core::mem::transmute(prasconnection)))
+    ::core::mem::transmute(MprAdminConnectionGetInfoEx(::core::mem::transmute(hrasserver), hrasconnection.into(), ::core::mem::transmute(prasconnection)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrasserver: Param0, hrasconnection: Param1, fisipaddress: Param2) -> u32 {
+pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(hrasserver: Param0, hrasconnection: Param1, fisipaddress: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminConnectionRemoveQuarantine(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminConnectionRemoveQuarantine(hrasserver.into_param().abi(), hrasconnection.into_param().abi(), fisipaddress.into_param().abi()))
+    ::core::mem::transmute(MprAdminConnectionRemoveQuarantine(hrasserver.into(), hrasconnection.into(), fisipaddress.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
+pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminDeregisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into_param().abi()))
+    ::core::mem::transmute(MprAdminDeregisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3101,12 +3106,12 @@ pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszdomain: Param0, pszmachine: Param1, benable: Param2) -> u32 {
+pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, benable: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminEstablishDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, benable: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminEstablishDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), benable.into_param().abi()))
+    ::core::mem::transmute(MprAdminEstablishDomainRasServer(::core::mem::transmute(pszdomain), ::core::mem::transmute(pszmachine), benable.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3119,22 +3124,22 @@ pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::win
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminGetPDCServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszdomain: Param0, lpszserver: Param1, lpszpdcserver: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MprAdminGetPDCServer(lpszdomain: ::windows::core::PCWSTR, lpszserver: ::windows::core::PCWSTR, lpszpdcserver: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminGetPDCServer(lpszdomain: ::windows::core::PCWSTR, lpszserver: ::windows::core::PCWSTR, lpszpdcserver: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminGetPDCServer(lpszdomain.into_param().abi(), lpszserver.into_param().abi(), ::core::mem::transmute(lpszpdcserver)))
+    ::core::mem::transmute(MprAdminGetPDCServer(::core::mem::transmute(lpszdomain), ::core::mem::transmute(lpszserver), ::core::mem::transmute(lpszpdcserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, hinterface: Param1, hevent: Param2, fsynchronous: Param3) -> u32 {
+pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(hmprserver: isize, hinterface: Param1, hevent: Param2, fsynchronous: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceConnect(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), hevent.into_param().abi(), fsynchronous.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceConnect(::core::mem::transmute(hmprserver), hinterface.into(), hevent.into(), fsynchronous.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3149,42 +3154,42 @@ pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
+pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceDelete(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDelete(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceDelete(::core::mem::transmute(hmprserver), hinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32 {
+pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceDeviceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDeviceGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceDeviceGetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
+pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceDeviceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDeviceSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceDeviceSetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
+pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceDisconnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceDisconnect(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceDisconnect(::core::mem::transmute(hmprserver), hinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3197,191 +3202,191 @@ pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MprAdminInterfaceGetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceGetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(lpwsusername), ::core::mem::transmute(lpwspassword), ::core::mem::transmute(lpwsdomainname)))
+    ::core::mem::transmute(MprAdminInterfaceGetCredentials(::core::mem::transmute(lpwsserver), ::core::mem::transmute(lpwsinterfacename), ::core::mem::transmute(lpwsusername), ::core::mem::transmute(lpwspassword), ::core::mem::transmute(lpwsdomainname)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
+pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceGetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
+pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    ::core::mem::transmute(MprAdminInterfaceGetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetHandle<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, lpwsinterfacename: Param1, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: Param3) -> u32 {
+pub unsafe fn MprAdminInterfaceGetHandle<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(hmprserver: isize, lpwsinterfacename: ::windows::core::PCWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceGetHandle(hmprserver: isize, lpwsinterfacename: ::windows::core::PCWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetHandle(::core::mem::transmute(hmprserver), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(phinterface), fincludeclientinterfaces.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceGetHandle(::core::mem::transmute(hmprserver), ::core::mem::transmute(lpwsinterfacename), ::core::mem::transmute(phinterface), fincludeclientinterfaces.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
+pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceGetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32 {
+pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceQueryUpdateResult(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceQueryUpdateResult(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(lpdwupdateresult)))
+    ::core::mem::transmute(MprAdminInterfaceQueryUpdateResult(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(lpdwupdateresult)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: Param2, lpwsdomainname: Param3, lpwspassword: Param4) -> u32 {
+pub unsafe fn MprAdminInterfaceSetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PCWSTR, lpwsdomainname: ::windows::core::PCWSTR, lpwspassword: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceSetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PCWSTR, lpwsdomainname: ::windows::core::PCWSTR, lpwspassword: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), lpwsusername.into_param().abi(), lpwsdomainname.into_param().abi(), lpwspassword.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceSetCredentials(::core::mem::transmute(lpwsserver), ::core::mem::transmute(lpwsinterfacename), ::core::mem::transmute(lpwsusername), ::core::mem::transmute(lpwsdomainname), ::core::mem::transmute(lpwspassword)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
+pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceSetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
+pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceSetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    ::core::mem::transmute(MprAdminInterfaceSetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
+pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminInterfaceSetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
+pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceTransportAdd(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportAdd(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminInterfaceTransportAdd(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
+pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceTransportGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminInterfaceTransportGetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32) -> u32 {
+pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceTransportRemove(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportRemove(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid)))
+    ::core::mem::transmute(MprAdminInterfaceTransportRemove(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
+pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceTransportSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceTransportSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    ::core::mem::transmute(MprAdminInterfaceTransportSetInfo(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
+pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceUpdatePhonebookInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceUpdatePhonebookInfo(::core::mem::transmute(hmprserver), hinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, hevent: Param3) -> u32 {
+pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, hevent: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminInterfaceUpdateRoutes(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, hevent: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminInterfaceUpdateRoutes(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwprotocolid), hevent.into_param().abi()))
+    ::core::mem::transmute(MprAdminInterfaceUpdateRoutes(::core::mem::transmute(hmprserver), hinterface.into(), ::core::mem::transmute(dwprotocolid), hevent.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminIsDomainRasServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszdomain: Param0, pszmachine: Param1, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn MprAdminIsDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminIsDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminIsDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), ::core::mem::transmute(pbisrasserver)))
+    ::core::mem::transmute(MprAdminIsDomainRasServer(::core::mem::transmute(pszdomain), ::core::mem::transmute(pszmachine), ::core::mem::transmute(pbisrasserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminIsServiceInitialized<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn MprAdminIsServiceInitialized(lpwsservername: ::windows::core::PCWSTR, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminIsServiceInitialized(lpwsservername: ::windows::core::PCWSTR, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MprAdminIsServiceInitialized(lpwsservername.into_param().abi(), ::core::mem::transmute(fisserviceinitialized)))
+    ::core::mem::transmute(MprAdminIsServiceInitialized(::core::mem::transmute(lpwsservername), ::core::mem::transmute(fisserviceinitialized)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminIsServiceRunning<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn MprAdminIsServiceRunning(lpwsservername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminIsServiceRunning(lpwsservername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MprAdminIsServiceRunning(lpwsservername.into_param().abi()))
+    ::core::mem::transmute(MprAdminIsServiceRunning(::core::mem::transmute(lpwsservername)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3448,12 +3453,12 @@ pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutin
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminMIBServerConnect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, phmibserver: *mut isize) -> u32 {
+pub unsafe fn MprAdminMIBServerConnect(lpwsservername: ::windows::core::PCWSTR, phmibserver: *mut isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminMIBServerConnect(lpwsservername: ::windows::core::PCWSTR, phmibserver: *mut isize) -> u32;
     }
-    ::core::mem::transmute(MprAdminMIBServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmibserver)))
+    ::core::mem::transmute(MprAdminMIBServerConnect(::core::mem::transmute(lpwsservername), ::core::mem::transmute(phmibserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3467,81 +3472,81 @@ pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminPortClearStats<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
+pub unsafe fn MprAdminPortClearStats<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminPortClearStats(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortClearStats(::core::mem::transmute(hrasserver), hport.into_param().abi()))
+    ::core::mem::transmute(MprAdminPortClearStats(::core::mem::transmute(hrasserver), hport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
+pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminPortDisconnect(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortDisconnect(::core::mem::transmute(hrasserver), hport.into_param().abi()))
+    ::core::mem::transmute(MprAdminPortDisconnect(::core::mem::transmute(hrasserver), hport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminPortEnum<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
+pub unsafe fn MprAdminPortEnum<'a, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminPortEnum(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into_param().abi(), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprAdminPortEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into(), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hport: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
+pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hport: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminPortGetInfo(hrasserver: isize, dwlevel: u32, hport: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hport.into_param().abi(), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprAdminPortGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hport.into(), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminPortReset<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
+pub unsafe fn MprAdminPortReset<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminPortReset(::core::mem::transmute(hrasserver), hport.into_param().abi()))
+    ::core::mem::transmute(MprAdminPortReset(::core::mem::transmute(hrasserver), hport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
+pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminRegisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprAdminRegisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into_param().abi()))
+    ::core::mem::transmute(MprAdminRegisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprserver: isize, hconnection: Param1, lpwszmessage: Param2) -> u32 {
+pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprserver: isize, hconnection: Param1, lpwszmessage: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminSendUserMessage(hmprserver: isize, hconnection: super::super::Foundation::HANDLE, lpwszmessage: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminSendUserMessage(::core::mem::transmute(hmprserver), hconnection.into_param().abi(), lpwszmessage.into_param().abi()))
+    ::core::mem::transmute(MprAdminSendUserMessage(::core::mem::transmute(hmprserver), hconnection.into(), ::core::mem::transmute(lpwszmessage)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminServerConnect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, phmprserver: *mut isize) -> u32 {
+pub unsafe fn MprAdminServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprserver: *mut isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprserver: *mut isize) -> u32;
     }
-    ::core::mem::transmute(MprAdminServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmprserver)))
+    ::core::mem::transmute(MprAdminServerConnect(::core::mem::transmute(lpwsservername), ::core::mem::transmute(phmprserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3610,12 +3615,12 @@ pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminTransportCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprserver: isize, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7) -> u32 {
+pub unsafe fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprAdminTransportCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi()))
+    ::core::mem::transmute(MprAdminTransportCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpwstransportname), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), ::core::mem::transmute(lpwsdllpath)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3638,30 +3643,30 @@ pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pg
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32 {
+pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminUpdateConnection(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32;
     }
-    ::core::mem::transmute(MprAdminUpdateConnection(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi(), ::core::mem::transmute(prasupdateconnection)))
+    ::core::mem::transmute(MprAdminUpdateConnection(::core::mem::transmute(hrasserver), hrasconnection.into(), ::core::mem::transmute(prasupdateconnection)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminUserGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *mut u8) -> u32 {
+pub unsafe fn MprAdminUserGetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminUserGetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminUserGetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminUserGetInfo(::core::mem::transmute(lpszserver), ::core::mem::transmute(lpszuser), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn MprAdminUserSetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
+pub unsafe fn MprAdminUserSetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprAdminUserSetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprAdminUserSetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprAdminUserSetInfo(::core::mem::transmute(lpszserver), ::core::mem::transmute(lpszuser), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3675,232 +3680,232 @@ pub unsafe fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32 {
+pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigFilterGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigFilterGetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(MprConfigFilterGetInfo(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32 {
+pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigFilterSetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigFilterSetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(MprConfigFilterSetInfo(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, pszguidname: Param1, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32 {
+pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, pszguidname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigGetFriendlyName(hmprconfig: super::super::Foundation::HANDLE, pszguidname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigGetFriendlyName(hmprconfig.into_param().abi(), pszguidname.into_param().abi(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(MprConfigGetFriendlyName(hmprconfig.into(), ::core::mem::transmute(pszguidname), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigGetGuidName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, pszfriendlyname: Param1, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32 {
+pub unsafe fn MprConfigGetGuidName<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, pszfriendlyname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigGetGuidName(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigGetGuidName(hmprconfig.into_param().abi(), pszfriendlyname.into_param().abi(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(MprConfigGetGuidName(hmprconfig.into(), ::core::mem::transmute(pszfriendlyname), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceCreate(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phrouterinterface)))
+    ::core::mem::transmute(MprConfigInterfaceCreate(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phrouterinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1) -> u32 {
+pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceDelete(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceDelete(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi()))
+    ::core::mem::transmute(MprConfigInterfaceDelete(hmprconfig.into(), hrouterinterface.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
+pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceEnum(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprConfigInterfaceEnum(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
+pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceGetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    ::core::mem::transmute(MprConfigInterfaceGetCustomInfoEx(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, lpwsinterfacename: Param1, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, lpwsinterfacename: ::windows::core::PCWSTR, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceGetHandle(hmprconfig: super::super::Foundation::HANDLE, lpwsinterfacename: ::windows::core::PCWSTR, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceGetHandle(hmprconfig.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(phrouterinterface)))
+    ::core::mem::transmute(MprConfigInterfaceGetHandle(hmprconfig.into(), ::core::mem::transmute(lpwsinterfacename), ::core::mem::transmute(phrouterinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32 {
+pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwbuffersize)))
+    ::core::mem::transmute(MprConfigInterfaceGetInfo(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
+pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceSetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    ::core::mem::transmute(MprConfigInterfaceSetCustomInfoEx(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
+pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    ::core::mem::transmute(MprConfigInterfaceSetInfo(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, lpwstransportname: Param3, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceTransportAdd(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportAdd(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize), ::core::mem::transmute(phrouteriftransport)))
+    ::core::mem::transmute(MprConfigInterfaceTransportAdd(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpwstransportname), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize), ::core::mem::transmute(phrouteriftransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
+pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportEnum(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprConfigInterfaceTransportEnum(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportGetHandle(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phrouteriftransport)))
+    ::core::mem::transmute(MprConfigInterfaceTransportGetHandle(hmprconfig.into(), hrouterinterface.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phrouteriftransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
+pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
+    ::core::mem::transmute(MprConfigInterfaceTransportGetInfo(hmprconfig.into(), hrouterinterface.into(), hrouteriftransport.into(), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2) -> u32 {
+pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceTransportRemove(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportRemove(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi()))
+    ::core::mem::transmute(MprConfigInterfaceTransportRemove(hmprconfig.into(), hrouterinterface.into(), hrouteriftransport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
+pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigInterfaceTransportSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    ::core::mem::transmute(MprConfigInterfaceTransportSetInfo(hmprconfig.into(), hrouterinterface.into(), hrouteriftransport.into(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigServerBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
+pub unsafe fn MprConfigServerBackup<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, lpwspath: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerBackup(hmprconfig: super::super::Foundation::HANDLE, lpwspath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerBackup(hmprconfig.into_param().abi(), lpwspath.into_param().abi()))
+    ::core::mem::transmute(MprConfigServerBackup(hmprconfig.into(), ::core::mem::transmute(lpwspath)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigServerConnect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmprconfig)))
+    ::core::mem::transmute(MprConfigServerConnect(::core::mem::transmute(lpwsservername), ::core::mem::transmute(phmprconfig)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) {
+pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
     }
-    MprConfigServerDisconnect(hmprconfig.into_param().abi())
+    MprConfigServerDisconnect(hmprconfig.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
+pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerGetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    ::core::mem::transmute(MprConfigServerGetInfo(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
+pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerGetInfoEx(hmprconfig: super::super::Foundation::HANDLE, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerGetInfoEx(hmprconfig.into_param().abi(), ::core::mem::transmute(pserverinfo)))
+    ::core::mem::transmute(MprConfigServerGetInfoEx(hmprconfig.into(), ::core::mem::transmute(pserverinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3914,22 +3919,22 @@ pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigServerRefresh<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) -> u32 {
+pub unsafe fn MprConfigServerRefresh<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerRefresh(hmprconfig: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerRefresh(hmprconfig.into_param().abi()))
+    ::core::mem::transmute(MprConfigServerRefresh(hmprconfig.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigServerRestore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
+pub unsafe fn MprConfigServerRestore<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, lpwspath: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerRestore(hmprconfig: super::super::Foundation::HANDLE, lpwspath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerRestore(hmprconfig.into_param().abi(), lpwspath.into_param().abi()))
+    ::core::mem::transmute(MprConfigServerRestore(hmprconfig.into(), ::core::mem::transmute(lpwspath)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -3943,72 +3948,72 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
+pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigServerSetInfoEx(hmprconfig: super::super::Foundation::HANDLE, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
     }
-    ::core::mem::transmute(MprConfigServerSetInfoEx(hmprconfig.into_param().abi(), ::core::mem::transmute(psetserverconfig)))
+    ::core::mem::transmute(MprConfigServerSetInfoEx(hmprconfig.into(), ::core::mem::transmute(psetserverconfig)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigTransportCreate<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigTransportCreate(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportCreate(hmprconfig.into_param().abi(), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi(), ::core::mem::transmute(phroutertransport)))
+    ::core::mem::transmute(MprConfigTransportCreate(hmprconfig.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpwstransportname), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), ::core::mem::transmute(lpwsdllpath), ::core::mem::transmute(phroutertransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportDelete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1) -> u32 {
+pub unsafe fn MprConfigTransportDelete<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportDelete(hmprconfig.into_param().abi(), hroutertransport.into_param().abi()))
+    ::core::mem::transmute(MprConfigTransportDelete(hmprconfig.into(), hroutertransport.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
+pub unsafe fn MprConfigTransportEnum<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigTransportEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportEnum(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    ::core::mem::transmute(MprConfigTransportEnum(hmprconfig.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportGetHandle(hmprconfig.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phroutertransport)))
+    ::core::mem::transmute(MprConfigTransportGetHandle(hmprconfig.into(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phroutertransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportGetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize), ::core::mem::transmute(lplpwsdllpath)))
+    ::core::mem::transmute(MprConfigTransportGetInfo(hmprconfig.into(), hroutertransport.into(), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize), ::core::mem::transmute(lplpwsdllpath)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, hroutertransport: Param1, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param6) -> u32 {
+pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MprConfigTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MprConfigTransportSetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi()))
+    ::core::mem::transmute(MprConfigTransportSetInfo(hmprconfig.into(), hroutertransport.into(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), ::core::mem::transmute(lpwsdllpath)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -9798,61 +9803,61 @@ pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
 pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0) -> u32 {
+pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::std::convert::Into<HRASCONN>>(hrasconn: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasClearConnectionStatistics(hrasconn.into_param().abi()))
+    ::core::mem::transmute(RasClearConnectionStatistics(hrasconn.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32) -> u32 {
+pub unsafe fn RasClearLinkStatistics<'a, Param0: ::std::convert::Into<HRASCONN>>(hrasconn: Param0, dwsubentry: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
     }
-    ::core::mem::transmute(RasClearLinkStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(dwsubentry)))
+    ::core::mem::transmute(RasClearLinkStatistics(hrasconn.into(), ::core::mem::transmute(dwsubentry)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasConnectionNotificationA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
+pub unsafe fn RasConnectionNotificationA<'a, Param0: ::std::convert::Into<HRASCONN>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasConnectionNotificationA(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     }
-    ::core::mem::transmute(RasConnectionNotificationA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasConnectionNotificationA(param0.into(), param1.into(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasConnectionNotificationW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
+pub unsafe fn RasConnectionNotificationW<'a, Param0: ::std::convert::Into<HRASCONN>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasConnectionNotificationW(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     }
-    ::core::mem::transmute(RasConnectionNotificationW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasConnectionNotificationW(param0.into(), param1.into(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> u32 {
+pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(param0: Param0, param1: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasCreatePhonebookEntryA(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RasCreatePhonebookEntryA(param0.into_param().abi(), param1.into_param().abi()))
+    ::core::mem::transmute(RasCreatePhonebookEntryA(param0.into(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasCreatePhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1) -> u32 {
+pub unsafe fn RasCreatePhonebookEntryW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(param0: Param0, param1: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasCreatePhonebookEntryW(param0: super::super::Foundation::HWND, param1: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RasCreatePhonebookEntryW(param0.into_param().abi(), param1.into_param().abi()))
+    ::core::mem::transmute(RasCreatePhonebookEntryW(param0.into(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RasCustomDeleteEntryNotifyFn = ::core::option::Option<unsafe extern "system" fn(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, dwflags: u32) -> u32>;
@@ -9872,119 +9877,119 @@ pub type RasCustomHangUpFn = ::core::option::Option<unsafe extern "system" fn(hr
 pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: ::windows::core::PCWSTR, lpszentryname: ::windows::core::PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> u32 {
+pub unsafe fn RasDeleteEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDeleteEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RasDeleteEntryA(param0.into_param().abi(), param1.into_param().abi()))
+    ::core::mem::transmute(RasDeleteEntryA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasDeleteEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1) -> u32 {
+pub unsafe fn RasDeleteEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDeleteEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RasDeleteEntryW(param0.into_param().abi(), param1.into_param().abi()))
+    ::core::mem::transmute(RasDeleteEntryW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasDeleteSubEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
+pub unsafe fn RasDeleteSubEntryA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwsubentryid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDeleteSubEntryA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwsubentryid: u32) -> u32;
     }
-    ::core::mem::transmute(RasDeleteSubEntryA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwsubentryid)))
+    ::core::mem::transmute(RasDeleteSubEntryA(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(dwsubentryid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasDeleteSubEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
+pub unsafe fn RasDeleteSubEntryW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwsubentryid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDeleteSubEntryW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwsubentryid: u32) -> u32;
     }
-    ::core::mem::transmute(RasDeleteSubEntryW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwsubentryid)))
+    ::core::mem::transmute(RasDeleteSubEntryW(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(dwsubentryid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasDialA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
+pub unsafe fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasDialA(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasDialA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasDialDlgA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
+pub unsafe fn RasDialDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpszphonenumber: ::windows::core::PCSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDialDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpszphonenumber: ::windows::core::PCSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RasDialDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(RasDialDlgA(::core::mem::transmute(lpszphonebook), ::core::mem::transmute(lpszentry), ::core::mem::transmute(lpszphonenumber), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasDialDlgW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
+pub unsafe fn RasDialDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpszphonenumber: ::windows::core::PCWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDialDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpszphonenumber: ::windows::core::PCWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RasDialDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(RasDialDlgW(::core::mem::transmute(lpszphonebook), ::core::mem::transmute(lpszentry), ::core::mem::transmute(lpszphonenumber), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasDialW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
+pub unsafe fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasDialW(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasDialW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
+pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(param0: Param0, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasEditPhonebookEntryA(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RasEditPhonebookEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    ::core::mem::transmute(RasEditPhonebookEntryA(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
+pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(param0: Param0, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasEditPhonebookEntryW(param0: super::super::Foundation::HWND, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RasEditPhonebookEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    ::core::mem::transmute(RasEditPhonebookEntryW(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasEntryDlgA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL {
+pub unsafe fn RasEntryDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasEntryDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RasEntryDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(RasEntryDlgA(::core::mem::transmute(lpszphonebook), ::core::mem::transmute(lpszentry), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasEntryDlgW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL {
+pub unsafe fn RasEntryDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasEntryDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RasEntryDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(RasEntryDlgW(::core::mem::transmute(lpszphonebook), ::core::mem::transmute(lpszentry), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10046,21 +10051,21 @@ pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasEnumEntriesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32 {
+pub unsafe fn RasEnumEntriesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasEnumEntriesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasEnumEntriesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasEnumEntriesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasEnumEntriesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32 {
+pub unsafe fn RasEnumEntriesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasEnumEntriesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasEnumEntriesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasEnumEntriesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10084,21 +10089,21 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDEN
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32 {
+pub unsafe fn RasGetAutodialAddressA(param0: ::windows::core::PCSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetAutodialAddressA(param0: ::windows::core::PCSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasGetAutodialAddressA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32 {
+pub unsafe fn RasGetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasGetAutodialAddressW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10139,31 +10144,31 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSA) -> u32 {
+pub unsafe fn RasGetConnectStatusA<'a, Param0: ::std::convert::Into<HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut RASCONNSTATUSA) -> u32;
     }
-    ::core::mem::transmute(RasGetConnectStatusA(param0.into_param().abi(), ::core::mem::transmute(param1)))
+    ::core::mem::transmute(RasGetConnectStatusA(param0.into(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSW) -> u32 {
+pub unsafe fn RasGetConnectStatusW<'a, Param0: ::std::convert::Into<HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut RASCONNSTATUSW) -> u32;
     }
-    ::core::mem::transmute(RasGetConnectStatusW(param0.into_param().abi(), ::core::mem::transmute(param1)))
+    ::core::mem::transmute(RasGetConnectStatusW(param0.into(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lpstatistics: *mut RAS_STATS) -> u32 {
+pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::std::convert::Into<HRASCONN>>(hrasconn: Param0, lpstatistics: *mut RAS_STATS) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut RAS_STATS) -> u32;
     }
-    ::core::mem::transmute(RasGetConnectionStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(lpstatistics)))
+    ::core::mem::transmute(RasGetConnectionStatistics(hrasconn.into(), ::core::mem::transmute(lpstatistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10186,118 +10191,118 @@ pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSA) -> u32 {
+pub unsafe fn RasGetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASCREDENTIALSA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASCREDENTIALSA) -> u32;
     }
-    ::core::mem::transmute(RasGetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetCredentialsA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSW) -> u32 {
+pub unsafe fn RasGetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASCREDENTIALSW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASCREDENTIALSW) -> u32;
     }
-    ::core::mem::transmute(RasGetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetCredentialsW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
+pub unsafe fn RasGetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
+    ::core::mem::transmute(RasGetCustomAuthDataA(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
+pub unsafe fn RasGetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
+    ::core::mem::transmute(RasGetCustomAuthDataW(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
+pub unsafe fn RasGetEapUserDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htoken: Param0, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
+    ::core::mem::transmute(RasGetEapUserDataA(htoken.into(), ::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
+pub unsafe fn RasGetEapUserDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htoken: Param0, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
+    ::core::mem::transmute(RasGetEapUserDataW(htoken.into(), ::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEapUserIdentityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32 {
+pub unsafe fn RasGetEapUserIdentityA<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>>(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEapUserIdentityA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32;
     }
-    ::core::mem::transmute(RasGetEapUserIdentityA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwflags), hwnd.into_param().abi(), ::core::mem::transmute(ppraseapuseridentity)))
+    ::core::mem::transmute(RasGetEapUserIdentityA(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(ppraseapuseridentity)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEapUserIdentityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32 {
+pub unsafe fn RasGetEapUserIdentityW<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>>(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEapUserIdentityW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32;
     }
-    ::core::mem::transmute(RasGetEapUserIdentityW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwflags), hwnd.into_param().abi(), ::core::mem::transmute(ppraseapuseridentity)))
+    ::core::mem::transmute(RasGetEapUserIdentityW(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(ppraseapuseridentity)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32 {
+pub unsafe fn RasGetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32;
     }
-    ::core::mem::transmute(RasGetEntryDialParamsA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetEntryDialParamsA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32 {
+pub unsafe fn RasGetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32;
     }
-    ::core::mem::transmute(RasGetEntryDialParamsW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetEntryDialParamsW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn RasGetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
+pub unsafe fn RasGetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasGetEntryPropertiesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn RasGetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
+pub unsafe fn RasGetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasGetEntryPropertiesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10319,12 +10324,12 @@ pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {
+pub unsafe fn RasGetLinkStatistics<'a, Param0: ::std::convert::Into<HRASCONN>>(hrasconn: Param0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32;
     }
-    ::core::mem::transmute(RasGetLinkStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(dwsubentry), ::core::mem::transmute(lpstatistics)))
+    ::core::mem::transmute(RasGetLinkStatistics(hrasconn.into(), ::core::mem::transmute(dwsubentry), ::core::mem::transmute(lpstatistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10337,173 +10342,173 @@ pub unsafe fn RasGetPCscf(lpszpcscf: ::windows::core::PWSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
+pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::std::convert::Into<HRASCONN>, Param1: ::std::convert::Into<RASPROJECTION>>(param0: Param0, param1: Param1, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(RasGetProjectionInfoA(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32 {
+pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::std::convert::Into<HRASCONN>>(hrasconn: Param0, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoEx(hrasconn.into_param().abi(), ::core::mem::transmute(prasprojection), ::core::mem::transmute(lpdwsize)))
+    ::core::mem::transmute(RasGetProjectionInfoEx(hrasconn.into(), ::core::mem::transmute(prasprojection), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
+pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::std::convert::Into<HRASCONN>, Param1: ::std::convert::Into<RASPROJECTION>>(param0: Param0, param1: Param1, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(RasGetProjectionInfoW(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
+pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::std::convert::Into<HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryHandleA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetSubEntryHandleA(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
+pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::std::convert::Into<HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryHandleW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    ::core::mem::transmute(RasGetSubEntryHandleW(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasGetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
+pub unsafe fn RasGetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasGetSubEntryPropertiesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
+pub unsafe fn RasGetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasGetSubEntryPropertiesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasHangUpA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
+pub unsafe fn RasHangUpA<'a, Param0: ::std::convert::Into<HRASCONN>>(param0: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasHangUpA(param0: HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasHangUpA(param0.into_param().abi()))
+    ::core::mem::transmute(RasHangUpA(param0.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasHangUpW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
+pub unsafe fn RasHangUpW<'a, Param0: ::std::convert::Into<HRASCONN>>(param0: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasHangUpW(param0: HRASCONN) -> u32;
     }
-    ::core::mem::transmute(RasHangUpW(param0.into_param().abi()))
+    ::core::mem::transmute(RasHangUpW(param0.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasInvokeEapUI<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, param1: u32, param2: *const RASDIALEXTENSIONS, param3: Param3) -> u32 {
+pub unsafe fn RasInvokeEapUI<'a, Param0: ::std::convert::Into<HRASCONN>, Param3: ::std::convert::Into<super::super::Foundation::HWND>>(param0: Param0, param1: u32, param2: *const RASDIALEXTENSIONS, param3: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
     }
-    ::core::mem::transmute(RasInvokeEapUI(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()))
+    ::core::mem::transmute(RasInvokeEapUI(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL {
+pub unsafe fn RasPhonebookDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasPhonebookDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RasPhonebookDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(RasPhonebookDlgA(::core::mem::transmute(lpszphonebook), ::core::mem::transmute(lpszentry), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL {
+pub unsafe fn RasPhonebookDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasPhonebookDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RasPhonebookDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    ::core::mem::transmute(RasPhonebookDlgW(::core::mem::transmute(lpszphonebook), ::core::mem::transmute(lpszentry), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasRenameEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
+pub unsafe fn RasRenameEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasRenameEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RasRenameEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    ::core::mem::transmute(RasRenameEntryA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasRenameEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
+pub unsafe fn RasRenameEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasRenameEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RasRenameEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    ::core::mem::transmute(RasRenameEntryW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32 {
+pub unsafe fn RasSetAutodialAddressA(param0: ::windows::core::PCSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetAutodialAddressA(param0: ::windows::core::PCSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasSetAutodialAddressA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasSetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32 {
+pub unsafe fn RasSetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    ::core::mem::transmute(RasSetAutodialAddressW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
+pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialEnableA(::core::mem::transmute(param0), param1.into_param().abi()))
+    ::core::mem::transmute(RasSetAutodialEnableA(::core::mem::transmute(param0), param1.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
+pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetAutodialEnableW(::core::mem::transmute(param0), param1.into_param().abi()))
+    ::core::mem::transmute(RasSetAutodialEnableW(::core::mem::transmute(param0), param1.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10526,147 +10531,147 @@ pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_vo
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSA, param3: Param3) -> u32 {
+pub unsafe fn RasSetCredentialsA<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASCREDENTIALSA, param3: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASCREDENTIALSA, param3: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()))
+    ::core::mem::transmute(RasSetCredentialsA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSW, param3: Param3) -> u32 {
+pub unsafe fn RasSetCredentialsW<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASCREDENTIALSW, param3: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASCREDENTIALSW, param3: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()))
+    ::core::mem::transmute(RasSetCredentialsW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasSetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
+pub unsafe fn RasSetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
+    ::core::mem::transmute(RasSetCustomAuthDataA(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasSetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
+pub unsafe fn RasSetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
+    ::core::mem::transmute(RasSetCustomAuthDataW(::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
+pub unsafe fn RasSetEapUserDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htoken: Param0, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
+    ::core::mem::transmute(RasSetEapUserDataA(htoken.into(), ::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
+pub unsafe fn RasSetEapUserDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htoken: Param0, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
+    ::core::mem::transmute(RasSetEapUserDataW(htoken.into(), ::core::mem::transmute(pszphonebook), ::core::mem::transmute(pszentry), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSA, param2: Param2) -> u32 {
+pub unsafe fn RasSetEntryDialParamsA<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(param0: ::windows::core::PCSTR, param1: *const RASDIALPARAMSA, param2: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *const RASDIALPARAMSA, param2: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetEntryDialParamsA(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
+    ::core::mem::transmute(RasSetEntryDialParamsA(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSW, param2: Param2) -> u32 {
+pub unsafe fn RasSetEntryDialParamsW<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(param0: ::windows::core::PCWSTR, param1: *const RASDIALPARAMSW, param2: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *const RASDIALPARAMSW, param2: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RasSetEntryDialParamsW(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
+    ::core::mem::transmute(RasSetEntryDialParamsW(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn RasSetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32 {
+pub unsafe fn RasSetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasSetEntryPropertiesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn RasSetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32 {
+pub unsafe fn RasSetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    ::core::mem::transmute(RasSetEntryPropertiesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RasSetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32 {
+pub unsafe fn RasSetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasSetSubEntryPropertiesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasSetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32 {
+pub unsafe fn RasSetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasSetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32;
     }
-    ::core::mem::transmute(RasSetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    ::core::mem::transmute(RasSetSubEntryPropertiesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lprasupdateconn: *const RASUPDATECONN) -> u32 {
+pub unsafe fn RasUpdateConnection<'a, Param0: ::std::convert::Into<HRASCONN>>(hrasconn: Param0, lprasupdateconn: *const RASUPDATECONN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const RASUPDATECONN) -> u32;
     }
-    ::core::mem::transmute(RasUpdateConnection(hrasconn.into_param().abi(), ::core::mem::transmute(lprasupdateconn)))
+    ::core::mem::transmute(RasUpdateConnection(hrasconn.into(), ::core::mem::transmute(lprasupdateconn)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasValidateEntryNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> u32 {
+pub unsafe fn RasValidateEntryNameA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasValidateEntryNameA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RasValidateEntryNameA(param0.into_param().abi(), param1.into_param().abi()))
+    ::core::mem::transmute(RasValidateEntryNameA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasValidateEntryNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1) -> u32 {
+pub unsafe fn RasValidateEntryNameW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasValidateEntryNameW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RasValidateEntryNameW(param0.into_param().abi(), param1.into_param().abi()))
+    ::core::mem::transmute(RasValidateEntryNameW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
@@ -10689,22 +10694,22 @@ pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, de
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmBlockMethods<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(rtmreghandle: isize, targethandle: Param1, targettype: u8, blockingflag: u32) -> u32 {
+pub unsafe fn RtmBlockMethods<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(rtmreghandle: isize, targethandle: Param1, targettype: u8, blockingflag: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
     }
-    ::core::mem::transmute(RtmBlockMethods(::core::mem::transmute(rtmreghandle), targethandle.into_param().abi(), ::core::mem::transmute(targettype), ::core::mem::transmute(blockingflag)))
+    ::core::mem::transmute(RtmBlockMethods(::core::mem::transmute(rtmreghandle), targethandle.into(), ::core::mem::transmute(targettype), ::core::mem::transmute(blockingflag)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::IN6_ADDR>>(pnetaddress: *mut RTM_NET_ADDRESS, address: Param1, dwlength: u32, dwaddresssize: u32) -> u32 {
+pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
     }
-    ::core::mem::transmute(RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), address.into_param().abi(), ::core::mem::transmute(dwlength), ::core::mem::transmute(dwaddresssize)))
+    ::core::mem::transmute(RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), ::core::mem::transmute(address), ::core::mem::transmute(dwlength), ::core::mem::transmute(dwaddresssize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -11060,42 +11065,42 @@ pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmLockDestination<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, desthandle: isize, exclusive: Param2, lockdest: Param3) -> u32 {
+pub unsafe fn RtmLockDestination<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(rtmreghandle: isize, desthandle: isize, exclusive: Param2, lockdest: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: super::super::Foundation::BOOL, lockdest: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RtmLockDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), exclusive.into_param().abi(), lockdest.into_param().abi()))
+    ::core::mem::transmute(RtmLockDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), exclusive.into(), lockdest.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmLockNextHop<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, nexthophandle: isize, exclusive: Param2, locknexthop: Param3, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
+pub unsafe fn RtmLockNextHop<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(rtmreghandle: isize, nexthophandle: isize, exclusive: Param2, locknexthop: Param3, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: super::super::Foundation::BOOL, locknexthop: super::super::Foundation::BOOL, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmLockNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), exclusive.into_param().abi(), locknexthop.into_param().abi(), ::core::mem::transmute(nexthoppointer)))
+    ::core::mem::transmute(RtmLockNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), exclusive.into(), locknexthop.into(), ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmLockRoute<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, routehandle: isize, exclusive: Param2, lockroute: Param3, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
+pub unsafe fn RtmLockRoute<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(rtmreghandle: isize, routehandle: isize, exclusive: Param2, lockroute: Param3, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: super::super::Foundation::BOOL, lockroute: super::super::Foundation::BOOL, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
     }
-    ::core::mem::transmute(RtmLockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), exclusive.into_param().abi(), lockroute.into_param().abi(), ::core::mem::transmute(routepointer)))
+    ::core::mem::transmute(RtmLockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), exclusive.into(), lockroute.into(), ::core::mem::transmute(routepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: Param3) -> u32 {
+pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(RtmMarkDestForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), markdest.into_param().abi()))
+    ::core::mem::transmute(RtmMarkDestForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), markdest.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11110,12 +11115,12 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
+pub unsafe fn RtmRegisterEntity<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: *mut ::core::ffi::c_void, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
     }
-    ::core::mem::transmute(RtmRegisterEntity(::core::mem::transmute(rtmentityinfo), ::core::mem::transmute(exportmethods), ::core::mem::transmute(eventcallback), reserveopaquepointer.into_param().abi(), ::core::mem::transmute(rtmregprofile), ::core::mem::transmute(rtmreghandle)))
+    ::core::mem::transmute(RtmRegisterEntity(::core::mem::transmute(rtmentityinfo), ::core::mem::transmute(exportmethods), ::core::mem::transmute(eventcallback), reserveopaquepointer.into(), ::core::mem::transmute(rtmregprofile), ::core::mem::transmute(rtmreghandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]

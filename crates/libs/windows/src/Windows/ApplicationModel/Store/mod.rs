@@ -37,10 +37,10 @@ impl CurrentApp {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RequestProductPurchaseAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn RequestProductPurchaseAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestProductPurchaseAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).RequestProductPurchaseAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
@@ -61,47 +61,47 @@ impl CurrentApp {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetProductReceiptAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetProductReceiptAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetProductReceiptAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetProductReceiptAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCustomerPurchaseIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(serviceticket: Param0, publisheruserid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetCustomerPurchaseIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(serviceticket: Param0, publisheruserid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp2Statics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into_param().abi(), publisheruserid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into().abi(), publisheruserid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCustomerCollectionsIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(serviceticket: Param0, publisheruserid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetCustomerCollectionsIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(serviceticket: Param0, publisheruserid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp2Statics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into_param().abi(), publisheruserid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into().abi(), publisheruserid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LoadListingInformationByProductIdsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(productids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
+    pub fn LoadListingInformationByProductIdsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(productids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows::core::Interface::as_raw(this), productids.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
+            (::windows::core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows::core::Interface::as_raw(this), productids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LoadListingInformationByKeywordsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(keywords: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
+    pub fn LoadListingInformationByKeywordsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(keywords: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows::core::Interface::as_raw(this), keywords.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
+            (::windows::core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows::core::Interface::as_raw(this), keywords.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
-    pub fn ReportProductFulfillment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0) -> ::windows::core::Result<()> {
-        Self::ICurrentAppStaticsWithFiltering(|this| unsafe { (::windows::core::Interface::vtable(this).ReportProductFulfillment)(::windows::core::Interface::as_raw(this), productid.into_param().abi()).ok() })
+    pub fn ReportProductFulfillment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0) -> ::windows::core::Result<()> {
+        Self::ICurrentAppStaticsWithFiltering(|this| unsafe { (::windows::core::Interface::vtable(this).ReportProductFulfillment)(::windows::core::Interface::as_raw(this), productid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -113,26 +113,26 @@ impl CurrentApp {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(productid: Param0, transactionid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
+    pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0, transactionid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), transactionid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FulfillmentResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), transactionid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FulfillmentResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithResultsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
+    pub fn RequestProductPurchaseWithResultsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithResultsAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
+            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithResultsAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProductPurchaseDisplayProperties>>(productid: Param0, offerid: Param1, displayproperties: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
+    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ProductPurchaseDisplayProperties>>>(productid: Param0, offerid: Param1, displayproperties: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), offerid.into_param().abi(), displayproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
+            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), offerid.into().abi(), displayproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation_Collections\"`*"]
@@ -207,10 +207,10 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RequestProductPurchaseAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn RequestProductPurchaseAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestProductPurchaseAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).RequestProductPurchaseAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
@@ -231,34 +231,34 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetProductReceiptAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetProductReceiptAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetProductReceiptAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetProductReceiptAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ReloadSimulatorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(simulatorsettingsfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ReloadSimulatorAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(simulatorsettingsfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReloadSimulatorAsync)(::windows::core::Interface::as_raw(this), simulatorsettingsfile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ReloadSimulatorAsync)(::windows::core::Interface::as_raw(this), simulatorsettingsfile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LoadListingInformationByProductIdsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(productids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
+    pub fn LoadListingInformationByProductIdsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(productids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows::core::Interface::as_raw(this), productids.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
+            (::windows::core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows::core::Interface::as_raw(this), productids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LoadListingInformationByKeywordsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(keywords: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
+    pub fn LoadListingInformationByKeywordsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(keywords: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows::core::Interface::as_raw(this), keywords.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
+            (::windows::core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows::core::Interface::as_raw(this), keywords.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
@@ -271,26 +271,26 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(productid: Param0, transactionid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
+    pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0, transactionid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), transactionid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FulfillmentResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), transactionid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FulfillmentResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithResultsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
+    pub fn RequestProductPurchaseWithResultsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithResultsAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
+            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithResultsAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProductPurchaseDisplayProperties>>(productid: Param0, offerid: Param1, displayproperties: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
+    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ProductPurchaseDisplayProperties>>>(productid: Param0, offerid: Param1, displayproperties: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Interface::as_raw(this), productid.into_param().abi(), offerid.into_param().abi(), displayproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
+            (::windows::core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), offerid.into().abi(), displayproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation_Collections\"`*"]
@@ -955,18 +955,18 @@ impl LicenseInformation {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LicenseChanged<'a, Param0: ::windows::core::IntoParam<'a, LicenseChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn LicenseChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LicenseChangedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).LicenseChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LicenseChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveLicenseChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveLicenseChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
 }
 impl ::core::clone::Clone for LicenseInformation {
@@ -1009,14 +1009,9 @@ impl ::core::convert::From<&LicenseInformation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LicenseInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LicenseInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LicenseInformation> for &::windows::core::IUnknown {
+    fn from(value: &LicenseInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LicenseInformation> for ::windows::core::IInspectable {
@@ -1029,14 +1024,9 @@ impl ::core::convert::From<&LicenseInformation> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LicenseInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LicenseInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LicenseInformation> for &::windows::core::IInspectable {
+    fn from(value: &LicenseInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LicenseInformation {}
@@ -1168,14 +1158,9 @@ impl ::core::convert::From<&ListingInformation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListingInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListingInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ListingInformation> for &::windows::core::IUnknown {
+    fn from(value: &ListingInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ListingInformation> for ::windows::core::IInspectable {
@@ -1188,14 +1173,9 @@ impl ::core::convert::From<&ListingInformation> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListingInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListingInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ListingInformation> for &::windows::core::IInspectable {
+    fn from(value: &ListingInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ListingInformation {}
@@ -1278,14 +1258,9 @@ impl ::core::convert::From<&ProductLicense> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProductLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProductLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProductLicense> for &::windows::core::IUnknown {
+    fn from(value: &ProductLicense) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProductLicense> for ::windows::core::IInspectable {
@@ -1298,14 +1273,9 @@ impl ::core::convert::From<&ProductLicense> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProductLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProductLicense {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProductLicense> for &::windows::core::IInspectable {
+    fn from(value: &ProductLicense) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProductLicense {}
@@ -1454,14 +1424,9 @@ impl ::core::convert::From<&ProductListing> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProductListing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProductListing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProductListing> for &::windows::core::IUnknown {
+    fn from(value: &ProductListing) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProductListing> for ::windows::core::IInspectable {
@@ -1474,14 +1439,9 @@ impl ::core::convert::From<&ProductListing> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProductListing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProductListing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProductListing> for &::windows::core::IInspectable {
+    fn from(value: &ProductListing) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProductListing {}
@@ -1506,9 +1466,9 @@ impl ProductPurchaseDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1519,9 +1479,9 @@ impl ProductPurchaseDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
-    pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1534,15 +1494,15 @@ impl ProductPurchaseDisplayProperties {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
-    pub fn CreateProductPurchaseDisplayProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<ProductPurchaseDisplayProperties> {
+    pub fn CreateProductPurchaseDisplayProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<ProductPurchaseDisplayProperties> {
         Self::IProductPurchaseDisplayPropertiesFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateProductPurchaseDisplayProperties)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<ProductPurchaseDisplayProperties>(result__)
+            (::windows::core::Interface::vtable(this).CreateProductPurchaseDisplayProperties)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<ProductPurchaseDisplayProperties>(result__)
         })
     }
     #[doc(hidden)]
@@ -1591,14 +1551,9 @@ impl ::core::convert::From<&ProductPurchaseDisplayProperties> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProductPurchaseDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProductPurchaseDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProductPurchaseDisplayProperties> for &::windows::core::IUnknown {
+    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProductPurchaseDisplayProperties> for ::windows::core::IInspectable {
@@ -1611,14 +1566,9 @@ impl ::core::convert::From<&ProductPurchaseDisplayProperties> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProductPurchaseDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProductPurchaseDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProductPurchaseDisplayProperties> for &::windows::core::IInspectable {
+    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
@@ -1771,14 +1721,9 @@ impl ::core::convert::From<&PurchaseResults> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PurchaseResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PurchaseResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PurchaseResults> for &::windows::core::IUnknown {
+    fn from(value: &PurchaseResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PurchaseResults> for ::windows::core::IInspectable {
@@ -1791,14 +1736,9 @@ impl ::core::convert::From<&PurchaseResults> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PurchaseResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PurchaseResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PurchaseResults> for &::windows::core::IInspectable {
+    fn from(value: &PurchaseResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PurchaseResults {}
@@ -1872,14 +1812,9 @@ impl ::core::convert::From<&UnfulfilledConsumable> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UnfulfilledConsumable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UnfulfilledConsumable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UnfulfilledConsumable> for &::windows::core::IUnknown {
+    fn from(value: &UnfulfilledConsumable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UnfulfilledConsumable> for ::windows::core::IInspectable {
@@ -1892,14 +1827,9 @@ impl ::core::convert::From<&UnfulfilledConsumable> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UnfulfilledConsumable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UnfulfilledConsumable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UnfulfilledConsumable> for &::windows::core::IInspectable {
+    fn from(value: &UnfulfilledConsumable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UnfulfilledConsumable {}

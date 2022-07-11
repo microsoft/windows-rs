@@ -319,18 +319,18 @@ pub struct XboxLiveDeviceAddress(::windows::core::IUnknown);
 impl XboxLiveDeviceAddress {
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SnapshotChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SnapshotChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SnapshotChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SnapshotChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSnapshotChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSnapshotChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSnapshotChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSnapshotChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
     pub fn GetSnapshotAsBase64(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -355,11 +355,11 @@ impl XboxLiveDeviceAddress {
         unsafe { (::windows::core::Interface::vtable(this).GetSnapshotAsBytes)(::windows::core::Interface::as_raw(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer), byteswritten).ok() }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>>(&self, otherdeviceaddress: Param0) -> ::windows::core::Result<i32> {
+    pub fn Compare<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>>(&self, otherdeviceaddress: Param0) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), otherdeviceaddress.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), otherdeviceaddress.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -387,18 +387,18 @@ impl XboxLiveDeviceAddress {
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn CreateFromSnapshotBase64<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(base64: Param0) -> ::windows::core::Result<XboxLiveDeviceAddress> {
+    pub fn CreateFromSnapshotBase64<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(base64: Param0) -> ::windows::core::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromSnapshotBase64)(::windows::core::Interface::as_raw(this), base64.into_param().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveDeviceAddress>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromSnapshotBase64)(::windows::core::Interface::as_raw(this), base64.into().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveDeviceAddress>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromSnapshotBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(buffer: Param0) -> ::windows::core::Result<XboxLiveDeviceAddress> {
+    pub fn CreateFromSnapshotBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(buffer: Param0) -> ::windows::core::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromSnapshotBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveDeviceAddress>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromSnapshotBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<XboxLiveDeviceAddress>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -468,14 +468,9 @@ impl ::core::convert::From<&XboxLiveDeviceAddress> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveDeviceAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveDeviceAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveDeviceAddress> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveDeviceAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveDeviceAddress> for ::windows::core::IInspectable {
@@ -488,14 +483,9 @@ impl ::core::convert::From<&XboxLiveDeviceAddress> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveDeviceAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveDeviceAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveDeviceAddress> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveDeviceAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
@@ -506,18 +496,18 @@ pub struct XboxLiveEndpointPair(::windows::core::IUnknown);
 impl XboxLiveEndpointPair {
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -602,10 +592,10 @@ impl XboxLiveEndpointPair {
         })
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn FindEndpointPairByHostNamesAndPorts<'a, Param0: ::windows::core::IntoParam<'a, super::HostName>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::HostName>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(localhostname: Param0, localport: Param1, remotehostname: Param2, remoteport: Param3) -> ::windows::core::Result<XboxLiveEndpointPair> {
+    pub fn FindEndpointPairByHostNamesAndPorts<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(localhostname: Param0, localport: Param1, remotehostname: Param2, remoteport: Param3) -> ::windows::core::Result<XboxLiveEndpointPair> {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindEndpointPairByHostNamesAndPorts)(::windows::core::Interface::as_raw(this), localhostname.into_param().abi(), localport.into_param().abi(), remotehostname.into_param().abi(), remoteport.into_param().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveEndpointPair>(result__)
+            (::windows::core::Interface::vtable(this).FindEndpointPairByHostNamesAndPorts)(::windows::core::Interface::as_raw(this), localhostname.into().abi(), localport.into().abi(), remotehostname.into().abi(), remoteport.into().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveEndpointPair>(result__)
         })
     }
     #[doc(hidden)]
@@ -654,14 +644,9 @@ impl ::core::convert::From<&XboxLiveEndpointPair> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveEndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPair> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveEndpointPair) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveEndpointPair> for ::windows::core::IInspectable {
@@ -674,14 +659,9 @@ impl ::core::convert::From<&XboxLiveEndpointPair> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveEndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPair> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveEndpointPair) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
@@ -825,14 +805,9 @@ impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveEndpointPairCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPairCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::core::IInspectable {
@@ -845,14 +820,9 @@ impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveEndpointPairCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPairCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
@@ -998,14 +968,9 @@ impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveEndpointPairStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPairStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::core::IInspectable {
@@ -1018,14 +983,9 @@ impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveEndpointPairStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPairStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
@@ -1036,53 +996,53 @@ pub struct XboxLiveEndpointPairTemplate(::windows::core::IUnknown);
 impl XboxLiveEndpointPairTemplate {
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InboundEndpointPairCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InboundEndpointPairCreated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).InboundEndpointPairCreated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).InboundEndpointPairCreated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveInboundEndpointPairCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveInboundEndpointPairCreated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveInboundEndpointPairCreated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveInboundEndpointPairCreated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateEndpointPairDefaultAsync<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
+    pub fn CreateEndpointPairDefaultAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>>(&self, deviceaddress: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPairDefaultAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPairDefaultAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateEndpointPairWithBehaviorsAsync<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
+    pub fn CreateEndpointPairWithBehaviorsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>, Param1: ::std::convert::Into<XboxLiveEndpointPairCreationBehaviors>>(&self, deviceaddress: Param0, behaviors: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), behaviors, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), behaviors.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateEndpointPairForPortsDefaultAsync<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, deviceaddress: Param0, initiatorport: Param1, acceptorport: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
+    pub fn CreateEndpointPairForPortsDefaultAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, deviceaddress: Param0, initiatorport: Param1, acceptorport: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPairForPortsDefaultAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), initiatorport.into_param().abi(), acceptorport.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPairForPortsDefaultAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), initiatorport.into().abi(), acceptorport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateEndpointPairForPortsWithBehaviorsAsync<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, deviceaddress: Param0, initiatorport: Param1, acceptorport: Param2, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
+    pub fn CreateEndpointPairForPortsWithBehaviorsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<XboxLiveEndpointPairCreationBehaviors>>(&self, deviceaddress: Param0, initiatorport: Param1, acceptorport: Param2, behaviors: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPairForPortsWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), initiatorport.into_param().abi(), acceptorport.into_param().abi(), behaviors, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPairForPortsWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), initiatorport.into().abi(), acceptorport.into().abi(), behaviors.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1143,10 +1103,10 @@ impl XboxLiveEndpointPairTemplate {
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn GetTemplateByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<XboxLiveEndpointPairTemplate> {
+    pub fn GetTemplateByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<XboxLiveEndpointPairTemplate> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTemplateByName)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveEndpointPairTemplate>(result__)
+            (::windows::core::Interface::vtable(this).GetTemplateByName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveEndpointPairTemplate>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation_Collections\"`*"]
@@ -1203,14 +1163,9 @@ impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveEndpointPairTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPairTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveEndpointPairTemplate> for ::windows::core::IInspectable {
@@ -1223,14 +1178,9 @@ impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveEndpointPairTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPairTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
@@ -1288,14 +1238,9 @@ impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::core::IInspectable {
@@ -1308,14 +1253,9 @@ impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
@@ -1377,36 +1317,36 @@ impl XboxLiveQualityOfServiceMeasurement {
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMetricResultsForDevice<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
+    pub fn GetMetricResultsForDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>>(&self, deviceaddress: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMetricResultsForDevice)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetMetricResultsForDevice)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
+    pub fn GetMetricResultsForMetric<'a, Param0: ::std::convert::Into<XboxLiveQualityOfServiceMetric>>(&self, metric: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMetricResultsForMetric)(::windows::core::Interface::as_raw(this), metric, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetMetricResultsForMetric)(::windows::core::Interface::as_raw(this), metric.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn GetMetricResult<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0, metric: XboxLiveQualityOfServiceMetric) -> ::windows::core::Result<XboxLiveQualityOfServiceMetricResult> {
+    pub fn GetMetricResult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>, Param1: ::std::convert::Into<XboxLiveQualityOfServiceMetric>>(&self, deviceaddress: Param0, metric: Param1) -> ::windows::core::Result<XboxLiveQualityOfServiceMetricResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMetricResult)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), metric, result__.as_mut_ptr()).from_abi::<XboxLiveQualityOfServiceMetricResult>(result__)
+            (::windows::core::Interface::vtable(this).GetMetricResult)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), metric.into(), result__.as_mut_ptr()).from_abi::<XboxLiveQualityOfServiceMetricResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn GetPrivatePayloadResult<'a, Param0: ::windows::core::IntoParam<'a, XboxLiveDeviceAddress>>(&self, deviceaddress: Param0) -> ::windows::core::Result<XboxLiveQualityOfServicePrivatePayloadResult> {
+    pub fn GetPrivatePayloadResult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>>(&self, deviceaddress: Param0) -> ::windows::core::Result<XboxLiveQualityOfServicePrivatePayloadResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPrivatePayloadResult)(::windows::core::Interface::as_raw(this), deviceaddress.into_param().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveQualityOfServicePrivatePayloadResult>(result__)
+            (::windows::core::Interface::vtable(this).GetPrivatePayloadResult)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), result__.as_mut_ptr()).from_abi::<XboxLiveQualityOfServicePrivatePayloadResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation_Collections\"`*"]
@@ -1543,8 +1483,8 @@ impl XboxLiveQualityOfServiceMeasurement {
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPublishedPrivatePayload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPublishedPrivatePayload)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetPublishedPrivatePayload<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPublishedPrivatePayload)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
     pub fn MaxPrivatePayloadSize() -> ::windows::core::Result<u32> {
@@ -1599,14 +1539,9 @@ impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveQualityOfServiceMeasurement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveQualityOfServiceMeasurement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::core::IInspectable {
@@ -1619,14 +1554,9 @@ impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveQualityOfServiceMeasurement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveQualityOfServiceMeasurement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
@@ -1793,14 +1723,9 @@ impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveQualityOfServiceMetricResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveQualityOfServiceMetricResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::core::IInspectable {
@@ -1813,14 +1738,9 @@ impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveQualityOfServiceMetricResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveQualityOfServiceMetricResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
@@ -1895,14 +1815,9 @@ impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveQualityOfServicePrivatePayloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveQualityOfServicePrivatePayloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for &::windows::core::IUnknown {
+    fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::core::IInspectable {
@@ -1915,14 +1830,9 @@ impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxLiveQualityOfServicePrivatePayloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveQualityOfServicePrivatePayloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for &::windows::core::IInspectable {
+    fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}

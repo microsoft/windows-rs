@@ -13,19 +13,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> fo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IInspectable {
@@ -33,19 +28,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> fo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IInspectable {
     fn from(value: &IWindowsDevicesAllJoynBusAttachmentFactoryInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
@@ -89,19 +79,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::win
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IInspectable {
@@ -109,19 +94,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::win
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusAttachmentInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IInspectable {
     fn from(value: &IWindowsDevicesAllJoynBusAttachmentInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentInterop {
@@ -165,19 +145,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectFactoryInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IInspectable {
@@ -185,19 +160,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectFactoryInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IInspectable {
     fn from(value: &IWindowsDevicesAllJoynBusObjectFactoryInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectFactoryInterop {
@@ -231,12 +201,12 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
-    pub unsafe fn AddPropertyGetHandler<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: *const ::core::ffi::c_void, interfacename: Param1, callback: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPropertyGetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into_param().abi(), ::core::mem::transmute(callback)).ok()
+    pub unsafe fn AddPropertyGetHandler<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, context: *const ::core::ffi::c_void, interfacename: Param1, callback: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddPropertyGetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), ::core::mem::transmute(callback)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
-    pub unsafe fn AddPropertySetHandler<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: *const ::core::ffi::c_void, interfacename: Param1, callback: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPropertySetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into_param().abi(), ::core::mem::transmute(callback)).ok()
+    pub unsafe fn AddPropertySetHandler<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, context: *const ::core::ffi::c_void, interfacename: Param1, callback: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddPropertySetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), ::core::mem::transmute(callback)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
@@ -249,19 +219,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDevicesAllJoynBusObjectInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDevicesAllJoynBusObjectInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDevicesAllJoynBusObjectInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDevicesAllJoynBusObjectInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IInspectable {
@@ -269,19 +234,14 @@ impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWindowsDevicesAllJoynBusObjectInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWindowsDevicesAllJoynBusObjectInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IInspectable {
     fn from(value: &IWindowsDevicesAllJoynBusObjectInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWindowsDevicesAllJoynBusObjectInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWindowsDevicesAllJoynBusObjectInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectInterop {

@@ -46,9 +46,9 @@ impl AppWindow {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn SetPersistedStateId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPersistedStateId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPersistedStateId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPersistedStateId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     pub fn Presenter(&self) -> ::windows::core::Result<AppWindowPresenter> {
@@ -67,9 +67,9 @@ impl AppWindow {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     pub fn TitleBar(&self) -> ::windows::core::Result<AppWindowTitleBar> {
@@ -122,9 +122,9 @@ impl AppWindow {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn RequestMoveToDisplayRegion<'a, Param0: ::windows::core::IntoParam<'a, DisplayRegion>>(&self, displayregion: Param0) -> ::windows::core::Result<()> {
+    pub fn RequestMoveToDisplayRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayRegion>>>(&self, displayregion: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestMoveToDisplayRegion)(::windows::core::Interface::as_raw(this), displayregion.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestMoveToDisplayRegion)(::windows::core::Interface::as_raw(this), displayregion.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     pub fn RequestMoveAdjacentToCurrentView(&self) -> ::windows::core::Result<()> {
@@ -132,33 +132,33 @@ impl AppWindow {
         unsafe { (::windows::core::Interface::vtable(this).RequestMoveAdjacentToCurrentView)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn RequestMoveAdjacentToWindow<'a, Param0: ::windows::core::IntoParam<'a, AppWindow>>(&self, anchorwindow: Param0) -> ::windows::core::Result<()> {
+    pub fn RequestMoveAdjacentToWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AppWindow>>>(&self, anchorwindow: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestMoveAdjacentToWindow)(::windows::core::Interface::as_raw(this), anchorwindow.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestMoveAdjacentToWindow)(::windows::core::Interface::as_raw(this), anchorwindow.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToWindowContent<'a, Param0: ::windows::core::IntoParam<'a, AppWindow>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, anchorwindow: Param0, contentoffset: Param1) -> ::windows::core::Result<()> {
+    pub fn RequestMoveRelativeToWindowContent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AppWindow>>>(&self, anchorwindow: Param0, contentoffset: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(::windows::core::Interface::as_raw(this), anchorwindow.into_param().abi(), contentoffset.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(::windows::core::Interface::as_raw(this), anchorwindow.into().abi(), contentoffset).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToCurrentViewContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, contentoffset: Param0) -> ::windows::core::Result<()> {
+    pub fn RequestMoveRelativeToCurrentViewContent(&self, contentoffset: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestMoveRelativeToCurrentViewContent)(::windows::core::Interface::as_raw(this), contentoffset.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestMoveRelativeToCurrentViewContent)(::windows::core::Interface::as_raw(this), contentoffset).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToDisplayRegion<'a, Param0: ::windows::core::IntoParam<'a, DisplayRegion>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, displayregion: Param0, displayregionoffset: Param1) -> ::windows::core::Result<()> {
+    pub fn RequestMoveRelativeToDisplayRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayRegion>>>(&self, displayregion: Param0, displayregionoffset: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows::core::Interface::as_raw(this), displayregion.into_param().abi(), displayregionoffset.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows::core::Interface::as_raw(this), displayregion.into().abi(), displayregionoffset).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, framesize: Param0) -> ::windows::core::Result<()> {
+    pub fn RequestSize(&self, framesize: super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestSize)(::windows::core::Interface::as_raw(this), framesize.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestSize)(::windows::core::Interface::as_raw(this), framesize).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -171,48 +171,48 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CloseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CloseRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CloseRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CloseRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCloseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCloseRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCloseRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCloseRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -227,8 +227,8 @@ impl AppWindow {
         Self::IAppWindowStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ClearAllPersistedState)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn ClearPersistedState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(key: Param0) -> ::windows::core::Result<()> {
-        Self::IAppWindowStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ClearPersistedState)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() })
+    pub fn ClearPersistedState<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(key: Param0) -> ::windows::core::Result<()> {
+        Self::IAppWindowStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ClearPersistedState)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -276,14 +276,9 @@ impl ::core::convert::From<&AppWindow> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindow> for &::windows::core::IUnknown {
+    fn from(value: &AppWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindow> for ::windows::core::IInspectable {
@@ -296,14 +291,9 @@ impl ::core::convert::From<&AppWindow> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindow> for &::windows::core::IInspectable {
+    fn from(value: &AppWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindow {}
@@ -417,14 +407,9 @@ impl ::core::convert::From<&AppWindowChangedEventArgs> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowChangedEventArgs> for ::windows::core::IInspectable {
@@ -437,14 +422,9 @@ impl ::core::convert::From<&AppWindowChangedEventArgs> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
@@ -516,14 +496,9 @@ impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowCloseRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowCloseRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::core::IInspectable {
@@ -536,14 +511,9 @@ impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowCloseRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowCloseRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
@@ -601,14 +571,9 @@ impl ::core::convert::From<&AppWindowClosedEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowClosedEventArgs> for ::windows::core::IInspectable {
@@ -621,14 +586,9 @@ impl ::core::convert::From<&AppWindowClosedEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
@@ -690,9 +650,9 @@ impl AppWindowFrame {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()> {
+    pub fn SetFrameStyle<'a, Param0: ::std::convert::Into<AppWindowFrameStyle>>(&self, framestyle: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowFrameStyle>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameStyle)(::windows::core::Interface::as_raw(this), framestyle).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameStyle)(::windows::core::Interface::as_raw(this), framestyle.into()).ok() }
     }
 }
 impl ::core::clone::Clone for AppWindowFrame {
@@ -735,14 +695,9 @@ impl ::core::convert::From<&AppWindowFrame> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowFrame> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowFrame> for ::windows::core::IInspectable {
@@ -755,14 +710,9 @@ impl ::core::convert::From<&AppWindowFrame> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowFrame> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowFrame {}
@@ -872,14 +822,9 @@ impl ::core::convert::From<&AppWindowPlacement> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowPlacement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowPlacement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowPlacement> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowPlacement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowPlacement> for ::windows::core::IInspectable {
@@ -892,14 +837,9 @@ impl ::core::convert::From<&AppWindowPlacement> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowPlacement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowPlacement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowPlacement> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowPlacement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
@@ -957,14 +897,9 @@ impl ::core::convert::From<&AppWindowPresentationConfiguration> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowPresentationConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowPresentationConfiguration> for ::windows::core::IInspectable {
@@ -977,14 +912,9 @@ impl ::core::convert::From<&AppWindowPresentationConfiguration> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowPresentationConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
@@ -1037,27 +967,27 @@ impl AppWindowPresenter {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
+    pub fn IsPresentationSupported<'a, Param0: ::std::convert::Into<AppWindowPresentationKind>>(&self, presentationkind: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsPresentationSupported)(::windows::core::Interface::as_raw(this), presentationkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPresentationSupported)(::windows::core::Interface::as_raw(this), presentationkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn RequestPresentation<'a, Param0: ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration>>(&self, configuration: Param0) -> ::windows::core::Result<bool> {
+    pub fn RequestPresentation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AppWindowPresentationConfiguration>>>(&self, configuration: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPresentation)(::windows::core::Interface::as_raw(this), configuration.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequestPresentation)(::windows::core::Interface::as_raw(this), configuration.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
+    pub fn RequestPresentationByKind<'a, Param0: ::std::convert::Into<AppWindowPresentationKind>>(&self, presentationkind: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPresentationByKind)(::windows::core::Interface::as_raw(this), presentationkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequestPresentationByKind)(::windows::core::Interface::as_raw(this), presentationkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1101,14 +1031,9 @@ impl ::core::convert::From<&AppWindowPresenter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowPresenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowPresenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowPresenter> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowPresenter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowPresenter> for ::windows::core::IInspectable {
@@ -1121,14 +1046,9 @@ impl ::core::convert::From<&AppWindowPresenter> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowPresenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowPresenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowPresenter> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowPresenter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
@@ -1148,9 +1068,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBackgroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1163,9 +1083,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonBackgroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1178,9 +1098,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonForegroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonForegroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1193,9 +1113,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonHoverBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonHoverBackgroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1208,9 +1128,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonHoverForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonHoverForegroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1223,9 +1143,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonInactiveBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonInactiveBackgroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1238,9 +1158,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonInactiveForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonInactiveForegroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1253,9 +1173,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonPressedBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonPressedBackgroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1268,9 +1188,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetButtonPressedForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetButtonPressedForegroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     pub fn ExtendsContentIntoTitleBar(&self) -> ::windows::core::Result<bool> {
@@ -1296,9 +1216,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetForegroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1311,9 +1231,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInactiveBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInactiveBackgroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1326,9 +1246,9 @@ impl AppWindowTitleBar {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInactiveForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInactiveForegroundColor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::Color>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInactiveForegroundColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -1356,9 +1276,9 @@ impl AppWindowTitleBar {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()> {
+    pub fn SetPreferredVisibility<'a, Param0: ::std::convert::Into<AppWindowTitleBarVisibility>>(&self, visibilitymode: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredVisibility)(::windows::core::Interface::as_raw(this), visibilitymode).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredVisibility)(::windows::core::Interface::as_raw(this), visibilitymode.into()).ok() }
     }
 }
 impl ::core::clone::Clone for AppWindowTitleBar {
@@ -1401,14 +1321,9 @@ impl ::core::convert::From<&AppWindowTitleBar> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowTitleBar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowTitleBar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowTitleBar> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowTitleBar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowTitleBar> for ::windows::core::IInspectable {
@@ -1421,14 +1336,9 @@ impl ::core::convert::From<&AppWindowTitleBar> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowTitleBar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowTitleBar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowTitleBar> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowTitleBar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
@@ -1487,14 +1397,9 @@ impl ::core::convert::From<&AppWindowTitleBarOcclusion> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppWindowTitleBarOcclusion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppWindowTitleBarOcclusion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowTitleBarOcclusion> for &::windows::core::IUnknown {
+    fn from(value: &AppWindowTitleBarOcclusion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppWindowTitleBarOcclusion> for ::windows::core::IInspectable {
@@ -1507,14 +1412,9 @@ impl ::core::convert::From<&AppWindowTitleBarOcclusion> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppWindowTitleBarOcclusion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppWindowTitleBarOcclusion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppWindowTitleBarOcclusion> for &::windows::core::IInspectable {
+    fn from(value: &AppWindowTitleBarOcclusion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
@@ -1613,14 +1513,9 @@ impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompactOverlayPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompactOverlayPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompactOverlayPresentationConfiguration> for ::windows::core::IInspectable {
@@ -1633,14 +1528,9 @@ impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CompactOverlayPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompactOverlayPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
@@ -1653,14 +1543,9 @@ impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for AppWind
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for CompactOverlayPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for &CompactOverlayPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+impl<'a> ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::core::InParam<'a, AppWindowPresentationConfiguration> {
+    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
@@ -1725,14 +1610,9 @@ impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DefaultPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DefaultPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DefaultPresentationConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &DefaultPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DefaultPresentationConfiguration> for ::windows::core::IInspectable {
@@ -1745,14 +1625,9 @@ impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DefaultPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DefaultPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DefaultPresentationConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &DefaultPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
@@ -1765,14 +1640,9 @@ impl ::core::convert::From<&DefaultPresentationConfiguration> for AppWindowPrese
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for DefaultPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for &DefaultPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+impl<'a> ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::core::InParam<'a, AppWindowPresentationConfiguration> {
+    fn from(value: &DefaultPresentationConfiguration) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
@@ -1825,18 +1695,18 @@ impl DisplayRegion {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayRegion {
@@ -1879,14 +1749,9 @@ impl ::core::convert::From<&DisplayRegion> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DisplayRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DisplayRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayRegion> for &::windows::core::IUnknown {
+    fn from(value: &DisplayRegion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DisplayRegion> for ::windows::core::IInspectable {
@@ -1899,14 +1764,9 @@ impl ::core::convert::From<&DisplayRegion> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DisplayRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DisplayRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DisplayRegion> for &::windows::core::IInspectable {
+    fn from(value: &DisplayRegion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DisplayRegion {}
@@ -1984,14 +1844,9 @@ impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FullScreenPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FullScreenPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FullScreenPresentationConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &FullScreenPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FullScreenPresentationConfiguration> for ::windows::core::IInspectable {
@@ -2004,14 +1859,9 @@ impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FullScreenPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FullScreenPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FullScreenPresentationConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &FullScreenPresentationConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
@@ -2024,14 +1874,9 @@ impl ::core::convert::From<&FullScreenPresentationConfiguration> for AppWindowPr
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for FullScreenPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for &FullScreenPresentationConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, AppWindowPresentationConfiguration> {
-        ::windows::core::Param::Owned(::core::convert::Into::<AppWindowPresentationConfiguration>::into(self))
+impl<'a> ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::core::InParam<'a, AppWindowPresentationConfiguration> {
+    fn from(value: &FullScreenPresentationConfiguration) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for FullScreenPresentationConfiguration {}
@@ -2645,18 +2490,18 @@ impl WindowingEnvironment {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2668,10 +2513,10 @@ impl WindowingEnvironment {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAllWithKind<'a, Param0: ::std::convert::Into<WindowingEnvironmentKind>>(kind: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllWithKind)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllWithKind)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2720,14 +2565,9 @@ impl ::core::convert::From<&WindowingEnvironment> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WindowingEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WindowingEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironment> for &::windows::core::IUnknown {
+    fn from(value: &WindowingEnvironment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WindowingEnvironment> for ::windows::core::IInspectable {
@@ -2740,14 +2580,9 @@ impl ::core::convert::From<&WindowingEnvironment> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WindowingEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WindowingEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironment> for &::windows::core::IInspectable {
+    fn from(value: &WindowingEnvironment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
@@ -2805,14 +2640,9 @@ impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WindowingEnvironmentAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WindowingEnvironmentAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::core::IInspectable {
@@ -2825,14 +2655,9 @@ impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WindowingEnvironmentAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WindowingEnvironmentAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
@@ -2881,14 +2706,9 @@ impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WindowingEnvironmentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WindowingEnvironmentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::core::IInspectable {
@@ -2901,14 +2721,9 @@ impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WindowingEnvironmentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WindowingEnvironmentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
@@ -3001,14 +2816,9 @@ impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WindowingEnvironmentRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WindowingEnvironmentRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::core::IInspectable {
@@ -3021,14 +2831,9 @@ impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WindowingEnvironmentRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WindowingEnvironmentRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}

@@ -213,11 +213,11 @@ impl SpatialSurfaceInfo {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetBounds<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>> {
+    pub fn TryGetBounds<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetBounds)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetBounds)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
@@ -231,11 +231,11 @@ impl SpatialSurfaceInfo {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryComputeLatestMeshWithOptionsAsync<'a, Param1: ::windows::core::IntoParam<'a, SpatialSurfaceMeshOptions>>(&self, maxtrianglespercubicmeter: f64, options: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
+    pub fn TryComputeLatestMeshWithOptionsAsync<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, SpatialSurfaceMeshOptions>>>(&self, maxtrianglespercubicmeter: f64, options: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(::windows::core::Interface::as_raw(this), maxtrianglespercubicmeter, options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(::windows::core::Interface::as_raw(this), maxtrianglespercubicmeter, options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
         }
     }
 }
@@ -279,14 +279,9 @@ impl ::core::convert::From<&SpatialSurfaceInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceInfo> for &::windows::core::IUnknown {
+    fn from(value: &SpatialSurfaceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialSurfaceInfo> for ::windows::core::IInspectable {
@@ -299,14 +294,9 @@ impl ::core::convert::From<&SpatialSurfaceInfo> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceInfo> for &::windows::core::IInspectable {
+    fn from(value: &SpatialSurfaceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
@@ -405,14 +395,9 @@ impl ::core::convert::From<&SpatialSurfaceMesh> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceMesh> for &::windows::core::IUnknown {
+    fn from(value: &SpatialSurfaceMesh) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialSurfaceMesh> for ::windows::core::IInspectable {
@@ -425,14 +410,9 @@ impl ::core::convert::From<&SpatialSurfaceMesh> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceMesh> for &::windows::core::IInspectable {
+    fn from(value: &SpatialSurfaceMesh) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
@@ -516,14 +496,9 @@ impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for &::windows::core::IUnknown {
+    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialSurfaceMeshBuffer> for ::windows::core::IInspectable {
@@ -536,14 +511,9 @@ impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for &::windows::core::IInspectable {
+    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
@@ -570,9 +540,9 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
+    pub fn SetVertexPositionFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -585,9 +555,9 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetTriangleIndexFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
+    pub fn SetTriangleIndexFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -600,9 +570,9 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetVertexNormalFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
+    pub fn SetVertexNormalFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
     pub fn IncludeVertexNormals(&self) -> ::windows::core::Result<bool> {
@@ -687,14 +657,9 @@ impl ::core::convert::From<&SpatialSurfaceMeshOptions> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceMeshOptions> for &::windows::core::IUnknown {
+    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialSurfaceMeshOptions> for ::windows::core::IInspectable {
@@ -707,14 +672,9 @@ impl ::core::convert::From<&SpatialSurfaceMeshOptions> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceMeshOptions> for &::windows::core::IInspectable {
+    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
@@ -740,30 +700,30 @@ impl SpatialSurfaceObserver {
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
-    pub fn SetBoundingVolume<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialBoundingVolume>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBoundingVolume<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::SpatialBoundingVolume>>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolume)(::windows::core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolume)(::windows::core::Interface::as_raw(this), bounds.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetBoundingVolumes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBoundingVolumes<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolumes)(::windows::core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolumes)(::windows::core::Interface::as_raw(this), bounds.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ObservedSurfacesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ObservedSurfacesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveObservedSurfacesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveObservedSurfacesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -831,14 +791,9 @@ impl ::core::convert::From<&SpatialSurfaceObserver> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceObserver> for &::windows::core::IUnknown {
+    fn from(value: &SpatialSurfaceObserver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialSurfaceObserver> for ::windows::core::IInspectable {
@@ -851,14 +806,9 @@ impl ::core::convert::From<&SpatialSurfaceObserver> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialSurfaceObserver> for &::windows::core::IInspectable {
+    fn from(value: &SpatialSurfaceObserver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceObserver {}

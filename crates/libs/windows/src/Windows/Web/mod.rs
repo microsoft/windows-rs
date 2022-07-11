@@ -12,11 +12,11 @@ pub struct IUriToStreamResolver(::windows::core::IUnknown);
 impl IUriToStreamResolver {
     #[doc = "*Required features: `\"Web\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UriToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
+    pub fn UriToStreamAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>>(&self, uri: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
+            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
         }
     }
 }
@@ -25,19 +25,14 @@ impl ::core::convert::From<IUriToStreamResolver> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUriToStreamResolver> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUriToStreamResolver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUriToStreamResolver> for ::windows::core::IUnknown {
     fn from(value: &IUriToStreamResolver) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUriToStreamResolver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUriToStreamResolver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IUriToStreamResolver> for ::windows::core::IInspectable {
@@ -45,19 +40,14 @@ impl ::core::convert::From<IUriToStreamResolver> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUriToStreamResolver> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IUriToStreamResolver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUriToStreamResolver> for ::windows::core::IInspectable {
     fn from(value: &IUriToStreamResolver) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUriToStreamResolver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IUriToStreamResolver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUriToStreamResolver {

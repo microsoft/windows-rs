@@ -5912,12 +5912,12 @@ pub const DI_WRITEPROTECT: ::windows::core::HRESULT = ::windows::core::HRESULT(1
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectInput8Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: Param4) -> ::windows::core::Result<()> {
+pub unsafe fn DirectInput8Create<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: Param4) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DirectInput8Create(hinst.into_param().abi(), ::core::mem::transmute(dwversion), ::core::mem::transmute(riidltf), ::core::mem::transmute(ppvout), punkouter.into_param().abi()).ok()
+    DirectInput8Create(hinst.into(), ::core::mem::transmute(dwversion), ::core::mem::transmute(riidltf), ::core::mem::transmute(ppvout), punkouter.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
@@ -8157,12 +8157,12 @@ pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_FlushQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_FlushQueue<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_FlushQueue(hiddeviceobject.into_param().abi()))
+    ::core::mem::transmute(HidD_FlushQueue(hiddeviceobject.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8177,32 +8177,32 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foun
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetAttributes<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetAttributes(hiddeviceobject.into_param().abi(), ::core::mem::transmute(attributes)))
+    ::core::mem::transmute(HidD_GetAttributes(hiddeviceobject.into(), ::core::mem::transmute(attributes)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetConfiguration<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetConfiguration(hiddeviceobject.into_param().abi(), ::core::mem::transmute(configuration), ::core::mem::transmute(configurationlength)))
+    ::core::mem::transmute(HidD_GetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), ::core::mem::transmute(configurationlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetFeature<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetFeature(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
+    ::core::mem::transmute(HidD_GetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
@@ -8216,152 +8216,152 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::core::GUID) {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetIndexedString<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetIndexedString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(stringindex), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(HidD_GetIndexedString(hiddeviceobject.into(), ::core::mem::transmute(stringindex), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetInputReport<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetInputReport(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
+    ::core::mem::transmute(HidD_GetInputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetManufacturerString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(HidD_GetManufacturerString(hiddeviceobject.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetMsGenreDescriptor(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(HidD_GetMsGenreDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetNumInputBuffers(hiddeviceobject.into_param().abi(), ::core::mem::transmute(numberbuffers)))
+    ::core::mem::transmute(HidD_GetNumInputBuffers(hiddeviceobject.into(), ::core::mem::transmute(numberbuffers)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetPhysicalDescriptor(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(HidD_GetPhysicalDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetPreparsedData(hiddeviceobject.into_param().abi(), ::core::mem::transmute(preparseddata)))
+    ::core::mem::transmute(HidD_GetPreparsedData(hiddeviceobject.into(), ::core::mem::transmute(preparseddata)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetProductString<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetProductString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(HidD_GetProductString(hiddeviceobject.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_GetSerialNumberString(hiddeviceobject.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    ::core::mem::transmute(HidD_GetSerialNumberString(hiddeviceobject.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetConfiguration<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetConfiguration(hiddeviceobject.into_param().abi(), ::core::mem::transmute(configuration), ::core::mem::transmute(configurationlength)))
+    ::core::mem::transmute(HidD_SetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), ::core::mem::transmute(configurationlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetFeature<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetFeature(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
+    ::core::mem::transmute(HidD_SetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetNumInputBuffers(hiddeviceobject.into_param().abi(), ::core::mem::transmute(numberbuffers)))
+    ::core::mem::transmute(HidD_SetNumInputBuffers(hiddeviceobject.into(), ::core::mem::transmute(numberbuffers)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetOutputReport<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetOutputReport<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(HidD_SetOutputReport(hiddeviceobject.into_param().abi(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
+    ::core::mem::transmute(HidD_SetOutputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), ::core::mem::transmute(reportbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetButtonArray<'a, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetButtonArray<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetButtonArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttondata), ::core::mem::transmute(buttondatalength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetButtonArray(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttondata), ::core::mem::transmute(buttondatalength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetButtonCaps<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetButtonCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(buttoncaps), ::core::mem::transmute(buttoncapslength), ::core::mem::transmute(preparseddata)).ok()
+    HidP_GetButtonCaps(reporttype.into(), ::core::mem::transmute(buttoncaps), ::core::mem::transmute(buttoncapslength), ::core::mem::transmute(preparseddata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8376,22 +8376,22 @@ pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetData<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetData(::core::mem::transmute(reporttype), ::core::mem::transmute(datalist), ::core::mem::transmute(datalength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetData(reporttype.into(), ::core::mem::transmute(datalist), ::core::mem::transmute(datalength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetExtendedAttributes<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetExtendedAttributes(::core::mem::transmute(reporttype), ::core::mem::transmute(dataindex), ::core::mem::transmute(preparseddata), ::core::mem::transmute(attributes), ::core::mem::transmute(lengthattributes)).ok()
+    HidP_GetExtendedAttributes(reporttype.into(), ::core::mem::transmute(dataindex), ::core::mem::transmute(preparseddata), ::core::mem::transmute(attributes), ::core::mem::transmute(lengthattributes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8406,190 +8406,190 @@ pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_CO
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetScaledUsageValue<'a, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetScaledUsageValue<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetScaledUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetScaledUsageValue(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetSpecificButtonCaps<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetSpecificButtonCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttoncaps), ::core::mem::transmute(buttoncapslength), ::core::mem::transmute(preparseddata)).ok()
+    HidP_GetSpecificButtonCaps(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttoncaps), ::core::mem::transmute(buttoncapslength), ::core::mem::transmute(preparseddata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetSpecificValueCaps<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetSpecificValueCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(valuecaps), ::core::mem::transmute(valuecapslength), ::core::mem::transmute(preparseddata)).ok()
+    HidP_GetSpecificValueCaps(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(valuecaps), ::core::mem::transmute(valuecapslength), ::core::mem::transmute(preparseddata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsageValue<'a, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetUsageValue<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetUsageValue(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsageValueArray<'a, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: ::windows::core::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetUsageValueArray<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: ::windows::core::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: ::windows::core::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetUsageValueArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(usagevaluebytelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetUsageValueArray(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(usagevaluebytelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetUsages<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetUsages(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetUsages(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsagesEx<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: Param5, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetUsagesEx<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetUsagesEx(::core::mem::transmute(reporttype), ::core::mem::transmute(linkcollection), ::core::mem::transmute(buttonlist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_GetUsagesEx(reporttype.into(), ::core::mem::transmute(linkcollection), ::core::mem::transmute(buttonlist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_GetValueCaps<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_GetValueCaps(::core::mem::transmute(reporttype), ::core::mem::transmute(valuecaps), ::core::mem::transmute(valuecapslength), ::core::mem::transmute(preparseddata)).ok()
+    HidP_GetValueCaps(reporttype.into(), ::core::mem::transmute(valuecaps), ::core::mem::transmute(valuecapslength), ::core::mem::transmute(preparseddata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_InitializeReportForID<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, reportid: u8, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_InitializeReportForID(::core::mem::transmute(reporttype), ::core::mem::transmute(reportid), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_InitializeReportForID(reporttype.into(), ::core::mem::transmute(reportid), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
-pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32 {
+pub unsafe fn HidP_MaxDataListLength<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, preparseddata: isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32;
     }
-    ::core::mem::transmute(HidP_MaxDataListLength(::core::mem::transmute(reporttype), ::core::mem::transmute(preparseddata)))
+    ::core::mem::transmute(HidP_MaxDataListLength(reporttype.into(), ::core::mem::transmute(preparseddata)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
-pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32 {
+pub unsafe fn HidP_MaxUsageListLength<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, preparseddata: isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32;
     }
-    ::core::mem::transmute(HidP_MaxUsageListLength(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(preparseddata)))
+    ::core::mem::transmute(HidP_MaxUsageListLength(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(preparseddata)))
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_SetButtonArray<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_SetButtonArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(::windows::core::as_ptr_or_null(buttondata)), buttondata.len() as _, ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_SetButtonArray(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(::windows::core::as_ptr_or_null(buttondata)), buttondata.len() as _, ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetData<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: Param4, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_SetData<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_SetData(::core::mem::transmute(reporttype), ::core::mem::transmute(datalist), ::core::mem::transmute(datalength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_SetData(reporttype.into(), ::core::mem::transmute(datalist), ::core::mem::transmute(datalength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_SetScaledUsageValue<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_SetScaledUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_SetScaledUsageValue(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_SetUsageValue<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_SetUsageValue(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_SetUsageValue(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsageValueArray<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: Param4, usagevaluebytelength: u16, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_SetUsageValueArray<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: ::windows::core::PCSTR, usagevaluebytelength: u16, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: ::windows::core::PCSTR, usagevaluebytelength: u16, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_SetUsageValueArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), usagevalue.into_param().abi(), ::core::mem::transmute(usagevaluebytelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+    HidP_SetUsageValueArray(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(usagevalue), ::core::mem::transmute(usagevaluebytelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_SetUsages<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_SetUsages(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_SetUsages(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes<'a, Param2: ::std::convert::Into<HIDP_KEYBOARD_DIRECTION>>(changedusagelist: &[u16], keyaction: Param2, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: *mut ::core::ffi::c_void, insertcodescontext: *const ::core::ffi::c_void) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(::windows::core::as_ptr_or_null(changedusagelist)), changedusagelist.len() as _, ::core::mem::transmute(keyaction), ::core::mem::transmute(modifierstate), ::core::mem::transmute(insertcodesprocedure), ::core::mem::transmute(insertcodescontext)).ok()
+    HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(::windows::core::as_ptr_or_null(changedusagelist)), changedusagelist.len() as _, keyaction.into(), ::core::mem::transmute(modifierstate), ::core::mem::transmute(insertcodesprocedure), ::core::mem::transmute(insertcodescontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_UnsetUsages<'a, Param0: ::std::convert::Into<HIDP_REPORT_TYPE>>(reporttype: Param0, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: ::windows::core::PCSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_UnsetUsages(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
+    HidP_UnsetUsages(reporttype.into(), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usagelist), ::core::mem::transmute(usagelength), ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8606,8 +8606,8 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
 pub struct IDirectInput2A(::windows::core::IUnknown);
 impl IDirectInput2A {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8620,21 +8620,26 @@ impl IDirectInput2A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn FindDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: *const ::windows::core::GUID, param1: Param1, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 impl ::core::convert::From<IDirectInput2A> for ::windows::core::IUnknown {
     fn from(value: IDirectInput2A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput2A> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInput2A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8643,34 +8648,19 @@ impl ::core::convert::From<&IDirectInput2A> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInput2A> for IDirectInputA {
     fn from(value: IDirectInput2A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput2A> for &'a IDirectInputA {
+    fn from(value: &'a IDirectInput2A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInput2A> for IDirectInputA {
     fn from(value: &IDirectInput2A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for IDirectInput2A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputA> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &'a IDirectInput2A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputA> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInput2A {
@@ -8704,8 +8694,8 @@ pub struct IDirectInput2A_Vtbl {
 pub struct IDirectInput2W(::windows::core::IUnknown);
 impl IDirectInput2W {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8718,21 +8708,26 @@ impl IDirectInput2W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn FindDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: *const ::windows::core::GUID, param1: Param1, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 impl ::core::convert::From<IDirectInput2W> for ::windows::core::IUnknown {
     fn from(value: IDirectInput2W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput2W> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInput2W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8741,34 +8736,19 @@ impl ::core::convert::From<&IDirectInput2W> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInput2W> for IDirectInputW {
     fn from(value: IDirectInput2W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput2W> for &'a IDirectInputW {
+    fn from(value: &'a IDirectInput2W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInput2W> for IDirectInputW {
     fn from(value: &IDirectInput2W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for IDirectInput2W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputW> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &'a IDirectInput2W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputW> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInput2W {
@@ -8802,8 +8782,8 @@ pub struct IDirectInput2W_Vtbl {
 pub struct IDirectInput7A(::windows::core::IUnknown);
 impl IDirectInput7A {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8816,25 +8796,30 @@ impl IDirectInput7A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn FindDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: *const ::windows::core::GUID, param1: Param1, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDeviceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateDeviceEx<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDeviceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectInput7A> for ::windows::core::IUnknown {
     fn from(value: IDirectInput7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput7A> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInput7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8843,18 +8828,13 @@ impl ::core::convert::From<&IDirectInput7A> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInput7A> for IDirectInputA {
     fn from(value: IDirectInput7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput7A> for &'a IDirectInputA {
+    fn from(value: &'a IDirectInput7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8863,34 +8843,19 @@ impl ::core::convert::From<&IDirectInput7A> for IDirectInputA {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputA> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &'a IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputA> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInput7A> for IDirectInput2A {
     fn from(value: IDirectInput7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput7A> for &'a IDirectInput2A {
+    fn from(value: &'a IDirectInput7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInput7A> for IDirectInput2A {
     fn from(value: &IDirectInput7A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInput2A> for IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInput2A> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInput2A> for &'a IDirectInput7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInput2A> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInput7A {
@@ -8924,8 +8889,8 @@ pub struct IDirectInput7A_Vtbl {
 pub struct IDirectInput7W(::windows::core::IUnknown);
 impl IDirectInput7W {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8938,25 +8903,30 @@ impl IDirectInput7W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn FindDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: *const ::windows::core::GUID, param1: Param1, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDeviceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateDeviceEx<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDeviceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectInput7W> for ::windows::core::IUnknown {
     fn from(value: IDirectInput7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput7W> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInput7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8965,18 +8935,13 @@ impl ::core::convert::From<&IDirectInput7W> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInput7W> for IDirectInputW {
     fn from(value: IDirectInput7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput7W> for &'a IDirectInputW {
+    fn from(value: &'a IDirectInput7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8985,34 +8950,19 @@ impl ::core::convert::From<&IDirectInput7W> for IDirectInputW {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputW> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &'a IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputW> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInput7W> for IDirectInput2W {
     fn from(value: IDirectInput7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInput7W> for &'a IDirectInput2W {
+    fn from(value: &'a IDirectInput7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInput7W> for IDirectInput2W {
     fn from(value: &IDirectInput7W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInput2W> for IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInput2W> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInput2W> for &'a IDirectInput7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInput2W> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInput7W {
@@ -9046,8 +8996,8 @@ pub struct IDirectInput7W_Vtbl {
 pub struct IDirectInput8A(::windows::core::IUnknown);
 impl IDirectInput8A {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9060,22 +9010,22 @@ impl IDirectInput8A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn FindDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: *const ::windows::core::GUID, param1: Param1, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumDevicesBySemantics)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
+    pub unsafe fn EnumDevicesBySemantics(&self, param0: ::windows::core::PCSTR, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumDevicesBySemantics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9088,19 +9038,14 @@ impl ::core::convert::From<IDirectInput8A> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInput8A> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInput8A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInput8A> for ::windows::core::IUnknown {
     fn from(value: &IDirectInput8A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput8A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput8A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInput8A {
@@ -9156,8 +9101,8 @@ pub struct IDirectInput8A_Vtbl {
 pub struct IDirectInput8W(::windows::core::IUnknown);
 impl IDirectInput8W {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9170,22 +9115,22 @@ impl IDirectInput8W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn FindDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: *const ::windows::core::GUID, param1: Param1, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumDevicesBySemantics)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
+    pub unsafe fn EnumDevicesBySemantics(&self, param0: ::windows::core::PCWSTR, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumDevicesBySemantics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9198,19 +9143,14 @@ impl ::core::convert::From<IDirectInput8W> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInput8W> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInput8W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInput8W> for ::windows::core::IUnknown {
     fn from(value: &IDirectInput8W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInput8W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput8W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInput8W {
@@ -9266,8 +9206,8 @@ pub struct IDirectInput8W_Vtbl {
 pub struct IDirectInputA(::windows::core::IUnknown);
 impl IDirectInputA {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9280,13 +9220,13 @@ impl IDirectInputA {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
 }
 impl ::core::convert::From<IDirectInputA> for ::windows::core::IUnknown {
@@ -9294,19 +9234,14 @@ impl ::core::convert::From<IDirectInputA> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputA> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputA) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputA> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputA) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputA {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputA {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputA {
@@ -9391,13 +9326,13 @@ impl IDirectInputDevice2A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9411,17 +9346,17 @@ impl IDirectInputDevice2A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9464,19 +9399,14 @@ impl ::core::convert::From<IDirectInputDevice2A> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDevice2A> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDevice2A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDevice2A> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDevice2A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice2A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
@@ -9484,19 +9414,14 @@ impl ::core::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDevice2A> for &'a IDirectInputDeviceA {
+    fn from(value: &'a IDirectInputDevice2A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDevice2A> for IDirectInputDeviceA {
     fn from(value: &IDirectInputDevice2A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice2A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceA> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &'a IDirectInputDevice2A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceA> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDevice2A {
@@ -9585,13 +9510,13 @@ impl IDirectInputDevice2W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()> {
@@ -9603,17 +9528,17 @@ impl IDirectInputDevice2W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9655,19 +9580,14 @@ impl ::core::convert::From<IDirectInputDevice2W> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDevice2W> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDevice2W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDevice2W> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDevice2W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice2W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
@@ -9675,19 +9595,14 @@ impl ::core::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDevice2W> for &'a IDirectInputDeviceW {
+    fn from(value: &'a IDirectInputDevice2W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDevice2W> for IDirectInputDeviceW {
     fn from(value: &IDirectInputDevice2W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice2W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceW> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &'a IDirectInputDevice2W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceW> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDevice2W {
@@ -9773,13 +9688,13 @@ impl IDirectInputDevice7A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9793,17 +9708,17 @@ impl IDirectInputDevice7A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9842,17 +9757,22 @@ impl IDirectInputDevice7A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile(&self, param0: ::windows::core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn WriteEffectToFile(&self, param0: ::windows::core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 impl ::core::convert::From<IDirectInputDevice7A> for ::windows::core::IUnknown {
     fn from(value: IDirectInputDevice7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInputDevice7A> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDevice7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9861,18 +9781,13 @@ impl ::core::convert::From<&IDirectInputDevice7A> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
     fn from(value: IDirectInputDevice7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInputDevice7A> for &'a IDirectInputDeviceA {
+    fn from(value: &'a IDirectInputDevice7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9881,34 +9796,19 @@ impl ::core::convert::From<&IDirectInputDevice7A> for IDirectInputDeviceA {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceA> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &'a IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceA> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
     fn from(value: IDirectInputDevice7A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInputDevice7A> for &'a IDirectInputDevice2A {
+    fn from(value: &'a IDirectInputDevice7A) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputDevice7A> for IDirectInputDevice2A {
     fn from(value: &IDirectInputDevice7A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2A> for IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDevice2A> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2A> for &'a IDirectInputDevice7A {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDevice2A> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDevice7A {
@@ -9987,13 +9887,13 @@ impl IDirectInputDevice7W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()> {
@@ -10005,17 +9905,17 @@ impl IDirectInputDevice7W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10053,17 +9953,22 @@ impl IDirectInputDevice7W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile(&self, param0: ::windows::core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn WriteEffectToFile(&self, param0: ::windows::core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
 }
 impl ::core::convert::From<IDirectInputDevice7W> for ::windows::core::IUnknown {
     fn from(value: IDirectInputDevice7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInputDevice7W> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDevice7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10072,18 +9977,13 @@ impl ::core::convert::From<&IDirectInputDevice7W> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
     fn from(value: IDirectInputDevice7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInputDevice7W> for &'a IDirectInputDeviceW {
+    fn from(value: &'a IDirectInputDevice7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10092,34 +9992,19 @@ impl ::core::convert::From<&IDirectInputDevice7W> for IDirectInputDeviceW {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceW> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &'a IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceW> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
     fn from(value: IDirectInputDevice7W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDirectInputDevice7W> for &'a IDirectInputDevice2W {
+    fn from(value: &'a IDirectInputDevice7W) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDirectInputDevice7W> for IDirectInputDevice2W {
     fn from(value: &IDirectInputDevice7W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2W> for IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDevice2W> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2W> for &'a IDirectInputDevice7W {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDevice2W> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDevice7W {
@@ -10198,13 +10083,13 @@ impl IDirectInputDevice8A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10218,17 +10103,17 @@ impl IDirectInputDevice8A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10267,23 +10152,23 @@ impl IDirectInputDevice8A {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile(&self, param0: ::windows::core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn WriteEffectToFile(&self, param0: ::windows::core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BuildActionMap<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: *mut DIACTIONFORMATA, param1: Param1, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BuildActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn BuildActionMap(&self, param0: *mut DIACTIONFORMATA, param1: ::windows::core::PCSTR, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BuildActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActionMap<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, param0: *mut DIACTIONFORMATA, param1: Param1, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn SetActionMap(&self, param0: *mut DIACTIONFORMATA, param1: ::windows::core::PCSTR, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10296,19 +10181,14 @@ impl ::core::convert::From<IDirectInputDevice8A> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDevice8A> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDevice8A) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDevice8A> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDevice8A) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice8A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice8A {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDevice8A {
@@ -10453,13 +10333,13 @@ impl IDirectInputDevice8W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()> {
@@ -10471,17 +10351,17 @@ impl IDirectInputDevice8W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateEffect<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEffect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10519,23 +10399,23 @@ impl IDirectInputDevice8W {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn EnumEffectsInFile(&self, param0: ::windows::core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumEffectsInFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
+    pub unsafe fn WriteEffectToFile(&self, param0: ::windows::core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteEffectToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BuildActionMap<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: *mut DIACTIONFORMATW, param1: Param1, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BuildActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn BuildActionMap(&self, param0: *mut DIACTIONFORMATW, param1: ::windows::core::PCWSTR, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BuildActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActionMap<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: *mut DIACTIONFORMATW, param1: Param1, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn SetActionMap(&self, param0: *mut DIACTIONFORMATW, param1: ::windows::core::PCWSTR, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActionMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10548,19 +10428,14 @@ impl ::core::convert::From<IDirectInputDevice8W> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDevice8W> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDevice8W) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDevice8W> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDevice8W) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDevice8W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice8W {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDevice8W {
@@ -10696,13 +10571,13 @@ impl IDirectInputDeviceA {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10716,13 +10591,13 @@ impl IDirectInputDeviceA {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 impl ::core::convert::From<IDirectInputDeviceA> for ::windows::core::IUnknown {
@@ -10730,19 +10605,14 @@ impl ::core::convert::From<IDirectInputDeviceA> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDeviceA> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDeviceA) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDeviceA> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDeviceA) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDeviceA {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDeviceA {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDeviceA {
@@ -10849,13 +10719,13 @@ impl IDirectInputDeviceW {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventNotification)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()> {
@@ -10867,13 +10737,13 @@ impl IDirectInputDeviceW {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
 impl ::core::convert::From<IDirectInputDeviceW> for ::windows::core::IUnknown {
@@ -10881,19 +10751,14 @@ impl ::core::convert::From<IDirectInputDeviceW> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputDeviceW> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputDeviceW) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputDeviceW> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputDeviceW) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputDeviceW {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDeviceW {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputDeviceW {
@@ -10957,8 +10822,8 @@ pub struct IDirectInputEffect(::windows::core::IUnknown);
 impl IDirectInputEffect {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetEffectGuid(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -11002,19 +10867,14 @@ impl ::core::convert::From<IDirectInputEffect> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputEffect> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputEffect> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputEffect {
@@ -11109,19 +10969,14 @@ impl ::core::convert::From<IDirectInputEffectDriver> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputEffectDriver> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputEffectDriver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputEffectDriver> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputEffectDriver) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputEffectDriver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputEffectDriver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputEffectDriver {
@@ -11174,8 +11029,8 @@ impl IDirectInputJoyConfig {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn SendNotify(&self) -> ::windows::core::Result<()> {
@@ -11187,16 +11042,16 @@ impl IDirectInputJoyConfig {
         (::windows::core::Interface::vtable(self).EnumTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn GetTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn GetTypeInfo(&self, param0: ::windows::core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn SetTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTypeInfo)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn SetTypeInfo(&self, param0: ::windows::core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTypeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn DeleteType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteType)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn DeleteType(&self, param0: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()> {
@@ -11220,13 +11075,13 @@ impl IDirectInputJoyConfig {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNewHardware<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddNewHardware)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn AddNewHardware<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddNewHardware)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn OpenTypeKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenTypeKey)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn OpenTypeKey(&self, param0: ::windows::core::PCWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenTypeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -11239,19 +11094,14 @@ impl ::core::convert::From<IDirectInputJoyConfig> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputJoyConfig> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputJoyConfig) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputJoyConfig> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputJoyConfig) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputJoyConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputJoyConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputJoyConfig {
@@ -11324,8 +11174,8 @@ impl IDirectInputJoyConfig8 {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn SendNotify(&self) -> ::windows::core::Result<()> {
@@ -11337,16 +11187,16 @@ impl IDirectInputJoyConfig8 {
         (::windows::core::Interface::vtable(self).EnumTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn GetTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn GetTypeInfo(&self, param0: ::windows::core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTypeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn SetTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTypeInfo)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    pub unsafe fn SetTypeInfo(&self, param0: ::windows::core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTypeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn DeleteType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteType)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+    pub unsafe fn DeleteType(&self, param0: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()> {
@@ -11370,13 +11220,13 @@ impl IDirectInputJoyConfig8 {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNewHardware<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddNewHardware)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn AddNewHardware<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddNewHardware)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn OpenTypeKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, param0: Param0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenTypeKey)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
+    pub unsafe fn OpenTypeKey(&self, param0: ::windows::core::PCWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenTypeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -11389,19 +11239,14 @@ impl ::core::convert::From<IDirectInputJoyConfig8> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputJoyConfig8> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputJoyConfig8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputJoyConfig8> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputJoyConfig8) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputJoyConfig8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputJoyConfig8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputJoyConfig8 {
@@ -11465,8 +11310,8 @@ pub struct IDirectInputJoyConfig8_Vtbl {
 pub struct IDirectInputW(::windows::core::IUnknown);
 impl IDirectInputW {
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-    pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11479,13 +11324,13 @@ impl IDirectInputW {
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunControlPanel)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), ::core::mem::transmute(param1)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
 }
 impl ::core::convert::From<IDirectInputW> for ::windows::core::IUnknown {
@@ -11493,19 +11338,14 @@ impl ::core::convert::From<IDirectInputW> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectInputW> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectInputW) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectInputW> for ::windows::core::IUnknown {
     fn from(value: &IDirectInputW) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectInputW {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputW {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectInputW {

@@ -125,12 +125,17 @@ impl ISideShowBulkCapabilities {
         (::windows::core::Interface::vtable(self).base__.GetCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn GetCapabilities<'a, Param0: ::windows::core::IntoParam<'a, ISideShowKeyCollection>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self), in_keycollection.into_param().abi(), ::core::mem::transmute(inout_pvalues)).ok()
+    pub unsafe fn GetCapabilities<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowKeyCollection>>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self), in_keycollection.into().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
 }
 impl ::core::convert::From<ISideShowBulkCapabilities> for ::windows::core::IUnknown {
     fn from(value: ISideShowBulkCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISideShowBulkCapabilities> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowBulkCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -139,34 +144,19 @@ impl ::core::convert::From<&ISideShowBulkCapabilities> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISideShowBulkCapabilities> for ISideShowCapabilities {
     fn from(value: ISideShowBulkCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISideShowBulkCapabilities> for &'a ISideShowCapabilities {
+    fn from(value: &'a ISideShowBulkCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISideShowBulkCapabilities> for ISideShowCapabilities {
     fn from(value: &ISideShowBulkCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for &'a ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowBulkCapabilities {
@@ -210,19 +200,14 @@ impl ::core::convert::From<ISideShowCapabilities> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowCapabilities> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowCapabilities> for ::windows::core::IUnknown {
     fn from(value: &ISideShowCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowCapabilities {
@@ -274,19 +259,14 @@ impl ::core::convert::From<ISideShowCapabilitiesCollection> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowCapabilitiesCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowCapabilitiesCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowCapabilitiesCollection> for ::windows::core::IUnknown {
     fn from(value: &ISideShowCapabilitiesCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowCapabilitiesCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowCapabilitiesCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
@@ -321,8 +301,8 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
 pub struct ISideShowContent(::windows::core::IUnknown);
 impl ISideShowContent {
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn GetContent<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContent)(::windows::core::Interface::as_raw(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(out_pdwsize), ::core::mem::transmute(out_ppbdata)).ok()
+    pub unsafe fn GetContent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_picapabilities: Param0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetContent)(::windows::core::Interface::as_raw(self), in_picapabilities.into().abi(), ::core::mem::transmute(out_pdwsize), ::core::mem::transmute(out_ppbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
     pub unsafe fn ContentId(&self) -> ::windows::core::Result<u32> {
@@ -341,19 +321,14 @@ impl ::core::convert::From<ISideShowContent> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowContent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowContent> for ::windows::core::IUnknown {
     fn from(value: &ISideShowContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowContent {
@@ -392,8 +367,8 @@ pub struct ISideShowContent_Vtbl {
 pub struct ISideShowContentManager(::windows::core::IUnknown);
 impl ISideShowContentManager {
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ISideShowContent>>(&self, in_picontent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), in_picontent.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowContent>>>(&self, in_picontent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), in_picontent.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
     pub unsafe fn Remove(&self, in_contentid: u32) -> ::windows::core::Result<()> {
@@ -404,8 +379,8 @@ impl ISideShowContentManager {
         (::windows::core::Interface::vtable(self).RemoveAll)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetEventSink<'a, Param0: ::windows::core::IntoParam<'a, ISideShowEvents>>(&self, in_pievents: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), in_pievents.into_param().abi()).ok()
+    pub unsafe fn SetEventSink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowEvents>>>(&self, in_pievents: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), in_pievents.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<ISideShowCapabilitiesCollection> {
@@ -418,19 +393,14 @@ impl ::core::convert::From<ISideShowContentManager> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowContentManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowContentManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowContentManager> for ::windows::core::IUnknown {
     fn from(value: &ISideShowContentManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowContentManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowContentManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowContentManager {
@@ -473,16 +443,16 @@ impl ISideShowEvents {
         (::windows::core::Interface::vtable(self).ContentMissing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_contentid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowContent>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn ApplicationEvent<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_pbeventdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplicationEvent)(::windows::core::Interface::as_raw(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(in_dweventid), in_pbeventdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(in_pbeventdata))).ok()
+    pub unsafe fn ApplicationEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_pbeventdata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ApplicationEvent)(::windows::core::Interface::as_raw(self), in_picapabilities.into().abi(), ::core::mem::transmute(in_dweventid), in_pbeventdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(in_pbeventdata))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn DeviceAdded<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceAdded)(::windows::core::Interface::as_raw(self), in_pidevice.into_param().abi()).ok()
+    pub unsafe fn DeviceAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeviceAdded)(::windows::core::Interface::as_raw(self), in_pidevice.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn DeviceRemoved<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceRemoved)(::windows::core::Interface::as_raw(self), in_pidevice.into_param().abi()).ok()
+    pub unsafe fn DeviceRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeviceRemoved)(::windows::core::Interface::as_raw(self), in_pidevice.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISideShowEvents> for ::windows::core::IUnknown {
@@ -490,19 +460,14 @@ impl ::core::convert::From<ISideShowEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowEvents> for ::windows::core::IUnknown {
     fn from(value: &ISideShowEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowEvents {
@@ -566,19 +531,14 @@ impl ::core::convert::From<ISideShowKeyCollection> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowKeyCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowKeyCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowKeyCollection> for ::windows::core::IUnknown {
     fn from(value: &ISideShowKeyCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowKeyCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowKeyCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowKeyCollection {
@@ -636,8 +596,8 @@ impl ISideShowNotification {
         (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, in_pwsztitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), in_pwsztitle.into_param().abi()).ok()
+    pub unsafe fn SetTitle(&self, in_pwsztitle: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_pwsztitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
     pub unsafe fn Message(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -645,8 +605,8 @@ impl ISideShowNotification {
         (::windows::core::Interface::vtable(self).Message)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, in_pwszmessage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessage)(::windows::core::Interface::as_raw(self), in_pwszmessage.into_param().abi()).ok()
+    pub unsafe fn SetMessage(&self, in_pwszmessage: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_pwszmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -656,8 +616,8 @@ impl ISideShowNotification {
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, in_hicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImage)(::windows::core::Interface::as_raw(self), in_hicon.into_param().abi()).ok()
+    pub unsafe fn SetImage<'a, Param0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>>(&self, in_hicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetImage)(::windows::core::Interface::as_raw(self), in_hicon.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -676,19 +636,14 @@ impl ::core::convert::From<ISideShowNotification> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowNotification> for ::windows::core::IUnknown {
     fn from(value: &ISideShowNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowNotification {
@@ -743,8 +698,8 @@ pub struct ISideShowNotification_Vtbl {
 pub struct ISideShowNotificationManager(::windows::core::IUnknown);
 impl ISideShowNotificationManager {
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn Show<'a, Param0: ::windows::core::IntoParam<'a, ISideShowNotification>>(&self, in_pinotification: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), in_pinotification.into_param().abi()).ok()
+    pub unsafe fn Show<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowNotification>>>(&self, in_pinotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), in_pinotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
     pub unsafe fn Revoke(&self, in_notificationid: u32) -> ::windows::core::Result<()> {
@@ -760,19 +715,14 @@ impl ::core::convert::From<ISideShowNotificationManager> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowNotificationManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowNotificationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowNotificationManager> for ::windows::core::IUnknown {
     fn from(value: &ISideShowNotificationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowNotificationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowNotificationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowNotificationManager {
@@ -835,19 +785,14 @@ impl ::core::convert::From<ISideShowPropVariantCollection> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowPropVariantCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowPropVariantCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowPropVariantCollection> for ::windows::core::IUnknown {
     fn from(value: &ISideShowPropVariantCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowPropVariantCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowPropVariantCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowPropVariantCollection {
@@ -906,19 +851,14 @@ impl ::core::convert::From<ISideShowSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISideShowSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISideShowSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISideShowSession> for ::windows::core::IUnknown {
     fn from(value: &ISideShowSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShowSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISideShowSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISideShowSession {

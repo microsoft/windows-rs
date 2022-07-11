@@ -38,12 +38,12 @@ pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesre
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
-pub unsafe fn DMORegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szname: Param0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()> {
+pub unsafe fn DMORegister(szname: ::windows::core::PCWSTR, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DMORegister(szname: ::windows::core::PCWSTR, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::HRESULT;
     }
-    DMORegister(szname.into_param().abi(), ::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory), ::core::mem::transmute(dwflags), ::core::mem::transmute(cintypes), ::core::mem::transmute(pintypes), ::core::mem::transmute(couttypes), ::core::mem::transmute(pouttypes)).ok()
+    DMORegister(::core::mem::transmute(szname), ::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory), ::core::mem::transmute(dwflags), ::core::mem::transmute(cintypes), ::core::mem::transmute(pintypes), ::core::mem::transmute(couttypes), ::core::mem::transmute(pouttypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
@@ -256,19 +256,14 @@ impl ::core::convert::From<IDMOQualityControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDMOQualityControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDMOQualityControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDMOQualityControl> for ::windows::core::IUnknown {
     fn from(value: &IDMOQualityControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMOQualityControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMOQualityControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDMOQualityControl {
@@ -328,19 +323,14 @@ impl ::core::convert::From<IDMOVideoOutputOptimizations> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDMOVideoOutputOptimizations> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDMOVideoOutputOptimizations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDMOVideoOutputOptimizations> for ::windows::core::IUnknown {
     fn from(value: &IDMOVideoOutputOptimizations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMOVideoOutputOptimizations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMOVideoOutputOptimizations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
@@ -399,19 +389,14 @@ impl ::core::convert::From<IEnumDMO> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumDMO> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumDMO) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumDMO> for ::windows::core::IUnknown {
     fn from(value: &IEnumDMO) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDMO {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDMO {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumDMO {
@@ -466,19 +451,14 @@ impl ::core::convert::From<IMediaBuffer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaBuffer> for ::windows::core::IUnknown {
     fn from(value: &IMediaBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaBuffer {
@@ -600,8 +580,8 @@ impl IMediaObject {
         (::windows::core::Interface::vtable(self).GetInputStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub unsafe fn ProcessInput<'a, Param1: ::windows::core::IntoParam<'a, IMediaBuffer>>(&self, dwinputstreamindex: u32, pbuffer: Param1, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamindex), pbuffer.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(rttimestamp), ::core::mem::transmute(rttimelength)).ok()
+    pub unsafe fn ProcessInput<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMediaBuffer>>>(&self, dwinputstreamindex: u32, pbuffer: Param1, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamindex), pbuffer.into().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(rttimestamp), ::core::mem::transmute(rttimelength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> ::windows::core::Result<()> {
@@ -617,19 +597,14 @@ impl ::core::convert::From<IMediaObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaObject> for ::windows::core::IUnknown {
     fn from(value: &IMediaObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaObject {
@@ -720,19 +695,14 @@ impl ::core::convert::From<IMediaObjectInPlace> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaObjectInPlace> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaObjectInPlace) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaObjectInPlace> for ::windows::core::IUnknown {
     fn from(value: &IMediaObjectInPlace) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaObjectInPlace {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaObjectInPlace {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaObjectInPlace {

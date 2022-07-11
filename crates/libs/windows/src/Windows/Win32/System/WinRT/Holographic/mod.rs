@@ -4,34 +4,39 @@ pub struct IHolographicCameraInterop(::windows::core::IUnknown);
 impl IHolographicCameraInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateDirect3D12BackBufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
+    pub unsafe fn CreateDirect3D12BackBufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(ptexture2ddesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
+        (::windows::core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateDirect3D12HardwareProtectedBackBufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: Param2) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
+    pub unsafe fn CreateDirect3D12HardwareProtectedBackBufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: Param2) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
+        (::windows::core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn AcquireDirect3D12BufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi()).ok()
+    pub unsafe fn AcquireDirect3D12BufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1, duration: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi(), ::core::mem::transmute(duration)).ok()
+    pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1, duration: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(duration)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn UnacquireDirect3D12BufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presourcetounacquire: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetounacquire.into_param().abi()).ok()
+    pub unsafe fn UnacquireDirect3D12BufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>>(&self, presourcetounacquire: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetounacquire.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IHolographicCameraInterop> for ::windows::core::IUnknown {
     fn from(value: IHolographicCameraInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicCameraInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IHolographicCameraInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -40,34 +45,19 @@ impl ::core::convert::From<&IHolographicCameraInterop> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHolographicCameraInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHolographicCameraInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IHolographicCameraInterop> for ::windows::core::IInspectable {
     fn from(value: IHolographicCameraInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicCameraInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IHolographicCameraInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IHolographicCameraInterop> for ::windows::core::IInspectable {
     fn from(value: &IHolographicCameraInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IHolographicCameraInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IHolographicCameraInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IHolographicCameraInterop {
@@ -121,17 +111,22 @@ pub struct IHolographicCameraRenderingParametersInterop(::windows::core::IUnknow
 impl IHolographicCameraRenderingParametersInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CommitDirect3D12Resource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), ::core::mem::transmute(colorresourcefencesignalvalue)).ok()
+    pub unsafe fn CommitDirect3D12Resource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), ::core::mem::transmute(colorresourcefencesignalvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CommitDirect3D12ResourceWithDepthData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>, Param3: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: Param3, pdepthresourcefence: Param4, depthresourcefencesignalvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), ::core::mem::transmute(colorresourcefencesignalvalue), pdepthresourcetocommit.into_param().abi(), pdepthresourcefence.into_param().abi(), ::core::mem::transmute(depthresourcefencesignalvalue)).ok()
+    pub unsafe fn CommitDirect3D12ResourceWithDepthData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: Param3, pdepthresourcefence: Param4, depthresourcefencesignalvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), ::core::mem::transmute(colorresourcefencesignalvalue), pdepthresourcetocommit.into().abi(), pdepthresourcefence.into().abi(), ::core::mem::transmute(depthresourcefencesignalvalue)).ok()
     }
 }
 impl ::core::convert::From<IHolographicCameraRenderingParametersInterop> for ::windows::core::IUnknown {
     fn from(value: IHolographicCameraRenderingParametersInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicCameraRenderingParametersInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IHolographicCameraRenderingParametersInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -140,34 +135,19 @@ impl ::core::convert::From<&IHolographicCameraRenderingParametersInterop> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHolographicCameraRenderingParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHolographicCameraRenderingParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IHolographicCameraRenderingParametersInterop> for ::windows::core::IInspectable {
     fn from(value: IHolographicCameraRenderingParametersInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicCameraRenderingParametersInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IHolographicCameraRenderingParametersInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IHolographicCameraRenderingParametersInterop> for ::windows::core::IInspectable {
     fn from(value: &IHolographicCameraRenderingParametersInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IHolographicCameraRenderingParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IHolographicCameraRenderingParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IHolographicCameraRenderingParametersInterop {
@@ -209,34 +189,39 @@ pub struct IHolographicQuadLayerInterop(::windows::core::IUnknown);
 impl IHolographicQuadLayerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateDirect3D12ContentBufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
+    pub unsafe fn CreateDirect3D12ContentBufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(ptexture2ddesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
+        (::windows::core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateDirect3D12HardwareProtectedContentBufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: Param2) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
+    pub unsafe fn CreateDirect3D12HardwareProtectedContentBufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: Param2) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
+        (::windows::core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn AcquireDirect3D12BufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi()).ok()
+    pub unsafe fn AcquireDirect3D12BufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1, duration: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi(), ::core::mem::transmute(duration)).ok()
+    pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1, duration: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(duration)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn UnacquireDirect3D12BufferResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presourcetounacquire: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetounacquire.into_param().abi()).ok()
+    pub unsafe fn UnacquireDirect3D12BufferResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>>(&self, presourcetounacquire: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Interface::as_raw(self), presourcetounacquire.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IHolographicQuadLayerInterop> for ::windows::core::IUnknown {
     fn from(value: IHolographicQuadLayerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicQuadLayerInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IHolographicQuadLayerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -245,34 +230,19 @@ impl ::core::convert::From<&IHolographicQuadLayerInterop> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHolographicQuadLayerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHolographicQuadLayerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IHolographicQuadLayerInterop> for ::windows::core::IInspectable {
     fn from(value: IHolographicQuadLayerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicQuadLayerInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IHolographicQuadLayerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IHolographicQuadLayerInterop> for ::windows::core::IInspectable {
     fn from(value: &IHolographicQuadLayerInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IHolographicQuadLayerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IHolographicQuadLayerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IHolographicQuadLayerInterop {
@@ -326,12 +296,17 @@ pub struct IHolographicQuadLayerUpdateParametersInterop(::windows::core::IUnknow
 impl IHolographicQuadLayerUpdateParametersInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CommitDirect3D12Resource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), ::core::mem::transmute(colorresourcefencesignalvalue)).ok()
+    pub unsafe fn CommitDirect3D12Resource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), ::core::mem::transmute(colorresourcefencesignalvalue)).ok()
     }
 }
 impl ::core::convert::From<IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IUnknown {
     fn from(value: IHolographicQuadLayerUpdateParametersInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicQuadLayerUpdateParametersInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IHolographicQuadLayerUpdateParametersInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -340,34 +315,19 @@ impl ::core::convert::From<&IHolographicQuadLayerUpdateParametersInterop> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHolographicQuadLayerUpdateParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHolographicQuadLayerUpdateParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IInspectable {
     fn from(value: IHolographicQuadLayerUpdateParametersInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IHolographicQuadLayerUpdateParametersInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IHolographicQuadLayerUpdateParametersInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IInspectable {
     fn from(value: &IHolographicQuadLayerUpdateParametersInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IHolographicQuadLayerUpdateParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IHolographicQuadLayerUpdateParametersInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IHolographicQuadLayerUpdateParametersInterop {

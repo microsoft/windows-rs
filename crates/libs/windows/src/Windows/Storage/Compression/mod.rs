@@ -66,27 +66,27 @@ impl Compressor {
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressor<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0) -> ::windows::core::Result<Compressor> {
+    pub fn CreateCompressor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IOutputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(underlyingstream: Param0) -> ::windows::core::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCompressor)(::windows::core::Interface::as_raw(this), underlyingstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<Compressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateCompressor)(::windows::core::Interface::as_raw(this), underlyingstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Compressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressorEx<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor> {
+    pub fn CreateCompressorEx<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IOutputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<CompressAlgorithm>>(underlyingstream: Param0, algorithm: Param1, blocksize: u32) -> ::windows::core::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCompressorEx)(::windows::core::Interface::as_raw(this), underlyingstream.into_param().abi(), algorithm, blocksize, result__.as_mut_ptr()).from_abi::<Compressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateCompressorEx)(::windows::core::Interface::as_raw(this), underlyingstream.try_into().map_err(|e| e.into())?.abi(), algorithm.into(), blocksize, result__.as_mut_ptr()).from_abi::<Compressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -144,14 +144,9 @@ impl ::core::convert::From<&Compressor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Compressor> for &::windows::core::IUnknown {
+    fn from(value: &Compressor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Compressor> for ::windows::core::IInspectable {
@@ -164,14 +159,9 @@ impl ::core::convert::From<&Compressor> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Compressor> for &::windows::core::IInspectable {
+    fn from(value: &Compressor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -189,15 +179,11 @@ impl ::core::convert::TryFrom<&Compressor> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Compressor> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Compressor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -215,15 +201,11 @@ impl ::core::convert::TryFrom<&Compressor> for super::Streams::IOutputStream {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for &Compressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IOutputStream> {
-        ::core::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Compressor> for ::windows::core::InParam<'a, super::Streams::IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Compressor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Compressor {}
@@ -249,19 +231,19 @@ impl Decompressor {
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateDecompressor<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IInputStream>>(underlyingstream: Param0) -> ::windows::core::Result<Decompressor> {
+    pub fn CreateDecompressor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(underlyingstream: Param0) -> ::windows::core::Result<Decompressor> {
         Self::IDecompressorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDecompressor)(::windows::core::Interface::as_raw(this), underlyingstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<Decompressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateDecompressor)(::windows::core::Interface::as_raw(this), underlyingstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Decompressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<super::Streams::InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc(hidden)]
@@ -310,14 +292,9 @@ impl ::core::convert::From<&Decompressor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Decompressor> for &::windows::core::IUnknown {
+    fn from(value: &Decompressor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Decompressor> for ::windows::core::IInspectable {
@@ -330,14 +307,9 @@ impl ::core::convert::From<&Decompressor> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Decompressor> for &::windows::core::IInspectable {
+    fn from(value: &Decompressor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -355,15 +327,11 @@ impl ::core::convert::TryFrom<&Decompressor> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Decompressor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -381,15 +349,11 @@ impl ::core::convert::TryFrom<&Decompressor> for super::Streams::IInputStream {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for &Decompressor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IInputStream> {
-        ::core::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Decompressor> for ::windows::core::InParam<'a, super::Streams::IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Decompressor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Decompressor {}

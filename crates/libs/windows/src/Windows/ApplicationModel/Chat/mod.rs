@@ -83,14 +83,9 @@ impl ::core::convert::From<&ChatCapabilities> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &ChatCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatCapabilities> for ::windows::core::IInspectable {
@@ -103,14 +98,9 @@ impl ::core::convert::From<&ChatCapabilities> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &ChatCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatCapabilities {}
@@ -120,34 +110,34 @@ pub struct ChatCapabilitiesManager;
 impl ChatCapabilitiesManager {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCachedCapabilitiesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(address: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCachedCapabilitiesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(address: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCachedCapabilitiesAsync)(::windows::core::Interface::as_raw(this), address.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
+            (::windows::core::Interface::vtable(this).GetCachedCapabilitiesAsync)(::windows::core::Interface::as_raw(this), address.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCapabilitiesFromNetworkAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(address: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCapabilitiesFromNetworkAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(address: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCapabilitiesFromNetworkAsync)(::windows::core::Interface::as_raw(this), address.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
+            (::windows::core::Interface::vtable(this).GetCapabilitiesFromNetworkAsync)(::windows::core::Interface::as_raw(this), address.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCachedCapabilitiesForTransportAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(address: Param0, transportid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCachedCapabilitiesForTransportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(address: Param0, transportid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCachedCapabilitiesForTransportAsync)(::windows::core::Interface::as_raw(this), address.into_param().abi(), transportid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
+            (::windows::core::Interface::vtable(this).GetCachedCapabilitiesForTransportAsync)(::windows::core::Interface::as_raw(this), address.into().abi(), transportid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCapabilitiesFromNetworkForTransportAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(address: Param0, transportid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
+    pub fn GetCapabilitiesFromNetworkForTransportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(address: Param0, transportid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
         Self::IChatCapabilitiesManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCapabilitiesFromNetworkForTransportAsync)(::windows::core::Interface::as_raw(this), address.into_param().abi(), transportid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
+            (::windows::core::Interface::vtable(this).GetCapabilitiesFromNetworkForTransportAsync)(::windows::core::Interface::as_raw(this), address.into().abi(), transportid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatCapabilities>>(result__)
         })
     }
     #[doc(hidden)]
@@ -193,9 +183,9 @@ impl ChatConversation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn IsConversationMuted(&self) -> ::windows::core::Result<bool> {
@@ -263,11 +253,11 @@ impl ChatConversation {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkMessagesAsReadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessagesAsReadAsync(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkMessagesAsReadAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkMessagesAsReadAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
@@ -280,29 +270,29 @@ impl ChatConversation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn NotifyLocalParticipantComposing<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, transportid: Param0, participantaddress: Param1, iscomposing: bool) -> ::windows::core::Result<()> {
+    pub fn NotifyLocalParticipantComposing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, transportid: Param0, participantaddress: Param1, iscomposing: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyLocalParticipantComposing)(::windows::core::Interface::as_raw(this), transportid.into_param().abi(), participantaddress.into_param().abi(), iscomposing).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyLocalParticipantComposing)(::windows::core::Interface::as_raw(this), transportid.into().abi(), participantaddress.into().abi(), iscomposing).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn NotifyRemoteParticipantComposing<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, transportid: Param0, participantaddress: Param1, iscomposing: bool) -> ::windows::core::Result<()> {
+    pub fn NotifyRemoteParticipantComposing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, transportid: Param0, participantaddress: Param1, iscomposing: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyRemoteParticipantComposing)(::windows::core::Interface::as_raw(this), transportid.into_param().abi(), participantaddress.into_param().abi(), iscomposing).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyRemoteParticipantComposing)(::windows::core::Interface::as_raw(this), transportid.into().abi(), participantaddress.into().abi(), iscomposing).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteParticipantComposingChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteParticipantComposingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteParticipantComposingChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RemoteParticipantComposingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoteParticipantComposingChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoteParticipantComposingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteParticipantComposingChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteParticipantComposingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn CanModifyParticipants(&self) -> ::windows::core::Result<bool> {
@@ -366,14 +356,9 @@ impl ::core::convert::From<&ChatConversation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatConversation> for &::windows::core::IUnknown {
+    fn from(value: &ChatConversation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatConversation> for ::windows::core::IInspectable {
@@ -386,14 +371,9 @@ impl ::core::convert::From<&ChatConversation> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatConversation> for &::windows::core::IInspectable {
+    fn from(value: &ChatConversation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ChatConversation> for IChatItem {
@@ -408,14 +388,11 @@ impl ::core::convert::TryFrom<&ChatConversation> for IChatItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IChatItem> for ChatConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, IChatItem> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IChatItem> for &ChatConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, IChatItem> {
-        ::core::convert::TryInto::<IChatItem>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ChatConversation> for ::windows::core::InParam<'a, IChatItem> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ChatConversation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ChatConversation {}
@@ -483,14 +460,9 @@ impl ::core::convert::From<&ChatConversationReader> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatConversationReader> for &::windows::core::IUnknown {
+    fn from(value: &ChatConversationReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatConversationReader> for ::windows::core::IInspectable {
@@ -503,14 +475,9 @@ impl ::core::convert::From<&ChatConversationReader> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatConversationReader> for &::windows::core::IInspectable {
+    fn from(value: &ChatConversationReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatConversationReader {}
@@ -535,9 +502,9 @@ impl ChatConversationThreadingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetContactId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContactId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContactId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContactId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn Custom(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -548,9 +515,9 @@ impl ChatConversationThreadingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetCustom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCustom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustom)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustom)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn ConversationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -561,9 +528,9 @@ impl ChatConversationThreadingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetConversationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetConversationId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetConversationId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetConversationId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -583,9 +550,9 @@ impl ChatConversationThreadingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetKind(&self, value: ChatConversationThreadingKind) -> ::windows::core::Result<()> {
+    pub fn SetKind<'a, Param0: ::std::convert::Into<ChatConversationThreadingKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for ChatConversationThreadingInfo {
@@ -628,14 +595,9 @@ impl ::core::convert::From<&ChatConversationThreadingInfo> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatConversationThreadingInfo> for &::windows::core::IUnknown {
+    fn from(value: &ChatConversationThreadingInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatConversationThreadingInfo> for ::windows::core::IInspectable {
@@ -648,14 +610,9 @@ impl ::core::convert::From<&ChatConversationThreadingInfo> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatConversationThreadingInfo> for &::windows::core::IInspectable {
+    fn from(value: &ChatConversationThreadingInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
@@ -767,9 +724,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -880,9 +837,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetTransportId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTransportId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTransportId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransportId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn EstimatedDownloadSize(&self) -> ::windows::core::Result<u64> {
@@ -898,9 +855,9 @@ impl ChatMessage {
         unsafe { (::windows::core::Interface::vtable(this).SetEstimatedDownloadSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn IsAutoReply(&self) -> ::windows::core::Result<bool> {
@@ -961,9 +918,9 @@ impl ChatMessage {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLocalTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocalTimestamp(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocalTimestamp)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocalTimestamp)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn MessageKind(&self) -> ::windows::core::Result<ChatMessageKind> {
@@ -974,9 +931,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetMessageKind(&self, value: ChatMessageKind) -> ::windows::core::Result<()> {
+    pub fn SetMessageKind<'a, Param0: ::std::convert::Into<ChatMessageKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMessageKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn MessageOperatorKind(&self) -> ::windows::core::Result<ChatMessageOperatorKind> {
@@ -987,15 +944,15 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetMessageOperatorKind(&self, value: ChatMessageOperatorKind) -> ::windows::core::Result<()> {
+    pub fn SetMessageOperatorKind<'a, Param0: ::std::convert::Into<ChatMessageOperatorKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMessageOperatorKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageOperatorKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetNetworkTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNetworkTimestamp(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNetworkTimestamp)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNetworkTimestamp)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn IsReceivedDuringQuietHours(&self) -> ::windows::core::Result<bool> {
@@ -1011,19 +968,19 @@ impl ChatMessage {
         unsafe { (::windows::core::Interface::vtable(this).SetIsReceivedDuringQuietHours)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetStatus(&self, value: ChatMessageStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus<'a, Param0: ::std::convert::Into<ChatMessageStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn ShouldSuppressNotification(&self) -> ::windows::core::Result<bool> {
@@ -1047,9 +1004,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetThreadingInfo<'a, Param0: ::windows::core::IntoParam<'a, ChatConversationThreadingInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetThreadingInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatConversationThreadingInfo>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetThreadingInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThreadingInfo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1077,9 +1034,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetSyncId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSyncId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSyncId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSyncId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ChatMessage {
@@ -1122,14 +1079,9 @@ impl ::core::convert::From<&ChatMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessage> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessage> for ::windows::core::IInspectable {
@@ -1142,14 +1094,9 @@ impl ::core::convert::From<&ChatMessage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessage> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ChatMessage> for IChatItem {
@@ -1164,14 +1111,11 @@ impl ::core::convert::TryFrom<&ChatMessage> for IChatItem {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IChatItem> for ChatMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IChatItem> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IChatItem> for &ChatMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IChatItem> {
-        ::core::convert::TryInto::<IChatItem>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ChatMessage> for ::windows::core::InParam<'a, IChatItem> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ChatMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ChatMessage {}
@@ -1191,9 +1135,9 @@ impl ChatMessageAttachment {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDataStreamReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDataStreamReference<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDataStreamReference)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDataStreamReference)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn GroupId(&self) -> ::windows::core::Result<u32> {
@@ -1217,9 +1161,9 @@ impl ChatMessageAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetMimeType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMimeType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMimeType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMimeType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1230,9 +1174,9 @@ impl ChatMessageAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1245,9 +1189,9 @@ impl ChatMessageAttachment {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetThumbnail<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessageAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn TransferProgress(&self) -> ::windows::core::Result<f64> {
@@ -1271,16 +1215,16 @@ impl ChatMessageAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetOriginalFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOriginalFileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessageAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOriginalFileName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOriginalFileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateChatMessageAttachment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(mimetype: Param0, datastreamreference: Param1) -> ::windows::core::Result<ChatMessageAttachment> {
+    pub fn CreateChatMessageAttachment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(mimetype: Param0, datastreamreference: Param1) -> ::windows::core::Result<ChatMessageAttachment> {
         Self::IChatMessageAttachmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateChatMessageAttachment)(::windows::core::Interface::as_raw(this), mimetype.into_param().abi(), datastreamreference.into_param().abi(), result__.as_mut_ptr()).from_abi::<ChatMessageAttachment>(result__)
+            (::windows::core::Interface::vtable(this).CreateChatMessageAttachment)(::windows::core::Interface::as_raw(this), mimetype.into().abi(), datastreamreference.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<ChatMessageAttachment>(result__)
         })
     }
     #[doc(hidden)]
@@ -1329,14 +1273,9 @@ impl ::core::convert::From<&ChatMessageAttachment> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageAttachment> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageAttachment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageAttachment> for ::windows::core::IInspectable {
@@ -1349,14 +1288,9 @@ impl ::core::convert::From<&ChatMessageAttachment> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageAttachment> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageAttachment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageAttachment {}
@@ -1366,10 +1300,10 @@ pub struct ChatMessageBlocking;
 impl ChatMessageBlocking {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkMessageAsBlockedAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(localchatmessageid: Param0, blocked: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessageAsBlockedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(localchatmessageid: Param0, blocked: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IChatMessageBlockingStatic(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkMessageAsBlockedAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), blocked, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkMessageAsBlockedAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), blocked, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -1442,14 +1376,9 @@ impl ::core::convert::From<&ChatMessageChange> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChange> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageChange> for ::windows::core::IInspectable {
@@ -1462,14 +1391,9 @@ impl ::core::convert::From<&ChatMessageChange> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChange> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageChange {}
@@ -1484,9 +1408,9 @@ impl ChatMessageChangeReader {
         unsafe { (::windows::core::Interface::vtable(this).AcceptChanges)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn AcceptChangesThrough<'a, Param0: ::windows::core::IntoParam<'a, ChatMessageChange>>(&self, lastchangetoacknowledge: Param0) -> ::windows::core::Result<()> {
+    pub fn AcceptChangesThrough<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessageChange>>>(&self, lastchangetoacknowledge: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AcceptChangesThrough)(::windows::core::Interface::as_raw(this), lastchangetoacknowledge.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AcceptChangesThrough)(::windows::core::Interface::as_raw(this), lastchangetoacknowledge.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1538,14 +1462,9 @@ impl ::core::convert::From<&ChatMessageChangeReader> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangeReader> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageChangeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageChangeReader> for ::windows::core::IInspectable {
@@ -1558,14 +1477,9 @@ impl ::core::convert::From<&ChatMessageChangeReader> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangeReader> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageChangeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageChangeReader {}
@@ -1633,14 +1547,9 @@ impl ::core::convert::From<&ChatMessageChangeTracker> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangeTracker> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageChangeTracker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageChangeTracker> for ::windows::core::IInspectable {
@@ -1653,14 +1562,9 @@ impl ::core::convert::From<&ChatMessageChangeTracker> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangeTracker> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageChangeTracker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
@@ -1751,14 +1655,9 @@ impl ::core::convert::From<&ChatMessageChangedDeferral> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangedDeferral> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageChangedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageChangedDeferral> for ::windows::core::IInspectable {
@@ -1771,14 +1670,9 @@ impl ::core::convert::From<&ChatMessageChangedDeferral> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangedDeferral> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageChangedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageChangedDeferral {}
@@ -1836,14 +1730,9 @@ impl ::core::convert::From<&ChatMessageChangedEventArgs> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageChangedEventArgs> for ::windows::core::IInspectable {
@@ -1856,14 +1745,9 @@ impl ::core::convert::From<&ChatMessageChangedEventArgs> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
@@ -1920,10 +1804,10 @@ impl ChatMessageManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTransportAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(transportid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessageTransport>> {
+    pub fn GetTransportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(transportid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessageTransport>> {
         Self::IChatMessageManager2Statics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTransportAsync)(::windows::core::Interface::as_raw(this), transportid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessageTransport>>(result__)
+            (::windows::core::Interface::vtable(this).GetTransportAsync)(::windows::core::Interface::as_raw(this), transportid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessageTransport>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
@@ -1944,10 +1828,10 @@ impl ChatMessageManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowComposeSmsMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ChatMessage>>(message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowComposeSmsMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>>(message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IChatMessageManagerStatic(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShowComposeSmsMessageAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ShowComposeSmsMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2066,14 +1950,9 @@ impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -2086,14 +1965,9 @@ impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
@@ -2197,14 +2071,9 @@ impl ::core::convert::From<&ChatMessageReader> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageReader> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageReader> for ::windows::core::IInspectable {
@@ -2217,14 +2086,9 @@ impl ::core::convert::From<&ChatMessageReader> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageReader> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageReader {}
@@ -2289,29 +2153,29 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteMessageAsync)(::windows::core::Interface::as_raw(this), localmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteMessageAsync)(::windows::core::Interface::as_raw(this), localmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DownloadMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DownloadMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DownloadMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn GetMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2324,97 +2188,97 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageReader2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, recenttimelimit: Param0) -> ::windows::core::Result<ChatMessageReader> {
+    pub fn GetMessageReader2(&self, recenttimelimit: super::super::Foundation::TimeSpan) -> ::windows::core::Result<ChatMessageReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageReader2)(::windows::core::Interface::as_raw(this), recenttimelimit.into_param().abi(), result__.as_mut_ptr()).from_abi::<ChatMessageReader>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageReader2)(::windows::core::Interface::as_raw(this), recenttimelimit, result__.as_mut_ptr()).from_abi::<ChatMessageReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkMessageReadAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessageReadAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkMessageReadAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkMessageReadAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RetrySendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RetrySendMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RetrySendMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RetrySendMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ChatMessage>>(&self, chatmessage: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>>(&self, chatmessage: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), chatmessage.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), chatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn ValidateMessage<'a, Param0: ::windows::core::IntoParam<'a, ChatMessage>>(&self, chatmessage: Param0) -> ::windows::core::Result<ChatMessageValidationResult> {
+    pub fn ValidateMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>>(&self, chatmessage: Param0) -> ::windows::core::Result<ChatMessageValidationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateMessage)(::windows::core::Interface::as_raw(this), chatmessage.into_param().abi(), result__.as_mut_ptr()).from_abi::<ChatMessageValidationResult>(result__)
+            (::windows::core::Interface::vtable(this).ValidateMessage)(::windows::core::Interface::as_raw(this), chatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<ChatMessageValidationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MessageChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMessageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMessageChanged(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageChanged)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ForwardMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, localchatmessageid: Param0, addresses: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn ForwardMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, localchatmessageid: Param0, addresses: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ForwardMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), addresses.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
+            (::windows::core::Interface::vtable(this).ForwardMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), addresses.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetConversationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, conversationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
+    pub fn GetConversationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, conversationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationAsync)(::windows::core::Interface::as_raw(this), conversationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationAsync)(::windows::core::Interface::as_raw(this), conversationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConversationForTransportsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, conversationid: Param0, transportids: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
+    pub fn GetConversationForTransportsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, conversationid: Param0, transportids: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationForTransportsAsync)(::windows::core::Interface::as_raw(this), conversationid.into_param().abi(), transportids.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationForTransportsAsync)(::windows::core::Interface::as_raw(this), conversationid.into().abi(), transportids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetConversationFromThreadingInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, ChatConversationThreadingInfo>>(&self, threadinginfo: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
+    pub fn GetConversationFromThreadingInfoAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatConversationThreadingInfo>>>(&self, threadinginfo: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationFromThreadingInfoAsync)(::windows::core::Interface::as_raw(this), threadinginfo.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationFromThreadingInfoAsync)(::windows::core::Interface::as_raw(this), threadinginfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -2427,20 +2291,20 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConversationForTransportsReader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, transportids: Param0) -> ::windows::core::Result<ChatConversationReader> {
+    pub fn GetConversationForTransportsReader<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, transportids: Param0) -> ::windows::core::Result<ChatConversationReader> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationForTransportsReader)(::windows::core::Interface::as_raw(this), transportids.into_param().abi(), result__.as_mut_ptr()).from_abi::<ChatConversationReader>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationForTransportsReader)(::windows::core::Interface::as_raw(this), transportids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<ChatConversationReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageByRemoteIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, transportid: Param0, remoteid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn GetMessageByRemoteIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, transportid: Param0, remoteid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageByRemoteIdAsync)(::windows::core::Interface::as_raw(this), transportid.into_param().abi(), remoteid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageByRemoteIdAsync)(::windows::core::Interface::as_raw(this), transportid.into().abi(), remoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
@@ -2454,11 +2318,11 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUnseenCountForTransportsReaderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, transportids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<i32>> {
+    pub fn GetUnseenCountForTransportsReaderAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, transportids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<i32>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetUnseenCountForTransportsReaderAsync)(::windows::core::Interface::as_raw(this), transportids.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<i32>>(result__)
+            (::windows::core::Interface::vtable(this).GetUnseenCountForTransportsReaderAsync)(::windows::core::Interface::as_raw(this), transportids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
@@ -2472,70 +2336,70 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MarkAsSeenForTransportsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, transportids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkAsSeenForTransportsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, transportids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkAsSeenForTransportsAsync)(::windows::core::Interface::as_raw(this), transportids.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkAsSeenForTransportsAsync)(::windows::core::Interface::as_raw(this), transportids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn GetSearchReader<'a, Param0: ::windows::core::IntoParam<'a, ChatQueryOptions>>(&self, value: Param0) -> ::windows::core::Result<ChatSearchReader> {
+    pub fn GetSearchReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatQueryOptions>>>(&self, value: Param0) -> ::windows::core::Result<ChatSearchReader> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSearchReader)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<ChatSearchReader>(result__)
+            (::windows::core::Interface::vtable(this).GetSearchReader)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<ChatSearchReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ChatMessage>>(&self, chatmessage: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>>(&self, chatmessage: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveMessageAsync)(::windows::core::Interface::as_raw(this), chatmessage.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SaveMessageAsync)(::windows::core::Interface::as_raw(this), chatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCancelDownloadMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryCancelDownloadMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCancelDownloadMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryCancelDownloadMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCancelSendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryCancelSendMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, localchatmessageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCancelSendMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryCancelSendMessageAsync)(::windows::core::Interface::as_raw(this), localchatmessageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StoreChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StoreChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StoreChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StoreChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStoreChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStoreChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStoreChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStoreChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageBySyncIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, syncid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
+    pub fn GetMessageBySyncIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, syncid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageBySyncIdAsync)(::windows::core::Interface::as_raw(this), syncid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageBySyncIdAsync)(::windows::core::Interface::as_raw(this), syncid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatMessage>>(result__)
         }
     }
 }
@@ -2579,14 +2443,9 @@ impl ::core::convert::From<&ChatMessageStore> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageStore> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageStore> for ::windows::core::IInspectable {
@@ -2599,14 +2458,9 @@ impl ::core::convert::From<&ChatMessageStore> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageStore> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageStore {}
@@ -2672,14 +2526,9 @@ impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageStoreChangedEventArgs> for ::windows::core::IInspectable {
@@ -2692,14 +2541,9 @@ impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageStoreChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageStoreChangedEventArgs {}
@@ -2806,14 +2650,9 @@ impl ::core::convert::From<&ChatMessageTransport> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageTransport> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageTransport> for ::windows::core::IInspectable {
@@ -2826,14 +2665,9 @@ impl ::core::convert::From<&ChatMessageTransport> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageTransport> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageTransport {}
@@ -2925,14 +2759,9 @@ impl ::core::convert::From<&ChatMessageTransportConfiguration> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageTransportConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageTransportConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageTransportConfiguration> for ::windows::core::IInspectable {
@@ -2945,14 +2774,9 @@ impl ::core::convert::From<&ChatMessageTransportConfiguration> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageTransportConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageTransportConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
@@ -3073,14 +2897,9 @@ impl ::core::convert::From<&ChatMessageValidationResult> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageValidationResult> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageValidationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageValidationResult> for ::windows::core::IInspectable {
@@ -3093,14 +2912,9 @@ impl ::core::convert::From<&ChatMessageValidationResult> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageValidationResult> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageValidationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
@@ -3171,9 +2985,9 @@ impl ChatQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetSearchString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSearchString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSearchString)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSearchString)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ChatQueryOptions {
@@ -3216,14 +3030,9 @@ impl ::core::convert::From<&ChatQueryOptions> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatQueryOptions> for &::windows::core::IUnknown {
+    fn from(value: &ChatQueryOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatQueryOptions> for ::windows::core::IInspectable {
@@ -3236,14 +3045,9 @@ impl ::core::convert::From<&ChatQueryOptions> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatQueryOptions> for &::windows::core::IInspectable {
+    fn from(value: &ChatQueryOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatQueryOptions {}
@@ -3268,9 +3072,9 @@ impl ChatRecipientDeliveryInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetTransportAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTransportAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTransportAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransportAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3283,9 +3087,9 @@ impl ChatRecipientDeliveryInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDeliveryTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDeliveryTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeliveryTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeliveryTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3298,9 +3102,9 @@ impl ChatRecipientDeliveryInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetReadTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn TransportErrorCodeCategory(&self) -> ::windows::core::Result<ChatTransportErrorCodeCategory> {
@@ -3383,14 +3187,9 @@ impl ::core::convert::From<&ChatRecipientDeliveryInfo> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatRecipientDeliveryInfo> for &::windows::core::IUnknown {
+    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatRecipientDeliveryInfo> for ::windows::core::IInspectable {
@@ -3403,14 +3202,9 @@ impl ::core::convert::From<&ChatRecipientDeliveryInfo> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatRecipientDeliveryInfo> for &::windows::core::IInspectable {
+    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
@@ -3513,14 +3307,9 @@ impl ::core::convert::From<&ChatSearchReader> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatSearchReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatSearchReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatSearchReader> for &::windows::core::IUnknown {
+    fn from(value: &ChatSearchReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatSearchReader> for ::windows::core::IInspectable {
@@ -3533,14 +3322,9 @@ impl ::core::convert::From<&ChatSearchReader> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatSearchReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatSearchReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatSearchReader> for &::windows::core::IInspectable {
+    fn from(value: &ChatSearchReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatSearchReader {}
@@ -3611,9 +3395,9 @@ impl ChatSyncConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetRestoreHistorySpan(&self, value: ChatRestoreHistorySpan) -> ::windows::core::Result<()> {
+    pub fn SetRestoreHistorySpan<'a, Param0: ::std::convert::Into<ChatRestoreHistorySpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRestoreHistorySpan)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRestoreHistorySpan)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for ChatSyncConfiguration {
@@ -3656,14 +3440,9 @@ impl ::core::convert::From<&ChatSyncConfiguration> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatSyncConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &ChatSyncConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatSyncConfiguration> for ::windows::core::IInspectable {
@@ -3676,14 +3455,9 @@ impl ::core::convert::From<&ChatSyncConfiguration> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatSyncConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &ChatSyncConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatSyncConfiguration {}
@@ -3702,11 +3476,11 @@ impl ChatSyncManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn AssociateAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(&self, webaccount: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn AssociateAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>>(&self, webaccount: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AssociateAccountAsync)(::windows::core::Interface::as_raw(this), webaccount.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AssociateAccountAsync)(::windows::core::Interface::as_raw(this), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
@@ -3720,11 +3494,11 @@ impl ChatSyncManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn IsAccountAssociated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(&self, webaccount: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsAccountAssociated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>>(&self, webaccount: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsAccountAssociated)(::windows::core::Interface::as_raw(this), webaccount.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAccountAssociated)(::windows::core::Interface::as_raw(this), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
@@ -3734,11 +3508,11 @@ impl ChatSyncManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, ChatSyncConfiguration>>(&self, configuration: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetConfigurationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatSyncConfiguration>>>(&self, configuration: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetConfigurationAsync)(::windows::core::Interface::as_raw(this), configuration.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetConfigurationAsync)(::windows::core::Interface::as_raw(this), configuration.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -3782,14 +3556,9 @@ impl ::core::convert::From<&ChatSyncManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatSyncManager> for &::windows::core::IUnknown {
+    fn from(value: &ChatSyncManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatSyncManager> for ::windows::core::IInspectable {
@@ -3802,14 +3571,9 @@ impl ::core::convert::From<&ChatSyncManager> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatSyncManager> for &::windows::core::IInspectable {
+    fn from(value: &ChatSyncManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ChatSyncManager {}
@@ -4072,19 +3836,14 @@ impl ::core::convert::From<IChatItem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChatItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IChatItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChatItem> for ::windows::core::IUnknown {
     fn from(value: &IChatItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IChatItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IChatItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IChatItem> for ::windows::core::IInspectable {
@@ -4092,19 +3851,14 @@ impl ::core::convert::From<IChatItem> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChatItem> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IChatItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChatItem> for ::windows::core::IInspectable {
     fn from(value: &IChatItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IChatItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IChatItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IChatItem {
@@ -5146,20 +4900,20 @@ impl RcsEndUserMessage {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendResponseAsync<'a, Param0: ::windows::core::IntoParam<'a, RcsEndUserMessageAction>>(&self, action: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendResponseAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RcsEndUserMessageAction>>>(&self, action: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendResponseAsync)(::windows::core::Interface::as_raw(this), action.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SendResponseAsync)(::windows::core::Interface::as_raw(this), action.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendResponseWithPinAsync<'a, Param0: ::windows::core::IntoParam<'a, RcsEndUserMessageAction>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, action: Param0, pin: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendResponseWithPinAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RcsEndUserMessageAction>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, action: Param0, pin: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendResponseWithPinAsync)(::windows::core::Interface::as_raw(this), action.into_param().abi(), pin.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SendResponseWithPinAsync)(::windows::core::Interface::as_raw(this), action.into().abi(), pin.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -5203,14 +4957,9 @@ impl ::core::convert::From<&RcsEndUserMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessage> for &::windows::core::IUnknown {
+    fn from(value: &RcsEndUserMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsEndUserMessage> for ::windows::core::IInspectable {
@@ -5223,14 +4972,9 @@ impl ::core::convert::From<&RcsEndUserMessage> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessage> for &::windows::core::IInspectable {
+    fn from(value: &RcsEndUserMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessage {}
@@ -5288,14 +5032,9 @@ impl ::core::convert::From<&RcsEndUserMessageAction> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAction> for &::windows::core::IUnknown {
+    fn from(value: &RcsEndUserMessageAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsEndUserMessageAction> for ::windows::core::IInspectable {
@@ -5308,14 +5047,9 @@ impl ::core::convert::From<&RcsEndUserMessageAction> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAction> for &::windows::core::IInspectable {
+    fn from(value: &RcsEndUserMessageAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAction {}
@@ -5381,14 +5115,9 @@ impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsEndUserMessageAvailableEventArgs> for ::windows::core::IInspectable {
@@ -5401,14 +5130,9 @@ impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAvailableEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableEventArgs {}
@@ -5474,14 +5198,9 @@ impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsEndUserMessageAvailableTriggerDetails> for ::windows::core::IInspectable {
@@ -5494,14 +5213,9 @@ impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
@@ -5512,18 +5226,18 @@ pub struct RcsEndUserMessageManager(::windows::core::IUnknown);
 impl RcsEndUserMessageManager {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageAvailableChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageAvailableChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MessageAvailableChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageAvailableChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMessageAvailableChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMessageAvailableChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageAvailableChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageAvailableChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for RcsEndUserMessageManager {
@@ -5566,14 +5280,9 @@ impl ::core::convert::From<&RcsEndUserMessageManager> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageManager> for &::windows::core::IUnknown {
+    fn from(value: &RcsEndUserMessageManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsEndUserMessageManager> for ::windows::core::IInspectable {
@@ -5586,14 +5295,9 @@ impl ::core::convert::From<&RcsEndUserMessageManager> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageManager> for &::windows::core::IInspectable {
+    fn from(value: &RcsEndUserMessageManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageManager {}
@@ -5618,32 +5322,32 @@ impl RcsManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTransportAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(transportid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RcsTransport>> {
+    pub fn GetTransportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(transportid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RcsTransport>> {
         Self::IRcsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTransportAsync)(::windows::core::Interface::as_raw(this), transportid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RcsTransport>>(result__)
+            (::windows::core::Interface::vtable(this).GetTransportAsync)(::windows::core::Interface::as_raw(this), transportid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RcsTransport>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LeaveConversationAsync<'a, Param0: ::windows::core::IntoParam<'a, ChatConversation>>(conversation: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn LeaveConversationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChatConversation>>>(conversation: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IRcsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LeaveConversationAsync)(::windows::core::Interface::as_raw(this), conversation.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).LeaveConversationAsync)(::windows::core::Interface::as_raw(this), conversation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TransportListChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TransportListChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IRcsManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).TransportListChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransportListChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTransportListChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IRcsManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTransportListChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveTransportListChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IRcsManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTransportListChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IRcsManagerStatics<R, F: FnOnce(&IRcsManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5748,14 +5452,9 @@ impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsServiceKindSupportedChangedEventArgs> for ::windows::core::IInspectable {
@@ -5768,14 +5467,9 @@ impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsServiceKindSupportedChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
@@ -5826,35 +5520,35 @@ impl RcsTransport {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn IsStoreAndForwardEnabled(&self, servicekind: RcsServiceKind) -> ::windows::core::Result<bool> {
+    pub fn IsStoreAndForwardEnabled<'a, Param0: ::std::convert::Into<RcsServiceKind>>(&self, servicekind: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsStoreAndForwardEnabled)(::windows::core::Interface::as_raw(this), servicekind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsStoreAndForwardEnabled)(::windows::core::Interface::as_raw(this), servicekind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn IsServiceKindSupported(&self, servicekind: RcsServiceKind) -> ::windows::core::Result<bool> {
+    pub fn IsServiceKindSupported<'a, Param0: ::std::convert::Into<RcsServiceKind>>(&self, servicekind: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsServiceKindSupported)(::windows::core::Interface::as_raw(this), servicekind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsServiceKindSupported)(::windows::core::Interface::as_raw(this), servicekind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServiceKindSupportedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ServiceKindSupportedChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceKindSupportedChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ServiceKindSupportedChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveServiceKindSupportedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveServiceKindSupportedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveServiceKindSupportedChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveServiceKindSupportedChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for RcsTransport {
@@ -5897,14 +5591,9 @@ impl ::core::convert::From<&RcsTransport> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsTransport> for &::windows::core::IUnknown {
+    fn from(value: &RcsTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsTransport> for ::windows::core::IInspectable {
@@ -5917,14 +5606,9 @@ impl ::core::convert::From<&RcsTransport> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsTransport> for &::windows::core::IInspectable {
+    fn from(value: &RcsTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsTransport {}
@@ -6022,14 +5706,9 @@ impl ::core::convert::From<&RcsTransportConfiguration> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsTransportConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &RcsTransportConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsTransportConfiguration> for ::windows::core::IInspectable {
@@ -6042,14 +5721,9 @@ impl ::core::convert::From<&RcsTransportConfiguration> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsTransportConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &RcsTransportConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RcsTransportConfiguration {}
@@ -6123,14 +5797,9 @@ impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteParticipantComposingChangedEventArgs> for ::windows::core::IInspectable {
@@ -6143,14 +5812,9 @@ impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteParticipantComposingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteParticipantComposingChangedEventArgs {}

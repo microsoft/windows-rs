@@ -3,17 +3,17 @@
 pub struct IUIApplication(::windows::core::IUnknown);
 impl IUIApplication {
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn OnViewChanged<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: Param2, verb: UI_VIEWVERB, ureasoncode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnViewChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(viewid), ::core::mem::transmute(typeid), view.into_param().abi(), ::core::mem::transmute(verb), ::core::mem::transmute(ureasoncode)).ok()
+    pub unsafe fn OnViewChanged<'a, Param1: ::std::convert::Into<UI_VIEWTYPE>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param3: ::std::convert::Into<UI_VIEWVERB>>(&self, viewid: u32, typeid: Param1, view: Param2, verb: Param3, ureasoncode: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnViewChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(viewid), typeid.into(), view.into().abi(), verb.into(), ::core::mem::transmute(ureasoncode)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> ::windows::core::Result<IUICommandHandler> {
+    pub unsafe fn OnCreateUICommand<'a, Param1: ::std::convert::Into<UI_COMMANDTYPE>>(&self, commandid: u32, typeid: Param1) -> ::windows::core::Result<IUICommandHandler> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OnCreateUICommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(typeid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUICommandHandler>(result__)
+        (::windows::core::Interface::vtable(self).OnCreateUICommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), typeid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUICommandHandler>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn OnDestroyUICommand<'a, Param2: ::windows::core::IntoParam<'a, IUICommandHandler>>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDestroyUICommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(typeid), commandhandler.into_param().abi()).ok()
+    pub unsafe fn OnDestroyUICommand<'a, Param1: ::std::convert::Into<UI_COMMANDTYPE>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IUICommandHandler>>>(&self, commandid: u32, typeid: Param1, commandhandler: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnDestroyUICommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), typeid.into(), commandhandler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIApplication> for ::windows::core::IUnknown {
@@ -21,19 +21,14 @@ impl ::core::convert::From<IUIApplication> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIApplication> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIApplication> for ::windows::core::IUnknown {
     fn from(value: &IUIApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIApplication {
@@ -79,20 +74,20 @@ impl IUICollection {
         (::windows::core::Interface::vtable(self).GetItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, item: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, item: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, item: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), item.into_param().abi()).ok()
+    pub unsafe fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, index: u32, item: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), item.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
     pub unsafe fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn Replace<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, indexreplaced: u32, itemreplacewith: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(indexreplaced), itemreplacewith.into_param().abi()).ok()
+    pub unsafe fn Replace<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, indexreplaced: u32, itemreplacewith: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(indexreplaced), itemreplacewith.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -104,19 +99,14 @@ impl ::core::convert::From<IUICollection> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUICollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUICollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUICollection> for ::windows::core::IUnknown {
     fn from(value: &IUICollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUICollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUICollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUICollection {
@@ -156,8 +146,8 @@ pub struct IUICollection_Vtbl {
 pub struct IUICollectionChangedEvent(::windows::core::IUnknown);
 impl IUICollectionChangedEvent {
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn OnChanged<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: Param2, newindex: u32, newitem: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(action), ::core::mem::transmute(oldindex), olditem.into_param().abi(), ::core::mem::transmute(newindex), newitem.into_param().abi()).ok()
+    pub unsafe fn OnChanged<'a, Param0: ::std::convert::Into<UI_COLLECTIONCHANGE>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, action: Param0, oldindex: u32, olditem: Param2, newindex: u32, newitem: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnChanged)(::windows::core::Interface::as_raw(self), action.into(), ::core::mem::transmute(oldindex), olditem.into().abi(), ::core::mem::transmute(newindex), newitem.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUICollectionChangedEvent> for ::windows::core::IUnknown {
@@ -165,19 +155,14 @@ impl ::core::convert::From<IUICollectionChangedEvent> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUICollectionChangedEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUICollectionChangedEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUICollectionChangedEvent> for ::windows::core::IUnknown {
     fn from(value: &IUICollectionChangedEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUICollectionChangedEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUICollectionChangedEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUICollectionChangedEvent {
@@ -212,8 +197,8 @@ pub struct IUICommandHandler(::windows::core::IUnknown);
 impl IUICommandHandler {
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn Execute<'a, Param4: ::windows::core::IntoParam<'a, IUISimplePropertySet>>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Execute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(verb), ::core::mem::transmute(key), ::core::mem::transmute(currentvalue), commandexecutionproperties.into_param().abi()).ok()
+    pub unsafe fn Execute<'a, Param1: ::std::convert::Into<UI_EXECUTIONVERB>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IUISimplePropertySet>>>(&self, commandid: u32, verb: Param1, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Execute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), verb.into(), ::core::mem::transmute(key), ::core::mem::transmute(currentvalue), commandexecutionproperties.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -227,19 +212,14 @@ impl ::core::convert::From<IUICommandHandler> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUICommandHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUICommandHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUICommandHandler> for ::windows::core::IUnknown {
     fn from(value: &IUICommandHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUICommandHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUICommandHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUICommandHandler {
@@ -289,19 +269,14 @@ impl ::core::convert::From<IUIContextualUI> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIContextualUI> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIContextualUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIContextualUI> for ::windows::core::IUnknown {
     fn from(value: &IUIContextualUI) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIContextualUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIContextualUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIContextualUI {
@@ -344,19 +319,14 @@ impl ::core::convert::From<IUIEventLogger> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIEventLogger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIEventLogger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIEventLogger> for ::windows::core::IUnknown {
     fn from(value: &IUIEventLogger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIEventLogger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIEventLogger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIEventLogger {
@@ -390,8 +360,8 @@ pub struct IUIEventLogger_Vtbl {
 pub struct IUIEventingManager(::windows::core::IUnknown);
 impl IUIEventingManager {
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-    pub unsafe fn SetEventLogger<'a, Param0: ::windows::core::IntoParam<'a, IUIEventLogger>>(&self, eventlogger: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventLogger)(::windows::core::Interface::as_raw(self), eventlogger.into_param().abi()).ok()
+    pub unsafe fn SetEventLogger<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIEventLogger>>>(&self, eventlogger: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventLogger)(::windows::core::Interface::as_raw(self), eventlogger.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIEventingManager> for ::windows::core::IUnknown {
@@ -399,19 +369,14 @@ impl ::core::convert::From<IUIEventingManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIEventingManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIEventingManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIEventingManager> for ::windows::core::IUnknown {
     fn from(value: &IUIEventingManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIEventingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIEventingManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIEventingManager {
@@ -446,8 +411,8 @@ pub struct IUIFramework(::windows::core::IUnknown);
 impl IUIFramework {
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IUIApplication>>(&self, framewnd: Param0, application: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), framewnd.into_param().abi(), application.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIApplication>>>(&self, framewnd: Param0, application: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), framewnd.into(), application.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
@@ -455,8 +420,8 @@ impl IUIFramework {
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, instance: Param0, resourcename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadUI)(::windows::core::Interface::as_raw(self), instance.into_param().abi(), resourcename.into_param().abi()).ok()
+    pub unsafe fn LoadUI<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, instance: Param0, resourcename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadUI)(::windows::core::Interface::as_raw(self), instance.into(), ::core::mem::transmute(resourcename)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
     pub unsafe fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -475,8 +440,8 @@ impl IUIFramework {
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InvalidateUICommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(flags), ::core::mem::transmute(key)).ok()
+    pub unsafe fn InvalidateUICommand<'a, Param1: ::std::convert::Into<UI_INVALIDATIONS>>(&self, commandid: u32, flags: Param1, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InvalidateUICommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), flags.into(), ::core::mem::transmute(key)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
     pub unsafe fn FlushPendingInvalidations(&self) -> ::windows::core::Result<()> {
@@ -492,19 +457,14 @@ impl ::core::convert::From<IUIFramework> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIFramework> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIFramework) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIFramework> for ::windows::core::IUnknown {
     fn from(value: &IUIFramework) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIFramework {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIFramework {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIFramework {
@@ -572,19 +532,14 @@ impl ::core::convert::From<IUIImage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIImage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIImage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIImage> for ::windows::core::IUnknown {
     fn from(value: &IUIImage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIImage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIImage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIImage {
@@ -622,9 +577,9 @@ pub struct IUIImageFromBitmap(::windows::core::IUnknown);
 impl IUIImageFromBitmap {
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, bitmap: Param0, options: UI_OWNERSHIP) -> ::windows::core::Result<IUIImage> {
+    pub unsafe fn CreateImage<'a, Param0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>, Param1: ::std::convert::Into<UI_OWNERSHIP>>(&self, bitmap: Param0, options: Param1) -> ::windows::core::Result<IUIImage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateImage)(::windows::core::Interface::as_raw(self), bitmap.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIImage>(result__)
+        (::windows::core::Interface::vtable(self).CreateImage)(::windows::core::Interface::as_raw(self), bitmap.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIImage>(result__)
     }
 }
 impl ::core::convert::From<IUIImageFromBitmap> for ::windows::core::IUnknown {
@@ -632,19 +587,14 @@ impl ::core::convert::From<IUIImageFromBitmap> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIImageFromBitmap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIImageFromBitmap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIImageFromBitmap> for ::windows::core::IUnknown {
     fn from(value: &IUIImageFromBitmap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIImageFromBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIImageFromBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIImageFromBitmap {
@@ -687,13 +637,13 @@ impl IUIRibbon {
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadSettingsFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadSettingsFromStream)(::windows::core::Interface::as_raw(self), pstream.into_param().abi()).ok()
+    pub unsafe fn LoadSettingsFromStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstream: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadSettingsFromStream)(::windows::core::Interface::as_raw(self), pstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveSettingsToStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveSettingsToStream)(::windows::core::Interface::as_raw(self), pstream.into_param().abi()).ok()
+    pub unsafe fn SaveSettingsToStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstream: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SaveSettingsToStream)(::windows::core::Interface::as_raw(self), pstream.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIRibbon> for ::windows::core::IUnknown {
@@ -701,19 +651,14 @@ impl ::core::convert::From<IUIRibbon> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIRibbon> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIRibbon) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIRibbon> for ::windows::core::IUnknown {
     fn from(value: &IUIRibbon) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIRibbon {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIRibbon {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIRibbon {
@@ -766,19 +711,14 @@ impl ::core::convert::From<IUISimplePropertySet> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUISimplePropertySet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUISimplePropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUISimplePropertySet> for ::windows::core::IUnknown {
     fn from(value: &IUISimplePropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUISimplePropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUISimplePropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUISimplePropertySet {

@@ -33,19 +33,8 @@ pub struct IDDEInitializer(::windows::core::IUnknown);
 impl IDDEInitializer {
     #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`, `\"Win32_UI_Shell\"`*"]
     #[cfg(feature = "Win32_UI_Shell")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::UI::Shell::IShellItem>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(
-        &self,
-        fileextensionorprotocol: Param0,
-        method: CreateProcessMethod,
-        currentdirectory: Param2,
-        exectarget: Param3,
-        site: Param4,
-        application: Param5,
-        targetfile: Param6,
-        arguments: Param7,
-        verb: Param8,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), fileextensionorprotocol.into_param().abi(), ::core::mem::transmute(method), currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param1: ::std::convert::Into<CreateProcessMethod>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Shell::IShellItem>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, fileextensionorprotocol: ::windows::core::PCWSTR, method: Param1, currentdirectory: ::windows::core::PCWSTR, exectarget: Param3, site: Param4, application: ::windows::core::PCWSTR, targetfile: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, verb: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fileextensionorprotocol), method.into(), ::core::mem::transmute(currentdirectory), exectarget.into().abi(), site.into().abi(), ::core::mem::transmute(application), ::core::mem::transmute(targetfile), ::core::mem::transmute(arguments), ::core::mem::transmute(verb)).ok()
     }
 }
 impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
@@ -53,19 +42,14 @@ impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDDEInitializer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDDEInitializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDDEInitializer> for ::windows::core::IUnknown {
     fn from(value: &IDDEInitializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDDEInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDDEInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDDEInitializer {

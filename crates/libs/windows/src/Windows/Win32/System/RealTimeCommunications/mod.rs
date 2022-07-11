@@ -24,19 +24,14 @@ impl ::core::convert::From<INetworkTransportSettings> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkTransportSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkTransportSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkTransportSettings> for ::windows::core::IUnknown {
     fn from(value: &INetworkTransportSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkTransportSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkTransportSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkTransportSettings {
@@ -90,19 +85,14 @@ impl ::core::convert::From<INotificationTransportSync> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INotificationTransportSync> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INotificationTransportSync) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INotificationTransportSync> for ::windows::core::IUnknown {
     fn from(value: &INotificationTransportSync) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INotificationTransportSync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INotificationTransportSync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INotificationTransportSync {
@@ -144,8 +134,8 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi()).ok()
+    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -155,8 +145,8 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -166,8 +156,8 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Persistent(&self) -> ::windows::core::Result<i16> {
@@ -195,19 +185,14 @@ impl ::core::convert::From<IRTCBuddy> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCBuddy> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCBuddy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCBuddy> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRTCBuddy> for IRTCPresenceContact {
@@ -215,19 +200,14 @@ impl ::core::convert::From<IRTCBuddy> for IRTCPresenceContact {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCBuddy> for &'a IRTCPresenceContact {
+    fn from(value: &'a IRTCBuddy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCBuddy> for IRTCPresenceContact {
     fn from(value: &IRTCBuddy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCBuddy {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCBuddy {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCBuddy {
@@ -272,8 +252,8 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi()).ok()
+    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -283,8 +263,8 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -294,8 +274,8 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Persistent(&self) -> ::windows::core::Result<i16> {
@@ -339,9 +319,9 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>>(&self, enproperty: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumeratePresenceDevices(&self) -> ::windows::core::Result<IRTCEnumPresenceDevices> {
@@ -365,23 +345,23 @@ impl ::core::convert::From<IRTCBuddy2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCBuddy2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCBuddy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCBuddy2> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCBuddy2> for IRTCPresenceContact {
     fn from(value: IRTCBuddy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCBuddy2> for &'a IRTCPresenceContact {
+    fn from(value: &'a IRTCBuddy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -390,34 +370,19 @@ impl ::core::convert::From<&IRTCBuddy2> for IRTCPresenceContact {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCBuddy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCBuddy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCBuddy2> for IRTCBuddy {
     fn from(value: IRTCBuddy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCBuddy2> for &'a IRTCBuddy {
+    fn from(value: &'a IRTCBuddy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRTCBuddy2> for IRTCBuddy {
     fn from(value: &IRTCBuddy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCBuddy> for IRTCBuddy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddy> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCBuddy> for &'a IRTCBuddy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddy> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCBuddy2 {
@@ -481,21 +446,15 @@ impl ::core::convert::From<IRTCBuddyEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCBuddyEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -505,21 +464,15 @@ impl ::core::convert::From<IRTCBuddyEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCBuddyEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyEvent> for super::Com::IDispatch {
     fn from(value: &IRTCBuddyEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCBuddyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCBuddyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -589,26 +542,26 @@ impl ::core::convert::From<IRTCBuddyEvent2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyEvent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCBuddyEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCBuddyEvent2> for super::Com::IDispatch {
     fn from(value: IRTCBuddyEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyEvent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCBuddyEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -619,20 +572,14 @@ impl ::core::convert::From<&IRTCBuddyEvent2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCBuddyEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCBuddyEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCBuddyEvent2> for IRTCBuddyEvent {
     fn from(value: IRTCBuddyEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyEvent2> for &'a IRTCBuddyEvent {
+    fn from(value: &'a IRTCBuddyEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -640,18 +587,6 @@ impl ::core::convert::From<IRTCBuddyEvent2> for IRTCBuddyEvent {
 impl ::core::convert::From<&IRTCBuddyEvent2> for IRTCBuddyEvent {
     fn from(value: &IRTCBuddyEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for IRTCBuddyEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddyEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for &'a IRTCBuddyEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddyEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -703,16 +638,16 @@ impl IRTCBuddyGroup {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrgroupname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrgroupname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn AddBuddy<'a, Param0: ::windows::core::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into_param().abi()).ok()
+    pub unsafe fn AddBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveBuddy<'a, Param0: ::windows::core::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into_param().abi()).ok()
+    pub unsafe fn RemoveBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
@@ -733,8 +668,8 @@ impl IRTCBuddyGroup {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<IRTCProfile2> {
@@ -747,19 +682,14 @@ impl ::core::convert::From<IRTCBuddyGroup> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCBuddyGroup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCBuddyGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCBuddyGroup> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCBuddyGroup {
@@ -845,21 +775,15 @@ impl ::core::convert::From<IRTCBuddyGroupEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyGroupEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCBuddyGroupEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyGroupEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCBuddyGroupEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddyGroupEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyGroupEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -869,21 +793,15 @@ impl ::core::convert::From<IRTCBuddyGroupEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCBuddyGroupEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCBuddyGroupEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCBuddyGroupEvent> for super::Com::IDispatch {
     fn from(value: &IRTCBuddyGroupEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCBuddyGroupEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCBuddyGroupEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -962,13 +880,13 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSession<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession> {
+    pub unsafe fn CreateSession<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
+        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enlisten)).ok()
+    pub unsafe fn SetListenForIncomingSessions<'a, Param0: ::std::convert::Into<RTC_LISTEN_MODE>>(&self, enlisten: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), enlisten.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE> {
@@ -982,48 +900,48 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).get_NetworkAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ftcp), ::core::mem::transmute(fexternal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(fmuted)).ok()
+    pub unsafe fn put_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, fmuted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(fmuted)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
+    pub unsafe fn get_IVideoWindow<'a, Param0: ::std::convert::Into<RTC_VIDEO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IVideoWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
+        (::windows::core::Interface::vtable(self).get_IVideoWindow)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PreferredAudioDevice<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), bstrdevicename.into_param().abi()).ok()
+    pub unsafe fn put_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, endevice: Param0, bstrdevicename: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SetPreferredAEC(&self, benable: i16) -> ::windows::core::Result<()> {
@@ -1036,8 +954,8 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreferredVideoDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi()).ok()
+    pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPreferredVideoDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1074,17 +992,17 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).NetworkQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartT120Applet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet)).ok()
+    pub unsafe fn StartT120Applet<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartT120Applet)(::windows::core::Interface::as_raw(self), enapplet.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn StopT120Applets(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StopT120Applets)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_IsT120AppletRunning<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), enapplet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1094,8 +1012,8 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalUserURI)(::windows::core::Interface::as_raw(self), bstruseruri.into_param().abi()).ok()
+    pub unsafe fn SetLocalUserURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocalUserURI)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1105,16 +1023,16 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+    pub unsafe fn SetLocalUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PlayRing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(bplay)).ok()
+    pub unsafe fn PlayRing<'a, Param0: ::std::convert::Into<RTC_RING_TYPE>>(&self, entype: Param0, bplay: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PlayRing)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(bplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendDTMF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endtmf)).ok()
+    pub unsafe fn SendDTMF<'a, Param0: ::std::convert::Into<RTC_DTMF>>(&self, endtmf: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendDTMF)(::windows::core::Interface::as_raw(self), endtmf.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::core::Result<()> {
@@ -1131,19 +1049,14 @@ impl ::core::convert::From<IRTCClient> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCClient> for ::windows::core::IUnknown {
     fn from(value: &IRTCClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClient {
@@ -1287,13 +1200,13 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSession<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession> {
+    pub unsafe fn CreateSession<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enlisten)).ok()
+    pub unsafe fn SetListenForIncomingSessions<'a, Param0: ::std::convert::Into<RTC_LISTEN_MODE>>(&self, enlisten: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), enlisten.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE> {
@@ -1307,48 +1220,48 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.get_NetworkAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ftcp), ::core::mem::transmute(fexternal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(fmuted)).ok()
+    pub unsafe fn put_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, fmuted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(fmuted)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
+    pub unsafe fn get_IVideoWindow<'a, Param0: ::std::convert::Into<RTC_VIDEO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IVideoWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IVideoWindow)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PreferredAudioDevice<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), bstrdevicename.into_param().abi()).ok()
+    pub unsafe fn put_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, endevice: Param0, bstrdevicename: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SetPreferredAEC(&self, benable: i16) -> ::windows::core::Result<()> {
@@ -1361,8 +1274,8 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPreferredVideoDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi()).ok()
+    pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPreferredVideoDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1399,17 +1312,17 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.NetworkQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StartT120Applet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet)).ok()
+    pub unsafe fn StartT120Applet<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StartT120Applet)(::windows::core::Interface::as_raw(self), enapplet.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn StopT120Applets(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StopT120Applets)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_IsT120AppletRunning<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), enapplet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1419,8 +1332,8 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLocalUserURI)(::windows::core::Interface::as_raw(self), bstruseruri.into_param().abi()).ok()
+    pub unsafe fn SetLocalUserURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetLocalUserURI)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1430,16 +1343,16 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+    pub unsafe fn SetLocalUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PlayRing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(bplay)).ok()
+    pub unsafe fn PlayRing<'a, Param0: ::std::convert::Into<RTC_RING_TYPE>>(&self, entype: Param0, bplay: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PlayRing)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(bplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SendDTMF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endtmf)).ok()
+    pub unsafe fn SendDTMF<'a, Param0: ::std::convert::Into<RTC_DTMF>>(&self, endtmf: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SendDTMF)(::windows::core::Interface::as_raw(self), endtmf.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::core::Result<()> {
@@ -1451,13 +1364,13 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.IsTuned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_AnswerMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(enmode)).ok()
+    pub unsafe fn put_AnswerMode<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<RTC_ANSWER_MODE>>(&self, entype: Param0, enmode: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_AnswerMode)(::windows::core::Interface::as_raw(self), entype.into(), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE> {
+    pub unsafe fn get_AnswerMode<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>>(&self, entype: Param0) -> ::windows::core::Result<RTC_ANSWER_MODE> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_ANSWER_MODE>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AnswerMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_ANSWER_MODE>(result__)
+        (::windows::core::Interface::vtable(self).get_AnswerMode)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_ANSWER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::core::Result<()> {
@@ -1470,13 +1383,13 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclientname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), bstrclientname.into_param().abi()).ok()
+    pub unsafe fn SetClientName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrclientname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), bstrclientname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientCurVer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclientcurver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCurVer)(::windows::core::Interface::as_raw(self), bstrclientcurver.into_param().abi()).ok()
+    pub unsafe fn SetClientCurVer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrclientcurver: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientCurVer)(::windows::core::Interface::as_raw(self), bstrclientcurver.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InitializeEx(&self, lflags: i32) -> ::windows::core::Result<()> {
@@ -1484,26 +1397,26 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSessionWithDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession2> {
+    pub unsafe fn CreateSessionWithDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSessionWithDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession2>(result__)
+        (::windows::core::Interface::vtable(self).CreateSessionWithDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetSessionDescriptionManager<'a, Param0: ::windows::core::IntoParam<'a, IRTCSessionDescriptionManager>>(&self, psessiondescriptionmanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSessionDescriptionManager)(::windows::core::Interface::as_raw(self), psessiondescriptionmanager.into_param().abi()).ok()
+    pub unsafe fn SetSessionDescriptionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCSessionDescriptionManager>>>(&self, psessiondescriptionmanager: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSessionDescriptionManager)(::windows::core::Interface::as_raw(self), psessiondescriptionmanager.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(ensecuritylevel)).ok()
+    pub unsafe fn put_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>, Param1: ::std::convert::Into<RTC_SECURITY_LEVEL>>(&self, ensecuritytype: Param0, ensecuritylevel: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ensecuritylevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_AllowedPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltransport), ::core::mem::transmute(enlistenmode)).ok()
+    pub unsafe fn put_AllowedPorts<'a, Param1: ::std::convert::Into<RTC_LISTEN_MODE>>(&self, ltransport: i32, enlistenmode: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_AllowedPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltransport), enlistenmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn get_AllowedPorts(&self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE> {
@@ -1516,19 +1429,14 @@ impl ::core::convert::From<IRTCClient2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCClient2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClient2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCClient2> for ::windows::core::IUnknown {
     fn from(value: &IRTCClient2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRTCClient2> for IRTCClient {
@@ -1536,19 +1444,14 @@ impl ::core::convert::From<IRTCClient2> for IRTCClient {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCClient2> for &'a IRTCClient {
+    fn from(value: &'a IRTCClient2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCClient2> for IRTCClient {
     fn from(value: &IRTCClient2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCClient> for IRTCClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCClient> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCClient> for &'a IRTCClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCClient> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClient2 {
@@ -1622,21 +1525,15 @@ impl ::core::convert::From<IRTCClientEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCClientEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClientEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCClientEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCClientEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1646,21 +1543,15 @@ impl ::core::convert::From<IRTCClientEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCClientEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCClientEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCClientEvent> for super::Com::IDispatch {
     fn from(value: &IRTCClientEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCClientEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCClientEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1702,17 +1593,17 @@ pub struct IRTCClientPortManagement(::windows::core::IUnknown);
 impl IRTCClientPortManagement {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartListenAddressAndPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into_param().abi(), ::core::mem::transmute(linternallocalport)).ok()
+    pub unsafe fn StartListenAddressAndPort<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StopListenAddressAndPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into_param().abi(), ::core::mem::transmute(linternallocalport)).ok()
+    pub unsafe fn StopListenAddressAndPort<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StopListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPortRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enporttype), ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
+    pub unsafe fn GetPortRange<'a, Param0: ::std::convert::Into<RTC_PORT_TYPE>>(&self, enporttype: Param0, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPortRange)(::windows::core::Interface::as_raw(self), enporttype.into(), ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
     }
 }
 impl ::core::convert::From<IRTCClientPortManagement> for ::windows::core::IUnknown {
@@ -1720,19 +1611,14 @@ impl ::core::convert::From<IRTCClientPortManagement> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCClientPortManagement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClientPortManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCClientPortManagement> for ::windows::core::IUnknown {
     fn from(value: &IRTCClientPortManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientPortManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientPortManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClientPortManagement {
@@ -1775,18 +1661,18 @@ pub struct IRTCClientPresence(::windows::core::IUnknown);
 impl IRTCClientPresence {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence<'a, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnablePresence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusestorage), varstorage.into_param().abi()).ok()
+    pub unsafe fn EnablePresence<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnablePresence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusestorage), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), varstorage.into_param().abi()).ok()
+    pub unsafe fn Export<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), varstorage.into_param().abi(), ::core::mem::transmute(freplaceall)).ok()
+    pub unsafe fn Import<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), varstorage.into().abi(), ::core::mem::transmute(freplaceall)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
@@ -1801,19 +1687,19 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Buddy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn get_Buddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCBuddy> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Buddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
+        (::windows::core::Interface::vtable(self).get_Buddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn AddBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::core::Result<IRTCBuddy> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddBuddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::core::mem::transmute(fpersistent), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
+        (::windows::core::Interface::vtable(self).AddBuddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveBuddy<'a, Param0: ::windows::core::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into_param().abi()).ok()
+    pub unsafe fn RemoveBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateWatchers(&self) -> ::windows::core::Result<IRTCEnumWatchers> {
@@ -1828,24 +1714,24 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Watcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn get_Watcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCWatcher> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Watcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
+        (::windows::core::Interface::vtable(self).get_Watcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddWatcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::core::mem::transmute(fblocked), ::core::mem::transmute(fpersistent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
+        (::windows::core::Interface::vtable(self).AddWatcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fblocked), ::core::mem::transmute(fpersistent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveWatcher<'a, Param0: ::windows::core::IntoParam<'a, IRTCWatcher>>(&self, pwatcher: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveWatcher)(::windows::core::Interface::as_raw(self), pwatcher.into_param().abi()).ok()
+    pub unsafe fn RemoveWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>>(&self, pwatcher: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveWatcher)(::windows::core::Interface::as_raw(self), pwatcher.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalPresenceInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstatus), bstrnotes.into_param().abi()).ok()
+    pub unsafe fn SetLocalPresenceInfo<'a, Param0: ::std::convert::Into<RTC_PRESENCE_STATUS>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enstatus: Param0, bstrnotes: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), enstatus.into(), bstrnotes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn OfferWatcherMode(&self) -> ::windows::core::Result<RTC_OFFER_WATCHER_MODE> {
@@ -1853,8 +1739,8 @@ impl IRTCClientPresence {
         (::windows::core::Interface::vtable(self).OfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
+    pub unsafe fn SetOfferWatcherMode<'a, Param0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn PrivacyMode(&self) -> ::windows::core::Result<RTC_PRIVACY_MODE> {
@@ -1862,8 +1748,8 @@ impl IRTCClientPresence {
         (::windows::core::Interface::vtable(self).PrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
+    pub unsafe fn SetPrivacyMode<'a, Param0: ::std::convert::Into<RTC_PRIVACY_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrivacyMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
 }
 impl ::core::convert::From<IRTCClientPresence> for ::windows::core::IUnknown {
@@ -1871,19 +1757,14 @@ impl ::core::convert::From<IRTCClientPresence> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCClientPresence> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClientPresence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCClientPresence> for ::windows::core::IUnknown {
     fn from(value: &IRTCClientPresence) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientPresence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientPresence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClientPresence {
@@ -1965,18 +1846,18 @@ pub struct IRTCClientPresence2(::windows::core::IUnknown);
 impl IRTCClientPresence2 {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence<'a, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnablePresence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusestorage), varstorage.into_param().abi()).ok()
+    pub unsafe fn EnablePresence<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EnablePresence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusestorage), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Export)(::windows::core::Interface::as_raw(self), varstorage.into_param().abi()).ok()
+    pub unsafe fn Export<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Export)(::windows::core::Interface::as_raw(self), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Import)(::windows::core::Interface::as_raw(self), varstorage.into_param().abi(), ::core::mem::transmute(freplaceall)).ok()
+    pub unsafe fn Import<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Import)(::windows::core::Interface::as_raw(self), varstorage.into().abi(), ::core::mem::transmute(freplaceall)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
@@ -1991,19 +1872,19 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Buddy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn get_Buddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCBuddy> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Buddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Buddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn AddBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::core::Result<IRTCBuddy> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddBuddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::core::mem::transmute(fpersistent), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddBuddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveBuddy<'a, Param0: ::windows::core::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into_param().abi()).ok()
+    pub unsafe fn RemoveBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateWatchers(&self) -> ::windows::core::Result<IRTCEnumWatchers> {
@@ -2018,24 +1899,24 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Watcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn get_Watcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCWatcher> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Watcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Watcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddWatcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::core::mem::transmute(fblocked), ::core::mem::transmute(fpersistent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddWatcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fblocked), ::core::mem::transmute(fpersistent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveWatcher<'a, Param0: ::windows::core::IntoParam<'a, IRTCWatcher>>(&self, pwatcher: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveWatcher)(::windows::core::Interface::as_raw(self), pwatcher.into_param().abi()).ok()
+    pub unsafe fn RemoveWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>>(&self, pwatcher: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RemoveWatcher)(::windows::core::Interface::as_raw(self), pwatcher.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalPresenceInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstatus), bstrnotes.into_param().abi()).ok()
+    pub unsafe fn SetLocalPresenceInfo<'a, Param0: ::std::convert::Into<RTC_PRESENCE_STATUS>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enstatus: Param0, bstrnotes: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), enstatus.into(), bstrnotes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn OfferWatcherMode(&self) -> ::windows::core::Result<RTC_OFFER_WATCHER_MODE> {
@@ -2043,8 +1924,8 @@ impl IRTCClientPresence2 {
         (::windows::core::Interface::vtable(self).base__.OfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
+    pub unsafe fn SetOfferWatcherMode<'a, Param0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn PrivacyMode(&self) -> ::windows::core::Result<RTC_PRIVACY_MODE> {
@@ -2052,13 +1933,13 @@ impl IRTCClientPresence2 {
         (::windows::core::Interface::vtable(self).base__.PrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
+    pub unsafe fn SetPrivacyMode<'a, Param0: ::std::convert::Into<RTC_PRIVACY_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivacyMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresenceEx<'a, Param0: ::windows::core::IntoParam<'a, IRTCProfile>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, pprofile: Param0, varstorage: Param1, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnablePresenceEx)(::windows::core::Interface::as_raw(self), pprofile.into_param().abi(), varstorage.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn EnablePresenceEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, pprofile: Param0, varstorage: Param1, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnablePresenceEx)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), varstorage.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn DisablePresence(&self) -> ::windows::core::Result<()> {
@@ -2066,13 +1947,13 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, bstrgroupname: Param0, bstrdata: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup> {
+    pub unsafe fn AddGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrgroupname: Param0, bstrdata: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddGroup)(::windows::core::Interface::as_raw(self), bstrgroupname.into_param().abi(), bstrdata.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddyGroup>(result__)
+        (::windows::core::Interface::vtable(self).AddGroup)(::windows::core::Interface::as_raw(self), bstrgroupname.into().abi(), bstrdata.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddyGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveGroup<'a, Param0: ::windows::core::IntoParam<'a, IRTCBuddyGroup>>(&self, pgroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveGroup)(::windows::core::Interface::as_raw(self), pgroup.into_param().abi()).ok()
+    pub unsafe fn RemoveGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddyGroup>>>(&self, pgroup: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveGroup)(::windows::core::Interface::as_raw(self), pgroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateGroups(&self) -> ::windows::core::Result<IRTCEnumGroups> {
@@ -2087,37 +1968,37 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Group<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<IRTCBuddyGroup> {
+    pub unsafe fn get_Group<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<IRTCBuddyGroup> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Group)(::windows::core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddyGroup>(result__)
+        (::windows::core::Interface::vtable(self).get_Group)(::windows::core::Interface::as_raw(self), bstrgroupname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddyGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcherEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, enstate: RTC_WATCHER_STATE, fpersistent: i16, enscope: RTC_ACE_SCOPE, pprofile: Param6, lflags: i32) -> ::windows::core::Result<IRTCWatcher2> {
+    pub unsafe fn AddWatcherEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<RTC_WATCHER_STATE>, Param5: ::std::convert::Into<RTC_ACE_SCOPE>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, enstate: Param3, fpersistent: i16, enscope: Param5, pprofile: Param6, lflags: i32) -> ::windows::core::Result<IRTCWatcher2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddWatcherEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::core::mem::transmute(enstate), ::core::mem::transmute(fpersistent), ::core::mem::transmute(enscope), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
+        (::windows::core::Interface::vtable(self).AddWatcherEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), enstate.into(), ::core::mem::transmute(fpersistent), enscope.into(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_WatcherEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: Param1) -> ::windows::core::Result<IRTCWatcher2> {
+    pub unsafe fn get_WatcherEx<'a, Param0: ::std::convert::Into<RTC_WATCHER_MATCH_MODE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enmode: Param0, bstrpresentityuri: Param1) -> ::windows::core::Result<IRTCWatcher2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_WatcherEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode), bstrpresentityuri.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
+        (::windows::core::Interface::vtable(self).get_WatcherEx)(::windows::core::Interface::as_raw(self), enmode.into(), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PresenceProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), bstrproperty.into_param().abi()).ok()
+    pub unsafe fn put_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enproperty: Param0, bstrproperty: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), bstrproperty.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>>(&self, enproperty: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresenceData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnamespace: Param0, bstrdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPresenceData)(::windows::core::Interface::as_raw(self), bstrnamespace.into_param().abi(), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetPresenceData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnamespace: Param0, bstrdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPresenceData)(::windows::core::Interface::as_raw(self), bstrnamespace.into().abi(), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2131,13 +2012,18 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: Param5, lflags: i32) -> ::windows::core::Result<IRTCBuddy2> {
+    pub unsafe fn AddBuddyEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<RTC_BUDDY_SUBSCRIPTION_TYPE>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, ensubscriptiontype: Param4, pprofile: Param5, lflags: i32) -> ::windows::core::Result<IRTCBuddy2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddBuddyEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::core::mem::transmute(fpersistent), ::core::mem::transmute(ensubscriptiontype), pprofile.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy2>(result__)
+        (::windows::core::Interface::vtable(self).AddBuddyEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), ensubscriptiontype.into(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy2>(result__)
     }
 }
 impl ::core::convert::From<IRTCClientPresence2> for ::windows::core::IUnknown {
     fn from(value: IRTCClientPresence2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCClientPresence2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClientPresence2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2146,34 +2032,19 @@ impl ::core::convert::From<&IRTCClientPresence2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientPresence2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientPresence2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCClientPresence2> for IRTCClientPresence {
     fn from(value: IRTCClientPresence2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCClientPresence2> for &'a IRTCClientPresence {
+    fn from(value: &'a IRTCClientPresence2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRTCClientPresence2> for IRTCClientPresence {
     fn from(value: &IRTCClientPresence2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCClientPresence> for IRTCClientPresence2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCClientPresence> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCClientPresence> for &'a IRTCClientPresence2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCClientPresence> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClientPresence2 {
@@ -2258,17 +2129,17 @@ pub struct IRTCClientProvisioning(::windows::core::IUnknown);
 impl IRTCClientProvisioning {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprofilexml: Param0) -> ::windows::core::Result<IRTCProfile> {
+    pub unsafe fn CreateProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprofilexml: Param0) -> ::windows::core::Result<IRTCProfile> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateProfile)(::windows::core::Interface::as_raw(self), bstrprofilexml.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile>(result__)
+        (::windows::core::Interface::vtable(self).CreateProfile)(::windows::core::Interface::as_raw(self), bstrprofilexml.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn EnableProfile<'a, Param0: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableProfile)(::windows::core::Interface::as_raw(self), pprofile.into_param().abi(), ::core::mem::transmute(lregisterflags)).ok()
+    pub unsafe fn EnableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(lregisterflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn DisableProfile<'a, Param0: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisableProfile)(::windows::core::Interface::as_raw(self), pprofile.into_param().abi()).ok()
+    pub unsafe fn DisableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateProfiles(&self) -> ::windows::core::Result<IRTCEnumProfiles> {
@@ -2283,8 +2154,8 @@ impl IRTCClientProvisioning {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProfile)(::windows::core::Interface::as_raw(self), bstruseraccount.into_param().abi(), bstruserpassword.into_param().abi(), bstruseruri.into_param().abi(), bstrserver.into_param().abi(), ::core::mem::transmute(ltransport), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn GetProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetProfile)(::windows::core::Interface::as_raw(self), bstruseraccount.into().abi(), bstruserpassword.into().abi(), bstruseruri.into().abi(), bstrserver.into().abi(), ::core::mem::transmute(ltransport), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::core::Result<i32> {
@@ -2297,19 +2168,14 @@ impl ::core::convert::From<IRTCClientProvisioning> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCClientProvisioning> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClientProvisioning) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCClientProvisioning> for ::windows::core::IUnknown {
     fn from(value: &IRTCClientProvisioning) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientProvisioning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientProvisioning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClientProvisioning {
@@ -2359,17 +2225,17 @@ pub struct IRTCClientProvisioning2(::windows::core::IUnknown);
 impl IRTCClientProvisioning2 {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprofilexml: Param0) -> ::windows::core::Result<IRTCProfile> {
+    pub unsafe fn CreateProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprofilexml: Param0) -> ::windows::core::Result<IRTCProfile> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateProfile)(::windows::core::Interface::as_raw(self), bstrprofilexml.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateProfile)(::windows::core::Interface::as_raw(self), bstrprofilexml.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn EnableProfile<'a, Param0: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnableProfile)(::windows::core::Interface::as_raw(self), pprofile.into_param().abi(), ::core::mem::transmute(lregisterflags)).ok()
+    pub unsafe fn EnableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EnableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(lregisterflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn DisableProfile<'a, Param0: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisableProfile)(::windows::core::Interface::as_raw(self), pprofile.into_param().abi()).ok()
+    pub unsafe fn DisableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DisableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateProfiles(&self) -> ::windows::core::Result<IRTCEnumProfiles> {
@@ -2384,8 +2250,8 @@ impl IRTCClientProvisioning2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetProfile)(::windows::core::Interface::as_raw(self), bstruseraccount.into_param().abi(), bstruserpassword.into_param().abi(), bstruseruri.into_param().abi(), bstrserver.into_param().abi(), ::core::mem::transmute(ltransport), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn GetProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetProfile)(::windows::core::Interface::as_raw(self), bstruseraccount.into().abi(), bstruserpassword.into().abi(), bstruseruri.into().abi(), bstrserver.into().abi(), ::core::mem::transmute(ltransport), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::core::Result<i32> {
@@ -2393,12 +2259,17 @@ impl IRTCClientProvisioning2 {
         (::windows::core::Interface::vtable(self).base__.SessionCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn EnableProfileEx<'a, Param0: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableProfileEx)(::windows::core::Interface::as_raw(self), pprofile.into_param().abi(), ::core::mem::transmute(lregisterflags), ::core::mem::transmute(lroamingflags)).ok()
+    pub unsafe fn EnableProfileEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableProfileEx)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(lregisterflags), ::core::mem::transmute(lroamingflags)).ok()
     }
 }
 impl ::core::convert::From<IRTCClientProvisioning2> for ::windows::core::IUnknown {
     fn from(value: IRTCClientProvisioning2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCClientProvisioning2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCClientProvisioning2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2407,34 +2278,19 @@ impl ::core::convert::From<&IRTCClientProvisioning2> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClientProvisioning2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientProvisioning2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCClientProvisioning2> for IRTCClientProvisioning {
     fn from(value: IRTCClientProvisioning2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCClientProvisioning2> for &'a IRTCClientProvisioning {
+    fn from(value: &'a IRTCClientProvisioning2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRTCClientProvisioning2> for IRTCClientProvisioning {
     fn from(value: &IRTCClientProvisioning2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCClientProvisioning> for IRTCClientProvisioning2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCClientProvisioning> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCClientProvisioning> for &'a IRTCClientProvisioning2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCClientProvisioning> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCClientProvisioning2 {
@@ -2493,21 +2349,15 @@ impl ::core::convert::From<IRTCCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCCollection> for ::windows::core::IUnknown {
     fn from(value: &IRTCCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2517,21 +2367,15 @@ impl ::core::convert::From<IRTCCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCCollection> for super::Com::IDispatch {
     fn from(value: &IRTCCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2584,21 +2428,15 @@ impl ::core::convert::From<IRTCDispatchEventNotification> for ::windows::core::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCDispatchEventNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCDispatchEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCDispatchEventNotification> for ::windows::core::IUnknown {
     fn from(value: &IRTCDispatchEventNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCDispatchEventNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCDispatchEventNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2608,21 +2446,15 @@ impl ::core::convert::From<IRTCDispatchEventNotification> for super::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCDispatchEventNotification> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCDispatchEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCDispatchEventNotification> for super::Com::IDispatch {
     fn from(value: &IRTCDispatchEventNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCDispatchEventNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCDispatchEventNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2683,19 +2515,14 @@ impl ::core::convert::From<IRTCEnumBuddies> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumBuddies> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumBuddies) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumBuddies> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumBuddies) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumBuddies {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumBuddies {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumBuddies {
@@ -2754,19 +2581,14 @@ impl ::core::convert::From<IRTCEnumGroups> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumGroups> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumGroups) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumGroups> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumGroups) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumGroups {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumGroups {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumGroups {
@@ -2825,19 +2647,14 @@ impl ::core::convert::From<IRTCEnumParticipants> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumParticipants> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumParticipants) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumParticipants> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumParticipants) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumParticipants {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumParticipants {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumParticipants {
@@ -2896,19 +2713,14 @@ impl ::core::convert::From<IRTCEnumPresenceDevices> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumPresenceDevices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumPresenceDevices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumPresenceDevices> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumPresenceDevices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumPresenceDevices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumPresenceDevices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumPresenceDevices {
@@ -2967,19 +2779,14 @@ impl ::core::convert::From<IRTCEnumProfiles> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumProfiles> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumProfiles) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumProfiles> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumProfiles) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumProfiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumProfiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumProfiles {
@@ -3038,19 +2845,14 @@ impl ::core::convert::From<IRTCEnumUserSearchResults> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumUserSearchResults> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumUserSearchResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumUserSearchResults> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumUserSearchResults) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumUserSearchResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumUserSearchResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumUserSearchResults {
@@ -3109,19 +2911,14 @@ impl ::core::convert::From<IRTCEnumWatchers> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEnumWatchers> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEnumWatchers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEnumWatchers> for ::windows::core::IUnknown {
     fn from(value: &IRTCEnumWatchers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumWatchers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumWatchers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEnumWatchers {
@@ -3159,8 +2956,8 @@ pub struct IRTCEventNotification(::windows::core::IUnknown);
 impl IRTCEventNotification {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Event<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, rtcevent: RTC_EVENT, pevent: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rtcevent), pevent.into_param().abi()).ok()
+    pub unsafe fn Event<'a, Param0: ::std::convert::Into<RTC_EVENT>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, rtcevent: Param0, pevent: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), rtcevent.into(), pevent.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRTCEventNotification> for ::windows::core::IUnknown {
@@ -3168,19 +2965,14 @@ impl ::core::convert::From<IRTCEventNotification> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCEventNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCEventNotification> for ::windows::core::IUnknown {
     fn from(value: &IRTCEventNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEventNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEventNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCEventNotification {
@@ -3248,21 +3040,15 @@ impl ::core::convert::From<IRTCInfoEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCInfoEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCInfoEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCInfoEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCInfoEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCInfoEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCInfoEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3272,21 +3058,15 @@ impl ::core::convert::From<IRTCInfoEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCInfoEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCInfoEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCInfoEvent> for super::Com::IDispatch {
     fn from(value: &IRTCInfoEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCInfoEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCInfoEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3364,21 +3144,15 @@ impl ::core::convert::From<IRTCIntensityEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCIntensityEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCIntensityEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCIntensityEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCIntensityEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCIntensityEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCIntensityEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3388,21 +3162,15 @@ impl ::core::convert::From<IRTCIntensityEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCIntensityEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCIntensityEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCIntensityEvent> for super::Com::IDispatch {
     fn from(value: &IRTCIntensityEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCIntensityEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCIntensityEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3469,21 +3237,15 @@ impl ::core::convert::From<IRTCMediaEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCMediaEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCMediaEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMediaEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCMediaEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMediaEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCMediaEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3493,21 +3255,15 @@ impl ::core::convert::From<IRTCMediaEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCMediaEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCMediaEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMediaEvent> for super::Com::IDispatch {
     fn from(value: &IRTCMediaEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCMediaEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCMediaEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3570,9 +3326,9 @@ impl IRTCMediaRequestEvent {
         (::windows::core::Interface::vtable(self).Accept)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_RemotePreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Reject(&self) -> ::windows::core::Result<()> {
@@ -3591,21 +3347,15 @@ impl ::core::convert::From<IRTCMediaRequestEvent> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCMediaRequestEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCMediaRequestEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMediaRequestEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCMediaRequestEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMediaRequestEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCMediaRequestEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3615,21 +3365,15 @@ impl ::core::convert::From<IRTCMediaRequestEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCMediaRequestEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCMediaRequestEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMediaRequestEvent> for super::Com::IDispatch {
     fn from(value: &IRTCMediaRequestEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCMediaRequestEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCMediaRequestEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3716,21 +3460,15 @@ impl ::core::convert::From<IRTCMessagingEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCMessagingEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCMessagingEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMessagingEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCMessagingEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMessagingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCMessagingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3740,21 +3478,15 @@ impl ::core::convert::From<IRTCMessagingEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCMessagingEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCMessagingEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCMessagingEvent> for super::Com::IDispatch {
     fn from(value: &IRTCMessagingEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCMessagingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCMessagingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3837,19 +3569,14 @@ impl ::core::convert::From<IRTCParticipant> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCParticipant> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCParticipant) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCParticipant> for ::windows::core::IUnknown {
     fn from(value: &IRTCParticipant) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCParticipant {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCParticipant {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCParticipant {
@@ -3917,21 +3644,15 @@ impl ::core::convert::From<IRTCParticipantStateChangeEvent> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCParticipantStateChangeEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCParticipantStateChangeEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCParticipantStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCParticipantStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCParticipantStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCParticipantStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3941,21 +3662,15 @@ impl ::core::convert::From<IRTCParticipantStateChangeEvent> for super::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCParticipantStateChangeEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCParticipantStateChangeEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCParticipantStateChangeEvent> for super::Com::IDispatch {
     fn from(value: &IRTCParticipantStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCParticipantStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCParticipantStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3998,18 +3713,18 @@ pub struct IRTCPortManager(::windows::core::IUnknown);
 impl IRTCPortManager {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMapping<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrremoteaddress: Param0, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMapping)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into_param().abi(), ::core::mem::transmute(enporttype), ::core::mem::transmute(pbstrinternallocaladdress), ::core::mem::transmute(plinternallocalport), ::core::mem::transmute(pbstrexternallocaladdress), ::core::mem::transmute(plexternallocalport)).ok()
+    pub unsafe fn GetMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<RTC_PORT_TYPE>>(&self, bstrremoteaddress: Param0, enporttype: Param1, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMapping)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into().abi(), enporttype.into(), ::core::mem::transmute(pbstrinternallocaladdress), ::core::mem::transmute(plinternallocalport), ::core::mem::transmute(pbstrexternallocaladdress), ::core::mem::transmute(plexternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateRemoteAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrremoteaddress: Param0, bstrinternallocaladdress: Param1, linternallocalport: i32, bstrexternallocaladdress: Param3, lexternallocalport: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateRemoteAddress)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into_param().abi(), bstrinternallocaladdress.into_param().abi(), ::core::mem::transmute(linternallocalport), bstrexternallocaladdress.into_param().abi(), ::core::mem::transmute(lexternallocalport)).ok()
+    pub unsafe fn UpdateRemoteAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrremoteaddress: Param0, bstrinternallocaladdress: Param1, linternallocalport: i32, bstrexternallocaladdress: Param3, lexternallocalport: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateRemoteAddress)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into().abi(), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport), bstrexternallocaladdress.into().abi(), ::core::mem::transmute(lexternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReleaseMapping<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32, bstrexternallocaladdress: Param2, lexternallocaladdress: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseMapping)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into_param().abi(), ::core::mem::transmute(linternallocalport), bstrexternallocaladdress.into_param().abi(), ::core::mem::transmute(lexternallocaladdress)).ok()
+    pub unsafe fn ReleaseMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32, bstrexternallocaladdress: Param2, lexternallocaladdress: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReleaseMapping)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport), bstrexternallocaladdress.into().abi(), ::core::mem::transmute(lexternallocaladdress)).ok()
     }
 }
 impl ::core::convert::From<IRTCPortManager> for ::windows::core::IUnknown {
@@ -4017,19 +3732,14 @@ impl ::core::convert::From<IRTCPortManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCPortManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCPortManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCPortManager> for ::windows::core::IUnknown {
     fn from(value: &IRTCPortManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPortManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPortManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCPortManager {
@@ -4081,8 +3791,8 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi()).ok()
+    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4092,8 +3802,8 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4103,8 +3813,8 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Persistent(&self) -> ::windows::core::Result<i16> {
@@ -4121,19 +3831,14 @@ impl ::core::convert::From<IRTCPresenceContact> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCPresenceContact> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCPresenceContact) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCPresenceContact> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresenceContact) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresenceContact {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceContact {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCPresenceContact {
@@ -4217,21 +3922,15 @@ impl ::core::convert::From<IRTCPresenceDataEvent> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCPresenceDataEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCPresenceDataEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresenceDataEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresenceDataEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresenceDataEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceDataEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4241,21 +3940,15 @@ impl ::core::convert::From<IRTCPresenceDataEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCPresenceDataEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCPresenceDataEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresenceDataEvent> for super::Com::IDispatch {
     fn from(value: &IRTCPresenceDataEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCPresenceDataEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCPresenceDataEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4315,9 +4008,9 @@ impl IRTCPresenceDevice {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>>(&self, enproperty: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4330,19 +4023,14 @@ impl ::core::convert::From<IRTCPresenceDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCPresenceDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCPresenceDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCPresenceDevice> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresenceDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresenceDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCPresenceDevice {
@@ -4419,21 +4107,15 @@ impl ::core::convert::From<IRTCPresencePropertyEvent> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCPresencePropertyEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCPresencePropertyEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresencePropertyEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresencePropertyEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresencePropertyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresencePropertyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4443,21 +4125,15 @@ impl ::core::convert::From<IRTCPresencePropertyEvent> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCPresencePropertyEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCPresencePropertyEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresencePropertyEvent> for super::Com::IDispatch {
     fn from(value: &IRTCPresencePropertyEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCPresencePropertyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCPresencePropertyEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4531,21 +4207,15 @@ impl ::core::convert::From<IRTCPresenceStatusEvent> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCPresenceStatusEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCPresenceStatusEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresenceStatusEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCPresenceStatusEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPresenceStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4555,21 +4225,15 @@ impl ::core::convert::From<IRTCPresenceStatusEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCPresenceStatusEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCPresenceStatusEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCPresenceStatusEvent> for super::Com::IDispatch {
     fn from(value: &IRTCPresenceStatusEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCPresenceStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCPresenceStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4642,9 +4306,9 @@ impl IRTCProfile {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_ProviderURI<'a, Param0: ::std::convert::Into<RTC_PROVIDER_URI>>(&self, enuri: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ProviderURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_ProviderURI)(::windows::core::Interface::as_raw(self), enuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4707,8 +4371,8 @@ impl IRTCProfile {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), bstruseruri.into_param().abi(), bstruseraccount.into_param().abi(), bstrpassword.into_param().abi()).ok()
+    pub unsafe fn SetCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi(), bstruseraccount.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::core::Result<i32> {
@@ -4726,19 +4390,14 @@ impl ::core::convert::From<IRTCProfile> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCProfile> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCProfile> for ::windows::core::IUnknown {
     fn from(value: &IRTCProfile) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCProfile {
@@ -4859,9 +4518,9 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_ProviderURI<'a, Param0: ::std::convert::Into<RTC_PROVIDER_URI>>(&self, enuri: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_ProviderURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_ProviderURI)(::windows::core::Interface::as_raw(self), enuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4924,8 +4583,8 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCredentials)(::windows::core::Interface::as_raw(self), bstruseruri.into_param().abi(), bstruseraccount.into_param().abi(), bstrpassword.into_param().abi()).ok()
+    pub unsafe fn SetCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCredentials)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi(), bstruseraccount.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::core::Result<i32> {
@@ -4945,8 +4604,8 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRealm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrealm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRealm)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi()).ok()
+    pub unsafe fn SetRealm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrealm: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRealm)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn AllowedAuth(&self) -> ::windows::core::Result<i32> {
@@ -4963,19 +4622,14 @@ impl ::core::convert::From<IRTCProfile2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCProfile2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCProfile2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCProfile2> for ::windows::core::IUnknown {
     fn from(value: &IRTCProfile2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRTCProfile2> for IRTCProfile {
@@ -4983,19 +4637,14 @@ impl ::core::convert::From<IRTCProfile2> for IRTCProfile {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCProfile2> for &'a IRTCProfile {
+    fn from(value: &'a IRTCProfile2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCProfile2> for IRTCProfile {
     fn from(value: &IRTCProfile2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCProfile> for IRTCProfile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCProfile> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCProfile> for &'a IRTCProfile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCProfile> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCProfile2 {
@@ -5062,21 +4711,15 @@ impl ::core::convert::From<IRTCProfileEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCProfileEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCProfileEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCProfileEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCProfileEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfileEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfileEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5086,21 +4729,15 @@ impl ::core::convert::From<IRTCProfileEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCProfileEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCProfileEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCProfileEvent> for super::Com::IDispatch {
     fn from(value: &IRTCProfileEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCProfileEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCProfileEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5171,26 +4808,26 @@ impl ::core::convert::From<IRTCProfileEvent2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCProfileEvent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCProfileEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCProfileEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCProfileEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfileEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfileEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCProfileEvent2> for super::Com::IDispatch {
     fn from(value: IRTCProfileEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCProfileEvent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCProfileEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5201,20 +4838,14 @@ impl ::core::convert::From<&IRTCProfileEvent2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCProfileEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCProfileEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCProfileEvent2> for IRTCProfileEvent {
     fn from(value: IRTCProfileEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCProfileEvent2> for &'a IRTCProfileEvent {
+    fn from(value: &'a IRTCProfileEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5222,18 +4853,6 @@ impl ::core::convert::From<IRTCProfileEvent2> for IRTCProfileEvent {
 impl ::core::convert::From<&IRTCProfileEvent2> for IRTCProfileEvent {
     fn from(value: &IRTCProfileEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for IRTCProfileEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCProfileEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for &'a IRTCProfileEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCProfileEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5281,8 +4900,8 @@ impl IRTCReInviteEvent {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Accept<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Accept)(::windows::core::Interface::as_raw(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi()).ok()
+    pub unsafe fn Accept<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Accept)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Reject(&self) -> ::windows::core::Result<()> {
@@ -5306,21 +4925,15 @@ impl ::core::convert::From<IRTCReInviteEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCReInviteEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCReInviteEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCReInviteEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCReInviteEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCReInviteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCReInviteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5330,21 +4943,15 @@ impl ::core::convert::From<IRTCReInviteEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCReInviteEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCReInviteEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCReInviteEvent> for super::Com::IDispatch {
     fn from(value: &IRTCReInviteEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCReInviteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCReInviteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5424,21 +5031,15 @@ impl ::core::convert::From<IRTCRegistrationStateChangeEvent> for ::windows::core
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCRegistrationStateChangeEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCRegistrationStateChangeEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCRegistrationStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCRegistrationStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCRegistrationStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCRegistrationStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5448,21 +5049,15 @@ impl ::core::convert::From<IRTCRegistrationStateChangeEvent> for super::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCRegistrationStateChangeEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCRegistrationStateChangeEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCRegistrationStateChangeEvent> for super::Com::IDispatch {
     fn from(value: &IRTCRegistrationStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCRegistrationStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCRegistrationStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5538,21 +5133,15 @@ impl ::core::convert::From<IRTCRoamingEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCRoamingEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCRoamingEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCRoamingEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCRoamingEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCRoamingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCRoamingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5562,21 +5151,15 @@ impl ::core::convert::From<IRTCRoamingEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCRoamingEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCRoamingEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCRoamingEvent> for super::Com::IDispatch {
     fn from(value: &IRTCRoamingEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCRoamingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCRoamingEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5652,23 +5235,23 @@ impl IRTCSession {
         (::windows::core::Interface::vtable(self).Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enreason)).ok()
+    pub unsafe fn Terminate<'a, Param0: ::std::convert::Into<RTC_TERMINATE_REASON>>(&self, enreason: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), enreason.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Redirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn Redirect<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Redirect)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddParticipant<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::core::Result<IRTCParticipant> {
+    pub unsafe fn AddParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::core::Result<IRTCParticipant> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddParticipant)(::windows::core::Interface::as_raw(self), bstraddress.into_param().abi(), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCParticipant>(result__)
+        (::windows::core::Interface::vtable(self).AddParticipant)(::windows::core::Interface::as_raw(self), bstraddress.into().abi(), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCParticipant>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveParticipant<'a, Param0: ::windows::core::IntoParam<'a, IRTCParticipant>>(&self, pparticipant: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveParticipant)(::windows::core::Interface::as_raw(self), pparticipant.into_param().abi()).ok()
+    pub unsafe fn RemoveParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>>(&self, pparticipant: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveParticipant)(::windows::core::Interface::as_raw(self), pparticipant.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateParticipants(&self) -> ::windows::core::Result<IRTCEnumParticipants> {
@@ -5698,12 +5281,12 @@ impl IRTCSession {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into_param().abi(), bstrmessage.into_param().abi(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into().abi(), bstrmessage.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMessageStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuserstatus), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendMessageStatus<'a, Param0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>>(&self, enuserstatus: Param0, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMessageStatus)(::windows::core::Interface::as_raw(self), enuserstatus.into(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()> {
@@ -5715,8 +5298,8 @@ impl IRTCSession {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EncryptionKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_EncryptionKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), encryptionkey.into_param().abi()).ok()
+    pub unsafe fn put_EncryptionKey<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_EncryptionKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), encryptionkey.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRTCSession> for ::windows::core::IUnknown {
@@ -5724,19 +5307,14 @@ impl ::core::convert::From<IRTCSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCSession> for ::windows::core::IUnknown {
     fn from(value: &IRTCSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCSession {
@@ -5840,23 +5418,23 @@ impl IRTCSession2 {
         (::windows::core::Interface::vtable(self).base__.Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enreason)).ok()
+    pub unsafe fn Terminate<'a, Param0: ::std::convert::Into<RTC_TERMINATE_REASON>>(&self, enreason: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self), enreason.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Redirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn Redirect<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Redirect)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddParticipant<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::core::Result<IRTCParticipant> {
+    pub unsafe fn AddParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::core::Result<IRTCParticipant> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddParticipant)(::windows::core::Interface::as_raw(self), bstraddress.into_param().abi(), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCParticipant>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddParticipant)(::windows::core::Interface::as_raw(self), bstraddress.into().abi(), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCParticipant>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveParticipant<'a, Param0: ::windows::core::IntoParam<'a, IRTCParticipant>>(&self, pparticipant: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveParticipant)(::windows::core::Interface::as_raw(self), pparticipant.into_param().abi()).ok()
+    pub unsafe fn RemoveParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>>(&self, pparticipant: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RemoveParticipant)(::windows::core::Interface::as_raw(self), pparticipant.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumerateParticipants(&self) -> ::windows::core::Result<IRTCEnumParticipants> {
@@ -5886,12 +5464,12 @@ impl IRTCSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into_param().abi(), bstrmessage.into_param().abi(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into().abi(), bstrmessage.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SendMessageStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuserstatus), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendMessageStatus<'a, Param0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>>(&self, enuserstatus: Param0, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SendMessageStatus)(::windows::core::Interface::as_raw(self), enuserstatus.into(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()> {
@@ -5903,41 +5481,46 @@ impl IRTCSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EncryptionKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_EncryptionKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), encryptionkey.into_param().abi()).ok()
+    pub unsafe fn put_EncryptionKey<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_EncryptionKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), encryptionkey.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinfoheader: Param0, bstrinfo: Param1, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendInfo)(::windows::core::Interface::as_raw(self), bstrinfoheader.into_param().abi(), bstrinfo.into_param().abi(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinfoheader: Param0, bstrinfo: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendInfo)(::windows::core::Interface::as_raw(self), bstrinfoheader.into().abi(), bstrinfo.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(ensecuritylevel)).ok()
+    pub unsafe fn put_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>, Param1: ::std::convert::Into<RTC_SECURITY_LEVEL>>(&self, ensecuritytype: Param0, ensecuritylevel: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ensecuritylevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsSecurityEnabled<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AnswerWithSessionDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AnswerWithSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi()).ok()
+    pub unsafe fn AnswerWithSessionDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AnswerWithSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReInviteWithSessionDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReInviteWithSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn ReInviteWithSessionDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReInviteWithSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
 }
 impl ::core::convert::From<IRTCSession2> for ::windows::core::IUnknown {
     fn from(value: IRTCSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCSession2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5946,34 +5529,19 @@ impl ::core::convert::From<&IRTCSession2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCSession2> for IRTCSession {
     fn from(value: IRTCSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCSession2> for &'a IRTCSession {
+    fn from(value: &'a IRTCSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRTCSession2> for IRTCSession {
     fn from(value: &IRTCSession2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCSession> for IRTCSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCSession> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCSession> for &'a IRTCSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCSession> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCSession2 {
@@ -6030,18 +5598,18 @@ impl IRTCSessionCallControl {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Forward<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrforwardtouri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Forward)(::windows::core::Interface::as_raw(self), bstrforwardtouri.into_param().abi()).ok()
+    pub unsafe fn Forward<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrforwardtouri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Forward)(::windows::core::Interface::as_raw(self), bstrforwardtouri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Refer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrefertouri: Param0, bstrrefercookie: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refer)(::windows::core::Interface::as_raw(self), bstrrefertouri.into_param().abi(), bstrrefercookie.into_param().abi()).ok()
+    pub unsafe fn Refer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrefertouri: Param0, bstrrefercookie: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Refer)(::windows::core::Interface::as_raw(self), bstrrefertouri.into().abi(), bstrrefercookie.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReferredByURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrreferredbyuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReferredByURI)(::windows::core::Interface::as_raw(self), bstrreferredbyuri.into_param().abi()).ok()
+    pub unsafe fn SetReferredByURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrreferredbyuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReferredByURI)(::windows::core::Interface::as_raw(self), bstrreferredbyuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6051,8 +5619,8 @@ impl IRTCSessionCallControl {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReferCookie<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrefercookie: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReferCookie)(::windows::core::Interface::as_raw(self), bstrrefercookie.into_param().abi()).ok()
+    pub unsafe fn SetReferCookie<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrefercookie: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReferCookie)(::windows::core::Interface::as_raw(self), bstrrefercookie.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6071,19 +5639,14 @@ impl ::core::convert::From<IRTCSessionCallControl> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCSessionCallControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionCallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCSessionCallControl> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionCallControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionCallControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionCallControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCSessionCallControl {
@@ -6144,8 +5707,8 @@ pub struct IRTCSessionDescriptionManager(::windows::core::IUnknown);
 impl IRTCSessionDescriptionManager {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EvaluateSessionDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pfapplicationsession: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EvaluateSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi(), ::core::mem::transmute(pfapplicationsession)).ok()
+    pub unsafe fn EvaluateSessionDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pfapplicationsession: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EvaluateSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi(), ::core::mem::transmute(pfapplicationsession)).ok()
     }
 }
 impl ::core::convert::From<IRTCSessionDescriptionManager> for ::windows::core::IUnknown {
@@ -6153,19 +5716,14 @@ impl ::core::convert::From<IRTCSessionDescriptionManager> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCSessionDescriptionManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionDescriptionManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCSessionDescriptionManager> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionDescriptionManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionDescriptionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionDescriptionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCSessionDescriptionManager {
@@ -6232,21 +5790,15 @@ impl ::core::convert::From<IRTCSessionOperationCompleteEvent> for ::windows::cor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionOperationCompleteEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionOperationCompleteEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionOperationCompleteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionOperationCompleteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6256,21 +5808,15 @@ impl ::core::convert::From<IRTCSessionOperationCompleteEvent> for super::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCSessionOperationCompleteEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent> for super::Com::IDispatch {
     fn from(value: &IRTCSessionOperationCompleteEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionOperationCompleteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionOperationCompleteEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6356,26 +5902,26 @@ impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for ::windows::co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionOperationCompleteEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionOperationCompleteEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionOperationCompleteEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for super::Com::IDispatch {
     fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCSessionOperationCompleteEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6386,20 +5932,14 @@ impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for super::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionOperationCompleteEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionOperationCompleteEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
     fn from(value: IRTCSessionOperationCompleteEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionOperationCompleteEvent2> for &'a IRTCSessionOperationCompleteEvent {
+    fn from(value: &'a IRTCSessionOperationCompleteEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6407,18 +5947,6 @@ impl ::core::convert::From<IRTCSessionOperationCompleteEvent2> for IRTCSessionOp
 impl ::core::convert::From<&IRTCSessionOperationCompleteEvent2> for IRTCSessionOperationCompleteEvent {
     fn from(value: &IRTCSessionOperationCompleteEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for IRTCSessionOperationCompleteEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionOperationCompleteEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for &'a IRTCSessionOperationCompleteEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionOperationCompleteEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6462,8 +5990,8 @@ pub struct IRTCSessionOperationCompleteEvent2_Vtbl {
 pub struct IRTCSessionPortManagement(::windows::core::IUnknown);
 impl IRTCSessionPortManagement {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPortManager<'a, Param0: ::windows::core::IntoParam<'a, IRTCPortManager>>(&self, pportmanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPortManager)(::windows::core::Interface::as_raw(self), pportmanager.into_param().abi()).ok()
+    pub unsafe fn SetPortManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCPortManager>>>(&self, pportmanager: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPortManager)(::windows::core::Interface::as_raw(self), pportmanager.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRTCSessionPortManagement> for ::windows::core::IUnknown {
@@ -6471,19 +5999,14 @@ impl ::core::convert::From<IRTCSessionPortManagement> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCSessionPortManagement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionPortManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCSessionPortManagement> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionPortManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionPortManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionPortManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCSessionPortManagement {
@@ -6547,21 +6070,15 @@ impl ::core::convert::From<IRTCSessionReferStatusEvent> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionReferStatusEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionReferStatusEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionReferStatusEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionReferStatusEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionReferStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionReferStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6571,21 +6088,15 @@ impl ::core::convert::From<IRTCSessionReferStatusEvent> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionReferStatusEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCSessionReferStatusEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionReferStatusEvent> for super::Com::IDispatch {
     fn from(value: &IRTCSessionReferStatusEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionReferStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionReferStatusEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6664,13 +6175,19 @@ impl IRTCSessionReferredEvent {
         (::windows::core::Interface::vtable(self).Reject)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReferredSessionState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstate)).ok()
+    pub unsafe fn SetReferredSessionState<'a, Param0: ::std::convert::Into<RTC_SESSION_STATE>>(&self, enstate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReferredSessionState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionReferredEvent> for ::windows::core::IUnknown {
     fn from(value: IRTCSessionReferredEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionReferredEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionReferredEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6681,20 +6198,14 @@ impl ::core::convert::From<&IRTCSessionReferredEvent> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionReferredEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionReferredEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionReferredEvent> for super::Com::IDispatch {
     fn from(value: IRTCSessionReferredEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionReferredEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCSessionReferredEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6702,18 +6213,6 @@ impl ::core::convert::From<IRTCSessionReferredEvent> for super::Com::IDispatch {
 impl ::core::convert::From<&IRTCSessionReferredEvent> for super::Com::IDispatch {
     fn from(value: &IRTCSessionReferredEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionReferredEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionReferredEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6798,21 +6297,15 @@ impl ::core::convert::From<IRTCSessionStateChangeEvent> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionStateChangeEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionStateChangeEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6822,21 +6315,15 @@ impl ::core::convert::From<IRTCSessionStateChangeEvent> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCSessionStateChangeEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionStateChangeEvent> for super::Com::IDispatch {
     fn from(value: &IRTCSessionStateChangeEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionStateChangeEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6910,9 +6397,9 @@ impl IRTCSessionStateChangeEvent2 {
         (::windows::core::Interface::vtable(self).MediaTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_RemotePreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn IsForked(&self) -> ::windows::core::Result<i16> {
@@ -6932,26 +6419,26 @@ impl ::core::convert::From<IRTCSessionStateChangeEvent2> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCSessionStateChangeEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessionStateChangeEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionStateChangeEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionStateChangeEvent2> for super::Com::IDispatch {
     fn from(value: IRTCSessionStateChangeEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCSessionStateChangeEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6962,20 +6449,14 @@ impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for super::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionStateChangeEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionStateChangeEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
     fn from(value: IRTCSessionStateChangeEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCSessionStateChangeEvent2> for &'a IRTCSessionStateChangeEvent {
+    fn from(value: &'a IRTCSessionStateChangeEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6983,18 +6464,6 @@ impl ::core::convert::From<IRTCSessionStateChangeEvent2> for IRTCSessionStateCha
 impl ::core::convert::From<&IRTCSessionStateChangeEvent2> for IRTCSessionStateChangeEvent {
     fn from(value: &IRTCSessionStateChangeEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for IRTCSessionStateChangeEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionStateChangeEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for &'a IRTCSessionStateChangeEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionStateChangeEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7045,8 +6514,8 @@ impl IRTCUserSearch {
         (::windows::core::Interface::vtable(self).CreateQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCUserSearchQuery>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn ExecuteSearch<'a, Param0: ::windows::core::IntoParam<'a, IRTCUserSearchQuery>, Param1: ::windows::core::IntoParam<'a, IRTCProfile>>(&self, pquery: Param0, pprofile: Param1, lcookie: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pquery.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn ExecuteSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCUserSearchQuery>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pquery: Param0, pprofile: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pquery.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
 }
 impl ::core::convert::From<IRTCUserSearch> for ::windows::core::IUnknown {
@@ -7054,19 +6523,14 @@ impl ::core::convert::From<IRTCUserSearch> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCUserSearch> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCUserSearch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCUserSearch> for ::windows::core::IUnknown {
     fn from(value: &IRTCUserSearch) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserSearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCUserSearch {
@@ -7102,14 +6566,14 @@ pub struct IRTCUserSearchQuery(::windows::core::IUnknown);
 impl IRTCUserSearchQuery {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_SearchTerm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_SearchTerm)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
+    pub unsafe fn put_SearchTerm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_SearchTerm)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), bstrvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_SearchTerm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_SearchTerm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SearchTerm)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_SearchTerm)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7118,18 +6582,18 @@ impl IRTCUserSearchQuery {
         (::windows::core::Interface::vtable(self).SearchTerms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_SearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enpreference), ::core::mem::transmute(lvalue)).ok()
+    pub unsafe fn put_SearchPreference<'a, Param0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>>(&self, enpreference: Param0, lvalue: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_SearchPreference)(::windows::core::Interface::as_raw(self), enpreference.into(), ::core::mem::transmute(lvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_SearchPreference<'a, Param0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>>(&self, enpreference: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enpreference), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_SearchPreference)(::windows::core::Interface::as_raw(self), enpreference.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSearchDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdomain: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSearchDomain)(::windows::core::Interface::as_raw(self), bstrdomain.into_param().abi()).ok()
+    pub unsafe fn SetSearchDomain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdomain: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSearchDomain)(::windows::core::Interface::as_raw(self), bstrdomain.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7143,19 +6607,14 @@ impl ::core::convert::From<IRTCUserSearchQuery> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCUserSearchQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCUserSearchQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCUserSearchQuery> for ::windows::core::IUnknown {
     fn from(value: &IRTCUserSearchQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserSearchQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearchQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCUserSearchQuery {
@@ -7211,9 +6670,9 @@ pub struct IRTCUserSearchResult(::windows::core::IUnknown);
 impl IRTCUserSearchResult {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_Value<'a, Param0: ::std::convert::Into<RTC_USER_SEARCH_COLUMN>>(&self, encolumn: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encolumn), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Value)(::windows::core::Interface::as_raw(self), encolumn.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IRTCUserSearchResult> for ::windows::core::IUnknown {
@@ -7221,19 +6680,14 @@ impl ::core::convert::From<IRTCUserSearchResult> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCUserSearchResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCUserSearchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCUserSearchResult> for ::windows::core::IUnknown {
     fn from(value: &IRTCUserSearchResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserSearchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCUserSearchResult {
@@ -7315,21 +6769,15 @@ impl ::core::convert::From<IRTCUserSearchResultsEvent> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCUserSearchResultsEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCUserSearchResultsEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCUserSearchResultsEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCUserSearchResultsEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserSearchResultsEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearchResultsEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7339,21 +6787,15 @@ impl ::core::convert::From<IRTCUserSearchResultsEvent> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCUserSearchResultsEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCUserSearchResultsEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCUserSearchResultsEvent> for super::Com::IDispatch {
     fn from(value: &IRTCUserSearchResultsEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCUserSearchResultsEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCUserSearchResultsEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7409,8 +6851,8 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi()).ok()
+    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7420,8 +6862,8 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7431,8 +6873,8 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Persistent(&self) -> ::windows::core::Result<i16> {
@@ -7449,12 +6891,17 @@ impl IRTCWatcher {
         (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_WATCHER_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstate)).ok()
+    pub unsafe fn SetState<'a, Param0: ::std::convert::Into<RTC_WATCHER_STATE>>(&self, enstate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
     }
 }
 impl ::core::convert::From<IRTCWatcher> for ::windows::core::IUnknown {
     fn from(value: IRTCWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCWatcher> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCWatcher) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7463,34 +6910,19 @@ impl ::core::convert::From<&IRTCWatcher> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCWatcher> for IRTCPresenceContact {
     fn from(value: IRTCWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCWatcher> for &'a IRTCPresenceContact {
+    fn from(value: &'a IRTCWatcher) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRTCWatcher> for IRTCPresenceContact {
     fn from(value: &IRTCWatcher) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCWatcher {
@@ -7532,8 +6964,8 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into_param().abi()).ok()
+    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7543,8 +6975,8 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7554,8 +6986,8 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Persistent(&self) -> ::windows::core::Result<i16> {
@@ -7572,8 +7004,8 @@ impl IRTCWatcher2 {
         (::windows::core::Interface::vtable(self).base__.State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_WATCHER_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstate)).ok()
+    pub unsafe fn SetState<'a, Param0: ::std::convert::Into<RTC_WATCHER_STATE>>(&self, enstate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<IRTCProfile2> {
@@ -7591,23 +7023,23 @@ impl ::core::convert::From<IRTCWatcher2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRTCWatcher2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCWatcher2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRTCWatcher2> for ::windows::core::IUnknown {
     fn from(value: &IRTCWatcher2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCWatcher2> for IRTCPresenceContact {
     fn from(value: IRTCWatcher2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCWatcher2> for &'a IRTCPresenceContact {
+    fn from(value: &'a IRTCWatcher2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7616,34 +7048,19 @@ impl ::core::convert::From<&IRTCWatcher2> for IRTCPresenceContact {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCWatcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCWatcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRTCWatcher2> for IRTCWatcher {
     fn from(value: IRTCWatcher2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRTCWatcher2> for &'a IRTCWatcher {
+    fn from(value: &'a IRTCWatcher2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRTCWatcher2> for IRTCWatcher {
     fn from(value: &IRTCWatcher2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCWatcher> for IRTCWatcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcher> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRTCWatcher> for &'a IRTCWatcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcher> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRTCWatcher2 {
@@ -7692,21 +7109,15 @@ impl ::core::convert::From<IRTCWatcherEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCWatcherEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCWatcherEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCWatcherEvent> for ::windows::core::IUnknown {
     fn from(value: &IRTCWatcherEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatcherEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcherEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7716,21 +7127,15 @@ impl ::core::convert::From<IRTCWatcherEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCWatcherEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCWatcherEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCWatcherEvent> for super::Com::IDispatch {
     fn from(value: &IRTCWatcherEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCWatcherEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCWatcherEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7794,26 +7199,26 @@ impl ::core::convert::From<IRTCWatcherEvent2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCWatcherEvent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRTCWatcherEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRTCWatcherEvent2> for ::windows::core::IUnknown {
     fn from(value: &IRTCWatcherEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatcherEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcherEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCWatcherEvent2> for super::Com::IDispatch {
     fn from(value: IRTCWatcherEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCWatcherEvent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRTCWatcherEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7824,20 +7229,14 @@ impl ::core::convert::From<&IRTCWatcherEvent2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCWatcherEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCWatcherEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRTCWatcherEvent2> for IRTCWatcherEvent {
     fn from(value: IRTCWatcherEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRTCWatcherEvent2> for &'a IRTCWatcherEvent {
+    fn from(value: &'a IRTCWatcherEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7845,18 +7244,6 @@ impl ::core::convert::From<IRTCWatcherEvent2> for IRTCWatcherEvent {
 impl ::core::convert::From<&IRTCWatcherEvent2> for IRTCWatcherEvent {
     fn from(value: &IRTCWatcherEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for IRTCWatcherEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcherEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for &'a IRTCWatcherEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcherEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7912,19 +7299,14 @@ impl ::core::convert::From<ITransportSettingsInternal> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITransportSettingsInternal> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITransportSettingsInternal) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITransportSettingsInternal> for ::windows::core::IUnknown {
     fn from(value: &ITransportSettingsInternal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransportSettingsInternal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransportSettingsInternal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITransportSettingsInternal {

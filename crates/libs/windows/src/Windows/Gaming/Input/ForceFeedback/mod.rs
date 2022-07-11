@@ -12,15 +12,15 @@ impl ConditionForceEffect {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, direction: Param0, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()> {
+    pub fn SetParameters(&self, direction: super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConditionForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), direction.into_param().abi(), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
-    pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<ConditionForceEffectKind>>(effectkind: Param0) -> ::windows::core::Result<ConditionForceEffect> {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, result__.as_mut_ptr()).from_abi::<ConditionForceEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind.into(), result__.as_mut_ptr()).from_abi::<ConditionForceEffect>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -100,14 +100,9 @@ impl ::core::convert::From<&ConditionForceEffect> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConditionForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConditionForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConditionForceEffect> for &::windows::core::IUnknown {
+    fn from(value: &ConditionForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConditionForceEffect> for ::windows::core::IInspectable {
@@ -120,14 +115,9 @@ impl ::core::convert::From<&ConditionForceEffect> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConditionForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConditionForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConditionForceEffect> for &::windows::core::IInspectable {
+    fn from(value: &ConditionForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ConditionForceEffect> for IForceFeedbackEffect {
@@ -142,14 +132,11 @@ impl ::core::convert::TryFrom<&ConditionForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for ConditionForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &ConditionForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ConditionForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConditionForceEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ConditionForceEffect {}
@@ -203,15 +190,15 @@ impl ConstantForceEffect {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, duration: Param1) -> ::windows::core::Result<()> {
+    pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector, duration).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParametersWithEnvelope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: Param4, attackduration: Param5, sustainduration: Param6, releaseduration: Param7, repeatcount: u32) -> ::windows::core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Gain(&self) -> ::windows::core::Result<f64> {
@@ -285,14 +272,9 @@ impl ::core::convert::From<&ConstantForceEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConstantForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConstantForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConstantForceEffect> for &::windows::core::IUnknown {
+    fn from(value: &ConstantForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConstantForceEffect> for ::windows::core::IInspectable {
@@ -305,14 +287,9 @@ impl ::core::convert::From<&ConstantForceEffect> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConstantForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConstantForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConstantForceEffect> for &::windows::core::IInspectable {
+    fn from(value: &ConstantForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ConstantForceEffect> for IForceFeedbackEffect {
@@ -327,14 +304,11 @@ impl ::core::convert::TryFrom<&ConstantForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for ConstantForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &ConstantForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ConstantForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConstantForceEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ConstantForceEffect {}
@@ -517,11 +491,11 @@ impl ForceFeedbackMotor {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadEffectAsync<'a, Param0: ::windows::core::IntoParam<'a, IForceFeedbackEffect>>(&self, effect: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>> {
+    pub fn LoadEffectAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, effect: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadEffectAsync)(::windows::core::Interface::as_raw(this), effect.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>(result__)
+            (::windows::core::Interface::vtable(this).LoadEffectAsync)(::windows::core::Interface::as_raw(this), effect.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -568,11 +542,11 @@ impl ForceFeedbackMotor {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUnloadEffectAsync<'a, Param0: ::windows::core::IntoParam<'a, IForceFeedbackEffect>>(&self, effect: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUnloadEffectAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, effect: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnloadEffectAsync)(::windows::core::Interface::as_raw(this), effect.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUnloadEffectAsync)(::windows::core::Interface::as_raw(this), effect.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
 }
@@ -616,14 +590,9 @@ impl ::core::convert::From<&ForceFeedbackMotor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ForceFeedbackMotor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ForceFeedbackMotor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ForceFeedbackMotor> for &::windows::core::IUnknown {
+    fn from(value: &ForceFeedbackMotor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ForceFeedbackMotor> for ::windows::core::IInspectable {
@@ -636,14 +605,9 @@ impl ::core::convert::From<&ForceFeedbackMotor> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ForceFeedbackMotor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ForceFeedbackMotor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ForceFeedbackMotor> for &::windows::core::IInspectable {
+    fn from(value: &ForceFeedbackMotor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ForceFeedbackMotor {}
@@ -739,19 +703,14 @@ impl ::core::convert::From<IForceFeedbackEffect> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IForceFeedbackEffect> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IForceFeedbackEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IForceFeedbackEffect> for ::windows::core::IUnknown {
     fn from(value: &IForceFeedbackEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IForceFeedbackEffect> for ::windows::core::IInspectable {
@@ -759,19 +718,14 @@ impl ::core::convert::From<IForceFeedbackEffect> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IForceFeedbackEffect> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IForceFeedbackEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IForceFeedbackEffect> for ::windows::core::IInspectable {
     fn from(value: &IForceFeedbackEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IForceFeedbackEffect {
@@ -950,21 +904,21 @@ impl PeriodicForceEffect {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, frequency: f32, phase: f32, bias: f32, duration: Param4) -> ::windows::core::Result<()> {
+    pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), frequency, phase, bias, duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, duration).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParametersWithEnvelope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param8: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param9: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param10: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: Param7, attackduration: Param8, sustainduration: Param9, releaseduration: Param10, repeatcount: u32) -> ::windows::core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
-    pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<PeriodicForceEffectKind>>(effectkind: Param0) -> ::windows::core::Result<PeriodicForceEffect> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, result__.as_mut_ptr()).from_abi::<PeriodicForceEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind.into(), result__.as_mut_ptr()).from_abi::<PeriodicForceEffect>(result__)
         })
     }
     #[doc(hidden)]
@@ -1013,14 +967,9 @@ impl ::core::convert::From<&PeriodicForceEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PeriodicForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PeriodicForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PeriodicForceEffect> for &::windows::core::IUnknown {
+    fn from(value: &PeriodicForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PeriodicForceEffect> for ::windows::core::IInspectable {
@@ -1033,14 +982,9 @@ impl ::core::convert::From<&PeriodicForceEffect> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PeriodicForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PeriodicForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PeriodicForceEffect> for &::windows::core::IInspectable {
+    fn from(value: &PeriodicForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PeriodicForceEffect> for IForceFeedbackEffect {
@@ -1055,14 +999,11 @@ impl ::core::convert::TryFrom<&PeriodicForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for PeriodicForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &PeriodicForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PeriodicForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PeriodicForceEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PeriodicForceEffect {}
@@ -1148,27 +1089,15 @@ impl RampForceEffect {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, startvector: Param0, endvector: Param1, duration: Param2) -> ::windows::core::Result<()> {
+    pub fn SetParameters(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), startvector.into_param().abi(), endvector.into_param().abi(), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), startvector, endvector, duration).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetParametersWithEnvelope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param8: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(
-        &self,
-        startvector: Param0,
-        endvector: Param1,
-        attackgain: f32,
-        sustaingain: f32,
-        releasegain: f32,
-        startdelay: Param5,
-        attackduration: Param6,
-        sustainduration: Param7,
-        releaseduration: Param8,
-        repeatcount: u32,
-    ) -> ::windows::core::Result<()> {
+    pub fn SetParametersWithEnvelope(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), startvector.into_param().abi(), endvector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
 }
 impl ::core::clone::Clone for RampForceEffect {
@@ -1211,14 +1140,9 @@ impl ::core::convert::From<&RampForceEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RampForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RampForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RampForceEffect> for &::windows::core::IUnknown {
+    fn from(value: &RampForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RampForceEffect> for ::windows::core::IInspectable {
@@ -1231,14 +1155,9 @@ impl ::core::convert::From<&RampForceEffect> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RampForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RampForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RampForceEffect> for &::windows::core::IInspectable {
+    fn from(value: &RampForceEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RampForceEffect> for IForceFeedbackEffect {
@@ -1253,14 +1172,11 @@ impl ::core::convert::TryFrom<&RampForceEffect> for IForceFeedbackEffect {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for RampForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &RampForceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IForceFeedbackEffect> {
-        ::core::convert::TryInto::<IForceFeedbackEffect>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RampForceEffect> for ::windows::core::InParam<'a, IForceFeedbackEffect> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RampForceEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RampForceEffect {}

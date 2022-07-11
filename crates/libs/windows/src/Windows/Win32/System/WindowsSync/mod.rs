@@ -122,16 +122,16 @@ impl IAsynchronousDataRetriever {
         (::windows::core::Interface::vtable(self).GetIdParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn RegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, IDataRetrieverCallback>>(&self, pdataretrievercallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterCallback)(::windows::core::Interface::as_raw(self), pdataretrievercallback.into_param().abi()).ok()
+    pub unsafe fn RegisterCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDataRetrieverCallback>>>(&self, pdataretrievercallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterCallback)(::windows::core::Interface::as_raw(self), pdataretrievercallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn RevokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IDataRetrieverCallback>>(&self, pdataretrievercallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RevokeCallback)(::windows::core::Interface::as_raw(self), pdataretrievercallback.into_param().abi()).ok()
+    pub unsafe fn RevokeCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDataRetrieverCallback>>>(&self, pdataretrievercallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RevokeCallback)(::windows::core::Interface::as_raw(self), pdataretrievercallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn LoadChangeData<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>>(&self, ploadchangecontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadChangeData)(::windows::core::Interface::as_raw(self), ploadchangecontext.into_param().abi()).ok()
+    pub unsafe fn LoadChangeData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ILoadChangeContext>>>(&self, ploadchangecontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadChangeData)(::windows::core::Interface::as_raw(self), ploadchangecontext.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IAsynchronousDataRetriever> for ::windows::core::IUnknown {
@@ -139,19 +139,14 @@ impl ::core::convert::From<IAsynchronousDataRetriever> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAsynchronousDataRetriever> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAsynchronousDataRetriever) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAsynchronousDataRetriever> for ::windows::core::IUnknown {
     fn from(value: &IAsynchronousDataRetriever) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAsynchronousDataRetriever {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAsynchronousDataRetriever {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAsynchronousDataRetriever {
@@ -215,16 +210,16 @@ impl IChangeConflict {
         (::windows::core::Interface::vtable(self).GetResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetResolveActionForChange(&self, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resolveaction)).ok()
+    pub unsafe fn SetResolveActionForChange<'a, Param0: ::std::convert::Into<SYNC_RESOLVE_ACTION>>(&self, resolveaction: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResolveActionForChange)(::windows::core::Interface::as_raw(self), resolveaction.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, presolveaction: *mut SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into_param().abi(), ::core::mem::transmute(presolveaction)).ok()
+    pub unsafe fn GetResolveActionForChangeUnit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>>(&self, pchangeunit: Param0, presolveaction: *mut SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(presolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into_param().abi(), ::core::mem::transmute(resolveaction)).ok()
+    pub unsafe fn SetResolveActionForChangeUnit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>, Param1: ::std::convert::Into<SYNC_RESOLVE_ACTION>>(&self, pchangeunit: Param0, resolveaction: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), resolveaction.into()).ok()
     }
 }
 impl ::core::convert::From<IChangeConflict> for ::windows::core::IUnknown {
@@ -232,19 +227,14 @@ impl ::core::convert::From<IChangeConflict> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChangeConflict> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IChangeConflict) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChangeConflict> for ::windows::core::IUnknown {
     fn from(value: &IChangeConflict) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IChangeConflict {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IChangeConflict {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IChangeConflict {
@@ -302,19 +292,14 @@ impl ::core::convert::From<IChangeUnitException> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChangeUnitException> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IChangeUnitException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChangeUnitException> for ::windows::core::IUnknown {
     fn from(value: &IChangeUnitException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IChangeUnitException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IChangeUnitException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IChangeUnitException {
@@ -371,19 +356,14 @@ impl ::core::convert::From<IChangeUnitListFilterInfo> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChangeUnitListFilterInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IChangeUnitListFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChangeUnitListFilterInfo> for ::windows::core::IUnknown {
     fn from(value: &IChangeUnitListFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IChangeUnitListFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IChangeUnitListFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IChangeUnitListFilterInfo> for ISyncFilterInfo {
@@ -391,19 +371,14 @@ impl ::core::convert::From<IChangeUnitListFilterInfo> for ISyncFilterInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChangeUnitListFilterInfo> for &'a ISyncFilterInfo {
+    fn from(value: &'a IChangeUnitListFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChangeUnitListFilterInfo> for ISyncFilterInfo {
     fn from(value: &IChangeUnitListFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for IChangeUnitListFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for &'a IChangeUnitListFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IChangeUnitListFilterInfo {
@@ -452,19 +427,14 @@ impl ::core::convert::From<IClockVector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IClockVector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IClockVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IClockVector> for ::windows::core::IUnknown {
     fn from(value: &IClockVector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IClockVector {
@@ -512,19 +482,14 @@ impl ::core::convert::From<IClockVectorElement> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IClockVectorElement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IClockVectorElement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IClockVectorElement> for ::windows::core::IUnknown {
     fn from(value: &IClockVectorElement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IClockVectorElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IClockVectorElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IClockVectorElement {
@@ -581,19 +546,14 @@ impl ::core::convert::From<ICombinedFilterInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICombinedFilterInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICombinedFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICombinedFilterInfo> for ::windows::core::IUnknown {
     fn from(value: &ICombinedFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICombinedFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICombinedFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICombinedFilterInfo> for ISyncFilterInfo {
@@ -601,19 +561,14 @@ impl ::core::convert::From<ICombinedFilterInfo> for ISyncFilterInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICombinedFilterInfo> for &'a ISyncFilterInfo {
+    fn from(value: &'a ICombinedFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICombinedFilterInfo> for ISyncFilterInfo {
     fn from(value: &ICombinedFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for ICombinedFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for &'a ICombinedFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICombinedFilterInfo {
@@ -683,16 +638,16 @@ impl IConstraintConflict {
         (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pconstraintresolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetConstraintResolveActionForChange(&self, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(constraintresolveaction)).ok()
+    pub unsafe fn SetConstraintResolveActionForChange<'a, Param0: ::std::convert::Into<SYNC_CONSTRAINT_RESOLVE_ACTION>>(&self, constraintresolveaction: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChange)(::windows::core::Interface::as_raw(self), constraintresolveaction.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetConstraintResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into_param().abi(), ::core::mem::transmute(pconstraintresolveaction)).ok()
+    pub unsafe fn GetConstraintResolveActionForChangeUnit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>>(&self, pchangeunit: Param0, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(pconstraintresolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetConstraintResolveActionForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into_param().abi(), ::core::mem::transmute(constraintresolveaction)).ok()
+    pub unsafe fn SetConstraintResolveActionForChangeUnit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>, Param1: ::std::convert::Into<SYNC_CONSTRAINT_RESOLVE_ACTION>>(&self, pchangeunit: Param0, constraintresolveaction: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), constraintresolveaction.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetConstraintConflictReason(&self, pconstraintconflictreason: *mut CONSTRAINT_CONFLICT_REASON) -> ::windows::core::Result<()> {
@@ -708,19 +663,14 @@ impl ::core::convert::From<IConstraintConflict> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IConstraintConflict> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IConstraintConflict) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IConstraintConflict> for ::windows::core::IUnknown {
     fn from(value: &IConstraintConflict) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IConstraintConflict {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IConstraintConflict {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IConstraintConflict {
@@ -774,19 +724,14 @@ impl ::core::convert::From<IConstructReplicaKeyMap> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IConstructReplicaKeyMap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IConstructReplicaKeyMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IConstructReplicaKeyMap> for ::windows::core::IUnknown {
     fn from(value: &IConstructReplicaKeyMap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IConstructReplicaKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IConstructReplicaKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IConstructReplicaKeyMap {
@@ -845,19 +790,14 @@ impl ::core::convert::From<ICoreFragment> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICoreFragment> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICoreFragment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICoreFragment> for ::windows::core::IUnknown {
     fn from(value: &ICoreFragment) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreFragment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICoreFragment {
@@ -908,19 +848,14 @@ impl ::core::convert::From<ICoreFragmentInspector> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICoreFragmentInspector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICoreFragmentInspector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICoreFragmentInspector> for ::windows::core::IUnknown {
     fn from(value: &ICoreFragmentInspector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreFragmentInspector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreFragmentInspector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICoreFragmentInspector {
@@ -969,19 +904,14 @@ impl ::core::convert::From<ICustomFilterInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICustomFilterInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICustomFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICustomFilterInfo> for ::windows::core::IUnknown {
     fn from(value: &ICustomFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICustomFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICustomFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICustomFilterInfo> for ISyncFilterInfo {
@@ -989,19 +919,14 @@ impl ::core::convert::From<ICustomFilterInfo> for ISyncFilterInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICustomFilterInfo> for &'a ISyncFilterInfo {
+    fn from(value: &'a ICustomFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICustomFilterInfo> for ISyncFilterInfo {
     fn from(value: &ICustomFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for ICustomFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for &'a ICustomFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICustomFilterInfo {
@@ -1115,8 +1040,8 @@ impl ::core::default::Default for ID_PARAMETER_PAIR {
 pub struct IDataRetrieverCallback(::windows::core::IUnknown);
 impl IDataRetrieverCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn LoadChangeDataComplete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadChangeDataComplete)(::windows::core::Interface::as_raw(self), punkdata.into_param().abi()).ok()
+    pub unsafe fn LoadChangeDataComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, punkdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadChangeDataComplete)(::windows::core::Interface::as_raw(self), punkdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn LoadChangeDataError(&self, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1128,19 +1053,14 @@ impl ::core::convert::From<IDataRetrieverCallback> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDataRetrieverCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDataRetrieverCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDataRetrieverCallback> for ::windows::core::IUnknown {
     fn from(value: &IDataRetrieverCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDataRetrieverCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDataRetrieverCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDataRetrieverCallback {
@@ -1197,19 +1117,14 @@ impl ::core::convert::From<IEnumChangeUnitExceptions> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumChangeUnitExceptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumChangeUnitExceptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumChangeUnitExceptions> for ::windows::core::IUnknown {
     fn from(value: &IEnumChangeUnitExceptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumChangeUnitExceptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumChangeUnitExceptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumChangeUnitExceptions {
@@ -1268,19 +1183,14 @@ impl ::core::convert::From<IEnumClockVector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumClockVector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumClockVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumClockVector> for ::windows::core::IUnknown {
     fn from(value: &IEnumClockVector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumClockVector {
@@ -1339,19 +1249,14 @@ impl ::core::convert::From<IEnumFeedClockVector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumFeedClockVector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumFeedClockVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumFeedClockVector> for ::windows::core::IUnknown {
     fn from(value: &IEnumFeedClockVector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumFeedClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumFeedClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumFeedClockVector {
@@ -1397,19 +1302,14 @@ impl ::core::convert::From<IEnumItemIds> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumItemIds> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumItemIds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumItemIds> for ::windows::core::IUnknown {
     fn from(value: &IEnumItemIds) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumItemIds {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumItemIds {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumItemIds {
@@ -1465,19 +1365,14 @@ impl ::core::convert::From<IEnumRangeExceptions> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumRangeExceptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumRangeExceptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumRangeExceptions> for ::windows::core::IUnknown {
     fn from(value: &IEnumRangeExceptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumRangeExceptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumRangeExceptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumRangeExceptions {
@@ -1536,19 +1431,14 @@ impl ::core::convert::From<IEnumSingleItemExceptions> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumSingleItemExceptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumSingleItemExceptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumSingleItemExceptions> for ::windows::core::IUnknown {
     fn from(value: &IEnumSingleItemExceptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumSingleItemExceptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumSingleItemExceptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumSingleItemExceptions {
@@ -1607,19 +1497,14 @@ impl ::core::convert::From<IEnumSyncChangeUnits> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumSyncChangeUnits> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumSyncChangeUnits) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumSyncChangeUnits> for ::windows::core::IUnknown {
     fn from(value: &IEnumSyncChangeUnits) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumSyncChangeUnits {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumSyncChangeUnits {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumSyncChangeUnits {
@@ -1678,19 +1563,14 @@ impl ::core::convert::From<IEnumSyncChanges> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumSyncChanges> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumSyncChanges) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumSyncChanges> for ::windows::core::IUnknown {
     fn from(value: &IEnumSyncChanges) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumSyncChanges {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumSyncChanges {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumSyncChanges {
@@ -1750,19 +1630,14 @@ impl ::core::convert::From<IEnumSyncProviderConfigUIInfos> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumSyncProviderConfigUIInfos> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumSyncProviderConfigUIInfos) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumSyncProviderConfigUIInfos> for ::windows::core::IUnknown {
     fn from(value: &IEnumSyncProviderConfigUIInfos) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumSyncProviderConfigUIInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumSyncProviderConfigUIInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumSyncProviderConfigUIInfos {
@@ -1825,19 +1700,14 @@ impl ::core::convert::From<IEnumSyncProviderInfos> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumSyncProviderInfos> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumSyncProviderInfos) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumSyncProviderInfos> for ::windows::core::IUnknown {
     fn from(value: &IEnumSyncProviderInfos) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumSyncProviderInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumSyncProviderInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumSyncProviderInfos {
@@ -1899,19 +1769,14 @@ impl ::core::convert::From<IFeedClockVector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFeedClockVector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedClockVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFeedClockVector> for ::windows::core::IUnknown {
     fn from(value: &IFeedClockVector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFeedClockVector> for IClockVector {
@@ -1919,19 +1784,14 @@ impl ::core::convert::From<IFeedClockVector> for IClockVector {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFeedClockVector> for &'a IClockVector {
+    fn from(value: &'a IFeedClockVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFeedClockVector> for IClockVector {
     fn from(value: &IFeedClockVector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IClockVector> for IFeedClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, IClockVector> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IClockVector> for &'a IFeedClockVector {
-    fn into_param(self) -> ::windows::core::Param<'a, IClockVector> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFeedClockVector {
@@ -1990,19 +1850,14 @@ impl ::core::convert::From<IFeedClockVectorElement> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFeedClockVectorElement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedClockVectorElement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFeedClockVectorElement> for ::windows::core::IUnknown {
     fn from(value: &IFeedClockVectorElement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedClockVectorElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedClockVectorElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFeedClockVectorElement> for IClockVectorElement {
@@ -2010,19 +1865,14 @@ impl ::core::convert::From<IFeedClockVectorElement> for IClockVectorElement {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFeedClockVectorElement> for &'a IClockVectorElement {
+    fn from(value: &'a IFeedClockVectorElement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFeedClockVectorElement> for IClockVectorElement {
     fn from(value: &IFeedClockVectorElement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IClockVectorElement> for IFeedClockVectorElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IClockVectorElement> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IClockVectorElement> for &'a IFeedClockVectorElement {
-    fn into_param(self) -> ::windows::core::Param<'a, IClockVectorElement> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFeedClockVectorElement {
@@ -2061,8 +1911,8 @@ impl IFilterKeyMap {
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddFilter<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, pisyncfilter: Param0, pdwfilterkey: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFilter)(::windows::core::Interface::as_raw(self), pisyncfilter.into_param().abi(), ::core::mem::transmute(pdwfilterkey)).ok()
+    pub unsafe fn AddFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncFilter>>>(&self, pisyncfilter: Param0, pdwfilterkey: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddFilter)(::windows::core::Interface::as_raw(self), pisyncfilter.into().abi(), ::core::mem::transmute(pdwfilterkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetFilter(&self, dwfilterkey: u32) -> ::windows::core::Result<ISyncFilter> {
@@ -2079,19 +1929,14 @@ impl ::core::convert::From<IFilterKeyMap> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFilterKeyMap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFilterKeyMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFilterKeyMap> for ::windows::core::IUnknown {
     fn from(value: &IFilterKeyMap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFilterKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFilterKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFilterKeyMap {
@@ -2128,8 +1973,8 @@ pub struct IFilterKeyMap_Vtbl {
 pub struct IFilterRequestCallback(::windows::core::IUnknown);
 impl IFilterRequestCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn RequestFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0, filteringtype: FILTERING_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestFilter)(::windows::core::Interface::as_raw(self), pfilter.into_param().abi(), ::core::mem::transmute(filteringtype)).ok()
+    pub unsafe fn RequestFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<FILTERING_TYPE>>(&self, pfilter: Param0, filteringtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi(), filteringtype.into()).ok()
     }
 }
 impl ::core::convert::From<IFilterRequestCallback> for ::windows::core::IUnknown {
@@ -2137,19 +1982,14 @@ impl ::core::convert::From<IFilterRequestCallback> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFilterRequestCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFilterRequestCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFilterRequestCallback> for ::windows::core::IUnknown {
     fn from(value: &IFilterRequestCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFilterRequestCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFilterRequestCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFilterRequestCallback {
@@ -2183,12 +2023,12 @@ pub struct IFilterRequestCallback_Vtbl {
 pub struct IFilterTrackingProvider(::windows::core::IUnknown);
 impl IFilterTrackingProvider {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SpecifyTrackedFilters<'a, Param0: ::windows::core::IntoParam<'a, IFilterTrackingRequestCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SpecifyTrackedFilters)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn SpecifyTrackedFilters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFilterTrackingRequestCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SpecifyTrackedFilters)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddTrackedFilter<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTrackedFilter)(::windows::core::Interface::as_raw(self), pfilter.into_param().abi()).ok()
+    pub unsafe fn AddTrackedFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncFilter>>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTrackedFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IFilterTrackingProvider> for ::windows::core::IUnknown {
@@ -2196,19 +2036,14 @@ impl ::core::convert::From<IFilterTrackingProvider> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFilterTrackingProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFilterTrackingProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFilterTrackingProvider> for ::windows::core::IUnknown {
     fn from(value: &IFilterTrackingProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFilterTrackingProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFilterTrackingProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFilterTrackingProvider {
@@ -2243,8 +2078,8 @@ pub struct IFilterTrackingProvider_Vtbl {
 pub struct IFilterTrackingRequestCallback(::windows::core::IUnknown);
 impl IFilterTrackingRequestCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn RequestTrackedFilter<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestTrackedFilter)(::windows::core::Interface::as_raw(self), pfilter.into_param().abi()).ok()
+    pub unsafe fn RequestTrackedFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncFilter>>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestTrackedFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IFilterTrackingRequestCallback> for ::windows::core::IUnknown {
@@ -2252,19 +2087,14 @@ impl ::core::convert::From<IFilterTrackingRequestCallback> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFilterTrackingRequestCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFilterTrackingRequestCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFilterTrackingRequestCallback> for ::windows::core::IUnknown {
     fn from(value: &IFilterTrackingRequestCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFilterTrackingRequestCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFilterTrackingRequestCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFilterTrackingRequestCallback {
@@ -2312,19 +2142,14 @@ impl ::core::convert::From<IFilterTrackingSyncChangeBuilder> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFilterTrackingSyncChangeBuilder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFilterTrackingSyncChangeBuilder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFilterTrackingSyncChangeBuilder> for ::windows::core::IUnknown {
     fn from(value: &IFilterTrackingSyncChangeBuilder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFilterTrackingSyncChangeBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFilterTrackingSyncChangeBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFilterTrackingSyncChangeBuilder {
@@ -2367,8 +2192,8 @@ impl IForgottenKnowledge {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), fserializereplicakeymap.into_param().abi(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
+    pub unsafe fn Serialize<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), fserializereplicakeymap.into(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> ::windows::core::Result<()> {
@@ -2397,17 +2222,17 @@ impl IForgottenKnowledge {
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ConvertVersion)(::windows::core::Interface::as_raw(self), pknowledgein.into_param().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
+    pub unsafe fn ConvertVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ConvertVersion)(::windows::core::Interface::as_raw(self), pknowledgein.into().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn MapRemoteToLocal<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn MapRemoteToLocal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MapRemoteToLocal)(::windows::core::Interface::as_raw(self), premoteknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).base__.MapRemoteToLocal)(::windows::core::Interface::as_raw(self), premoteknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Union<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Union)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi()).ok()
+    pub unsafe fn Union<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Union)(::windows::core::Interface::as_raw(self), pknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
@@ -2433,8 +2258,8 @@ impl IForgottenKnowledge {
         (::windows::core::Interface::vtable(self).base__.ExcludeChangeUnit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ContainsKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ContainsKnowledge)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi()).ok()
+    pub unsafe fn ContainsKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ContainsKnowledge)(::windows::core::Interface::as_raw(self), pknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> ::windows::core::Result<()> {
@@ -2465,12 +2290,17 @@ impl IForgottenKnowledge {
         (::windows::core::Interface::vtable(self).base__.GetVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ForgetToVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0, pversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ForgetToVersion)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi(), ::core::mem::transmute(pversion)).ok()
+    pub unsafe fn ForgetToVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0, pversion: *const SYNC_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ForgetToVersion)(::windows::core::Interface::as_raw(self), pknowledge.into().abi(), ::core::mem::transmute(pversion)).ok()
     }
 }
 impl ::core::convert::From<IForgottenKnowledge> for ::windows::core::IUnknown {
     fn from(value: IForgottenKnowledge) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IForgottenKnowledge> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IForgottenKnowledge) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2479,34 +2309,19 @@ impl ::core::convert::From<&IForgottenKnowledge> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IForgottenKnowledge {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IForgottenKnowledge {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IForgottenKnowledge> for ISyncKnowledge {
     fn from(value: IForgottenKnowledge) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IForgottenKnowledge> for &'a ISyncKnowledge {
+    fn from(value: &'a IForgottenKnowledge) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IForgottenKnowledge> for ISyncKnowledge {
     fn from(value: &IForgottenKnowledge) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncKnowledge> for IForgottenKnowledge {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncKnowledge> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncKnowledge> for &'a IForgottenKnowledge {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncKnowledge> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IForgottenKnowledge {
@@ -2545,36 +2360,41 @@ impl IKnowledgeSyncProvider {
         (::windows::core::Interface::vtable(self).base__.GetIdParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn BeginSession<'a, Param1: ::windows::core::IntoParam<'a, ISyncSessionState>>(&self, role: SYNC_PROVIDER_ROLE, psessionstate: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(role), psessionstate.into_param().abi()).ok()
+    pub unsafe fn BeginSession<'a, Param0: ::std::convert::Into<SYNC_PROVIDER_ROLE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncSessionState>>>(&self, role: Param0, psessionstate: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), role.into(), psessionstate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncBatchParameters(&self, ppsyncknowledge: *mut ::core::option::Option<ISyncKnowledge>, pdwrequestedbatchsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSyncBatchParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppsyncknowledge), ::core::mem::transmute(pdwrequestedbatchsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetChangeBatch<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, dwbatchsize: u32, psyncknowledge: Param1, ppsyncchangebatch: *mut ::core::option::Option<ISyncChangeBatch>, ppunkdataretriever: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatchsize), psyncknowledge.into_param().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
+    pub unsafe fn GetChangeBatch<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, dwbatchsize: u32, psyncknowledge: Param1, ppsyncchangebatch: *mut ::core::option::Option<ISyncChangeBatch>, ppunkdataretriever: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatchsize), psyncknowledge.into().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFullEnumerationChangeBatch<'a, Param2: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, dwbatchsize: u32, pblowerenumerationbound: *const u8, psyncknowledge: Param2, ppsyncchangebatch: *mut ::core::option::Option<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatchsize), ::core::mem::transmute(pblowerenumerationbound), psyncknowledge.into_param().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
+    pub unsafe fn GetFullEnumerationChangeBatch<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, dwbatchsize: u32, pblowerenumerationbound: *const u8, psyncknowledge: Param2, ppsyncchangebatch: *mut ::core::option::Option<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatchsize), ::core::mem::transmute(pblowerenumerationbound), psyncknowledge.into().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ProcessChangeBatch<'a, Param1: ::windows::core::IntoParam<'a, ISyncChangeBatch>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, ISyncCallback>>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: Param1, punkdataretriever: Param2, pcallback: Param3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resolutionpolicy), psourcechangebatch.into_param().abi(), punkdataretriever.into_param().abi(), pcallback.into_param().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
+    pub unsafe fn ProcessChangeBatch<'a, Param0: ::std::convert::Into<CONFLICT_RESOLUTION_POLICY>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeBatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ISyncCallback>>>(&self, resolutionpolicy: Param0, psourcechangebatch: Param1, punkdataretriever: Param2, pcallback: Param3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessChangeBatch)(::windows::core::Interface::as_raw(self), resolutionpolicy.into(), psourcechangebatch.into().abi(), punkdataretriever.into().abi(), pcallback.into().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ProcessFullEnumerationChangeBatch<'a, Param1: ::windows::core::IntoParam<'a, ISyncFullEnumerationChangeBatch>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, ISyncCallback>>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: Param1, punkdataretriever: Param2, pcallback: Param3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resolutionpolicy), psourcechangebatch.into_param().abi(), punkdataretriever.into_param().abi(), pcallback.into_param().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
+    pub unsafe fn ProcessFullEnumerationChangeBatch<'a, Param0: ::std::convert::Into<CONFLICT_RESOLUTION_POLICY>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncFullEnumerationChangeBatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ISyncCallback>>>(&self, resolutionpolicy: Param0, psourcechangebatch: Param1, punkdataretriever: Param2, pcallback: Param3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), resolutionpolicy.into(), psourcechangebatch.into().abi(), punkdataretriever.into().abi(), pcallback.into().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndSession<'a, Param0: ::windows::core::IntoParam<'a, ISyncSessionState>>(&self, psessionstate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndSession)(::windows::core::Interface::as_raw(self), psessionstate.into_param().abi()).ok()
+    pub unsafe fn EndSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncSessionState>>>(&self, psessionstate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EndSession)(::windows::core::Interface::as_raw(self), psessionstate.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IKnowledgeSyncProvider> for ::windows::core::IUnknown {
     fn from(value: IKnowledgeSyncProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IKnowledgeSyncProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKnowledgeSyncProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2583,34 +2403,19 @@ impl ::core::convert::From<&IKnowledgeSyncProvider> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKnowledgeSyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKnowledgeSyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IKnowledgeSyncProvider> for ISyncProvider {
     fn from(value: IKnowledgeSyncProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IKnowledgeSyncProvider> for &'a ISyncProvider {
+    fn from(value: &'a IKnowledgeSyncProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IKnowledgeSyncProvider> for ISyncProvider {
     fn from(value: &IKnowledgeSyncProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncProvider> for IKnowledgeSyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncProvider> for &'a IKnowledgeSyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKnowledgeSyncProvider {
@@ -2655,12 +2460,12 @@ impl ILoadChangeContext {
         (::windows::core::Interface::vtable(self).GetSyncChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChange>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetRecoverableErrorOnChange<'a, Param1: ::windows::core::IntoParam<'a, IRecoverableErrorData>>(&self, hrerror: ::windows::core::HRESULT, perrordata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRecoverableErrorOnChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrerror), perrordata.into_param().abi()).ok()
+    pub unsafe fn SetRecoverableErrorOnChange<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IRecoverableErrorData>>>(&self, hrerror: ::windows::core::HRESULT, perrordata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRecoverableErrorOnChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrerror), perrordata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetRecoverableErrorOnChangeUnit<'a, Param1: ::windows::core::IntoParam<'a, ISyncChangeUnit>, Param2: ::windows::core::IntoParam<'a, IRecoverableErrorData>>(&self, hrerror: ::windows::core::HRESULT, pchangeunit: Param1, perrordata: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRecoverableErrorOnChangeUnit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrerror), pchangeunit.into_param().abi(), perrordata.into_param().abi()).ok()
+    pub unsafe fn SetRecoverableErrorOnChangeUnit<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRecoverableErrorData>>>(&self, hrerror: ::windows::core::HRESULT, pchangeunit: Param1, perrordata: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRecoverableErrorOnChangeUnit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrerror), pchangeunit.into().abi(), perrordata.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ILoadChangeContext> for ::windows::core::IUnknown {
@@ -2668,19 +2473,14 @@ impl ::core::convert::From<ILoadChangeContext> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILoadChangeContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILoadChangeContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILoadChangeContext> for ::windows::core::IUnknown {
     fn from(value: &ILoadChangeContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILoadChangeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILoadChangeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILoadChangeContext {
@@ -2716,8 +2516,8 @@ pub struct ILoadChangeContext_Vtbl {
 pub struct IProviderConverter(::windows::core::IUnknown);
 impl IProviderConverter {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ISyncProvider>>(&self, pisyncprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisyncprovider.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncProvider>>>(&self, pisyncprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisyncprovider.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IProviderConverter> for ::windows::core::IUnknown {
@@ -2725,19 +2525,14 @@ impl ::core::convert::From<IProviderConverter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProviderConverter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IProviderConverter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProviderConverter> for ::windows::core::IUnknown {
     fn from(value: &IProviderConverter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProviderConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProviderConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IProviderConverter {
@@ -2788,19 +2583,14 @@ impl ::core::convert::From<IRangeException> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRangeException> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRangeException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRangeException> for ::windows::core::IUnknown {
     fn from(value: &IRangeException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRangeException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRangeException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRangeException {
@@ -2853,8 +2643,8 @@ impl IRecoverableError {
         (::windows::core::Interface::vtable(self).GetRecoverableErrorDataForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phrerror), ::core::mem::transmute(pperrordata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetRecoverableErrorDataForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncChangeUnit>>(&self, pchangeunit: Param0, phrerror: *mut ::windows::core::HRESULT, pperrordata: *mut ::core::option::Option<IRecoverableErrorData>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRecoverableErrorDataForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into_param().abi(), ::core::mem::transmute(phrerror), ::core::mem::transmute(pperrordata)).ok()
+    pub unsafe fn GetRecoverableErrorDataForChangeUnit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>>(&self, pchangeunit: Param0, phrerror: *mut ::windows::core::HRESULT, pperrordata: *mut ::core::option::Option<IRecoverableErrorData>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRecoverableErrorDataForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(phrerror), ::core::mem::transmute(pperrordata)).ok()
     }
 }
 impl ::core::convert::From<IRecoverableError> for ::windows::core::IUnknown {
@@ -2862,19 +2652,14 @@ impl ::core::convert::From<IRecoverableError> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRecoverableError> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRecoverableError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRecoverableError> for ::windows::core::IUnknown {
     fn from(value: &IRecoverableError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRecoverableError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRecoverableError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRecoverableError {
@@ -2912,16 +2697,16 @@ pub struct IRecoverableError_Vtbl {
 pub struct IRecoverableErrorData(::windows::core::IUnknown);
 impl IRecoverableErrorData {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pcszitemdisplayname: Param0, pcszerrordescription: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pcszitemdisplayname.into_param().abi(), pcszerrordescription.into_param().abi()).ok()
+    pub unsafe fn Initialize(&self, pcszitemdisplayname: ::windows::core::PCWSTR, pcszerrordescription: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcszitemdisplayname), ::core::mem::transmute(pcszerrordescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetItemDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszitemdisplayname: Param0, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetItemDisplayName)(::windows::core::Interface::as_raw(self), pszitemdisplayname.into_param().abi(), ::core::mem::transmute(pcchitemdisplayname)).ok()
+    pub unsafe fn GetItemDisplayName(&self, pszitemdisplayname: ::windows::core::PCWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetItemDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszitemdisplayname), ::core::mem::transmute(pcchitemdisplayname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetErrorDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszerrordescription: Param0, pccherrordescription: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), pszerrordescription.into_param().abi(), ::core::mem::transmute(pccherrordescription)).ok()
+    pub unsafe fn GetErrorDescription(&self, pszerrordescription: ::windows::core::PCWSTR, pccherrordescription: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszerrordescription), ::core::mem::transmute(pccherrordescription)).ok()
     }
 }
 impl ::core::convert::From<IRecoverableErrorData> for ::windows::core::IUnknown {
@@ -2929,19 +2714,14 @@ impl ::core::convert::From<IRecoverableErrorData> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRecoverableErrorData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRecoverableErrorData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRecoverableErrorData> for ::windows::core::IUnknown {
     fn from(value: &IRecoverableErrorData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRecoverableErrorData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRecoverableErrorData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRecoverableErrorData {
@@ -2978,8 +2758,8 @@ pub struct IRegisteredSyncProvider(::windows::core::IUnknown);
 impl IRegisteredSyncProvider {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Init<'a, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(&self, pguidinstanceid: *const ::windows::core::GUID, pguidcontenttype: *const ::windows::core::GUID, pcontextpropertystore: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(pguidcontenttype), pcontextpropertystore.into_param().abi()).ok()
+    pub unsafe fn Init<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>>(&self, pguidinstanceid: *const ::windows::core::GUID, pguidcontenttype: *const ::windows::core::GUID, pcontextpropertystore: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(pguidcontenttype), pcontextpropertystore.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInstanceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -2996,19 +2776,14 @@ impl ::core::convert::From<IRegisteredSyncProvider> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRegisteredSyncProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRegisteredSyncProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRegisteredSyncProvider> for ::windows::core::IUnknown {
     fn from(value: &IRegisteredSyncProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRegisteredSyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRegisteredSyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRegisteredSyncProvider {
@@ -3064,19 +2839,14 @@ impl ::core::convert::From<IReplicaKeyMap> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReplicaKeyMap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReplicaKeyMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReplicaKeyMap> for ::windows::core::IUnknown {
     fn from(value: &IReplicaKeyMap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReplicaKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReplicaKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IReplicaKeyMap {
@@ -3112,8 +2882,8 @@ pub struct IReplicaKeyMap_Vtbl {
 pub struct IRequestFilteredSync(::windows::core::IUnknown);
 impl IRequestFilteredSync {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SpecifyFilter<'a, Param0: ::windows::core::IntoParam<'a, IFilterRequestCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SpecifyFilter)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn SpecifyFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFilterRequestCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SpecifyFilter)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRequestFilteredSync> for ::windows::core::IUnknown {
@@ -3121,19 +2891,14 @@ impl ::core::convert::From<IRequestFilteredSync> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRequestFilteredSync> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRequestFilteredSync) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRequestFilteredSync> for ::windows::core::IUnknown {
     fn from(value: &IRequestFilteredSync) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRequestFilteredSync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRequestFilteredSync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRequestFilteredSync {
@@ -3180,19 +2945,14 @@ impl ::core::convert::From<ISingleItemException> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISingleItemException> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISingleItemException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISingleItemException> for ::windows::core::IUnknown {
     fn from(value: &ISingleItemException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISingleItemException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISingleItemException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISingleItemException {
@@ -3227,8 +2987,8 @@ pub struct ISingleItemException_Vtbl {
 pub struct ISupportFilteredSync(::windows::core::IUnknown);
 impl ISupportFilteredSync {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0, filteringtype: FILTERING_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFilter)(::windows::core::Interface::as_raw(self), pfilter.into_param().abi(), ::core::mem::transmute(filteringtype)).ok()
+    pub unsafe fn AddFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<FILTERING_TYPE>>(&self, pfilter: Param0, filteringtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi(), filteringtype.into()).ok()
     }
 }
 impl ::core::convert::From<ISupportFilteredSync> for ::windows::core::IUnknown {
@@ -3236,19 +2996,14 @@ impl ::core::convert::From<ISupportFilteredSync> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISupportFilteredSync> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISupportFilteredSync) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISupportFilteredSync> for ::windows::core::IUnknown {
     fn from(value: &ISupportFilteredSync) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISupportFilteredSync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISupportFilteredSync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISupportFilteredSync {
@@ -3295,19 +3050,14 @@ impl ::core::convert::From<ISupportLastWriteTime> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISupportLastWriteTime> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISupportLastWriteTime) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISupportLastWriteTime> for ::windows::core::IUnknown {
     fn from(value: &ISupportLastWriteTime) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISupportLastWriteTime {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISupportLastWriteTime {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISupportLastWriteTime {
@@ -3342,24 +3092,24 @@ pub struct ISupportLastWriteTime_Vtbl {
 pub struct ISyncCallback(::windows::core::IUnknown);
 impl ISyncCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress<'a, Param0: ::std::convert::Into<SYNC_PROVIDER_ROLE>, Param1: ::std::convert::Into<SYNC_PROGRESS_STAGE>>(&self, provider: Param0, syncstage: Param1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnChange<'a, Param0: ::windows::core::IntoParam<'a, ISyncChange>>(&self, psyncchange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnChange)(::windows::core::Interface::as_raw(self), psyncchange.into_param().abi()).ok()
+    pub unsafe fn OnChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChange>>>(&self, psyncchange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnChange)(::windows::core::Interface::as_raw(self), psyncchange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnConflict<'a, Param0: ::windows::core::IntoParam<'a, IChangeConflict>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnConflict)(::windows::core::Interface::as_raw(self), pconflict.into_param().abi()).ok()
+    pub unsafe fn OnConflict<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IChangeConflict>>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnConflict)(::windows::core::Interface::as_raw(self), pconflict.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnFullEnumerationNeeded(&self, pfullenumerationaction: *mut SYNC_FULL_ENUMERATION_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnFullEnumerationNeeded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfullenumerationaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnRecoverableError<'a, Param0: ::windows::core::IntoParam<'a, IRecoverableError>>(&self, precoverableerror: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnRecoverableError)(::windows::core::Interface::as_raw(self), precoverableerror.into_param().abi()).ok()
+    pub unsafe fn OnRecoverableError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRecoverableError>>>(&self, precoverableerror: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnRecoverableError)(::windows::core::Interface::as_raw(self), precoverableerror.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISyncCallback> for ::windows::core::IUnknown {
@@ -3367,19 +3117,14 @@ impl ::core::convert::From<ISyncCallback> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncCallback> for ::windows::core::IUnknown {
     fn from(value: &ISyncCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncCallback {
@@ -3417,24 +3162,24 @@ pub struct ISyncCallback_Vtbl {
 pub struct ISyncCallback2(::windows::core::IUnknown);
 impl ISyncCallback2 {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress<'a, Param0: ::std::convert::Into<SYNC_PROVIDER_ROLE>, Param1: ::std::convert::Into<SYNC_PROGRESS_STAGE>>(&self, provider: Param0, syncstage: Param1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnChange<'a, Param0: ::windows::core::IntoParam<'a, ISyncChange>>(&self, psyncchange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnChange)(::windows::core::Interface::as_raw(self), psyncchange.into_param().abi()).ok()
+    pub unsafe fn OnChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChange>>>(&self, psyncchange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnChange)(::windows::core::Interface::as_raw(self), psyncchange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnConflict<'a, Param0: ::windows::core::IntoParam<'a, IChangeConflict>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnConflict)(::windows::core::Interface::as_raw(self), pconflict.into_param().abi()).ok()
+    pub unsafe fn OnConflict<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IChangeConflict>>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnConflict)(::windows::core::Interface::as_raw(self), pconflict.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnFullEnumerationNeeded(&self, pfullenumerationaction: *mut SYNC_FULL_ENUMERATION_ACTION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnFullEnumerationNeeded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfullenumerationaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnRecoverableError<'a, Param0: ::windows::core::IntoParam<'a, IRecoverableError>>(&self, precoverableerror: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnRecoverableError)(::windows::core::Interface::as_raw(self), precoverableerror.into_param().abi()).ok()
+    pub unsafe fn OnRecoverableError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRecoverableError>>>(&self, precoverableerror: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnRecoverableError)(::windows::core::Interface::as_raw(self), precoverableerror.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChangeApplied(&self, dwchangesapplied: u32, dwchangesfailed: u32) -> ::windows::core::Result<()> {
@@ -3450,19 +3195,14 @@ impl ::core::convert::From<ISyncCallback2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncCallback2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncCallback2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncCallback2> for ::windows::core::IUnknown {
     fn from(value: &ISyncCallback2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISyncCallback2> for ISyncCallback {
@@ -3470,19 +3210,14 @@ impl ::core::convert::From<ISyncCallback2> for ISyncCallback {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncCallback2> for &'a ISyncCallback {
+    fn from(value: &'a ISyncCallback2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncCallback2> for ISyncCallback {
     fn from(value: &ISyncCallback2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncCallback> for ISyncCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncCallback> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncCallback> for &'a ISyncCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncCallback> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncCallback2 {
@@ -3565,19 +3300,14 @@ impl ::core::convert::From<ISyncChange> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChange> for ::windows::core::IUnknown {
     fn from(value: &ISyncChange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChange {
@@ -3642,8 +3372,8 @@ impl ISyncChangeBatch {
         (::windows::core::Interface::vtable(self).base__.BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -3687,17 +3417,22 @@ impl ISyncChangeBatch {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EndUnorderedGroup<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pmadewithknowledge: Param0, fallchangesforknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndUnorderedGroup)(::windows::core::Interface::as_raw(self), pmadewithknowledge.into_param().abi(), fallchangesforknowledge.into_param().abi()).ok()
+    pub unsafe fn EndUnorderedGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pmadewithknowledge: Param0, fallchangesforknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EndUnorderedGroup)(::windows::core::Interface::as_raw(self), pmadewithknowledge.into().abi(), fallchangesforknowledge.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddLoggedConflict<'a, Param6: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
+    pub unsafe fn AddLoggedConflict<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddLoggedConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
+        (::windows::core::Interface::vtable(self).AddLoggedConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
     }
 }
 impl ::core::convert::From<ISyncChangeBatch> for ::windows::core::IUnknown {
     fn from(value: ISyncChangeBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatch> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatch) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3706,34 +3441,19 @@ impl ::core::convert::From<&ISyncChangeBatch> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncChangeBatch> for ISyncChangeBatchBase {
     fn from(value: ISyncChangeBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatch> for &'a ISyncChangeBatchBase {
+    fn from(value: &'a ISyncChangeBatch) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISyncChangeBatch> for ISyncChangeBatchBase {
     fn from(value: &ISyncChangeBatch) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for &'a ISyncChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatch {
@@ -3794,8 +3514,8 @@ impl ISyncChangeBatch2 {
         (::windows::core::Interface::vtable(self).base__.base__.BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -3839,13 +3559,13 @@ impl ISyncChangeBatch2 {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EndUnorderedGroup<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pmadewithknowledge: Param0, fallchangesforknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndUnorderedGroup)(::windows::core::Interface::as_raw(self), pmadewithknowledge.into_param().abi(), fallchangesforknowledge.into_param().abi()).ok()
+    pub unsafe fn EndUnorderedGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pmadewithknowledge: Param0, fallchangesforknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EndUnorderedGroup)(::windows::core::Interface::as_raw(self), pmadewithknowledge.into().abi(), fallchangesforknowledge.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddLoggedConflict<'a, Param6: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
+    pub unsafe fn AddLoggedConflict<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddLoggedConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddLoggedConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -3853,13 +3573,18 @@ impl ISyncChangeBatch2 {
         (::windows::core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwworkforchange), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddMergeTombstoneLoggedConflict<'a, Param6: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
+    pub unsafe fn AddMergeTombstoneLoggedConflict<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: Param6) -> ::windows::core::Result<ISyncChangeBuilder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddMergeTombstoneLoggedConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
+        (::windows::core::Interface::vtable(self).AddMergeTombstoneLoggedConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbownerreplicaid), ::core::mem::transmute(pbwinneritemid), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pchangeversion), ::core::mem::transmute(pcreationversion), ::core::mem::transmute(dwworkforchange), pconflictknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncChangeBuilder>(result__)
     }
 }
 impl ::core::convert::From<ISyncChangeBatch2> for ::windows::core::IUnknown {
     fn from(value: ISyncChangeBatch2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatch2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatch2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3868,18 +3593,13 @@ impl ::core::convert::From<&ISyncChangeBatch2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncChangeBatch2> for ISyncChangeBatchBase {
     fn from(value: ISyncChangeBatch2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatch2> for &'a ISyncChangeBatchBase {
+    fn from(value: &'a ISyncChangeBatch2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3888,34 +3608,19 @@ impl ::core::convert::From<&ISyncChangeBatch2> for ISyncChangeBatchBase {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for &'a ISyncChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncChangeBatch2> for ISyncChangeBatch {
     fn from(value: ISyncChangeBatch2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatch2> for &'a ISyncChangeBatch {
+    fn from(value: &'a ISyncChangeBatch2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISyncChangeBatch2> for ISyncChangeBatch {
     fn from(value: &ISyncChangeBatch2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatch> for ISyncChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatch> for &'a ISyncChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatch2 {
@@ -3974,19 +3679,14 @@ impl ::core::convert::From<ISyncChangeBatchAdvanced> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchAdvanced> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatchAdvanced) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeBatchAdvanced> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeBatchAdvanced) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatchAdvanced {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatchAdvanced {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatchAdvanced {
@@ -4048,8 +3748,8 @@ impl ISyncChangeBatchBase {
         (::windows::core::Interface::vtable(self).BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -4093,19 +3793,14 @@ impl ::core::convert::From<ISyncChangeBatchBase> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchBase> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatchBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeBatchBase> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeBatchBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatchBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatchBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatchBase {
@@ -4177,8 +3872,8 @@ impl ISyncChangeBatchBase2 {
         (::windows::core::Interface::vtable(self).base__.BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -4217,12 +3912,17 @@ impl ISyncChangeBatchBase2 {
         (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetformatversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
+    pub unsafe fn SerializeWithOptions<'a, Param0: ::std::convert::Into<SYNC_SERIALIZATION_VERSION>>(&self, targetformatversion: Param0, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), targetformatversion.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
     }
 }
 impl ::core::convert::From<ISyncChangeBatchBase2> for ::windows::core::IUnknown {
     fn from(value: ISyncChangeBatchBase2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchBase2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatchBase2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4231,34 +3931,19 @@ impl ::core::convert::From<&ISyncChangeBatchBase2> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatchBase2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatchBase2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncChangeBatchBase2> for ISyncChangeBatchBase {
     fn from(value: ISyncChangeBatchBase2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchBase2> for &'a ISyncChangeBatchBase {
+    fn from(value: &'a ISyncChangeBatchBase2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISyncChangeBatchBase2> for ISyncChangeBatchBase {
     fn from(value: &ISyncChangeBatchBase2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatchBase2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for &'a ISyncChangeBatchBase2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatchBase2 {
@@ -4297,37 +3982,37 @@ impl ISyncChangeBatchWithFilterKeyMap {
         (::windows::core::Interface::vtable(self).GetFilterKeyMap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFilterKeyMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetFilterKeyMap<'a, Param0: ::windows::core::IntoParam<'a, IFilterKeyMap>>(&self, pifilterkeymap: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterKeyMap)(::windows::core::Interface::as_raw(self), pifilterkeymap.into_param().abi()).ok()
+    pub unsafe fn SetFilterKeyMap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFilterKeyMap>>>(&self, pifilterkeymap: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFilterKeyMap)(::windows::core::Interface::as_raw(self), pifilterkeymap.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetFilterForgottenKnowledge<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, dwfilterkey: u32, pfilterforgottenknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwfilterkey), pfilterforgottenknowledge.into_param().abi()).ok()
+    pub unsafe fn SetFilterForgottenKnowledge<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, dwfilterkey: u32, pfilterforgottenknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwfilterkey), pfilterforgottenknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFilteredReplicaLearnedKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetFilteredReplicaLearnedKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLearnedFilterForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetLearnedFilterForgottenKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
 }
 impl ::core::convert::From<ISyncChangeBatchWithFilterKeyMap> for ::windows::core::IUnknown {
@@ -4335,19 +4020,14 @@ impl ::core::convert::From<ISyncChangeBatchWithFilterKeyMap> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchWithFilterKeyMap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatchWithFilterKeyMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeBatchWithFilterKeyMap> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeBatchWithFilterKeyMap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatchWithFilterKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatchWithFilterKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatchWithFilterKeyMap {
@@ -4410,8 +4090,8 @@ impl ISyncChangeBatchWithPrerequisite {
         (::windows::core::Interface::vtable(self).base__.BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -4450,13 +4130,13 @@ impl ISyncChangeBatchWithPrerequisite {
         (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetPrerequisiteKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pprerequisiteknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrerequisiteKnowledge)(::windows::core::Interface::as_raw(self), pprerequisiteknowledge.into_param().abi()).ok()
+    pub unsafe fn SetPrerequisiteKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pprerequisiteknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrerequisiteKnowledge)(::windows::core::Interface::as_raw(self), pprerequisiteknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLearnedKnowledgeWithPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pdestinationknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetLearnedKnowledgeWithPrerequisite<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pdestinationknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLearnedForgottenKnowledge(&self) -> ::windows::core::Result<IForgottenKnowledge> {
@@ -4469,19 +4149,14 @@ impl ::core::convert::From<ISyncChangeBatchWithPrerequisite> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchWithPrerequisite> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBatchWithPrerequisite) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeBatchWithPrerequisite> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeBatchWithPrerequisite) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBatchWithPrerequisite {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBatchWithPrerequisite {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISyncChangeBatchWithPrerequisite> for ISyncChangeBatchBase {
@@ -4489,19 +4164,14 @@ impl ::core::convert::From<ISyncChangeBatchWithPrerequisite> for ISyncChangeBatc
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeBatchWithPrerequisite> for &'a ISyncChangeBatchBase {
+    fn from(value: &'a ISyncChangeBatchWithPrerequisite) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeBatchWithPrerequisite> for ISyncChangeBatchBase {
     fn from(value: &ISyncChangeBatchWithPrerequisite) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatchWithPrerequisite {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for &'a ISyncChangeBatchWithPrerequisite {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBatchWithPrerequisite {
@@ -4546,19 +4216,14 @@ impl ::core::convert::From<ISyncChangeBuilder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeBuilder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeBuilder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeBuilder> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeBuilder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeBuilder {
@@ -4610,19 +4275,14 @@ impl ::core::convert::From<ISyncChangeUnit> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeUnit> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeUnit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeUnit> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeUnit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeUnit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeUnit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeUnit {
@@ -4677,29 +4337,29 @@ impl ISyncChangeWithFilterKeyMap {
         (::windows::core::Interface::vtable(self).GetFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFilteredReplicaLearnedKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetFilteredReplicaLearnedKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLearnedFilterForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetLearnedFilterForgottenKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledge)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, IEnumItemIds>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumItemIds>>>(&self, pdestinationknowledge: Param0, pnewmoveins: Param1, dwfilterkey: u32) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), pnewmoveins.into_param().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), pnewmoveins.into().abi(), ::core::mem::transmute(dwfilterkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
 }
 impl ::core::convert::From<ISyncChangeWithFilterKeyMap> for ::windows::core::IUnknown {
@@ -4707,19 +4367,14 @@ impl ::core::convert::From<ISyncChangeWithFilterKeyMap> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeWithFilterKeyMap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeWithFilterKeyMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeWithFilterKeyMap> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeWithFilterKeyMap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeWithFilterKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeWithFilterKeyMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeWithFilterKeyMap {
@@ -4772,9 +4427,9 @@ impl ISyncChangeWithPrerequisite {
         (::windows::core::Interface::vtable(self).GetPrerequisiteKnowledge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLearnedKnowledgeWithPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pdestinationknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn GetLearnedKnowledgeWithPrerequisite<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pdestinationknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).GetLearnedKnowledgeWithPrerequisite)(::windows::core::Interface::as_raw(self), pdestinationknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
 }
 impl ::core::convert::From<ISyncChangeWithPrerequisite> for ::windows::core::IUnknown {
@@ -4782,19 +4437,14 @@ impl ::core::convert::From<ISyncChangeWithPrerequisite> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncChangeWithPrerequisite> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncChangeWithPrerequisite) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncChangeWithPrerequisite> for ::windows::core::IUnknown {
     fn from(value: &ISyncChangeWithPrerequisite) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncChangeWithPrerequisite {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncChangeWithPrerequisite {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncChangeWithPrerequisite {
@@ -4829,8 +4479,8 @@ pub struct ISyncChangeWithPrerequisite_Vtbl {
 pub struct ISyncConstraintCallback(::windows::core::IUnknown);
 impl ISyncConstraintCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnConstraintConflict<'a, Param0: ::windows::core::IntoParam<'a, IConstraintConflict>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnConstraintConflict)(::windows::core::Interface::as_raw(self), pconflict.into_param().abi()).ok()
+    pub unsafe fn OnConstraintConflict<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IConstraintConflict>>>(&self, pconflict: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnConstraintConflict)(::windows::core::Interface::as_raw(self), pconflict.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISyncConstraintCallback> for ::windows::core::IUnknown {
@@ -4838,19 +4488,14 @@ impl ::core::convert::From<ISyncConstraintCallback> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncConstraintCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncConstraintCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncConstraintCallback> for ::windows::core::IUnknown {
     fn from(value: &ISyncConstraintCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncConstraintCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncConstraintCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncConstraintCallback {
@@ -4884,24 +4529,24 @@ pub struct ISyncConstraintCallback_Vtbl {
 pub struct ISyncDataConverter(::windows::core::IUnknown);
 impl ISyncDataConverter {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertDataRetrieverFromProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IEnumSyncChanges>>(&self, punkdataretrieverin: Param0, penumsyncchanges: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn ConvertDataRetrieverFromProviderFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumSyncChanges>>>(&self, punkdataretrieverin: Param0, penumsyncchanges: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertDataRetrieverFromProviderFormat)(::windows::core::Interface::as_raw(self), punkdataretrieverin.into_param().abi(), penumsyncchanges.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).ConvertDataRetrieverFromProviderFormat)(::windows::core::Interface::as_raw(self), punkdataretrieverin.into().abi(), penumsyncchanges.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertDataRetrieverToProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IEnumSyncChanges>>(&self, punkdataretrieverin: Param0, penumsyncchanges: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn ConvertDataRetrieverToProviderFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEnumSyncChanges>>>(&self, punkdataretrieverin: Param0, penumsyncchanges: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertDataRetrieverToProviderFormat)(::windows::core::Interface::as_raw(self), punkdataretrieverin.into_param().abi(), penumsyncchanges.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).ConvertDataRetrieverToProviderFormat)(::windows::core::Interface::as_raw(self), punkdataretrieverin.into().abi(), penumsyncchanges.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertDataFromProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdatacontext: Param0, punkdatain: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn ConvertDataFromProviderFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ILoadChangeContext>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pdatacontext: Param0, punkdatain: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertDataFromProviderFormat)(::windows::core::Interface::as_raw(self), pdatacontext.into_param().abi(), punkdatain.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).ConvertDataFromProviderFormat)(::windows::core::Interface::as_raw(self), pdatacontext.into().abi(), punkdatain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertDataToProviderFormat<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdatacontext: Param0, punkdataout: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn ConvertDataToProviderFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ILoadChangeContext>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pdatacontext: Param0, punkdataout: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertDataToProviderFormat)(::windows::core::Interface::as_raw(self), pdatacontext.into_param().abi(), punkdataout.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).ConvertDataToProviderFormat)(::windows::core::Interface::as_raw(self), pdatacontext.into().abi(), punkdataout.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ISyncDataConverter> for ::windows::core::IUnknown {
@@ -4909,19 +4554,14 @@ impl ::core::convert::From<ISyncDataConverter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncDataConverter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncDataConverter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncDataConverter> for ::windows::core::IUnknown {
     fn from(value: &ISyncDataConverter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncDataConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncDataConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncDataConverter {
@@ -4958,8 +4598,8 @@ pub struct ISyncDataConverter_Vtbl {
 pub struct ISyncFilter(::windows::core::IUnknown);
 impl ISyncFilter {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn IsIdentical<'a, Param0: ::windows::core::IntoParam<'a, ISyncFilter>>(&self, psyncfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsIdentical)(::windows::core::Interface::as_raw(self), psyncfilter.into_param().abi()).ok()
+    pub unsafe fn IsIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncFilter>>>(&self, psyncfilter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsIdentical)(::windows::core::Interface::as_raw(self), psyncfilter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn Serialize(&self, pbsyncfilter: *mut u8, pcbsyncfilter: *mut u32) -> ::windows::core::Result<()> {
@@ -4971,19 +4611,14 @@ impl ::core::convert::From<ISyncFilter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFilter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFilter> for ::windows::core::IUnknown {
     fn from(value: &ISyncFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFilter {
@@ -5028,19 +4663,14 @@ impl ::core::convert::From<ISyncFilterDeserializer> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFilterDeserializer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFilterDeserializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFilterDeserializer> for ::windows::core::IUnknown {
     fn from(value: &ISyncFilterDeserializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFilterDeserializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFilterDeserializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFilterDeserializer {
@@ -5083,19 +4713,14 @@ impl ::core::convert::From<ISyncFilterInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFilterInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFilterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFilterInfo> for ::windows::core::IUnknown {
     fn from(value: &ISyncFilterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFilterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFilterInfo {
@@ -5142,19 +4767,14 @@ impl ::core::convert::From<ISyncFilterInfo2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFilterInfo2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFilterInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFilterInfo2> for ::windows::core::IUnknown {
     fn from(value: &ISyncFilterInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFilterInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFilterInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISyncFilterInfo2> for ISyncFilterInfo {
@@ -5162,19 +4782,14 @@ impl ::core::convert::From<ISyncFilterInfo2> for ISyncFilterInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFilterInfo2> for &'a ISyncFilterInfo {
+    fn from(value: &'a ISyncFilterInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFilterInfo2> for ISyncFilterInfo {
     fn from(value: &ISyncFilterInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for ISyncFilterInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFilterInfo> for &'a ISyncFilterInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFilterInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFilterInfo2 {
@@ -5223,19 +4838,14 @@ impl ::core::convert::From<ISyncFullEnumerationChange> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFullEnumerationChange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFullEnumerationChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFullEnumerationChange> for ::windows::core::IUnknown {
     fn from(value: &ISyncFullEnumerationChange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFullEnumerationChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFullEnumerationChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFullEnumerationChange {
@@ -5292,8 +4902,8 @@ impl ISyncFullEnumerationChangeBatch {
         (::windows::core::Interface::vtable(self).base__.BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -5350,19 +4960,14 @@ impl ::core::convert::From<ISyncFullEnumerationChangeBatch> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFullEnumerationChangeBatch> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFullEnumerationChangeBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFullEnumerationChangeBatch> for ::windows::core::IUnknown {
     fn from(value: &ISyncFullEnumerationChangeBatch) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFullEnumerationChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFullEnumerationChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISyncFullEnumerationChangeBatch> for ISyncChangeBatchBase {
@@ -5370,19 +4975,14 @@ impl ::core::convert::From<ISyncFullEnumerationChangeBatch> for ISyncChangeBatch
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFullEnumerationChangeBatch> for &'a ISyncChangeBatchBase {
+    fn from(value: &'a ISyncFullEnumerationChangeBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFullEnumerationChangeBatch> for ISyncChangeBatchBase {
     fn from(value: &ISyncFullEnumerationChangeBatch) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for ISyncFullEnumerationChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for &'a ISyncFullEnumerationChangeBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFullEnumerationChangeBatch {
@@ -5440,8 +5040,8 @@ impl ISyncFullEnumerationChangeBatch2 {
         (::windows::core::Interface::vtable(self).base__.base__.BeginOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblowerbound)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn EndOrderedGroup<'a, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into_param().abi()).ok()
+    pub unsafe fn EndOrderedGroup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pbupperbound: *const u8, pmadewithknowledge: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.EndOrderedGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbupperbound), pmadewithknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder> {
@@ -5503,23 +5103,23 @@ impl ::core::convert::From<ISyncFullEnumerationChangeBatch2> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncFullEnumerationChangeBatch2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncFullEnumerationChangeBatch2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncFullEnumerationChangeBatch2> for ::windows::core::IUnknown {
     fn from(value: &ISyncFullEnumerationChangeBatch2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncFullEnumerationChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncFullEnumerationChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncFullEnumerationChangeBatch2> for ISyncChangeBatchBase {
     fn from(value: ISyncFullEnumerationChangeBatch2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncFullEnumerationChangeBatch2> for &'a ISyncChangeBatchBase {
+    fn from(value: &'a ISyncFullEnumerationChangeBatch2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5528,34 +5128,19 @@ impl ::core::convert::From<&ISyncFullEnumerationChangeBatch2> for ISyncChangeBat
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for ISyncFullEnumerationChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncChangeBatchBase> for &'a ISyncFullEnumerationChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncChangeBatchBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncFullEnumerationChangeBatch2> for ISyncFullEnumerationChangeBatch {
     fn from(value: ISyncFullEnumerationChangeBatch2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncFullEnumerationChangeBatch2> for &'a ISyncFullEnumerationChangeBatch {
+    fn from(value: &'a ISyncFullEnumerationChangeBatch2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISyncFullEnumerationChangeBatch2> for ISyncFullEnumerationChangeBatch {
     fn from(value: &ISyncFullEnumerationChangeBatch2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFullEnumerationChangeBatch> for ISyncFullEnumerationChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFullEnumerationChangeBatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncFullEnumerationChangeBatch> for &'a ISyncFullEnumerationChangeBatch2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncFullEnumerationChangeBatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncFullEnumerationChangeBatch2 {
@@ -5594,8 +5179,8 @@ impl ISyncKnowledge {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), fserializereplicakeymap.into_param().abi(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
+    pub unsafe fn Serialize<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), fserializereplicakeymap.into(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> ::windows::core::Result<()> {
@@ -5624,17 +5209,17 @@ impl ISyncKnowledge {
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertVersion)(::windows::core::Interface::as_raw(self), pknowledgein.into_param().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
+    pub unsafe fn ConvertVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConvertVersion)(::windows::core::Interface::as_raw(self), pknowledgein.into().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn MapRemoteToLocal<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn MapRemoteToLocal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).MapRemoteToLocal)(::windows::core::Interface::as_raw(self), premoteknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).MapRemoteToLocal)(::windows::core::Interface::as_raw(self), premoteknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Union<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Union)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi()).ok()
+    pub unsafe fn Union<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Union)(::windows::core::Interface::as_raw(self), pknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
@@ -5660,8 +5245,8 @@ impl ISyncKnowledge {
         (::windows::core::Interface::vtable(self).ExcludeChangeUnit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ContainsKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ContainsKnowledge)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi()).ok()
+    pub unsafe fn ContainsKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ContainsKnowledge)(::windows::core::Interface::as_raw(self), pknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> ::windows::core::Result<()> {
@@ -5697,19 +5282,14 @@ impl ::core::convert::From<ISyncKnowledge> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncKnowledge> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncKnowledge) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncKnowledge> for ::windows::core::IUnknown {
     fn from(value: &ISyncKnowledge) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncKnowledge {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncKnowledge {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncKnowledge {
@@ -5774,8 +5354,8 @@ impl ISyncKnowledge2 {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), fserializereplicakeymap.into_param().abi(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
+    pub unsafe fn Serialize<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fserializereplicakeymap: Param0, pbknowledge: *mut u8, pcbknowledge: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), fserializereplicakeymap.into(), ::core::mem::transmute(pbknowledge), ::core::mem::transmute(pcbknowledge)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn SetLocalTickCount(&self, ulltickcount: u64) -> ::windows::core::Result<()> {
@@ -5804,17 +5384,17 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ConvertVersion<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ConvertVersion)(::windows::core::Interface::as_raw(self), pknowledgein.into_param().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
+    pub unsafe fn ConvertVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledgein: Param0, pbcurrentownerid: *const u8, pversionin: *const SYNC_VERSION, pbnewownerid: *mut u8, pcbidsize: *mut u32, pversionout: *mut SYNC_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ConvertVersion)(::windows::core::Interface::as_raw(self), pknowledgein.into().abi(), ::core::mem::transmute(pbcurrentownerid), ::core::mem::transmute(pversionin), ::core::mem::transmute(pbnewownerid), ::core::mem::transmute(pcbidsize), ::core::mem::transmute(pversionout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn MapRemoteToLocal<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn MapRemoteToLocal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, premoteknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MapRemoteToLocal)(::windows::core::Interface::as_raw(self), premoteknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).base__.MapRemoteToLocal)(::windows::core::Interface::as_raw(self), premoteknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Union<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Union)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi()).ok()
+    pub unsafe fn Union<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Union)(::windows::core::Interface::as_raw(self), pknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ProjectOntoItem(&self, pbitemid: *const u8) -> ::windows::core::Result<ISyncKnowledge> {
@@ -5840,8 +5420,8 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).base__.ExcludeChangeUnit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ContainsKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ContainsKnowledge)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi()).ok()
+    pub unsafe fn ContainsKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ContainsKnowledge)(::windows::core::Interface::as_raw(self), pknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn FindMinTickCountForReplica(&self, pbreplicaid: *const u8, pullreplicatickcount: *mut u64) -> ::windows::core::Result<()> {
@@ -5882,12 +5462,12 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).ProjectOntoColumnSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppcolumns), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetformatversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
+    pub unsafe fn SerializeWithOptions<'a, Param0: ::std::convert::Into<SYNC_SERIALIZATION_VERSION>>(&self, targetformatversion: Param0, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), targetformatversion.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetLowestUncontainedId<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge2>>(&self, pisyncknowledge: Param0, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLowestUncontainedId)(::windows::core::Interface::as_raw(self), pisyncknowledge.into_param().abi(), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbitemidsize)).ok()
+    pub unsafe fn GetLowestUncontainedId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge2>>>(&self, pisyncknowledge: Param0, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLowestUncontainedId)(::windows::core::Interface::as_raw(self), pisyncknowledge.into().abi(), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pcbitemidsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetInspector(&self, riid: *const ::windows::core::GUID, ppiinspector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5898,30 +5478,30 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).GetMinimumSupportedVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetStatistics(&self, which: SYNC_STATISTICS, pvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(which), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn GetStatistics<'a, Param0: ::std::convert::Into<SYNC_STATISTICS>>(&self, which: Param0, pvalue: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), which.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ContainsKnowledgeForItem<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0, pbitemid: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ContainsKnowledgeForItem)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi(), ::core::mem::transmute(pbitemid)).ok()
+    pub unsafe fn ContainsKnowledgeForItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0, pbitemid: *const u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ContainsKnowledgeForItem)(::windows::core::Interface::as_raw(self), pknowledge.into().abi(), ::core::mem::transmute(pbitemid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ContainsKnowledgeForChangeUnit<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pknowledge: Param0, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ContainsKnowledgeForChangeUnit)(::windows::core::Interface::as_raw(self), pknowledge.into_param().abi(), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
+    pub unsafe fn ContainsKnowledgeForChangeUnit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pknowledge: Param0, pbitemid: *const u8, pbchangeunitid: *const u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ContainsKnowledgeForChangeUnit)(::windows::core::Interface::as_raw(self), pknowledge.into().abi(), ::core::mem::transmute(pbitemid), ::core::mem::transmute(pbchangeunitid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ProjectOntoKnowledgeWithPrerequisite<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>, Param1: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, pprerequisiteknowledge: Param0, ptemplateknowledge: Param1) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn ProjectOntoKnowledgeWithPrerequisite<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, pprerequisiteknowledge: Param0, ptemplateknowledge: Param1) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ProjectOntoKnowledgeWithPrerequisite)(::windows::core::Interface::as_raw(self), pprerequisiteknowledge.into_param().abi(), ptemplateknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).ProjectOntoKnowledgeWithPrerequisite)(::windows::core::Interface::as_raw(self), pprerequisiteknowledge.into().abi(), ptemplateknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Complement<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, psyncknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
+    pub unsafe fn Complement<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, psyncknowledge: Param0) -> ::windows::core::Result<ISyncKnowledge> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Complement)(::windows::core::Interface::as_raw(self), psyncknowledge.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
+        (::windows::core::Interface::vtable(self).Complement)(::windows::core::Interface::as_raw(self), psyncknowledge.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn IntersectsWithKnowledge<'a, Param0: ::windows::core::IntoParam<'a, ISyncKnowledge>>(&self, psyncknowledge: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IntersectsWithKnowledge)(::windows::core::Interface::as_raw(self), psyncknowledge.into_param().abi()).ok()
+    pub unsafe fn IntersectsWithKnowledge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISyncKnowledge>>>(&self, psyncknowledge: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IntersectsWithKnowledge)(::windows::core::Interface::as_raw(self), psyncknowledge.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetKnowledgeCookie(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -5929,12 +5509,17 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).GetKnowledgeCookie)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn CompareToKnowledgeCookie<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pknowledgecookie: Param0, presult: *mut KNOWLEDGE_COOKIE_COMPARISON_RESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CompareToKnowledgeCookie)(::windows::core::Interface::as_raw(self), pknowledgecookie.into_param().abi(), ::core::mem::transmute(presult)).ok()
+    pub unsafe fn CompareToKnowledgeCookie<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pknowledgecookie: Param0, presult: *mut KNOWLEDGE_COOKIE_COMPARISON_RESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CompareToKnowledgeCookie)(::windows::core::Interface::as_raw(self), pknowledgecookie.into().abi(), ::core::mem::transmute(presult)).ok()
     }
 }
 impl ::core::convert::From<ISyncKnowledge2> for ::windows::core::IUnknown {
     fn from(value: ISyncKnowledge2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncKnowledge2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncKnowledge2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5943,34 +5528,19 @@ impl ::core::convert::From<&ISyncKnowledge2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncKnowledge2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncKnowledge2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyncKnowledge2> for ISyncKnowledge {
     fn from(value: ISyncKnowledge2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISyncKnowledge2> for &'a ISyncKnowledge {
+    fn from(value: &'a ISyncKnowledge2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISyncKnowledge2> for ISyncKnowledge {
     fn from(value: &ISyncKnowledge2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncKnowledge> for ISyncKnowledge2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncKnowledge> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncKnowledge> for &'a ISyncKnowledge2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncKnowledge> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncKnowledge2 {
@@ -6029,19 +5599,14 @@ impl ::core::convert::From<ISyncMergeTombstoneChange> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncMergeTombstoneChange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncMergeTombstoneChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncMergeTombstoneChange> for ::windows::core::IUnknown {
     fn from(value: &ISyncMergeTombstoneChange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncMergeTombstoneChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncMergeTombstoneChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncMergeTombstoneChange {
@@ -6085,19 +5650,14 @@ impl ::core::convert::From<ISyncProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncProvider> for ::windows::core::IUnknown {
     fn from(value: &ISyncProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncProvider {
@@ -6135,8 +5695,8 @@ pub struct ISyncProviderConfigUI(::windows::core::IUnknown);
 impl ISyncProviderConfigUI {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Init<'a, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(&self, pguidinstanceid: *const ::windows::core::GUID, pguidcontenttype: *const ::windows::core::GUID, pconfigurationproperties: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(pguidcontenttype), pconfigurationproperties.into_param().abi()).ok()
+    pub unsafe fn Init<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>>(&self, pguidinstanceid: *const ::windows::core::GUID, pguidcontenttype: *const ::windows::core::GUID, pconfigurationproperties: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidinstanceid), ::core::mem::transmute(pguidcontenttype), pconfigurationproperties.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -6146,14 +5706,14 @@ impl ISyncProviderConfigUI {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn CreateAndRegisterNewSyncProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwndparent: Param0, punkcontext: Param1) -> ::windows::core::Result<ISyncProviderInfo> {
+    pub unsafe fn CreateAndRegisterNewSyncProvider<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, hwndparent: Param0, punkcontext: Param1) -> ::windows::core::Result<ISyncProviderInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), punkcontext.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncProviderInfo>(result__)
+        (::windows::core::Interface::vtable(self).CreateAndRegisterNewSyncProvider)(::windows::core::Interface::as_raw(self), hwndparent.into(), punkcontext.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncProviderInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn ModifySyncProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, ISyncProviderInfo>>(&self, hwndparent: Param0, punkcontext: Param1, pproviderinfo: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifySyncProvider)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), punkcontext.into_param().abi(), pproviderinfo.into_param().abi()).ok()
+    pub unsafe fn ModifySyncProvider<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ISyncProviderInfo>>>(&self, hwndparent: Param0, punkcontext: Param1, pproviderinfo: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ModifySyncProvider)(::windows::core::Interface::as_raw(self), hwndparent.into(), punkcontext.into().abi(), pproviderinfo.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISyncProviderConfigUI> for ::windows::core::IUnknown {
@@ -6161,19 +5721,14 @@ impl ::core::convert::From<ISyncProviderConfigUI> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncProviderConfigUI> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncProviderConfigUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncProviderConfigUI> for ::windows::core::IUnknown {
     fn from(value: &ISyncProviderConfigUI) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncProviderConfigUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncProviderConfigUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncProviderConfigUI {
@@ -6264,21 +5819,15 @@ impl ::core::convert::From<ISyncProviderConfigUIInfo> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<'a> ::core::convert::From<&'a ISyncProviderConfigUIInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncProviderConfigUIInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::convert::From<&ISyncProviderConfigUIInfo> for ::windows::core::IUnknown {
     fn from(value: &ISyncProviderConfigUIInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncProviderConfigUIInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncProviderConfigUIInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -6288,21 +5837,15 @@ impl ::core::convert::From<ISyncProviderConfigUIInfo> for super::super::UI::Shel
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<'a> ::core::convert::From<&'a ISyncProviderConfigUIInfo> for &'a super::super::UI::Shell::PropertiesSystem::IPropertyStore {
+    fn from(value: &'a ISyncProviderConfigUIInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::convert::From<&ISyncProviderConfigUIInfo> for super::super::UI::Shell::PropertiesSystem::IPropertyStore {
     fn from(value: &ISyncProviderConfigUIInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> for ISyncProviderConfigUIInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> for &'a ISyncProviderConfigUIInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -6384,21 +5927,15 @@ impl ::core::convert::From<ISyncProviderInfo> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<'a> ::core::convert::From<&'a ISyncProviderInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncProviderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::convert::From<&ISyncProviderInfo> for ::windows::core::IUnknown {
     fn from(value: &ISyncProviderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -6408,21 +5945,15 @@ impl ::core::convert::From<ISyncProviderInfo> for super::super::UI::Shell::Prope
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl<'a> ::core::convert::From<&'a ISyncProviderInfo> for &'a super::super::UI::Shell::PropertiesSystem::IPropertyStore {
+    fn from(value: &'a ISyncProviderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::convert::From<&ISyncProviderInfo> for super::super::UI::Shell::PropertiesSystem::IPropertyStore {
     fn from(value: &ISyncProviderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> for ISyncProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> for &'a ISyncProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -6535,14 +6066,14 @@ impl ISyncProviderRegistration {
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RevokeEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RevokeEvent)(::windows::core::Interface::as_raw(self), hevent.into_param().abi()).ok()
+    pub unsafe fn RevokeEvent<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RevokeEvent)(::windows::core::Interface::as_raw(self), hevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<ISyncRegistrationChange> {
+    pub unsafe fn GetChange<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<ISyncRegistrationChange> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetChange)(::windows::core::Interface::as_raw(self), hevent.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncRegistrationChange>(result__)
+        (::windows::core::Interface::vtable(self).GetChange)(::windows::core::Interface::as_raw(self), hevent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncRegistrationChange>(result__)
     }
 }
 impl ::core::convert::From<ISyncProviderRegistration> for ::windows::core::IUnknown {
@@ -6550,19 +6081,14 @@ impl ::core::convert::From<ISyncProviderRegistration> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncProviderRegistration> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncProviderRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncProviderRegistration> for ::windows::core::IUnknown {
     fn from(value: &ISyncProviderRegistration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncProviderRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncProviderRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncProviderRegistration {
@@ -6650,19 +6176,14 @@ impl ::core::convert::From<ISyncRegistrationChange> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncRegistrationChange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncRegistrationChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncRegistrationChange> for ::windows::core::IUnknown {
     fn from(value: &ISyncRegistrationChange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncRegistrationChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncRegistrationChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncRegistrationChange {
@@ -6707,19 +6228,14 @@ impl ::core::convert::From<ISyncSessionExtendedErrorInfo> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncSessionExtendedErrorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncSessionExtendedErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncSessionExtendedErrorInfo> for ::windows::core::IUnknown {
     fn from(value: &ISyncSessionExtendedErrorInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncSessionExtendedErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncSessionExtendedErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncSessionExtendedErrorInfo {
@@ -6778,8 +6294,8 @@ impl ISyncSessionState {
         (::windows::core::Interface::vtable(self).SetForgottenKnowledgeRecoveryRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prange)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress<'a, Param0: ::std::convert::Into<SYNC_PROVIDER_ROLE>, Param1: ::std::convert::Into<SYNC_PROGRESS_STAGE>>(&self, provider: Param0, syncstage: Param1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
 }
 impl ::core::convert::From<ISyncSessionState> for ::windows::core::IUnknown {
@@ -6787,19 +6303,14 @@ impl ::core::convert::From<ISyncSessionState> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncSessionState> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncSessionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncSessionState> for ::windows::core::IUnknown {
     fn from(value: &ISyncSessionState) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncSessionState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncSessionState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncSessionState {
@@ -6867,13 +6378,13 @@ impl ISyncSessionState2 {
         (::windows::core::Interface::vtable(self).base__.SetForgottenKnowledgeRecoveryRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prange)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress<'a, Param0: ::std::convert::Into<SYNC_PROVIDER_ROLE>, Param1: ::std::convert::Into<SYNC_PROGRESS_STAGE>>(&self, provider: Param0, syncstage: Param1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProviderWithError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fself: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderWithError)(::windows::core::Interface::as_raw(self), fself.into_param().abi()).ok()
+    pub unsafe fn SetProviderWithError<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fself: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProviderWithError)(::windows::core::Interface::as_raw(self), fself.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSessionErrorStatus(&self, phrsessionerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -6885,19 +6396,14 @@ impl ::core::convert::From<ISyncSessionState2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncSessionState2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISyncSessionState2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncSessionState2> for ::windows::core::IUnknown {
     fn from(value: &ISyncSessionState2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyncSessionState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyncSessionState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISyncSessionState2> for ISyncSessionState {
@@ -6905,19 +6411,14 @@ impl ::core::convert::From<ISyncSessionState2> for ISyncSessionState {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISyncSessionState2> for &'a ISyncSessionState {
+    fn from(value: &'a ISyncSessionState2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISyncSessionState2> for ISyncSessionState {
     fn from(value: &ISyncSessionState2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncSessionState> for ISyncSessionState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncSessionState> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISyncSessionState> for &'a ISyncSessionState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISyncSessionState> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISyncSessionState2 {
@@ -6960,9 +6461,9 @@ impl ISynchronousDataRetriever {
         (::windows::core::Interface::vtable(self).GetIdParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn LoadChangeData<'a, Param0: ::windows::core::IntoParam<'a, ILoadChangeContext>>(&self, ploadchangecontext: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn LoadChangeData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ILoadChangeContext>>>(&self, ploadchangecontext: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).LoadChangeData)(::windows::core::Interface::as_raw(self), ploadchangecontext.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).LoadChangeData)(::windows::core::Interface::as_raw(self), ploadchangecontext.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ISynchronousDataRetriever> for ::windows::core::IUnknown {
@@ -6970,19 +6471,14 @@ impl ::core::convert::From<ISynchronousDataRetriever> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISynchronousDataRetriever> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISynchronousDataRetriever) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISynchronousDataRetriever> for ::windows::core::IUnknown {
     fn from(value: &ISynchronousDataRetriever) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISynchronousDataRetriever {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISynchronousDataRetriever {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISynchronousDataRetriever {

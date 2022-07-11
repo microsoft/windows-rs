@@ -148,11 +148,11 @@ impl IndexedResourceCandidate {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
-    pub fn GetQualifierValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, qualifiername: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetQualifierValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, qualifiername: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetQualifierValue)(::windows::core::Interface::as_raw(this), qualifiername.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetQualifierValue)(::windows::core::Interface::as_raw(this), qualifiername.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -196,14 +196,9 @@ impl ::core::convert::From<&IndexedResourceCandidate> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IndexedResourceCandidate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IndexedResourceCandidate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IndexedResourceCandidate> for &::windows::core::IUnknown {
+    fn from(value: &IndexedResourceCandidate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IndexedResourceCandidate> for ::windows::core::IInspectable {
@@ -216,14 +211,9 @@ impl ::core::convert::From<&IndexedResourceCandidate> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IndexedResourceCandidate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IndexedResourceCandidate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IndexedResourceCandidate> for &::windows::core::IInspectable {
+    fn from(value: &IndexedResourceCandidate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
@@ -289,14 +279,9 @@ impl ::core::convert::From<&IndexedResourceQualifier> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IndexedResourceQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IndexedResourceQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IndexedResourceQualifier> for &::windows::core::IUnknown {
+    fn from(value: &IndexedResourceQualifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IndexedResourceQualifier> for ::windows::core::IInspectable {
@@ -309,14 +294,9 @@ impl ::core::convert::From<&IndexedResourceQualifier> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IndexedResourceQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IndexedResourceQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IndexedResourceQualifier> for &::windows::core::IInspectable {
+    fn from(value: &IndexedResourceQualifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
@@ -364,36 +344,36 @@ pub struct ResourceIndexer(::windows::core::IUnknown);
 impl ResourceIndexer {
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn IndexFilePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, filepath: Param0) -> ::windows::core::Result<IndexedResourceCandidate> {
+    pub fn IndexFilePath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, filepath: Param0) -> ::windows::core::Result<IndexedResourceCandidate> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexFilePath)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<IndexedResourceCandidate>(result__)
+            (::windows::core::Interface::vtable(this).IndexFilePath)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<IndexedResourceCandidate>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn IndexFileContentsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
+    pub fn IndexFileContentsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexFileContentsAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
+            (::windows::core::Interface::vtable(this).IndexFileContentsAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateResourceIndexer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0) -> ::windows::core::Result<ResourceIndexer> {
+    pub fn CreateResourceIndexer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(projectroot: Param0) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResourceIndexer)(::windows::core::Interface::as_raw(this), projectroot.into_param().abi(), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceIndexer)(::windows::core::Interface::as_raw(this), projectroot.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateResourceIndexerWithExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0, extensiondllpath: Param1) -> ::windows::core::Result<ResourceIndexer> {
+    pub fn CreateResourceIndexerWithExtension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(projectroot: Param0, extensiondllpath: Param1) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::windows::core::Interface::as_raw(this), projectroot.into_param().abi(), extensiondllpath.into_param().abi(), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::windows::core::Interface::as_raw(this), projectroot.into().abi(), extensiondllpath.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[doc(hidden)]
@@ -459,15 +439,9 @@ impl ::core::convert::From<&ResourceIndexer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceIndexer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceIndexer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ResourceIndexer> for &::windows::core::IUnknown {
+    fn from(value: &ResourceIndexer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -483,15 +457,9 @@ impl ::core::convert::From<&ResourceIndexer> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ResourceIndexer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceIndexer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ResourceIndexer> for &::windows::core::IInspectable {
+    fn from(value: &ResourceIndexer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]

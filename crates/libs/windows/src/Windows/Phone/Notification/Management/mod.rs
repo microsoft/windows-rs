@@ -16,8 +16,8 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn ProcessTriggerDetails<'a, Param0: ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails>>(pdetails: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).ProcessTriggerDetails)(::windows::core::Interface::as_raw(this), pdetails.into_param().abi()).ok() })
+    pub fn ProcessTriggerDetails<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(pdetails: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).ProcessTriggerDetails)(::windows::core::Interface::as_raw(this), pdetails.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -28,10 +28,10 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn GetPhoneLineDetails<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(phoneline: Param0) -> ::windows::core::Result<PhoneLineDetails> {
+    pub fn GetPhoneLineDetails(phoneline: ::windows::core::GUID) -> ::windows::core::Result<PhoneLineDetails> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPhoneLineDetails)(::windows::core::Interface::as_raw(this), phoneline.into_param().abi(), result__.as_mut_ptr()).from_abi::<PhoneLineDetails>(result__)
+            (::windows::core::Interface::vtable(this).GetPhoneLineDetails)(::windows::core::Interface::as_raw(this), phoneline, result__.as_mut_ptr()).from_abi::<PhoneLineDetails>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -39,16 +39,16 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCall)(::windows::core::Interface::as_raw(this), phonecallid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn AcceptPhoneCallOnEndpoint(phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallOnEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint).ok() })
+    pub fn AcceptPhoneCallOnEndpoint<'a, Param1: ::std::convert::Into<PhoneCallAudioEndpoint>>(phonecallid: u32, endpoint: Param1) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallOnEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn AcceptPhoneCallWithVideo(phonecallid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phonecallid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn AcceptPhoneCallWithVideoOnAudioEndpoint(phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint).ok() })
+    pub fn AcceptPhoneCallWithVideoOnAudioEndpoint<'a, Param1: ::std::convert::Into<PhoneCallAudioEndpoint>>(phonecallid: u32, endpoint: Param1) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn RejectPhoneCall(phonecallid: u32) -> ::windows::core::Result<()> {
@@ -59,20 +59,20 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).RejectPhoneCallWithText)(::windows::core::Interface::as_raw(this), phonecallid, textresponseid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCall)(::windows::core::Interface::as_raw(this), phoneline.into_param().abi(), phonenumber.into_param().abi()).ok() })
+    pub fn MakePhoneCall<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(phoneline: ::windows::core::GUID, phonenumber: Param1) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCall)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallOnAudioEndpoint<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline.into_param().abi(), phonenumber.into_param().abi(), endpoint).ok() })
+    pub fn MakePhoneCallOnAudioEndpoint<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PhoneCallAudioEndpoint>>(phoneline: ::windows::core::GUID, phonenumber: Param1, endpoint: Param2) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallWithVideo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phoneline.into_param().abi(), phonenumber.into_param().abi()).ok() })
+    pub fn MakePhoneCallWithVideo<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(phoneline: ::windows::core::GUID, phonenumber: Param1) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phoneline: Param0, phonenumber: Param1, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline.into_param().abi(), phonenumber.into_param().abi(), endpoint).ok() })
+    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PhoneCallAudioEndpoint>>(phoneline: ::windows::core::GUID, phonenumber: Param1, endpoint: Param2) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn SwapPhoneCalls(phonecallidtohold: u32, phonecallidonhold: u32) -> ::windows::core::Result<()> {
@@ -98,8 +98,8 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SetPhoneCallAudioEndpoint(value: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SetPhoneCallAudioEndpoint)(::windows::core::Interface::as_raw(this), value).ok() })
+    pub fn SetPhoneCallAudioEndpoint<'a, Param0: ::std::convert::Into<PhoneCallAudioEndpoint>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SetPhoneCallAudioEndpoint)(::windows::core::Interface::as_raw(this), value.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn PhoneCallAudioEndpoint() -> ::windows::core::Result<PhoneCallAudioEndpoint> {
@@ -109,30 +109,30 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SnoozeAlarm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(alarmid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarm)(::windows::core::Interface::as_raw(this), alarmid.into_param().abi()).ok() })
+    pub fn SnoozeAlarm(alarmid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarm)(::windows::core::Interface::as_raw(this), alarmid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SnoozeAlarmForSpecifiedTime<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(alarmid: Param0, timespan: Param1) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmForSpecifiedTime)(::windows::core::Interface::as_raw(this), alarmid.into_param().abi(), timespan.into_param().abi()).ok() })
+    pub fn SnoozeAlarmForSpecifiedTime(alarmid: ::windows::core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmForSpecifiedTime)(::windows::core::Interface::as_raw(this), alarmid, timespan).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DismissAlarm<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(alarmid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarm)(::windows::core::Interface::as_raw(this), alarmid.into_param().abi()).ok() })
+    pub fn DismissAlarm(alarmid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarm)(::windows::core::Interface::as_raw(this), alarmid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SnoozeReminder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(reminderid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminder)(::windows::core::Interface::as_raw(this), reminderid.into_param().abi()).ok() })
+    pub fn SnoozeReminder(reminderid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminder)(::windows::core::Interface::as_raw(this), reminderid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SnoozeReminderForSpecifiedTime<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(reminderid: Param0, timespan: Param1) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderForSpecifiedTime)(::windows::core::Interface::as_raw(this), reminderid.into_param().abi(), timespan.into_param().abi()).ok() })
+    pub fn SnoozeReminderForSpecifiedTime(reminderid: ::windows::core::GUID, timespan: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderForSpecifiedTime)(::windows::core::Interface::as_raw(this), reminderid, timespan).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DismissReminder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(reminderid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminder)(::windows::core::Interface::as_raw(this), reminderid.into_param().abi()).ok() })
+    pub fn DismissReminder(reminderid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminder)(::windows::core::Interface::as_raw(this), reminderid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn GetMediaMetadata() -> ::windows::core::Result<MediaMetadata> {
@@ -156,8 +156,8 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn PerformMediaPlaybackCommand(command: PlaybackCommand) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).PerformMediaPlaybackCommand)(::windows::core::Interface::as_raw(this), command).ok() })
+    pub fn PerformMediaPlaybackCommand<'a, Param0: ::std::convert::Into<PlaybackCommand>>(command: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).PerformMediaPlaybackCommand)(::windows::core::Interface::as_raw(this), command.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn DoNotDisturbEnabled() -> ::windows::core::Result<bool> {
@@ -189,18 +189,18 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn EnableNotificationsForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into_param().abi()).ok() })
+    pub fn EnableNotificationsForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DisableNotificationsForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into_param().abi()).ok() })
+    pub fn DisableNotificationsForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn IsNotificationEnabledForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsNotificationEnabledForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows::core::Interface::as_raw(this), appid.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -227,10 +227,10 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetAppIcon<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appid: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn GetAppIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAppIcon)(::windows::core::Interface::as_raw(this), appid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).GetAppIcon)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -246,8 +246,8 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn ClearToast<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).ClearToast)(::windows::core::Interface::as_raw(this), instanceid.into_param().abi()).ok() })
+    pub fn ClearToast<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).ClearToast)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn IsPhonePinLocked() -> ::windows::core::Result<bool> {
@@ -289,44 +289,44 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFolders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(emailaccount: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
+    pub fn GetFolders<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(emailaccount: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolders)(::windows::core::Interface::as_raw(this), emailaccount.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolders)(::windows::core::Interface::as_raw(this), emailaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn EnableEmailNotificationEmailAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(emailaccount: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into_param().abi()).ok() })
+    pub fn EnableEmailNotificationEmailAccount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(emailaccount: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DisableEmailNotificationEmailAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(emailaccount: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into_param().abi()).ok() })
+    pub fn DisableEmailNotificationEmailAccount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(emailaccount: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EnableEmailNotificationFolderFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(emailaccount: Param0, folders: Param1) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Interface::as_raw(this), emailaccount.into_param().abi(), folders.into_param().abi()).ok() })
+    pub fn EnableEmailNotificationFolderFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(emailaccount: Param0, folders: Param1) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Interface::as_raw(this), emailaccount.into().abi(), folders.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn UpdateEmailReadStatus<'a, Param0: ::windows::core::IntoParam<'a, BinaryId>>(messageentryid: Param0, isread: bool) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateEmailReadStatus)(::windows::core::Interface::as_raw(this), messageentryid.into_param().abi(), isread).ok() })
+    pub fn UpdateEmailReadStatus<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BinaryId>>>(messageentryid: Param0, isread: bool) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateEmailReadStatus)(::windows::core::Interface::as_raw(this), messageentryid.into().abi(), isread).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SnoozeAlarmByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into_param().abi()).ok() })
+    pub fn SnoozeAlarmByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DismissAlarmByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into_param().abi()).ok() })
+    pub fn DismissAlarmByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SnoozeReminderByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into_param().abi()).ok() })
+    pub fn SnoozeReminderByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DismissReminderByInstanceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(instanceid: Param0) -> ::windows::core::Result<()> {
-        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into_param().abi()).ok() })
+    pub fn DismissReminderByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IAccessoryManager<R, F: FnOnce(&IAccessoryManager) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -555,14 +555,9 @@ impl ::core::convert::From<&AlarmNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AlarmNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AlarmNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AlarmNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AlarmNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -575,14 +570,9 @@ impl ::core::convert::From<&AlarmNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AlarmNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AlarmNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AlarmNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &AlarmNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AlarmNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -597,14 +587,11 @@ impl ::core::convert::TryFrom<&AlarmNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for AlarmNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &AlarmNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AlarmNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AlarmNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -668,14 +655,9 @@ impl ::core::convert::From<&AppNotificationInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppNotificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppNotificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppNotificationInfo> for &::windows::core::IUnknown {
+    fn from(value: &AppNotificationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppNotificationInfo> for ::windows::core::IInspectable {
@@ -688,14 +670,9 @@ impl ::core::convert::From<&AppNotificationInfo> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppNotificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppNotificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppNotificationInfo> for &::windows::core::IInspectable {
+    fn from(value: &AppNotificationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -759,14 +736,9 @@ impl ::core::convert::From<&BinaryId> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BinaryId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BinaryId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BinaryId> for &::windows::core::IUnknown {
+    fn from(value: &BinaryId) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BinaryId> for ::windows::core::IInspectable {
@@ -779,14 +751,9 @@ impl ::core::convert::From<&BinaryId> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BinaryId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BinaryId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BinaryId> for &::windows::core::IInspectable {
+    fn from(value: &BinaryId) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -935,14 +902,9 @@ impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CalendarChangedNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CalendarChangedNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CalendarChangedNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -955,14 +917,9 @@ impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CalendarChangedNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CalendarChangedNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CalendarChangedNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &CalendarChangedNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CalendarChangedNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -977,14 +934,11 @@ impl ::core::convert::TryFrom<&CalendarChangedNotificationTriggerDetails> for IA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for CalendarChangedNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &CalendarChangedNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CalendarChangedNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CalendarChangedNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -1158,14 +1112,9 @@ impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CortanaTileNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CortanaTileNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CortanaTileNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -1178,14 +1127,9 @@ impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CortanaTileNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CortanaTileNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CortanaTileNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &CortanaTileNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CortanaTileNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -1200,14 +1144,11 @@ impl ::core::convert::TryFrom<&CortanaTileNotificationTriggerDetails> for IAcces
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for CortanaTileNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &CortanaTileNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CortanaTileNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CortanaTileNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -1271,14 +1212,9 @@ impl ::core::convert::From<&EmailAccountInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailAccountInfo> for &::windows::core::IUnknown {
+    fn from(value: &EmailAccountInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailAccountInfo> for ::windows::core::IInspectable {
@@ -1291,14 +1227,9 @@ impl ::core::convert::From<&EmailAccountInfo> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailAccountInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailAccountInfo> for &::windows::core::IInspectable {
+    fn from(value: &EmailAccountInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -1362,14 +1293,9 @@ impl ::core::convert::From<&EmailFolderInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailFolderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailFolderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailFolderInfo> for &::windows::core::IUnknown {
+    fn from(value: &EmailFolderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailFolderInfo> for ::windows::core::IInspectable {
@@ -1382,14 +1308,9 @@ impl ::core::convert::From<&EmailFolderInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailFolderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailFolderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailFolderInfo> for &::windows::core::IInspectable {
+    fn from(value: &EmailFolderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -1541,14 +1462,9 @@ impl ::core::convert::From<&EmailNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &EmailNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -1561,14 +1477,9 @@ impl ::core::convert::From<&EmailNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &EmailNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<EmailNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -1583,14 +1494,11 @@ impl ::core::convert::TryFrom<&EmailNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for EmailNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &EmailNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&EmailNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &EmailNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -1716,14 +1624,9 @@ impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailReadNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailReadNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailReadNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -1736,14 +1639,9 @@ impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailReadNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailReadNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailReadNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &EmailReadNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<EmailReadNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -1758,14 +1656,11 @@ impl ::core::convert::TryFrom<&EmailReadNotificationTriggerDetails> for IAccesso
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for EmailReadNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &EmailReadNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&EmailReadNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &EmailReadNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc(hidden)]
@@ -1950,19 +1845,14 @@ impl ::core::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAccessoryNotificationTriggerDetails> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAccessoryNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAccessoryNotificationTriggerDetails> for ::windows::core::IUnknown {
     fn from(value: &IAccessoryNotificationTriggerDetails) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAccessoryNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAccessoryNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -1970,19 +1860,14 @@ impl ::core::convert::From<IAccessoryNotificationTriggerDetails> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAccessoryNotificationTriggerDetails> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAccessoryNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAccessoryNotificationTriggerDetails> for ::windows::core::IInspectable {
     fn from(value: &IAccessoryNotificationTriggerDetails) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAccessoryNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAccessoryNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAccessoryNotificationTriggerDetails {
@@ -2542,14 +2427,9 @@ impl ::core::convert::From<&MediaControlsTriggerDetails> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaControlsTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaControlsTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaControlsTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &MediaControlsTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaControlsTriggerDetails> for ::windows::core::IInspectable {
@@ -2562,14 +2442,9 @@ impl ::core::convert::From<&MediaControlsTriggerDetails> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaControlsTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaControlsTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaControlsTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &MediaControlsTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MediaControlsTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -2584,14 +2459,11 @@ impl ::core::convert::TryFrom<&MediaControlsTriggerDetails> for IAccessoryNotifi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for MediaControlsTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &MediaControlsTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaControlsTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaControlsTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -2697,14 +2569,9 @@ impl ::core::convert::From<&MediaMetadata> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaMetadata> for &::windows::core::IUnknown {
+    fn from(value: &MediaMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaMetadata> for ::windows::core::IInspectable {
@@ -2717,14 +2584,9 @@ impl ::core::convert::From<&MediaMetadata> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaMetadata> for &::windows::core::IInspectable {
+    fn from(value: &MediaMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -2906,14 +2768,9 @@ impl ::core::convert::From<&PhoneCallDetails> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneCallDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneCallDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneCallDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneCallDetails> for ::windows::core::IInspectable {
@@ -2926,14 +2783,9 @@ impl ::core::convert::From<&PhoneCallDetails> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneCallDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneCallDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneCallDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -3142,14 +2994,9 @@ impl ::core::convert::From<&PhoneLineDetails> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneLineDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneLineDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneLineDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneLineDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneLineDetails> for ::windows::core::IInspectable {
@@ -3162,14 +3009,9 @@ impl ::core::convert::From<&PhoneLineDetails> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneLineDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneLineDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneLineDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneLineDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -3356,14 +3198,9 @@ impl ::core::convert::From<&PhoneNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -3376,14 +3213,9 @@ impl ::core::convert::From<&PhoneNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PhoneNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -3398,14 +3230,11 @@ impl ::core::convert::TryFrom<&PhoneNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for PhoneNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &PhoneNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PhoneNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PhoneNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -3752,14 +3581,9 @@ impl ::core::convert::From<&ReminderNotificationTriggerDetails> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ReminderNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ReminderNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReminderNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ReminderNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -3772,14 +3596,9 @@ impl ::core::convert::From<&ReminderNotificationTriggerDetails> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ReminderNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ReminderNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReminderNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &ReminderNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ReminderNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -3794,14 +3613,11 @@ impl ::core::convert::TryFrom<&ReminderNotificationTriggerDetails> for IAccessor
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for ReminderNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &ReminderNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ReminderNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ReminderNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -3908,14 +3724,9 @@ impl ::core::convert::From<&SpeedDialEntry> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeedDialEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeedDialEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeedDialEntry> for &::windows::core::IUnknown {
+    fn from(value: &SpeedDialEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeedDialEntry> for ::windows::core::IInspectable {
@@ -3928,14 +3739,9 @@ impl ::core::convert::From<&SpeedDialEntry> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeedDialEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeedDialEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeedDialEntry> for &::windows::core::IInspectable {
+    fn from(value: &SpeedDialEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -3999,14 +3805,9 @@ impl ::core::convert::From<&TextResponse> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextResponse> for &::windows::core::IUnknown {
+    fn from(value: &TextResponse) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TextResponse> for ::windows::core::IInspectable {
@@ -4019,14 +3820,9 @@ impl ::core::convert::From<&TextResponse> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextResponse {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextResponse> for &::windows::core::IInspectable {
+    fn from(value: &TextResponse) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -4168,14 +3964,9 @@ impl ::core::convert::From<&ToastNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToastNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToastNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &ToastNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ToastNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -4188,14 +3979,9 @@ impl ::core::convert::From<&ToastNotificationTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToastNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToastNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &ToastNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationTriggerDetails> for IAccessoryNotificationTriggerDetails {
@@ -4210,14 +3996,11 @@ impl ::core::convert::TryFrom<&ToastNotificationTriggerDetails> for IAccessoryNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for ToastNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> for &ToastNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, IAccessoryNotificationTriggerDetails> {
-        ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationTriggerDetails> for ::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationTriggerDetails) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -4341,14 +4124,9 @@ impl ::core::convert::From<&VolumeInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VolumeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VolumeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VolumeInfo> for &::windows::core::IUnknown {
+    fn from(value: &VolumeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VolumeInfo> for ::windows::core::IInspectable {
@@ -4361,14 +4139,9 @@ impl ::core::convert::From<&VolumeInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VolumeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VolumeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VolumeInfo> for &::windows::core::IInspectable {
+    fn from(value: &VolumeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "implement")]

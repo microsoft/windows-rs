@@ -43,8 +43,8 @@ impl IAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
@@ -58,21 +58,15 @@ impl ::core::convert::From<IAction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAction> for ::windows::core::IUnknown {
     fn from(value: &IAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -82,21 +76,15 @@ impl ::core::convert::From<IAction> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAction> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAction> for super::Com::IDispatch {
     fn from(value: &IAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -167,19 +155,19 @@ impl IActionCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXmlText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
+    pub unsafe fn SetXmlText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, text: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create(&self, r#type: TASK_ACTION_TYPE) -> ::windows::core::Result<IAction> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<TASK_ACTION_TYPE>>(&self, r#type: Param0) -> ::windows::core::Result<IAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, index: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -192,13 +180,19 @@ impl IActionCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), context.into_param().abi()).ok()
+    pub unsafe fn SetContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), context.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IActionCollection> for ::windows::core::IUnknown {
     fn from(value: IActionCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IActionCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IActionCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -209,20 +203,14 @@ impl ::core::convert::From<&IActionCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IActionCollection> for super::Com::IDispatch {
     fn from(value: IActionCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IActionCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IActionCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -230,18 +218,6 @@ impl ::core::convert::From<IActionCollection> for super::Com::IDispatch {
 impl ::core::convert::From<&IActionCollection> for super::Com::IDispatch {
     fn from(value: &IActionCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IActionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IActionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -323,8 +299,8 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -334,8 +310,8 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -344,8 +320,8 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -354,8 +330,8 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -364,8 +340,8 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -382,13 +358,19 @@ impl IBootTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, delay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
+    pub unsafe fn SetDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, delay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBootTrigger> for ::windows::core::IUnknown {
     fn from(value: IBootTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBootTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBootTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -399,20 +381,14 @@ impl ::core::convert::From<&IBootTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBootTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBootTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBootTrigger> for super::Com::IDispatch {
     fn from(value: IBootTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBootTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IBootTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -423,20 +399,14 @@ impl ::core::convert::From<&IBootTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IBootTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IBootTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBootTrigger> for ITrigger {
     fn from(value: IBootTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBootTrigger> for &'a ITrigger {
+    fn from(value: &'a IBootTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -444,18 +414,6 @@ impl ::core::convert::From<IBootTrigger> for ITrigger {
 impl ::core::convert::From<&IBootTrigger> for ITrigger {
     fn from(value: &IBootTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IBootTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IBootTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -510,8 +468,8 @@ impl IComHandlerAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
@@ -524,8 +482,8 @@ impl IComHandlerAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClassId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, clsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClassId)(::windows::core::Interface::as_raw(self), clsid.into_param().abi()).ok()
+    pub unsafe fn SetClassId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, clsid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClassId)(::windows::core::Interface::as_raw(self), clsid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -534,13 +492,19 @@ impl IComHandlerAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IComHandlerAction> for ::windows::core::IUnknown {
     fn from(value: IComHandlerAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IComHandlerAction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IComHandlerAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -551,20 +515,14 @@ impl ::core::convert::From<&IComHandlerAction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComHandlerAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IComHandlerAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IComHandlerAction> for super::Com::IDispatch {
     fn from(value: IComHandlerAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IComHandlerAction> for &'a super::Com::IDispatch {
+    fn from(value: &'a IComHandlerAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -575,20 +533,14 @@ impl ::core::convert::From<&IComHandlerAction> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IComHandlerAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IComHandlerAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IComHandlerAction> for IAction {
     fn from(value: IComHandlerAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IComHandlerAction> for &'a IAction {
+    fn from(value: &'a IComHandlerAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -596,18 +548,6 @@ impl ::core::convert::From<IComHandlerAction> for IAction {
 impl ::core::convert::From<&IComHandlerAction> for IAction {
     fn from(value: &IComHandlerAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for IComHandlerAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for &'a IComHandlerAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -674,8 +614,8 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -685,8 +625,8 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -695,8 +635,8 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -705,8 +645,8 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -715,8 +655,8 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -741,13 +681,19 @@ impl IDailyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRandomDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
+    pub unsafe fn SetRandomDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IDailyTrigger> for ::windows::core::IUnknown {
     fn from(value: IDailyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDailyTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDailyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -758,20 +704,14 @@ impl ::core::convert::From<&IDailyTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDailyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDailyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IDailyTrigger> for super::Com::IDispatch {
     fn from(value: IDailyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDailyTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IDailyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -782,20 +722,14 @@ impl ::core::convert::From<&IDailyTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDailyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDailyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IDailyTrigger> for ITrigger {
     fn from(value: IDailyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDailyTrigger> for &'a ITrigger {
+    fn from(value: &'a IDailyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -803,18 +737,6 @@ impl ::core::convert::From<IDailyTrigger> for ITrigger {
 impl ::core::convert::From<&IDailyTrigger> for ITrigger {
     fn from(value: &IDailyTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IDailyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IDailyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -871,8 +793,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
@@ -885,8 +807,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, server: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), server.into_param().abi()).ok()
+    pub unsafe fn SetServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, server: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), server.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -895,8 +817,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, subject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), subject.into_param().abi()).ok()
+    pub unsafe fn SetSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, subject: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), subject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -905,8 +827,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, to: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTo)(::windows::core::Interface::as_raw(self), to.into_param().abi()).ok()
+    pub unsafe fn SetTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, to: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTo)(::windows::core::Interface::as_raw(self), to.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -915,8 +837,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, cc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCc)(::windows::core::Interface::as_raw(self), cc.into_param().abi()).ok()
+    pub unsafe fn SetCc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, cc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCc)(::windows::core::Interface::as_raw(self), cc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -925,8 +847,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBcc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBcc)(::windows::core::Interface::as_raw(self), bcc.into_param().abi()).ok()
+    pub unsafe fn SetBcc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bcc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBcc)(::windows::core::Interface::as_raw(self), bcc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -935,8 +857,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReplyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, replyto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplyTo)(::windows::core::Interface::as_raw(self), replyto.into_param().abi()).ok()
+    pub unsafe fn SetReplyTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, replyto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReplyTo)(::windows::core::Interface::as_raw(self), replyto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -945,8 +867,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, from: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFrom)(::windows::core::Interface::as_raw(self), from.into_param().abi()).ok()
+    pub unsafe fn SetFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, from: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFrom)(::windows::core::Interface::as_raw(self), from.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -956,8 +878,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHeaderFields<'a, Param0: ::windows::core::IntoParam<'a, ITaskNamedValueCollection>>(&self, pheaderfields: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHeaderFields)(::windows::core::Interface::as_raw(self), pheaderfields.into_param().abi()).ok()
+    pub unsafe fn SetHeaderFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITaskNamedValueCollection>>>(&self, pheaderfields: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHeaderFields)(::windows::core::Interface::as_raw(self), pheaderfields.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -966,8 +888,8 @@ impl IEmailAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, body: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), body.into_param().abi()).ok()
+    pub unsafe fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, body: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), body.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -987,26 +909,26 @@ impl ::core::convert::From<IEmailAction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEmailAction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEmailAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IEmailAction> for ::windows::core::IUnknown {
     fn from(value: &IEmailAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEmailAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEmailAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IEmailAction> for super::Com::IDispatch {
     fn from(value: IEmailAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEmailAction> for &'a super::Com::IDispatch {
+    fn from(value: &'a IEmailAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1017,20 +939,14 @@ impl ::core::convert::From<&IEmailAction> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IEmailAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IEmailAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IEmailAction> for IAction {
     fn from(value: IEmailAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEmailAction> for &'a IAction {
+    fn from(value: &'a IEmailAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1038,18 +954,6 @@ impl ::core::convert::From<IEmailAction> for IAction {
 impl ::core::convert::From<&IEmailAction> for IAction {
     fn from(value: &IEmailAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for IEmailAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for &'a IEmailAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1190,19 +1094,14 @@ impl ::core::convert::From<IEnumWorkItems> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumWorkItems> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumWorkItems) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumWorkItems> for ::windows::core::IUnknown {
     fn from(value: &IEnumWorkItems) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumWorkItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumWorkItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumWorkItems {
@@ -1251,8 +1150,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1262,8 +1161,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1272,8 +1171,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1282,8 +1181,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1292,8 +1191,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -1310,8 +1209,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSubscription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, query: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubscription)(::windows::core::Interface::as_raw(self), query.into_param().abi()).ok()
+    pub unsafe fn SetSubscription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, query: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSubscription)(::windows::core::Interface::as_raw(self), query.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1320,8 +1219,8 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, delay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
+    pub unsafe fn SetDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, delay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1331,13 +1230,19 @@ impl IEventTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetValueQueries<'a, Param0: ::windows::core::IntoParam<'a, ITaskNamedValueCollection>>(&self, pnamedxpaths: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueQueries)(::windows::core::Interface::as_raw(self), pnamedxpaths.into_param().abi()).ok()
+    pub unsafe fn SetValueQueries<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITaskNamedValueCollection>>>(&self, pnamedxpaths: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueQueries)(::windows::core::Interface::as_raw(self), pnamedxpaths.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IEventTrigger> for ::windows::core::IUnknown {
     fn from(value: IEventTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEventTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEventTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1348,20 +1253,14 @@ impl ::core::convert::From<&IEventTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IEventTrigger> for super::Com::IDispatch {
     fn from(value: IEventTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEventTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IEventTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1372,20 +1271,14 @@ impl ::core::convert::From<&IEventTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IEventTrigger> for ITrigger {
     fn from(value: IEventTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEventTrigger> for &'a ITrigger {
+    fn from(value: &'a IEventTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1393,18 +1286,6 @@ impl ::core::convert::From<IEventTrigger> for ITrigger {
 impl ::core::convert::From<&IEventTrigger> for ITrigger {
     fn from(value: &IEventTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1475,8 +1356,8 @@ impl IExecAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
@@ -1489,8 +1370,8 @@ impl IExecAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1499,8 +1380,8 @@ impl IExecAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, argument: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), argument.into_param().abi()).ok()
+    pub unsafe fn SetArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, argument: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), argument.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1509,13 +1390,19 @@ impl IExecAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
+    pub unsafe fn SetWorkingDirectory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IExecAction> for ::windows::core::IUnknown {
     fn from(value: IExecAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IExecAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1526,20 +1413,14 @@ impl ::core::convert::From<&IExecAction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IExecAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IExecAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IExecAction> for super::Com::IDispatch {
     fn from(value: IExecAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction> for &'a super::Com::IDispatch {
+    fn from(value: &'a IExecAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1550,20 +1431,14 @@ impl ::core::convert::From<&IExecAction> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IExecAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IExecAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IExecAction> for IAction {
     fn from(value: IExecAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction> for &'a IAction {
+    fn from(value: &'a IExecAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1571,18 +1446,6 @@ impl ::core::convert::From<IExecAction> for IAction {
 impl ::core::convert::From<&IExecAction> for IAction {
     fn from(value: &IExecAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for IExecAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for &'a IExecAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1653,8 +1516,8 @@ impl IExecAction2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
@@ -1667,8 +1530,8 @@ impl IExecAction2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1677,8 +1540,8 @@ impl IExecAction2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, argument: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetArguments)(::windows::core::Interface::as_raw(self), argument.into_param().abi()).ok()
+    pub unsafe fn SetArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, argument: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetArguments)(::windows::core::Interface::as_raw(self), argument.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1687,8 +1550,8 @@ impl IExecAction2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
+    pub unsafe fn SetWorkingDirectory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn HideAppWindow(&self, phideappwindow: *mut i16) -> ::windows::core::Result<()> {
@@ -1706,26 +1569,26 @@ impl ::core::convert::From<IExecAction2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IExecAction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IExecAction2> for ::windows::core::IUnknown {
     fn from(value: &IExecAction2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IExecAction2> for super::Com::IDispatch {
     fn from(value: IExecAction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IExecAction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1736,20 +1599,14 @@ impl ::core::convert::From<&IExecAction2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IExecAction2> for IAction {
     fn from(value: IExecAction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction2> for &'a IAction {
+    fn from(value: &'a IExecAction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1760,20 +1617,14 @@ impl ::core::convert::From<&IExecAction2> for IAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for &'a IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IExecAction2> for IExecAction {
     fn from(value: IExecAction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IExecAction2> for &'a IExecAction {
+    fn from(value: &'a IExecAction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1781,18 +1632,6 @@ impl ::core::convert::From<IExecAction2> for IExecAction {
 impl ::core::convert::From<&IExecAction2> for IExecAction {
     fn from(value: &IExecAction2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IExecAction> for IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IExecAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IExecAction> for &'a IExecAction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IExecAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1841,8 +1680,8 @@ impl IIdleSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIdleDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, delay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIdleDuration)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
+    pub unsafe fn SetIdleDuration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, delay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIdleDuration)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1851,8 +1690,8 @@ impl IIdleSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWaitTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timeout: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWaitTimeout)(::windows::core::Interface::as_raw(self), timeout.into_param().abi()).ok()
+    pub unsafe fn SetWaitTimeout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timeout: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWaitTimeout)(::windows::core::Interface::as_raw(self), timeout.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopOnIdleEnd(&self, pstop: *mut i16) -> ::windows::core::Result<()> {
@@ -1878,21 +1717,15 @@ impl ::core::convert::From<IIdleSettings> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IIdleSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IIdleSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IIdleSettings> for ::windows::core::IUnknown {
     fn from(value: &IIdleSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIdleSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIdleSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1902,21 +1735,15 @@ impl ::core::convert::From<IIdleSettings> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IIdleSettings> for &'a super::Com::IDispatch {
+    fn from(value: &'a IIdleSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IIdleSettings> for super::Com::IDispatch {
     fn from(value: &IIdleSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IIdleSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IIdleSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1987,8 +1814,8 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1998,8 +1825,8 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2008,8 +1835,8 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2018,8 +1845,8 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2028,8 +1855,8 @@ impl IIdleTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -2047,26 +1874,26 @@ impl ::core::convert::From<IIdleTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IIdleTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IIdleTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IIdleTrigger> for ::windows::core::IUnknown {
     fn from(value: &IIdleTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIdleTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIdleTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IIdleTrigger> for super::Com::IDispatch {
     fn from(value: IIdleTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IIdleTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IIdleTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2077,20 +1904,14 @@ impl ::core::convert::From<&IIdleTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IIdleTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IIdleTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IIdleTrigger> for ITrigger {
     fn from(value: IIdleTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IIdleTrigger> for &'a ITrigger {
+    fn from(value: &'a IIdleTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2098,18 +1919,6 @@ impl ::core::convert::From<IIdleTrigger> for ITrigger {
 impl ::core::convert::From<&IIdleTrigger> for ITrigger {
     fn from(value: &IIdleTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IIdleTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IIdleTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2160,8 +1969,8 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2171,8 +1980,8 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2181,8 +1990,8 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2191,8 +2000,8 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2201,8 +2010,8 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -2219,8 +2028,8 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, delay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
+    pub unsafe fn SetDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, delay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2229,13 +2038,19 @@ impl ILogonTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, user: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into_param().abi()).ok()
+    pub unsafe fn SetUserId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, user: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ILogonTrigger> for ::windows::core::IUnknown {
     fn from(value: ILogonTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ILogonTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILogonTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2246,20 +2061,14 @@ impl ::core::convert::From<&ILogonTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILogonTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILogonTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ILogonTrigger> for super::Com::IDispatch {
     fn from(value: ILogonTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ILogonTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a ILogonTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2270,20 +2079,14 @@ impl ::core::convert::From<&ILogonTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ILogonTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ILogonTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ILogonTrigger> for ITrigger {
     fn from(value: ILogonTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ILogonTrigger> for &'a ITrigger {
+    fn from(value: &'a ILogonTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2291,18 +2094,6 @@ impl ::core::convert::From<ILogonTrigger> for ITrigger {
 impl ::core::convert::From<&ILogonTrigger> for ITrigger {
     fn from(value: &ILogonTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for ILogonTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a ILogonTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2360,8 +2151,8 @@ pub struct IMaintenanceSettings(::windows::core::IUnknown);
 impl IMaintenanceSettings {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPeriod<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPeriod)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetPeriod<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPeriod)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2370,8 +2161,8 @@ impl IMaintenanceSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeadline<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeadline)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetDeadline<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDeadline)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2394,21 +2185,15 @@ impl ::core::convert::From<IMaintenanceSettings> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMaintenanceSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMaintenanceSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMaintenanceSettings> for ::windows::core::IUnknown {
     fn from(value: &IMaintenanceSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMaintenanceSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMaintenanceSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2418,21 +2203,15 @@ impl ::core::convert::From<IMaintenanceSettings> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMaintenanceSettings> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMaintenanceSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMaintenanceSettings> for super::Com::IDispatch {
     fn from(value: &IMaintenanceSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMaintenanceSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMaintenanceSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2501,8 +2280,8 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2512,8 +2291,8 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2522,8 +2301,8 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2532,8 +2311,8 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2542,8 +2321,8 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -2592,13 +2371,19 @@ impl IMonthlyDOWTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRandomDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
+    pub unsafe fn SetRandomDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMonthlyDOWTrigger> for ::windows::core::IUnknown {
     fn from(value: IMonthlyDOWTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMonthlyDOWTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMonthlyDOWTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2609,20 +2394,14 @@ impl ::core::convert::From<&IMonthlyDOWTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMonthlyDOWTrigger> for super::Com::IDispatch {
     fn from(value: IMonthlyDOWTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMonthlyDOWTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMonthlyDOWTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2633,20 +2412,14 @@ impl ::core::convert::From<&IMonthlyDOWTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMonthlyDOWTrigger> for ITrigger {
     fn from(value: IMonthlyDOWTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMonthlyDOWTrigger> for &'a ITrigger {
+    fn from(value: &'a IMonthlyDOWTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2654,18 +2427,6 @@ impl ::core::convert::From<IMonthlyDOWTrigger> for ITrigger {
 impl ::core::convert::From<&IMonthlyDOWTrigger> for ITrigger {
     fn from(value: &IMonthlyDOWTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2732,8 +2493,8 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2743,8 +2504,8 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2753,8 +2514,8 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2763,8 +2524,8 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2773,8 +2534,8 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -2815,13 +2576,19 @@ impl IMonthlyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRandomDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
+    pub unsafe fn SetRandomDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMonthlyTrigger> for ::windows::core::IUnknown {
     fn from(value: IMonthlyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMonthlyTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMonthlyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2832,20 +2599,14 @@ impl ::core::convert::From<&IMonthlyTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMonthlyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMonthlyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMonthlyTrigger> for super::Com::IDispatch {
     fn from(value: IMonthlyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMonthlyTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMonthlyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2856,20 +2617,14 @@ impl ::core::convert::From<&IMonthlyTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMonthlyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMonthlyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMonthlyTrigger> for ITrigger {
     fn from(value: IMonthlyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMonthlyTrigger> for &'a ITrigger {
+    fn from(value: &'a IMonthlyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2877,18 +2632,6 @@ impl ::core::convert::From<IMonthlyTrigger> for ITrigger {
 impl ::core::convert::From<&IMonthlyTrigger> for ITrigger {
     fn from(value: &IMonthlyTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IMonthlyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IMonthlyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2949,8 +2692,8 @@ impl INetworkSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2959,13 +2702,19 @@ impl INetworkSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<INetworkSettings> for ::windows::core::IUnknown {
     fn from(value: INetworkSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetworkSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2976,20 +2725,14 @@ impl ::core::convert::From<&INetworkSettings> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<INetworkSettings> for super::Com::IDispatch {
     fn from(value: INetworkSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetworkSettings> for &'a super::Com::IDispatch {
+    fn from(value: &'a INetworkSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2997,18 +2740,6 @@ impl ::core::convert::From<INetworkSettings> for super::Com::IDispatch {
 impl ::core::convert::From<&INetworkSettings> for super::Com::IDispatch {
     fn from(value: &INetworkSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for INetworkSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a INetworkSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3071,8 +2802,8 @@ impl IPrincipal {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3081,8 +2812,8 @@ impl IPrincipal {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3091,16 +2822,16 @@ impl IPrincipal {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, user: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into_param().abi()).ok()
+    pub unsafe fn SetUserId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, user: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn LogonType(&self, plogon: *mut TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LogonType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plogon)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetLogonType(&self, logon: TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logon)).ok()
+    pub unsafe fn SetLogonType<'a, Param0: ::std::convert::Into<TASK_LOGON_TYPE>>(&self, logon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), logon.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3109,21 +2840,27 @@ impl IPrincipal {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGroupId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroupId)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
+    pub unsafe fn SetGroupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, group: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGroupId)(::windows::core::Interface::as_raw(self), group.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunLevel(&self, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RunLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prunlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetRunLevel(&self, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRunLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runlevel)).ok()
+    pub unsafe fn SetRunLevel<'a, Param0: ::std::convert::Into<TASK_RUNLEVEL_TYPE>>(&self, runlevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRunLevel)(::windows::core::Interface::as_raw(self), runlevel.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrincipal> for ::windows::core::IUnknown {
     fn from(value: IPrincipal) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPrincipal> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrincipal) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3134,20 +2871,14 @@ impl ::core::convert::From<&IPrincipal> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrincipal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrincipal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrincipal> for super::Com::IDispatch {
     fn from(value: IPrincipal) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPrincipal> for &'a super::Com::IDispatch {
+    fn from(value: &'a IPrincipal) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3155,18 +2886,6 @@ impl ::core::convert::From<IPrincipal> for super::Com::IDispatch {
 impl ::core::convert::From<&IPrincipal> for super::Com::IDispatch {
     fn from(value: &IPrincipal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IPrincipal {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IPrincipal {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3247,8 +2966,8 @@ impl IPrincipal2 {
         (::windows::core::Interface::vtable(self).ProcessTokenSidType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprocesstokensidtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetProcessTokenSidType(&self, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessTokenSidType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(processtokensidtype)).ok()
+    pub unsafe fn SetProcessTokenSidType<'a, Param0: ::std::convert::Into<TASK_PROCESSTOKENSID_TYPE>>(&self, processtokensidtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProcessTokenSidType)(::windows::core::Interface::as_raw(self), processtokensidtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RequiredPrivilegeCount(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
@@ -3261,13 +2980,19 @@ impl IPrincipal2 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddRequiredPrivilege<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, privilege: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRequiredPrivilege)(::windows::core::Interface::as_raw(self), privilege.into_param().abi()).ok()
+    pub unsafe fn AddRequiredPrivilege<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, privilege: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddRequiredPrivilege)(::windows::core::Interface::as_raw(self), privilege.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrincipal2> for ::windows::core::IUnknown {
     fn from(value: IPrincipal2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPrincipal2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrincipal2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3278,20 +3003,14 @@ impl ::core::convert::From<&IPrincipal2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrincipal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrincipal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IPrincipal2> for super::Com::IDispatch {
     fn from(value: IPrincipal2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPrincipal2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IPrincipal2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3299,18 +3018,6 @@ impl ::core::convert::From<IPrincipal2> for super::Com::IDispatch {
 impl ::core::convert::From<&IPrincipal2> for super::Com::IDispatch {
     fn from(value: &IPrincipal2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IPrincipal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IPrincipal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3361,9 +3068,9 @@ pub struct IProvideTaskPage(::windows::core::IUnknown);
 impl IProvideTaskPage {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn GetPage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, tptype: TASKPAGE, fpersistchanges: Param1) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE> {
+    pub unsafe fn GetPage<'a, Param0: ::std::convert::Into<TASKPAGE>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, tptype: Param0, fpersistchanges: Param1) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Controls::HPROPSHEETPAGE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tptype), fpersistchanges.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Controls::HPROPSHEETPAGE>(result__)
+        (::windows::core::Interface::vtable(self).GetPage)(::windows::core::Interface::as_raw(self), tptype.into(), fpersistchanges.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Controls::HPROPSHEETPAGE>(result__)
     }
 }
 impl ::core::convert::From<IProvideTaskPage> for ::windows::core::IUnknown {
@@ -3371,19 +3078,14 @@ impl ::core::convert::From<IProvideTaskPage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProvideTaskPage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IProvideTaskPage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProvideTaskPage> for ::windows::core::IUnknown {
     fn from(value: &IProvideTaskPage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProvideTaskPage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProvideTaskPage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IProvideTaskPage {
@@ -3449,15 +3151,15 @@ impl IRegisteredTask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Run<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, params: Param0) -> ::windows::core::Result<IRunningTask> {
+    pub unsafe fn Run<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, params: Param0) -> ::windows::core::Result<IRunningTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), params.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), params.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RunEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, params: Param0, flags: i32, sessionid: i32, user: Param3) -> ::windows::core::Result<IRunningTask> {
+    pub unsafe fn RunEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, params: Param0, flags: i32, sessionid: i32, user: Param3) -> ::windows::core::Result<IRunningTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), params.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(sessionid), user.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
+        (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), params.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(sessionid), user.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3505,8 +3207,8 @@ impl IRegisteredTask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sddl: Param0, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sddl: Param0, flags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Stop(&self, flags: i32) -> ::windows::core::Result<()> {
@@ -3525,21 +3227,15 @@ impl ::core::convert::From<IRegisteredTask> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegisteredTask> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRegisteredTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRegisteredTask> for ::windows::core::IUnknown {
     fn from(value: &IRegisteredTask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRegisteredTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRegisteredTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3549,21 +3245,15 @@ impl ::core::convert::From<IRegisteredTask> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegisteredTask> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRegisteredTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRegisteredTask> for super::Com::IDispatch {
     fn from(value: &IRegisteredTask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRegisteredTask {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRegisteredTask {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3658,9 +3348,9 @@ impl IRegisteredTaskCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<IRegisteredTask> {
+    pub unsafe fn get_Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, index: Param0) -> ::windows::core::Result<IRegisteredTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3675,21 +3365,15 @@ impl ::core::convert::From<IRegisteredTaskCollection> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegisteredTaskCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRegisteredTaskCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRegisteredTaskCollection> for ::windows::core::IUnknown {
     fn from(value: &IRegisteredTaskCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRegisteredTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRegisteredTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3699,21 +3383,15 @@ impl ::core::convert::From<IRegisteredTaskCollection> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegisteredTaskCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRegisteredTaskCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRegisteredTaskCollection> for super::Com::IDispatch {
     fn from(value: &IRegisteredTaskCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRegisteredTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRegisteredTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3766,8 +3444,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3776,8 +3454,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, author: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthor)(::windows::core::Interface::as_raw(self), author.into_param().abi()).ok()
+    pub unsafe fn SetAuthor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, author: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthor)(::windows::core::Interface::as_raw(self), author.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3786,8 +3464,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), version.into_param().abi()).ok()
+    pub unsafe fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, version: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), version.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3796,8 +3474,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, date: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), date.into_param().abi()).ok()
+    pub unsafe fn SetDate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, date: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), date.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3806,8 +3484,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDocumentation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, documentation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentation)(::windows::core::Interface::as_raw(self), documentation.into_param().abi()).ok()
+    pub unsafe fn SetDocumentation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, documentation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDocumentation)(::windows::core::Interface::as_raw(self), documentation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3816,8 +3494,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXmlText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
+    pub unsafe fn SetXmlText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, text: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3826,8 +3504,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, uri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURI)(::windows::core::Interface::as_raw(self), uri.into_param().abi()).ok()
+    pub unsafe fn SetURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, uri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetURI)(::windows::core::Interface::as_raw(self), uri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3836,8 +3514,8 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, sddl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into_param().abi()).ok()
+    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, sddl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3846,13 +3524,19 @@ impl IRegistrationInfo {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, source: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSource)(::windows::core::Interface::as_raw(self), source.into_param().abi()).ok()
+    pub unsafe fn SetSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, source: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSource)(::windows::core::Interface::as_raw(self), source.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRegistrationInfo> for ::windows::core::IUnknown {
     fn from(value: IRegistrationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegistrationInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRegistrationInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3863,20 +3547,14 @@ impl ::core::convert::From<&IRegistrationInfo> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRegistrationInfo> for super::Com::IDispatch {
     fn from(value: IRegistrationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegistrationInfo> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRegistrationInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3884,18 +3562,6 @@ impl ::core::convert::From<IRegistrationInfo> for super::Com::IDispatch {
 impl ::core::convert::From<&IRegistrationInfo> for super::Com::IDispatch {
     fn from(value: &IRegistrationInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRegistrationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4018,8 +3684,8 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4029,8 +3695,8 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4039,8 +3705,8 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4049,8 +3715,8 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4059,8 +3725,8 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -4077,13 +3743,19 @@ impl IRegistrationTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, delay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
+    pub unsafe fn SetDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, delay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRegistrationTrigger> for ::windows::core::IUnknown {
     fn from(value: IRegistrationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegistrationTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRegistrationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4094,20 +3766,14 @@ impl ::core::convert::From<&IRegistrationTrigger> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRegistrationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRegistrationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRegistrationTrigger> for super::Com::IDispatch {
     fn from(value: IRegistrationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegistrationTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRegistrationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4118,20 +3784,14 @@ impl ::core::convert::From<&IRegistrationTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRegistrationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRegistrationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IRegistrationTrigger> for ITrigger {
     fn from(value: IRegistrationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRegistrationTrigger> for &'a ITrigger {
+    fn from(value: &'a IRegistrationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4139,18 +3799,6 @@ impl ::core::convert::From<IRegistrationTrigger> for ITrigger {
 impl ::core::convert::From<&IRegistrationTrigger> for ITrigger {
     fn from(value: &IRegistrationTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IRegistrationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IRegistrationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4205,8 +3853,8 @@ impl IRepetitionPattern {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, interval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), interval.into_param().abi()).ok()
+    pub unsafe fn SetInterval<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, interval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), interval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4215,8 +3863,8 @@ impl IRepetitionPattern {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, duration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration.into_param().abi()).ok()
+    pub unsafe fn SetDuration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, duration: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopAtDurationEnd(&self, pstop: *mut i16) -> ::windows::core::Result<()> {
@@ -4234,21 +3882,15 @@ impl ::core::convert::From<IRepetitionPattern> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRepetitionPattern> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRepetitionPattern) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRepetitionPattern> for ::windows::core::IUnknown {
     fn from(value: &IRepetitionPattern) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRepetitionPattern {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRepetitionPattern {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4258,21 +3900,15 @@ impl ::core::convert::From<IRepetitionPattern> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRepetitionPattern> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRepetitionPattern) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRepetitionPattern> for super::Com::IDispatch {
     fn from(value: &IRepetitionPattern) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRepetitionPattern {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRepetitionPattern {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4380,21 +4016,15 @@ impl ::core::convert::From<IRunningTask> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRunningTask> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRunningTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRunningTask> for ::windows::core::IUnknown {
     fn from(value: &IRunningTask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRunningTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRunningTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4404,21 +4034,15 @@ impl ::core::convert::From<IRunningTask> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRunningTask> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRunningTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRunningTask> for super::Com::IDispatch {
     fn from(value: &IRunningTask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRunningTask {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRunningTask {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4485,9 +4109,9 @@ impl IRunningTaskCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<IRunningTask> {
+    pub unsafe fn get_Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, index: Param0) -> ::windows::core::Result<IRunningTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -4502,21 +4126,15 @@ impl ::core::convert::From<IRunningTaskCollection> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRunningTaskCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRunningTaskCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRunningTaskCollection> for ::windows::core::IUnknown {
     fn from(value: &IRunningTaskCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRunningTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRunningTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4526,21 +4144,15 @@ impl ::core::convert::From<IRunningTaskCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IRunningTaskCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IRunningTaskCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IRunningTaskCollection> for super::Com::IDispatch {
     fn from(value: &IRunningTaskCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRunningTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRunningTaskCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4635,8 +4247,8 @@ impl IScheduledWorkItem {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EditWorkItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hparent: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn EditWorkItem<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hparent: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4655,8 +4267,8 @@ impl IScheduledWorkItem {
         (::windows::core::Interface::vtable(self).GetExitCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcomment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetComment)(::windows::core::Interface::as_raw(self), pwszcomment.into_param().abi()).ok()
+    pub unsafe fn SetComment(&self, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcomment)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4664,8 +4276,8 @@ impl IScheduledWorkItem {
         (::windows::core::Interface::vtable(self).GetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCreator<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcreator: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCreator)(::windows::core::Interface::as_raw(self), pwszcreator.into_param().abi()).ok()
+    pub unsafe fn SetCreator(&self, pwszcreator: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCreator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcreator)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4708,8 +4320,8 @@ impl IScheduledWorkItem {
         (::windows::core::Interface::vtable(self).GetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetAccountInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszaccountname: Param0, pwszpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountInformation)(::windows::core::Interface::as_raw(self), pwszaccountname.into_param().abi(), pwszpassword.into_param().abi()).ok()
+    pub unsafe fn SetAccountInformation(&self, pwszaccountname: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszaccountname), ::core::mem::transmute(pwszpassword)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4722,19 +4334,14 @@ impl ::core::convert::From<IScheduledWorkItem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IScheduledWorkItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IScheduledWorkItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IScheduledWorkItem> for ::windows::core::IUnknown {
     fn from(value: &IScheduledWorkItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IScheduledWorkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IScheduledWorkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IScheduledWorkItem {
@@ -4820,8 +4427,8 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4831,8 +4438,8 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4841,8 +4448,8 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4851,8 +4458,8 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4861,8 +4468,8 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -4879,8 +4486,8 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, delay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
+    pub unsafe fn SetDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, delay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4889,21 +4496,27 @@ impl ISessionStateChangeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, user: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into_param().abi()).ok()
+    pub unsafe fn SetUserId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, user: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StateChange(&self, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetStateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+    pub unsafe fn SetStateChange<'a, Param0: ::std::convert::Into<TASK_SESSION_STATE_CHANGE_TYPE>>(&self, r#type: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStateChange)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISessionStateChangeTrigger> for ::windows::core::IUnknown {
     fn from(value: ISessionStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISessionStateChangeTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISessionStateChangeTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4914,20 +4527,14 @@ impl ::core::convert::From<&ISessionStateChangeTrigger> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISessionStateChangeTrigger> for super::Com::IDispatch {
     fn from(value: ISessionStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISessionStateChangeTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISessionStateChangeTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4938,20 +4545,14 @@ impl ::core::convert::From<&ISessionStateChangeTrigger> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISessionStateChangeTrigger> for ITrigger {
     fn from(value: ISessionStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISessionStateChangeTrigger> for &'a ITrigger {
+    fn from(value: &'a ISessionStateChangeTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4959,18 +4560,6 @@ impl ::core::convert::From<ISessionStateChangeTrigger> for ITrigger {
 impl ::core::convert::From<&ISessionStateChangeTrigger> for ITrigger {
     fn from(value: &ISessionStateChangeTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5035,8 +4624,8 @@ impl IShowMessageAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
@@ -5049,8 +4638,8 @@ impl IShowMessageAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, title: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), title.into_param().abi()).ok()
+    pub unsafe fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, title: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), title.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5059,13 +4648,19 @@ impl IShowMessageAction {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMessageBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagebody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessageBody)(::windows::core::Interface::as_raw(self), messagebody.into_param().abi()).ok()
+    pub unsafe fn SetMessageBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, messagebody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMessageBody)(::windows::core::Interface::as_raw(self), messagebody.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IShowMessageAction> for ::windows::core::IUnknown {
     fn from(value: IShowMessageAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IShowMessageAction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IShowMessageAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5076,20 +4671,14 @@ impl ::core::convert::From<&IShowMessageAction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IShowMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IShowMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IShowMessageAction> for super::Com::IDispatch {
     fn from(value: IShowMessageAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IShowMessageAction> for &'a super::Com::IDispatch {
+    fn from(value: &'a IShowMessageAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5100,20 +4689,14 @@ impl ::core::convert::From<&IShowMessageAction> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IShowMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IShowMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IShowMessageAction> for IAction {
     fn from(value: IShowMessageAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IShowMessageAction> for &'a IAction {
+    fn from(value: &'a IShowMessageAction) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5121,18 +4704,6 @@ impl ::core::convert::From<IShowMessageAction> for IAction {
 impl ::core::convert::From<&IShowMessageAction> for IAction {
     fn from(value: &IShowMessageAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for IShowMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAction> for &'a IShowMessageAction {
-    fn into_param(self) -> ::windows::core::Param<'a, IAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5237,8 +4808,8 @@ impl ITask {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EditWorkItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hparent: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn EditWorkItem<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hparent: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5257,8 +4828,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetExitCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcomment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetComment)(::windows::core::Interface::as_raw(self), pwszcomment.into_param().abi()).ok()
+    pub unsafe fn SetComment(&self, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcomment)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5266,8 +4837,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCreator<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcreator: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCreator)(::windows::core::Interface::as_raw(self), pwszcreator.into_param().abi()).ok()
+    pub unsafe fn SetCreator(&self, pwszcreator: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCreator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcreator)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5310,8 +4881,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetAccountInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszaccountname: Param0, pwszpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAccountInformation)(::windows::core::Interface::as_raw(self), pwszaccountname.into_param().abi(), pwszpassword.into_param().abi()).ok()
+    pub unsafe fn SetAccountInformation(&self, pwszaccountname: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszaccountname), ::core::mem::transmute(pwszpassword)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5319,8 +4890,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetApplicationName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszapplicationname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetApplicationName)(::windows::core::Interface::as_raw(self), pwszapplicationname.into_param().abi()).ok()
+    pub unsafe fn SetApplicationName(&self, pwszapplicationname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetApplicationName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszapplicationname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetApplicationName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5328,8 +4899,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).GetApplicationName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), pwszparameters.into_param().abi()).ok()
+    pub unsafe fn SetParameters(&self, pwszparameters: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetParameters(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5337,8 +4908,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).GetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszworkingdirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), pwszworkingdirectory.into_param().abi()).ok()
+    pub unsafe fn SetWorkingDirectory(&self, pwszworkingdirectory: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszworkingdirectory)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetWorkingDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5378,19 +4949,14 @@ impl ::core::convert::From<ITask> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITask> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITask> for ::windows::core::IUnknown {
     fn from(value: &ITask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ITask> for IScheduledWorkItem {
@@ -5398,19 +4964,14 @@ impl ::core::convert::From<ITask> for IScheduledWorkItem {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITask> for &'a IScheduledWorkItem {
+    fn from(value: &'a ITask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITask> for IScheduledWorkItem {
     fn from(value: &ITask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IScheduledWorkItem> for ITask {
-    fn into_param(self) -> ::windows::core::Param<'a, IScheduledWorkItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IScheduledWorkItem> for &'a ITask {
-    fn into_param(self) -> ::windows::core::Param<'a, IScheduledWorkItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITask {
@@ -5464,8 +5025,8 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRegistrationInfo<'a, Param0: ::windows::core::IntoParam<'a, IRegistrationInfo>>(&self, pregistrationinfo: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRegistrationInfo)(::windows::core::Interface::as_raw(self), pregistrationinfo.into_param().abi()).ok()
+    pub unsafe fn SetRegistrationInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRegistrationInfo>>>(&self, pregistrationinfo: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRegistrationInfo)(::windows::core::Interface::as_raw(self), pregistrationinfo.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5475,8 +5036,8 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetTriggers<'a, Param0: ::windows::core::IntoParam<'a, ITriggerCollection>>(&self, ptriggers: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTriggers)(::windows::core::Interface::as_raw(self), ptriggers.into_param().abi()).ok()
+    pub unsafe fn SetTriggers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITriggerCollection>>>(&self, ptriggers: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTriggers)(::windows::core::Interface::as_raw(self), ptriggers.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5486,8 +5047,8 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSettings<'a, Param0: ::windows::core::IntoParam<'a, ITaskSettings>>(&self, psettings: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSettings)(::windows::core::Interface::as_raw(self), psettings.into_param().abi()).ok()
+    pub unsafe fn SetSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITaskSettings>>>(&self, psettings: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSettings)(::windows::core::Interface::as_raw(self), psettings.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5496,8 +5057,8 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5507,8 +5068,8 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPrincipal<'a, Param0: ::windows::core::IntoParam<'a, IPrincipal>>(&self, pprincipal: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrincipal)(::windows::core::Interface::as_raw(self), pprincipal.into_param().abi()).ok()
+    pub unsafe fn SetPrincipal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IPrincipal>>>(&self, pprincipal: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrincipal)(::windows::core::Interface::as_raw(self), pprincipal.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5518,8 +5079,8 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetActions<'a, Param0: ::windows::core::IntoParam<'a, IActionCollection>>(&self, pactions: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), pactions.into_param().abi()).ok()
+    pub unsafe fn SetActions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IActionCollection>>>(&self, pactions: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), pactions.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5528,13 +5089,19 @@ impl ITaskDefinition {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXmlText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), xml.into_param().abi()).ok()
+    pub unsafe fn SetXmlText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, xml: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), xml.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskDefinition> for ::windows::core::IUnknown {
     fn from(value: ITaskDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5545,20 +5112,14 @@ impl ::core::convert::From<&ITaskDefinition> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskDefinition> for super::Com::IDispatch {
     fn from(value: ITaskDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskDefinition> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5566,18 +5127,6 @@ impl ::core::convert::From<ITaskDefinition> for super::Com::IDispatch {
 impl ::core::convert::From<&ITaskDefinition> for super::Com::IDispatch {
     fn from(value: &ITaskDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5687,9 +5236,9 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn GetFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<ITaskFolder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5699,20 +5248,20 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, subfoldername: Param0, sddl: Param1) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn CreateFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, subfoldername: Param0, sddl: Param1) -> ::windows::core::Result<ITaskFolder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFolder)(::windows::core::Interface::as_raw(self), subfoldername.into_param().abi(), sddl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
+        (::windows::core::Interface::vtable(self).CreateFolder)(::windows::core::Interface::as_raw(self), subfoldername.into().abi(), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, subfoldername: Param0, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), subfoldername.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn DeleteFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, subfoldername: Param0, flags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), subfoldername.into().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IRegisteredTask> {
+    pub unsafe fn GetTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IRegisteredTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTask)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).GetTask)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5722,20 +5271,20 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn DeleteTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0, flags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param4: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param6: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, path: Param0, xmltext: Param1, flags: i32, userid: Param3, password: Param4, logontype: TASK_LOGON_TYPE, sddl: Param6) -> ::windows::core::Result<IRegisteredTask> {
+    pub unsafe fn RegisterTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param5: ::std::convert::Into<TASK_LOGON_TYPE>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, path: Param0, xmltext: Param1, flags: i32, userid: Param3, password: Param4, logontype: Param5, sddl: Param6) -> ::windows::core::Result<IRegisteredTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into_param().abi(), xmltext.into_param().abi(), ::core::mem::transmute(flags), userid.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(logontype), sddl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into().abi(), xmltext.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), logontype.into(), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTaskDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ITaskDefinition>, Param3: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param4: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param6: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, path: Param0, pdefinition: Param1, flags: i32, userid: Param3, password: Param4, logontype: TASK_LOGON_TYPE, sddl: Param6) -> ::windows::core::Result<IRegisteredTask> {
+    pub unsafe fn RegisterTaskDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITaskDefinition>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param5: ::std::convert::Into<TASK_LOGON_TYPE>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, path: Param0, pdefinition: Param1, flags: i32, userid: Param3, password: Param4, logontype: Param5, sddl: Param6) -> ::windows::core::Result<IRegisteredTask> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into_param().abi(), pdefinition.into_param().abi(), ::core::mem::transmute(flags), userid.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(logontype), sddl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into().abi(), pdefinition.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), logontype.into(), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5745,13 +5294,19 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sddl: Param0, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sddl: Param0, flags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi(), ::core::mem::transmute(flags)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskFolder> for ::windows::core::IUnknown {
     fn from(value: ITaskFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskFolder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskFolder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5762,20 +5317,14 @@ impl ::core::convert::From<&ITaskFolder> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskFolder> for super::Com::IDispatch {
     fn from(value: ITaskFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskFolder> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskFolder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5783,18 +5332,6 @@ impl ::core::convert::From<ITaskFolder> for super::Com::IDispatch {
 impl ::core::convert::From<&ITaskFolder> for super::Com::IDispatch {
     fn from(value: &ITaskFolder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5893,9 +5430,9 @@ impl ITaskFolderCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn get_Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, index: Param0) -> ::windows::core::Result<ITaskFolder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -5910,21 +5447,15 @@ impl ::core::convert::From<ITaskFolderCollection> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskFolderCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskFolderCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskFolderCollection> for ::windows::core::IUnknown {
     fn from(value: &ITaskFolderCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskFolderCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskFolderCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5934,21 +5465,15 @@ impl ::core::convert::From<ITaskFolderCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskFolderCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskFolderCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskFolderCollection> for super::Com::IDispatch {
     fn from(value: &ITaskFolderCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskFolderCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskFolderCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5994,8 +5519,8 @@ pub struct ITaskHandler(::windows::core::IUnknown);
 impl ITaskHandler {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, phandlerservices: Param0, data: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), phandlerservices.into_param().abi(), data.into_param().abi()).ok()
+    pub unsafe fn Start<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, phandlerservices: Param0, data: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), phandlerservices.into().abi(), data.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
@@ -6016,19 +5541,14 @@ impl ::core::convert::From<ITaskHandler> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITaskHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITaskHandler> for ::windows::core::IUnknown {
     fn from(value: &ITaskHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITaskHandler {
@@ -6069,8 +5589,8 @@ pub struct ITaskHandlerStatus(::windows::core::IUnknown);
 impl ITaskHandlerStatus {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateStatus<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, percentcomplete: i16, statusmessage: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(percentcomplete), statusmessage.into_param().abi()).ok()
+    pub unsafe fn UpdateStatus<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, percentcomplete: i16, statusmessage: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(percentcomplete), statusmessage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn TaskCompleted(&self, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -6082,19 +5602,14 @@ impl ::core::convert::From<ITaskHandlerStatus> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITaskHandlerStatus> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskHandlerStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITaskHandlerStatus> for ::windows::core::IUnknown {
     fn from(value: &ITaskHandlerStatus) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskHandlerStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskHandlerStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITaskHandlerStatus {
@@ -6150,9 +5665,9 @@ impl ITaskNamedValueCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<ITaskNamedValuePair> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<ITaskNamedValuePair> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskNamedValuePair>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), name.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskNamedValuePair>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
@@ -6170,21 +5685,15 @@ impl ::core::convert::From<ITaskNamedValueCollection> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskNamedValueCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskNamedValueCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskNamedValueCollection> for ::windows::core::IUnknown {
     fn from(value: &ITaskNamedValueCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskNamedValueCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskNamedValueCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6194,21 +5703,15 @@ impl ::core::convert::From<ITaskNamedValueCollection> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskNamedValueCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskNamedValueCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskNamedValueCollection> for super::Com::IDispatch {
     fn from(value: &ITaskNamedValueCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskNamedValueCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskNamedValueCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6267,8 +5770,8 @@ impl ITaskNamedValuePair {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6277,13 +5780,19 @@ impl ITaskNamedValuePair {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskNamedValuePair> for ::windows::core::IUnknown {
     fn from(value: ITaskNamedValuePair) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskNamedValuePair> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskNamedValuePair) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6294,20 +5803,14 @@ impl ::core::convert::From<&ITaskNamedValuePair> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskNamedValuePair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskNamedValuePair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskNamedValuePair> for super::Com::IDispatch {
     fn from(value: ITaskNamedValuePair) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskNamedValuePair> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskNamedValuePair) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6315,18 +5818,6 @@ impl ::core::convert::From<ITaskNamedValuePair> for super::Com::IDispatch {
 impl ::core::convert::From<&ITaskNamedValuePair> for super::Com::IDispatch {
     fn from(value: &ITaskNamedValuePair) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskNamedValuePair {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskNamedValuePair {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6381,8 +5872,8 @@ pub struct ITaskNamedValuePair_Vtbl {
 pub struct ITaskScheduler(::windows::core::IUnknown);
 impl ITaskScheduler {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetTargetComputer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetComputer)(::windows::core::Interface::as_raw(self), pwszcomputer.into_param().abi()).ok()
+    pub unsafe fn SetTargetComputer(&self, pwszcomputer: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcomputer)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTargetComputer(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -6395,26 +5886,26 @@ impl ITaskScheduler {
         (::windows::core::Interface::vtable(self).Enum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWorkItems>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn Activate(&self, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi()).ok()
+    pub unsafe fn Delete(&self, pwszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn NewWorkItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztaskname: Param0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn NewWorkItem(&self, pwsztaskname: ::windows::core::PCWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).NewWorkItem)(::windows::core::Interface::as_raw(self), pwsztaskname.into_param().abi(), ::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).NewWorkItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsztaskname), ::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn AddWorkItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IScheduledWorkItem>>(&self, pwsztaskname: Param0, pworkitem: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWorkItem)(::windows::core::Interface::as_raw(self), pwsztaskname.into_param().abi(), pworkitem.into_param().abi()).ok()
+    pub unsafe fn AddWorkItem<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IScheduledWorkItem>>>(&self, pwsztaskname: ::windows::core::PCWSTR, pworkitem: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddWorkItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsztaskname), pworkitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn IsOfType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsOfType)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), ::core::mem::transmute(riid)).ok()
+    pub unsafe fn IsOfType(&self, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsOfType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(riid)).ok()
     }
 }
 impl ::core::convert::From<ITaskScheduler> for ::windows::core::IUnknown {
@@ -6422,19 +5913,14 @@ impl ::core::convert::From<ITaskScheduler> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITaskScheduler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskScheduler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITaskScheduler> for ::windows::core::IUnknown {
     fn from(value: &ITaskScheduler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskScheduler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskScheduler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITaskScheduler {
@@ -6478,9 +5964,9 @@ pub struct ITaskService(::windows::core::IUnknown);
 impl ITaskService {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn GetFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<ITaskFolder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6496,8 +5982,8 @@ impl ITaskService {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, servername: Param0, user: Param1, domain: Param2, password: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), servername.into_param().abi(), user.into_param().abi(), domain.into_param().abi(), password.into_param().abi()).ok()
+    pub unsafe fn Connect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, servername: Param0, user: Param1, domain: Param2, password: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), servername.into().abi(), user.into().abi(), domain.into().abi(), password.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Connected(&self) -> ::windows::core::Result<i16> {
@@ -6535,21 +6021,15 @@ impl ::core::convert::From<ITaskService> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskService> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskService> for ::windows::core::IUnknown {
     fn from(value: &ITaskService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6559,21 +6039,15 @@ impl ::core::convert::From<ITaskService> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskService> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskService> for super::Com::IDispatch {
     fn from(value: &ITaskService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6658,8 +6132,8 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRestartInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, restartinterval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRestartInterval)(::windows::core::Interface::as_raw(self), restartinterval.into_param().abi()).ok()
+    pub unsafe fn SetRestartInterval<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, restartinterval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRestartInterval)(::windows::core::Interface::as_raw(self), restartinterval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()> {
@@ -6674,8 +6148,8 @@ impl ITaskSettings {
         (::windows::core::Interface::vtable(self).MultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppolicy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
+    pub unsafe fn SetMultipleInstances<'a, Param0: ::std::convert::Into<TASK_INSTANCES_POLICY>>(&self, policy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMultipleInstances)(::windows::core::Interface::as_raw(self), policy.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()> {
@@ -6716,8 +6190,8 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXmlText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
+    pub unsafe fn SetXmlText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, text: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut i16) -> ::windows::core::Result<()> {
@@ -6734,8 +6208,8 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, executiontimelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), executiontimelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, executiontimelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), executiontimelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -6752,8 +6226,8 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteExpiredTaskAfter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, expirationdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), expirationdelay.into_param().abi()).ok()
+    pub unsafe fn SetDeleteExpiredTaskAfter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, expirationdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), expirationdelay.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
@@ -6768,8 +6242,8 @@ impl ITaskSettings {
         (::windows::core::Interface::vtable(self).Compatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcompatlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compatlevel)).ok()
+    pub unsafe fn SetCompatibility<'a, Param0: ::std::convert::Into<TASK_COMPATIBILITY>>(&self, compatlevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCompatibility)(::windows::core::Interface::as_raw(self), compatlevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()> {
@@ -6787,8 +6261,8 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIdleSettings<'a, Param0: ::windows::core::IntoParam<'a, IIdleSettings>>(&self, pidlesettings: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIdleSettings)(::windows::core::Interface::as_raw(self), pidlesettings.into_param().abi()).ok()
+    pub unsafe fn SetIdleSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IIdleSettings>>>(&self, pidlesettings: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIdleSettings)(::windows::core::Interface::as_raw(self), pidlesettings.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunOnlyIfIdle(&self, prunonlyifidle: *mut i16) -> ::windows::core::Result<()> {
@@ -6814,13 +6288,19 @@ impl ITaskSettings {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNetworkSettings<'a, Param0: ::windows::core::IntoParam<'a, INetworkSettings>>(&self, pnetworksettings: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkSettings)(::windows::core::Interface::as_raw(self), pnetworksettings.into_param().abi()).ok()
+    pub unsafe fn SetNetworkSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, INetworkSettings>>>(&self, pnetworksettings: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkSettings)(::windows::core::Interface::as_raw(self), pnetworksettings.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskSettings> for ::windows::core::IUnknown {
     fn from(value: ITaskSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6831,20 +6311,14 @@ impl ::core::convert::From<&ITaskSettings> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskSettings> for super::Com::IDispatch {
     fn from(value: ITaskSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6852,18 +6326,6 @@ impl ::core::convert::From<ITaskSettings> for super::Com::IDispatch {
 impl ::core::convert::From<&ITaskSettings> for super::Com::IDispatch {
     fn from(value: &ITaskSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7003,21 +6465,15 @@ impl ::core::convert::From<ITaskSettings2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskSettings2> for ::windows::core::IUnknown {
     fn from(value: &ITaskSettings2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7027,21 +6483,15 @@ impl ::core::convert::From<ITaskSettings2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings2> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskSettings2> for super::Com::IDispatch {
     fn from(value: &ITaskSettings2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7100,8 +6550,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRestartInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, restartinterval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRestartInterval)(::windows::core::Interface::as_raw(self), restartinterval.into_param().abi()).ok()
+    pub unsafe fn SetRestartInterval<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, restartinterval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRestartInterval)(::windows::core::Interface::as_raw(self), restartinterval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()> {
@@ -7116,8 +6566,8 @@ impl ITaskSettings3 {
         (::windows::core::Interface::vtable(self).base__.MultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppolicy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
+    pub unsafe fn SetMultipleInstances<'a, Param0: ::std::convert::Into<TASK_INSTANCES_POLICY>>(&self, policy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMultipleInstances)(::windows::core::Interface::as_raw(self), policy.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()> {
@@ -7158,8 +6608,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXmlText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
+    pub unsafe fn SetXmlText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, text: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetXmlText)(::windows::core::Interface::as_raw(self), text.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut i16) -> ::windows::core::Result<()> {
@@ -7176,8 +6626,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, executiontimelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), executiontimelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, executiontimelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), executiontimelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -7194,8 +6644,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDeleteExpiredTaskAfter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, expirationdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), expirationdelay.into_param().abi()).ok()
+    pub unsafe fn SetDeleteExpiredTaskAfter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, expirationdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), expirationdelay.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
@@ -7210,8 +6660,8 @@ impl ITaskSettings3 {
         (::windows::core::Interface::vtable(self).base__.Compatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcompatlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCompatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compatlevel)).ok()
+    pub unsafe fn SetCompatibility<'a, Param0: ::std::convert::Into<TASK_COMPATIBILITY>>(&self, compatlevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCompatibility)(::windows::core::Interface::as_raw(self), compatlevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()> {
@@ -7229,8 +6679,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIdleSettings<'a, Param0: ::windows::core::IntoParam<'a, IIdleSettings>>(&self, pidlesettings: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIdleSettings)(::windows::core::Interface::as_raw(self), pidlesettings.into_param().abi()).ok()
+    pub unsafe fn SetIdleSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IIdleSettings>>>(&self, pidlesettings: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetIdleSettings)(::windows::core::Interface::as_raw(self), pidlesettings.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RunOnlyIfIdle(&self, prunonlyifidle: *mut i16) -> ::windows::core::Result<()> {
@@ -7256,8 +6706,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNetworkSettings<'a, Param0: ::windows::core::IntoParam<'a, INetworkSettings>>(&self, pnetworksettings: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNetworkSettings)(::windows::core::Interface::as_raw(self), pnetworksettings.into_param().abi()).ok()
+    pub unsafe fn SetNetworkSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, INetworkSettings>>>(&self, pnetworksettings: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNetworkSettings)(::windows::core::Interface::as_raw(self), pnetworksettings.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()> {
@@ -7283,8 +6733,8 @@ impl ITaskSettings3 {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMaintenanceSettings<'a, Param0: ::windows::core::IntoParam<'a, IMaintenanceSettings>>(&self, pmaintenancesettings: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaintenanceSettings)(::windows::core::Interface::as_raw(self), pmaintenancesettings.into_param().abi()).ok()
+    pub unsafe fn SetMaintenanceSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMaintenanceSettings>>>(&self, pmaintenancesettings: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMaintenanceSettings)(::windows::core::Interface::as_raw(self), pmaintenancesettings.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7308,26 +6758,26 @@ impl ::core::convert::From<ITaskSettings3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITaskSettings3> for ::windows::core::IUnknown {
     fn from(value: &ITaskSettings3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskSettings3> for super::Com::IDispatch {
     fn from(value: ITaskSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings3> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITaskSettings3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7338,20 +6788,14 @@ impl ::core::convert::From<&ITaskSettings3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITaskSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITaskSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITaskSettings3> for ITaskSettings {
     fn from(value: ITaskSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITaskSettings3> for &'a ITaskSettings {
+    fn from(value: &'a ITaskSettings3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7359,18 +6803,6 @@ impl ::core::convert::From<ITaskSettings3> for ITaskSettings {
 impl ::core::convert::From<&ITaskSettings3> for ITaskSettings {
     fn from(value: &ITaskSettings3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITaskSettings> for ITaskSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITaskSettings> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITaskSettings> for &'a ITaskSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITaskSettings> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7446,19 +6878,14 @@ impl ::core::convert::From<ITaskTrigger> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITaskTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITaskTrigger> for ::windows::core::IUnknown {
     fn from(value: &ITaskTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITaskTrigger {
@@ -7501,8 +6928,8 @@ impl ITaskVariables {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, input: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), input.into_param().abi()).ok()
+    pub unsafe fn SetOutput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, input: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), input.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7516,19 +6943,14 @@ impl ::core::convert::From<ITaskVariables> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITaskVariables> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITaskVariables) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITaskVariables> for ::windows::core::IUnknown {
     fn from(value: &ITaskVariables) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITaskVariables {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITaskVariables {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITaskVariables {
@@ -7585,8 +7007,8 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7596,8 +7018,8 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7606,8 +7028,8 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7616,8 +7038,8 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7626,8 +7048,8 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -7644,13 +7066,19 @@ impl ITimeTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRandomDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
+    pub unsafe fn SetRandomDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITimeTrigger> for ::windows::core::IUnknown {
     fn from(value: ITimeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITimeTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITimeTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7661,20 +7089,14 @@ impl ::core::convert::From<&ITimeTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITimeTrigger> for super::Com::IDispatch {
     fn from(value: ITimeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITimeTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITimeTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7685,20 +7107,14 @@ impl ::core::convert::From<&ITimeTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITimeTrigger> for ITrigger {
     fn from(value: ITimeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITimeTrigger> for &'a ITrigger {
+    fn from(value: &'a ITimeTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7706,18 +7122,6 @@ impl ::core::convert::From<ITimeTrigger> for ITrigger {
 impl ::core::convert::From<&ITimeTrigger> for ITrigger {
     fn from(value: &ITimeTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for ITimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a ITimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7776,8 +7180,8 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7787,8 +7191,8 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7797,8 +7201,8 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7807,8 +7211,8 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7817,8 +7221,8 @@ impl ITrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -7836,21 +7240,15 @@ impl ::core::convert::From<ITrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITrigger> for ::windows::core::IUnknown {
     fn from(value: &ITrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7860,21 +7258,15 @@ impl ::core::convert::From<ITrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITrigger> for super::Com::IDispatch {
     fn from(value: &ITrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7974,14 +7366,14 @@ impl ITriggerCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create(&self, r#type: TASK_TRIGGER_TYPE2) -> ::windows::core::Result<ITrigger> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<TASK_TRIGGER_TYPE2>>(&self, r#type: Param0) -> ::windows::core::Result<ITrigger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, index: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -7995,21 +7387,15 @@ impl ::core::convert::From<ITriggerCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITriggerCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITriggerCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITriggerCollection> for ::windows::core::IUnknown {
     fn from(value: &ITriggerCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITriggerCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITriggerCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8019,21 +7405,15 @@ impl ::core::convert::From<ITriggerCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITriggerCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a ITriggerCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITriggerCollection> for super::Com::IDispatch {
     fn from(value: &ITriggerCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ITriggerCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ITriggerCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8099,8 +7479,8 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8110,8 +7490,8 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRepetition<'a, Param0: ::windows::core::IntoParam<'a, IRepetitionPattern>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into_param().abi()).ok()
+    pub unsafe fn SetRepetition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRepetitionPattern>>>(&self, prepeat: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8120,8 +7500,8 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
+    pub unsafe fn SetExecutionTimeLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, timelimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8130,8 +7510,8 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
+    pub unsafe fn SetStartBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, start: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8140,8 +7520,8 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEndBoundary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
+    pub unsafe fn SetEndBoundary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, end: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()> {
@@ -8174,13 +7554,19 @@ impl IWeeklyTrigger {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRandomDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
+    pub unsafe fn SetRandomDelay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, randomdelay: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWeeklyTrigger> for ::windows::core::IUnknown {
     fn from(value: IWeeklyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWeeklyTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWeeklyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8191,20 +7577,14 @@ impl ::core::convert::From<&IWeeklyTrigger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWeeklyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWeeklyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWeeklyTrigger> for super::Com::IDispatch {
     fn from(value: IWeeklyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWeeklyTrigger> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWeeklyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8215,20 +7595,14 @@ impl ::core::convert::From<&IWeeklyTrigger> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWeeklyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWeeklyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWeeklyTrigger> for ITrigger {
     fn from(value: IWeeklyTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWeeklyTrigger> for &'a ITrigger {
+    fn from(value: &'a IWeeklyTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8236,18 +7610,6 @@ impl ::core::convert::From<IWeeklyTrigger> for ITrigger {
 impl ::core::convert::From<&IWeeklyTrigger> for ITrigger {
     fn from(value: &IWeeklyTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for IWeeklyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITrigger> for &'a IWeeklyTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ITrigger> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

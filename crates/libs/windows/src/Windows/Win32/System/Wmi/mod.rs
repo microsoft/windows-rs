@@ -72,8 +72,8 @@ impl IEnumWbemClassObject {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltimeout), apobjects.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(apobjects)), ::core::mem::transmute(pureturned)))
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn NextAsync<'a, Param1: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, ucount: u32, psink: Param1) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).NextAsync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ucount), psink.into_param().abi()))
+    pub unsafe fn NextAsync<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, ucount: u32, psink: Param1) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).NextAsync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ucount), psink.into().abi()))
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWbemClassObject> {
@@ -90,19 +90,14 @@ impl ::core::convert::From<IEnumWbemClassObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumWbemClassObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumWbemClassObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumWbemClassObject> for ::windows::core::IUnknown {
     fn from(value: &IEnumWbemClassObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumWbemClassObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumWbemClassObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumWbemClassObject {
@@ -140,16 +135,16 @@ pub struct IEnumWbemClassObject_Vtbl {
 pub struct IMofCompiler(::windows::core::IUnknown);
 impl IMofCompiler {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CompileFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, filename: Param0, serverandnamespace: Param1, user: Param2, authority: Param3, password: Param4, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CompileFile)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), serverandnamespace.into_param().abi(), user.into_param().abi(), authority.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(loptionflags), ::core::mem::transmute(lclassflags), ::core::mem::transmute(linstanceflags), ::core::mem::transmute(pinfo)).ok()
+    pub unsafe fn CompileFile(&self, filename: ::windows::core::PCWSTR, serverandnamespace: ::windows::core::PCWSTR, user: ::windows::core::PCWSTR, authority: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CompileFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(serverandnamespace), ::core::mem::transmute(user), ::core::mem::transmute(authority), ::core::mem::transmute(password), ::core::mem::transmute(loptionflags), ::core::mem::transmute(lclassflags), ::core::mem::transmute(linstanceflags), ::core::mem::transmute(pinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CompileBuffer<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, buffsize: i32, pbuffer: *const u8, serverandnamespace: Param2, user: Param3, authority: Param4, password: Param5, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CompileBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffsize), ::core::mem::transmute(pbuffer), serverandnamespace.into_param().abi(), user.into_param().abi(), authority.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(loptionflags), ::core::mem::transmute(lclassflags), ::core::mem::transmute(linstanceflags), ::core::mem::transmute(pinfo)).ok()
+    pub unsafe fn CompileBuffer(&self, buffsize: i32, pbuffer: *const u8, serverandnamespace: ::windows::core::PCWSTR, user: ::windows::core::PCWSTR, authority: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CompileBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffsize), ::core::mem::transmute(pbuffer), ::core::mem::transmute(serverandnamespace), ::core::mem::transmute(user), ::core::mem::transmute(authority), ::core::mem::transmute(password), ::core::mem::transmute(loptionflags), ::core::mem::transmute(lclassflags), ::core::mem::transmute(linstanceflags), ::core::mem::transmute(pinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateBMOF<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, textfilename: Param0, bmoffilename: Param1, serverandnamespace: Param2, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateBMOF)(::windows::core::Interface::as_raw(self), textfilename.into_param().abi(), bmoffilename.into_param().abi(), serverandnamespace.into_param().abi(), ::core::mem::transmute(loptionflags), ::core::mem::transmute(lclassflags), ::core::mem::transmute(linstanceflags), ::core::mem::transmute(pinfo)).ok()
+    pub unsafe fn CreateBMOF(&self, textfilename: ::windows::core::PCWSTR, bmoffilename: ::windows::core::PCWSTR, serverandnamespace: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateBMOF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(textfilename), ::core::mem::transmute(bmoffilename), ::core::mem::transmute(serverandnamespace), ::core::mem::transmute(loptionflags), ::core::mem::transmute(lclassflags), ::core::mem::transmute(linstanceflags), ::core::mem::transmute(pinfo)).ok()
     }
 }
 impl ::core::convert::From<IMofCompiler> for ::windows::core::IUnknown {
@@ -157,19 +152,14 @@ impl ::core::convert::From<IMofCompiler> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMofCompiler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMofCompiler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMofCompiler> for ::windows::core::IUnknown {
     fn from(value: &IMofCompiler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMofCompiler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMofCompiler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMofCompiler {
@@ -214,8 +204,8 @@ impl ISWbemDateTime {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), strvalue.into_param().abi()).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strvalue: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), strvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Year(&self) -> ::windows::core::Result<i32> {
@@ -387,13 +377,19 @@ impl ISWbemDateTime {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strfiletime: Param0, bislocal: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileTime)(::windows::core::Interface::as_raw(self), strfiletime.into_param().abi(), ::core::mem::transmute(bislocal)).ok()
+    pub unsafe fn SetFileTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strfiletime: Param0, bislocal: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFileTime)(::windows::core::Interface::as_raw(self), strfiletime.into().abi(), ::core::mem::transmute(bislocal)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemDateTime> for ::windows::core::IUnknown {
     fn from(value: ISWbemDateTime) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemDateTime> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemDateTime) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -404,20 +400,14 @@ impl ::core::convert::From<&ISWbemDateTime> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemDateTime {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemDateTime {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemDateTime> for super::Com::IDispatch {
     fn from(value: ISWbemDateTime) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemDateTime> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemDateTime) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -425,18 +415,6 @@ impl ::core::convert::From<ISWbemDateTime> for super::Com::IDispatch {
 impl ::core::convert::From<&ISWbemDateTime> for super::Com::IDispatch {
     fn from(value: &ISWbemDateTime) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemDateTime {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemDateTime {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -548,21 +526,15 @@ impl ::core::convert::From<ISWbemEventSource> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemEventSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemEventSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemEventSource> for ::windows::core::IUnknown {
     fn from(value: &ISWbemEventSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -572,21 +544,15 @@ impl ::core::convert::From<ISWbemEventSource> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemEventSource> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemEventSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemEventSource> for super::Com::IDispatch {
     fn from(value: &ISWbemEventSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -636,50 +602,50 @@ pub struct ISWbemLastError(::windows::core::IUnknown);
 impl ISWbemLastError {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Put_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectPath> {
+    pub unsafe fn Put_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectPath> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Put_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
+        (::windows::core::Interface::vtable(self).base__.Put_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PutAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn PutAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Delete_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn Delete_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Delete_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn DeleteAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Instances_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn Instances_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Instances_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.Instances_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstancesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InstancesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn InstancesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InstancesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Subclasses_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn Subclasses_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Subclasses_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.Subclasses_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SubclassesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SubclassesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn SubclassesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SubclassesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Associators_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn Associators_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param9: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
         &self,
         strassocclass: Param0,
         strresultclass: Param1,
@@ -693,11 +659,22 @@ impl ISWbemLastError {
         objwbemnamedvalueset: Param9,
     ) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into_param().abi(), strresultclass.into_param().abi(), strresultrole.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into_param().abi(), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param10: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param11: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsAsync_<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param10: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param11: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+    >(
         &self,
         objwbemsink: Param0,
         strassocclass: Param1,
@@ -712,29 +689,40 @@ impl ISWbemLastError {
         objwbemnamedvalueset: Param10,
         objwbemasynccontext: Param11,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AssociatorsAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strassocclass.into_param().abi(), strresultclass.into_param().abi(), strresultrole.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into_param().abi(), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.AssociatorsAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn References_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strresultclass: Param0, strrole: Param1, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param4, iflags: i32, objwbemnamedvalueset: Param6) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn References_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strresultclass: Param0, strrole: Param1, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param4, iflags: i32, objwbemnamedvalueset: Param6) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.References_)(::windows::core::Interface::as_raw(self), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.References_)(::windows::core::Interface::as_raw(self), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param8: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7, objwbemasynccontext: Param8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReferencesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ReferencesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
+        &self,
+        objwbemsink: Param0,
+        strresultclass: Param1,
+        strrole: Param2,
+        bclassesonly: i16,
+        bschemaonly: i16,
+        strrequiredqualifier: Param5,
+        iflags: i32,
+        objwbemnamedvalueset: Param7,
+        objwbemasynccontext: Param8,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ReferencesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethod_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn ExecMethod_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethodAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ExecMethodAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecMethodAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ExecMethodAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -762,9 +750,9 @@ impl ISWbemLastError {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareTo_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::core::Result<i16> {
+    pub unsafe fn CompareTo_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -810,26 +798,26 @@ impl ::core::convert::From<ISWbemLastError> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemLastError> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemLastError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemLastError> for ::windows::core::IUnknown {
     fn from(value: &ISWbemLastError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemLastError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemLastError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemLastError> for super::Com::IDispatch {
     fn from(value: ISWbemLastError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemLastError> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemLastError) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -840,20 +828,14 @@ impl ::core::convert::From<&ISWbemLastError> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemLastError {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemLastError {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemLastError> for ISWbemObject {
     fn from(value: ISWbemLastError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemLastError> for &'a ISWbemObject {
+    fn from(value: &'a ISWbemLastError) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -861,18 +843,6 @@ impl ::core::convert::From<ISWbemLastError> for ISWbemObject {
 impl ::core::convert::From<&ISWbemLastError> for ISWbemObject {
     fn from(value: &ISWbemLastError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ISWbemObject> for ISWbemLastError {
-    fn into_param(self) -> ::windows::core::Param<'a, ISWbemObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ISWbemObject> for &'a ISWbemLastError {
-    fn into_param(self) -> ::windows::core::Param<'a, ISWbemObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -914,9 +884,19 @@ pub struct ISWbemLocator(::windows::core::IUnknown);
 impl ISWbemLocator {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ConnectServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strserver: Param0, strnamespace: Param1, struser: Param2, strpassword: Param3, strlocale: Param4, strauthority: Param5, isecurityflags: i32, objwbemnamedvalueset: Param7) -> ::windows::core::Result<ISWbemServices> {
+    pub unsafe fn ConnectServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
+        &self,
+        strserver: Param0,
+        strnamespace: Param1,
+        struser: Param2,
+        strpassword: Param3,
+        strlocale: Param4,
+        strauthority: Param5,
+        isecurityflags: i32,
+        objwbemnamedvalueset: Param7,
+    ) -> ::windows::core::Result<ISWbemServices> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), strserver.into_param().abi(), strnamespace.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), strauthority.into_param().abi(), ::core::mem::transmute(isecurityflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemServices>(result__)
+        (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), strserver.into().abi(), strnamespace.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), strauthority.into().abi(), ::core::mem::transmute(isecurityflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemServices>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -932,21 +912,15 @@ impl ::core::convert::From<ISWbemLocator> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemLocator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemLocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemLocator> for ::windows::core::IUnknown {
     fn from(value: &ISWbemLocator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemLocator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemLocator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -956,21 +930,15 @@ impl ::core::convert::From<ISWbemLocator> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemLocator> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemLocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemLocator> for super::Com::IDispatch {
     fn from(value: &ISWbemLocator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemLocator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemLocator {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1056,21 +1024,15 @@ impl ::core::convert::From<ISWbemMethod> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemMethod> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemMethod) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemMethod> for ::windows::core::IUnknown {
     fn from(value: &ISWbemMethod) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemMethod {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemMethod {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1080,21 +1042,15 @@ impl ::core::convert::From<ISWbemMethod> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemMethod> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemMethod) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemMethod> for super::Com::IDispatch {
     fn from(value: &ISWbemMethod) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemMethod {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemMethod {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1161,9 +1117,9 @@ impl ISWbemMethodSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<ISWbemMethod> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<ISWbemMethod> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemMethod>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemMethod>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -1178,21 +1134,15 @@ impl ::core::convert::From<ISWbemMethodSet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemMethodSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemMethodSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemMethodSet> for ::windows::core::IUnknown {
     fn from(value: &ISWbemMethodSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemMethodSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemMethodSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1202,21 +1152,15 @@ impl ::core::convert::From<ISWbemMethodSet> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemMethodSet> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemMethodSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemMethodSet> for super::Com::IDispatch {
     fn from(value: &ISWbemMethodSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemMethodSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemMethodSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1287,21 +1231,15 @@ impl ::core::convert::From<ISWbemNamedValue> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemNamedValue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemNamedValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemNamedValue> for ::windows::core::IUnknown {
     fn from(value: &ISWbemNamedValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemNamedValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemNamedValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1311,21 +1249,15 @@ impl ::core::convert::From<ISWbemNamedValue> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemNamedValue> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemNamedValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemNamedValue> for super::Com::IDispatch {
     fn from(value: &ISWbemNamedValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemNamedValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemNamedValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1384,9 +1316,9 @@ impl ISWbemNamedValueSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<ISWbemNamedValue> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<ISWbemNamedValue> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValue>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValue>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -1395,14 +1327,14 @@ impl ISWbemNamedValueSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, varvalue: *const super::Com::VARIANT, iflags: i32) -> ::windows::core::Result<ISWbemNamedValue> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, varvalue: *const super::Com::VARIANT, iflags: i32) -> ::windows::core::Result<ISWbemNamedValue> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(varvalue), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValue>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(varvalue), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValue>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(iflags)).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(iflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1422,21 +1354,15 @@ impl ::core::convert::From<ISWbemNamedValueSet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemNamedValueSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemNamedValueSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemNamedValueSet> for ::windows::core::IUnknown {
     fn from(value: &ISWbemNamedValueSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemNamedValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemNamedValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1446,21 +1372,15 @@ impl ::core::convert::From<ISWbemNamedValueSet> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemNamedValueSet> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemNamedValueSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemNamedValueSet> for super::Com::IDispatch {
     fn from(value: &ISWbemNamedValueSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemNamedValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemNamedValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1521,50 +1441,50 @@ pub struct ISWbemObject(::windows::core::IUnknown);
 impl ISWbemObject {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Put_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectPath> {
+    pub unsafe fn Put_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectPath> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Put_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
+        (::windows::core::Interface::vtable(self).Put_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PutAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn PutAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Delete_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn Delete_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn DeleteAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Instances_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn Instances_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Instances_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).Instances_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstancesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstancesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn InstancesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InstancesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Subclasses_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn Subclasses_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Subclasses_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).Subclasses_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SubclassesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SubclassesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn SubclassesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SubclassesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Associators_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn Associators_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param9: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
         &self,
         strassocclass: Param0,
         strresultclass: Param1,
@@ -1578,11 +1498,22 @@ impl ISWbemObject {
         objwbemnamedvalueset: Param9,
     ) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into_param().abi(), strresultclass.into_param().abi(), strresultrole.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into_param().abi(), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param10: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param11: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsAsync_<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param10: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param11: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+    >(
         &self,
         objwbemsink: Param0,
         strassocclass: Param1,
@@ -1597,29 +1528,40 @@ impl ISWbemObject {
         objwbemnamedvalueset: Param10,
         objwbemasynccontext: Param11,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AssociatorsAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strassocclass.into_param().abi(), strresultclass.into_param().abi(), strresultrole.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into_param().abi(), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AssociatorsAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn References_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strresultclass: Param0, strrole: Param1, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param4, iflags: i32, objwbemnamedvalueset: Param6) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn References_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strresultclass: Param0, strrole: Param1, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param4, iflags: i32, objwbemnamedvalueset: Param6) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).References_)(::windows::core::Interface::as_raw(self), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).References_)(::windows::core::Interface::as_raw(self), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param8: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7, objwbemasynccontext: Param8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReferencesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ReferencesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
+        &self,
+        objwbemsink: Param0,
+        strresultclass: Param1,
+        strrole: Param2,
+        bclassesonly: i16,
+        bschemaonly: i16,
+        strrequiredqualifier: Param5,
+        iflags: i32,
+        objwbemnamedvalueset: Param7,
+        objwbemasynccontext: Param8,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReferencesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethod_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn ExecMethod_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethodAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecMethodAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecMethodAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecMethodAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1647,9 +1589,9 @@ impl ISWbemObject {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareTo_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::core::Result<i16> {
+    pub unsafe fn CompareTo_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1695,21 +1637,15 @@ impl ::core::convert::From<ISWbemObject> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemObject> for ::windows::core::IUnknown {
     fn from(value: &ISWbemObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1719,21 +1655,15 @@ impl ::core::convert::From<ISWbemObject> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObject> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemObject> for super::Com::IDispatch {
     fn from(value: &ISWbemObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1875,50 +1805,50 @@ pub struct ISWbemObjectEx(::windows::core::IUnknown);
 impl ISWbemObjectEx {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Put_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectPath> {
+    pub unsafe fn Put_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectPath> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Put_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
+        (::windows::core::Interface::vtable(self).base__.Put_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PutAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn PutAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Delete_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn Delete_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Delete_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn DeleteAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Instances_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn Instances_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Instances_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.Instances_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstancesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InstancesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn InstancesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InstancesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Subclasses_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn Subclasses_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Subclasses_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.Subclasses_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SubclassesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SubclassesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn SubclassesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SubclassesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Associators_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn Associators_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param9: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
         &self,
         strassocclass: Param0,
         strresultclass: Param1,
@@ -1932,11 +1862,22 @@ impl ISWbemObjectEx {
         objwbemnamedvalueset: Param9,
     ) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into_param().abi(), strresultclass.into_param().abi(), strresultrole.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into_param().abi(), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param10: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param11: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsAsync_<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param10: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param11: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+    >(
         &self,
         objwbemsink: Param0,
         strassocclass: Param1,
@@ -1951,29 +1892,40 @@ impl ISWbemObjectEx {
         objwbemnamedvalueset: Param10,
         objwbemasynccontext: Param11,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AssociatorsAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strassocclass.into_param().abi(), strresultclass.into_param().abi(), strresultrole.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into_param().abi(), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.AssociatorsAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn References_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strresultclass: Param0, strrole: Param1, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param4, iflags: i32, objwbemnamedvalueset: Param6) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn References_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strresultclass: Param0, strrole: Param1, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param4, iflags: i32, objwbemnamedvalueset: Param6) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.References_)(::windows::core::Interface::as_raw(self), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.References_)(::windows::core::Interface::as_raw(self), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param8: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7, objwbemasynccontext: Param8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReferencesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ReferencesAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
+        &self,
+        objwbemsink: Param0,
+        strresultclass: Param1,
+        strrole: Param2,
+        bclassesonly: i16,
+        bschemaonly: i16,
+        strrequiredqualifier: Param5,
+        iflags: i32,
+        objwbemnamedvalueset: Param7,
+        objwbemasynccontext: Param8,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ReferencesAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethod_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn ExecMethod_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethodAsync_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ExecMethodAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecMethodAsync_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ExecMethodAsync_)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2001,9 +1953,9 @@ impl ISWbemObjectEx {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareTo_<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::core::Result<i16> {
+    pub unsafe fn CompareTo_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2043,8 +1995,8 @@ impl ISWbemObjectEx {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Refresh_<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn Refresh_<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Refresh_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2054,19 +2006,25 @@ impl ISWbemObjectEx {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetText_<'a, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetText_<'a, Param0: ::std::convert::Into<WbemObjectTextFormatEnum>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, iobjecttextformat: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetText_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iobjecttextformat), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetText_)(::windows::core::Interface::as_raw(self), iobjecttextformat.into(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetFromText_<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, bstext: Param0, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFromText_)(::windows::core::Interface::as_raw(self), bstext.into_param().abi(), ::core::mem::transmute(iobjecttextformat), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn SetFromText_<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<WbemObjectTextFormatEnum>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, bstext: Param0, iobjecttextformat: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFromText_)(::windows::core::Interface::as_raw(self), bstext.into().abi(), iobjecttextformat.into(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemObjectEx> for ::windows::core::IUnknown {
     fn from(value: ISWbemObjectEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectEx> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemObjectEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2077,20 +2035,14 @@ impl ::core::convert::From<&ISWbemObjectEx> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemObjectEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemObjectEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemObjectEx> for super::Com::IDispatch {
     fn from(value: ISWbemObjectEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectEx> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemObjectEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2101,20 +2053,14 @@ impl ::core::convert::From<&ISWbemObjectEx> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemObjectEx {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemObjectEx {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemObjectEx> for ISWbemObject {
     fn from(value: ISWbemObjectEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectEx> for &'a ISWbemObject {
+    fn from(value: &'a ISWbemObjectEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2122,18 +2068,6 @@ impl ::core::convert::From<ISWbemObjectEx> for ISWbemObject {
 impl ::core::convert::From<&ISWbemObjectEx> for ISWbemObject {
     fn from(value: &ISWbemObjectEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ISWbemObject> for ISWbemObjectEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ISWbemObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ISWbemObject> for &'a ISWbemObjectEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ISWbemObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2197,8 +2131,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), strpath.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), strpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2208,8 +2142,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRelPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strrelpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRelPath)(::windows::core::Interface::as_raw(self), strrelpath.into_param().abi()).ok()
+    pub unsafe fn SetRelPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strrelpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRelPath)(::windows::core::Interface::as_raw(self), strrelpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2219,8 +2153,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), strserver.into_param().abi()).ok()
+    pub unsafe fn SetServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strserver: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), strserver.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2230,8 +2164,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strnamespace: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamespace)(::windows::core::Interface::as_raw(self), strnamespace.into_param().abi()).ok()
+    pub unsafe fn SetNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strnamespace: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNamespace)(::windows::core::Interface::as_raw(self), strnamespace.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2247,8 +2181,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdisplayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), strdisplayname.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strdisplayname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), strdisplayname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2258,8 +2192,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strclass: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClass)(::windows::core::Interface::as_raw(self), strclass.into_param().abi()).ok()
+    pub unsafe fn SetClass<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strclass: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClass)(::windows::core::Interface::as_raw(self), strclass.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn IsClass(&self) -> ::windows::core::Result<i16> {
@@ -2299,8 +2233,8 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocale<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strlocale: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocale)(::windows::core::Interface::as_raw(self), strlocale.into_param().abi()).ok()
+    pub unsafe fn SetLocale<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strlocale: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocale)(::windows::core::Interface::as_raw(self), strlocale.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2310,13 +2244,19 @@ impl ISWbemObjectPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAuthority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strauthority: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthority)(::windows::core::Interface::as_raw(self), strauthority.into_param().abi()).ok()
+    pub unsafe fn SetAuthority<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strauthority: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthority)(::windows::core::Interface::as_raw(self), strauthority.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemObjectPath> for ::windows::core::IUnknown {
     fn from(value: ISWbemObjectPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectPath> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemObjectPath) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2327,20 +2267,14 @@ impl ::core::convert::From<&ISWbemObjectPath> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemObjectPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemObjectPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemObjectPath> for super::Com::IDispatch {
     fn from(value: ISWbemObjectPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectPath> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemObjectPath) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2348,18 +2282,6 @@ impl ::core::convert::From<ISWbemObjectPath> for super::Com::IDispatch {
 impl ::core::convert::From<&ISWbemObjectPath> for super::Com::IDispatch {
     fn from(value: &ISWbemObjectPath) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemObjectPath {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemObjectPath {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2486,9 +2408,9 @@ impl ISWbemObjectSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strobjectpath: Param0, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strobjectpath: Param0, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -2515,21 +2437,15 @@ impl ::core::convert::From<ISWbemObjectSet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemObjectSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemObjectSet> for ::windows::core::IUnknown {
     fn from(value: &ISWbemObjectSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemObjectSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemObjectSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2539,21 +2455,15 @@ impl ::core::convert::From<ISWbemObjectSet> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemObjectSet> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemObjectSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemObjectSet> for super::Com::IDispatch {
     fn from(value: &ISWbemObjectSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemObjectSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemObjectSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2641,21 +2551,15 @@ impl ::core::convert::From<ISWbemPrivilege> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemPrivilege> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemPrivilege) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemPrivilege> for ::windows::core::IUnknown {
     fn from(value: &ISWbemPrivilege) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemPrivilege {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemPrivilege {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2665,21 +2569,15 @@ impl ::core::convert::From<ISWbemPrivilege> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemPrivilege> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemPrivilege) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemPrivilege> for super::Com::IDispatch {
     fn from(value: &ISWbemPrivilege) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemPrivilege {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemPrivilege {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2737,9 +2635,9 @@ impl ISWbemPrivilegeSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<ISWbemPrivilege> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<WbemPrivilegeEnum>>(&self, iprivilege: Param0) -> ::windows::core::Result<ISWbemPrivilege> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iprivilege), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), iprivilege.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -2748,13 +2646,13 @@ impl ISWbemPrivilegeSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<WbemPrivilegeEnum>>(&self, iprivilege: Param0, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iprivilege), ::core::mem::transmute(bisenabled), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), iprivilege.into(), ::core::mem::transmute(bisenabled), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Remove(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iprivilege)).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<WbemPrivilegeEnum>>(&self, iprivilege: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), iprivilege.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::core::Result<()> {
@@ -2762,14 +2660,20 @@ impl ISWbemPrivilegeSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddAsString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strprivilege: Param0, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege> {
+    pub unsafe fn AddAsString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strprivilege: Param0, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddAsString)(::windows::core::Interface::as_raw(self), strprivilege.into_param().abi(), ::core::mem::transmute(bisenabled), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
+        (::windows::core::Interface::vtable(self).AddAsString)(::windows::core::Interface::as_raw(self), strprivilege.into().abi(), ::core::mem::transmute(bisenabled), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemPrivilegeSet> for ::windows::core::IUnknown {
     fn from(value: ISWbemPrivilegeSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemPrivilegeSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemPrivilegeSet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2780,20 +2684,14 @@ impl ::core::convert::From<&ISWbemPrivilegeSet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemPrivilegeSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemPrivilegeSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemPrivilegeSet> for super::Com::IDispatch {
     fn from(value: ISWbemPrivilegeSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemPrivilegeSet> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemPrivilegeSet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2801,18 +2699,6 @@ impl ::core::convert::From<ISWbemPrivilegeSet> for super::Com::IDispatch {
 impl ::core::convert::From<&ISWbemPrivilegeSet> for super::Com::IDispatch {
     fn from(value: &ISWbemPrivilegeSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemPrivilegeSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemPrivilegeSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2920,21 +2806,15 @@ impl ::core::convert::From<ISWbemProperty> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemProperty> for ::windows::core::IUnknown {
     fn from(value: &ISWbemProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2944,21 +2824,15 @@ impl ::core::convert::From<ISWbemProperty> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemProperty> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemProperty> for super::Com::IDispatch {
     fn from(value: &ISWbemProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3028,9 +2902,9 @@ impl ISWbemPropertySet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<ISWbemProperty> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<ISWbemProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -3039,19 +2913,25 @@ impl ISWbemPropertySet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, icimtype: WbemCimtypeEnum, bisarray: i16, iflags: i32) -> ::windows::core::Result<ISWbemProperty> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<WbemCimtypeEnum>>(&self, strname: Param0, icimtype: Param1, bisarray: i16, iflags: i32) -> ::windows::core::Result<ISWbemProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(icimtype), ::core::mem::transmute(bisarray), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), icimtype.into(), ::core::mem::transmute(bisarray), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(iflags)).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(iflags)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemPropertySet> for ::windows::core::IUnknown {
     fn from(value: ISWbemPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemPropertySet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3062,20 +2942,14 @@ impl ::core::convert::From<&ISWbemPropertySet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemPropertySet> for super::Com::IDispatch {
     fn from(value: ISWbemPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemPropertySet> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3083,18 +2957,6 @@ impl ::core::convert::From<ISWbemPropertySet> for super::Com::IDispatch {
 impl ::core::convert::From<&ISWbemPropertySet> for super::Com::IDispatch {
     fn from(value: &ISWbemPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3210,21 +3072,15 @@ impl ::core::convert::From<ISWbemQualifier> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemQualifier> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemQualifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemQualifier> for ::windows::core::IUnknown {
     fn from(value: &ISWbemQualifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3234,21 +3090,15 @@ impl ::core::convert::From<ISWbemQualifier> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemQualifier> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemQualifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemQualifier> for super::Com::IDispatch {
     fn from(value: &ISWbemQualifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemQualifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3315,9 +3165,9 @@ impl ISWbemQualifierSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, iflags: i32) -> ::windows::core::Result<ISWbemQualifier> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0, iflags: i32) -> ::windows::core::Result<ISWbemQualifier> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifier>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifier>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -3326,19 +3176,25 @@ impl ISWbemQualifierSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, varval: *const super::Com::VARIANT, bpropagatestosubclass: i16, bpropagatestoinstance: i16, bisoverridable: i16, iflags: i32) -> ::windows::core::Result<ISWbemQualifier> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, varval: *const super::Com::VARIANT, bpropagatestosubclass: i16, bpropagatestoinstance: i16, bisoverridable: i16, iflags: i32) -> ::windows::core::Result<ISWbemQualifier> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(varval), ::core::mem::transmute(bpropagatestosubclass), ::core::mem::transmute(bpropagatestoinstance), ::core::mem::transmute(bisoverridable), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifier>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(varval), ::core::mem::transmute(bpropagatestosubclass), ::core::mem::transmute(bpropagatestoinstance), ::core::mem::transmute(bisoverridable), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifier>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(iflags)).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, iflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(iflags)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemQualifierSet> for ::windows::core::IUnknown {
     fn from(value: ISWbemQualifierSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemQualifierSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemQualifierSet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3349,20 +3205,14 @@ impl ::core::convert::From<&ISWbemQualifierSet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemQualifierSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemQualifierSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemQualifierSet> for super::Com::IDispatch {
     fn from(value: ISWbemQualifierSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemQualifierSet> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemQualifierSet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3370,18 +3220,6 @@ impl ::core::convert::From<ISWbemQualifierSet> for super::Com::IDispatch {
 impl ::core::convert::From<&ISWbemQualifierSet> for super::Com::IDispatch {
     fn from(value: &ISWbemQualifierSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemQualifierSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemQualifierSet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3475,21 +3313,15 @@ impl ::core::convert::From<ISWbemRefreshableItem> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemRefreshableItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemRefreshableItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemRefreshableItem> for ::windows::core::IUnknown {
     fn from(value: &ISWbemRefreshableItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemRefreshableItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemRefreshableItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3499,21 +3331,15 @@ impl ::core::convert::From<ISWbemRefreshableItem> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemRefreshableItem> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemRefreshableItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemRefreshableItem> for super::Com::IDispatch {
     fn from(value: &ISWbemRefreshableItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemRefreshableItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemRefreshableItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3586,15 +3412,15 @@ impl ISWbemRefresher {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ISWbemServicesEx>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemservices: Param0, bsinstancepath: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemRefreshableItem> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISWbemServicesEx>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemservices: Param0, bsinstancepath: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemRefreshableItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), objwbemservices.into_param().abi(), bsinstancepath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), objwbemservices.into().abi(), bsinstancepath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddEnum<'a, Param0: ::windows::core::IntoParam<'a, ISWbemServicesEx>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemservices: Param0, bsclassname: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemRefreshableItem> {
+    pub unsafe fn AddEnum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISWbemServicesEx>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemservices: Param0, bsclassname: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemRefreshableItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddEnum)(::windows::core::Interface::as_raw(self), objwbemservices.into_param().abi(), bsclassname.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
+        (::windows::core::Interface::vtable(self).AddEnum)(::windows::core::Interface::as_raw(self), objwbemservices.into().abi(), bsclassname.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Remove(&self, iindex: i32, iflags: i32) -> ::windows::core::Result<()> {
@@ -3625,21 +3451,15 @@ impl ::core::convert::From<ISWbemRefresher> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemRefresher> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemRefresher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemRefresher> for ::windows::core::IUnknown {
     fn from(value: &ISWbemRefresher) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3649,21 +3469,15 @@ impl ::core::convert::From<ISWbemRefresher> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemRefresher> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemRefresher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemRefresher> for super::Com::IDispatch {
     fn from(value: &ISWbemRefresher) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3728,8 +3542,8 @@ impl ISWbemSecurity {
         (::windows::core::Interface::vtable(self).ImpersonationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemImpersonationLevelEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetImpersonationLevel(&self, iimpersonationlevel: WbemImpersonationLevelEnum) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImpersonationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimpersonationlevel)).ok()
+    pub unsafe fn SetImpersonationLevel<'a, Param0: ::std::convert::Into<WbemImpersonationLevelEnum>>(&self, iimpersonationlevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetImpersonationLevel)(::windows::core::Interface::as_raw(self), iimpersonationlevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn AuthenticationLevel(&self) -> ::windows::core::Result<WbemAuthenticationLevelEnum> {
@@ -3737,8 +3551,8 @@ impl ISWbemSecurity {
         (::windows::core::Interface::vtable(self).AuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemAuthenticationLevelEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetAuthenticationLevel(&self, iauthenticationlevel: WbemAuthenticationLevelEnum) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iauthenticationlevel)).ok()
+    pub unsafe fn SetAuthenticationLevel<'a, Param0: ::std::convert::Into<WbemAuthenticationLevelEnum>>(&self, iauthenticationlevel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), iauthenticationlevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3754,21 +3568,15 @@ impl ::core::convert::From<ISWbemSecurity> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemSecurity> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemSecurity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemSecurity> for ::windows::core::IUnknown {
     fn from(value: &ISWbemSecurity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemSecurity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemSecurity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3778,21 +3586,15 @@ impl ::core::convert::From<ISWbemSecurity> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemSecurity> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemSecurity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemSecurity> for super::Com::IDispatch {
     fn from(value: &ISWbemSecurity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemSecurity {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemSecurity {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3842,61 +3644,61 @@ pub struct ISWbemServices(::windows::core::IUnknown);
 impl ISWbemServices {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn DeleteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn DeleteAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InstancesOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn InstancesOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).InstancesOf)(::windows::core::Interface::as_raw(self), strclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).InstancesOf)(::windows::core::Interface::as_raw(self), strclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InstancesOfAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstancesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn InstancesOfAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InstancesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SubclassesOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strsuperclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn SubclassesOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strsuperclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).SubclassesOf)(::windows::core::Interface::as_raw(self), strsuperclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).SubclassesOf)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SubclassesOfAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strsuperclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SubclassesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strsuperclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn SubclassesOfAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strsuperclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SubclassesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strsuperclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn ExecQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecQuery)(::windows::core::Interface::as_raw(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).ExecQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, lflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(lflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, lflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(lflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param10: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param10: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
         &self,
         strobjectpath: Param0,
         strassocclass: Param1,
@@ -3911,26 +3713,23 @@ impl ISWbemServices {
         objwbemnamedvalueset: Param10,
     ) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AssociatorsOf)(
-            ::windows::core::Interface::as_raw(self),
-            strobjectpath.into_param().abi(),
-            strassocclass.into_param().abi(),
-            strresultclass.into_param().abi(),
-            strresultrole.into_param().abi(),
-            strrole.into_param().abi(),
-            ::core::mem::transmute(bclassesonly),
-            ::core::mem::transmute(bschemaonly),
-            strrequiredassocqualifier.into_param().abi(),
-            strrequiredqualifier.into_param().abi(),
-            ::core::mem::transmute(iflags),
-            objwbemnamedvalueset.into_param().abi(),
-            ::core::mem::transmute(result__.as_mut_ptr()),
-        )
-        .from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).AssociatorsOf)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsOfAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param11: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param12: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsOfAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param9: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param11: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param12: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+    >(
         &self,
         objwbemsink: Param0,
         strobjectpath: Param1,
@@ -3946,56 +3745,52 @@ impl ISWbemServices {
         objwbemnamedvalueset: Param11,
         objwbemasynccontext: Param12,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AssociatorsOfAsync)(
-            ::windows::core::Interface::as_raw(self),
-            objwbemsink.into_param().abi(),
-            strobjectpath.into_param().abi(),
-            strassocclass.into_param().abi(),
-            strresultclass.into_param().abi(),
-            strresultrole.into_param().abi(),
-            strrole.into_param().abi(),
-            ::core::mem::transmute(bclassesonly),
-            ::core::mem::transmute(bschemaonly),
-            strrequiredassocqualifier.into_param().abi(),
-            strrequiredqualifier.into_param().abi(),
-            ::core::mem::transmute(iflags),
-            objwbemnamedvalueset.into_param().abi(),
-            objwbemasynccontext.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).AssociatorsOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn ReferencesTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReferencesTo)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).ReferencesTo)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesToAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param9: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, strresultclass: Param2, strrole: Param3, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param6, iflags: i32, objwbemnamedvalueset: Param8, objwbemasynccontext: Param9) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReferencesToAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ReferencesToAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param9: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
+        &self,
+        objwbemsink: Param0,
+        strobjectpath: Param1,
+        strresultclass: Param2,
+        strrole: Param3,
+        bclassesonly: i16,
+        bschemaonly: i16,
+        strrequiredqualifier: Param6,
+        iflags: i32,
+        objwbemnamedvalueset: Param8,
+        objwbemasynccontext: Param9,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReferencesToAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecNotificationQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemEventSource> {
+    pub unsafe fn ExecNotificationQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemEventSource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemEventSource>(result__)
+        (::windows::core::Interface::vtable(self).ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemEventSource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecNotificationQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecNotificationQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethod<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn ExecMethod<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethodAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param6: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, strmethodname: Param2, objwbeminparameters: Param3, iflags: i32, objwbemnamedvalueset: Param5, objwbemasynccontext: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecMethodAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecMethodAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strobjectpath: Param1, strmethodname: Param2, objwbeminparameters: Param3, iflags: i32, objwbemnamedvalueset: Param5, objwbemasynccontext: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecMethodAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4011,21 +3806,15 @@ impl ::core::convert::From<ISWbemServices> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemServices> for ::windows::core::IUnknown {
     fn from(value: &ISWbemServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4035,21 +3824,15 @@ impl ::core::convert::From<ISWbemServices> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemServices> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemServices> for super::Com::IDispatch {
     fn from(value: &ISWbemServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemServices {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemServices {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4182,61 +3965,61 @@ pub struct ISWbemServicesEx(::windows::core::IUnknown);
 impl ISWbemServicesEx {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn DeleteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn DeleteAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InstancesOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn InstancesOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InstancesOf)(::windows::core::Interface::as_raw(self), strclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.InstancesOf)(::windows::core::Interface::as_raw(self), strclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InstancesOfAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InstancesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn InstancesOfAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InstancesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SubclassesOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strsuperclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn SubclassesOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strsuperclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SubclassesOf)(::windows::core::Interface::as_raw(self), strsuperclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.SubclassesOf)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SubclassesOfAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strsuperclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SubclassesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strsuperclass.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn SubclassesOfAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strsuperclass: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SubclassesOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strsuperclass.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn ExecQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExecQuery)(::windows::core::Interface::as_raw(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExecQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, lflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ExecQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(lflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, lflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ExecQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(lflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param10: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param10: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
         &self,
         strobjectpath: Param0,
         strassocclass: Param1,
@@ -4251,26 +4034,23 @@ impl ISWbemServicesEx {
         objwbemnamedvalueset: Param10,
     ) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AssociatorsOf)(
-            ::windows::core::Interface::as_raw(self),
-            strobjectpath.into_param().abi(),
-            strassocclass.into_param().abi(),
-            strresultclass.into_param().abi(),
-            strresultrole.into_param().abi(),
-            strrole.into_param().abi(),
-            ::core::mem::transmute(bclassesonly),
-            ::core::mem::transmute(bschemaonly),
-            strrequiredassocqualifier.into_param().abi(),
-            strrequiredqualifier.into_param().abi(),
-            ::core::mem::transmute(iflags),
-            objwbemnamedvalueset.into_param().abi(),
-            ::core::mem::transmute(result__.as_mut_ptr()),
-        )
-        .from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.AssociatorsOf)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AssociatorsOfAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param11: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param12: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(
+    pub unsafe fn AssociatorsOfAsync<
+        'a,
+        Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param9: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        Param11: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        Param12: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+    >(
         &self,
         objwbemsink: Param0,
         strobjectpath: Param1,
@@ -4286,56 +4066,52 @@ impl ISWbemServicesEx {
         objwbemnamedvalueset: Param11,
         objwbemasynccontext: Param12,
     ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AssociatorsOfAsync)(
-            ::windows::core::Interface::as_raw(self),
-            objwbemsink.into_param().abi(),
-            strobjectpath.into_param().abi(),
-            strassocclass.into_param().abi(),
-            strresultclass.into_param().abi(),
-            strresultrole.into_param().abi(),
-            strrole.into_param().abi(),
-            ::core::mem::transmute(bclassesonly),
-            ::core::mem::transmute(bschemaonly),
-            strrequiredassocqualifier.into_param().abi(),
-            strrequiredqualifier.into_param().abi(),
-            ::core::mem::transmute(iflags),
-            objwbemnamedvalueset.into_param().abi(),
-            objwbemasynccontext.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).base__.AssociatorsOfAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7) -> ::windows::core::Result<ISWbemObjectSet> {
+    pub unsafe fn ReferencesTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, strresultclass: Param1, strrole: Param2, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param5, iflags: i32, objwbemnamedvalueset: Param7) -> ::windows::core::Result<ISWbemObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReferencesTo)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReferencesTo)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ReferencesToAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param9: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, strresultclass: Param2, strrole: Param3, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: Param6, iflags: i32, objwbemnamedvalueset: Param8, objwbemasynccontext: Param9) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReferencesToAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), strresultclass.into_param().abi(), strrole.into_param().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ReferencesToAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param9: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(
+        &self,
+        objwbemsink: Param0,
+        strobjectpath: Param1,
+        strresultclass: Param2,
+        strrole: Param3,
+        bclassesonly: i16,
+        bschemaonly: i16,
+        strrequiredqualifier: Param6,
+        iflags: i32,
+        objwbemnamedvalueset: Param8,
+        objwbemasynccontext: Param9,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ReferencesToAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), strresultclass.into().abi(), strrole.into().abi(), ::core::mem::transmute(bclassesonly), ::core::mem::transmute(bschemaonly), strrequiredqualifier.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecNotificationQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemEventSource> {
+    pub unsafe fn ExecNotificationQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::core::Result<ISWbemEventSource> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemEventSource>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemEventSource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ExecNotificationQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strquery: Param1, strquerylanguage: Param2, iflags: i32, objwbemnamedvalueset: Param4, objwbemasynccontext: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ExecNotificationQueryAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strquery.into().abi(), strquerylanguage.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethod<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, strobjectpath: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4) -> ::windows::core::Result<ISWbemObject> {
+    pub unsafe fn ExecMethod<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, strobjectpath: Param0, strmethodname: Param1, objwbeminparameters: Param2, iflags: i32, objwbemnamedvalueset: Param4) -> ::windows::core::Result<ISWbemObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ExecMethodAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param5: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param6: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, strmethodname: Param2, objwbeminparameters: Param3, iflags: i32, objwbemnamedvalueset: Param5, objwbemasynccontext: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ExecMethodAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn ExecMethodAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, strobjectpath: Param1, strmethodname: Param2, objwbeminparameters: Param3, iflags: i32, objwbemnamedvalueset: Param5, objwbemasynccontext: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ExecMethodAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), strobjectpath.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4345,19 +4121,25 @@ impl ISWbemServicesEx {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, ISWbemObjectEx>, Param2: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemobject: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectPath> {
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISWbemObjectEx>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemobject: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::core::Result<ISWbemObjectPath> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), objwbemobject.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
+        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PutAsync<'a, Param0: ::windows::core::IntoParam<'a, ISWbemSink>, Param1: ::windows::core::IntoParam<'a, ISWbemObjectEx>, Param3: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param4: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, objwbemsink: Param0, objwbemobject: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into_param().abi(), objwbemobject.into_param().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
+    pub unsafe fn PutAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISWbemSink>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISWbemObjectEx>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, objwbemsink: Param0, objwbemobject: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutAsync)(::windows::core::Interface::as_raw(self), objwbemsink.into().abi(), objwbemobject.into().abi(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), objwbemasynccontext.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemServicesEx> for ::windows::core::IUnknown {
     fn from(value: ISWbemServicesEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemServicesEx> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemServicesEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4368,20 +4150,14 @@ impl ::core::convert::From<&ISWbemServicesEx> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemServicesEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemServicesEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemServicesEx> for super::Com::IDispatch {
     fn from(value: ISWbemServicesEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemServicesEx> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemServicesEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4392,20 +4168,14 @@ impl ::core::convert::From<&ISWbemServicesEx> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemServicesEx {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemServicesEx {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ISWbemServicesEx> for ISWbemServices {
     fn from(value: ISWbemServicesEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemServicesEx> for &'a ISWbemServices {
+    fn from(value: &'a ISWbemServicesEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4413,18 +4183,6 @@ impl ::core::convert::From<ISWbemServicesEx> for ISWbemServices {
 impl ::core::convert::From<&ISWbemServicesEx> for ISWbemServices {
     fn from(value: &ISWbemServicesEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ISWbemServices> for ISWbemServicesEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ISWbemServices> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ISWbemServices> for &'a ISWbemServicesEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ISWbemServices> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4484,21 +4242,15 @@ impl ::core::convert::From<ISWbemSink> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemSink> for ::windows::core::IUnknown {
     fn from(value: &ISWbemSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4508,21 +4260,15 @@ impl ::core::convert::From<ISWbemSink> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemSink> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemSink> for super::Com::IDispatch {
     fn from(value: &ISWbemSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemSink {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemSink {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4570,21 +4316,15 @@ impl ::core::convert::From<ISWbemSinkEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemSinkEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISWbemSinkEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemSinkEvents> for ::windows::core::IUnknown {
     fn from(value: &ISWbemSinkEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISWbemSinkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISWbemSinkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4594,21 +4334,15 @@ impl ::core::convert::From<ISWbemSinkEvents> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISWbemSinkEvents> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISWbemSinkEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISWbemSinkEvents> for super::Com::IDispatch {
     fn from(value: &ISWbemSinkEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISWbemSinkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISWbemSinkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4647,9 +4381,9 @@ pub struct ISWbemSinkEvents_Vtbl {
 pub struct IUnsecuredApartment(::windows::core::IUnknown);
 impl IUnsecuredApartment {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateObjectStub<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pobject: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn CreateObjectStub<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pobject: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateObjectStub)(::windows::core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).CreateObjectStub)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<IUnsecuredApartment> for ::windows::core::IUnknown {
@@ -4657,19 +4391,14 @@ impl ::core::convert::From<IUnsecuredApartment> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUnsecuredApartment> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUnsecuredApartment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUnsecuredApartment> for ::windows::core::IUnknown {
     fn from(value: &IUnsecuredApartment) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUnsecuredApartment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUnsecuredApartment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUnsecuredApartment {
@@ -4730,21 +4459,15 @@ impl ::core::convert::From<IWMIExtension> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMIExtension> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMIExtension) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMIExtension> for ::windows::core::IUnknown {
     fn from(value: &IWMIExtension) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMIExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMIExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4754,21 +4477,15 @@ impl ::core::convert::From<IWMIExtension> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMIExtension> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWMIExtension) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMIExtension> for super::Com::IDispatch {
     fn from(value: &IWMIExtension) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWMIExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWMIExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4819,8 +4536,8 @@ pub struct IWMIExtension_Vtbl {
 pub struct IWbemAddressResolution(::windows::core::IUnknown);
 impl IWbemAddressResolution {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Resolve<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wsznamespacepath: Param0, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), wsznamespacepath.into_param().abi(), ::core::mem::transmute(wszaddresstype), ::core::mem::transmute(pdwaddresslength), ::core::mem::transmute(pabbinaryaddress)).ok()
+    pub unsafe fn Resolve(&self, wsznamespacepath: ::windows::core::PCWSTR, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsznamespacepath), ::core::mem::transmute(wszaddresstype), ::core::mem::transmute(pdwaddresslength), ::core::mem::transmute(pabbinaryaddress)).ok()
     }
 }
 impl ::core::convert::From<IWbemAddressResolution> for ::windows::core::IUnknown {
@@ -4828,19 +4545,14 @@ impl ::core::convert::From<IWbemAddressResolution> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemAddressResolution> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemAddressResolution) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemAddressResolution> for ::windows::core::IUnknown {
     fn from(value: &IWbemAddressResolution) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemAddressResolution {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemAddressResolution {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemAddressResolution {
@@ -4874,12 +4586,12 @@ pub struct IWbemAddressResolution_Vtbl {
 pub struct IWbemBackupRestore(::windows::core::IUnknown);
 impl IWbemBackupRestore {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Backup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, strbackuptofile: Param0, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Backup)(::windows::core::Interface::as_raw(self), strbackuptofile.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn Backup(&self, strbackuptofile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Backup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strbackuptofile), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Restore<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, strrestorefromfile: Param0, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self), strrestorefromfile.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn Restore(&self, strrestorefromfile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strrestorefromfile), ::core::mem::transmute(lflags)).ok()
     }
 }
 impl ::core::convert::From<IWbemBackupRestore> for ::windows::core::IUnknown {
@@ -4887,19 +4599,14 @@ impl ::core::convert::From<IWbemBackupRestore> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemBackupRestore> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemBackupRestore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemBackupRestore> for ::windows::core::IUnknown {
     fn from(value: &IWbemBackupRestore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemBackupRestore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemBackupRestore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemBackupRestore {
@@ -4934,12 +4641,12 @@ pub struct IWbemBackupRestore_Vtbl {
 pub struct IWbemBackupRestoreEx(::windows::core::IUnknown);
 impl IWbemBackupRestoreEx {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Backup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, strbackuptofile: Param0, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Backup)(::windows::core::Interface::as_raw(self), strbackuptofile.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn Backup(&self, strbackuptofile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Backup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strbackuptofile), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Restore<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, strrestorefromfile: Param0, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Restore)(::windows::core::Interface::as_raw(self), strrestorefromfile.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn Restore(&self, strrestorefromfile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Restore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strrestorefromfile), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
@@ -4955,19 +4662,14 @@ impl ::core::convert::From<IWbemBackupRestoreEx> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemBackupRestoreEx> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemBackupRestoreEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemBackupRestoreEx> for ::windows::core::IUnknown {
     fn from(value: &IWbemBackupRestoreEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemBackupRestoreEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemBackupRestoreEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWbemBackupRestoreEx> for IWbemBackupRestore {
@@ -4975,19 +4677,14 @@ impl ::core::convert::From<IWbemBackupRestoreEx> for IWbemBackupRestore {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemBackupRestoreEx> for &'a IWbemBackupRestore {
+    fn from(value: &'a IWbemBackupRestoreEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemBackupRestoreEx> for IWbemBackupRestore {
     fn from(value: &IWbemBackupRestoreEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemBackupRestore> for IWbemBackupRestoreEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemBackupRestore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemBackupRestore> for &'a IWbemBackupRestoreEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemBackupRestore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemBackupRestoreEx {
@@ -5048,19 +4745,14 @@ impl ::core::convert::From<IWbemCallResult> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemCallResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemCallResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemCallResult> for ::windows::core::IUnknown {
     fn from(value: &IWbemCallResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemCallResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemCallResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemCallResult {
@@ -5106,23 +4798,23 @@ impl IWbemClassObject {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(ptype), ::core::mem::transmute(plflavor)).ok()
+    pub unsafe fn Get(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(ptype), ::core::mem::transmute(plflavor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(r#type)).ok()
+    pub unsafe fn Put(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), wszname.into_param().abi()).ok()
+    pub unsafe fn Delete(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetNames<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszqualifiername: Param0, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn GetNames(&self, wszqualifiername: ::windows::core::PCWSTR, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNames)(::windows::core::Interface::as_raw(self), wszqualifiername.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pqualifierval), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).GetNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszqualifiername), ::core::mem::transmute(lflags), ::core::mem::transmute(pqualifierval), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
@@ -5138,9 +4830,9 @@ impl IWbemClassObject {
         (::windows::core::Interface::vtable(self).EndEnumeration)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetPropertyQualifierSet<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszproperty: Param0) -> ::windows::core::Result<IWbemQualifierSet> {
+    pub unsafe fn GetPropertyQualifierSet(&self, wszproperty: ::windows::core::PCWSTR) -> ::windows::core::Result<IWbemQualifierSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyQualifierSet)(::windows::core::Interface::as_raw(self), wszproperty.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyQualifierSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemClassObject> {
@@ -5164,30 +4856,30 @@ impl IWbemClassObject {
         (::windows::core::Interface::vtable(self).SpawnInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CompareTo<'a, Param1: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pcompareto: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CompareTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pcompareto.into_param().abi()).ok()
+    pub unsafe fn CompareTo<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, lflags: i32, pcompareto: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CompareTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pcompareto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetPropertyOrigin(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyOrigin)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyOrigin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn InheritsFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, strancestor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InheritsFrom)(::windows::core::Interface::as_raw(self), strancestor.into_param().abi()).ok()
+    pub unsafe fn InheritsFrom(&self, strancestor: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InheritsFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strancestor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, ppinsignature: *mut ::core::option::Option<IWbemClassObject>, ppoutsignature: *mut ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMethod)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
+    pub unsafe fn GetMethod(&self, wszname: ::windows::core::PCWSTR, lflags: i32, ppinsignature: *mut ::core::option::Option<IWbemClassObject>, ppoutsignature: *mut ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn PutMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWbemClassObject>, Param3: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, wszname: Param0, lflags: i32, pinsignature: Param2, poutsignature: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutMethod)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), pinsignature.into_param().abi(), poutsignature.into_param().abi()).ok()
+    pub unsafe fn PutMethod<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pinsignature: Param2, poutsignature: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), pinsignature.into().abi(), poutsignature.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn DeleteMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteMethod)(::windows::core::Interface::as_raw(self), wszname.into_param().abi()).ok()
+    pub unsafe fn DeleteMethod(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
@@ -5203,15 +4895,15 @@ impl IWbemClassObject {
         (::windows::core::Interface::vtable(self).EndMethodEnumeration)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetMethodQualifierSet<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmethod: Param0) -> ::windows::core::Result<IWbemQualifierSet> {
+    pub unsafe fn GetMethodQualifierSet(&self, wszmethod: ::windows::core::PCWSTR) -> ::windows::core::Result<IWbemQualifierSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMethodQualifierSet)(::windows::core::Interface::as_raw(self), wszmethod.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
+        (::windows::core::Interface::vtable(self).GetMethodQualifierSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmethod), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMethodOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmethodname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetMethodOrigin(&self, wszmethodname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMethodOrigin)(::windows::core::Interface::as_raw(self), wszmethodname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetMethodOrigin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmethodname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IWbemClassObject> for ::windows::core::IUnknown {
@@ -5219,19 +4911,14 @@ impl ::core::convert::From<IWbemClassObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemClassObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemClassObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemClassObject> for ::windows::core::IUnknown {
     fn from(value: &IWbemClassObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemClassObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemClassObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemClassObject {
@@ -5313,18 +5000,41 @@ pub struct IWbemClientConnectionTransport(::windows::core::IUnknown);
 impl IWbemClientConnectionTransport {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, IWbemContext>, T: ::windows::core::Interface>(&self, straddresstype: Param0, abbinaryaddress: &[u8], strobject: Param3, struser: Param4, strpassword: Param5, strlocale: Param6, lflags: i32, pctx: Param8, pcallres: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<T> {
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, T: ::windows::core::Interface>(
+        &self,
+        straddresstype: Param0,
+        abbinaryaddress: &[u8],
+        strobject: Param3,
+        struser: Param4,
+        strpassword: Param5,
+        strlocale: Param6,
+        lflags: i32,
+        pctx: Param8,
+        pcallres: *mut ::core::option::Option<IWbemCallResult>,
+    ) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(pcallres)).and_some(result__)
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), straddresstype.into().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strobject.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(pcallres)).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, IWbemContext>, Param10: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, straddresstype: Param0, abbinaryaddress: &[u8], strobject: Param3, struser: Param4, strpassword: Param5, strlocale: Param6, lflags: i32, pctx: Param8, riid: *const ::windows::core::GUID, presponsehandler: Param10) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenAsync)(::windows::core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strobject.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(riid), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn OpenAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param10: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(
+        &self,
+        straddresstype: Param0,
+        abbinaryaddress: &[u8],
+        strobject: Param3,
+        struser: Param4,
+        strpassword: Param5,
+        strlocale: Param6,
+        lflags: i32,
+        pctx: Param8,
+        riid: *const ::windows::core::GUID,
+        presponsehandler: Param10,
+    ) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenAsync)(::windows::core::Interface::as_raw(self), straddresstype.into().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strobject.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(riid), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Cancel<'a, Param1: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, lflags: i32, phandler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), phandler.into_param().abi()).ok()
+    pub unsafe fn Cancel<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, lflags: i32, phandler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), phandler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemClientConnectionTransport> for ::windows::core::IUnknown {
@@ -5332,19 +5042,14 @@ impl ::core::convert::From<IWbemClientConnectionTransport> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemClientConnectionTransport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemClientConnectionTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemClientConnectionTransport> for ::windows::core::IUnknown {
     fn from(value: &IWbemClientConnectionTransport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemClientConnectionTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemClientConnectionTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemClientConnectionTransport {
@@ -5387,9 +5092,20 @@ pub struct IWbemClientTransport(::windows::core::IUnknown);
 impl IWbemClientTransport {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConnectServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::core::IntoParam<'a, IWbemContext>>(&self, straddresstype: Param0, abbinaryaddress: &[u8], strnetworkresource: Param3, struser: Param4, strpassword: Param5, strlocale: Param6, lsecurityflags: i32, strauthority: Param8, pctx: Param9) -> ::windows::core::Result<IWbemServices> {
+    pub unsafe fn ConnectServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param8: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param9: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(
+        &self,
+        straddresstype: Param0,
+        abbinaryaddress: &[u8],
+        strnetworkresource: Param3,
+        struser: Param4,
+        strpassword: Param5,
+        strlocale: Param6,
+        lsecurityflags: i32,
+        strauthority: Param8,
+        pctx: Param9,
+    ) -> ::windows::core::Result<IWbemServices> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), straddresstype.into_param().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strnetworkresource.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), ::core::mem::transmute(lsecurityflags), strauthority.into_param().abi(), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
+        (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), straddresstype.into().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strnetworkresource.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), ::core::mem::transmute(lsecurityflags), strauthority.into().abi(), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
 impl ::core::convert::From<IWbemClientTransport> for ::windows::core::IUnknown {
@@ -5397,19 +5113,14 @@ impl ::core::convert::From<IWbemClientTransport> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemClientTransport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemClientTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemClientTransport> for ::windows::core::IUnknown {
     fn from(value: &IWbemClientTransport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemClientTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemClientTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemClientTransport {
@@ -5446,24 +5157,24 @@ pub struct IWbemClientTransport_Vtbl {
 pub struct IWbemConfigureRefresher(::windows::core::IUnknown);
 impl IWbemConfigureRefresher {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn AddObjectByPath<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, wszpath: Param1, lflags: i32, pcontext: Param3, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddObjectByPath)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), wszpath.into_param().abi(), ::core::mem::transmute(lflags), pcontext.into_param().abi(), ::core::mem::transmute(pprefreshable), ::core::mem::transmute(plid)).ok()
+    pub unsafe fn AddObjectByPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pnamespace: Param0, wszpath: ::windows::core::PCWSTR, lflags: i32, pcontext: Param3, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddObjectByPath)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ::core::mem::transmute(wszpath), ::core::mem::transmute(lflags), pcontext.into().abi(), ::core::mem::transmute(pprefreshable), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn AddObjectByTemplate<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param1: ::windows::core::IntoParam<'a, IWbemClassObject>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, ptemplate: Param1, lflags: i32, pcontext: Param3, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddObjectByTemplate)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), ptemplate.into_param().abi(), ::core::mem::transmute(lflags), pcontext.into_param().abi(), ::core::mem::transmute(pprefreshable), ::core::mem::transmute(plid)).ok()
+    pub unsafe fn AddObjectByTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pnamespace: Param0, ptemplate: Param1, lflags: i32, pcontext: Param3, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddObjectByTemplate)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ptemplate.into().abi(), ::core::mem::transmute(lflags), pcontext.into().abi(), ::core::mem::transmute(pprefreshable), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn AddRefresher<'a, Param0: ::windows::core::IntoParam<'a, IWbemRefresher>>(&self, prefresher: Param0, lflags: i32, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRefresher)(::windows::core::Interface::as_raw(self), prefresher.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(plid)).ok()
+    pub unsafe fn AddRefresher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemRefresher>>>(&self, prefresher: Param0, lflags: i32, plid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddRefresher)(::windows::core::Interface::as_raw(self), prefresher.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Remove(&self, lid: i32, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lid), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn AddEnum<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, wszclassname: Param1, lflags: i32, pcontext: Param3, ppenum: *mut ::core::option::Option<IWbemHiPerfEnum>, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddEnum)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), wszclassname.into_param().abi(), ::core::mem::transmute(lflags), pcontext.into_param().abi(), ::core::mem::transmute(ppenum), ::core::mem::transmute(plid)).ok()
+    pub unsafe fn AddEnum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pnamespace: Param0, wszclassname: ::windows::core::PCWSTR, lflags: i32, pcontext: Param3, ppenum: *mut ::core::option::Option<IWbemHiPerfEnum>, plid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddEnum)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ::core::mem::transmute(wszclassname), ::core::mem::transmute(lflags), pcontext.into().abi(), ::core::mem::transmute(ppenum), ::core::mem::transmute(plid)).ok()
     }
 }
 impl ::core::convert::From<IWbemConfigureRefresher> for ::windows::core::IUnknown {
@@ -5471,19 +5182,14 @@ impl ::core::convert::From<IWbemConfigureRefresher> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemConfigureRefresher> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemConfigureRefresher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemConfigureRefresher> for ::windows::core::IUnknown {
     fn from(value: &IWbemConfigureRefresher) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemConfigureRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemConfigureRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemConfigureRefresher {
@@ -5521,9 +5227,9 @@ pub struct IWbemConfigureRefresher_Vtbl {
 pub struct IWbemConnectorLogin(::windows::core::IUnknown);
 impl IWbemConnectorLogin {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn ConnectorLogin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>, T: ::windows::core::Interface>(&self, wsznetworkresource: Param0, wszpreferredlocale: Param1, lflags: i32, pctx: Param3) -> ::windows::core::Result<T> {
+    pub unsafe fn ConnectorLogin<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, T: ::windows::core::Interface>(&self, wsznetworkresource: ::windows::core::PCWSTR, wszpreferredlocale: ::windows::core::PCWSTR, lflags: i32, pctx: Param3) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).ConnectorLogin)(::windows::core::Interface::as_raw(self), wsznetworkresource.into_param().abi(), wszpreferredlocale.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).ConnectorLogin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsznetworkresource), ::core::mem::transmute(wszpreferredlocale), ::core::mem::transmute(lflags), pctx.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IWbemConnectorLogin> for ::windows::core::IUnknown {
@@ -5531,19 +5237,14 @@ impl ::core::convert::From<IWbemConnectorLogin> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemConnectorLogin> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemConnectorLogin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemConnectorLogin> for ::windows::core::IUnknown {
     fn from(value: &IWbemConnectorLogin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemConnectorLogin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemConnectorLogin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemConnectorLogin {
@@ -5581,16 +5282,16 @@ impl IWbemConstructClassObject {
         (::windows::core::Interface::vtable(self).SetInheritanceChain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnumantecedents), ::core::mem::transmute(awszantecedents)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetPropertyOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszpropertyname: Param0, loriginindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyOrigin)(::windows::core::Interface::as_raw(self), wszpropertyname.into_param().abi(), ::core::mem::transmute(loriginindex)).ok()
+    pub unsafe fn SetPropertyOrigin(&self, wszpropertyname: ::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPropertyOrigin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszpropertyname), ::core::mem::transmute(loriginindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetMethodOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmethodname: Param0, loriginindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMethodOrigin)(::windows::core::Interface::as_raw(self), wszmethodname.into_param().abi(), ::core::mem::transmute(loriginindex)).ok()
+    pub unsafe fn SetMethodOrigin(&self, wszmethodname: ::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMethodOrigin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmethodname), ::core::mem::transmute(loriginindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetServerNamespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszserver: Param0, wsznamespace: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerNamespace)(::windows::core::Interface::as_raw(self), wszserver.into_param().abi(), wsznamespace.into_param().abi()).ok()
+    pub unsafe fn SetServerNamespace(&self, wszserver: ::windows::core::PCWSTR, wsznamespace: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszserver), ::core::mem::transmute(wsznamespace)).ok()
     }
 }
 impl ::core::convert::From<IWbemConstructClassObject> for ::windows::core::IUnknown {
@@ -5598,19 +5299,14 @@ impl ::core::convert::From<IWbemConstructClassObject> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemConstructClassObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemConstructClassObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemConstructClassObject> for ::windows::core::IUnknown {
     fn from(value: &IWbemConstructClassObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemConstructClassObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemConstructClassObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemConstructClassObject {
@@ -5672,18 +5368,18 @@ impl IWbemContext {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, pvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn SetValue(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetValue(&self, wszname: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn DeleteValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteValue)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn DeleteValue(&self, wszname: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::core::Result<()> {
@@ -5695,19 +5391,14 @@ impl ::core::convert::From<IWbemContext> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemContext> for ::windows::core::IUnknown {
     fn from(value: &IWbemContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemContext {
@@ -5761,26 +5452,31 @@ pub struct IWbemContext_Vtbl {
 pub struct IWbemDecoupledBasicEventProvider(::windows::core::IUnknown);
 impl IWbemDecoupledBasicEventProvider {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Register<'a, Param1: ::windows::core::IntoParam<'a, IWbemContext>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, a_flags: i32, a_context: Param1, a_user: Param2, a_locale: Param3, a_scope: Param4, a_registration: Param5, piunknown: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Register)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into_param().abi(), a_user.into_param().abi(), a_locale.into_param().abi(), a_scope.into_param().abi(), a_registration.into_param().abi(), piunknown.into_param().abi()).ok()
+    pub unsafe fn Register<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, a_flags: i32, a_context: Param1, a_user: ::windows::core::PCWSTR, a_locale: ::windows::core::PCWSTR, a_scope: ::windows::core::PCWSTR, a_registration: ::windows::core::PCWSTR, piunknown: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Register)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into().abi(), ::core::mem::transmute(a_user), ::core::mem::transmute(a_locale), ::core::mem::transmute(a_scope), ::core::mem::transmute(a_registration), piunknown.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn UnRegister(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.UnRegister)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetSink<'a, Param1: ::windows::core::IntoParam<'a, IWbemContext>>(&self, a_flags: i32, a_context: Param1) -> ::windows::core::Result<IWbemObjectSink> {
+    pub unsafe fn GetSink<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, a_flags: i32, a_context: Param1) -> ::windows::core::Result<IWbemObjectSink> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
+        (::windows::core::Interface::vtable(self).GetSink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetService<'a, Param1: ::windows::core::IntoParam<'a, IWbemContext>>(&self, a_flags: i32, a_context: Param1) -> ::windows::core::Result<IWbemServices> {
+    pub unsafe fn GetService<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, a_flags: i32, a_context: Param1) -> ::windows::core::Result<IWbemServices> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
+        (::windows::core::Interface::vtable(self).GetService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
 impl ::core::convert::From<IWbemDecoupledBasicEventProvider> for ::windows::core::IUnknown {
     fn from(value: IWbemDecoupledBasicEventProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWbemDecoupledBasicEventProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemDecoupledBasicEventProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5789,34 +5485,19 @@ impl ::core::convert::From<&IWbemDecoupledBasicEventProvider> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemDecoupledBasicEventProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemDecoupledBasicEventProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWbemDecoupledBasicEventProvider> for IWbemDecoupledRegistrar {
     fn from(value: IWbemDecoupledBasicEventProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWbemDecoupledBasicEventProvider> for &'a IWbemDecoupledRegistrar {
+    fn from(value: &'a IWbemDecoupledBasicEventProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWbemDecoupledBasicEventProvider> for IWbemDecoupledRegistrar {
     fn from(value: &IWbemDecoupledBasicEventProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemDecoupledRegistrar> for IWbemDecoupledBasicEventProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemDecoupledRegistrar> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemDecoupledRegistrar> for &'a IWbemDecoupledBasicEventProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemDecoupledRegistrar> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemDecoupledBasicEventProvider {
@@ -5851,8 +5532,8 @@ pub struct IWbemDecoupledBasicEventProvider_Vtbl {
 pub struct IWbemDecoupledRegistrar(::windows::core::IUnknown);
 impl IWbemDecoupledRegistrar {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Register<'a, Param1: ::windows::core::IntoParam<'a, IWbemContext>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, a_flags: i32, a_context: Param1, a_user: Param2, a_locale: Param3, a_scope: Param4, a_registration: Param5, piunknown: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Register)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into_param().abi(), a_user.into_param().abi(), a_locale.into_param().abi(), a_scope.into_param().abi(), a_registration.into_param().abi(), piunknown.into_param().abi()).ok()
+    pub unsafe fn Register<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, a_flags: i32, a_context: Param1, a_user: ::windows::core::PCWSTR, a_locale: ::windows::core::PCWSTR, a_scope: ::windows::core::PCWSTR, a_registration: ::windows::core::PCWSTR, piunknown: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Register)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(a_flags), a_context.into().abi(), ::core::mem::transmute(a_user), ::core::mem::transmute(a_locale), ::core::mem::transmute(a_scope), ::core::mem::transmute(a_registration), piunknown.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn UnRegister(&self) -> ::windows::core::Result<()> {
@@ -5864,19 +5545,14 @@ impl ::core::convert::From<IWbemDecoupledRegistrar> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemDecoupledRegistrar> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemDecoupledRegistrar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemDecoupledRegistrar> for ::windows::core::IUnknown {
     fn from(value: &IWbemDecoupledRegistrar) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemDecoupledRegistrar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemDecoupledRegistrar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemDecoupledRegistrar {
@@ -5911,9 +5587,9 @@ pub struct IWbemDecoupledRegistrar_Vtbl {
 pub struct IWbemEventConsumerProvider(::windows::core::IUnknown);
 impl IWbemEventConsumerProvider {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn FindConsumer<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, plogicalconsumer: Param0) -> ::windows::core::Result<IWbemUnboundObjectSink> {
+    pub unsafe fn FindConsumer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, plogicalconsumer: Param0) -> ::windows::core::Result<IWbemUnboundObjectSink> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindConsumer)(::windows::core::Interface::as_raw(self), plogicalconsumer.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemUnboundObjectSink>(result__)
+        (::windows::core::Interface::vtable(self).FindConsumer)(::windows::core::Interface::as_raw(self), plogicalconsumer.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemUnboundObjectSink>(result__)
     }
 }
 impl ::core::convert::From<IWbemEventConsumerProvider> for ::windows::core::IUnknown {
@@ -5921,19 +5597,14 @@ impl ::core::convert::From<IWbemEventConsumerProvider> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemEventConsumerProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemEventConsumerProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemEventConsumerProvider> for ::windows::core::IUnknown {
     fn from(value: &IWbemEventConsumerProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemEventConsumerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemEventConsumerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemEventConsumerProvider {
@@ -5967,8 +5638,8 @@ pub struct IWbemEventConsumerProvider_Vtbl {
 pub struct IWbemEventProvider(::windows::core::IUnknown);
 impl IWbemEventProvider {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn ProvideEvents<'a, Param0: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, psink: Param0, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProvideEvents)(::windows::core::Interface::as_raw(self), psink.into_param().abi(), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn ProvideEvents<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, psink: Param0, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProvideEvents)(::windows::core::Interface::as_raw(self), psink.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
 }
 impl ::core::convert::From<IWbemEventProvider> for ::windows::core::IUnknown {
@@ -5976,19 +5647,14 @@ impl ::core::convert::From<IWbemEventProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemEventProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemEventProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemEventProvider> for ::windows::core::IUnknown {
     fn from(value: &IWbemEventProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemEventProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemEventProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemEventProvider {
@@ -6035,19 +5701,14 @@ impl ::core::convert::From<IWbemEventProviderQuerySink> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemEventProviderQuerySink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemEventProviderQuerySink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemEventProviderQuerySink> for ::windows::core::IUnknown {
     fn from(value: &IWbemEventProviderQuerySink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemEventProviderQuerySink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemEventProviderQuerySink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemEventProviderQuerySink {
@@ -6091,19 +5752,14 @@ impl ::core::convert::From<IWbemEventProviderSecurity> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemEventProviderSecurity> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemEventProviderSecurity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemEventProviderSecurity> for ::windows::core::IUnknown {
     fn from(value: &IWbemEventProviderSecurity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemEventProviderSecurity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemEventProviderSecurity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemEventProviderSecurity {
@@ -6142,8 +5798,8 @@ impl IWbemEventSink {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStatus<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(hresult), strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
+    pub unsafe fn SetStatus<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(hresult), strparam.into().abi(), pobjparam.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn SetSinkSecurity(&self, psd: &[u8]) -> ::windows::core::Result<()> {
@@ -6154,9 +5810,9 @@ impl IWbemEventSink {
         (::windows::core::Interface::vtable(self).IsActive)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetRestrictedSink<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, awszqueries: &[::windows::core::PWSTR], pcallback: Param2) -> ::windows::core::Result<IWbemEventSink> {
+    pub unsafe fn GetRestrictedSink<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, awszqueries: &[::windows::core::PWSTR], pcallback: Param2) -> ::windows::core::Result<IWbemEventSink> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictedSink)(::windows::core::Interface::as_raw(self), awszqueries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(awszqueries)), pcallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemEventSink>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictedSink)(::windows::core::Interface::as_raw(self), awszqueries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(awszqueries)), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemEventSink>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::core::Result<()> {
@@ -6168,19 +5824,14 @@ impl ::core::convert::From<IWbemEventSink> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemEventSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemEventSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemEventSink> for ::windows::core::IUnknown {
     fn from(value: &IWbemEventSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWbemEventSink> for IWbemObjectSink {
@@ -6188,19 +5839,14 @@ impl ::core::convert::From<IWbemEventSink> for IWbemObjectSink {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemEventSink> for &'a IWbemObjectSink {
+    fn from(value: &'a IWbemEventSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemEventSink> for IWbemObjectSink {
     fn from(value: &IWbemEventSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemObjectSink> for IWbemEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemObjectSink> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemObjectSink> for &'a IWbemEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemObjectSink> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemEventSink {
@@ -6258,19 +5904,14 @@ impl ::core::convert::From<IWbemHiPerfEnum> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemHiPerfEnum> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemHiPerfEnum) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemHiPerfEnum> for ::windows::core::IUnknown {
     fn from(value: &IWbemHiPerfEnum) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemHiPerfEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemHiPerfEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemHiPerfEnum {
@@ -6307,30 +5948,30 @@ pub struct IWbemHiPerfEnum_Vtbl {
 pub struct IWbemHiPerfProvider(::windows::core::IUnknown);
 impl IWbemHiPerfProvider {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn QueryInstances<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>, Param4: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, pnamespace: Param0, wszclass: Param1, lflags: i32, pctx: Param3, psink: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryInstances)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), wszclass.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), psink.into_param().abi()).ok()
+    pub unsafe fn QueryInstances<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, pnamespace: Param0, wszclass: ::windows::core::PCWSTR, lflags: i32, pctx: Param3, psink: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).QueryInstances)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ::core::mem::transmute(wszclass), ::core::mem::transmute(lflags), pctx.into().abi(), psink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateRefresher<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>>(&self, pnamespace: Param0, lflags: i32) -> ::windows::core::Result<IWbemRefresher> {
+    pub unsafe fn CreateRefresher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>>(&self, pnamespace: Param0, lflags: i32) -> ::windows::core::Result<IWbemRefresher> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRefresher)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemRefresher>(result__)
+        (::windows::core::Interface::vtable(self).CreateRefresher)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemRefresher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateRefreshableObject<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param1: ::windows::core::IntoParam<'a, IWbemObjectAccess>, Param2: ::windows::core::IntoParam<'a, IWbemRefresher>, Param4: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, ptemplate: Param1, prefresher: Param2, lflags: i32, pcontext: Param4, pprefreshable: *mut ::core::option::Option<IWbemObjectAccess>, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateRefreshableObject)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), ptemplate.into_param().abi(), prefresher.into_param().abi(), ::core::mem::transmute(lflags), pcontext.into_param().abi(), ::core::mem::transmute(pprefreshable), ::core::mem::transmute(plid)).ok()
+    pub unsafe fn CreateRefreshableObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectAccess>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemRefresher>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pnamespace: Param0, ptemplate: Param1, prefresher: Param2, lflags: i32, pcontext: Param4, pprefreshable: *mut ::core::option::Option<IWbemObjectAccess>, plid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateRefreshableObject)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ptemplate.into().abi(), prefresher.into().abi(), ::core::mem::transmute(lflags), pcontext.into().abi(), ::core::mem::transmute(pprefreshable), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn StopRefreshing<'a, Param0: ::windows::core::IntoParam<'a, IWbemRefresher>>(&self, prefresher: Param0, lid: i32, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopRefreshing)(::windows::core::Interface::as_raw(self), prefresher.into_param().abi(), ::core::mem::transmute(lid), ::core::mem::transmute(lflags)).ok()
+    pub unsafe fn StopRefreshing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemRefresher>>>(&self, prefresher: Param0, lid: i32, lflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StopRefreshing)(::windows::core::Interface::as_raw(self), prefresher.into().abi(), ::core::mem::transmute(lid), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateRefreshableEnum<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWbemRefresher>, Param4: ::windows::core::IntoParam<'a, IWbemContext>, Param5: ::windows::core::IntoParam<'a, IWbemHiPerfEnum>>(&self, pnamespace: Param0, wszclass: Param1, prefresher: Param2, lflags: i32, pcontext: Param4, phiperfenum: Param5) -> ::windows::core::Result<i32> {
+    pub unsafe fn CreateRefreshableEnum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemRefresher>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IWbemHiPerfEnum>>>(&self, pnamespace: Param0, wszclass: ::windows::core::PCWSTR, prefresher: Param2, lflags: i32, pcontext: Param4, phiperfenum: Param5) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRefreshableEnum)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), wszclass.into_param().abi(), prefresher.into_param().abi(), ::core::mem::transmute(lflags), pcontext.into_param().abi(), phiperfenum.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CreateRefreshableEnum)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), ::core::mem::transmute(wszclass), prefresher.into().abi(), ::core::mem::transmute(lflags), pcontext.into().abi(), phiperfenum.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetObjects<'a, Param0: ::windows::core::IntoParam<'a, IWbemServices>, Param4: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, apobj: &mut [::core::option::Option<IWbemObjectAccess>], lflags: i32, pcontext: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjects)(::windows::core::Interface::as_raw(self), pnamespace.into_param().abi(), apobj.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(apobj)), ::core::mem::transmute(lflags), pcontext.into_param().abi()).ok()
+    pub unsafe fn GetObjects<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pnamespace: Param0, apobj: &mut [::core::option::Option<IWbemObjectAccess>], lflags: i32, pcontext: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjects)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), apobj.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(apobj)), ::core::mem::transmute(lflags), pcontext.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemHiPerfProvider> for ::windows::core::IUnknown {
@@ -6338,19 +5979,14 @@ impl ::core::convert::From<IWbemHiPerfProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemHiPerfProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemHiPerfProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemHiPerfProvider> for ::windows::core::IUnknown {
     fn from(value: &IWbemHiPerfProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemHiPerfProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemHiPerfProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemHiPerfProvider {
@@ -6389,24 +6025,24 @@ pub struct IWbemHiPerfProvider_Vtbl {
 pub struct IWbemLevel1Login(::windows::core::IUnknown);
 impl IWbemLevel1Login {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn EstablishPosition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszlocalelist: Param0, dwnumlocales: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn EstablishPosition(&self, wszlocalelist: ::windows::core::PCWSTR, dwnumlocales: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).EstablishPosition)(::windows::core::Interface::as_raw(self), wszlocalelist.into_param().abi(), ::core::mem::transmute(dwnumlocales), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).EstablishPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszlocalelist), ::core::mem::transmute(dwnumlocales), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn RequestChallenge<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wsznetworkresource: Param0, wszuser: Param1) -> ::windows::core::Result<u8> {
+    pub unsafe fn RequestChallenge(&self, wsznetworkresource: ::windows::core::PCWSTR, wszuser: ::windows::core::PCWSTR) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        (::windows::core::Interface::vtable(self).RequestChallenge)(::windows::core::Interface::as_raw(self), wsznetworkresource.into_param().abi(), wszuser.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).RequestChallenge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsznetworkresource), ::core::mem::transmute(wszuser), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn WBEMLogin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, wszpreferredlocale: Param0, accesstoken: *const u8, lflags: i32, pctx: Param3) -> ::windows::core::Result<IWbemServices> {
+    pub unsafe fn WBEMLogin<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, wszpreferredlocale: ::windows::core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: Param3) -> ::windows::core::Result<IWbemServices> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).WBEMLogin)(::windows::core::Interface::as_raw(self), wszpreferredlocale.into_param().abi(), ::core::mem::transmute(accesstoken), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
+        (::windows::core::Interface::vtable(self).WBEMLogin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszpreferredlocale), ::core::mem::transmute(accesstoken), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn NTLMLogin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, wsznetworkresource: Param0, wszpreferredlocale: Param1, lflags: i32, pctx: Param3) -> ::windows::core::Result<IWbemServices> {
+    pub unsafe fn NTLMLogin<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, wsznetworkresource: ::windows::core::PCWSTR, wszpreferredlocale: ::windows::core::PCWSTR, lflags: i32, pctx: Param3) -> ::windows::core::Result<IWbemServices> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).NTLMLogin)(::windows::core::Interface::as_raw(self), wsznetworkresource.into_param().abi(), wszpreferredlocale.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
+        (::windows::core::Interface::vtable(self).NTLMLogin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsznetworkresource), ::core::mem::transmute(wszpreferredlocale), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
 impl ::core::convert::From<IWbemLevel1Login> for ::windows::core::IUnknown {
@@ -6414,19 +6050,14 @@ impl ::core::convert::From<IWbemLevel1Login> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemLevel1Login> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemLevel1Login) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemLevel1Login> for ::windows::core::IUnknown {
     fn from(value: &IWbemLevel1Login) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemLevel1Login {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemLevel1Login {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemLevel1Login {
@@ -6464,9 +6095,9 @@ pub struct IWbemLocator(::windows::core::IUnknown);
 impl IWbemLocator {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConnectServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strnetworkresource: Param0, struser: Param1, strpassword: Param2, strlocale: Param3, lsecurityflags: i32, strauthority: Param5, pctx: Param6) -> ::windows::core::Result<IWbemServices> {
+    pub unsafe fn ConnectServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strnetworkresource: Param0, struser: Param1, strpassword: Param2, strlocale: Param3, lsecurityflags: i32, strauthority: Param5, pctx: Param6) -> ::windows::core::Result<IWbemServices> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), strnetworkresource.into_param().abi(), struser.into_param().abi(), strpassword.into_param().abi(), strlocale.into_param().abi(), ::core::mem::transmute(lsecurityflags), strauthority.into_param().abi(), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
+        (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), strnetworkresource.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), ::core::mem::transmute(lsecurityflags), strauthority.into().abi(), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
 impl ::core::convert::From<IWbemLocator> for ::windows::core::IUnknown {
@@ -6474,19 +6105,14 @@ impl ::core::convert::From<IWbemLocator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemLocator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemLocator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemLocator> for ::windows::core::IUnknown {
     fn from(value: &IWbemLocator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemLocator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemLocator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemLocator {
@@ -6529,23 +6155,23 @@ impl IWbemObjectAccess {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(ptype), ::core::mem::transmute(plflavor)).ok()
+    pub unsafe fn Get(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(ptype), ::core::mem::transmute(plflavor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(r#type)).ok()
+    pub unsafe fn Put(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), wszname.into_param().abi()).ok()
+    pub unsafe fn Delete(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetNames<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszqualifiername: Param0, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn GetNames(&self, wszqualifiername: ::windows::core::PCWSTR, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetNames)(::windows::core::Interface::as_raw(self), wszqualifiername.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pqualifierval), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszqualifiername), ::core::mem::transmute(lflags), ::core::mem::transmute(pqualifierval), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
@@ -6561,9 +6187,9 @@ impl IWbemObjectAccess {
         (::windows::core::Interface::vtable(self).base__.EndEnumeration)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetPropertyQualifierSet<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszproperty: Param0) -> ::windows::core::Result<IWbemQualifierSet> {
+    pub unsafe fn GetPropertyQualifierSet(&self, wszproperty: ::windows::core::PCWSTR) -> ::windows::core::Result<IWbemQualifierSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetPropertyQualifierSet)(::windows::core::Interface::as_raw(self), wszproperty.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyQualifierSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemClassObject> {
@@ -6587,30 +6213,30 @@ impl IWbemObjectAccess {
         (::windows::core::Interface::vtable(self).base__.SpawnInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CompareTo<'a, Param1: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pcompareto: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CompareTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pcompareto.into_param().abi()).ok()
+    pub unsafe fn CompareTo<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, lflags: i32, pcompareto: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CompareTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pcompareto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetPropertyOrigin(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetPropertyOrigin)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyOrigin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn InheritsFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, strancestor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InheritsFrom)(::windows::core::Interface::as_raw(self), strancestor.into_param().abi()).ok()
+    pub unsafe fn InheritsFrom(&self, strancestor: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InheritsFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strancestor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, ppinsignature: *mut ::core::option::Option<IWbemClassObject>, ppoutsignature: *mut ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetMethod)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
+    pub unsafe fn GetMethod(&self, wszname: ::windows::core::PCWSTR, lflags: i32, ppinsignature: *mut ::core::option::Option<IWbemClassObject>, ppoutsignature: *mut ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(ppinsignature), ::core::mem::transmute(ppoutsignature)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn PutMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IWbemClassObject>, Param3: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, wszname: Param0, lflags: i32, pinsignature: Param2, poutsignature: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutMethod)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), pinsignature.into_param().abi(), poutsignature.into_param().abi()).ok()
+    pub unsafe fn PutMethod<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pinsignature: Param2, poutsignature: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), pinsignature.into().abi(), poutsignature.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn DeleteMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteMethod)(::windows::core::Interface::as_raw(self), wszname.into_param().abi()).ok()
+    pub unsafe fn DeleteMethod(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
@@ -6626,19 +6252,19 @@ impl IWbemObjectAccess {
         (::windows::core::Interface::vtable(self).base__.EndMethodEnumeration)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetMethodQualifierSet<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmethod: Param0) -> ::windows::core::Result<IWbemQualifierSet> {
+    pub unsafe fn GetMethodQualifierSet(&self, wszmethod: ::windows::core::PCWSTR) -> ::windows::core::Result<IWbemQualifierSet> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetMethodQualifierSet)(::windows::core::Interface::as_raw(self), wszmethod.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetMethodQualifierSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmethod), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMethodOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmethodname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetMethodOrigin(&self, wszmethodname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetMethodOrigin)(::windows::core::Interface::as_raw(self), wszmethodname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetMethodOrigin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmethodname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn GetPropertyHandle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszpropertyname: Param0, ptype: *mut i32, plhandle: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyHandle)(::windows::core::Interface::as_raw(self), wszpropertyname.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(plhandle)).ok()
+    pub unsafe fn GetPropertyHandle(&self, wszpropertyname: ::windows::core::PCWSTR, ptype: *mut i32, plhandle: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPropertyHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszpropertyname), ::core::mem::transmute(ptype), ::core::mem::transmute(plhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn WritePropertyValue(&self, lhandle: i32, adata: &[u8]) -> ::windows::core::Result<()> {
@@ -6685,19 +6311,14 @@ impl ::core::convert::From<IWbemObjectAccess> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemObjectAccess> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemObjectAccess) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemObjectAccess> for ::windows::core::IUnknown {
     fn from(value: &IWbemObjectAccess) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemObjectAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemObjectAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWbemObjectAccess> for IWbemClassObject {
@@ -6705,19 +6326,14 @@ impl ::core::convert::From<IWbemObjectAccess> for IWbemClassObject {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemObjectAccess> for &'a IWbemClassObject {
+    fn from(value: &'a IWbemObjectAccess) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemObjectAccess> for IWbemClassObject {
     fn from(value: &IWbemObjectAccess) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemClassObject> for IWbemObjectAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemClassObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemClassObject> for &'a IWbemObjectAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemClassObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemObjectAccess {
@@ -6768,8 +6384,8 @@ impl IWbemObjectSink {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStatus<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(hresult), strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
+    pub unsafe fn SetStatus<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(hresult), strparam.into().abi(), pobjparam.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemObjectSink> for ::windows::core::IUnknown {
@@ -6777,19 +6393,14 @@ impl ::core::convert::From<IWbemObjectSink> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemObjectSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemObjectSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemObjectSink> for ::windows::core::IUnknown {
     fn from(value: &IWbemObjectSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemObjectSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemObjectSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemObjectSink {
@@ -6832,38 +6443,43 @@ impl IWbemObjectSinkEx {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStatus<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(hresult), strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
+    pub unsafe fn SetStatus<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(hresult), strparam.into().abi(), pobjparam.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, uchannel: u32, strmessage: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uchannel), strmessage.into_param().abi()).ok()
+    pub unsafe fn WriteMessage<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, uchannel: u32, strmessage: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uchannel), strmessage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn WriteError<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, pobjerror: Param0) -> ::windows::core::Result<u8> {
+    pub unsafe fn WriteError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, pobjerror: Param0) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        (::windows::core::Interface::vtable(self).WriteError)(::windows::core::Interface::as_raw(self), pobjerror.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).WriteError)(::windows::core::Interface::as_raw(self), pobjerror.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strmessage: Param0, uprompttype: u8) -> ::windows::core::Result<u8> {
+    pub unsafe fn PromptUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strmessage: Param0, uprompttype: u8) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        (::windows::core::Interface::vtable(self).PromptUser)(::windows::core::Interface::as_raw(self), strmessage.into_param().abi(), ::core::mem::transmute(uprompttype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).PromptUser)(::windows::core::Interface::as_raw(self), strmessage.into().abi(), ::core::mem::transmute(uprompttype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, stractivity: Param0, strcurrentoperation: Param1, strstatusdescription: Param2, upercentcomplete: u32, usecondsremaining: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteProgress)(::windows::core::Interface::as_raw(self), stractivity.into_param().abi(), strcurrentoperation.into_param().abi(), strstatusdescription.into_param().abi(), ::core::mem::transmute(upercentcomplete), ::core::mem::transmute(usecondsremaining)).ok()
+    pub unsafe fn WriteProgress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, stractivity: Param0, strcurrentoperation: Param1, strstatusdescription: Param2, upercentcomplete: u32, usecondsremaining: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteProgress)(::windows::core::Interface::as_raw(self), stractivity.into().abi(), strcurrentoperation.into().abi(), strstatusdescription.into().abi(), ::core::mem::transmute(upercentcomplete), ::core::mem::transmute(usecondsremaining)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn WriteStreamParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, vtvalue: *const super::Com::VARIANT, ultype: u32, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStreamParameter)(::windows::core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(vtvalue), ::core::mem::transmute(ultype), ::core::mem::transmute(ulflags)).ok()
+    pub unsafe fn WriteStreamParameter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strname: Param0, vtvalue: *const super::Com::VARIANT, ultype: u32, ulflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteStreamParameter)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(vtvalue), ::core::mem::transmute(ultype), ::core::mem::transmute(ulflags)).ok()
     }
 }
 impl ::core::convert::From<IWbemObjectSinkEx> for ::windows::core::IUnknown {
     fn from(value: IWbemObjectSinkEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWbemObjectSinkEx> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemObjectSinkEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6872,34 +6488,19 @@ impl ::core::convert::From<&IWbemObjectSinkEx> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemObjectSinkEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemObjectSinkEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWbemObjectSinkEx> for IWbemObjectSink {
     fn from(value: IWbemObjectSinkEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWbemObjectSinkEx> for &'a IWbemObjectSink {
+    fn from(value: &'a IWbemObjectSinkEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWbemObjectSinkEx> for IWbemObjectSink {
     fn from(value: &IWbemObjectSinkEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemObjectSink> for IWbemObjectSinkEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemObjectSink> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWbemObjectSink> for &'a IWbemObjectSinkEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IWbemObjectSink> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemObjectSinkEx {
@@ -6950,15 +6551,15 @@ pub struct IWbemObjectTextSrc(::windows::core::IUnknown);
 impl IWbemObjectTextSrc {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText<'a, Param1: ::windows::core::IntoParam<'a, IWbemClassObject>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, lflags: i32, pobj: Param1, uobjtextformat: u32, pctx: Param3) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetText<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, lflags: i32, pobj: Param1, uobjtextformat: u32, pctx: Param3) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pobj.into_param().abi(), ::core::mem::transmute(uobjtextformat), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pobj.into().abi(), ::core::mem::transmute(uobjtextformat), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateFromText<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, lflags: i32, strtext: Param1, uobjtextformat: u32, pctx: Param3) -> ::windows::core::Result<IWbemClassObject> {
+    pub unsafe fn CreateFromText<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, lflags: i32, strtext: Param1, uobjtextformat: u32, pctx: Param3) -> ::windows::core::Result<IWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFromText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), strtext.into_param().abi(), ::core::mem::transmute(uobjtextformat), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
+        (::windows::core::Interface::vtable(self).CreateFromText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), strtext.into().abi(), ::core::mem::transmute(uobjtextformat), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
 }
 impl ::core::convert::From<IWbemObjectTextSrc> for ::windows::core::IUnknown {
@@ -6966,19 +6567,14 @@ impl ::core::convert::From<IWbemObjectTextSrc> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemObjectTextSrc> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemObjectTextSrc) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemObjectTextSrc> for ::windows::core::IUnknown {
     fn from(value: &IWbemObjectTextSrc) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemObjectTextSrc {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemObjectTextSrc {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemObjectTextSrc {
@@ -7019,8 +6615,8 @@ pub struct IWbemObjectTextSrc_Vtbl {
 pub struct IWbemPath(::windows::core::IUnknown);
 impl IWbemPath {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetText<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, umode: u32, pszpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umode), pszpath.into_param().abi()).ok()
+    pub unsafe fn SetText(&self, umode: u32, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umode), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -7032,8 +6628,8 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(urequestedinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetServer(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetServer(&self, punamebuflength: *mut u32, pname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -7045,8 +6641,8 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetNamespaceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetNamespaceAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, uindex: u32, pszname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamespaceAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uindex), pszname.into_param().abi()).ok()
+    pub unsafe fn SetNamespaceAt(&self, uindex: u32, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNamespaceAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uindex), ::core::mem::transmute(pszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -7066,12 +6662,12 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetScopeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetScope<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, uindex: u32, pszclass: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uindex), pszclass.into_param().abi()).ok()
+    pub unsafe fn SetScope(&self, uindex: u32, pszclass: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uindex), ::core::mem::transmute(pszclass)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetScopeFromText<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, uindex: u32, psztext: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScopeFromText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uindex), psztext.into_param().abi()).ok()
+    pub unsafe fn SetScopeFromText(&self, uindex: u32, psztext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScopeFromText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uindex), ::core::mem::transmute(psztext)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: ::windows::core::PWSTR, pkeylist: *mut ::core::option::Option<IWbemPathKeyList>) -> ::windows::core::Result<()> {
@@ -7090,8 +6686,8 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).RemoveAllScopes)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetClassName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClassName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetClassName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -7103,8 +6699,8 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetKeyList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemPathKeyList>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateClassPart<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lflags: i32, name: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateClassPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), name.into_param().abi()).ok()
+    pub unsafe fn CreateClassPart(&self, lflags: i32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateClassPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), ::core::mem::transmute(name)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn DeleteClassPart(&self, lflags: i32) -> ::windows::core::Result<()> {
@@ -7112,23 +6708,23 @@ impl IWbemPath {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsRelative<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmachine: Param0, wsznamespace: Param1) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsRelative)(::windows::core::Interface::as_raw(self), wszmachine.into_param().abi(), wsznamespace.into_param().abi()))
+    pub unsafe fn IsRelative(&self, wszmachine: ::windows::core::PCWSTR, wsznamespace: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsRelative)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmachine), ::core::mem::transmute(wsznamespace)))
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsRelativeOrChild<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmachine: Param0, wsznamespace: Param1, lflags: i32) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsRelativeOrChild)(::windows::core::Interface::as_raw(self), wszmachine.into_param().abi(), wsznamespace.into_param().abi(), ::core::mem::transmute(lflags)))
+    pub unsafe fn IsRelativeOrChild(&self, wszmachine: ::windows::core::PCWSTR, wsznamespace: ::windows::core::PCWSTR, lflags: i32) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsRelativeOrChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmachine), ::core::mem::transmute(wsznamespace), ::core::mem::transmute(lflags)))
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLocal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszmachine: Param0) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsLocal)(::windows::core::Interface::as_raw(self), wszmachine.into_param().abi()))
+    pub unsafe fn IsLocal(&self, wszmachine: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsLocal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszmachine)))
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsSameClassName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszclass: Param0) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsSameClassName)(::windows::core::Interface::as_raw(self), wszclass.into_param().abi()))
+    pub unsafe fn IsSameClassName(&self, wszclass: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsSameClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszclass)))
     }
 }
 impl ::core::convert::From<IWbemPath> for ::windows::core::IUnknown {
@@ -7136,19 +6732,14 @@ impl ::core::convert::From<IWbemPath> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemPath> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemPath> for ::windows::core::IUnknown {
     fn from(value: &IWbemPath) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemPath {
@@ -7224,13 +6815,13 @@ impl IWbemPathKeyList {
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, uflags: u32, ucimtype: u32, pkeyval: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKey)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(uflags), ::core::mem::transmute(ucimtype), ::core::mem::transmute(pkeyval)).ok()
+    pub unsafe fn SetKey(&self, wszname: ::windows::core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(uflags), ::core::mem::transmute(ucimtype), ::core::mem::transmute(pkeyval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetKey2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, uflags: u32, ucimtype: u32, pkeyval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKey2)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(uflags), ::core::mem::transmute(ucimtype), ::core::mem::transmute(pkeyval)).ok()
+    pub unsafe fn SetKey2(&self, wszname: ::windows::core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetKey2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(uflags), ::core::mem::transmute(ucimtype), ::core::mem::transmute(pkeyval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows::core::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut ::core::ffi::c_void, puapparentcimtype: *mut u32) -> ::windows::core::Result<()> {
@@ -7242,8 +6833,8 @@ impl IWbemPathKeyList {
         (::windows::core::Interface::vtable(self).GetKey2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ukeyix), ::core::mem::transmute(uflags), ::core::mem::transmute(punamebufsize), ::core::mem::transmute(pszkeyname), ::core::mem::transmute(pkeyvalue), ::core::mem::transmute(puapparentcimtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn RemoveKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, uflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveKey)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(uflags)).ok()
+    pub unsafe fn RemoveKey(&self, wszname: ::windows::core::PCWSTR, uflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(uflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn RemoveAllKeys(&self, uflags: u32) -> ::windows::core::Result<()> {
@@ -7268,19 +6859,14 @@ impl ::core::convert::From<IWbemPathKeyList> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemPathKeyList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemPathKeyList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemPathKeyList> for ::windows::core::IUnknown {
     fn from(value: &IWbemPathKeyList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemPathKeyList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemPathKeyList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemPathKeyList {
@@ -7330,14 +6916,14 @@ pub struct IWbemPropertyProvider(::windows::core::IUnknown);
 impl IWbemPropertyProvider {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, strlocale: Param1, strclassmapping: Param2, strinstmapping: Param3, strpropmapping: Param4) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetProperty<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lflags: i32, strlocale: Param1, strclassmapping: Param2, strinstmapping: Param3, strpropmapping: Param4) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), strlocale.into_param().abi(), strclassmapping.into_param().abi(), strinstmapping.into_param().abi(), strpropmapping.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), strlocale.into().abi(), strclassmapping.into().abi(), strinstmapping.into().abi(), strpropmapping.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, strlocale: Param1, strclassmapping: Param2, strinstmapping: Param3, strpropmapping: Param4, pvvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), strlocale.into_param().abi(), strclassmapping.into_param().abi(), strinstmapping.into_param().abi(), strpropmapping.into_param().abi(), ::core::mem::transmute(pvvalue)).ok()
+    pub unsafe fn PutProperty<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lflags: i32, strlocale: Param1, strclassmapping: Param2, strinstmapping: Param3, strpropmapping: Param4, pvvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), strlocale.into().abi(), strclassmapping.into().abi(), strinstmapping.into().abi(), strpropmapping.into().abi(), ::core::mem::transmute(pvvalue)).ok()
     }
 }
 impl ::core::convert::From<IWbemPropertyProvider> for ::windows::core::IUnknown {
@@ -7345,19 +6931,14 @@ impl ::core::convert::From<IWbemPropertyProvider> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemPropertyProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemPropertyProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemPropertyProvider> for ::windows::core::IUnknown {
     fn from(value: &IWbemPropertyProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemPropertyProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemPropertyProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemPropertyProvider {
@@ -7398,8 +6979,8 @@ pub struct IWbemPropertyProvider_Vtbl {
 pub struct IWbemProviderIdentity(::windows::core::IUnknown);
 impl IWbemProviderIdentity {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetRegistrationObject<'a, Param1: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pprovreg: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRegistrationObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pprovreg.into_param().abi()).ok()
+    pub unsafe fn SetRegistrationObject<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, lflags: i32, pprovreg: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRegistrationObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags), pprovreg.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemProviderIdentity> for ::windows::core::IUnknown {
@@ -7407,19 +6988,14 @@ impl ::core::convert::From<IWbemProviderIdentity> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemProviderIdentity> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemProviderIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemProviderIdentity> for ::windows::core::IUnknown {
     fn from(value: &IWbemProviderIdentity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemProviderIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemProviderIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemProviderIdentity {
@@ -7453,8 +7029,8 @@ pub struct IWbemProviderIdentity_Vtbl {
 pub struct IWbemProviderInit(::windows::core::IUnknown);
 impl IWbemProviderInit {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IWbemServices>, Param5: ::windows::core::IntoParam<'a, IWbemContext>, Param6: ::windows::core::IntoParam<'a, IWbemProviderInitSink>>(&self, wszuser: Param0, lflags: i32, wsznamespace: Param2, wszlocale: Param3, pnamespace: Param4, pctx: Param5, pinitsink: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), wszuser.into_param().abi(), ::core::mem::transmute(lflags), wsznamespace.into_param().abi(), wszlocale.into_param().abi(), pnamespace.into_param().abi(), pctx.into_param().abi(), pinitsink.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IWbemProviderInitSink>>>(&self, wszuser: ::windows::core::PCWSTR, lflags: i32, wsznamespace: ::windows::core::PCWSTR, wszlocale: ::windows::core::PCWSTR, pnamespace: Param4, pctx: Param5, pinitsink: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszuser), ::core::mem::transmute(lflags), ::core::mem::transmute(wsznamespace), ::core::mem::transmute(wszlocale), pnamespace.into().abi(), pctx.into().abi(), pinitsink.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemProviderInit> for ::windows::core::IUnknown {
@@ -7462,19 +7038,14 @@ impl ::core::convert::From<IWbemProviderInit> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemProviderInit> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemProviderInit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemProviderInit> for ::windows::core::IUnknown {
     fn from(value: &IWbemProviderInit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemProviderInit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemProviderInit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemProviderInit {
@@ -7517,19 +7088,14 @@ impl ::core::convert::From<IWbemProviderInitSink> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemProviderInitSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemProviderInitSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemProviderInitSink> for ::windows::core::IUnknown {
     fn from(value: &IWbemProviderInitSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemProviderInitSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemProviderInitSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemProviderInitSink {
@@ -7564,17 +7130,17 @@ pub struct IWbemQualifierSet(::windows::core::IUnknown);
 impl IWbemQualifierSet {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(plflavor)).ok()
+    pub unsafe fn Get(&self, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(lflags), ::core::mem::transmute(pval), ::core::mem::transmute(plflavor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0, pval: *const super::Com::VARIANT, lflavor: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), wszname.into_param().abi(), ::core::mem::transmute(pval), ::core::mem::transmute(lflavor)).ok()
+    pub unsafe fn Put(&self, wszname: ::windows::core::PCWSTR, pval: *const super::Com::VARIANT, lflavor: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname), ::core::mem::transmute(pval), ::core::mem::transmute(lflavor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), wszname.into_param().abi()).ok()
+    pub unsafe fn Delete(&self, wszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7601,19 +7167,14 @@ impl ::core::convert::From<IWbemQualifierSet> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemQualifierSet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemQualifierSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemQualifierSet> for ::windows::core::IUnknown {
     fn from(value: &IWbemQualifierSet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemQualifierSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemQualifierSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemQualifierSet {
@@ -7677,8 +7238,8 @@ impl IWbemQuery {
         (::windows::core::Interface::vtable(self).TestLanguageFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uflags), ::core::mem::transmute(uarraysize), ::core::mem::transmute(pufeatures)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Parse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszlang: Param0, pszquery: Param1, uflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Parse)(::windows::core::Interface::as_raw(self), pszlang.into_param().abi(), pszquery.into_param().abi(), ::core::mem::transmute(uflags)).ok()
+    pub unsafe fn Parse(&self, pszlang: ::windows::core::PCWSTR, pszquery: ::windows::core::PCWSTR, uflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Parse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszlang), ::core::mem::transmute(pszquery), ::core::mem::transmute(uflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn GetAnalysis(&self, uanalysistype: u32, uflags: u32, panalysis: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -7698,19 +7259,14 @@ impl ::core::convert::From<IWbemQuery> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemQuery> for ::windows::core::IUnknown {
     fn from(value: &IWbemQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemQuery {
@@ -7759,19 +7315,14 @@ impl ::core::convert::From<IWbemRefresher> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemRefresher> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemRefresher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemRefresher> for ::windows::core::IUnknown {
     fn from(value: &IWbemRefresher) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemRefresher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemRefresher {
@@ -7806,12 +7357,12 @@ pub struct IWbemServices(::windows::core::IUnknown);
 impl IWbemServices {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strnamespace: Param0, lflags: i32, pctx: Param2, ppworkingnamespace: *mut ::core::option::Option<IWbemServices>, ppresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenNamespace)(::windows::core::Interface::as_raw(self), strnamespace.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(ppworkingnamespace), ::core::mem::transmute(ppresult)).ok()
+    pub unsafe fn OpenNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strnamespace: Param0, lflags: i32, pctx: Param2, ppworkingnamespace: *mut ::core::option::Option<IWbemServices>, ppresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenNamespace)(::windows::core::Interface::as_raw(self), strnamespace.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(ppworkingnamespace), ::core::mem::transmute(ppresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CancelAsyncCall<'a, Param0: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, psink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelAsyncCall)(::windows::core::Interface::as_raw(self), psink.into_param().abi()).ok()
+    pub unsafe fn CancelAsyncCall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, psink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CancelAsyncCall)(::windows::core::Interface::as_raw(self), psink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn QueryObjectSink(&self, lflags: i32) -> ::windows::core::Result<IWbemObjectSink> {
@@ -7820,103 +7371,103 @@ impl IWbemServices {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, ppobject: *mut ::core::option::Option<IWbemClassObject>, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(ppobject), ::core::mem::transmute(ppcallresult)).ok()
+    pub unsafe fn GetObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, ppobject: *mut ::core::option::Option<IWbemClassObject>, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(ppobject), ::core::mem::transmute(ppcallresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectAsync)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn GetObjectAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjectAsync)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn PutClass<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pobject: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutClass)(::windows::core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(ppcallresult)).ok()
+    pub unsafe fn PutClass<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pobject: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutClass)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(ppcallresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn PutClassAsync<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, pobject: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutClassAsync)(::windows::core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn PutClassAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, pobject: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutClassAsync)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strclass: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteClass)(::windows::core::Interface::as_raw(self), strclass.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(ppcallresult)).ok()
+    pub unsafe fn DeleteClass<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strclass: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteClass)(::windows::core::Interface::as_raw(self), strclass.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(ppcallresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteClassAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strclass: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteClassAsync)(::windows::core::Interface::as_raw(self), strclass.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn DeleteClassAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strclass: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteClassAsync)(::windows::core::Interface::as_raw(self), strclass.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateClassEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strsuperclass: Param0, lflags: i32, pctx: Param2) -> ::windows::core::Result<IEnumWbemClassObject> {
+    pub unsafe fn CreateClassEnum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strsuperclass: Param0, lflags: i32, pctx: Param2) -> ::windows::core::Result<IEnumWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateClassEnum)(::windows::core::Interface::as_raw(self), strsuperclass.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
+        (::windows::core::Interface::vtable(self).CreateClassEnum)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateClassEnumAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strsuperclass: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateClassEnumAsync)(::windows::core::Interface::as_raw(self), strsuperclass.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn CreateClassEnumAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strsuperclass: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateClassEnumAsync)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn PutInstance<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, pinst: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutInstance)(::windows::core::Interface::as_raw(self), pinst.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(ppcallresult)).ok()
+    pub unsafe fn PutInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, pinst: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutInstance)(::windows::core::Interface::as_raw(self), pinst.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(ppcallresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn PutInstanceAsync<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, pinst: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutInstanceAsync)(::windows::core::Interface::as_raw(self), pinst.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn PutInstanceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, pinst: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutInstanceAsync)(::windows::core::Interface::as_raw(self), pinst.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteInstance)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(ppcallresult)).ok()
+    pub unsafe fn DeleteInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteInstance)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(ppcallresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteInstanceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteInstanceAsync)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn DeleteInstanceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteInstanceAsync)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstanceEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strfilter: Param0, lflags: i32, pctx: Param2) -> ::windows::core::Result<IEnumWbemClassObject> {
+    pub unsafe fn CreateInstanceEnum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strfilter: Param0, lflags: i32, pctx: Param2) -> ::windows::core::Result<IEnumWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstanceEnum)(::windows::core::Interface::as_raw(self), strfilter.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
+        (::windows::core::Interface::vtable(self).CreateInstanceEnum)(::windows::core::Interface::as_raw(self), strfilter.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstanceEnumAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWbemContext>, Param3: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strfilter: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateInstanceEnumAsync)(::windows::core::Interface::as_raw(self), strfilter.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn CreateInstanceEnumAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strfilter: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateInstanceEnumAsync)(::windows::core::Interface::as_raw(self), strfilter.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExecQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3) -> ::windows::core::Result<IEnumWbemClassObject> {
+    pub unsafe fn ExecQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3) -> ::windows::core::Result<IEnumWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecQuery)(::windows::core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
+        (::windows::core::Interface::vtable(self).ExecQuery)(::windows::core::Interface::as_raw(self), strquerylanguage.into().abi(), strquery.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExecQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>, Param4: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3, presponsehandler: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecQueryAsync)(::windows::core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn ExecQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3, presponsehandler: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecQueryAsync)(::windows::core::Interface::as_raw(self), strquerylanguage.into().abi(), strquery.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExecNotificationQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3) -> ::windows::core::Result<IEnumWbemClassObject> {
+    pub unsafe fn ExecNotificationQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3) -> ::windows::core::Result<IEnumWbemClassObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
+        (::windows::core::Interface::vtable(self).ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquerylanguage.into().abi(), strquery.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>, Param4: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3, presponsehandler: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecNotificationQueryAsync)(::windows::core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3, presponsehandler: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecNotificationQueryAsync)(::windows::core::Interface::as_raw(self), strquerylanguage.into().abi(), strquery.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), presponsehandler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExecMethod<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>, Param4: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, strobjectpath: Param0, strmethodname: Param1, lflags: i32, pctx: Param3, pinparams: Param4, ppoutparams: *mut ::core::option::Option<IWbemClassObject>, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), pinparams.into_param().abi(), ::core::mem::transmute(ppoutparams), ::core::mem::transmute(ppcallresult)).ok()
+    pub unsafe fn ExecMethod<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, strobjectpath: Param0, strmethodname: Param1, lflags: i32, pctx: Param3, pinparams: Param4, ppoutparams: *mut ::core::option::Option<IWbemClassObject>, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strmethodname.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), pinparams.into().abi(), ::core::mem::transmute(ppoutparams), ::core::mem::transmute(ppcallresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExecMethodAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, IWbemContext>, Param4: ::windows::core::IntoParam<'a, IWbemClassObject>, Param5: ::windows::core::IntoParam<'a, IWbemObjectSink>>(&self, strobjectpath: Param0, strmethodname: Param1, lflags: i32, pctx: Param3, pinparams: Param4, presponsehandler: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecMethodAsync)(::windows::core::Interface::as_raw(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), ::core::mem::transmute(lflags), pctx.into_param().abi(), pinparams.into_param().abi(), presponsehandler.into_param().abi()).ok()
+    pub unsafe fn ExecMethodAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, strobjectpath: Param0, strmethodname: Param1, lflags: i32, pctx: Param3, pinparams: Param4, presponsehandler: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExecMethodAsync)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strmethodname.into().abi(), ::core::mem::transmute(lflags), pctx.into().abi(), pinparams.into().abi(), presponsehandler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemServices> for ::windows::core::IUnknown {
@@ -7924,19 +7475,14 @@ impl ::core::convert::From<IWbemServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemServices> for ::windows::core::IUnknown {
     fn from(value: &IWbemServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemServices {
@@ -8043,8 +7589,8 @@ pub struct IWbemServices_Vtbl {
 pub struct IWbemShutdown(::windows::core::IUnknown);
 impl IWbemShutdown {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Shutdown<'a, Param2: ::windows::core::IntoParam<'a, IWbemContext>>(&self, ureason: i32, umaxmilliseconds: u32, pctx: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ureason), ::core::mem::transmute(umaxmilliseconds), pctx.into_param().abi()).ok()
+    pub unsafe fn Shutdown<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>>(&self, ureason: i32, umaxmilliseconds: u32, pctx: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ureason), ::core::mem::transmute(umaxmilliseconds), pctx.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWbemShutdown> for ::windows::core::IUnknown {
@@ -8052,19 +7598,14 @@ impl ::core::convert::From<IWbemShutdown> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemShutdown> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemShutdown) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemShutdown> for ::windows::core::IUnknown {
     fn from(value: &IWbemShutdown) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemShutdown {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemShutdown {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemShutdown {
@@ -8115,19 +7656,14 @@ impl ::core::convert::From<IWbemStatusCodeText> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemStatusCodeText> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemStatusCodeText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemStatusCodeText> for ::windows::core::IUnknown {
     fn from(value: &IWbemStatusCodeText) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemStatusCodeText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemStatusCodeText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemStatusCodeText {
@@ -8177,19 +7713,14 @@ impl ::core::convert::From<IWbemTransport> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemTransport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemTransport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemTransport> for ::windows::core::IUnknown {
     fn from(value: &IWbemTransport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemTransport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemTransport {
@@ -8223,8 +7754,8 @@ pub struct IWbemTransport_Vtbl {
 pub struct IWbemUnboundObjectSink(::windows::core::IUnknown);
 impl IWbemUnboundObjectSink {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn IndicateToConsumer<'a, Param0: ::windows::core::IntoParam<'a, IWbemClassObject>>(&self, plogicalconsumer: Param0, apobjects: &[::core::option::Option<IWbemClassObject>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IndicateToConsumer)(::windows::core::Interface::as_raw(self), plogicalconsumer.into_param().abi(), apobjects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apobjects))).ok()
+    pub unsafe fn IndicateToConsumer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>>(&self, plogicalconsumer: Param0, apobjects: &[::core::option::Option<IWbemClassObject>]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IndicateToConsumer)(::windows::core::Interface::as_raw(self), plogicalconsumer.into().abi(), apobjects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apobjects))).ok()
     }
 }
 impl ::core::convert::From<IWbemUnboundObjectSink> for ::windows::core::IUnknown {
@@ -8232,19 +7763,14 @@ impl ::core::convert::From<IWbemUnboundObjectSink> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWbemUnboundObjectSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemUnboundObjectSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWbemUnboundObjectSink> for ::windows::core::IUnknown {
     fn from(value: &IWbemUnboundObjectSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemUnboundObjectSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemUnboundObjectSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemUnboundObjectSink {
@@ -8278,18 +7804,23 @@ pub struct IWbemUnboundObjectSink_Vtbl {
 pub struct IWbemUnsecuredApartment(::windows::core::IUnknown);
 impl IWbemUnsecuredApartment {
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateObjectStub<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pobject: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn CreateObjectStub<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pobject: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateObjectStub)(::windows::core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateObjectStub)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn CreateSinkStub<'a, Param0: ::windows::core::IntoParam<'a, IWbemObjectSink>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psink: Param0, dwflags: u32, wszreserved: Param2) -> ::windows::core::Result<IWbemObjectSink> {
+    pub unsafe fn CreateSinkStub<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>>(&self, psink: Param0, dwflags: u32, wszreserved: ::windows::core::PCWSTR) -> ::windows::core::Result<IWbemObjectSink> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinkStub)(::windows::core::Interface::as_raw(self), psink.into_param().abi(), ::core::mem::transmute(dwflags), wszreserved.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinkStub)(::windows::core::Interface::as_raw(self), psink.into().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(wszreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
     }
 }
 impl ::core::convert::From<IWbemUnsecuredApartment> for ::windows::core::IUnknown {
     fn from(value: IWbemUnsecuredApartment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWbemUnsecuredApartment> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWbemUnsecuredApartment) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8298,34 +7829,19 @@ impl ::core::convert::From<&IWbemUnsecuredApartment> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWbemUnsecuredApartment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWbemUnsecuredApartment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWbemUnsecuredApartment> for IUnsecuredApartment {
     fn from(value: IWbemUnsecuredApartment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWbemUnsecuredApartment> for &'a IUnsecuredApartment {
+    fn from(value: &'a IWbemUnsecuredApartment) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWbemUnsecuredApartment> for IUnsecuredApartment {
     fn from(value: &IWbemUnsecuredApartment) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUnsecuredApartment> for IWbemUnsecuredApartment {
-    fn into_param(self) -> ::windows::core::Param<'a, IUnsecuredApartment> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUnsecuredApartment> for &'a IWbemUnsecuredApartment {
-    fn into_param(self) -> ::windows::core::Param<'a, IUnsecuredApartment> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWbemUnsecuredApartment {

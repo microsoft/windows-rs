@@ -19,21 +19,15 @@ impl ::core::convert::From<DRendezvousSessionEvents> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a DRendezvousSessionEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a DRendezvousSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&DRendezvousSessionEvents> for ::windows::core::IUnknown {
     fn from(value: &DRendezvousSessionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DRendezvousSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DRendezvousSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -43,21 +37,15 @@ impl ::core::convert::From<DRendezvousSessionEvents> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a DRendezvousSessionEvents> for &'a super::Com::IDispatch {
+    fn from(value: &'a DRendezvousSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&DRendezvousSessionEvents> for super::Com::IDispatch {
     fn from(value: &DRendezvousSessionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for DRendezvousSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a DRendezvousSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -96,8 +84,8 @@ pub struct DRendezvousSessionEvents_Vtbl {
 pub struct IRendezvousApplication(::windows::core::IUnknown);
 impl IRendezvousApplication {
     #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
-    pub unsafe fn SetRendezvousSession<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, prendezvoussession: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRendezvousSession)(::windows::core::Interface::as_raw(self), prendezvoussession.into_param().abi()).ok()
+    pub unsafe fn SetRendezvousSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, prendezvoussession: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRendezvousSession)(::windows::core::Interface::as_raw(self), prendezvoussession.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRendezvousApplication> for ::windows::core::IUnknown {
@@ -105,19 +93,14 @@ impl ::core::convert::From<IRendezvousApplication> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRendezvousApplication> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRendezvousApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRendezvousApplication> for ::windows::core::IUnknown {
     fn from(value: &IRendezvousApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRendezvousApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRendezvousApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRendezvousApplication {
@@ -168,13 +151,13 @@ impl IRendezvousSession {
     }
     #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendContextData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
+    pub unsafe fn SendContextData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Terminate<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hr: ::windows::core::HRESULT, bstrappdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), bstrappdata.into_param().abi()).ok()
+    pub unsafe fn Terminate<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, hr: ::windows::core::HRESULT, bstrappdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), bstrappdata.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRendezvousSession> for ::windows::core::IUnknown {
@@ -182,19 +165,14 @@ impl ::core::convert::From<IRendezvousSession> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRendezvousSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRendezvousSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRendezvousSession> for ::windows::core::IUnknown {
     fn from(value: &IRendezvousSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRendezvousSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRendezvousSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRendezvousSession {

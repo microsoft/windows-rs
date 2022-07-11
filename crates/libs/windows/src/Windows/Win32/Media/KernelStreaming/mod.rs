@@ -809,19 +809,14 @@ impl ::core::convert::From<IKsAggregateControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsAggregateControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsAggregateControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsAggregateControl> for ::windows::core::IUnknown {
     fn from(value: &IKsAggregateControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsAggregateControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsAggregateControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsAggregateControl {
@@ -877,19 +872,14 @@ impl ::core::convert::From<IKsControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsControl> for ::windows::core::IUnknown {
     fn from(value: &IKsControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsControl {
@@ -940,19 +930,14 @@ impl ::core::convert::From<IKsFormatSupport> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsFormatSupport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsFormatSupport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsFormatSupport> for ::windows::core::IUnknown {
     fn from(value: &IKsFormatSupport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsFormatSupport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsFormatSupport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsFormatSupport {
@@ -1000,19 +985,14 @@ impl ::core::convert::From<IKsJackContainerId> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsJackContainerId> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsJackContainerId) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsJackContainerId> for ::windows::core::IUnknown {
     fn from(value: &IKsJackContainerId) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackContainerId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackContainerId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsJackContainerId {
@@ -1062,19 +1042,14 @@ impl ::core::convert::From<IKsJackDescription> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsJackDescription> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsJackDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsJackDescription> for ::windows::core::IUnknown {
     fn from(value: &IKsJackDescription) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsJackDescription {
@@ -1127,19 +1102,14 @@ impl ::core::convert::From<IKsJackDescription2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsJackDescription2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsJackDescription2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsJackDescription2> for ::windows::core::IUnknown {
     fn from(value: &IKsJackDescription2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackDescription2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackDescription2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsJackDescription2 {
@@ -1185,19 +1155,14 @@ impl ::core::convert::From<IKsJackSinkInformation> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsJackSinkInformation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsJackSinkInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsJackSinkInformation> for ::windows::core::IUnknown {
     fn from(value: &IKsJackSinkInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackSinkInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackSinkInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsJackSinkInformation {
@@ -1254,19 +1219,14 @@ impl ::core::convert::From<IKsPropertySet> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsPropertySet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsPropertySet> for ::windows::core::IUnknown {
     fn from(value: &IKsPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsPropertySet {
@@ -1302,8 +1262,8 @@ pub struct IKsPropertySet_Vtbl {
 pub struct IKsTopology(::windows::core::IUnknown);
 impl IKsTopology {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-    pub unsafe fn CreateNodeInstance<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: Param3, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeid), ::core::mem::transmute(flags), ::core::mem::transmute(desiredaccess), unkouter.into_param().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
+    pub unsafe fn CreateNodeInstance<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: Param3, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeid), ::core::mem::transmute(flags), ::core::mem::transmute(desiredaccess), unkouter.into().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
     }
 }
 impl ::core::convert::From<IKsTopology> for ::windows::core::IUnknown {
@@ -1311,19 +1271,14 @@ impl ::core::convert::From<IKsTopology> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IKsTopology> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKsTopology) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IKsTopology> for ::windows::core::IUnknown {
     fn from(value: &IKsTopology) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsTopology {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsTopology {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IKsTopology {
@@ -18913,86 +18868,86 @@ pub const KS_iTRUECOLOR: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn KsCreateAllocator<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreateAllocator(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(KsCreateAllocator(connectionhandle.into_param().abi(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(allocatorhandle)))
+    ::core::mem::transmute(KsCreateAllocator(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(allocatorhandle)))
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn KsCreateAllocator2<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreateAllocator2(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    KsCreateAllocator2(connectionhandle.into_param().abi(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreateAllocator2(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn KsCreateClock<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreateClock(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(KsCreateClock(connectionhandle.into_param().abi(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(clockhandle)))
+    ::core::mem::transmute(KsCreateClock(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(clockhandle)))
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateClock2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn KsCreateClock2<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreateClock2(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    KsCreateClock2(connectionhandle.into_param().abi(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreateClock2(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreatePin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn KsCreatePin<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreatePin(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(KsCreatePin(filterhandle.into_param().abi(), ::core::mem::transmute(connect), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(connectionhandle)))
+    ::core::mem::transmute(KsCreatePin(filterhandle.into(), ::core::mem::transmute(connect), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(connectionhandle)))
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreatePin2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn KsCreatePin2<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreatePin2(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    KsCreatePin2(filterhandle.into_param().abi(), ::core::mem::transmute(connect), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreatePin2(filterhandle.into(), ::core::mem::transmute(connect), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn KsCreateTopologyNode<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreateTopologyNode(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(KsCreateTopologyNode(parenthandle.into_param().abi(), ::core::mem::transmute(nodecreate), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(nodehandle)))
+    ::core::mem::transmute(KsCreateTopologyNode(parenthandle.into(), ::core::mem::transmute(nodecreate), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(nodehandle)))
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KsCreateTopologyNode2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn KsCreateTopologyNode2<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn KsCreateTopologyNode2(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    KsCreateTopologyNode2(parenthandle.into_param().abi(), ::core::mem::transmute(nodecreate), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreateTopologyNode2(parenthandle.into(), ::core::mem::transmute(nodecreate), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]

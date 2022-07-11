@@ -2044,8 +2044,8 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(lpreobject), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetObject<'a, Param2: ::std::convert::Into<RICH_EDIT_GET_OBJECT_FLAGS>>(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(lpreobject), dwflags.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -2053,21 +2053,21 @@ impl IRichEditOle {
         (::windows::core::Interface::vtable(self).InsertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpreobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn ConvertObject<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(rclsidnew), lpstrusertypenew.into_param().abi()).ok()
+    pub unsafe fn ConvertObject(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConvertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(rclsidnew), ::core::mem::transmute(lpstrusertypenew)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ActivateAs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rclsidas)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetHostNames<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, lpstrcontainerapp: Param0, lpstrcontainerobj: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostNames)(::windows::core::Interface::as_raw(self), lpstrcontainerapp.into_param().abi(), lpstrcontainerobj.into_param().abi()).ok()
+    pub unsafe fn SetHostNames(&self, lpstrcontainerapp: ::windows::core::PCSTR, lpstrcontainerobj: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHostNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpstrcontainerapp), ::core::mem::transmute(lpstrcontainerobj)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLinkAvailable<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, iob: i32, favailable: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLinkAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), favailable.into_param().abi()).ok()
+    pub unsafe fn SetLinkAvailable<'a, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, iob: i32, favailable: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLinkAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), favailable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> ::windows::core::Result<()> {
@@ -2079,8 +2079,8 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn SaveCompleted<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>(&self, iob: i32, lpstg: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), lpstg.into_param().abi()).ok()
+    pub unsafe fn SaveCompleted<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>>(&self, iob: i32, lpstg: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SaveCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), lpstg.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::core::Result<()> {
@@ -2088,8 +2088,8 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::windows::core::Interface::as_raw(self), fentermode.into_param().abi()).ok()
+    pub unsafe fn ContextSensitiveHelp<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::windows::core::Interface::as_raw(self), fentermode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2098,8 +2098,8 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportDataObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IDataObject>>(&self, lpdataobj: Param0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImportDataObject)(::windows::core::Interface::as_raw(self), lpdataobj.into_param().abi(), ::core::mem::transmute(cf), ::core::mem::transmute(hmetapict)).ok()
+    pub unsafe fn ImportDataObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IDataObject>>>(&self, lpdataobj: Param0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ImportDataObject)(::windows::core::Interface::as_raw(self), lpdataobj.into().abi(), ::core::mem::transmute(cf), ::core::mem::transmute(hmetapict)).ok()
     }
 }
 impl ::core::convert::From<IRichEditOle> for ::windows::core::IUnknown {
@@ -2107,19 +2107,14 @@ impl ::core::convert::From<IRichEditOle> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRichEditOle> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRichEditOle) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRichEditOle> for ::windows::core::IUnknown {
     fn from(value: &IRichEditOle) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRichEditOle {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRichEditOle {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRichEditOle {
@@ -2204,28 +2199,28 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowContainerUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowContainerUI)(::windows::core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+    pub unsafe fn ShowContainerUI<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowContainerUI)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn QueryInsertObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>(&self, lpclsid: *mut ::windows::core::GUID, lpstg: Param1, cp: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryInsertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpclsid), lpstg.into_param().abi(), ::core::mem::transmute(cp)).ok()
+    pub unsafe fn QueryInsertObject<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>>(&self, lpclsid: *mut ::windows::core::GUID, lpstg: Param1, cp: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).QueryInsertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpclsid), lpstg.into().abi(), ::core::mem::transmute(cp)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn DeleteObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Ole::IOleObject>>(&self, lpoleobj: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), lpoleobj.into_param().abi()).ok()
+    pub unsafe fn DeleteObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>>(&self, lpoleobj: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), lpoleobj.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn QueryAcceptData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IDataObject>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, lpdataobj: Param0, lpcfformat: *mut u16, reco: u32, freally: Param3, hmetapict: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryAcceptData)(::windows::core::Interface::as_raw(self), lpdataobj.into_param().abi(), ::core::mem::transmute(lpcfformat), ::core::mem::transmute(reco), freally.into_param().abi(), ::core::mem::transmute(hmetapict)).ok()
+    pub unsafe fn QueryAcceptData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IDataObject>>, Param3: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, lpdataobj: Param0, lpcfformat: *mut u16, reco: u32, freally: Param3, hmetapict: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).QueryAcceptData)(::windows::core::Interface::as_raw(self), lpdataobj.into().abi(), ::core::mem::transmute(lpcfformat), ::core::mem::transmute(reco), freally.into(), ::core::mem::transmute(hmetapict)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::windows::core::Interface::as_raw(self), fentermode.into_param().abi()).ok()
+    pub unsafe fn ContextSensitiveHelp<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::windows::core::Interface::as_raw(self), fentermode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2234,13 +2229,13 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDragDropEffect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fdrag: Param0, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDragDropEffect)(::windows::core::Interface::as_raw(self), fdrag.into_param().abi(), ::core::mem::transmute(grfkeystate), ::core::mem::transmute(pdweffect)).ok()
+    pub unsafe fn GetDragDropEffect<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fdrag: Param0, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDragDropEffect)(::windows::core::Interface::as_raw(self), fdrag.into(), ::core::mem::transmute(grfkeystate), ::core::mem::transmute(pdweffect)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetContextMenu<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Ole::IOleObject>>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: Param1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seltype), lpoleobj.into_param().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
+    pub unsafe fn GetContextMenu<'a, Param0: ::std::convert::Into<RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>>(&self, seltype: Param0, lpoleobj: Param1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetContextMenu)(::windows::core::Interface::as_raw(self), seltype.into(), lpoleobj.into().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
     }
 }
 impl ::core::convert::From<IRichEditOleCallback> for ::windows::core::IUnknown {
@@ -2248,19 +2243,14 @@ impl ::core::convert::From<IRichEditOleCallback> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRichEditOleCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRichEditOleCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRichEditOleCallback> for ::windows::core::IUnknown {
     fn from(value: &IRichEditOleCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRichEditOleCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRichEditOleCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRichEditOleCallback {
@@ -2343,19 +2333,14 @@ impl ::core::convert::From<IRicheditUiaOverrides> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRicheditUiaOverrides> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRicheditUiaOverrides) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRicheditUiaOverrides> for ::windows::core::IUnknown {
     fn from(value: &IRicheditUiaOverrides) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRicheditUiaOverrides {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRicheditUiaOverrides {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRicheditUiaOverrides {
@@ -2400,21 +2385,15 @@ impl ::core::convert::From<ITextDisplays> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDisplays> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextDisplays) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextDisplays> for ::windows::core::IUnknown {
     fn from(value: &ITextDisplays) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextDisplays {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextDisplays {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2424,21 +2403,15 @@ impl ::core::convert::From<ITextDisplays> for super::super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDisplays> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextDisplays) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextDisplays> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextDisplays) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextDisplays {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextDisplays {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2507,8 +2480,8 @@ impl ITextDocument {
         (::windows::core::Interface::vtable(self).GetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetSaved<'a, Param0: ::std::convert::Into<tomConstants>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSaved)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
@@ -2581,21 +2554,15 @@ impl ::core::convert::From<ITextDocument> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextDocument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextDocument> for ::windows::core::IUnknown {
     fn from(value: &ITextDocument) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2605,21 +2572,15 @@ impl ::core::convert::From<ITextDocument> for super::super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextDocument) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextDocument> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextDocument) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextDocument {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2728,8 +2689,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).base__.GetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetSaved<'a, Param0: ::std::convert::Into<tomConstants>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
@@ -2817,8 +2778,8 @@ impl ITextDocument2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentFont)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetDocumentFont<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDocumentFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2828,8 +2789,8 @@ impl ITextDocument2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentPara)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetDocumentPara<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDocumentPara)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetEastAsianFlags(&self) -> ::windows::core::Result<tomConstants> {
@@ -2883,8 +2844,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).GetWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn AttachMsgFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachMsgFilter)(::windows::core::Interface::as_raw(self), pfilter.into_param().abi()).ok()
+    pub unsafe fn AttachMsgFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AttachMsgFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()> {
@@ -2896,8 +2857,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).GetCallManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClientRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+    pub unsafe fn GetClientRect<'a, Param0: ::std::convert::Into<tomConstants>>(&self, r#type: Param0, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetClientRect)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<i32> {
@@ -2942,8 +2903,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).RangeFromPoint2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn ReleaseCallManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pvoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseCallManager)(::windows::core::Interface::as_raw(self), pvoid.into_param().abi()).ok()
+    pub unsafe fn ReleaseCallManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pvoid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReleaseCallManager)(::windows::core::Interface::as_raw(self), pvoid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()> {
@@ -2988,8 +2949,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).GetActiveStory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextStory>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetActiveStory<'a, Param0: ::windows::core::IntoParam<'a, ITextStory>>(&self, pstory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActiveStory)(::windows::core::Interface::as_raw(self), pstory.into_param().abi()).ok()
+    pub unsafe fn SetActiveStory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextStory>>>(&self, pstory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActiveStory)(::windows::core::Interface::as_raw(self), pstory.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetMainStory(&self) -> ::windows::core::Result<ITextStory> {
@@ -3014,26 +2975,26 @@ impl ::core::convert::From<ITextDocument2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextDocument2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextDocument2> for ::windows::core::IUnknown {
     fn from(value: &ITextDocument2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextDocument2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextDocument2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextDocument2> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextDocument2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument2> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextDocument2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3044,20 +3005,14 @@ impl ::core::convert::From<&ITextDocument2> for super::super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextDocument2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextDocument2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextDocument2> for ITextDocument {
     fn from(value: ITextDocument2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument2> for &'a ITextDocument {
+    fn from(value: &'a ITextDocument2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3065,18 +3020,6 @@ impl ::core::convert::From<ITextDocument2> for ITextDocument {
 impl ::core::convert::From<&ITextDocument2> for ITextDocument {
     fn from(value: &ITextDocument2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextDocument> for ITextDocument2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextDocument> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextDocument> for &'a ITextDocument2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextDocument> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3225,8 +3168,8 @@ impl ITextDocument2Old {
         (::windows::core::Interface::vtable(self).base__.GetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetSaved<'a, Param0: ::std::convert::Into<tomConstants>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
@@ -3292,8 +3235,8 @@ impl ITextDocument2Old {
         (::windows::core::Interface::vtable(self).base__.RangeFromPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn AttachMsgFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachMsgFilter)(::windows::core::Interface::as_raw(self), pfilter.into_param().abi()).ok()
+    pub unsafe fn AttachMsgFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pfilter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AttachMsgFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn SetEffectColor(&self, index: i32, cr: u32) -> ::windows::core::Result<()> {
@@ -3398,13 +3341,19 @@ impl ITextDocument2Old {
         (::windows::core::Interface::vtable(self).GetCallManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn ReleaseCallManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pvoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseCallManager)(::windows::core::Interface::as_raw(self), pvoid.into_param().abi()).ok()
+    pub unsafe fn ReleaseCallManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pvoid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReleaseCallManager)(::windows::core::Interface::as_raw(self), pvoid.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextDocument2Old> for ::windows::core::IUnknown {
     fn from(value: ITextDocument2Old) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument2Old> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextDocument2Old) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3415,20 +3364,14 @@ impl ::core::convert::From<&ITextDocument2Old> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextDocument2Old {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextDocument2Old {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextDocument2Old> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextDocument2Old) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument2Old> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextDocument2Old) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3439,20 +3382,14 @@ impl ::core::convert::From<&ITextDocument2Old> for super::super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextDocument2Old {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextDocument2Old {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextDocument2Old> for ITextDocument {
     fn from(value: ITextDocument2Old) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextDocument2Old> for &'a ITextDocument {
+    fn from(value: &'a ITextDocument2Old) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3460,18 +3397,6 @@ impl ::core::convert::From<ITextDocument2Old> for ITextDocument {
 impl ::core::convert::From<&ITextDocument2Old> for ITextDocument {
     fn from(value: &ITextDocument2Old) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextDocument> for ITextDocument2Old {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextDocument> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextDocument> for &'a ITextDocument2Old {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextDocument> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3555,8 +3480,8 @@ impl ITextFont {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuplicate)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetDuplicate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuplicate)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
@@ -3565,13 +3490,13 @@ impl ITextFont {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), pfont.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), pfont.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn Reset<'a, Param0: ::std::convert::Into<tomConstants>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
@@ -3689,8 +3614,8 @@ impl ITextFont {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetOutline(&self) -> ::windows::core::Result<i32> {
@@ -3808,21 +3733,15 @@ impl ::core::convert::From<ITextFont> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextFont> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextFont) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextFont> for ::windows::core::IUnknown {
     fn from(value: &ITextFont) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextFont {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextFont {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3832,21 +3751,15 @@ impl ::core::convert::From<ITextFont> for super::super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextFont> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextFont) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextFont> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextFont) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextFont {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextFont {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3964,8 +3877,8 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDuplicate)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetDuplicate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDuplicate)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
@@ -3974,13 +3887,13 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), pfont.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), pfont.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn Reset<'a, Param0: ::std::convert::Into<tomConstants>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
@@ -4098,8 +4011,8 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetOutline(&self) -> ::windows::core::Result<i32> {
@@ -4294,8 +4207,8 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuplicate2)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetDuplicate2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuplicate2)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetLinkType(&self) -> ::windows::core::Result<i32> {
@@ -4402,9 +4315,9 @@ impl ITextFont2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>>(&self, pfont: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual2)(::windows::core::Interface::as_raw(self), pfont.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual2)(::windows::core::Interface::as_raw(self), pfont.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()> {
@@ -4426,26 +4339,26 @@ impl ::core::convert::From<ITextFont2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextFont2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextFont2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextFont2> for ::windows::core::IUnknown {
     fn from(value: &ITextFont2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextFont2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextFont2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextFont2> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextFont2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextFont2> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextFont2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4456,20 +4369,14 @@ impl ::core::convert::From<&ITextFont2> for super::super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextFont2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextFont2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextFont2> for ITextFont {
     fn from(value: ITextFont2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextFont2> for &'a ITextFont {
+    fn from(value: &'a ITextFont2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4477,18 +4384,6 @@ impl ::core::convert::From<ITextFont2> for ITextFont {
 impl ::core::convert::From<&ITextFont2> for ITextFont {
     fn from(value: &ITextFont2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextFont> for ITextFont2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextFont> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextFont> for &'a ITextFont2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextFont> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4588,48 +4483,48 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into_param().abi()))
+    pub unsafe fn TxReleaseDC<'a, Param0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> i32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowScrollBar<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, fshow: Param1) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxShowScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), fshow.into_param().abi()))
+    pub unsafe fn TxShowScrollBar<'a, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fnbar: i32, fshow: Param1) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxShowScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), fshow.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusbflags), ::core::mem::transmute(fuarrowflags)))
+    pub unsafe fn TxEnableScrollBar<'a, Param0: ::std::convert::Into<super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS>, Param1: ::std::convert::Into<super::ENABLE_SCROLL_BAR_ARROWS>>(&self, fusbflags: Param0, fuarrowflags: Param1) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags.into(), fuarrowflags.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollRange<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: Param3) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetScrollRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), fredraw.into_param().abi()))
+    pub unsafe fn TxSetScrollRange<'a, Param3: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: Param3) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetScrollRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), fredraw.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollPos<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, npos: i32, fredraw: Param2) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetScrollPos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(npos), fredraw.into_param().abi()))
+    pub unsafe fn TxSetScrollPos<'a, Param2: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fnbar: i32, npos: i32, fredraw: Param2) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetScrollPos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(npos), fredraw.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxInvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: Param1) {
-        (::windows::core::Interface::vtable(self).TxInvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), fmode.into_param().abi())
+    pub unsafe fn TxInvalidateRect<'a, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: Param1) {
+        (::windows::core::Interface::vtable(self).TxInvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), fmode.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxViewChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fupdate: Param0) {
-        (::windows::core::Interface::vtable(self).TxViewChange)(::windows::core::Interface::as_raw(self), fupdate.into_param().abi())
+    pub unsafe fn TxViewChange<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fupdate: Param0) {
+        (::windows::core::Interface::vtable(self).TxViewChange)(::windows::core::Interface::as_raw(self), fupdate.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn TxCreateCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HBITMAP>>(&self, hbmp: Param0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into_param().abi(), ::core::mem::transmute(xwidth), ::core::mem::transmute(yheight)))
+    pub unsafe fn TxCreateCaret<'a, Param0: ::std::convert::Into<super::super::super::Graphics::Gdi::HBITMAP>>(&self, hbmp: Param0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), ::core::mem::transmute(xwidth), ::core::mem::transmute(yheight)))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into_param().abi()))
+    pub unsafe fn TxShowCaret<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4647,13 +4542,13 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HRGN>>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: Param4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD) {
-        (::windows::core::Interface::vtable(self).TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into_param().abi(), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(fuscroll))
+    pub unsafe fn TxScrollWindowEx<'a, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>, Param6: ::std::convert::Into<super::super::WindowsAndMessaging::SHOW_WINDOW_CMD>>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: Param4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: Param6) {
+        (::windows::core::Interface::vtable(self).TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fcapture: Param0) {
-        (::windows::core::Interface::vtable(self).TxSetCapture)(::windows::core::Interface::as_raw(self), fcapture.into_param().abi())
+    pub unsafe fn TxSetCapture<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fcapture: Param0) {
+        (::windows::core::Interface::vtable(self).TxSetCapture)(::windows::core::Interface::as_raw(self), fcapture.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxSetFocus(&self) {
@@ -4661,8 +4556,8 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxSetCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowsAndMessaging::HCURSOR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hcur: Param0, ftext: Param1) {
-        (::windows::core::Interface::vtable(self).TxSetCursor)(::windows::core::Interface::as_raw(self), hcur.into_param().abi(), ftext.into_param().abi())
+    pub unsafe fn TxSetCursor<'a, Param0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, hcur: Param0, ftext: Param1) {
+        (::windows::core::Interface::vtable(self).TxSetCursor)(::windows::core::Interface::as_raw(self), hcur.into(), ftext.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4753,8 +4648,8 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn TxImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) {
-        (::windows::core::Interface::vtable(self).TxImmReleaseContext)(::windows::core::Interface::as_raw(self), himc.into_param().abi())
+    pub unsafe fn TxImmReleaseContext<'a, Param0: ::std::convert::Into<super::super::super::Globalization::HIMC>>(&self, himc: Param0) {
+        (::windows::core::Interface::vtable(self).TxImmReleaseContext)(::windows::core::Interface::as_raw(self), himc.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -4766,19 +4661,14 @@ impl ::core::convert::From<ITextHost> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextHost> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextHost> for ::windows::core::IUnknown {
     fn from(value: &ITextHost) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextHost {
@@ -4922,48 +4812,48 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into_param().abi()))
+    pub unsafe fn TxReleaseDC<'a, Param0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> i32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowScrollBar<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, fshow: Param1) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxShowScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), fshow.into_param().abi()))
+    pub unsafe fn TxShowScrollBar<'a, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fnbar: i32, fshow: Param1) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxShowScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), fshow.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusbflags), ::core::mem::transmute(fuarrowflags)))
+    pub unsafe fn TxEnableScrollBar<'a, Param0: ::std::convert::Into<super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS>, Param1: ::std::convert::Into<super::ENABLE_SCROLL_BAR_ARROWS>>(&self, fusbflags: Param0, fuarrowflags: Param1) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags.into(), fuarrowflags.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollRange<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: Param3) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetScrollRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), fredraw.into_param().abi()))
+    pub unsafe fn TxSetScrollRange<'a, Param3: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: Param3) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetScrollRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(nminpos), ::core::mem::transmute(nmaxpos), fredraw.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetScrollPos<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fnbar: i32, npos: i32, fredraw: Param2) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetScrollPos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(npos), fredraw.into_param().abi()))
+    pub unsafe fn TxSetScrollPos<'a, Param2: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fnbar: i32, npos: i32, fredraw: Param2) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxSetScrollPos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fnbar), ::core::mem::transmute(npos), fredraw.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxInvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: Param1) {
-        (::windows::core::Interface::vtable(self).base__.TxInvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), fmode.into_param().abi())
+    pub unsafe fn TxInvalidateRect<'a, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, prc: *mut super::super::super::Foundation::RECT, fmode: Param1) {
+        (::windows::core::Interface::vtable(self).base__.TxInvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), fmode.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxViewChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fupdate: Param0) {
-        (::windows::core::Interface::vtable(self).base__.TxViewChange)(::windows::core::Interface::as_raw(self), fupdate.into_param().abi())
+    pub unsafe fn TxViewChange<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fupdate: Param0) {
+        (::windows::core::Interface::vtable(self).base__.TxViewChange)(::windows::core::Interface::as_raw(self), fupdate.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn TxCreateCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HBITMAP>>(&self, hbmp: Param0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into_param().abi(), ::core::mem::transmute(xwidth), ::core::mem::transmute(yheight)))
+    pub unsafe fn TxCreateCaret<'a, Param0: ::std::convert::Into<super::super::super::Graphics::Gdi::HBITMAP>>(&self, hbmp: Param0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), ::core::mem::transmute(xwidth), ::core::mem::transmute(yheight)))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxShowCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into_param().abi()))
+    pub unsafe fn TxShowCaret<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fshow: Param0) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4981,13 +4871,13 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HRGN>>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: Param4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD) {
-        (::windows::core::Interface::vtable(self).base__.TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into_param().abi(), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(fuscroll))
+    pub unsafe fn TxScrollWindowEx<'a, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>, Param6: ::std::convert::Into<super::super::WindowsAndMessaging::SHOW_WINDOW_CMD>>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: Param4, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: Param6) {
+        (::windows::core::Interface::vtable(self).base__.TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fcapture: Param0) {
-        (::windows::core::Interface::vtable(self).base__.TxSetCapture)(::windows::core::Interface::as_raw(self), fcapture.into_param().abi())
+    pub unsafe fn TxSetCapture<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, fcapture: Param0) {
+        (::windows::core::Interface::vtable(self).base__.TxSetCapture)(::windows::core::Interface::as_raw(self), fcapture.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxSetFocus(&self) {
@@ -4995,8 +4885,8 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxSetCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowsAndMessaging::HCURSOR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hcur: Param0, ftext: Param1) {
-        (::windows::core::Interface::vtable(self).base__.TxSetCursor)(::windows::core::Interface::as_raw(self), hcur.into_param().abi(), ftext.into_param().abi())
+    pub unsafe fn TxSetCursor<'a, Param0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, hcur: Param0, ftext: Param1) {
+        (::windows::core::Interface::vtable(self).base__.TxSetCursor)(::windows::core::Interface::as_raw(self), hcur.into(), ftext.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5087,8 +4977,8 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn TxImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0) {
-        (::windows::core::Interface::vtable(self).base__.TxImmReleaseContext)(::windows::core::Interface::as_raw(self), himc.into_param().abi())
+    pub unsafe fn TxImmReleaseContext<'a, Param0: ::std::convert::Into<super::super::super::Globalization::HIMC>>(&self, himc: Param0) {
+        (::windows::core::Interface::vtable(self).base__.TxImmReleaseContext)(::windows::core::Interface::as_raw(self), himc.into())
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -5119,8 +5009,8 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxSetCursor2<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowsAndMessaging::HCURSOR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hcur: Param0, btext: Param1) -> super::super::WindowsAndMessaging::HCURSOR {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetCursor2)(::windows::core::Interface::as_raw(self), hcur.into_param().abi(), btext.into_param().abi()))
+    pub unsafe fn TxSetCursor2<'a, Param0: ::std::convert::Into<super::super::WindowsAndMessaging::HCURSOR>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, hcur: Param0, btext: Param1) -> super::super::WindowsAndMessaging::HCURSOR {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxSetCursor2)(::windows::core::Interface::as_raw(self), hcur.into(), btext.into()))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxFreeTextServicesNotification(&self) {
@@ -5136,8 +5026,8 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn TxShowDropCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, fshow: Param0, hdc: Param1, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxShowDropCaret)(::windows::core::Interface::as_raw(self), fshow.into_param().abi(), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
+    pub unsafe fn TxShowDropCaret<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, fshow: Param0, hdc: Param1, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxShowDropCaret)(::windows::core::Interface::as_raw(self), fshow.into(), hdc.into(), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxDestroyCaret(&self) -> ::windows::core::Result<()> {
@@ -5153,19 +5043,14 @@ impl ::core::convert::From<ITextHost2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextHost2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextHost2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextHost2> for ::windows::core::IUnknown {
     fn from(value: &ITextHost2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextHost2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextHost2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ITextHost2> for ITextHost {
@@ -5173,19 +5058,14 @@ impl ::core::convert::From<ITextHost2> for ITextHost {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextHost2> for &'a ITextHost {
+    fn from(value: &'a ITextHost2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextHost2> for ITextHost {
     fn from(value: &ITextHost2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextHost> for ITextHost2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextHost> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextHost> for &'a ITextHost2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextHost> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextHost2 {
@@ -5254,8 +5134,8 @@ impl ITextPara {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuplicate)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetDuplicate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuplicate)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
@@ -5264,9 +5144,9 @@ impl ITextPara {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), ppara.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), ppara.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Reset(&self, value: i32) -> ::windows::core::Result<()> {
@@ -5473,21 +5353,15 @@ impl ::core::convert::From<ITextPara> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextPara> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextPara) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextPara> for ::windows::core::IUnknown {
     fn from(value: &ITextPara) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextPara {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextPara {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5497,21 +5371,15 @@ impl ::core::convert::From<ITextPara> for super::super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextPara> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextPara) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextPara> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextPara) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextPara {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextPara {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5616,8 +5484,8 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDuplicate)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetDuplicate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDuplicate)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
@@ -5626,9 +5494,9 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), ppara.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), ppara.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Reset(&self, value: i32) -> ::windows::core::Result<()> {
@@ -5840,8 +5708,8 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDuplicate2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuplicate2)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetDuplicate2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuplicate2)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetFontAlignment(&self) -> ::windows::core::Result<i32> {
@@ -5890,9 +5758,9 @@ impl ITextPara2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>>(&self, ppara: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual2)(::windows::core::Interface::as_raw(self), ppara.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual2)(::windows::core::Interface::as_raw(self), ppara.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()> {
@@ -5910,26 +5778,26 @@ impl ::core::convert::From<ITextPara2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextPara2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextPara2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextPara2> for ::windows::core::IUnknown {
     fn from(value: &ITextPara2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextPara2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextPara2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextPara2> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextPara2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextPara2> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextPara2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5940,20 +5808,14 @@ impl ::core::convert::From<&ITextPara2> for super::super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextPara2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextPara2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextPara2> for ITextPara {
     fn from(value: ITextPara2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextPara2> for &'a ITextPara {
+    fn from(value: &'a ITextPara2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5961,18 +5823,6 @@ impl ::core::convert::From<ITextPara2> for ITextPara {
 impl ::core::convert::From<&ITextPara2> for ITextPara {
     fn from(value: &ITextPara2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextPara> for ITextPara2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextPara> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextPara> for &'a ITextPara2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextPara> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6045,8 +5895,8 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
@@ -6071,8 +5921,8 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
@@ -6100,8 +5950,8 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFont)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetFont<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6111,8 +5961,8 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPara)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetPara<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPara)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
@@ -6148,21 +5998,21 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).InRange)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InStory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).InStory)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
@@ -6231,21 +6081,21 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
@@ -6309,21 +6159,15 @@ impl ::core::convert::From<ITextRange> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextRange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextRange> for ::windows::core::IUnknown {
     fn from(value: &ITextRange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextRange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextRange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6333,21 +6177,15 @@ impl ::core::convert::From<ITextRange> for super::super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRange> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextRange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextRange> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextRange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextRange {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextRange {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6521,8 +6359,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
@@ -6547,8 +6385,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
@@ -6576,8 +6414,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetFont<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6587,8 +6425,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPara)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetPara<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPara)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
@@ -6624,21 +6462,21 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.InRange)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InStory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.InStory)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
@@ -6707,21 +6545,21 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
@@ -6812,9 +6650,9 @@ impl ITextRange2 {
         (::windows::core::Interface::vtable(self).base__.MoveDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn HomeKey<'a, Param0: ::std::convert::Into<tomConstants>>(&self, unit: Param0, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.HomeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.HomeKey)(::windows::core::Interface::as_raw(self), unit.into(), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
@@ -6823,8 +6661,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TypeText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TypeText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn TypeText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TypeText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetCch(&self) -> ::windows::core::Result<i32> {
@@ -6860,8 +6698,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFont2)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetFont2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFont2)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6871,8 +6709,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText2<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormattedText2)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormattedText2)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetGravity(&self) -> ::windows::core::Result<i32> {
@@ -6891,8 +6729,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPara2)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetPara2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPara2)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6918,8 +6756,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()> {
@@ -6935,9 +6773,9 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Find<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn Find<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, prange: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Find)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Find)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()> {
@@ -6996,8 +6834,8 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText2<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetText2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn UnicodeToHex(&self) -> ::windows::core::Result<()> {
@@ -7009,19 +6847,25 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMathFunctionType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetMathFunctionType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: Param4, pstream: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), ::core::mem::transmute(r#type), bstralttext.into_param().abi(), pstream.into_param().abi()).ok()
+    pub unsafe fn InsertImage<'a, Param3: ::std::convert::Into<super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>>(&self, width: i32, height: i32, ascent: i32, r#type: Param3, bstralttext: Param4, pstream: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), r#type.into(), bstralttext.into().abi(), pstream.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextRange2> for ::windows::core::IUnknown {
     fn from(value: ITextRange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRange2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextRange2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7032,20 +6876,14 @@ impl ::core::convert::From<&ITextRange2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextRange2> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextRange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRange2> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextRange2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7056,20 +6894,14 @@ impl ::core::convert::From<&ITextRange2> for super::super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextRange2> for ITextRange {
     fn from(value: ITextRange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRange2> for &'a ITextRange {
+    fn from(value: &'a ITextRange2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7080,20 +6912,14 @@ impl ::core::convert::From<&ITextRange2> for ITextRange {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange> for ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange> for &'a ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextRange2> for ITextSelection {
     fn from(value: ITextRange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRange2> for &'a ITextSelection {
+    fn from(value: &'a ITextRange2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7101,18 +6927,6 @@ impl ::core::convert::From<ITextRange2> for ITextSelection {
 impl ::core::convert::From<&ITextRange2> for ITextSelection {
     fn from(value: &ITextRange2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextSelection> for ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextSelection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextSelection> for &'a ITextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextSelection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7412,8 +7226,8 @@ impl ITextRow {
         (::windows::core::Interface::vtable(self).SetCellBorderWidths)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duleft), ::core::mem::transmute(dutop), ::core::mem::transmute(duright), ::core::mem::transmute(dubottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn Apply(&self, crow: i32, flags: tomConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Apply)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crow), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn Apply<'a, Param1: ::std::convert::Into<tomConstants>>(&self, crow: i32, flags: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Apply)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crow), flags.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
@@ -7431,9 +7245,9 @@ impl ITextRow {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRow>>(&self, prow: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRow>>>(&self, prow: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), prow.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), prow.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Reset(&self, value: i32) -> ::windows::core::Result<()> {
@@ -7451,21 +7265,15 @@ impl ::core::convert::From<ITextRow> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRow> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextRow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextRow> for ::windows::core::IUnknown {
     fn from(value: &ITextRow) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextRow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextRow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7475,21 +7283,15 @@ impl ::core::convert::From<ITextRow> for super::super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextRow> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextRow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextRow> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextRow) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextRow {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextRow {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7586,8 +7388,8 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
@@ -7612,8 +7414,8 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
@@ -7641,8 +7443,8 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetFont<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7652,8 +7454,8 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPara)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetPara<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPara)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
@@ -7689,21 +7491,21 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InRange)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InStory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InStory)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
@@ -7772,21 +7574,21 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
@@ -7877,9 +7679,9 @@ impl ITextSelection {
         (::windows::core::Interface::vtable(self).MoveDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn HomeKey<'a, Param0: ::std::convert::Into<tomConstants>>(&self, unit: Param0, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).HomeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HomeKey)(::windows::core::Interface::as_raw(self), unit.into(), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
@@ -7888,13 +7690,19 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TypeText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TypeText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn TypeText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TypeText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection> for ::windows::core::IUnknown {
     fn from(value: ITextSelection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextSelection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7905,20 +7713,14 @@ impl ::core::convert::From<&ITextSelection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextSelection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextSelection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextSelection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextSelection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7929,20 +7731,14 @@ impl ::core::convert::From<&ITextSelection> for super::super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextSelection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextSelection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection> for ITextRange {
     fn from(value: ITextSelection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection> for &'a ITextRange {
+    fn from(value: &'a ITextSelection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7950,18 +7746,6 @@ impl ::core::convert::From<ITextSelection> for ITextRange {
 impl ::core::convert::From<&ITextSelection> for ITextRange {
     fn from(value: &ITextSelection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange> for ITextSelection {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange> for &'a ITextSelection {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8022,8 +7806,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
@@ -8048,8 +7832,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetFormattedText)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<i32> {
@@ -8077,8 +7861,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont<'a, Param0: ::windows::core::IntoParam<'a, ITextFont>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetFont<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8088,8 +7872,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara<'a, Param0: ::windows::core::IntoParam<'a, ITextPara>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPara)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetPara<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPara)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStoryLength(&self) -> ::windows::core::Result<i32> {
@@ -8125,21 +7909,21 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InRange)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InStory<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn InStory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.InStory)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, ITextRange>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange>>>(&self, prange: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Select(&self) -> ::windows::core::Result<()> {
@@ -8208,21 +7992,21 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindTextEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
@@ -8313,9 +8097,9 @@ impl ITextSelection2 {
         (::windows::core::Interface::vtable(self).base__.base__.MoveDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn HomeKey<'a, Param0: ::std::convert::Into<tomConstants>>(&self, unit: Param0, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.HomeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.HomeKey)(::windows::core::Interface::as_raw(self), unit.into(), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
@@ -8324,8 +8108,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TypeText<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.TypeText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn TypeText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.TypeText)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetCch(&self) -> ::windows::core::Result<i32> {
@@ -8361,8 +8145,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFont2<'a, Param0: ::windows::core::IntoParam<'a, ITextFont2>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFont2)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
+    pub unsafe fn SetFont2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextFont2>>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFont2)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8372,8 +8156,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText2<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFormattedText2)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFormattedText2)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetGravity(&self) -> ::windows::core::Result<i32> {
@@ -8392,8 +8176,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPara2<'a, Param0: ::windows::core::IntoParam<'a, ITextPara2>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPara2)(::windows::core::Interface::as_raw(self), ppara.into_param().abi()).ok()
+    pub unsafe fn SetPara2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextPara2>>>(&self, ppara: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPara2)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8419,8 +8203,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()> {
@@ -8436,9 +8220,9 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Find<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn Find<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, prange: Param0, count: i32, flags: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Find)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Find)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(count), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()> {
@@ -8497,8 +8281,8 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetText2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText2<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetText2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn UnicodeToHex(&self) -> ::windows::core::Result<()> {
@@ -8510,19 +8294,25 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMathFunctionType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetMathFunctionType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: Param4, pstream: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), ::core::mem::transmute(r#type), bstralttext.into_param().abi(), pstream.into_param().abi()).ok()
+    pub unsafe fn InsertImage<'a, Param3: ::std::convert::Into<super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>>(&self, width: i32, height: i32, ascent: i32, r#type: Param3, bstralttext: Param4, pstream: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), r#type.into(), bstralttext.into().abi(), pstream.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection2> for ::windows::core::IUnknown {
     fn from(value: ITextSelection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextSelection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8533,20 +8323,14 @@ impl ::core::convert::From<&ITextSelection2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection2> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextSelection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextSelection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8557,20 +8341,14 @@ impl ::core::convert::From<&ITextSelection2> for super::super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection2> for ITextRange {
     fn from(value: ITextSelection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ITextRange {
+    fn from(value: &'a ITextSelection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8581,20 +8359,14 @@ impl ::core::convert::From<&ITextSelection2> for ITextRange {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange> for ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange> for &'a ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection2> for ITextSelection {
     fn from(value: ITextSelection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ITextSelection {
+    fn from(value: &'a ITextSelection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8605,20 +8377,14 @@ impl ::core::convert::From<&ITextSelection2> for ITextSelection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextSelection> for ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextSelection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextSelection> for &'a ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextSelection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextSelection2> for ITextRange2 {
     fn from(value: ITextSelection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ITextRange2 {
+    fn from(value: &'a ITextSelection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8626,18 +8392,6 @@ impl ::core::convert::From<ITextSelection2> for ITextRange2 {
 impl ::core::convert::From<&ITextSelection2> for ITextRange2 {
     fn from(value: &ITextSelection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange2> for ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextRange2> for &'a ITextSelection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRange2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8677,13 +8431,13 @@ pub struct ITextServices(::windows::core::IUnknown);
 impl ITextServices {
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSendMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxSendMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresult)).ok()
+    pub unsafe fn TxSendMessage<'a, Param1: ::std::convert::Into<super::super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<super::super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxSendMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
+    pub unsafe fn TxDraw<'a, Param0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param5: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: Param0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxDraw)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8697,13 +8451,13 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnTxSetCursor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+    pub unsafe fn OnTxSetCursor<'a, Param0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param5: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: Param0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnTxSetCursor)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxQueryHitPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
+    pub unsafe fn TxQueryHitPoint<'a, Param0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param5: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: Param0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxQueryHitPoint)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8728,8 +8482,8 @@ impl ITextServices {
         (::windows::core::Interface::vtable(self).TxGetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn TxSetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxSetText)(::windows::core::Interface::as_raw(self), psztext.into_param().abi()).ok()
+    pub unsafe fn TxSetText(&self, psztext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxSetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztext)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
@@ -8741,8 +8495,8 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxGetNaturalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
+    pub unsafe fn TxGetNaturalSize<'a, Param1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxGetNaturalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -8764,19 +8518,14 @@ impl ::core::convert::From<ITextServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextServices> for ::windows::core::IUnknown {
     fn from(value: &ITextServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextServices {
@@ -8858,13 +8607,13 @@ pub struct ITextServices2(::windows::core::IUnknown);
 impl ITextServices2 {
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxSendMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TxSendMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresult)).ok()
+    pub unsafe fn TxSendMessage<'a, Param1: ::std::convert::Into<super::super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<super::super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TxSendMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(plresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TxDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
+    pub unsafe fn TxDraw<'a, Param0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param5: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: Param0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TxDraw)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8878,13 +8627,13 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnTxSetCursor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+    pub unsafe fn OnTxSetCursor<'a, Param0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param5: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: Param0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnTxSetCursor)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TxQueryHitPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
+    pub unsafe fn TxQueryHitPoint<'a, Param0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>, Param4: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param5: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: Param0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: Param4, hictargetdev: Param5, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TxQueryHitPoint)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8909,8 +8658,8 @@ impl ITextServices2 {
         (::windows::core::Interface::vtable(self).base__.TxGetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn TxSetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psztext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TxSetText)(::windows::core::Interface::as_raw(self), psztext.into_param().abi()).ok()
+    pub unsafe fn TxSetText(&self, psztext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TxSetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztext)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
@@ -8922,8 +8671,8 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TxGetNaturalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
+    pub unsafe fn TxGetNaturalSize<'a, Param1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TxGetNaturalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -8941,17 +8690,22 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxGetNaturalSize2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxGetNaturalSize2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), hictargetdev.into_param().abi(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight), ::core::mem::transmute(pascent)).ok()
+    pub unsafe fn TxGetNaturalSize2<'a, Param1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>, Param2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, dwaspect: u32, hdcdraw: Param1, hictargetdev: Param2, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxGetNaturalSize2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), ::core::mem::transmute(dwmode), ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight), ::core::mem::transmute(pascent)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
-    pub unsafe fn TxDrawD2D<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct2D::ID2D1RenderTarget>>(&self, prendertarget: Param0, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxDrawD2D)(::windows::core::Interface::as_raw(self), prendertarget.into_param().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(lviewid)).ok()
+    pub unsafe fn TxDrawD2D<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct2D::ID2D1RenderTarget>>>(&self, prendertarget: Param0, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxDrawD2D)(::windows::core::Interface::as_raw(self), prendertarget.into().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(lviewid)).ok()
     }
 }
 impl ::core::convert::From<ITextServices2> for ::windows::core::IUnknown {
     fn from(value: ITextServices2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ITextServices2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextServices2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8960,34 +8714,19 @@ impl ::core::convert::From<&ITextServices2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ITextServices2> for ITextServices {
     fn from(value: ITextServices2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ITextServices2> for &'a ITextServices {
+    fn from(value: &'a ITextServices2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ITextServices2> for ITextServices {
     fn from(value: &ITextServices2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextServices> for ITextServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextServices> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextServices> for &'a ITextServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextServices> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextServices2 {
@@ -9073,8 +8812,8 @@ impl ITextStory {
         (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormattedText)(::windows::core::Interface::as_raw(self), punk.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, punk: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormattedText)(::windows::core::Interface::as_raw(self), punk.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
@@ -9082,8 +8821,8 @@ impl ITextStory {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), bstr.into_param().abi()).ok()
+    pub unsafe fn SetText<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, flags: i32, bstr: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), bstr.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ITextStory> for ::windows::core::IUnknown {
@@ -9091,19 +8830,14 @@ impl ::core::convert::From<ITextStory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextStory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextStory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextStory> for ::windows::core::IUnknown {
     fn from(value: &ITextStory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextStory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextStory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextStory {
@@ -9182,21 +8916,15 @@ impl ::core::convert::From<ITextStoryRanges> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStoryRanges> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextStoryRanges) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextStoryRanges> for ::windows::core::IUnknown {
     fn from(value: &ITextStoryRanges) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextStoryRanges {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextStoryRanges {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9206,21 +8934,15 @@ impl ::core::convert::From<ITextStoryRanges> for super::super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStoryRanges> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextStoryRanges) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextStoryRanges> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextStoryRanges) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextStoryRanges {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextStoryRanges {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9296,26 +9018,26 @@ impl ::core::convert::From<ITextStoryRanges2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStoryRanges2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextStoryRanges2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextStoryRanges2> for ::windows::core::IUnknown {
     fn from(value: &ITextStoryRanges2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextStoryRanges2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextStoryRanges2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextStoryRanges2> for super::super::super::System::Com::IDispatch {
     fn from(value: ITextStoryRanges2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStoryRanges2> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextStoryRanges2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9326,20 +9048,14 @@ impl ::core::convert::From<&ITextStoryRanges2> for super::super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextStoryRanges2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextStoryRanges2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<ITextStoryRanges2> for ITextStoryRanges {
     fn from(value: ITextStoryRanges2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStoryRanges2> for &'a ITextStoryRanges {
+    fn from(value: &'a ITextStoryRanges2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9347,18 +9063,6 @@ impl ::core::convert::From<ITextStoryRanges2> for ITextStoryRanges {
 impl ::core::convert::From<&ITextStoryRanges2> for ITextStoryRanges {
     fn from(value: &ITextStoryRanges2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextStoryRanges> for ITextStoryRanges2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextStoryRanges> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ITextStoryRanges> for &'a ITextStoryRanges2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextStoryRanges> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9415,13 +9119,13 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Append<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0, istring: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), prange.into_param().abi(), ::core::mem::transmute(istring)).ok()
+    pub unsafe fn Append<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, prange: Param0, istring: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(istring)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Cat2(&self, istring: i32) -> ::windows::core::Result<()> {
@@ -9429,18 +9133,18 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CatTop2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CatTop2)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn CatTop2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CatTop2)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteRange<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>>(&self, prange: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteRange)(::windows::core::Interface::as_raw(self), prange.into_param().abi()).ok()
+    pub unsafe fn DeleteRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, prange: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteRange)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EncodeFunction<'a, Param8: ::windows::core::IntoParam<'a, ITextRange2>>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: Param8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EncodeFunction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(align), ::core::mem::transmute(char), ::core::mem::transmute(char1), ::core::mem::transmute(char2), ::core::mem::transmute(count), ::core::mem::transmute(texstyle), ::core::mem::transmute(ccol), prange.into_param().abi()).ok()
+    pub unsafe fn EncodeFunction<'a, Param8: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: Param8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EncodeFunction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(align), ::core::mem::transmute(char), ::core::mem::transmute(char1), ::core::mem::transmute(char2), ::core::mem::transmute(count), ::core::mem::transmute(texstyle), ::core::mem::transmute(ccol), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetCch(&self, istring: i32) -> ::windows::core::Result<i32> {
@@ -9457,8 +9161,8 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PrefixTop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrefixTop)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
+    pub unsafe fn PrefixTop<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, bstr: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PrefixTop)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Remove(&self, istring: i32, cstring: i32) -> ::windows::core::Result<()> {
@@ -9466,8 +9170,8 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFormattedText<'a, Param0: ::windows::core::IntoParam<'a, ITextRange2>, Param1: ::windows::core::IntoParam<'a, ITextRange2>>(&self, pranged: Param0, pranges: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormattedText)(::windows::core::Interface::as_raw(self), pranged.into_param().abi(), pranges.into_param().abi()).ok()
+    pub unsafe fn SetFormattedText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, pranged: Param0, pranges: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormattedText)(::windows::core::Interface::as_raw(self), pranged.into().abi(), pranges.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn SetOpCp(&self, istring: i32, cp: i32) -> ::windows::core::Result<()> {
@@ -9475,8 +9179,8 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SuffixTop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ITextRange2>>(&self, bstr: Param0, prange: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SuffixTop)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), prange.into_param().abi()).ok()
+    pub unsafe fn SuffixTop<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITextRange2>>>(&self, bstr: Param0, prange: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SuffixTop)(::windows::core::Interface::as_raw(self), bstr.into().abi(), prange.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn Swap(&self) -> ::windows::core::Result<()> {
@@ -9490,21 +9194,15 @@ impl ::core::convert::From<ITextStrings> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStrings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextStrings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextStrings> for ::windows::core::IUnknown {
     fn from(value: &ITextStrings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextStrings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextStrings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9514,21 +9212,15 @@ impl ::core::convert::From<ITextStrings> for super::super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ITextStrings> for &'a super::super::super::System::Com::IDispatch {
+    fn from(value: &'a ITextStrings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ITextStrings> for super::super::super::System::Com::IDispatch {
     fn from(value: &ITextStrings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextStrings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextStrings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

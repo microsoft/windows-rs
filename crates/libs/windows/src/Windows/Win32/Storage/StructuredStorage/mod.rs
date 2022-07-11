@@ -22,6 +22,11 @@ impl ::core::fmt::Debug for JET_API_PTR {
         f.debug_tuple("JET_API_PTR").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<JET_API_PTR>> for JET_API_PTR {
+    fn from(optional: ::core::option::Option<JET_API_PTR>) -> JET_API_PTR {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_API_PTR {
     type Abi = Self;
 }
@@ -47,6 +52,11 @@ impl ::core::marker::Copy for JET_HANDLE {}
 impl ::core::fmt::Debug for JET_HANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JET_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<JET_HANDLE>> for JET_HANDLE {
+    fn from(optional: ::core::option::Option<JET_HANDLE>) -> JET_HANDLE {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for JET_HANDLE {
@@ -76,6 +86,11 @@ impl ::core::fmt::Debug for JET_INSTANCE {
         f.debug_tuple("JET_INSTANCE").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<JET_INSTANCE>> for JET_INSTANCE {
+    fn from(optional: ::core::option::Option<JET_INSTANCE>) -> JET_INSTANCE {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_INSTANCE {
     type Abi = Self;
 }
@@ -103,6 +118,11 @@ impl ::core::fmt::Debug for JET_SESID {
         f.debug_tuple("JET_SESID").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<JET_SESID>> for JET_SESID {
+    fn from(optional: ::core::option::Option<JET_SESID>) -> JET_SESID {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for JET_SESID {
     type Abi = Self;
 }
@@ -128,6 +148,11 @@ impl ::core::marker::Copy for JET_TABLEID {}
 impl ::core::fmt::Debug for JET_TABLEID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JET_TABLEID").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<JET_TABLEID>> for JET_TABLEID {
+    fn from(optional: ::core::option::Option<JET_TABLEID>) -> JET_TABLEID {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for JET_TABLEID {

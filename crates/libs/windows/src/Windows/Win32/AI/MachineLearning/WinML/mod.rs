@@ -3,22 +3,22 @@
 pub struct IMLOperatorAttributes(::windows::core::IUnknown);
 impl IMLOperatorAttributes {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributeElementCount)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeElementCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
+    pub unsafe fn GetAttribute<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength(&self, name: ::windows::core::PCSTR, elementindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
+    pub unsafe fn GetStringAttributeElement(&self, name: ::windows::core::PCSTR, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStringAttributeElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorAttributes> for ::windows::core::IUnknown {
@@ -26,19 +26,14 @@ impl ::core::convert::From<IMLOperatorAttributes> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorAttributes> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorAttributes> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorAttributes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorAttributes {
@@ -75,8 +70,8 @@ pub struct IMLOperatorAttributes_Vtbl {
 pub struct IMLOperatorKernel(::windows::core::IUnknown);
 impl IMLOperatorKernel {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn Compute<'a, Param0: ::windows::core::IntoParam<'a, IMLOperatorKernelContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Compute)(::windows::core::Interface::as_raw(self), context.into_param().abi()).ok()
+    pub unsafe fn Compute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorKernelContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Compute)(::windows::core::Interface::as_raw(self), context.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorKernel> for ::windows::core::IUnknown {
@@ -84,19 +79,14 @@ impl ::core::convert::From<IMLOperatorKernel> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorKernel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorKernel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorKernel> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorKernel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorKernel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorKernel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorKernel {
@@ -159,19 +149,14 @@ impl ::core::convert::From<IMLOperatorKernelContext> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorKernelContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorKernelContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorKernelContext> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorKernelContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorKernelContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorKernelContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorKernelContext {
@@ -209,22 +194,22 @@ pub struct IMLOperatorKernelContext_Vtbl {
 pub struct IMLOperatorKernelCreationContext(::windows::core::IUnknown);
 impl IMLOperatorKernelCreationContext {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAttributeElementCount)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAttributeElementCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
+    pub unsafe fn GetAttribute<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength(&self, name: ::windows::core::PCSTR, elementindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
+    pub unsafe fn GetStringAttributeElement(&self, name: ::windows::core::PCSTR, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -271,19 +256,14 @@ impl ::core::convert::From<IMLOperatorKernelCreationContext> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorKernelCreationContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorKernelCreationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorKernelCreationContext> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorKernelCreationContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorKernelCreationContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorKernelCreationContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMLOperatorKernelCreationContext> for IMLOperatorAttributes {
@@ -291,19 +271,14 @@ impl ::core::convert::From<IMLOperatorKernelCreationContext> for IMLOperatorAttr
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorKernelCreationContext> for &'a IMLOperatorAttributes {
+    fn from(value: &'a IMLOperatorKernelCreationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorKernelCreationContext> for IMLOperatorAttributes {
     fn from(value: &IMLOperatorKernelCreationContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorKernelCreationContext {
-    fn into_param(self) -> ::windows::core::Param<'a, IMLOperatorAttributes> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMLOperatorAttributes> for &'a IMLOperatorKernelCreationContext {
-    fn into_param(self) -> ::windows::core::Param<'a, IMLOperatorAttributes> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
@@ -345,9 +320,9 @@ pub struct IMLOperatorKernelCreationContext_Vtbl {
 pub struct IMLOperatorKernelFactory(::windows::core::IUnknown);
 impl IMLOperatorKernelFactory {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn CreateKernel<'a, Param0: ::windows::core::IntoParam<'a, IMLOperatorKernelCreationContext>>(&self, context: Param0) -> ::windows::core::Result<IMLOperatorKernel> {
+    pub unsafe fn CreateKernel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorKernelCreationContext>>>(&self, context: Param0) -> ::windows::core::Result<IMLOperatorKernel> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateKernel)(::windows::core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLOperatorKernel>(result__)
+        (::windows::core::Interface::vtable(self).CreateKernel)(::windows::core::Interface::as_raw(self), context.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLOperatorKernel>(result__)
     }
 }
 impl ::core::convert::From<IMLOperatorKernelFactory> for ::windows::core::IUnknown {
@@ -355,19 +330,14 @@ impl ::core::convert::From<IMLOperatorKernelFactory> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorKernelFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorKernelFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorKernelFactory> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorKernelFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorKernelFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorKernelFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorKernelFactory {
@@ -401,12 +371,12 @@ pub struct IMLOperatorKernelFactory_Vtbl {
 pub struct IMLOperatorRegistry(::windows::core::IUnknown);
 impl IMLOperatorRegistry {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn RegisterOperatorSetSchema<'a, Param4: ::windows::core::IntoParam<'a, IMLOperatorTypeInferrer>, Param5: ::windows::core::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: &[*const MLOperatorSchemaDescription], typeinferrer: Param4, shapeinferrer: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterOperatorSetSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operatorsetid), ::core::mem::transmute(baselineversion), ::core::mem::transmute(::windows::core::as_ptr_or_null(schema)), schema.len() as _, typeinferrer.into_param().abi(), shapeinferrer.into_param().abi()).ok()
+    pub unsafe fn RegisterOperatorSetSchema<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorTypeInferrer>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferrer>>>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: &[*const MLOperatorSchemaDescription], typeinferrer: Param4, shapeinferrer: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterOperatorSetSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operatorsetid), ::core::mem::transmute(baselineversion), ::core::mem::transmute(::windows::core::as_ptr_or_null(schema)), schema.len() as _, typeinferrer.into().abi(), shapeinferrer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn RegisterOperatorKernel<'a, Param1: ::windows::core::IntoParam<'a, IMLOperatorKernelFactory>, Param2: ::windows::core::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: Param1, shapeinferrer: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterOperatorKernel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operatorkernel), operatorkernelfactory.into_param().abi(), shapeinferrer.into_param().abi()).ok()
+    pub unsafe fn RegisterOperatorKernel<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorKernelFactory>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferrer>>>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: Param1, shapeinferrer: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterOperatorKernel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operatorkernel), operatorkernelfactory.into().abi(), shapeinferrer.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorRegistry> for ::windows::core::IUnknown {
@@ -414,19 +384,14 @@ impl ::core::convert::From<IMLOperatorRegistry> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorRegistry> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorRegistry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorRegistry> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorRegistry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorRegistry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorRegistry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorRegistry {
@@ -461,22 +426,22 @@ pub struct IMLOperatorRegistry_Vtbl {
 pub struct IMLOperatorShapeInferenceContext(::windows::core::IUnknown);
 impl IMLOperatorShapeInferenceContext {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAttributeElementCount)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAttributeElementCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
+    pub unsafe fn GetAttribute<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength(&self, name: ::windows::core::PCSTR, elementindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
+    pub unsafe fn GetStringAttributeElement(&self, name: ::windows::core::PCSTR, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -518,19 +483,14 @@ impl ::core::convert::From<IMLOperatorShapeInferenceContext> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorShapeInferenceContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorShapeInferenceContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorShapeInferenceContext> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorShapeInferenceContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorShapeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorShapeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMLOperatorShapeInferenceContext> for IMLOperatorAttributes {
@@ -538,19 +498,14 @@ impl ::core::convert::From<IMLOperatorShapeInferenceContext> for IMLOperatorAttr
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorShapeInferenceContext> for &'a IMLOperatorAttributes {
+    fn from(value: &'a IMLOperatorShapeInferenceContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorShapeInferenceContext> for IMLOperatorAttributes {
     fn from(value: &IMLOperatorShapeInferenceContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorShapeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, IMLOperatorAttributes> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMLOperatorAttributes> for &'a IMLOperatorShapeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, IMLOperatorAttributes> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
@@ -591,8 +546,8 @@ pub struct IMLOperatorShapeInferenceContext_Vtbl {
 pub struct IMLOperatorShapeInferrer(::windows::core::IUnknown);
 impl IMLOperatorShapeInferrer {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn InferOutputShapes<'a, Param0: ::windows::core::IntoParam<'a, IMLOperatorShapeInferenceContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InferOutputShapes)(::windows::core::Interface::as_raw(self), context.into_param().abi()).ok()
+    pub unsafe fn InferOutputShapes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferenceContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InferOutputShapes)(::windows::core::Interface::as_raw(self), context.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorShapeInferrer> for ::windows::core::IUnknown {
@@ -600,19 +555,14 @@ impl ::core::convert::From<IMLOperatorShapeInferrer> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorShapeInferrer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorShapeInferrer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorShapeInferrer> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorShapeInferrer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorShapeInferrer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorShapeInferrer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorShapeInferrer {
@@ -679,19 +629,14 @@ impl ::core::convert::From<IMLOperatorTensor> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorTensor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorTensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorTensor> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorTensor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorTensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorTensor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorTensor {
@@ -758,19 +703,14 @@ impl ::core::convert::From<IMLOperatorTensorShapeDescription> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorTensorShapeDescription> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorTensorShapeDescription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorTensorShapeDescription> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorTensorShapeDescription) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorTensorShapeDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorTensorShapeDescription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
@@ -808,22 +748,22 @@ pub struct IMLOperatorTensorShapeDescription_Vtbl {
 pub struct IMLOperatorTypeInferenceContext(::windows::core::IUnknown);
 impl IMLOperatorTypeInferenceContext {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAttributeElementCount)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAttributeElementCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetAttribute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
+    pub unsafe fn GetAttribute<'a, Param1: ::std::convert::Into<MLOperatorAttributeType>>(&self, name: ::windows::core::PCSTR, r#type: Param1, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(elementcount), ::core::mem::transmute(elementbytesize), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength(&self, name: ::windows::core::PCSTR, elementindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
+    pub unsafe fn GetStringAttributeElement(&self, name: ::windows::core::PCSTR, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetStringAttributeElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -856,19 +796,14 @@ impl ::core::convert::From<IMLOperatorTypeInferenceContext> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorTypeInferenceContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorTypeInferenceContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorTypeInferenceContext> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorTypeInferenceContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorTypeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorTypeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMLOperatorTypeInferenceContext> for IMLOperatorAttributes {
@@ -876,19 +811,14 @@ impl ::core::convert::From<IMLOperatorTypeInferenceContext> for IMLOperatorAttri
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorTypeInferenceContext> for &'a IMLOperatorAttributes {
+    fn from(value: &'a IMLOperatorTypeInferenceContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorTypeInferenceContext> for IMLOperatorAttributes {
     fn from(value: &IMLOperatorTypeInferenceContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorTypeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, IMLOperatorAttributes> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMLOperatorAttributes> for &'a IMLOperatorTypeInferenceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, IMLOperatorAttributes> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
@@ -927,8 +857,8 @@ pub struct IMLOperatorTypeInferenceContext_Vtbl {
 pub struct IMLOperatorTypeInferrer(::windows::core::IUnknown);
 impl IMLOperatorTypeInferrer {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn InferOutputTypes<'a, Param0: ::windows::core::IntoParam<'a, IMLOperatorTypeInferenceContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InferOutputTypes)(::windows::core::Interface::as_raw(self), context.into_param().abi()).ok()
+    pub unsafe fn InferOutputTypes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorTypeInferenceContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InferOutputTypes)(::windows::core::Interface::as_raw(self), context.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorTypeInferrer> for ::windows::core::IUnknown {
@@ -936,19 +866,14 @@ impl ::core::convert::From<IMLOperatorTypeInferrer> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMLOperatorTypeInferrer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMLOperatorTypeInferrer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMLOperatorTypeInferrer> for ::windows::core::IUnknown {
     fn from(value: &IMLOperatorTypeInferrer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMLOperatorTypeInferrer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMLOperatorTypeInferrer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMLOperatorTypeInferrer {
@@ -988,9 +913,9 @@ impl IWinMLEvaluationContext {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetValueByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<*mut WINML_BINDING_DESC> {
+    pub unsafe fn GetValueByName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut WINML_BINDING_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut WINML_BINDING_DESC>::zeroed();
-        (::windows::core::Interface::vtable(self).GetValueByName)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WINML_BINDING_DESC>(result__)
+        (::windows::core::Interface::vtable(self).GetValueByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WINML_BINDING_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -1002,19 +927,14 @@ impl ::core::convert::From<IWinMLEvaluationContext> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWinMLEvaluationContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWinMLEvaluationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWinMLEvaluationContext> for ::windows::core::IUnknown {
     fn from(value: &IWinMLEvaluationContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinMLEvaluationContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinMLEvaluationContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWinMLEvaluationContext {
@@ -1082,19 +1002,14 @@ impl ::core::convert::From<IWinMLModel> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWinMLModel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWinMLModel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWinMLModel> for ::windows::core::IUnknown {
     fn from(value: &IWinMLModel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinMLModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinMLModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWinMLModel {
@@ -1137,19 +1052,19 @@ pub struct IWinMLModel_Vtbl {
 pub struct IWinMLRuntime(::windows::core::IUnknown);
 impl IWinMLRuntime {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn LoadModel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, path: Param0) -> ::windows::core::Result<IWinMLModel> {
+    pub unsafe fn LoadModel(&self, path: ::windows::core::PCWSTR) -> ::windows::core::Result<IWinMLModel> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).LoadModel)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLModel>(result__)
+        (::windows::core::Interface::vtable(self).LoadModel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLModel>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateEvaluationContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>(&self, device: Param0) -> ::windows::core::Result<IWinMLEvaluationContext> {
+    pub unsafe fn CreateEvaluationContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>>(&self, device: Param0) -> ::windows::core::Result<IWinMLEvaluationContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateEvaluationContext)(::windows::core::Interface::as_raw(self), device.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLEvaluationContext>(result__)
+        (::windows::core::Interface::vtable(self).CreateEvaluationContext)(::windows::core::Interface::as_raw(self), device.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLEvaluationContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn EvaluateModel<'a, Param0: ::windows::core::IntoParam<'a, IWinMLEvaluationContext>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EvaluateModel)(::windows::core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
+    pub unsafe fn EvaluateModel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWinMLEvaluationContext>>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EvaluateModel)(::windows::core::Interface::as_raw(self), pcontext.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWinMLRuntime> for ::windows::core::IUnknown {
@@ -1157,19 +1072,14 @@ impl ::core::convert::From<IWinMLRuntime> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWinMLRuntime> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWinMLRuntime) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWinMLRuntime> for ::windows::core::IUnknown {
     fn from(value: &IWinMLRuntime) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinMLRuntime {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinMLRuntime {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWinMLRuntime {
@@ -1208,9 +1118,9 @@ pub struct IWinMLRuntime_Vtbl {
 pub struct IWinMLRuntimeFactory(::windows::core::IUnknown);
 impl IWinMLRuntimeFactory {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
-    pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::core::Result<IWinMLRuntime> {
+    pub unsafe fn CreateRuntime<'a, Param0: ::std::convert::Into<WINML_RUNTIME_TYPE>>(&self, runtimetype: Param0) -> ::windows::core::Result<IWinMLRuntime> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRuntime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runtimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLRuntime>(result__)
+        (::windows::core::Interface::vtable(self).CreateRuntime)(::windows::core::Interface::as_raw(self), runtimetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWinMLRuntime>(result__)
     }
 }
 impl ::core::convert::From<IWinMLRuntimeFactory> for ::windows::core::IUnknown {
@@ -1218,19 +1128,14 @@ impl ::core::convert::From<IWinMLRuntimeFactory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWinMLRuntimeFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWinMLRuntimeFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWinMLRuntimeFactory> for ::windows::core::IUnknown {
     fn from(value: &IWinMLRuntimeFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinMLRuntimeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinMLRuntimeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWinMLRuntimeFactory {

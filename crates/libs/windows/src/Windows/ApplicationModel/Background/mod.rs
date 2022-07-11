@@ -89,14 +89,9 @@ impl ::core::convert::From<&ActivitySensorTrigger> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivitySensorTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensorTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ActivitySensorTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ActivitySensorTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ActivitySensorTrigger> for ::windows::core::IInspectable {
@@ -109,14 +104,9 @@ impl ::core::convert::From<&ActivitySensorTrigger> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ActivitySensorTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensorTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ActivitySensorTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ActivitySensorTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ActivitySensorTrigger> for IBackgroundTrigger {
@@ -131,14 +121,11 @@ impl ::core::convert::TryFrom<&ActivitySensorTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ActivitySensorTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ActivitySensorTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ActivitySensorTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ActivitySensorTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ActivitySensorTrigger {}
@@ -211,9 +198,9 @@ impl ::windows::core::RuntimeName for AlarmApplicationManager {
 pub struct AppBroadcastTrigger(::windows::core::IUnknown);
 impl AppBroadcastTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetProviderInfo<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastTriggerProviderInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProviderInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AppBroadcastTriggerProviderInfo>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProviderInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProviderInfo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn ProviderInfo(&self) -> ::windows::core::Result<AppBroadcastTriggerProviderInfo> {
@@ -224,10 +211,10 @@ impl AppBroadcastTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn CreateAppBroadcastTrigger<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(providerkey: Param0) -> ::windows::core::Result<AppBroadcastTrigger> {
+    pub fn CreateAppBroadcastTrigger<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(providerkey: Param0) -> ::windows::core::Result<AppBroadcastTrigger> {
         Self::IAppBroadcastTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAppBroadcastTrigger)(::windows::core::Interface::as_raw(this), providerkey.into_param().abi(), result__.as_mut_ptr()).from_abi::<AppBroadcastTrigger>(result__)
+            (::windows::core::Interface::vtable(this).CreateAppBroadcastTrigger)(::windows::core::Interface::as_raw(this), providerkey.into().abi(), result__.as_mut_ptr()).from_abi::<AppBroadcastTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -276,14 +263,9 @@ impl ::core::convert::From<&AppBroadcastTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBroadcastTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBroadcastTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppBroadcastTrigger> for &::windows::core::IUnknown {
+    fn from(value: &AppBroadcastTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppBroadcastTrigger> for ::windows::core::IInspectable {
@@ -296,14 +278,9 @@ impl ::core::convert::From<&AppBroadcastTrigger> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBroadcastTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBroadcastTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppBroadcastTrigger> for &::windows::core::IInspectable {
+    fn from(value: &AppBroadcastTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppBroadcastTrigger> for IBackgroundTrigger {
@@ -318,14 +295,11 @@ impl ::core::convert::TryFrom<&AppBroadcastTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for AppBroadcastTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &AppBroadcastTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppBroadcastTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppBroadcastTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppBroadcastTrigger {}
@@ -335,9 +309,9 @@ unsafe impl ::core::marker::Sync for AppBroadcastTrigger {}
 pub struct AppBroadcastTriggerProviderInfo(::windows::core::IUnknown);
 impl AppBroadcastTriggerProviderInfo {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetDisplayNameResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayNameResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -348,9 +322,9 @@ impl AppBroadcastTriggerProviderInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetLogoResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLogoResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLogoResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLogoResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn LogoResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -362,9 +336,9 @@ impl AppBroadcastTriggerProviderInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetVideoKeyFrameInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVideoKeyFrameInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoKeyFrameInterval)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoKeyFrameInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -455,14 +429,9 @@ impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBroadcastTriggerProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBroadcastTriggerProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for &::windows::core::IUnknown {
+    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppBroadcastTriggerProviderInfo> for ::windows::core::IInspectable {
@@ -475,14 +444,9 @@ impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBroadcastTriggerProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBroadcastTriggerProviderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppBroadcastTriggerProviderInfo> for &::windows::core::IInspectable {
+    fn from(value: &AppBroadcastTriggerProviderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppBroadcastTriggerProviderInfo {}
@@ -509,11 +473,11 @@ impl ApplicationTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAsyncWithArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, arguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>> {
+    pub fn RequestAsyncWithArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(&self, arguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), arguments.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), arguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>(result__)
         }
     }
 }
@@ -557,14 +521,9 @@ impl ::core::convert::From<&ApplicationTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ApplicationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ApplicationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ApplicationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ApplicationTrigger> for ::windows::core::IInspectable {
@@ -577,14 +536,9 @@ impl ::core::convert::From<&ApplicationTrigger> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ApplicationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ApplicationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ApplicationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ApplicationTrigger> for IBackgroundTrigger {
@@ -599,14 +553,11 @@ impl ::core::convert::TryFrom<&ApplicationTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ApplicationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ApplicationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ApplicationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ApplicationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ApplicationTrigger {}
@@ -665,14 +616,9 @@ impl ::core::convert::From<&ApplicationTriggerDetails> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ApplicationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ApplicationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ApplicationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &ApplicationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ApplicationTriggerDetails> for ::windows::core::IInspectable {
@@ -685,14 +631,9 @@ impl ::core::convert::From<&ApplicationTriggerDetails> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ApplicationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ApplicationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ApplicationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &ApplicationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
@@ -785,14 +726,9 @@ impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppointmentStoreNotificationTrigger> for ::windows::core::IInspectable {
@@ -805,14 +741,9 @@ impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentStoreNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentStoreNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppointmentStoreNotificationTrigger> for IBackgroundTrigger {
@@ -827,14 +758,11 @@ impl ::core::convert::TryFrom<&AppointmentStoreNotificationTrigger> for IBackgro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for AppointmentStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &AppointmentStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentStoreNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentStoreNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppointmentStoreNotificationTrigger {}
@@ -926,10 +854,10 @@ impl BackgroundExecutionManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessForApplicationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
+    pub fn RequestAccessForApplicationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessForApplicationAsync)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessForApplicationAsync)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -937,8 +865,8 @@ impl BackgroundExecutionManager {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAccess)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn RemoveAccessForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<()> {
-        Self::IBackgroundExecutionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAccessForApplication)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi()).ok() })
+    pub fn RemoveAccessForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<()> {
+        Self::IBackgroundExecutionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAccessForApplication)(::windows::core::Interface::as_raw(this), applicationid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn GetAccessStatus() -> ::windows::core::Result<BackgroundAccessStatus> {
@@ -948,26 +876,26 @@ impl BackgroundExecutionManager {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn GetAccessStatusForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<BackgroundAccessStatus> {
+    pub fn GetAccessStatusForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<BackgroundAccessStatus> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<BackgroundAccessStatus>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAccessStatusForApplication)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAccessStatus>(result__)
+            (::windows::core::Interface::vtable(this).GetAccessStatusForApplication)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAccessStatus>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessKindAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(requestedaccess: BackgroundAccessRequestKind, reason: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAccessKindAsync<'a, Param0: ::std::convert::Into<BackgroundAccessRequestKind>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(requestedaccess: Param0, reason: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessKindAsync)(::windows::core::Interface::as_raw(this), requestedaccess, reason.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessKindAsync)(::windows::core::Interface::as_raw(this), requestedaccess.into(), reason.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessKindForModernStandbyAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(requestedaccess: BackgroundAccessRequestKind, reason: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAccessKindForModernStandbyAsync<'a, Param0: ::std::convert::Into<BackgroundAccessRequestKind>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(requestedaccess: Param0, reason: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessKindForModernStandbyAsync)(::windows::core::Interface::as_raw(this), requestedaccess, reason.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessKindForModernStandbyAsync)(::windows::core::Interface::as_raw(this), requestedaccess.into(), reason.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -978,10 +906,10 @@ impl BackgroundExecutionManager {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn GetAccessStatusForModernStandbyForApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<BackgroundAccessStatus> {
+    pub fn GetAccessStatusForModernStandbyForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<BackgroundAccessStatus> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<BackgroundAccessStatus>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAccessStatusForModernStandbyForApplication)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAccessStatus>(result__)
+            (::windows::core::Interface::vtable(this).GetAccessStatusForModernStandbyForApplication)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAccessStatus>(result__)
         })
     }
     #[doc(hidden)]
@@ -1015,9 +943,9 @@ impl BackgroundTaskBuilder {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetTaskEntryPoint<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTaskEntryPoint<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTaskEntryPoint)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTaskEntryPoint)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn TaskEntryPoint(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1028,19 +956,19 @@ impl BackgroundTaskBuilder {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetTrigger<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundTrigger>>(&self, trigger: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrigger<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTrigger>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, trigger: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrigger)(::windows::core::Interface::as_raw(this), trigger.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrigger)(::windows::core::Interface::as_raw(this), trigger.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn AddCondition<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCondition>>(&self, condition: Param0) -> ::windows::core::Result<()> {
+    pub fn AddCondition<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundCondition>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, condition: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddCondition)(::windows::core::Interface::as_raw(this), condition.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddCondition)(::windows::core::Interface::as_raw(this), condition.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1093,14 +1021,14 @@ impl BackgroundTaskBuilder {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetTaskGroup<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskRegistrationGroup>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTaskGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskRegistrationGroup>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskBuilder4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTaskGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTaskGroup)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn SetTaskEntryPointClsid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, taskentrypoint: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTaskEntryPointClsid(&self, taskentrypoint: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskBuilder5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTaskEntryPointClsid)(::windows::core::Interface::as_raw(this), taskentrypoint.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTaskEntryPointClsid)(::windows::core::Interface::as_raw(this), taskentrypoint).ok() }
     }
 }
 impl ::core::clone::Clone for BackgroundTaskBuilder {
@@ -1143,14 +1071,9 @@ impl ::core::convert::From<&BackgroundTaskBuilder> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskBuilder> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundTaskBuilder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundTaskBuilder> for ::windows::core::IInspectable {
@@ -1163,14 +1086,9 @@ impl ::core::convert::From<&BackgroundTaskBuilder> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskBuilder> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundTaskBuilder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -1182,9 +1100,9 @@ impl BackgroundTaskCanceledEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundTaskInstance>>(&self, sender: Param0, reason: BackgroundTaskCancellationReason) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTaskInstance>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<BackgroundTaskCancellationReason>>(&self, sender: Param0, reason: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), reason).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), reason.into()).ok() }
     }
 }
 #[repr(C)]
@@ -1360,14 +1278,9 @@ impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundTaskCompletedEventArgs> for ::windows::core::IInspectable {
@@ -1380,14 +1293,9 @@ impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundTaskCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BackgroundTaskCompletedEventArgs {}
@@ -1401,9 +1309,9 @@ impl BackgroundTaskCompletedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::core::IntoParam<'a, BackgroundTaskCompletedEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskRegistration>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCompletedEventArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1527,14 +1435,9 @@ impl ::core::convert::From<&BackgroundTaskDeferral> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskDeferral> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundTaskDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundTaskDeferral> for ::windows::core::IInspectable {
@@ -1547,14 +1450,9 @@ impl ::core::convert::From<&BackgroundTaskDeferral> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskDeferral> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundTaskDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BackgroundTaskDeferral {}
@@ -1620,14 +1518,9 @@ impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskProgressEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskProgressEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundTaskProgressEventArgs> for ::windows::core::IInspectable {
@@ -1640,14 +1533,9 @@ impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskProgressEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskProgressEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskProgressEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundTaskProgressEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BackgroundTaskProgressEventArgs {}
@@ -1661,9 +1549,9 @@ impl BackgroundTaskProgressEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::core::IntoParam<'a, BackgroundTaskProgressEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskRegistration>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskProgressEventArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1759,33 +1647,33 @@ impl BackgroundTaskRegistration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Progress<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskProgressEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Progress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskProgressEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCompletedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCompletedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()> {
@@ -1825,10 +1713,10 @@ impl BackgroundTaskRegistration {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn GetTaskGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(groupid: Param0) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
+    pub fn GetTaskGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(groupid: Param0) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
         Self::IBackgroundTaskRegistrationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTaskGroup)(::windows::core::Interface::as_raw(this), groupid.into_param().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTaskRegistrationGroup>(result__)
+            (::windows::core::Interface::vtable(this).GetTaskGroup)(::windows::core::Interface::as_raw(this), groupid.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTaskRegistrationGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -1882,14 +1770,9 @@ impl ::core::convert::From<&BackgroundTaskRegistration> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskRegistration> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundTaskRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundTaskRegistration> for ::windows::core::IInspectable {
@@ -1902,14 +1785,9 @@ impl ::core::convert::From<&BackgroundTaskRegistration> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskRegistration> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundTaskRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration {
@@ -1924,14 +1802,11 @@ impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for &BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::core::convert::TryInto::<IBackgroundTaskRegistration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<'a, IBackgroundTaskRegistration> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration2 {
@@ -1946,14 +1821,11 @@ impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration2> for BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration2> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration2> for &BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration2> {
-        ::core::convert::TryInto::<IBackgroundTaskRegistration2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<'a, IBackgroundTaskRegistration2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration3 {
@@ -1968,14 +1840,11 @@ impl ::core::convert::TryFrom<&BackgroundTaskRegistration> for IBackgroundTaskRe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration3> for BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration3> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration3> for &BackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration3> {
-        ::core::convert::TryInto::<IBackgroundTaskRegistration3>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BackgroundTaskRegistration> for ::windows::core::InParam<'a, IBackgroundTaskRegistration3> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundTaskRegistration) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for BackgroundTaskRegistration {}
@@ -2002,18 +1871,18 @@ impl BackgroundTaskRegistrationGroup {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
-    pub fn BackgroundActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BackgroundActivated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundActivated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BackgroundActivated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBackgroundActivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBackgroundActivated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBackgroundActivated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBackgroundActivated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2025,17 +1894,17 @@ impl BackgroundTaskRegistrationGroup {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
         Self::IBackgroundTaskRegistrationGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTaskRegistrationGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTaskRegistrationGroup>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn CreateWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0, name: Param1) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
+    pub fn CreateWithName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0, name: Param1) -> ::windows::core::Result<BackgroundTaskRegistrationGroup> {
         Self::IBackgroundTaskRegistrationGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithName)(::windows::core::Interface::as_raw(this), id.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTaskRegistrationGroup>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithName)(::windows::core::Interface::as_raw(this), id.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTaskRegistrationGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -2084,14 +1953,9 @@ impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundTaskRegistrationGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundTaskRegistrationGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundTaskRegistrationGroup> for ::windows::core::IInspectable {
@@ -2104,14 +1968,9 @@ impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundTaskRegistrationGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundTaskRegistrationGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundTaskRegistrationGroup> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundTaskRegistrationGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
@@ -2236,9 +2095,9 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPreferredTransmitPowerLevelInDBm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<i16>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPreferredTransmitPowerLevelInDBm<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<i16>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn UseExtendedFormat(&self) -> ::windows::core::Result<bool> {
@@ -2320,14 +2179,9 @@ impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BluetoothLEAdvertisementPublisherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEAdvertisementPublisherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for &::windows::core::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::IInspectable {
@@ -2340,14 +2194,9 @@ impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BluetoothLEAdvertisementPublisherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEAdvertisementPublisherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTrigger> for &::windows::core::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementPublisherTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementPublisherTrigger> for IBackgroundTrigger {
@@ -2362,14 +2211,11 @@ impl ::core::convert::TryFrom<&BluetoothLEAdvertisementPublisherTrigger> for IBa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for BluetoothLEAdvertisementPublisherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &BluetoothLEAdvertisementPublisherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BluetoothLEAdvertisementPublisherTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BluetoothLEAdvertisementPublisherTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTrigger {}
@@ -2432,9 +2278,9 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth\"`*"]
     #[cfg(feature = "Devices_Bluetooth")]
-    pub fn SetSignalStrengthFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSignalStrengthFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignalStrengthFilter)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignalStrengthFilter)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_Advertisement\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
@@ -2447,9 +2293,9 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_Advertisement\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
-    pub fn SetAdvertisementFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAdvertisementFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAdvertisementFilter)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAdvertisementFilter)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn AllowExtendedAdvertisements(&self) -> ::windows::core::Result<bool> {
@@ -2505,14 +2351,9 @@ impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BluetoothLEAdvertisementWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEAdvertisementWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for &::windows::core::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::IInspectable {
@@ -2525,14 +2366,9 @@ impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BluetoothLEAdvertisementWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEAdvertisementWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTrigger> for &::windows::core::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementWatcherTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<BluetoothLEAdvertisementWatcherTrigger> for IBackgroundTrigger {
@@ -2547,14 +2383,11 @@ impl ::core::convert::TryFrom<&BluetoothLEAdvertisementWatcherTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for BluetoothLEAdvertisementWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &BluetoothLEAdvertisementWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BluetoothLEAdvertisementWatcherTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BluetoothLEAdvertisementWatcherTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTrigger {}
@@ -2611,14 +2444,9 @@ impl ::core::convert::From<&CachedFileUpdaterTrigger> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFileUpdaterTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterTrigger> for &::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CachedFileUpdaterTrigger> for ::windows::core::IInspectable {
@@ -2631,14 +2459,9 @@ impl ::core::convert::From<&CachedFileUpdaterTrigger> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CachedFileUpdaterTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterTrigger> for &::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CachedFileUpdaterTrigger> for IBackgroundTrigger {
@@ -2653,14 +2476,11 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterTrigger> for IBackgroundTrigger 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for CachedFileUpdaterTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CachedFileUpdaterTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CachedFileUpdaterTrigger {}
@@ -2736,14 +2556,9 @@ impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFileUpdaterTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CachedFileUpdaterTriggerDetails> for ::windows::core::IInspectable {
@@ -2756,14 +2571,9 @@ impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CachedFileUpdaterTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CachedFileUpdaterTriggerDetails {}
@@ -2820,14 +2630,9 @@ impl ::core::convert::From<&ChatMessageNotificationTrigger> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageNotificationTrigger> for ::windows::core::IInspectable {
@@ -2840,14 +2645,9 @@ impl ::core::convert::From<&ChatMessageNotificationTrigger> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ChatMessageNotificationTrigger> for IBackgroundTrigger {
@@ -2862,14 +2662,11 @@ impl ::core::convert::TryFrom<&ChatMessageNotificationTrigger> for IBackgroundTr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ChatMessageNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ChatMessageNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ChatMessageNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ChatMessageNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageNotificationTrigger {}
@@ -2926,14 +2723,9 @@ impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChatMessageReceivedNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChatMessageReceivedNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ChatMessageReceivedNotificationTrigger> for ::windows::core::IInspectable {
@@ -2946,14 +2738,9 @@ impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ChatMessageReceivedNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChatMessageReceivedNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ChatMessageReceivedNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ChatMessageReceivedNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ChatMessageReceivedNotificationTrigger> for IBackgroundTrigger {
@@ -2968,14 +2755,11 @@ impl ::core::convert::TryFrom<&ChatMessageReceivedNotificationTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ChatMessageReceivedNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ChatMessageReceivedNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ChatMessageReceivedNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ChatMessageReceivedNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ChatMessageReceivedNotificationTrigger {}
@@ -3032,14 +2816,9 @@ impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommunicationBlockingAppSetAsActiveTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommunicationBlockingAppSetAsActiveTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for &::windows::core::IUnknown {
+    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::IInspectable {
@@ -3052,14 +2831,9 @@ impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CommunicationBlockingAppSetAsActiveTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommunicationBlockingAppSetAsActiveTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CommunicationBlockingAppSetAsActiveTrigger> for &::windows::core::IInspectable {
+    fn from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CommunicationBlockingAppSetAsActiveTrigger> for IBackgroundTrigger {
@@ -3074,14 +2848,11 @@ impl ::core::convert::TryFrom<&CommunicationBlockingAppSetAsActiveTrigger> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for CommunicationBlockingAppSetAsActiveTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CommunicationBlockingAppSetAsActiveTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CommunicationBlockingAppSetAsActiveTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommunicationBlockingAppSetAsActiveTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CommunicationBlockingAppSetAsActiveTrigger {}
@@ -3138,14 +2909,9 @@ impl ::core::convert::From<&ContactStoreNotificationTrigger> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactStoreNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ContactStoreNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactStoreNotificationTrigger> for ::windows::core::IInspectable {
@@ -3158,14 +2924,9 @@ impl ::core::convert::From<&ContactStoreNotificationTrigger> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactStoreNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ContactStoreNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactStoreNotificationTrigger> for IBackgroundTrigger {
@@ -3180,14 +2941,11 @@ impl ::core::convert::TryFrom<&ContactStoreNotificationTrigger> for IBackgroundT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ContactStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ContactStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactStoreNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactStoreNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactStoreNotificationTrigger {}
@@ -3214,10 +2972,10 @@ impl ContentPrefetchTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(waitinterval: Param0) -> ::windows::core::Result<ContentPrefetchTrigger> {
+    pub fn Create(waitinterval: super::super::Foundation::TimeSpan) -> ::windows::core::Result<ContentPrefetchTrigger> {
         Self::IContentPrefetchTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), waitinterval.into_param().abi(), result__.as_mut_ptr()).from_abi::<ContentPrefetchTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), waitinterval, result__.as_mut_ptr()).from_abi::<ContentPrefetchTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -3266,14 +3024,9 @@ impl ::core::convert::From<&ContentPrefetchTrigger> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContentPrefetchTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContentPrefetchTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContentPrefetchTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ContentPrefetchTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContentPrefetchTrigger> for ::windows::core::IInspectable {
@@ -3286,14 +3039,9 @@ impl ::core::convert::From<&ContentPrefetchTrigger> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContentPrefetchTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContentPrefetchTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContentPrefetchTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ContentPrefetchTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContentPrefetchTrigger> for IBackgroundTrigger {
@@ -3308,14 +3056,11 @@ impl ::core::convert::TryFrom<&ContentPrefetchTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ContentPrefetchTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ContentPrefetchTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContentPrefetchTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContentPrefetchTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3370,14 +3115,9 @@ impl ::core::convert::From<&ConversationalAgentTrigger> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConversationalAgentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConversationalAgentTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ConversationalAgentTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConversationalAgentTrigger> for ::windows::core::IInspectable {
@@ -3390,14 +3130,9 @@ impl ::core::convert::From<&ConversationalAgentTrigger> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConversationalAgentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConversationalAgentTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ConversationalAgentTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ConversationalAgentTrigger> for IBackgroundTrigger {
@@ -3412,14 +3147,11 @@ impl ::core::convert::TryFrom<&ConversationalAgentTrigger> for IBackgroundTrigge
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ConversationalAgentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ConversationalAgentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ConversationalAgentTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConversationalAgentTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3443,10 +3175,10 @@ impl CustomSystemEventTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(triggerid: Param0, recurrence: CustomSystemEventTriggerRecurrence) -> ::windows::core::Result<CustomSystemEventTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<CustomSystemEventTriggerRecurrence>>(triggerid: Param0, recurrence: Param1) -> ::windows::core::Result<CustomSystemEventTrigger> {
         Self::ICustomSystemEventTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggerid.into_param().abi(), recurrence, result__.as_mut_ptr()).from_abi::<CustomSystemEventTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggerid.into().abi(), recurrence.into(), result__.as_mut_ptr()).from_abi::<CustomSystemEventTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -3495,14 +3227,9 @@ impl ::core::convert::From<&CustomSystemEventTrigger> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CustomSystemEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CustomSystemEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CustomSystemEventTrigger> for &::windows::core::IUnknown {
+    fn from(value: &CustomSystemEventTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CustomSystemEventTrigger> for ::windows::core::IInspectable {
@@ -3515,14 +3242,9 @@ impl ::core::convert::From<&CustomSystemEventTrigger> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CustomSystemEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CustomSystemEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CustomSystemEventTrigger> for &::windows::core::IInspectable {
+    fn from(value: &CustomSystemEventTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CustomSystemEventTrigger> for IBackgroundTrigger {
@@ -3537,14 +3259,11 @@ impl ::core::convert::TryFrom<&CustomSystemEventTrigger> for IBackgroundTrigger 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for CustomSystemEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CustomSystemEventTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CustomSystemEventTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CustomSystemEventTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3616,10 +3335,10 @@ impl DeviceConnectionChangeTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>> {
         Self::IDeviceConnectionChangeTriggerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3668,14 +3387,9 @@ impl ::core::convert::From<&DeviceConnectionChangeTrigger> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceConnectionChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceConnectionChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceConnectionChangeTrigger> for &::windows::core::IUnknown {
+    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceConnectionChangeTrigger> for ::windows::core::IInspectable {
@@ -3688,14 +3402,9 @@ impl ::core::convert::From<&DeviceConnectionChangeTrigger> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceConnectionChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceConnectionChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceConnectionChangeTrigger> for &::windows::core::IInspectable {
+    fn from(value: &DeviceConnectionChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DeviceConnectionChangeTrigger> for IBackgroundTrigger {
@@ -3710,14 +3419,11 @@ impl ::core::convert::TryFrom<&DeviceConnectionChangeTrigger> for IBackgroundTri
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for DeviceConnectionChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceConnectionChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceConnectionChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceConnectionChangeTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTrigger {}
@@ -3748,10 +3454,10 @@ impl DeviceManufacturerNotificationTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(triggerqualifier: Param0, oneshot: bool) -> ::windows::core::Result<DeviceManufacturerNotificationTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(triggerqualifier: Param0, oneshot: bool) -> ::windows::core::Result<DeviceManufacturerNotificationTrigger> {
         Self::IDeviceManufacturerNotificationTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggerqualifier.into_param().abi(), oneshot, result__.as_mut_ptr()).from_abi::<DeviceManufacturerNotificationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggerqualifier.into().abi(), oneshot, result__.as_mut_ptr()).from_abi::<DeviceManufacturerNotificationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -3811,15 +3517,9 @@ impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceManufacturerNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceManufacturerNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3835,15 +3535,9 @@ impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceManufacturerNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceManufacturerNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3861,15 +3555,11 @@ impl ::core::convert::TryFrom<&DeviceManufacturerNotificationTrigger> for IBackg
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for DeviceManufacturerNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceManufacturerNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceManufacturerNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceManufacturerNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -3885,20 +3575,20 @@ impl DeviceServicingTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAsyncSimple<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, deviceid: Param0, expectedduration: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncSimple<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, deviceid: Param0, expectedduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAsyncSimple)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), expectedduration.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAsyncSimple)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), expectedduration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAsyncWithArguments<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, deviceid: Param0, expectedduration: Param1, arguments: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncWithArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, deviceid: Param0, expectedduration: super::super::Foundation::TimeSpan, arguments: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), expectedduration.into_param().abi(), arguments.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), expectedduration, arguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
         }
     }
 }
@@ -3942,14 +3632,9 @@ impl ::core::convert::From<&DeviceServicingTrigger> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceServicingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceServicingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceServicingTrigger> for &::windows::core::IUnknown {
+    fn from(value: &DeviceServicingTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceServicingTrigger> for ::windows::core::IInspectable {
@@ -3962,14 +3647,9 @@ impl ::core::convert::From<&DeviceServicingTrigger> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceServicingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceServicingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceServicingTrigger> for &::windows::core::IInspectable {
+    fn from(value: &DeviceServicingTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DeviceServicingTrigger> for IBackgroundTrigger {
@@ -3984,14 +3664,11 @@ impl ::core::convert::TryFrom<&DeviceServicingTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for DeviceServicingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceServicingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceServicingTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceServicingTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DeviceServicingTrigger {}
@@ -4045,20 +3722,20 @@ impl DeviceUseTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAsyncSimple<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncSimple<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAsyncSimple)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAsyncSimple)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAsyncWithArguments<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, deviceid: Param0, arguments: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncWithArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, deviceid: Param0, arguments: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), arguments.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), arguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>(result__)
         }
     }
 }
@@ -4102,14 +3779,9 @@ impl ::core::convert::From<&DeviceUseTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceUseTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceUseTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceUseTrigger> for &::windows::core::IUnknown {
+    fn from(value: &DeviceUseTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceUseTrigger> for ::windows::core::IInspectable {
@@ -4122,14 +3794,9 @@ impl ::core::convert::From<&DeviceUseTrigger> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceUseTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceUseTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceUseTrigger> for &::windows::core::IInspectable {
+    fn from(value: &DeviceUseTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DeviceUseTrigger> for IBackgroundTrigger {
@@ -4144,14 +3811,11 @@ impl ::core::convert::TryFrom<&DeviceUseTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for DeviceUseTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceUseTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceUseTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceUseTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DeviceUseTrigger {}
@@ -4200,14 +3864,9 @@ impl ::core::convert::From<&DeviceWatcherTrigger> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceWatcherTrigger> for &::windows::core::IUnknown {
+    fn from(value: &DeviceWatcherTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceWatcherTrigger> for ::windows::core::IInspectable {
@@ -4220,14 +3879,9 @@ impl ::core::convert::From<&DeviceWatcherTrigger> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceWatcherTrigger> for &::windows::core::IInspectable {
+    fn from(value: &DeviceWatcherTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DeviceWatcherTrigger> for IBackgroundTrigger {
@@ -4242,14 +3896,11 @@ impl ::core::convert::TryFrom<&DeviceWatcherTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for DeviceWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceWatcherTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceWatcherTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceWatcherTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -4304,14 +3955,9 @@ impl ::core::convert::From<&EmailStoreNotificationTrigger> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailStoreNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &EmailStoreNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailStoreNotificationTrigger> for ::windows::core::IInspectable {
@@ -4324,14 +3970,9 @@ impl ::core::convert::From<&EmailStoreNotificationTrigger> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailStoreNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &EmailStoreNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<EmailStoreNotificationTrigger> for IBackgroundTrigger {
@@ -4346,14 +3987,11 @@ impl ::core::convert::TryFrom<&EmailStoreNotificationTrigger> for IBackgroundTri
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for EmailStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &EmailStoreNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&EmailStoreNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &EmailStoreNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for EmailStoreNotificationTrigger {}
@@ -4382,18 +4020,18 @@ impl GattCharacteristicNotificationTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>(characteristic: Param0) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>>(characteristic: Param0) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
         Self::IGattCharacteristicNotificationTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), characteristic.into_param().abi(), result__.as_mut_ptr()).from_abi::<GattCharacteristicNotificationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), characteristic.into().abi(), result__.as_mut_ptr()).from_abi::<GattCharacteristicNotificationTrigger>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
-    pub fn CreateWithEventTriggeringMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>(characteristic: Param0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
+    pub fn CreateWithEventTriggeringMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>, Param1: ::std::convert::Into<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>>(characteristic: Param0, eventtriggeringmode: Param1) -> ::windows::core::Result<GattCharacteristicNotificationTrigger> {
         Self::IGattCharacteristicNotificationTriggerFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithEventTriggeringMode)(::windows::core::Interface::as_raw(this), characteristic.into_param().abi(), eventtriggeringmode, result__.as_mut_ptr()).from_abi::<GattCharacteristicNotificationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithEventTriggeringMode)(::windows::core::Interface::as_raw(this), characteristic.into().abi(), eventtriggeringmode.into(), result__.as_mut_ptr()).from_abi::<GattCharacteristicNotificationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -4447,14 +4085,9 @@ impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GattCharacteristicNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GattCharacteristicNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GattCharacteristicNotificationTrigger> for ::windows::core::IInspectable {
@@ -4467,14 +4100,9 @@ impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GattCharacteristicNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GattCharacteristicNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GattCharacteristicNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &GattCharacteristicNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<GattCharacteristicNotificationTrigger> for IBackgroundTrigger {
@@ -4489,14 +4117,11 @@ impl ::core::convert::TryFrom<&GattCharacteristicNotificationTrigger> for IBackg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for GattCharacteristicNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GattCharacteristicNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GattCharacteristicNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GattCharacteristicNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for GattCharacteristicNotificationTrigger {}
@@ -4524,9 +4149,9 @@ impl GattServiceProviderTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn SetAdvertisingParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAdvertisingParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAdvertisingParameters)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAdvertisingParameters)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
@@ -4539,10 +4164,10 @@ impl GattServiceProviderTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(triggerid: Param0, serviceuuid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>> {
+    pub fn CreateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(triggerid: Param0, serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>> {
         Self::IGattServiceProviderTriggerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), triggerid.into_param().abi(), serviceuuid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), triggerid.into().abi(), serviceuuid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4591,14 +4216,9 @@ impl ::core::convert::From<&GattServiceProviderTrigger> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GattServiceProviderTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GattServiceProviderTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GattServiceProviderTrigger> for &::windows::core::IUnknown {
+    fn from(value: &GattServiceProviderTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GattServiceProviderTrigger> for ::windows::core::IInspectable {
@@ -4611,14 +4231,9 @@ impl ::core::convert::From<&GattServiceProviderTrigger> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GattServiceProviderTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GattServiceProviderTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GattServiceProviderTrigger> for &::windows::core::IInspectable {
+    fn from(value: &GattServiceProviderTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<GattServiceProviderTrigger> for IBackgroundTrigger {
@@ -4633,14 +4248,11 @@ impl ::core::convert::TryFrom<&GattServiceProviderTrigger> for IBackgroundTrigge
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for GattServiceProviderTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GattServiceProviderTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GattServiceProviderTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GattServiceProviderTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for GattServiceProviderTrigger {}
@@ -4707,14 +4319,9 @@ impl ::core::convert::From<&GattServiceProviderTriggerResult> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GattServiceProviderTriggerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GattServiceProviderTriggerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GattServiceProviderTriggerResult> for &::windows::core::IUnknown {
+    fn from(value: &GattServiceProviderTriggerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GattServiceProviderTriggerResult> for ::windows::core::IInspectable {
@@ -4727,14 +4334,9 @@ impl ::core::convert::From<&GattServiceProviderTriggerResult> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GattServiceProviderTriggerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GattServiceProviderTriggerResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GattServiceProviderTriggerResult> for &::windows::core::IInspectable {
+    fn from(value: &GattServiceProviderTriggerResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerResult {}
@@ -4761,9 +4363,9 @@ impl GeovisitTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn SetMonitoringScope(&self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::Result<()> {
+    pub fn SetMonitoringScope<'a, Param0: ::std::convert::Into<super::super::Devices::Geolocation::VisitMonitoringScope>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMonitoringScope)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMonitoringScope)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for GeovisitTrigger {
@@ -4806,14 +4408,9 @@ impl ::core::convert::From<&GeovisitTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeovisitTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeovisitTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeovisitTrigger> for &::windows::core::IUnknown {
+    fn from(value: &GeovisitTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GeovisitTrigger> for ::windows::core::IInspectable {
@@ -4826,14 +4423,9 @@ impl ::core::convert::From<&GeovisitTrigger> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GeovisitTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeovisitTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeovisitTrigger> for &::windows::core::IInspectable {
+    fn from(value: &GeovisitTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<GeovisitTrigger> for IBackgroundTrigger {
@@ -4848,14 +4440,11 @@ impl ::core::convert::TryFrom<&GeovisitTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for GeovisitTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &GeovisitTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GeovisitTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GeovisitTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for GeovisitTrigger {}
@@ -5026,19 +4615,14 @@ impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCondition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCondition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IInspectable {
@@ -5046,19 +4630,14 @@ impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCondition> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundCondition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCondition {
@@ -5156,13 +4735,18 @@ pub struct IBackgroundExecutionManagerStatics3_Vtbl {
 pub struct IBackgroundTask(::windows::core::IUnknown);
 impl IBackgroundTask {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Run<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundTaskInstance>>(&self, taskinstance: Param0) -> ::windows::core::Result<()> {
+    pub fn Run<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTaskInstance>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, taskinstance: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Run)(::windows::core::Interface::as_raw(this), taskinstance.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Run)(::windows::core::Interface::as_raw(this), taskinstance.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::convert::From<IBackgroundTask> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundTask> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTask) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5171,34 +4755,19 @@ impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTask> for ::windows::core::IInspectable {
     fn from(value: IBackgroundTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundTask> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTask) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTask) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundTask {
@@ -5378,18 +4947,18 @@ impl IBackgroundTaskInstance {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Canceled<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCanceledEventHandler>>(&self, cancelhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Canceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCanceledEventHandler>>>(&self, cancelhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), cancelhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), cancelhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn SuspendedCount(&self) -> ::windows::core::Result<u32> {
@@ -5413,19 +4982,14 @@ impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTaskInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTaskInstance) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IInspectable {
@@ -5433,19 +4997,14 @@ impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IInspec
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTaskInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskInstance) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundTaskInstance {
@@ -5500,11 +5059,11 @@ pub struct IBackgroundTaskInstance_Vtbl {
 pub struct IBackgroundTaskInstance2(::windows::core::IUnknown);
 impl IBackgroundTaskInstance2 {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32> {
+    pub fn GetThrottleCount<'a, Param0: ::std::convert::Into<BackgroundTaskThrottleCounter>>(&self, counter: Param0) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThrottleCount)(::windows::core::Interface::as_raw(this), counter, result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetThrottleCount)(::windows::core::Interface::as_raw(this), counter.into(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -5546,18 +5105,18 @@ impl IBackgroundTaskInstance2 {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Canceled<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCanceledEventHandler>>(&self, cancelhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Canceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCanceledEventHandler>>>(&self, cancelhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), cancelhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), cancelhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn SuspendedCount(&self) -> ::windows::core::Result<u32> {
@@ -5581,19 +5140,14 @@ impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTaskInstance2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTaskInstance2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IInspectable {
@@ -5601,19 +5155,14 @@ impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance2> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTaskInstance2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskInstance2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskInstance2> for IBackgroundTaskInstance {
@@ -5628,14 +5177,11 @@ impl ::core::convert::TryFrom<&IBackgroundTaskInstance2> for IBackgroundTaskInst
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskInstance> for IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskInstance> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskInstance> for &IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskInstance> {
-        ::core::convert::TryInto::<IBackgroundTaskInstance>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBackgroundTaskInstance2> for ::windows::core::InParam<'a, IBackgroundTaskInstance> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBackgroundTaskInstance2) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBackgroundTaskInstance2 {
@@ -5723,18 +5269,18 @@ impl IBackgroundTaskInstance4 {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Canceled<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCanceledEventHandler>>(&self, cancelhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Canceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCanceledEventHandler>>>(&self, cancelhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), cancelhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), cancelhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskInstance>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCanceled)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn SuspendedCount(&self) -> ::windows::core::Result<u32> {
@@ -5758,19 +5304,14 @@ impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTaskInstance4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTaskInstance4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IInspectable {
@@ -5778,19 +5319,14 @@ impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskInstance4> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTaskInstance4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskInstance4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskInstance4> for IBackgroundTaskInstance {
@@ -5805,14 +5341,11 @@ impl ::core::convert::TryFrom<&IBackgroundTaskInstance4> for IBackgroundTaskInst
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskInstance> for IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskInstance> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskInstance> for &IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskInstance> {
-        ::core::convert::TryInto::<IBackgroundTaskInstance>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBackgroundTaskInstance4> for ::windows::core::InParam<'a, IBackgroundTaskInstance> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBackgroundTaskInstance4) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBackgroundTaskInstance4 {
@@ -5887,33 +5420,33 @@ impl IBackgroundTaskRegistration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Progress<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskProgressEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Progress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskProgressEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCompletedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCompletedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()> {
@@ -5926,19 +5459,14 @@ impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTaskRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTaskRegistration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IInspectable {
@@ -5946,19 +5474,14 @@ impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTaskRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskRegistration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundTaskRegistration {
@@ -6042,33 +5565,33 @@ impl IBackgroundTaskRegistration2 {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Progress<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskProgressEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Progress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskProgressEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCompletedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCompletedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()> {
@@ -6081,19 +5604,14 @@ impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTaskRegistration2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTaskRegistration2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
@@ -6101,19 +5619,14 @@ impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration2> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTaskRegistration2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskRegistration2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration2> for IBackgroundTaskRegistration {
@@ -6128,14 +5641,11 @@ impl ::core::convert::TryFrom<&IBackgroundTaskRegistration2> for IBackgroundTask
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for &IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::core::convert::TryInto::<IBackgroundTaskRegistration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBackgroundTaskRegistration2> for ::windows::core::InParam<'a, IBackgroundTaskRegistration> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBackgroundTaskRegistration2) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBackgroundTaskRegistration2 {
@@ -6201,33 +5711,33 @@ impl IBackgroundTaskRegistration3 {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Progress<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskProgressEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Progress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskProgressEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveProgress(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProgress)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTaskCompletedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTaskCompletedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()> {
@@ -6240,19 +5750,14 @@ impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTaskRegistration3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTaskRegistration3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
@@ -6260,19 +5765,14 @@ impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTaskRegistration3> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTaskRegistration3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTaskRegistration3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBackgroundTaskRegistration3> for IBackgroundTaskRegistration {
@@ -6287,14 +5787,11 @@ impl ::core::convert::TryFrom<&IBackgroundTaskRegistration3> for IBackgroundTask
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTaskRegistration> for &IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTaskRegistration> {
-        ::core::convert::TryInto::<IBackgroundTaskRegistration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBackgroundTaskRegistration3> for ::windows::core::InParam<'a, IBackgroundTaskRegistration> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBackgroundTaskRegistration3) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBackgroundTaskRegistration3 {
@@ -6412,19 +5909,14 @@ impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTrigger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IInspectable {
@@ -6432,19 +5924,14 @@ impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IInspectable
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundTrigger> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundTrigger {
@@ -7506,10 +6993,10 @@ impl LocationTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create(triggertype: LocationTriggerType) -> ::windows::core::Result<LocationTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<LocationTriggerType>>(triggertype: Param0) -> ::windows::core::Result<LocationTrigger> {
         Self::ILocationTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype, result__.as_mut_ptr()).from_abi::<LocationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype.into(), result__.as_mut_ptr()).from_abi::<LocationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -7558,14 +7045,9 @@ impl ::core::convert::From<&LocationTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &LocationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LocationTrigger> for ::windows::core::IInspectable {
@@ -7578,14 +7060,9 @@ impl ::core::convert::From<&LocationTrigger> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LocationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &LocationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LocationTrigger> for IBackgroundTrigger {
@@ -7600,14 +7077,11 @@ impl ::core::convert::TryFrom<&LocationTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for LocationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &LocationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LocationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LocationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LocationTrigger {}
@@ -7718,14 +7192,9 @@ impl ::core::convert::From<&MaintenanceTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MaintenanceTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MaintenanceTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MaintenanceTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MaintenanceTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MaintenanceTrigger> for ::windows::core::IInspectable {
@@ -7738,14 +7207,9 @@ impl ::core::convert::From<&MaintenanceTrigger> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MaintenanceTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MaintenanceTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MaintenanceTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MaintenanceTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MaintenanceTrigger> for IBackgroundTrigger {
@@ -7760,14 +7224,11 @@ impl ::core::convert::TryFrom<&MaintenanceTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MaintenanceTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MaintenanceTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MaintenanceTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MaintenanceTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -7792,11 +7253,11 @@ impl MediaProcessingTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAsyncWithArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, arguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
+    pub fn RequestAsyncWithArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(&self, arguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), arguments.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAsyncWithArguments)(::windows::core::Interface::as_raw(this), arguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>(result__)
         }
     }
 }
@@ -7840,14 +7301,9 @@ impl ::core::convert::From<&MediaProcessingTrigger> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaProcessingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaProcessingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaProcessingTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MediaProcessingTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaProcessingTrigger> for ::windows::core::IInspectable {
@@ -7860,14 +7316,9 @@ impl ::core::convert::From<&MediaProcessingTrigger> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaProcessingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaProcessingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaProcessingTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MediaProcessingTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MediaProcessingTrigger> for IBackgroundTrigger {
@@ -7882,14 +7333,11 @@ impl ::core::convert::TryFrom<&MediaProcessingTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MediaProcessingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MediaProcessingTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaProcessingTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaProcessingTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -7980,14 +7428,9 @@ impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandDeviceServiceNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandDeviceServiceNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::IInspectable {
@@ -8000,14 +7443,9 @@ impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandDeviceServiceNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandDeviceServiceNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MobileBroadbandDeviceServiceNotificationTrigger> for IBackgroundTrigger {
@@ -8022,14 +7460,11 @@ impl ::core::convert::TryFrom<&MobileBroadbandDeviceServiceNotificationTrigger> 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandDeviceServiceNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandDeviceServiceNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MobileBroadbandDeviceServiceNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandDeviceServiceNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceNotificationTrigger {}
@@ -8086,14 +7521,9 @@ impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandPcoDataChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandPcoDataChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MobileBroadbandPcoDataChangeTrigger> for ::windows::core::IInspectable {
@@ -8106,14 +7536,9 @@ impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandPcoDataChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandPcoDataChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandPcoDataChangeTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MobileBroadbandPcoDataChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MobileBroadbandPcoDataChangeTrigger> for IBackgroundTrigger {
@@ -8128,14 +7553,11 @@ impl ::core::convert::TryFrom<&MobileBroadbandPcoDataChangeTrigger> for IBackgro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandPcoDataChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandPcoDataChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MobileBroadbandPcoDataChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandPcoDataChangeTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTrigger {}
@@ -8192,14 +7614,9 @@ impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandPinLockStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandPinLockStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::IInspectable {
@@ -8212,14 +7629,9 @@ impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandPinLockStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandPinLockStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MobileBroadbandPinLockStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MobileBroadbandPinLockStateChangeTrigger> for IBackgroundTrigger {
@@ -8234,14 +7646,11 @@ impl ::core::convert::TryFrom<&MobileBroadbandPinLockStateChangeTrigger> for IBa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandPinLockStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandPinLockStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MobileBroadbandPinLockStateChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandPinLockStateChangeTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTrigger {}
@@ -8298,14 +7707,9 @@ impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandRadioStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandRadioStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MobileBroadbandRadioStateChangeTrigger> for ::windows::core::IInspectable {
@@ -8318,14 +7722,9 @@ impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandRadioStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandRadioStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandRadioStateChangeTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MobileBroadbandRadioStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MobileBroadbandRadioStateChangeTrigger> for IBackgroundTrigger {
@@ -8340,14 +7739,11 @@ impl ::core::convert::TryFrom<&MobileBroadbandRadioStateChangeTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandRadioStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandRadioStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MobileBroadbandRadioStateChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandRadioStateChangeTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTrigger {}
@@ -8404,14 +7800,9 @@ impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MobileBroadbandRegistrationStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MobileBroadbandRegistrationStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for &::windows::core::IUnknown {
+    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::IInspectable {
@@ -8424,14 +7815,9 @@ impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MobileBroadbandRegistrationStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MobileBroadbandRegistrationStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for &::windows::core::IInspectable {
+    fn from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MobileBroadbandRegistrationStateChangeTrigger> for IBackgroundTrigger {
@@ -8446,14 +7832,11 @@ impl ::core::convert::TryFrom<&MobileBroadbandRegistrationStateChangeTrigger> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandRegistrationStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandRegistrationStateChangeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MobileBroadbandRegistrationStateChangeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MobileBroadbandRegistrationStateChangeTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MobileBroadbandRegistrationStateChangeTrigger {}
@@ -8510,14 +7893,9 @@ impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkOperatorDataUsageTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkOperatorDataUsageTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for &::windows::core::IUnknown {
+    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkOperatorDataUsageTrigger> for ::windows::core::IInspectable {
@@ -8530,14 +7908,9 @@ impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkOperatorDataUsageTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkOperatorDataUsageTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkOperatorDataUsageTrigger> for &::windows::core::IInspectable {
+    fn from(value: &NetworkOperatorDataUsageTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<NetworkOperatorDataUsageTrigger> for IBackgroundTrigger {
@@ -8552,14 +7925,11 @@ impl ::core::convert::TryFrom<&NetworkOperatorDataUsageTrigger> for IBackgroundT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for NetworkOperatorDataUsageTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperatorDataUsageTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NetworkOperatorDataUsageTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NetworkOperatorDataUsageTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTrigger {}
@@ -8616,14 +7986,9 @@ impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkOperatorHotspotAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkOperatorHotspotAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::IInspectable {
@@ -8636,14 +8001,9 @@ impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkOperatorHotspotAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkOperatorHotspotAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkOperatorHotspotAuthenticationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<NetworkOperatorHotspotAuthenticationTrigger> for IBackgroundTrigger {
@@ -8658,14 +8018,11 @@ impl ::core::convert::TryFrom<&NetworkOperatorHotspotAuthenticationTrigger> for 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for NetworkOperatorHotspotAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperatorHotspotAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NetworkOperatorHotspotAuthenticationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NetworkOperatorHotspotAuthenticationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -8681,10 +8038,10 @@ impl NetworkOperatorNotificationTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<NetworkOperatorNotificationTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<NetworkOperatorNotificationTrigger> {
         Self::INetworkOperatorNotificationTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorNotificationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorNotificationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -8733,14 +8090,9 @@ impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkOperatorNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkOperatorNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkOperatorNotificationTrigger> for ::windows::core::IInspectable {
@@ -8753,14 +8105,9 @@ impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkOperatorNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkOperatorNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkOperatorNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &NetworkOperatorNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<NetworkOperatorNotificationTrigger> for IBackgroundTrigger {
@@ -8775,14 +8122,11 @@ impl ::core::convert::TryFrom<&NetworkOperatorNotificationTrigger> for IBackgrou
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for NetworkOperatorNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &NetworkOperatorNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&NetworkOperatorNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &NetworkOperatorNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -8837,14 +8181,9 @@ impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentAppCanMakePaymentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentAppCanMakePaymentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for &::windows::core::IUnknown {
+    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PaymentAppCanMakePaymentTrigger> for ::windows::core::IInspectable {
@@ -8857,14 +8196,9 @@ impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PaymentAppCanMakePaymentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentAppCanMakePaymentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PaymentAppCanMakePaymentTrigger> for &::windows::core::IInspectable {
+    fn from(value: &PaymentAppCanMakePaymentTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PaymentAppCanMakePaymentTrigger> for IBackgroundTrigger {
@@ -8879,14 +8213,11 @@ impl ::core::convert::TryFrom<&PaymentAppCanMakePaymentTrigger> for IBackgroundT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for PaymentAppCanMakePaymentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PaymentAppCanMakePaymentTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PaymentAppCanMakePaymentTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PaymentAppCanMakePaymentTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTrigger {}
@@ -8914,10 +8245,10 @@ impl PhoneTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"ApplicationModel_Calls_Background\"`*"]
     #[cfg(feature = "ApplicationModel_Calls_Background")]
-    pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows::core::Result<PhoneTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<super::Calls::Background::PhoneTriggerType>>(r#type: Param0, oneshot: bool) -> ::windows::core::Result<PhoneTrigger> {
         Self::IPhoneTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), r#type, oneshot, result__.as_mut_ptr()).from_abi::<PhoneTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), r#type.into(), oneshot, result__.as_mut_ptr()).from_abi::<PhoneTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -8966,14 +8297,9 @@ impl ::core::convert::From<&PhoneTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneTrigger> for &::windows::core::IUnknown {
+    fn from(value: &PhoneTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneTrigger> for ::windows::core::IInspectable {
@@ -8986,14 +8312,9 @@ impl ::core::convert::From<&PhoneTrigger> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneTrigger> for &::windows::core::IInspectable {
+    fn from(value: &PhoneTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PhoneTrigger> for IBackgroundTrigger {
@@ -9008,14 +8329,11 @@ impl ::core::convert::TryFrom<&PhoneTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for PhoneTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PhoneTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PhoneTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PhoneTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PhoneTrigger {}
@@ -9032,10 +8350,10 @@ impl PushNotificationTrigger {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<PushNotificationTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<PushNotificationTrigger> {
         Self::IPushNotificationTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<PushNotificationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<PushNotificationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -9084,14 +8402,9 @@ impl ::core::convert::From<&PushNotificationTrigger> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PushNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PushNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PushNotificationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &PushNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PushNotificationTrigger> for ::windows::core::IInspectable {
@@ -9104,14 +8417,9 @@ impl ::core::convert::From<&PushNotificationTrigger> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PushNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PushNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PushNotificationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &PushNotificationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PushNotificationTrigger> for IBackgroundTrigger {
@@ -9126,14 +8434,11 @@ impl ::core::convert::TryFrom<&PushNotificationTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for PushNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &PushNotificationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PushNotificationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PushNotificationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PushNotificationTrigger {}
@@ -9190,14 +8495,9 @@ impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RcsEndUserMessageAvailableTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RcsEndUserMessageAvailableTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for &::windows::core::IUnknown {
+    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RcsEndUserMessageAvailableTrigger> for ::windows::core::IInspectable {
@@ -9210,14 +8510,9 @@ impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RcsEndUserMessageAvailableTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RcsEndUserMessageAvailableTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RcsEndUserMessageAvailableTrigger> for &::windows::core::IInspectable {
+    fn from(value: &RcsEndUserMessageAvailableTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RcsEndUserMessageAvailableTrigger> for IBackgroundTrigger {
@@ -9232,14 +8527,11 @@ impl ::core::convert::TryFrom<&RcsEndUserMessageAvailableTrigger> for IBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for RcsEndUserMessageAvailableTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RcsEndUserMessageAvailableTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RcsEndUserMessageAvailableTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RcsEndUserMessageAvailableTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTrigger {}
@@ -9297,9 +8589,9 @@ impl RfcommConnectionTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
-    pub fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::Result<()> {
+    pub fn SetProtectionLevel<'a, Param0: ::std::convert::Into<super::super::Networking::Sockets::SocketProtectionLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
@@ -9312,9 +8604,9 @@ impl RfcommConnectionTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
-    pub fn SetRemoteHostName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Networking::HostName>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteHostName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::HostName>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteHostName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteHostName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for RfcommConnectionTrigger {
@@ -9357,14 +8649,9 @@ impl ::core::convert::From<&RfcommConnectionTrigger> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RfcommConnectionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RfcommConnectionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RfcommConnectionTrigger> for &::windows::core::IUnknown {
+    fn from(value: &RfcommConnectionTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RfcommConnectionTrigger> for ::windows::core::IInspectable {
@@ -9377,14 +8664,9 @@ impl ::core::convert::From<&RfcommConnectionTrigger> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RfcommConnectionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RfcommConnectionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RfcommConnectionTrigger> for &::windows::core::IInspectable {
+    fn from(value: &RfcommConnectionTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RfcommConnectionTrigger> for IBackgroundTrigger {
@@ -9399,14 +8681,11 @@ impl ::core::convert::TryFrom<&RfcommConnectionTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for RfcommConnectionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RfcommConnectionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RfcommConnectionTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RfcommConnectionTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RfcommConnectionTrigger {}
@@ -9475,15 +8754,9 @@ impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> 
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for &::windows::core::IUnknown {
+    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -9499,15 +8772,9 @@ impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> 
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for &::windows::core::IInspectable {
+    fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -9525,15 +8792,11 @@ impl ::core::convert::TryFrom<&SecondaryAuthenticationFactorAuthenticationTrigge
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -9542,10 +8805,10 @@ pub struct SensorDataThresholdTrigger(::windows::core::IUnknown);
 impl SensorDataThresholdTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Sensors\"`*"]
     #[cfg(feature = "Devices_Sensors")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Sensors::ISensorDataThreshold>>(threshold: Param0) -> ::windows::core::Result<SensorDataThresholdTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Devices::Sensors::ISensorDataThreshold>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(threshold: Param0) -> ::windows::core::Result<SensorDataThresholdTrigger> {
         Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), threshold.into_param().abi(), result__.as_mut_ptr()).from_abi::<SensorDataThresholdTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), threshold.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<SensorDataThresholdTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -9594,14 +8857,9 @@ impl ::core::convert::From<&SensorDataThresholdTrigger> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SensorDataThresholdTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SensorDataThresholdTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SensorDataThresholdTrigger> for &::windows::core::IUnknown {
+    fn from(value: &SensorDataThresholdTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SensorDataThresholdTrigger> for ::windows::core::IInspectable {
@@ -9614,14 +8872,9 @@ impl ::core::convert::From<&SensorDataThresholdTrigger> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SensorDataThresholdTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SensorDataThresholdTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SensorDataThresholdTrigger> for &::windows::core::IInspectable {
+    fn from(value: &SensorDataThresholdTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SensorDataThresholdTrigger> for IBackgroundTrigger {
@@ -9636,14 +8889,11 @@ impl ::core::convert::TryFrom<&SensorDataThresholdTrigger> for IBackgroundTrigge
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SensorDataThresholdTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SensorDataThresholdTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SensorDataThresholdTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SensorDataThresholdTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SensorDataThresholdTrigger {}
@@ -9663,10 +8913,10 @@ impl SmartCardTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_SmartCards\"`*"]
     #[cfg(feature = "Devices_SmartCards")]
-    pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::Result<SmartCardTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<super::super::Devices::SmartCards::SmartCardTriggerType>>(triggertype: Param0) -> ::windows::core::Result<SmartCardTrigger> {
         Self::ISmartCardTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype, result__.as_mut_ptr()).from_abi::<SmartCardTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype.into(), result__.as_mut_ptr()).from_abi::<SmartCardTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -9715,14 +8965,9 @@ impl ::core::convert::From<&SmartCardTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardTrigger> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardTrigger> for ::windows::core::IInspectable {
@@ -9735,14 +8980,9 @@ impl ::core::convert::From<&SmartCardTrigger> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardTrigger> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmartCardTrigger> for IBackgroundTrigger {
@@ -9757,14 +8997,11 @@ impl ::core::convert::TryFrom<&SmartCardTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SmartCardTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SmartCardTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmartCardTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmartCardTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -9773,10 +9010,10 @@ pub struct SmsMessageReceivedTrigger(::windows::core::IUnknown);
 impl SmsMessageReceivedTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Sms\"`*"]
     #[cfg(feature = "Devices_Sms")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Sms::SmsFilterRules>>(filterrules: Param0) -> ::windows::core::Result<SmsMessageReceivedTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Sms::SmsFilterRules>>>(filterrules: Param0) -> ::windows::core::Result<SmsMessageReceivedTrigger> {
         Self::ISmsMessageReceivedTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filterrules.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsMessageReceivedTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filterrules.into().abi(), result__.as_mut_ptr()).from_abi::<SmsMessageReceivedTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -9825,14 +9062,9 @@ impl ::core::convert::From<&SmsMessageReceivedTrigger> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsMessageReceivedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsMessageReceivedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageReceivedTrigger> for &::windows::core::IUnknown {
+    fn from(value: &SmsMessageReceivedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsMessageReceivedTrigger> for ::windows::core::IInspectable {
@@ -9845,14 +9077,9 @@ impl ::core::convert::From<&SmsMessageReceivedTrigger> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsMessageReceivedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsMessageReceivedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageReceivedTrigger> for &::windows::core::IInspectable {
+    fn from(value: &SmsMessageReceivedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsMessageReceivedTrigger> for IBackgroundTrigger {
@@ -9867,14 +9094,11 @@ impl ::core::convert::TryFrom<&SmsMessageReceivedTrigger> for IBackgroundTrigger
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SmsMessageReceivedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SmsMessageReceivedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsMessageReceivedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsMessageReceivedTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsMessageReceivedTrigger {}
@@ -9939,14 +9163,9 @@ impl ::core::convert::From<&SocketActivityTrigger> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocketActivityTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocketActivityTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SocketActivityTrigger> for &::windows::core::IUnknown {
+    fn from(value: &SocketActivityTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SocketActivityTrigger> for ::windows::core::IInspectable {
@@ -9959,14 +9178,9 @@ impl ::core::convert::From<&SocketActivityTrigger> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SocketActivityTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocketActivityTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SocketActivityTrigger> for &::windows::core::IInspectable {
+    fn from(value: &SocketActivityTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SocketActivityTrigger> for IBackgroundTrigger {
@@ -9981,14 +9195,11 @@ impl ::core::convert::TryFrom<&SocketActivityTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SocketActivityTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SocketActivityTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SocketActivityTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SocketActivityTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SocketActivityTrigger {}
@@ -9999,10 +9210,10 @@ pub struct StorageLibraryChangeTrackerTrigger(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageLibraryChangeTracker>>(tracker: Param0) -> ::windows::core::Result<StorageLibraryChangeTrackerTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageLibraryChangeTracker>>>(tracker: Param0) -> ::windows::core::Result<StorageLibraryChangeTrackerTrigger> {
         Self::IStorageLibraryChangeTrackerTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), tracker.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageLibraryChangeTrackerTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), tracker.into().abi(), result__.as_mut_ptr()).from_abi::<StorageLibraryChangeTrackerTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -10051,14 +9262,9 @@ impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageLibraryChangeTrackerTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageLibraryChangeTrackerTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for &::windows::core::IUnknown {
+    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageLibraryChangeTrackerTrigger> for ::windows::core::IInspectable {
@@ -10071,14 +9277,9 @@ impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageLibraryChangeTrackerTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageLibraryChangeTrackerTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageLibraryChangeTrackerTrigger> for &::windows::core::IInspectable {
+    fn from(value: &StorageLibraryChangeTrackerTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<StorageLibraryChangeTrackerTrigger> for IBackgroundTrigger {
@@ -10093,14 +9294,11 @@ impl ::core::convert::TryFrom<&StorageLibraryChangeTrackerTrigger> for IBackgrou
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for StorageLibraryChangeTrackerTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &StorageLibraryChangeTrackerTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StorageLibraryChangeTrackerTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StorageLibraryChangeTrackerTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerTrigger {}
@@ -10111,18 +9309,18 @@ pub struct StorageLibraryContentChangedTrigger(::windows::core::IUnknown);
 impl StorageLibraryContentChangedTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageLibrary>>(storagelibrary: Param0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageLibrary>>>(storagelibrary: Param0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger> {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), storagelibrary.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageLibraryContentChangedTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), storagelibrary.into().abi(), result__.as_mut_ptr()).from_abi::<StorageLibraryContentChangedTrigger>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn CreateFromLibraries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>>(storagelibraries: Param0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger> {
+    pub fn CreateFromLibraries<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(storagelibraries: Param0) -> ::windows::core::Result<StorageLibraryContentChangedTrigger> {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLibraries)(::windows::core::Interface::as_raw(this), storagelibraries.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageLibraryContentChangedTrigger>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLibraries)(::windows::core::Interface::as_raw(this), storagelibraries.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageLibraryContentChangedTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -10171,14 +9369,9 @@ impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageLibraryContentChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageLibraryContentChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for &::windows::core::IUnknown {
+    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageLibraryContentChangedTrigger> for ::windows::core::IInspectable {
@@ -10191,14 +9384,9 @@ impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageLibraryContentChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageLibraryContentChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageLibraryContentChangedTrigger> for &::windows::core::IInspectable {
+    fn from(value: &StorageLibraryContentChangedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<StorageLibraryContentChangedTrigger> for IBackgroundTrigger {
@@ -10213,14 +9401,11 @@ impl ::core::convert::TryFrom<&StorageLibraryContentChangedTrigger> for IBackgro
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for StorageLibraryContentChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &StorageLibraryContentChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StorageLibraryContentChangedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StorageLibraryContentChangedTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -10236,10 +9421,10 @@ impl SystemCondition {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create(conditiontype: SystemConditionType) -> ::windows::core::Result<SystemCondition> {
+    pub fn Create<'a, Param0: ::std::convert::Into<SystemConditionType>>(conditiontype: Param0) -> ::windows::core::Result<SystemCondition> {
         Self::ISystemConditionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), conditiontype, result__.as_mut_ptr()).from_abi::<SystemCondition>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), conditiontype.into(), result__.as_mut_ptr()).from_abi::<SystemCondition>(result__)
         })
     }
     #[doc(hidden)]
@@ -10288,14 +9473,9 @@ impl ::core::convert::From<&SystemCondition> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemCondition> for &::windows::core::IUnknown {
+    fn from(value: &SystemCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemCondition> for ::windows::core::IInspectable {
@@ -10308,14 +9488,9 @@ impl ::core::convert::From<&SystemCondition> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemCondition> for &::windows::core::IInspectable {
+    fn from(value: &SystemCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SystemCondition> for IBackgroundCondition {
@@ -10330,14 +9505,11 @@ impl ::core::convert::TryFrom<&SystemCondition> for IBackgroundCondition {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCondition> for SystemCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCondition> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCondition> for &SystemCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCondition> {
-        ::core::convert::TryInto::<IBackgroundCondition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SystemCondition> for ::windows::core::InParam<'a, IBackgroundCondition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SystemCondition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -10402,10 +9574,10 @@ impl SystemTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> ::windows::core::Result<SystemTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<SystemTriggerType>>(triggertype: Param0, oneshot: bool) -> ::windows::core::Result<SystemTrigger> {
         Self::ISystemTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype, oneshot, result__.as_mut_ptr()).from_abi::<SystemTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype.into(), oneshot, result__.as_mut_ptr()).from_abi::<SystemTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -10454,14 +9626,9 @@ impl ::core::convert::From<&SystemTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemTrigger> for &::windows::core::IUnknown {
+    fn from(value: &SystemTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemTrigger> for ::windows::core::IInspectable {
@@ -10474,14 +9641,9 @@ impl ::core::convert::From<&SystemTrigger> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemTrigger> for &::windows::core::IInspectable {
+    fn from(value: &SystemTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SystemTrigger> for IBackgroundTrigger {
@@ -10496,14 +9658,11 @@ impl ::core::convert::TryFrom<&SystemTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SystemTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SystemTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SystemTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SystemTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -10606,14 +9765,9 @@ impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TetheringEntitlementCheckTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TetheringEntitlementCheckTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for &::windows::core::IUnknown {
+    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TetheringEntitlementCheckTrigger> for ::windows::core::IInspectable {
@@ -10626,14 +9780,9 @@ impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TetheringEntitlementCheckTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TetheringEntitlementCheckTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TetheringEntitlementCheckTrigger> for &::windows::core::IInspectable {
+    fn from(value: &TetheringEntitlementCheckTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<TetheringEntitlementCheckTrigger> for IBackgroundTrigger {
@@ -10648,14 +9797,11 @@ impl ::core::convert::TryFrom<&TetheringEntitlementCheckTrigger> for IBackground
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for TetheringEntitlementCheckTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &TetheringEntitlementCheckTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TetheringEntitlementCheckTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TetheringEntitlementCheckTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TetheringEntitlementCheckTrigger {}
@@ -10733,14 +9879,9 @@ impl ::core::convert::From<&TimeTrigger> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TimeTrigger> for &::windows::core::IUnknown {
+    fn from(value: &TimeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TimeTrigger> for ::windows::core::IInspectable {
@@ -10753,14 +9894,9 @@ impl ::core::convert::From<&TimeTrigger> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TimeTrigger> for &::windows::core::IInspectable {
+    fn from(value: &TimeTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<TimeTrigger> for IBackgroundTrigger {
@@ -10775,14 +9911,11 @@ impl ::core::convert::TryFrom<&TimeTrigger> for IBackgroundTrigger {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for TimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &TimeTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TimeTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TimeTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -10797,10 +9930,10 @@ impl ToastNotificationActionTrigger {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<ToastNotificationActionTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<ToastNotificationActionTrigger> {
         Self::IToastNotificationActionTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<ToastNotificationActionTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotificationActionTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -10849,14 +9982,9 @@ impl ::core::convert::From<&ToastNotificationActionTrigger> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToastNotificationActionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToastNotificationActionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationActionTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ToastNotificationActionTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ToastNotificationActionTrigger> for ::windows::core::IInspectable {
@@ -10869,14 +9997,9 @@ impl ::core::convert::From<&ToastNotificationActionTrigger> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToastNotificationActionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToastNotificationActionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationActionTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ToastNotificationActionTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationActionTrigger> for IBackgroundTrigger {
@@ -10891,14 +10014,11 @@ impl ::core::convert::TryFrom<&ToastNotificationActionTrigger> for IBackgroundTr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ToastNotificationActionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ToastNotificationActionTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationActionTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationActionTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ToastNotificationActionTrigger {}
@@ -10915,10 +10035,10 @@ impl ToastNotificationHistoryChangedTrigger {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<ToastNotificationHistoryChangedTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<ToastNotificationHistoryChangedTrigger> {
         Self::IToastNotificationHistoryChangedTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<ToastNotificationHistoryChangedTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotificationHistoryChangedTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -10967,14 +10087,9 @@ impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToastNotificationHistoryChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToastNotificationHistoryChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ToastNotificationHistoryChangedTrigger> for ::windows::core::IInspectable {
@@ -10987,14 +10102,9 @@ impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToastNotificationHistoryChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToastNotificationHistoryChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationHistoryChangedTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ToastNotificationHistoryChangedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationHistoryChangedTrigger> for IBackgroundTrigger {
@@ -11009,14 +10119,11 @@ impl ::core::convert::TryFrom<&ToastNotificationHistoryChangedTrigger> for IBack
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for ToastNotificationHistoryChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &ToastNotificationHistoryChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationHistoryChangedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationHistoryChangedTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ToastNotificationHistoryChangedTrigger {}
@@ -11027,10 +10134,10 @@ pub struct UserNotificationChangedTrigger(::windows::core::IUnknown);
 impl UserNotificationChangedTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows::core::Result<UserNotificationChangedTrigger> {
+    pub fn Create<'a, Param0: ::std::convert::Into<super::super::UI::Notifications::NotificationKinds>>(notificationkinds: Param0) -> ::windows::core::Result<UserNotificationChangedTrigger> {
         Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), notificationkinds, result__.as_mut_ptr()).from_abi::<UserNotificationChangedTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), notificationkinds.into(), result__.as_mut_ptr()).from_abi::<UserNotificationChangedTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -11079,14 +10186,9 @@ impl ::core::convert::From<&UserNotificationChangedTrigger> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserNotificationChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserNotificationChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserNotificationChangedTrigger> for &::windows::core::IUnknown {
+    fn from(value: &UserNotificationChangedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserNotificationChangedTrigger> for ::windows::core::IInspectable {
@@ -11099,14 +10201,9 @@ impl ::core::convert::From<&UserNotificationChangedTrigger> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserNotificationChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserNotificationChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserNotificationChangedTrigger> for &::windows::core::IInspectable {
+    fn from(value: &UserNotificationChangedTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<UserNotificationChangedTrigger> for IBackgroundTrigger {
@@ -11121,14 +10218,11 @@ impl ::core::convert::TryFrom<&UserNotificationChangedTrigger> for IBackgroundTr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for UserNotificationChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &UserNotificationChangedTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
-        ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserNotificationChangedTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserNotificationChangedTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserNotificationChangedTrigger {}

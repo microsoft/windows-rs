@@ -106,19 +106,14 @@ impl ::core::convert::From<IObjectArray> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IObjectArray> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IObjectArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IObjectArray> for ::windows::core::IUnknown {
     fn from(value: &IObjectArray) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IObjectArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObjectArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IObjectArray {
@@ -163,12 +158,12 @@ impl IObjectCollection {
         (::windows::core::Interface::vtable(self).base__.GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-    pub unsafe fn AddObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddObject)(::windows::core::Interface::as_raw(self), punk.into_param().abi()).ok()
+    pub unsafe fn AddObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, punk: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddObject)(::windows::core::Interface::as_raw(self), punk.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-    pub unsafe fn AddFromArray<'a, Param0: ::windows::core::IntoParam<'a, IObjectArray>>(&self, poasource: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFromArray)(::windows::core::Interface::as_raw(self), poasource.into_param().abi()).ok()
+    pub unsafe fn AddFromArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IObjectArray>>>(&self, poasource: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddFromArray)(::windows::core::Interface::as_raw(self), poasource.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()> {
@@ -184,19 +179,14 @@ impl ::core::convert::From<IObjectCollection> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IObjectCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IObjectCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IObjectCollection> for ::windows::core::IUnknown {
     fn from(value: &IObjectCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IObjectCollection> for IObjectArray {
@@ -204,19 +194,14 @@ impl ::core::convert::From<IObjectCollection> for IObjectArray {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IObjectCollection> for &'a IObjectArray {
+    fn from(value: &'a IObjectCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IObjectCollection> for IObjectArray {
     fn from(value: &IObjectCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IObjectArray> for IObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IObjectArray> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IObjectArray> for &'a IObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IObjectArray> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IObjectCollection {
