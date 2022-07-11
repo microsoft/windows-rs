@@ -4,6 +4,7 @@ use std::io::prelude::*;
 const EXCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32.Interop", "Windows.UI.Xaml"];
 
 fn main() {
+    let rustfmt = std::env::args().nth(1).unwrap_or_default() != "-p";
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
@@ -13,7 +14,7 @@ fn main() {
     let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
 
     let trees = root.flatten();
-    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
+    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
 
     output.pop();
     output.push("Cargo.toml");
@@ -93,7 +94,7 @@ deprecated = []
     std::fs::copy("license-apache-2.0", "crates/libs/sys/license-apache-2.0").unwrap();
 }
 
-fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
+fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree, rustfmt: bool) {
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
@@ -105,6 +106,6 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.cfg = true;
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
-    lib::rustfmt(tree.namespace, &mut tokens);
+    lib::format(tree.namespace, &mut tokens, rustfmt);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
 }
