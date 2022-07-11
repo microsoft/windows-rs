@@ -6,7 +6,6 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "alloc",
     "implement",
     "ApplicationModel_Core",
     "UI_Core",

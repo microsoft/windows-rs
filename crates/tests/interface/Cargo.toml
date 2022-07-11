@@ -11,5 +11,4 @@ features = [
     "Win32_System_Com",
     "interface",
     "implement",
-    "alloc"
 ]

@@ -6,6 +6,5 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "alloc",
     "Data_Xml_Dom",
 ]

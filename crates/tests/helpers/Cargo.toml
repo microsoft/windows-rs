@@ -7,7 +7,6 @@ publish = false
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "alloc",
     "Win32_Foundation",
     "Win32_Globalization",
 ]
