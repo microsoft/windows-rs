@@ -25,22 +25,7 @@ fn main() {
         return;
     };
 
-    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
-    let reader = &metadata::reader::Reader::new(&files);
-
-    let mut libraries = BTreeMap::<String, BTreeMap<String, usize>>::new();
-    let root = reader.tree("Windows.Win32", &[]).expect("`Windows` namespace not found");
-    for tree in root.flatten() {
-        if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
-            for method in reader.type_def_methods(apis) {
-                let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
-                let scope = reader.impl_map_scope(impl_map);
-                let library = reader.module_ref_name(scope).to_lowercase();
-                let params = reader.method_def_size(method);
-                libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), params);
-            }
-        }
-    }
+    let libraries = lib::libraries();
 
     for (platform, dlltool_target) in platform_and_target {
         let output = std::path::PathBuf::from(format!("crates/targets/{}/lib", platform));
