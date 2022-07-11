@@ -17969,8 +17969,8 @@ impl ID3D12CommandAllocator {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -18086,8 +18086,8 @@ impl ID3D12CommandList {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -18188,8 +18188,8 @@ impl ID3D12CommandQueue {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -18366,8 +18366,8 @@ impl ID3D12CommandSignature {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -19445,8 +19445,8 @@ impl ID3D12DescriptorHeap {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -19578,8 +19578,8 @@ impl ID3D12Device {
         (::windows::core::Interface::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -19699,9 +19699,9 @@ impl ID3D12Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19710,9 +19710,9 @@ impl ID3D12Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -19917,8 +19917,8 @@ impl ID3D12Device1 {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -20038,9 +20038,9 @@ impl ID3D12Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20049,9 +20049,9 @@ impl ID3D12Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -20209,8 +20209,8 @@ impl ID3D12Device2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -20330,9 +20330,9 @@ impl ID3D12Device2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20341,9 +20341,9 @@ impl ID3D12Device2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -20516,8 +20516,8 @@ impl ID3D12Device3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -20637,9 +20637,9 @@ impl ID3D12Device3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20648,9 +20648,9 @@ impl ID3D12Device3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -20858,8 +20858,8 @@ impl ID3D12Device4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -20979,9 +20979,9 @@ impl ID3D12Device4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20990,9 +20990,9 @@ impl ID3D12Device4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -21255,8 +21255,8 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -21376,9 +21376,9 @@ impl ID3D12Device5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21387,9 +21387,9 @@ impl ID3D12Device5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -21699,8 +21699,8 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -21820,9 +21820,9 @@ impl ID3D12Device6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21831,9 +21831,9 @@ impl ID3D12Device6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -22157,8 +22157,8 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -22278,9 +22278,9 @@ impl ID3D12Device7 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22289,9 +22289,9 @@ impl ID3D12Device7 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -22638,8 +22638,8 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -22759,9 +22759,9 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22770,9 +22770,9 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -23175,8 +23175,8 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetNodeCount(&self) -> u32 {
@@ -23296,9 +23296,9 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12DeviceChild>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobject: Param0, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(pattributes), ::core::mem::transmute(access), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23307,9 +23307,9 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandleByName(&self, name: ::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenSharedHandleByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(access), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
@@ -23726,8 +23726,8 @@ impl ID3D12DeviceChild {
         (::windows::core::Interface::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -24201,8 +24201,8 @@ impl ID3D12Fence {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -24332,8 +24332,8 @@ impl ID3D12Fence1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -24516,8 +24516,8 @@ impl ID3D12FunctionReflection {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bufferindex)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetConstantBufferByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetConstantBufferByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -24526,14 +24526,14 @@ impl ID3D12FunctionReflection {
         (::windows::core::Interface::vtable(self).GetResourceBindingDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetVariableByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetVariableByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName(&self, name: ::windows::core::PCSTR) -> ::windows::core::Result<D3D12_SHADER_INPUT_BIND_DESC> {
+    pub unsafe fn GetResourceBindingDescByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::windows::core::Result<D3D12_SHADER_INPUT_BIND_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::<D3D12_SHADER_INPUT_BIND_DESC>::zeroed();
-        (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
+        (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D12FunctionParameterReflection> {
@@ -24599,8 +24599,8 @@ impl ID3D12GraphicsCommandList {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -25018,8 +25018,8 @@ impl ID3D12GraphicsCommandList1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -25399,8 +25399,8 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -25791,8 +25791,8 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -26202,8 +26202,8 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -26680,8 +26680,8 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -27168,8 +27168,8 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -27674,8 +27674,8 @@ impl ID3D12Heap {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -27793,8 +27793,8 @@ impl ID3D12Heap1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -28019,12 +28019,12 @@ impl ID3D12InfoQueue {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_CATEGORY>, Param1: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>, Param2: ::std::convert::Into<D3D12_MESSAGE_ID>>(&self, category: Param0, severity: Param1, id: Param2, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_CATEGORY>, Param1: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>, Param2: ::std::convert::Into<D3D12_MESSAGE_ID>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, category: Param0, severity: Param1, id: Param2, pdescription: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>>(&self, severity: Param0, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, severity: Param0, pdescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28273,12 +28273,12 @@ impl ID3D12InfoQueue1 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_CATEGORY>, Param1: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>, Param2: ::std::convert::Into<D3D12_MESSAGE_ID>>(&self, category: Param0, severity: Param1, id: Param2, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_CATEGORY>, Param1: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>, Param2: ::std::convert::Into<D3D12_MESSAGE_ID>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, category: Param0, severity: Param1, id: Param2, pdescription: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>>(&self, severity: Param0, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<D3D12_MESSAGE_SEVERITY>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, severity: Param0, pdescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28515,8 +28515,8 @@ impl ID3D12LifetimeTracker {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -28617,8 +28617,8 @@ impl ID3D12MetaCommand {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -28734,8 +28734,8 @@ impl ID3D12Object {
         (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
 }
 impl ::core::convert::From<ID3D12Object> for ::windows::core::IUnknown {
@@ -28801,8 +28801,8 @@ impl ID3D12Pageable {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -28898,27 +28898,27 @@ impl ID3D12PipelineLibrary {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn StorePipeline<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ID3D12PipelineState>>>(&self, pname: ::windows::core::PCWSTR, ppipeline: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StorePipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ppipeline.into().abi()).ok()
+    pub unsafe fn StorePipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ID3D12PipelineState>>>(&self, pname: Param0, ppipeline: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StorePipeline)(::windows::core::Interface::as_raw(self), pname.into(), ppipeline.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn LoadGraphicsPipeline<T: ::windows::core::Interface>(&self, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
+    pub unsafe fn LoadGraphicsPipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pname: Param0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).LoadGraphicsPipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).LoadGraphicsPipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn LoadComputePipeline<T: ::windows::core::Interface>(&self, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
+    pub unsafe fn LoadComputePipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pname: Param0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).LoadComputePipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).LoadComputePipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetSerializedSize(&self) -> usize {
@@ -29026,27 +29026,27 @@ impl ID3D12PipelineLibrary1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn StorePipeline<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ID3D12PipelineState>>>(&self, pname: ::windows::core::PCWSTR, ppipeline: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StorePipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ppipeline.into().abi()).ok()
+    pub unsafe fn StorePipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ID3D12PipelineState>>>(&self, pname: Param0, ppipeline: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StorePipeline)(::windows::core::Interface::as_raw(self), pname.into(), ppipeline.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn LoadGraphicsPipeline<T: ::windows::core::Interface>(&self, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
+    pub unsafe fn LoadGraphicsPipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pname: Param0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.LoadGraphicsPipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.LoadGraphicsPipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn LoadComputePipeline<T: ::windows::core::Interface>(&self, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
+    pub unsafe fn LoadComputePipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pname: Param0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.LoadComputePipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.LoadComputePipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetSerializedSize(&self) -> usize {
@@ -29057,9 +29057,9 @@ impl ID3D12PipelineLibrary1 {
         (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), pdata.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn LoadPipeline<T: ::windows::core::Interface>(&self, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
+    pub unsafe fn LoadPipeline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pname: Param0, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).LoadPipeline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).LoadPipeline)(::windows::core::Interface::as_raw(self), pname.into(), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<ID3D12PipelineLibrary1> for ::windows::core::IUnknown {
@@ -29167,8 +29167,8 @@ impl ID3D12PipelineState {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -29289,8 +29289,8 @@ impl ID3D12ProtectedResourceSession {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -29416,8 +29416,8 @@ impl ID3D12ProtectedResourceSession1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -29564,8 +29564,8 @@ impl ID3D12ProtectedSession {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -29671,8 +29671,8 @@ impl ID3D12QueryHeap {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -29783,8 +29783,8 @@ impl ID3D12Resource {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -29936,8 +29936,8 @@ impl ID3D12Resource1 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -30099,8 +30099,8 @@ impl ID3D12Resource2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -30287,8 +30287,8 @@ impl ID3D12RootSignature {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -30424,8 +30424,8 @@ pub struct ID3D12RootSignatureDeserializer_Vtbl {
 pub struct ID3D12SDKConfiguration(::windows::core::IUnknown);
 impl ID3D12SDKConfiguration {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetSDKVersion(&self, sdkversion: u32, sdkpath: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSDKVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sdkversion), ::core::mem::transmute(sdkpath)).ok()
+    pub unsafe fn SetSDKVersion<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, sdkversion: u32, sdkpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSDKVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sdkversion), sdkpath.into()).ok()
     }
 }
 impl ::core::convert::From<ID3D12SDKConfiguration> for ::windows::core::IUnknown {
@@ -30488,8 +30488,8 @@ impl ID3D12ShaderCacheSession {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -30605,8 +30605,8 @@ impl ID3D12ShaderReflection {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetConstantBufferByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetConstantBufferByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -30633,14 +30633,14 @@ impl ID3D12ShaderReflection {
         (::windows::core::Interface::vtable(self).GetPatchConstantParameterDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameterindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SIGNATURE_PARAMETER_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetVariableByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetVariableByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName(&self, name: ::windows::core::PCSTR) -> ::windows::core::Result<D3D12_SHADER_INPUT_BIND_DESC> {
+    pub unsafe fn GetResourceBindingDescByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::windows::core::Result<D3D12_SHADER_INPUT_BIND_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::<D3D12_SHADER_INPUT_BIND_DESC>::zeroed();
-        (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
+        (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D12_SHADER_INPUT_BIND_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetMovInstructionCount(&self) -> u32 {
@@ -30789,8 +30789,8 @@ impl ID3D12ShaderReflectionConstantBuffer {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetVariableByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetVariableByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
 }
 impl ::core::clone::Clone for ID3D12ShaderReflectionConstantBuffer {
@@ -30840,8 +30840,8 @@ impl ID3D12ShaderReflectionType {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetMemberTypeByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberTypeByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
@@ -31056,8 +31056,8 @@ impl ID3D12StateObject {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn SetName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -31156,12 +31156,12 @@ pub struct ID3D12StateObject_Vtbl {
 pub struct ID3D12StateObjectProperties(::windows::core::IUnknown);
 impl ID3D12StateObjectProperties {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetShaderIdentifier(&self, pexportname: ::windows::core::PCWSTR) -> *mut ::core::ffi::c_void {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetShaderIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexportname)))
+    pub unsafe fn GetShaderIdentifier<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pexportname: Param0) -> *mut ::core::ffi::c_void {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetShaderIdentifier)(::windows::core::Interface::as_raw(self), pexportname.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub unsafe fn GetShaderStackSize(&self, pexportname: ::windows::core::PCWSTR) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetShaderStackSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexportname)))
+    pub unsafe fn GetShaderStackSize<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pexportname: Param0) -> u64 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetShaderStackSize)(::windows::core::Interface::as_raw(self), pexportname.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     pub unsafe fn GetPipelineStackSize(&self) -> u64 {

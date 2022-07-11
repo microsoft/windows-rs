@@ -9,12 +9,12 @@ pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ApplyPendingSavedStateFileReplayLog(vmrsfile: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(vmrsfile: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyPendingSavedStateFileReplayLog(vmrsfile: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    ApplyPendingSavedStateFileReplayLog(::core::mem::transmute(vmrsfile)).ok()
+    ApplyPendingSavedStateFileReplayLog(vmrsfile.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -64,12 +64,12 @@ pub type FOUND_IMAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: ::windows::core::PCSTR, fieldname: ::windows::core::PCWSTR, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, fieldname: Param3, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: ::windows::core::PCSTR, fieldname: ::windows::core::PCWSTR, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    FindSavedStateSymbolFieldInType(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(typename), ::core::mem::transmute(fieldname), ::core::mem::transmute(offset), ::core::mem::transmute(found)).ok()
+    FindSavedStateSymbolFieldInType(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), typename.into(), fieldname.into(), ::core::mem::transmute(offset), ::core::mem::transmute(found)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -430,12 +430,12 @@ pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void,
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: ::windows::core::PCSTR, typefieldinfomap: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, typefieldinfomap: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: ::windows::core::PCSTR, typefieldinfomap: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    GetSavedStateSymbolFieldInfo(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(typename), ::core::mem::transmute(typefieldinfomap)).ok()
+    GetSavedStateSymbolFieldInfo(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), typename.into(), ::core::mem::transmute(typefieldinfomap)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -449,12 +449,12 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::c
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: ::windows::core::PCSTR, size: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetSavedStateSymbolTypeSize<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, size: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: ::windows::core::PCSTR, size: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetSavedStateSymbolTypeSize(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(typename), ::core::mem::transmute(size)).ok()
+    GetSavedStateSymbolTypeSize(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), typename.into(), ::core::mem::transmute(size)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -973,58 +973,58 @@ pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core:
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateFile(vmrsfile: ::windows::core::PCWSTR, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn LoadSavedStateFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(vmrsfile: Param0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadSavedStateFile(vmrsfile: ::windows::core::PCWSTR, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    LoadSavedStateFile(::core::mem::transmute(vmrsfile), ::core::mem::transmute(vmsavedstatedumphandle)).ok()
+    LoadSavedStateFile(vmrsfile.into(), ::core::mem::transmute(vmsavedstatedumphandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateFiles(binfile: ::windows::core::PCWSTR, vsvfile: ::windows::core::PCWSTR, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn LoadSavedStateFiles<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(binfile: Param0, vsvfile: Param1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadSavedStateFiles(binfile: ::windows::core::PCWSTR, vsvfile: ::windows::core::PCWSTR, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    LoadSavedStateFiles(::core::mem::transmute(binfile), ::core::mem::transmute(vsvfile), ::core::mem::transmute(vmsavedstatedumphandle)).ok()
+    LoadSavedStateFiles(binfile.into(), vsvfile.into(), ::core::mem::transmute(vmsavedstatedumphandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: ::windows::core::PCSTR, modulename: ::windows::core::PCSTR, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
+pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: Param1, modulename: Param2, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: ::windows::core::PCSTR, modulename: ::windows::core::PCSTR, baseaddress: u64, sizeofbase: u32) -> ::windows::core::HRESULT;
     }
-    LoadSavedStateModuleSymbols(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(imagename), ::core::mem::transmute(modulename), ::core::mem::transmute(baseaddress), ::core::mem::transmute(sizeofbase)).ok()
+    LoadSavedStateModuleSymbols(::core::mem::transmute(vmsavedstatedumphandle), imagename.into(), modulename.into(), ::core::mem::transmute(baseaddress), ::core::mem::transmute(sizeofbase)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: ::windows::core::PCSTR, imagetimestamp: u32, modulename: ::windows::core::PCSTR, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
+pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: Param1, imagetimestamp: u32, modulename: Param3, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: ::windows::core::PCSTR, imagetimestamp: u32, modulename: ::windows::core::PCSTR, baseaddress: u64, sizeofbase: u32) -> ::windows::core::HRESULT;
     }
-    LoadSavedStateModuleSymbolsEx(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(imagename), ::core::mem::transmute(imagetimestamp), ::core::mem::transmute(modulename), ::core::mem::transmute(baseaddress), ::core::mem::transmute(sizeofbase)).ok()
+    LoadSavedStateModuleSymbolsEx(::core::mem::transmute(vmsavedstatedumphandle), imagename.into(), ::core::mem::transmute(imagetimestamp), modulename.into(), ::core::mem::transmute(baseaddress), ::core::mem::transmute(sizeofbase)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadSavedStateSymbolProvider<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: ::windows::core::PCWSTR, force: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: Param1, force: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: ::windows::core::PCWSTR, force: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    LoadSavedStateSymbolProvider(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(usersymbols), force.into()).ok()
+    LoadSavedStateSymbolProvider(::core::mem::transmute(vmsavedstatedumphandle), usersymbols.into(), force.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn LocateSavedStateFiles(vmname: ::windows::core::PCWSTR, snapshotname: ::windows::core::PCWSTR, binpath: *mut ::windows::core::PWSTR, vsvpath: *mut ::windows::core::PWSTR, vmrspath: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn LocateSavedStateFiles<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(vmname: Param0, snapshotname: Param1, binpath: *mut ::windows::core::PWSTR, vsvpath: *mut ::windows::core::PWSTR, vmrspath: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LocateSavedStateFiles(vmname: ::windows::core::PCWSTR, snapshotname: ::windows::core::PCWSTR, binpath: *mut ::windows::core::PWSTR, vsvpath: *mut ::windows::core::PWSTR, vmrspath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    LocateSavedStateFiles(::core::mem::transmute(vmname), ::core::mem::transmute(snapshotname), ::core::mem::transmute(binpath), ::core::mem::transmute(vsvpath), ::core::mem::transmute(vmrspath)).ok()
+    LocateSavedStateFiles(vmname.into(), snapshotname.into(), ::core::mem::transmute(binpath), ::core::mem::transmute(vsvpath), ::core::mem::transmute(vmrspath)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1453,12 +1453,12 @@ pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: ::windows::core::PCSTR, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn ReadSavedStateGlobalVariable<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: Param2, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: ::windows::core::PCSTR, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT;
     }
-    ReadSavedStateGlobalVariable(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(globalname), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
+    ReadSavedStateGlobalVariable(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), globalname.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -1480,12 +1480,12 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::cor
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: ::windows::core::PCSTR, virtualaddress: *mut u64, size: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn ResolveSavedStateGlobalVariableAddress<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: Param2, virtualaddress: *mut u64, size: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: ::windows::core::PCSTR, virtualaddress: *mut u64, size: *mut u32) -> ::windows::core::HRESULT;
     }
-    ResolveSavedStateGlobalVariableAddress(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(globalname), ::core::mem::transmute(virtualaddress), ::core::mem::transmute(size)).ok()
+    ResolveSavedStateGlobalVariableAddress(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), globalname.into(), ::core::mem::transmute(virtualaddress), ::core::mem::transmute(size)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]

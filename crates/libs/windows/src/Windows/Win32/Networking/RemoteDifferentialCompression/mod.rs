@@ -726,9 +726,9 @@ pub struct ISimilarity(::windows::core::IUnknown);
 impl ISimilarity {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: ::windows::core::PCWSTR, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTable<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: Param0, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -822,9 +822,9 @@ pub struct ISimilarityFileIdTable(::windows::core::IUnknown);
 impl ISimilarityFileIdTable {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: ::windows::core::PCWSTR, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTable<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: Param0, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1177,9 +1177,9 @@ pub struct ISimilarityTraitsTable(::windows::core::IUnknown);
 impl ISimilarityTraitsTable {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: ::windows::core::PCWSTR, truncate: Param1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTable<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: Param0, truncate: Param1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

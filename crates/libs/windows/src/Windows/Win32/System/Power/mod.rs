@@ -800,12 +800,12 @@ pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLE
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
-pub unsafe fn DevicePowerSetDeviceState(devicedescription: ::windows::core::PCWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(devicedescription: Param0, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DevicePowerSetDeviceState(devicedescription: ::windows::core::PCWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DevicePowerSetDeviceState(::core::mem::transmute(devicedescription), ::core::mem::transmute(setflags), ::core::mem::transmute(setdata)))
+    ::core::mem::transmute(DevicePowerSetDeviceState(devicedescription.into(), ::core::mem::transmute(setflags), ::core::mem::transmute(setdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
@@ -2554,12 +2554,12 @@ pub unsafe fn PowerGetActiveScheme<'a, Param0: ::std::convert::Into<super::Regis
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerImportPowerScheme<'a, Param0: ::std::convert::Into<super::Registry::HKEY>>(rootpowerkey: Param0, importfilenamepath: ::windows::core::PCWSTR, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32 {
+pub unsafe fn PowerImportPowerScheme<'a, Param0: ::std::convert::Into<super::Registry::HKEY>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(rootpowerkey: Param0, importfilenamepath: Param1, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerImportPowerScheme(rootpowerkey: super::Registry::HKEY, importfilenamepath: ::windows::core::PCWSTR, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
     }
-    ::core::mem::transmute(PowerImportPowerScheme(rootpowerkey.into(), ::core::mem::transmute(importfilenamepath), ::core::mem::transmute(destinationschemeguid)))
+    ::core::mem::transmute(PowerImportPowerScheme(rootpowerkey.into(), importfilenamepath.into(), ::core::mem::transmute(destinationschemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3989,12 +3989,12 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WritePwrScheme(puiid: *const u32, lpszschemename: ::windows::core::PCWSTR, lpszdescription: ::windows::core::PCWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn WritePwrScheme<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(puiid: *const u32, lpszschemename: Param1, lpszdescription: Param2, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WritePwrScheme(puiid: *const u32, lpszschemename: ::windows::core::PCWSTR, lpszdescription: ::windows::core::PCWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(WritePwrScheme(::core::mem::transmute(puiid), ::core::mem::transmute(lpszschemename), ::core::mem::transmute(lpszdescription), ::core::mem::transmute(lpscheme)))
+    ::core::mem::transmute(WritePwrScheme(::core::mem::transmute(puiid), lpszschemename.into(), lpszdescription.into(), ::core::mem::transmute(lpscheme)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

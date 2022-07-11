@@ -370,8 +370,8 @@ impl IContactAggregationAggregate {
         (::windows::core::Interface::vtable(self).GetComponentItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContactCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Link(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid)).ok()
+    pub unsafe fn Link<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Link)(::windows::core::Interface::as_raw(self), paggregateid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn get_Groups<'a, Param0: ::std::convert::Into<CONTACT_AGGREGATION_COLLECTION_OPTIONS>>(&self, options: Param0) -> ::windows::core::Result<IContactAggregationGroupCollection> {
@@ -384,8 +384,8 @@ impl IContactAggregationAggregate {
         (::windows::core::Interface::vtable(self).AntiLink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetAntiLink(&self, pantilink: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAntiLink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pantilink)).ok()
+    pub unsafe fn SetAntiLink<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pantilink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAntiLink)(::windows::core::Interface::as_raw(self), pantilink.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn FavoriteOrder(&self) -> ::windows::core::Result<u32> {
@@ -461,9 +461,9 @@ impl IContactAggregationAggregateCollection {
         (::windows::core::Interface::vtable(self).FindFirst)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationAggregate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByAntiLinkId(&self, pantilinkid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationAggregate> {
+    pub unsafe fn FindFirstByAntiLinkId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pantilinkid: Param0) -> ::windows::core::Result<IContactAggregationAggregate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByAntiLinkId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pantilinkid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationAggregate>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByAntiLinkId)(::windows::core::Interface::as_raw(self), pantilinkid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationAggregate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationAggregate> {
@@ -533,8 +533,8 @@ impl IContactAggregationContact {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn MoveToAggregate(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveToAggregate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid)).ok()
+    pub unsafe fn MoveToAggregate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MoveToAggregate)(::windows::core::Interface::as_raw(self), paggregateid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn Unlink(&self) -> ::windows::core::Result<()> {
@@ -546,8 +546,8 @@ impl IContactAggregationContact {
         (::windows::core::Interface::vtable(self).AccountId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetAccountId(&self, paccountid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paccountid)).ok()
+    pub unsafe fn SetAccountId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paccountid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccountId)(::windows::core::Interface::as_raw(self), paccountid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn AggregateId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -586,8 +586,8 @@ impl IContactAggregationContact {
         (::windows::core::Interface::vtable(self).NetworkSourceIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetNetworkSourceIdString(&self, pnetworksourceid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkSourceIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnetworksourceid)).ok()
+    pub unsafe fn SetNetworkSourceIdString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pnetworksourceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkSourceIdString)(::windows::core::Interface::as_raw(self), pnetworksourceid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
@@ -687,9 +687,9 @@ impl IContactAggregationContactCollection {
         (::windows::core::Interface::vtable(self).FindNext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByIdentityHash(&self, psourcetype: ::windows::core::PCWSTR, paccountid: ::windows::core::PCWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact> {
+    pub unsafe fn FindFirstByIdentityHash<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psourcetype: Param0, paccountid: Param1, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByIdentityHash)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcetype), ::core::mem::transmute(paccountid), ::core::mem::transmute(pidentityhash), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByIdentityHash)(::windows::core::Interface::as_raw(self), psourcetype.into(), paccountid.into(), ::core::mem::transmute(pidentityhash), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -697,9 +697,9 @@ impl IContactAggregationContactCollection {
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByRemoteId(&self, psourcetype: ::windows::core::PCWSTR, paccountid: ::windows::core::PCWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact> {
+    pub unsafe fn FindFirstByRemoteId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psourcetype: Param0, paccountid: Param1, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByRemoteId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcetype), ::core::mem::transmute(paccountid), ::core::mem::transmute(premoteobjectid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByRemoteId)(::windows::core::Interface::as_raw(self), psourcetype.into(), paccountid.into(), ::core::mem::transmute(premoteobjectid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
     }
 }
 impl ::core::convert::From<IContactAggregationContactCollection> for ::windows::core::IUnknown {
@@ -760,12 +760,12 @@ impl IContactAggregationGroup {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Add(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid)).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), paggregateid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Remove(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid)).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), paggregateid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn Members(&self) -> ::windows::core::Result<IContactAggregationAggregateCollection> {
@@ -792,8 +792,8 @@ impl IContactAggregationGroup {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetName(&self, pname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), pname.into()).ok()
     }
 }
 impl ::core::convert::From<IContactAggregationGroup> for ::windows::core::IUnknown {
@@ -933,8 +933,8 @@ impl IContactAggregationLink {
         (::windows::core::Interface::vtable(self).AccountId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetAccountId(&self, paccountid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paccountid)).ok()
+    pub unsafe fn SetAccountId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paccountid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccountId)(::windows::core::Interface::as_raw(self), paccountid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -958,8 +958,8 @@ impl IContactAggregationLink {
         (::windows::core::Interface::vtable(self).NetworkSourceIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetNetworkSourceIdString(&self, pnetworksourceid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkSourceIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnetworksourceid)).ok()
+    pub unsafe fn SetNetworkSourceIdString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pnetworksourceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkSourceIdString)(::windows::core::Interface::as_raw(self), pnetworksourceid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
@@ -976,8 +976,8 @@ impl IContactAggregationLink {
         (::windows::core::Interface::vtable(self).ServerPerson)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetServerPerson(&self, pserverpersonid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerPerson)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pserverpersonid)).ok()
+    pub unsafe fn SetServerPerson<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pserverpersonid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerPerson)(::windows::core::Interface::as_raw(self), pserverpersonid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn ServerPersonBaseline(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -985,8 +985,8 @@ impl IContactAggregationLink {
         (::windows::core::Interface::vtable(self).ServerPersonBaseline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetServerPersonBaseline(&self, pserverpersonid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerPersonBaseline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pserverpersonid)).ok()
+    pub unsafe fn SetServerPersonBaseline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pserverpersonid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerPersonBaseline)(::windows::core::Interface::as_raw(self), pserverpersonid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
@@ -1071,9 +1071,9 @@ impl IContactAggregationLinkCollection {
         (::windows::core::Interface::vtable(self).FindFirst)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLink>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByRemoteId(&self, psourcetype: ::windows::core::PCWSTR, paccountid: ::windows::core::PCWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink> {
+    pub unsafe fn FindFirstByRemoteId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psourcetype: Param0, paccountid: Param1, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByRemoteId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcetype), ::core::mem::transmute(paccountid), ::core::mem::transmute(premoteid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLink>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByRemoteId)(::windows::core::Interface::as_raw(self), psourcetype.into(), paccountid.into(), ::core::mem::transmute(premoteid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLink>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationLink> {
@@ -1140,8 +1140,8 @@ impl IContactAggregationManager {
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOrOpenGroup<'a, Param1: ::std::convert::Into<CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS>>(&self, pgroupname: ::windows::core::PCWSTR, options: Param1, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateOrOpenGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgroupname), options.into(), ::core::mem::transmute(pcreatedgroup), ::core::mem::transmute(ppgroup)).ok()
+    pub unsafe fn CreateOrOpenGroup<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS>>(&self, pgroupname: Param0, options: Param1, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateOrOpenGroup)(::windows::core::Interface::as_raw(self), pgroupname.into(), options.into(), ::core::mem::transmute(pcreatedgroup), ::core::mem::transmute(ppgroup)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn CreateExternalContact(&self) -> ::windows::core::Result<IContactAggregationContact> {
@@ -1163,24 +1163,24 @@ impl IContactAggregationManager {
         (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn OpenAggregateContact(&self, pitemid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationAggregate> {
+    pub unsafe fn OpenAggregateContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pitemid: Param0) -> ::windows::core::Result<IContactAggregationAggregate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenAggregateContact)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pitemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationAggregate>(result__)
+        (::windows::core::Interface::vtable(self).OpenAggregateContact)(::windows::core::Interface::as_raw(self), pitemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationAggregate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn OpenContact(&self, pitemid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationContact> {
+    pub unsafe fn OpenContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pitemid: Param0) -> ::windows::core::Result<IContactAggregationContact> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenContact)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pitemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
+        (::windows::core::Interface::vtable(self).OpenContact)(::windows::core::Interface::as_raw(self), pitemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationContact>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn OpenServerContactLink(&self, pitemid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationLink> {
+    pub unsafe fn OpenServerContactLink<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pitemid: Param0) -> ::windows::core::Result<IContactAggregationLink> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenServerContactLink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pitemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLink>(result__)
+        (::windows::core::Interface::vtable(self).OpenServerContactLink)(::windows::core::Interface::as_raw(self), pitemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLink>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn OpenServerPerson(&self, pitemid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationServerPerson> {
+    pub unsafe fn OpenServerPerson<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pitemid: Param0) -> ::windows::core::Result<IContactAggregationServerPerson> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenServerPerson)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pitemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
+        (::windows::core::Interface::vtable(self).OpenServerPerson)(::windows::core::Interface::as_raw(self), pitemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn get_Contacts<'a, Param0: ::std::convert::Into<CONTACT_AGGREGATION_COLLECTION_OPTIONS>>(&self, options: Param0) -> ::windows::core::Result<IContactAggregationContactCollection> {
@@ -1203,9 +1203,9 @@ impl IContactAggregationManager {
         (::windows::core::Interface::vtable(self).ServerPersons)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPersonCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn get_ServerContactLinks(&self, ppersonitemid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection> {
+    pub unsafe fn get_ServerContactLinks<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ppersonitemid: Param0) -> ::windows::core::Result<IContactAggregationLinkCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ServerContactLinks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppersonitemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLinkCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_ServerContactLinks)(::windows::core::Interface::as_raw(self), ppersonitemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationLinkCollection>(result__)
     }
 }
 impl ::core::convert::From<IContactAggregationManager> for ::windows::core::IUnknown {
@@ -1284,8 +1284,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Interface::vtable(self).AggregateId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetAggregateId(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAggregateId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid)).ok()
+    pub unsafe fn SetAggregateId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAggregateId)(::windows::core::Interface::as_raw(self), paggregateid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn AntiLink(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -1293,8 +1293,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Interface::vtable(self).AntiLink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetAntiLink(&self, pantilink: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAntiLink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pantilink)).ok()
+    pub unsafe fn SetAntiLink<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pantilink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAntiLink)(::windows::core::Interface::as_raw(self), pantilink.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn AntiLinkBaseline(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -1302,8 +1302,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Interface::vtable(self).AntiLinkBaseline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetAntiLinkBaseline(&self, pantilink: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAntiLinkBaseline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pantilink)).ok()
+    pub unsafe fn SetAntiLinkBaseline<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pantilink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAntiLinkBaseline)(::windows::core::Interface::as_raw(self), pantilink.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn FavoriteOrder(&self) -> ::windows::core::Result<u32> {
@@ -1363,8 +1363,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Interface::vtable(self).LinkedAggregateId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetLinkedAggregateId(&self, plinkedaggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLinkedAggregateId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plinkedaggregateid)).ok()
+    pub unsafe fn SetLinkedAggregateId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, plinkedaggregateid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLinkedAggregateId)(::windows::core::Interface::as_raw(self), plinkedaggregateid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -1372,8 +1372,8 @@ impl IContactAggregationServerPerson {
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetObjectId(&self, pobjectid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pobjectid)).ok()
+    pub unsafe fn SetObjectId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pobjectid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObjectId)(::windows::core::Interface::as_raw(self), pobjectid.into()).ok()
     }
 }
 impl ::core::convert::From<IContactAggregationServerPerson> for ::windows::core::IUnknown {
@@ -1455,19 +1455,19 @@ impl IContactAggregationServerPersonCollection {
         (::windows::core::Interface::vtable(self).FindFirst)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByServerId(&self, pserverid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationServerPerson> {
+    pub unsafe fn FindFirstByServerId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pserverid: Param0) -> ::windows::core::Result<IContactAggregationServerPerson> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByServerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pserverid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByServerId)(::windows::core::Interface::as_raw(self), pserverid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByAggregateId(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationServerPerson> {
+    pub unsafe fn FindFirstByAggregateId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<IContactAggregationServerPerson> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByAggregateId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByAggregateId)(::windows::core::Interface::as_raw(self), paggregateid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn FindFirstByLinkedAggregateId(&self, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationServerPerson> {
+    pub unsafe fn FindFirstByLinkedAggregateId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, paggregateid: Param0) -> ::windows::core::Result<IContactAggregationServerPerson> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstByLinkedAggregateId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paggregateid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
+        (::windows::core::Interface::vtable(self).FindFirstByLinkedAggregateId)(::windows::core::Interface::as_raw(self), paggregateid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContactAggregationServerPerson>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationServerPerson> {
@@ -1592,17 +1592,17 @@ pub struct IContactCollection_Vtbl {
 pub struct IContactManager(::windows::core::IUnknown);
 impl IContactManager {
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Initialize(&self, pszappname: ::windows::core::PCWSTR, pszappversion: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszappname), ::core::mem::transmute(pszappversion)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszappname: Param0, pszappversion: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pszappname.into(), pszappversion.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Load(&self, pszcontactid: ::windows::core::PCWSTR) -> ::windows::core::Result<IContact> {
+    pub unsafe fn Load<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszcontactid: Param0) -> ::windows::core::Result<IContact> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszcontactid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContact>(result__)
+        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), pszcontactid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IContact>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn MergeContactIDs(&self, psznewcontactid: ::windows::core::PCWSTR, pszoldcontactid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MergeContactIDs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psznewcontactid), ::core::mem::transmute(pszoldcontactid)).ok()
+    pub unsafe fn MergeContactIDs<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psznewcontactid: Param0, pszoldcontactid: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MergeContactIDs)(::windows::core::Interface::as_raw(self), psznewcontactid.into(), pszoldcontactid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn GetMeContact(&self) -> ::windows::core::Result<IContact> {
@@ -1670,62 +1670,62 @@ pub struct IContactManager_Vtbl {
 pub struct IContactProperties(::windows::core::IUnknown);
 impl IContactProperties {
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn GetString(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, pszvalue: &mut [u16], pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvalue)), pszvalue.len() as _, ::core::mem::transmute(pdwcchpropertyvaluerequired)).ok()
+    pub unsafe fn GetString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pszvalue: &mut [u16], pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvalue)), pszvalue.len() as _, ::core::mem::transmute(pdwcchpropertyvaluerequired)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDate(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags), ::core::mem::transmute(pftdatetime)).ok()
+    pub unsafe fn GetDate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDate)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pftdatetime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBinary(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, pszcontenttype: &mut [u16], pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBinary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszcontenttype)), pszcontenttype.len() as _, ::core::mem::transmute(pdwcchcontenttyperequired), ::core::mem::transmute(ppstream)).ok()
+    pub unsafe fn GetBinary<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pszcontenttype: &mut [u16], pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetBinary)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszcontenttype)), pszcontenttype.len() as _, ::core::mem::transmute(pdwcchcontenttyperequired), ::core::mem::transmute(ppstream)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn GetLabels(&self, pszarrayelementname: ::windows::core::PCWSTR, dwflags: u32, pszlabels: &mut [u16], pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszarrayelementname), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszlabels)), pszlabels.len() as _, ::core::mem::transmute(pdwcchlabelsrequired)).ok()
+    pub unsafe fn GetLabels<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszarrayelementname: Param0, dwflags: u32, pszlabels: &mut [u16], pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLabels)(::windows::core::Interface::as_raw(self), pszarrayelementname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszlabels)), pszlabels.len() as _, ::core::mem::transmute(pdwcchlabelsrequired)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetString(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, pszvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszvalue)).ok()
+    pub unsafe fn SetString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pszvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetString)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags), pszvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDate(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags), ::core::mem::transmute(ftdatetime)).ok()
+    pub unsafe fn SetDate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ftdatetime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBinary<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>>(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, pszcontenttype: ::windows::core::PCWSTR, pstream: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBinary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszcontenttype), pstream.into().abi()).ok()
+    pub unsafe fn SetBinary<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>>(&self, pszpropertyname: Param0, dwflags: u32, pszcontenttype: Param2, pstream: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBinary)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags), pszcontenttype.into(), pstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn SetLabels(&self, pszarrayelementname: ::windows::core::PCWSTR, dwflags: u32, ppszlabels: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszarrayelementname), ::core::mem::transmute(dwflags), ppszlabels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppszlabels))).ok()
+    pub unsafe fn SetLabels<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszarrayelementname: Param0, dwflags: u32, ppszlabels: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabels)(::windows::core::Interface::as_raw(self), pszarrayelementname.into(), ::core::mem::transmute(dwflags), ppszlabels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppszlabels))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateArrayNode<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszarrayname: ::windows::core::PCWSTR, dwflags: u32, fappend: Param2, psznewarrayelementname: &mut [u16], pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateArrayNode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszarrayname), ::core::mem::transmute(dwflags), fappend.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psznewarrayelementname)), psznewarrayelementname.len() as _, ::core::mem::transmute(pdwcchnewarrayelementnamerequired)).ok()
+    pub unsafe fn CreateArrayNode<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszarrayname: Param0, dwflags: u32, fappend: Param2, psznewarrayelementname: &mut [u16], pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateArrayNode)(::windows::core::Interface::as_raw(self), pszarrayname.into(), ::core::mem::transmute(dwflags), fappend.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psznewarrayelementname)), psznewarrayelementname.len() as _, ::core::mem::transmute(pdwcchnewarrayelementnamerequired)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn DeleteProperty(&self, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn DeleteProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteProperty)(::windows::core::Interface::as_raw(self), pszpropertyname.into(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn DeleteArrayNode(&self, pszarrayelementname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteArrayNode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszarrayelementname), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn DeleteArrayNode<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszarrayelementname: Param0, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteArrayNode)(::windows::core::Interface::as_raw(self), pszarrayelementname.into(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn DeleteLabels(&self, pszarrayelementname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszarrayelementname), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn DeleteLabels<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszarrayelementname: Param0, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteLabels)(::windows::core::Interface::as_raw(self), pszarrayelementname.into(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyCollection<'a, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: ::windows::core::PCWSTR, ppszlabels: &[::windows::core::PWSTR], fanylabelmatches: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppropertycollection), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszmultivaluename), ppszlabels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppszlabels)), fanylabelmatches.into()).ok()
+    pub unsafe fn GetPropertyCollection<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: Param2, ppszlabels: &[::windows::core::PWSTR], fanylabelmatches: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPropertyCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppropertycollection), ::core::mem::transmute(dwflags), pszmultivaluename.into(), ppszlabels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppszlabels)), fanylabelmatches.into()).ok()
     }
 }
 impl ::core::convert::From<IContactProperties> for ::windows::core::IUnknown {

@@ -1,54 +1,54 @@
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateAppContainerProfile(pszappcontainername: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, pszdescription: ::windows::core::PCWSTR, pcapabilities: &[super::SID_AND_ATTRIBUTES]) -> ::windows::core::Result<super::super::Foundation::PSID> {
+pub unsafe fn CreateAppContainerProfile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pszappcontainername: Param0, pszdisplayname: Param1, pszdescription: Param2, pcapabilities: &[super::SID_AND_ATTRIBUTES]) -> ::windows::core::Result<super::super::Foundation::PSID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateAppContainerProfile(pszappcontainername: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, pszdescription: ::windows::core::PCWSTR, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::PSID>::zeroed();
-    CreateAppContainerProfile(::core::mem::transmute(pszappcontainername), ::core::mem::transmute(pszdisplayname), ::core::mem::transmute(pszdescription), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcapabilities)), pcapabilities.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
+    CreateAppContainerProfile(pszappcontainername.into(), pszdisplayname.into(), pszdescription.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcapabilities)), pcapabilities.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
-pub unsafe fn DeleteAppContainerProfile(pszappcontainername: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pszappcontainername: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteAppContainerProfile(pszappcontainername: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    DeleteAppContainerProfile(::core::mem::transmute(pszappcontainername)).ok()
+    DeleteAppContainerProfile(pszappcontainername.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeriveAppContainerSidFromAppContainerName(pszappcontainername: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::PSID> {
+pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pszappcontainername: Param0) -> ::windows::core::Result<super::super::Foundation::PSID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeriveAppContainerSidFromAppContainerName(pszappcontainername: ::windows::core::PCWSTR, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::PSID>::zeroed();
-    DeriveAppContainerSidFromAppContainerName(::core::mem::transmute(pszappcontainername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
+    DeriveAppContainerSidFromAppContainerName(pszappcontainername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, Param0: ::std::convert::Into<super::super::Foundation::PSID>>(psidappcontainersid: Param0, pszrestrictedappcontainername: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::PSID> {
+pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, Param0: ::std::convert::Into<super::super::Foundation::PSID>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(psidappcontainersid: Param0, pszrestrictedappcontainername: Param1) -> ::windows::core::Result<super::super::Foundation::PSID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: super::super::Foundation::PSID, pszrestrictedappcontainername: ::windows::core::PCWSTR, ppsidrestrictedappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::PSID>::zeroed();
-    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into(), ::core::mem::transmute(pszrestrictedappcontainername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
+    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into(), pszrestrictedappcontainername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
-pub unsafe fn GetAppContainerFolderPath(pszappcontainersid: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pszappcontainersid: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAppContainerFolderPath(pszappcontainersid: ::windows::core::PCWSTR, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    GetAppContainerFolderPath(::core::mem::transmute(pszappcontainersid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    GetAppContainerFolderPath(pszappcontainersid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -77,8 +77,8 @@ pub struct IIsolatedAppLauncher(::windows::core::IUnknown);
 impl IIsolatedAppLauncher {
     #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Launch(&self, appusermodelid: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Launch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(appusermodelid), ::core::mem::transmute(arguments), ::core::mem::transmute(telemetryparameters)).ok()
+    pub unsafe fn Launch<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, appusermodelid: Param0, arguments: Param1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Launch)(::windows::core::Interface::as_raw(self), appusermodelid.into(), arguments.into(), ::core::mem::transmute(telemetryparameters)).ok()
     }
 }
 impl ::core::convert::From<IIsolatedAppLauncher> for ::windows::core::IUnknown {

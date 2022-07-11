@@ -445,12 +445,12 @@ impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenThemeDataForDpi<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pszclasslist: ::windows::core::PCWSTR, dpi: u32) -> isize {
+pub unsafe fn OpenThemeDataForDpi<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pszclasslist: Param1, dpi: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows::core::PCWSTR, dpi: u32) -> isize;
     }
-    ::core::mem::transmute(OpenThemeDataForDpi(hwnd.into(), ::core::mem::transmute(pszclasslist), ::core::mem::transmute(dpi)))
+    ::core::mem::transmute(OpenThemeDataForDpi(hwnd.into(), pszclasslist.into(), ::core::mem::transmute(dpi)))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[repr(transparent)]

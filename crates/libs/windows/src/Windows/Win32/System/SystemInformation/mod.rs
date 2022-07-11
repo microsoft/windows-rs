@@ -370,12 +370,12 @@ impl ::core::fmt::Debug for DEVICEFAMILYINFOENUM {
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsHostnameToComputerNameExW(hostname: ::windows::core::PCWSTR, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(hostname: Param0, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsHostnameToComputerNameExW(hostname: ::windows::core::PCWSTR, computername: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DnsHostnameToComputerNameExW(::core::mem::transmute(hostname), ::core::mem::transmute(computername), ::core::mem::transmute(nsize)))
+    ::core::mem::transmute(DnsHostnameToComputerNameExW(hostname.into(), ::core::mem::transmute(computername), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -2504,52 +2504,52 @@ impl ::core::default::Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFOR
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameA(lpcomputername: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameA(lpcomputername: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameA(::core::mem::transmute(lpcomputername)))
+    ::core::mem::transmute(SetComputerNameA(lpcomputername.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameEx2W<'a, Param0: ::std::convert::Into<COMPUTER_NAME_FORMAT>>(nametype: Param0, flags: u32, lpbuffer: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameEx2W<'a, Param0: ::std::convert::Into<COMPUTER_NAME_FORMAT>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(nametype: Param0, flags: u32, lpbuffer: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameEx2W(nametype.into(), ::core::mem::transmute(flags), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(SetComputerNameEx2W(nametype.into(), ::core::mem::transmute(flags), lpbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameExA<'a, Param0: ::std::convert::Into<COMPUTER_NAME_FORMAT>>(nametype: Param0, lpbuffer: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameExA<'a, Param0: ::std::convert::Into<COMPUTER_NAME_FORMAT>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(nametype: Param0, lpbuffer: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameExA(nametype.into(), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(SetComputerNameExA(nametype.into(), lpbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameExW<'a, Param0: ::std::convert::Into<COMPUTER_NAME_FORMAT>>(nametype: Param0, lpbuffer: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameExW<'a, Param0: ::std::convert::Into<COMPUTER_NAME_FORMAT>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(nametype: Param0, lpbuffer: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameExW(nametype.into(), ::core::mem::transmute(lpbuffer)))
+    ::core::mem::transmute(SetComputerNameExW(nametype.into(), lpbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameW(lpcomputername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetComputerNameW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameW(lpcomputername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameW(::core::mem::transmute(lpcomputername)))
+    ::core::mem::transmute(SetComputerNameW(lpcomputername.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -967,13 +967,13 @@ pub unsafe fn DrtCreateDerivedKeySecurityProvider(prootcert: *const super::super
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn DrtCreateDnsBootstrapResolver(port: u16, pwszaddress: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
+pub unsafe fn DrtCreateDnsBootstrapResolver<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(port: u16, pwszaddress: Param1) -> ::windows::core::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtCreateDnsBootstrapResolver(port: u16, pwszaddress: ::windows::core::PCWSTR, ppmodule: *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut DRT_BOOTSTRAP_PROVIDER>::zeroed();
-    DrtCreateDnsBootstrapResolver(::core::mem::transmute(port), ::core::mem::transmute(pwszaddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DRT_BOOTSTRAP_PROVIDER>(result__)
+    DrtCreateDnsBootstrapResolver(::core::mem::transmute(port), pwszaddress.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DRT_BOOTSTRAP_PROVIDER>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -997,13 +997,13 @@ pub unsafe fn DrtCreateNullSecurityProvider() -> ::windows::core::Result<*mut DR
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrtCreatePnrpBootstrapResolver<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(fpublish: Param0, pwzpeername: ::windows::core::PCWSTR, pwzcloudname: ::windows::core::PCWSTR, pwzpublishingidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
+pub unsafe fn DrtCreatePnrpBootstrapResolver<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(fpublish: Param0, pwzpeername: Param1, pwzcloudname: Param2, pwzpublishingidentity: Param3) -> ::windows::core::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtCreatePnrpBootstrapResolver(fpublish: super::super::Foundation::BOOL, pwzpeername: ::windows::core::PCWSTR, pwzcloudname: ::windows::core::PCWSTR, pwzpublishingidentity: ::windows::core::PCWSTR, ppresolver: *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut DRT_BOOTSTRAP_PROVIDER>::zeroed();
-    DrtCreatePnrpBootstrapResolver(fpublish.into(), ::core::mem::transmute(pwzpeername), ::core::mem::transmute(pwzcloudname), ::core::mem::transmute(pwzpublishingidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DRT_BOOTSTRAP_PROVIDER>(result__)
+    DrtCreatePnrpBootstrapResolver(fpublish.into(), pwzpeername.into(), pwzcloudname.into(), pwzpublishingidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DRT_BOOTSTRAP_PROVIDER>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4425,13 +4425,13 @@ impl ::core::fmt::Debug for PNRP_SCOPE {
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerCollabAddContact(pwzcontactdata: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut PEER_CONTACT> {
+pub unsafe fn PeerCollabAddContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzcontactdata: Param0) -> ::windows::core::Result<*mut PEER_CONTACT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabAddContact(pwzcontactdata: ::windows::core::PCWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut PEER_CONTACT>::zeroed();
-    PeerCollabAddContact(::core::mem::transmute(pwzcontactdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_CONTACT>(result__)
+    PeerCollabAddContact(pwzcontactdata.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_CONTACT>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4477,12 +4477,12 @@ pub unsafe fn PeerCollabCloseHandle<'a, Param0: ::std::convert::Into<super::supe
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabDeleteContact(pwzpeername: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerCollabDeleteContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzpeername: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabDeleteContact(pwzpeername: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerCollabDeleteContact(::core::mem::transmute(pwzpeername)).ok()
+    PeerCollabDeleteContact(pwzpeername.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4562,13 +4562,13 @@ pub unsafe fn PeerCollabEnumPeopleNearMe(phpeerenum: *mut *mut ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabExportContact(pwzpeername: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerCollabExportContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzpeername: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabExportContact(pwzpeername: ::windows::core::PCWSTR, ppwzcontactdata: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerCollabExportContact(::core::mem::transmute(pwzpeername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerCollabExportContact(pwzpeername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4594,13 +4594,13 @@ pub unsafe fn PeerCollabGetApplicationRegistrationInfo<'a, Param1: ::std::conver
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerCollabGetContact(pwzpeername: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut PEER_CONTACT> {
+pub unsafe fn PeerCollabGetContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzpeername: Param0) -> ::windows::core::Result<*mut PEER_CONTACT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabGetContact(pwzpeername: ::windows::core::PCWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut PEER_CONTACT>::zeroed();
-    PeerCollabGetContact(::core::mem::transmute(pwzpeername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_CONTACT>(result__)
+    PeerCollabGetContact(pwzpeername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_CONTACT>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4680,13 +4680,13 @@ pub unsafe fn PeerCollabInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvit
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerCollabParseContact(pwzcontactdata: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut PEER_CONTACT> {
+pub unsafe fn PeerCollabParseContact<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzcontactdata: Param0) -> ::windows::core::Result<*mut PEER_CONTACT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabParseContact(pwzcontactdata: ::windows::core::PCWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut PEER_CONTACT>::zeroed();
-    PeerCollabParseContact(::core::mem::transmute(pwzcontactdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_CONTACT>(result__)
+    PeerCollabParseContact(pwzcontactdata.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_CONTACT>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4730,12 +4730,12 @@ pub unsafe fn PeerCollabRegisterEvent<'a, Param0: ::std::convert::Into<super::su
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabSetEndpointName(pwzendpointname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerCollabSetEndpointName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzendpointname: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabSetEndpointName(pwzendpointname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerCollabSetEndpointName(::core::mem::transmute(pwzendpointname)).ok()
+    PeerCollabSetEndpointName(pwzendpointname.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4842,13 +4842,13 @@ pub unsafe fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> ::window
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCreatePeerName(pwzidentity: ::windows::core::PCWSTR, pwzclassifier: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerCreatePeerName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzclassifier: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCreatePeerName(pwzidentity: ::windows::core::PCWSTR, pwzclassifier: ::windows::core::PCWSTR, ppwzpeername: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerCreatePeerName(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzclassifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerCreatePeerName(pwzidentity.into(), pwzclassifier.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5131,12 +5131,12 @@ pub unsafe fn PeerEndEnumeration(hpeerenum: *const ::core::ffi::c_void) -> ::win
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerEnumGroups(pwzidentity: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerEnumGroups<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerEnumGroups(pwzidentity: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerEnumGroups(::core::mem::transmute(pwzidentity), ::core::mem::transmute(phpeerenum)).ok()
+    PeerEnumGroups(pwzidentity.into(), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5207,32 +5207,32 @@ pub unsafe fn PeerGraphCloseDirectConnection(hgraph: *const ::core::ffi::c_void,
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGraphConnect(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows::core::PCWSTR, paddress: *const PEER_ADDRESS) -> ::windows::core::Result<u64> {
+pub unsafe fn PeerGraphConnect<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzpeerid: Param1, paddress: *const PEER_ADDRESS) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphConnect(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows::core::PCWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    PeerGraphConnect(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzpeerid), ::core::mem::transmute(paddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    PeerGraphConnect(::core::mem::transmute(hgraph), pwzpeerid.into(), ::core::mem::transmute(paddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: ::windows::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphCreate<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: Param1, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: ::windows::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGraphCreate(::core::mem::transmute(pgraphproperties), ::core::mem::transmute(pwzdatabasename), ::core::mem::transmute(psecurityinterface), ::core::mem::transmute(phgraph)).ok()
+    PeerGraphCreate(::core::mem::transmute(pgraphproperties), pwzdatabasename.into(), ::core::mem::transmute(psecurityinterface), ::core::mem::transmute(phgraph)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphDelete(pwzgraphid: ::windows::core::PCWSTR, pwzpeerid: ::windows::core::PCWSTR, pwzdatabasename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphDelete<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pwzgraphid: Param0, pwzpeerid: Param1, pwzdatabasename: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphDelete(pwzgraphid: ::windows::core::PCWSTR, pwzpeerid: ::windows::core::PCWSTR, pwzdatabasename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGraphDelete(::core::mem::transmute(pwzgraphid), ::core::mem::transmute(pwzpeerid), ::core::mem::transmute(pwzdatabasename)).ok()
+    PeerGraphDelete(pwzgraphid.into(), pwzpeerid.into(), pwzdatabasename.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5264,30 +5264,30 @@ pub unsafe fn PeerGraphEnumConnections(hgraph: *const ::core::ffi::c_void, dwfla
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphEnumNodes(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphEnumNodes<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzpeerid: Param1, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphEnumNodes(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGraphEnumNodes(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzpeerid), ::core::mem::transmute(phpeerenum)).ok()
+    PeerGraphEnumNodes(::core::mem::transmute(hgraph), pwzpeerid.into(), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphEnumRecords(hgraph: *const ::core::ffi::c_void, precordtype: *const ::windows::core::GUID, pwzpeerid: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphEnumRecords<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, precordtype: *const ::windows::core::GUID, pwzpeerid: Param2, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphEnumRecords(hgraph: *const ::core::ffi::c_void, precordtype: *const ::windows::core::GUID, pwzpeerid: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGraphEnumRecords(::core::mem::transmute(hgraph), ::core::mem::transmute(precordtype), ::core::mem::transmute(pwzpeerid), ::core::mem::transmute(phpeerenum)).ok()
+    PeerGraphEnumRecords(::core::mem::transmute(hgraph), ::core::mem::transmute(precordtype), pwzpeerid.into(), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphExportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphExportDatabase<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzfilepath: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphExportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGraphExportDatabase(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzfilepath)).ok()
+    PeerGraphExportDatabase(::core::mem::transmute(hgraph), pwzfilepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5371,12 +5371,12 @@ pub unsafe fn PeerGraphGetStatus(hgraph: *const ::core::ffi::c_void) -> ::window
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphImportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphImportDatabase<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzfilepath: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphImportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGraphImportDatabase(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzfilepath)).ok()
+    PeerGraphImportDatabase(::core::mem::transmute(hgraph), pwzfilepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5390,23 +5390,23 @@ pub unsafe fn PeerGraphListen(hgraph: *const ::core::ffi::c_void, dwscope: u32, 
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerGraphOpen(pwzgraphid: ::windows::core::PCWSTR, pwzpeerid: ::windows::core::PCWSTR, pwzdatabasename: ::windows::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, precordtypesyncprecedence: &[::windows::core::GUID], phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphOpen<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pwzgraphid: Param0, pwzpeerid: Param1, pwzdatabasename: Param2, psecurityinterface: *const PEER_SECURITY_INTERFACE, precordtypesyncprecedence: &[::windows::core::GUID], phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphOpen(pwzgraphid: ::windows::core::PCWSTR, pwzpeerid: ::windows::core::PCWSTR, pwzdatabasename: ::windows::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGraphOpen(::core::mem::transmute(pwzgraphid), ::core::mem::transmute(pwzpeerid), ::core::mem::transmute(pwzdatabasename), ::core::mem::transmute(psecurityinterface), precordtypesyncprecedence.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(precordtypesyncprecedence)), ::core::mem::transmute(phgraph)).ok()
+    PeerGraphOpen(pwzgraphid.into(), pwzpeerid.into(), pwzdatabasename.into(), ::core::mem::transmute(psecurityinterface), precordtypesyncprecedence.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(precordtypesyncprecedence)), ::core::mem::transmute(phgraph)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGraphOpenDirectConnection(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows::core::PCWSTR, paddress: *const PEER_ADDRESS) -> ::windows::core::Result<u64> {
+pub unsafe fn PeerGraphOpenDirectConnection<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzpeerid: Param1, paddress: *const PEER_ADDRESS) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphOpenDirectConnection(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows::core::PCWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    PeerGraphOpenDirectConnection(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzpeerid), ::core::mem::transmute(paddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    PeerGraphOpenDirectConnection(::core::mem::transmute(hgraph), pwzpeerid.into(), ::core::mem::transmute(paddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5431,12 +5431,12 @@ pub unsafe fn PeerGraphRegisterEvent<'a, Param1: ::std::convert::Into<super::sup
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphSearchRecords(hgraph: *const ::core::ffi::c_void, pwzcriteria: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphSearchRecords<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzcriteria: Param1, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphSearchRecords(hgraph: *const ::core::ffi::c_void, pwzcriteria: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGraphSearchRecords(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzcriteria), ::core::mem::transmute(phpeerenum)).ok()
+    PeerGraphSearchRecords(::core::mem::transmute(hgraph), pwzcriteria.into(), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5449,12 +5449,12 @@ pub unsafe fn PeerGraphSendData(hgraph: *const ::core::ffi::c_void, ullconnectio
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphSetNodeAttributes(hgraph: *const ::core::ffi::c_void, pwzattributes: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphSetNodeAttributes<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgraph: *const ::core::ffi::c_void, pwzattributes: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphSetNodeAttributes(hgraph: *const ::core::ffi::c_void, pwzattributes: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGraphSetNodeAttributes(::core::mem::transmute(hgraph), ::core::mem::transmute(pwzattributes)).ok()
+    PeerGraphSetNodeAttributes(::core::mem::transmute(hgraph), pwzattributes.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5593,13 +5593,13 @@ pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerGroupCreateInvitation(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: ::windows::core::PCWSTR, pftexpiration: *const super::super::Foundation::FILETIME, proles: &[::windows::core::GUID]) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerGroupCreateInvitation<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: Param1, pftexpiration: *const super::super::Foundation::FILETIME, proles: &[::windows::core::GUID]) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupCreateInvitation(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: ::windows::core::PCWSTR, pftexpiration: *const super::super::Foundation::FILETIME, croles: u32, proles: *const ::windows::core::GUID, ppwzinvitation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerGroupCreateInvitation(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzidentityinfo), ::core::mem::transmute(pftexpiration), proles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(proles)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerGroupCreateInvitation(::core::mem::transmute(hgroup), pwzidentityinfo.into(), ::core::mem::transmute(pftexpiration), proles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(proles)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5613,12 +5613,12 @@ pub unsafe fn PeerGroupCreatePasswordInvitation(hgroup: *const ::core::ffi::c_vo
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupDelete(pwzidentity: ::windows::core::PCWSTR, pwzgrouppeername: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupDelete<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzgrouppeername: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupDelete(pwzidentity: ::windows::core::PCWSTR, pwzgrouppeername: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGroupDelete(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzgrouppeername)).ok()
+    PeerGroupDelete(pwzidentity.into(), pwzgrouppeername.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5640,12 +5640,12 @@ pub unsafe fn PeerGroupEnumConnections(hgroup: *const ::core::ffi::c_void, dwfla
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupEnumMembers(hgroup: *const ::core::ffi::c_void, dwflags: u32, pwzidentity: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupEnumMembers<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, dwflags: u32, pwzidentity: Param2, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupEnumMembers(hgroup: *const ::core::ffi::c_void, dwflags: u32, pwzidentity: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGroupEnumMembers(::core::mem::transmute(hgroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwzidentity), ::core::mem::transmute(phpeerenum)).ok()
+    PeerGroupEnumMembers(::core::mem::transmute(hgroup), ::core::mem::transmute(dwflags), pwzidentity.into(), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5658,22 +5658,22 @@ pub unsafe fn PeerGroupEnumRecords(hgroup: *const ::core::ffi::c_void, precordty
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupExportConfig(hgroup: *const ::core::ffi::c_void, pwzpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerGroupExportConfig<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzpassword: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupExportConfig(hgroup: *const ::core::ffi::c_void, pwzpassword: ::windows::core::PCWSTR, ppwzxml: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerGroupExportConfig(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzpassword), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerGroupExportConfig(::core::mem::transmute(hgroup), pwzpassword.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupExportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupExportDatabase<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzfilepath: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupExportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGroupExportDatabase(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzfilepath)).ok()
+    PeerGroupExportDatabase(::core::mem::transmute(hgroup), pwzfilepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5719,81 +5719,81 @@ pub unsafe fn PeerGroupGetStatus(hgroup: *const ::core::ffi::c_void) -> ::window
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerGroupImportConfig<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(pwzxml: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR, foverwrite: Param2, ppwzidentity: *mut ::windows::core::PWSTR, ppwzgroup: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupImportConfig<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(pwzxml: Param0, pwzpassword: Param1, foverwrite: Param2, ppwzidentity: *mut ::windows::core::PWSTR, ppwzgroup: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupImportConfig(pwzxml: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR, foverwrite: super::super::Foundation::BOOL, ppwzidentity: *mut ::windows::core::PWSTR, ppwzgroup: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGroupImportConfig(::core::mem::transmute(pwzxml), ::core::mem::transmute(pwzpassword), foverwrite.into(), ::core::mem::transmute(ppwzidentity), ::core::mem::transmute(ppwzgroup)).ok()
+    PeerGroupImportConfig(pwzxml.into(), pwzpassword.into(), foverwrite.into(), ::core::mem::transmute(ppwzidentity), ::core::mem::transmute(ppwzgroup)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupImportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupImportDatabase<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzfilepath: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupImportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerGroupImportDatabase(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzfilepath)).ok()
+    PeerGroupImportDatabase(::core::mem::transmute(hgroup), pwzfilepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn PeerGroupIssueCredentials(hgroup: *const ::core::ffi::c_void, pwzsubjectidentity: ::windows::core::PCWSTR, pcredentialinfo: *const PEER_CREDENTIAL_INFO, dwflags: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerGroupIssueCredentials<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzsubjectidentity: Param1, pcredentialinfo: *const PEER_CREDENTIAL_INFO, dwflags: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupIssueCredentials(hgroup: *const ::core::ffi::c_void, pwzsubjectidentity: ::windows::core::PCWSTR, pcredentialinfo: *const PEER_CREDENTIAL_INFO, dwflags: u32, ppwzinvitation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerGroupIssueCredentials(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzsubjectidentity), ::core::mem::transmute(pcredentialinfo), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerGroupIssueCredentials(::core::mem::transmute(hgroup), pwzsubjectidentity.into(), ::core::mem::transmute(pcredentialinfo), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupJoin(pwzidentity: ::windows::core::PCWSTR, pwzinvitation: ::windows::core::PCWSTR, pwzcloud: ::windows::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupJoin<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzinvitation: Param1, pwzcloud: Param2, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupJoin(pwzidentity: ::windows::core::PCWSTR, pwzinvitation: ::windows::core::PCWSTR, pwzcloud: ::windows::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGroupJoin(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzinvitation), ::core::mem::transmute(pwzcloud), ::core::mem::transmute(phgroup)).ok()
+    PeerGroupJoin(pwzidentity.into(), pwzinvitation.into(), pwzcloud.into(), ::core::mem::transmute(phgroup)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupOpen(pwzidentity: ::windows::core::PCWSTR, pwzgrouppeername: ::windows::core::PCWSTR, pwzcloud: ::windows::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupOpen<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzgrouppeername: Param1, pwzcloud: Param2, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupOpen(pwzidentity: ::windows::core::PCWSTR, pwzgrouppeername: ::windows::core::PCWSTR, pwzcloud: ::windows::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGroupOpen(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzgrouppeername), ::core::mem::transmute(pwzcloud), ::core::mem::transmute(phgroup)).ok()
+    PeerGroupOpen(pwzidentity.into(), pwzgrouppeername.into(), pwzcloud.into(), ::core::mem::transmute(phgroup)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGroupOpenDirectConnection(hgroup: *const ::core::ffi::c_void, pwzidentity: ::windows::core::PCWSTR, paddress: *const PEER_ADDRESS) -> ::windows::core::Result<u64> {
+pub unsafe fn PeerGroupOpenDirectConnection<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzidentity: Param1, paddress: *const PEER_ADDRESS) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupOpenDirectConnection(hgroup: *const ::core::ffi::c_void, pwzidentity: ::windows::core::PCWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    PeerGroupOpenDirectConnection(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzidentity), ::core::mem::transmute(paddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    PeerGroupOpenDirectConnection(::core::mem::transmute(hgroup), pwzidentity.into(), ::core::mem::transmute(paddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn PeerGroupParseInvitation(pwzinvitation: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut PEER_INVITATION_INFO> {
+pub unsafe fn PeerGroupParseInvitation<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzinvitation: Param0) -> ::windows::core::Result<*mut PEER_INVITATION_INFO> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupParseInvitation(pwzinvitation: ::windows::core::PCWSTR, ppinvitationinfo: *mut *mut PEER_INVITATION_INFO) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut PEER_INVITATION_INFO>::zeroed();
-    PeerGroupParseInvitation(::core::mem::transmute(pwzinvitation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_INVITATION_INFO>(result__)
+    PeerGroupParseInvitation(pwzinvitation.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_INVITATION_INFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupPasswordJoin(pwzidentity: ::windows::core::PCWSTR, pwzinvitation: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR, pwzcloud: ::windows::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupPasswordJoin<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzinvitation: Param1, pwzpassword: Param2, pwzcloud: Param3, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupPasswordJoin(pwzidentity: ::windows::core::PCWSTR, pwzinvitation: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR, pwzcloud: ::windows::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGroupPasswordJoin(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzinvitation), ::core::mem::transmute(pwzpassword), ::core::mem::transmute(pwzcloud), ::core::mem::transmute(phgroup)).ok()
+    PeerGroupPasswordJoin(pwzidentity.into(), pwzinvitation.into(), pwzpassword.into(), pwzcloud.into(), ::core::mem::transmute(phgroup)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5827,12 +5827,12 @@ pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const ::core::ffi::
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupSearchRecords(hgroup: *const ::core::ffi::c_void, pwzcriteria: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupSearchRecords<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hgroup: *const ::core::ffi::c_void, pwzcriteria: Param1, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupSearchRecords(hgroup: *const ::core::ffi::c_void, pwzcriteria: ::windows::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGroupSearchRecords(::core::mem::transmute(hgroup), ::core::mem::transmute(pwzcriteria), ::core::mem::transmute(phpeerenum)).ok()
+    PeerGroupSearchRecords(::core::mem::transmute(hgroup), pwzcriteria.into(), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5903,52 +5903,52 @@ pub unsafe fn PeerGroupUpdateRecord(hgroup: *const ::core::ffi::c_void, precord:
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerHostNameToPeerName(pwzhostname: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerHostNameToPeerName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzhostname: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerHostNameToPeerName(pwzhostname: ::windows::core::PCWSTR, ppwzpeername: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerHostNameToPeerName(::core::mem::transmute(pwzhostname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerHostNameToPeerName(pwzhostname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityCreate(pwzclassifier: ::windows::core::PCWSTR, pwzfriendlyname: ::windows::core::PCWSTR, hcryptprov: usize) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerIdentityCreate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwzclassifier: Param0, pwzfriendlyname: Param1, hcryptprov: usize) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityCreate(pwzclassifier: ::windows::core::PCWSTR, pwzfriendlyname: ::windows::core::PCWSTR, hcryptprov: usize, ppwzidentity: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerIdentityCreate(::core::mem::transmute(pwzclassifier), ::core::mem::transmute(pwzfriendlyname), ::core::mem::transmute(hcryptprov), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerIdentityCreate(pwzclassifier.into(), pwzfriendlyname.into(), ::core::mem::transmute(hcryptprov), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityDelete(pwzidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerIdentityDelete<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityDelete(pwzidentity: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerIdentityDelete(::core::mem::transmute(pwzidentity)).ok()
+    PeerIdentityDelete(pwzidentity.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityExport(pwzidentity: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerIdentityExport<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzpassword: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityExport(pwzidentity: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR, ppwzexportxml: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerIdentityExport(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzpassword), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerIdentityExport(pwzidentity.into(), pwzpassword.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityGetCryptKey(pwzidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<usize> {
+pub unsafe fn PeerIdentityGetCryptKey<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0) -> ::windows::core::Result<usize> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityGetCryptKey(pwzidentity: ::windows::core::PCWSTR, phcryptprov: *mut usize) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-    PeerIdentityGetCryptKey(::core::mem::transmute(pwzidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+    PeerIdentityGetCryptKey(pwzidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -5962,52 +5962,52 @@ pub unsafe fn PeerIdentityGetDefault() -> ::windows::core::Result<::windows::cor
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityGetFriendlyName(pwzidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerIdentityGetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityGetFriendlyName(pwzidentity: ::windows::core::PCWSTR, ppwzfriendlyname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerIdentityGetFriendlyName(::core::mem::transmute(pwzidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerIdentityGetFriendlyName(pwzidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityGetXML(pwzidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerIdentityGetXML<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityGetXML(pwzidentity: ::windows::core::PCWSTR, ppwzidentityxml: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerIdentityGetXML(::core::mem::transmute(pwzidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerIdentityGetXML(pwzidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentityImport(pwzimportxml: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerIdentityImport<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwzimportxml: Param0, pwzpassword: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentityImport(pwzimportxml: ::windows::core::PCWSTR, pwzpassword: ::windows::core::PCWSTR, ppwzidentity: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerIdentityImport(::core::mem::transmute(pwzimportxml), ::core::mem::transmute(pwzpassword), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerIdentityImport(pwzimportxml.into(), pwzpassword.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerIdentitySetFriendlyName(pwzidentity: ::windows::core::PCWSTR, pwzfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn PeerIdentitySetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwzidentity: Param0, pwzfriendlyname: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerIdentitySetFriendlyName(pwzidentity: ::windows::core::PCWSTR, pwzfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    PeerIdentitySetFriendlyName(::core::mem::transmute(pwzidentity), ::core::mem::transmute(pwzfriendlyname)).ok()
+    PeerIdentitySetFriendlyName(pwzidentity.into(), pwzfriendlyname.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerNameToPeerHostName(pwzpeername: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn PeerNameToPeerHostName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwzpeername: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerNameToPeerHostName(pwzpeername: ::windows::core::PCWSTR, ppwzhostname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PeerNameToPeerHostName(::core::mem::transmute(pwzpeername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PeerNameToPeerHostName(pwzpeername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -6041,22 +6041,22 @@ pub unsafe fn PeerPnrpGetEndpoint(hresolve: *const ::core::ffi::c_void) -> ::win
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn PeerPnrpRegister(pcwzpeername: ::windows::core::PCWSTR, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO, phregistration: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerPnrpRegister<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pcwzpeername: Param0, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO, phregistration: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerPnrpRegister(pcwzpeername: ::windows::core::PCWSTR, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO, phregistration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerPnrpRegister(::core::mem::transmute(pcwzpeername), ::core::mem::transmute(pregistrationinfo), ::core::mem::transmute(phregistration)).ok()
+    PeerPnrpRegister(pcwzpeername.into(), ::core::mem::transmute(pregistrationinfo), ::core::mem::transmute(phregistration)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn PeerPnrpResolve(pcwzpeername: ::windows::core::PCWSTR, pcwzcloudname: ::windows::core::PCWSTR, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows::core::Result<()> {
+pub unsafe fn PeerPnrpResolve<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pcwzpeername: Param0, pcwzcloudname: Param1, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerPnrpResolve(pcwzpeername: ::windows::core::PCWSTR, pcwzcloudname: ::windows::core::PCWSTR, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows::core::HRESULT;
     }
-    PeerPnrpResolve(::core::mem::transmute(pcwzpeername), ::core::mem::transmute(pcwzcloudname), ::core::mem::transmute(pcendpoints), ::core::mem::transmute(ppendpoints)).ok()
+    PeerPnrpResolve(pcwzpeername.into(), pcwzcloudname.into(), ::core::mem::transmute(pcendpoints), ::core::mem::transmute(ppendpoints)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -6070,12 +6070,12 @@ pub unsafe fn PeerPnrpShutdown() -> ::windows::core::Result<()> {
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeerPnrpStartResolve<'a, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(pcwzpeername: ::windows::core::PCWSTR, pcwzcloudname: ::windows::core::PCWSTR, cmaxendpoints: u32, hevent: Param3, phresolve: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PeerPnrpStartResolve<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(pcwzpeername: Param0, pcwzcloudname: Param1, cmaxendpoints: u32, hevent: Param3, phresolve: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerPnrpStartResolve(pcwzpeername: ::windows::core::PCWSTR, pcwzcloudname: ::windows::core::PCWSTR, cmaxendpoints: u32, hevent: super::super::Foundation::HANDLE, phresolve: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerPnrpStartResolve(::core::mem::transmute(pcwzpeername), ::core::mem::transmute(pcwzcloudname), ::core::mem::transmute(cmaxendpoints), hevent.into(), ::core::mem::transmute(phresolve)).ok()
+    PeerPnrpStartResolve(pcwzpeername.into(), pcwzcloudname.into(), ::core::mem::transmute(cmaxendpoints), hevent.into(), ::core::mem::transmute(phresolve)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]

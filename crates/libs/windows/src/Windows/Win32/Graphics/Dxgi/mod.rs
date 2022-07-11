@@ -7022,12 +7022,12 @@ impl IDXGIInfoQueue {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn AddMessage<'a, Param1: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_CATEGORY>, Param2: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>>(&self, producer: ::windows::core::GUID, category: Param1, severity: Param2, id: i32, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), category.into(), severity.into(), ::core::mem::transmute(id), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddMessage<'a, Param1: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_CATEGORY>, Param2: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(&self, producer: ::windows::core::GUID, category: Param1, severity: Param2, id: i32, pdescription: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), category.into(), severity.into(), ::core::mem::transmute(id), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>>(&self, severity: Param0, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, severity: Param0, pdescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9194,9 +9194,9 @@ impl IDXGIResource1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributes), ::core::mem::transmute(dwaccess), ::core::mem::transmute(lpname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributes), ::core::mem::transmute(dwaccess), lpname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IDXGIResource1> for ::windows::core::IUnknown {

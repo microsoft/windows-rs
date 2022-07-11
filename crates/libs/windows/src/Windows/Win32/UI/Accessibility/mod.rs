@@ -687,22 +687,22 @@ pub unsafe fn CreateStdAccessibleObject<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pclassname: ::windows::core::PCSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CreateStdAccessibleProxyA(hwnd.into(), ::core::mem::transmute(pclassname), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    CreateStdAccessibleProxyA(hwnd.into(), pclassname.into(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pclassname: ::windows::core::PCWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CreateStdAccessibleProxyW(hwnd.into(), ::core::mem::transmute(pclassname), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    CreateStdAccessibleProxyW(hwnd.into(), pclassname.into(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 pub const Culture_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d74f27_3d79_4dc2_b88b_3044963a8afb);
 pub const CustomNavigation_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafea938a_621e_4054_bb2c_2f46114dac3f);
@@ -1587,8 +1587,8 @@ impl IAccPropServices {
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHwndPropStr<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHwndPropStr)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild), ::core::mem::transmute(idprop), ::core::mem::transmute(str)).ok()
+    pub unsafe fn SetHwndPropStr<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hwnd: Param0, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHwndPropStr)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild), ::core::mem::transmute(idprop), str.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1617,8 +1617,8 @@ impl IAccPropServices {
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetHmenuPropStr<'a, Param0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>>(&self, hmenu: Param0, idchild: u32, idprop: ::windows::core::GUID, str: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHmenuPropStr)(::windows::core::Interface::as_raw(self), hmenu.into(), ::core::mem::transmute(idchild), ::core::mem::transmute(idprop), ::core::mem::transmute(str)).ok()
+    pub unsafe fn SetHmenuPropStr<'a, Param0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hmenu: Param0, idchild: u32, idprop: ::windows::core::GUID, str: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHmenuPropStr)(::windows::core::Interface::as_raw(self), hmenu.into(), ::core::mem::transmute(idchild), ::core::mem::transmute(idprop), str.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -2940,8 +2940,8 @@ impl ILegacyIAccessibleProvider {
         (::windows::core::Interface::vtable(self).DoDefaultAction)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-    pub unsafe fn SetValue(&self, szvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szvalue)).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), szvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4660,9 +4660,9 @@ pub struct ISpreadsheetItemProvider_Vtbl {
 pub struct ISpreadsheetProvider(::windows::core::IUnknown);
 impl ISpreadsheetProvider {
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-    pub unsafe fn GetItemByName(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<IRawElementProviderSimple> {
+    pub unsafe fn GetItemByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<IRawElementProviderSimple> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+        (::windows::core::Interface::vtable(self).GetItemByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
     }
 }
 impl ::core::convert::From<ISpreadsheetProvider> for ::windows::core::IUnknown {
@@ -16380,8 +16380,8 @@ impl IUIAutomationLegacyIAccessiblePattern {
         (::windows::core::Interface::vtable(self).DoDefaultAction)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-    pub unsafe fn SetValue(&self, szvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szvalue)).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), szvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
     pub unsafe fn CurrentChildId(&self) -> ::windows::core::Result<i32> {
@@ -17305,12 +17305,12 @@ impl IUIAutomationProxyFactoryEntry {
         (::windows::core::Interface::vtable(self).NeedsAdviseEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-    pub unsafe fn SetClassName(&self, classname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classname)).ok()
+    pub unsafe fn SetClassName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClassName)(::windows::core::Interface::as_raw(self), classname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-    pub unsafe fn SetImageName(&self, imagename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImageName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(imagename)).ok()
+    pub unsafe fn SetImageName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, imagename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetImageName)(::windows::core::Interface::as_raw(self), imagename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20619,8 +20619,8 @@ pub struct IUIAutomationWindowPattern_Vtbl {
 pub struct IValueProvider(::windows::core::IUnknown);
 impl IValueProvider {
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-    pub unsafe fn SetValue(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), val.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20988,12 +20988,12 @@ pub unsafe fn LegacyIAccessiblePattern_Select<'a, Param0: ::std::convert::Into<H
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::std::convert::Into<HUIAPATTERNOBJECT>>(hobj: Param0, szvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::std::convert::Into<HUIAPATTERNOBJECT>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hobj: Param0, szvalue: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    LegacyIAccessiblePattern_SetValue(hobj.into(), ::core::mem::transmute(szvalue)).ok()
+    LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into()).ok()
 }
 pub const LegacyIAccessible_ChildId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a191b5d_9ef2_4787_a459_dcde885dd4e8);
 pub const LegacyIAccessible_DefaultAction_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b331729_eaad_4502_b85f_92615622913c);
@@ -25287,12 +25287,12 @@ pub unsafe fn UnregisterPointerInputTargetEx<'a, Param0: ::std::convert::Into<su
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
-pub unsafe fn ValuePattern_SetValue<'a, Param0: ::std::convert::Into<HUIAPATTERNOBJECT>>(hobj: Param0, pval: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn ValuePattern_SetValue<'a, Param0: ::std::convert::Into<HUIAPATTERNOBJECT>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hobj: Param0, pval: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    ValuePattern_SetValue(hobj.into(), ::core::mem::transmute(pval)).ok()
+    ValuePattern_SetValue(hobj.into(), pval.into()).ok()
 }
 pub const Value_IsReadOnly_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
 pub const Value_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);

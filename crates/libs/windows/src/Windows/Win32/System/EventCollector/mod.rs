@@ -438,12 +438,12 @@ pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcDeleteSubscription(subscriptionname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EcDeleteSubscription<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(subscriptionname: Param0, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcDeleteSubscription(subscriptionname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcDeleteSubscription(::core::mem::transmute(subscriptionname), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EcDeleteSubscription(subscriptionname.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -488,12 +488,12 @@ pub unsafe fn EcGetSubscriptionProperty<'a, Param1: ::std::convert::Into<EC_SUBS
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, Param1: ::std::convert::Into<EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID>>(subscriptionname: ::windows::core::PCWSTR, statusinfoid: Param1, eventsourcename: ::windows::core::PCWSTR, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(subscriptionname: Param0, statusinfoid: Param1, eventsourcename: Param2, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcGetSubscriptionRunTimeStatus(subscriptionname: ::windows::core::PCWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: ::windows::core::PCWSTR, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcGetSubscriptionRunTimeStatus(::core::mem::transmute(subscriptionname), statusinfoid.into(), ::core::mem::transmute(eventsourcename), ::core::mem::transmute(flags), ::core::mem::transmute(statusvaluebuffersize), ::core::mem::transmute(statusvaluebuffer), ::core::mem::transmute(statusvaluebufferused)))
+    ::core::mem::transmute(EcGetSubscriptionRunTimeStatus(subscriptionname.into(), statusinfoid.into(), eventsourcename.into(), ::core::mem::transmute(flags), ::core::mem::transmute(statusvaluebuffersize), ::core::mem::transmute(statusvaluebuffer), ::core::mem::transmute(statusvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -507,12 +507,12 @@ pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[inline]
-pub unsafe fn EcOpenSubscription(subscriptionname: ::windows::core::PCWSTR, accessmask: u32, flags: u32) -> isize {
+pub unsafe fn EcOpenSubscription<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(subscriptionname: Param0, accessmask: u32, flags: u32) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcOpenSubscription(subscriptionname: ::windows::core::PCWSTR, accessmask: u32, flags: u32) -> isize;
     }
-    ::core::mem::transmute(EcOpenSubscription(::core::mem::transmute(subscriptionname), ::core::mem::transmute(accessmask), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EcOpenSubscription(subscriptionname.into(), ::core::mem::transmute(accessmask), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[inline]
@@ -536,12 +536,12 @@ pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcRetrySubscription(subscriptionname: ::windows::core::PCWSTR, eventsourcename: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EcRetrySubscription<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(subscriptionname: Param0, eventsourcename: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcRetrySubscription(subscriptionname: ::windows::core::PCWSTR, eventsourcename: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcRetrySubscription(::core::mem::transmute(subscriptionname), ::core::mem::transmute(eventsourcename), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(EcRetrySubscription(subscriptionname.into(), eventsourcename.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

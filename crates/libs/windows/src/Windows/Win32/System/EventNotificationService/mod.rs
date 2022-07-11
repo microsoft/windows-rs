@@ -467,22 +467,22 @@ pub struct ISensOnNow_Vtbl {
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsDestinationReachableA(lpszdestination: ::windows::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
+pub unsafe fn IsDestinationReachableA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpszdestination: Param0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsDestinationReachableA(lpszdestination: ::windows::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDestinationReachableA(::core::mem::transmute(lpszdestination), ::core::mem::transmute(lpqocinfo)))
+    ::core::mem::transmute(IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsDestinationReachableW(lpszdestination: ::windows::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
+pub unsafe fn IsDestinationReachableW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpszdestination: Param0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsDestinationReachableW(lpszdestination: ::windows::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsDestinationReachableW(::core::mem::transmute(lpszdestination), ::core::mem::transmute(lpqocinfo)))
+    ::core::mem::transmute(IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

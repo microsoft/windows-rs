@@ -73,8 +73,8 @@ pub struct IEnumVdsObject_Vtbl {
 pub struct IVdsAdmin(::windows::core::IUnknown);
 impl IVdsAdmin {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn RegisterProvider<'a, Param3: ::std::convert::Into<VDS_PROVIDER_TYPE>>(&self, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: ::windows::core::PCWSTR, r#type: Param3, pwszmachinename: ::windows::core::PCWSTR, pwszversion: ::windows::core::PCWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(providerclsid), ::core::mem::transmute(pwszname), r#type.into(), ::core::mem::transmute(pwszmachinename), ::core::mem::transmute(pwszversion), ::core::mem::transmute(guidversionid)).ok()
+    pub unsafe fn RegisterProvider<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<VDS_PROVIDER_TYPE>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(&self, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: Param2, r#type: Param3, pwszmachinename: Param4, pwszversion: Param5, guidversionid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(providerclsid), pwszname.into(), r#type.into(), pwszmachinename.into(), pwszversion.into(), ::core::mem::transmute(guidversionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn UnregisterProvider(&self, providerid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -645,9 +645,9 @@ pub struct IVdsHwProviderPrivate(::windows::core::IUnknown);
 impl IVdsHwProviderPrivate {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryIfCreatedLun(&self, pwszdevicepath: ::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn QueryIfCreatedLun<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszdevicepath: Param0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryIfCreatedLun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszdevicepath), ::core::mem::transmute(pvdsluninformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).QueryIfCreatedLun)(::windows::core::Interface::as_raw(self), pwszdevicepath.into(), ::core::mem::transmute(pvdsluninformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IVdsHwProviderPrivate> for ::windows::core::IUnknown {
@@ -756,9 +756,9 @@ impl IVdsHwProviderStoragePools {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLunInStoragePool<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: ::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateLunInStoragePool<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, r#type: Param0, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: Param3, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLunInStoragePool)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(storagepoolid), ::core::mem::transmute(pwszunmaskinglist), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateLunInStoragePool)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1122,16 +1122,16 @@ impl IVdsIscsiTarget {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetFriendlyName(&self, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptargetsharedsecret), ::core::mem::transmute(pwszinitiatorname)).ok()
+    pub unsafe fn SetSharedSecret<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptargetsharedsecret), pwszinitiatorname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: ::windows::core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszinitiatorname), ::core::mem::transmute(pinitiatorsharedsecret)).ok()
+    pub unsafe fn RememberInitiatorSharedSecret<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszinitiatorname: Param0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Interface::as_raw(self), pwszinitiatorname.into(), ::core::mem::transmute(pinitiatorsharedsecret)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()> {
@@ -1247,8 +1247,8 @@ impl IVdsLun {
         (::windows::core::Interface::vtable(self).Recover)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetMask(&self, pwszunmaskinglist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszunmaskinglist)).ok()
+    pub unsafe fn SetMask<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszunmaskinglist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMask)(::windows::core::Interface::as_raw(self), pwszunmaskinglist.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -1600,8 +1600,8 @@ pub struct IVdsLunMpio_Vtbl {
 pub struct IVdsLunNaming(::windows::core::IUnknown);
 impl IVdsLunNaming {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetFriendlyName(&self, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsLunNaming> for ::windows::core::IUnknown {
@@ -1902,8 +1902,8 @@ impl IVdsProviderPrivate {
         (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(objectid), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn OnLoad<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pwszmachinename: ::windows::core::PCWSTR, pcallbackobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszmachinename), pcallbackobject.into().abi()).ok()
+    pub unsafe fn OnLoad<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pwszmachinename: Param0, pcallbackobject: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), pwszmachinename.into(), pcallbackobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2140,9 +2140,9 @@ impl IVdsSubSystem {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLun<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: ::windows::core::PCWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateLun<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, r#type: Param0, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: Param4, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLun)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(pwszunmaskinglist), ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateLun)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, pwszunmaskinglist.into(), ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -2233,9 +2233,9 @@ impl IVdsSubSystem2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLun2<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: ::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateLun2<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, r#type: Param0, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: Param4, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLun2)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(pwszunmaskinglist), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateLun2)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, pwszunmaskinglist.into(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2360,9 +2360,9 @@ impl IVdsSubSystemIscsi {
         (::windows::core::Interface::vtable(self).QueryPortals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn CreateTarget(&self, pwsziscsiname: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateTarget<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwsziscsiname: Param0, pwszfriendlyname: Param1) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsziscsiname), ::core::mem::transmute(pwszfriendlyname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateTarget)(::windows::core::Interface::as_raw(self), pwsziscsiname.into(), pwszfriendlyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()> {
@@ -2418,8 +2418,8 @@ pub struct IVdsSubSystemIscsi_Vtbl {
 pub struct IVdsSubSystemNaming(::windows::core::IUnknown);
 impl IVdsSubSystemNaming {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetFriendlyName(&self, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsSubSystemNaming> for ::windows::core::IUnknown {

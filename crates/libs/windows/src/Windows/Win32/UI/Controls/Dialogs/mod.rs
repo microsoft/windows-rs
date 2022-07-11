@@ -1217,21 +1217,21 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
-pub unsafe fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: &mut [u8]) -> i16 {
+pub unsafe fn GetFileTitleA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(param0: Param0, buf: &mut [u8]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
     }
-    ::core::mem::transmute(GetFileTitleA(::core::mem::transmute(param0), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
+    ::core::mem::transmute(GetFileTitleA(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
-pub unsafe fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: &mut [u16]) -> i16 {
+pub unsafe fn GetFileTitleW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(param0: Param0, buf: &mut [u16]) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
     }
-    ::core::mem::transmute(GetFileTitleW(::core::mem::transmute(param0), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
+    ::core::mem::transmute(GetFileTitleW(param0.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

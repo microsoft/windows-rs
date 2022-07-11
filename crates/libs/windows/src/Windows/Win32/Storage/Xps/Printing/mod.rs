@@ -147,9 +147,9 @@ pub struct IPrintDocumentPackageTargetFactory(::windows::core::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
     #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDocumentPackageTargetForPrintJob<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>>(&self, printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, joboutputstream: Param2, jobprintticketstream: Param3) -> ::windows::core::Result<IPrintDocumentPackageTarget> {
+    pub unsafe fn CreateDocumentPackageTargetForPrintJob<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>>(&self, printername: Param0, jobname: Param1, joboutputstream: Param2, jobprintticketstream: Param3) -> ::windows::core::Result<IPrintDocumentPackageTarget> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(printername), ::core::mem::transmute(jobname), joboutputstream.into().abi(), jobprintticketstream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintDocumentPackageTarget>(result__)
+        (::windows::core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Interface::as_raw(self), printername.into(), jobname.into(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintDocumentPackageTarget>(result__)
     }
 }
 impl ::core::convert::From<IPrintDocumentPackageTargetFactory> for ::windows::core::IUnknown {
@@ -412,22 +412,22 @@ pub const PrintDocumentPackageTargetFactory: ::windows::core::GUID = ::windows::
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn StartXpsPrintJob<'a, Param3: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, outputfilename: ::windows::core::PCWSTR, progressevent: Param3, completionevent: Param4, printablepageson: &[u8], xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, documentstream: *mut ::core::option::Option<IXpsPrintJobStream>, printticketstream: *mut ::core::option::Option<IXpsPrintJobStream>) -> ::windows::core::Result<()> {
+pub unsafe fn StartXpsPrintJob<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(printername: Param0, jobname: Param1, outputfilename: Param2, progressevent: Param3, completionevent: Param4, printablepageson: &[u8], xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, documentstream: *mut ::core::option::Option<IXpsPrintJobStream>, printticketstream: *mut ::core::option::Option<IXpsPrintJobStream>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StartXpsPrintJob(printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, outputfilename: ::windows::core::PCWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, printablepageson: *const u8, printablepagesoncount: u32, xpsprintjob: *mut *mut ::core::ffi::c_void, documentstream: *mut *mut ::core::ffi::c_void, printticketstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    StartXpsPrintJob(::core::mem::transmute(printername), ::core::mem::transmute(jobname), ::core::mem::transmute(outputfilename), progressevent.into(), completionevent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(printablepageson)), printablepageson.len() as _, ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(documentstream), ::core::mem::transmute(printticketstream)).ok()
+    StartXpsPrintJob(printername.into(), jobname.into(), outputfilename.into(), progressevent.into(), completionevent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(printablepageson)), printablepageson.len() as _, ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(documentstream), ::core::mem::transmute(printticketstream)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StartXpsPrintJob1<'a, Param3: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, outputfilename: ::windows::core::PCWSTR, progressevent: Param3, completionevent: Param4, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows::core::Result<()> {
+pub unsafe fn StartXpsPrintJob1<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(printername: Param0, jobname: Param1, outputfilename: Param2, progressevent: Param3, completionevent: Param4, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StartXpsPrintJob1(printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, outputfilename: ::windows::core::PCWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, xpsprintjob: *mut *mut ::core::ffi::c_void, printcontentreceiver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    StartXpsPrintJob1(::core::mem::transmute(printername), ::core::mem::transmute(jobname), ::core::mem::transmute(outputfilename), progressevent.into(), completionevent.into(), ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(printcontentreceiver)).ok()
+    StartXpsPrintJob1(printername.into(), jobname.into(), outputfilename.into(), progressevent.into(), completionevent.into(), ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(printcontentreceiver)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 #[repr(transparent)]

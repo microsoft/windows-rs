@@ -596,8 +596,8 @@ impl ISideShowNotification {
         (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetTitle(&self, in_pwsztitle: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_pwsztitle)).ok()
+    pub unsafe fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, in_pwsztitle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), in_pwsztitle.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
     pub unsafe fn Message(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -605,8 +605,8 @@ impl ISideShowNotification {
         (::windows::core::Interface::vtable(self).Message)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetMessage(&self, in_pwszmessage: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_pwszmessage)).ok()
+    pub unsafe fn SetMessage<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, in_pwszmessage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMessage)(::windows::core::Interface::as_raw(self), in_pwszmessage.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

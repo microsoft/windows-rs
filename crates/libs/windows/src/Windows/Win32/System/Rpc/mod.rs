@@ -1994,12 +1994,12 @@ pub unsafe fn MesBufferHandleReset<'a, Param2: ::std::convert::Into<MIDL_ES_CODE
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn MesDecodeBufferHandleCreate(buffer: ::windows::core::PCSTR, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(buffer: Param0, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MesDecodeBufferHandleCreate(buffer: ::windows::core::PCSTR, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesDecodeBufferHandleCreate(::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(phandle)))
+    ::core::mem::transmute(MesDecodeBufferHandleCreate(buffer.into(), ::core::mem::transmute(buffersize), ::core::mem::transmute(phandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]

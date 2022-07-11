@@ -13132,9 +13132,9 @@ impl ID2D1DeviceContext {
         (::windows::core::Interface::vtable(self).CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -13754,9 +13754,9 @@ impl ID2D1DeviceContext1 {
         (::windows::core::Interface::vtable(self).base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -14304,9 +14304,9 @@ impl ID2D1DeviceContext2 {
         (::windows::core::Interface::vtable(self).base__.base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -14953,9 +14953,9 @@ impl ID2D1DeviceContext3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -15599,9 +15599,9 @@ impl ID2D1DeviceContext4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -16318,9 +16318,9 @@ impl ID2D1DeviceContext5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -17062,9 +17062,9 @@ impl ID2D1DeviceContext6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -17970,20 +17970,20 @@ impl ID2D1Effect {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetPropertyIndex(&self, name: ::windows::core::PCWSTR) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetPropertyIndex<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetPropertyIndex)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn SetValueByName<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, data: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetValueByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn SetValueByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: Param0, r#type: Param1, data: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetValueByName)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn SetValue<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, index: u32, r#type: Param1, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetValueByName<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, data: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetValueByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn GetValueByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: Param0, r#type: Param1, data: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetValueByName)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn GetValue<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, index: u32, r#type: Param1, data: &mut [u8]) -> ::windows::core::Result<()> {
@@ -18173,9 +18173,9 @@ impl ID2D1EffectContext {
         (::windows::core::Interface::vtable(self).CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -18365,9 +18365,9 @@ impl ID2D1EffectContext1 {
         (::windows::core::Interface::vtable(self).base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -18536,9 +18536,9 @@ impl ID2D1EffectContext2 {
         (::windows::core::Interface::vtable(self).base__.base__.CreateColorContext)(::windows::core::Interface::as_raw(self), space.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(profile)), profile.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateColorContextFromFilename(&self, filename: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext> {
+    pub unsafe fn CreateColorContextFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, filename: Param0) -> ::windows::core::Result<ID2D1ColorContext> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -19154,8 +19154,8 @@ impl ID2D1Factory1 {
         (::windows::core::Interface::vtable(self).RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -19364,8 +19364,8 @@ impl ID2D1Factory2 {
         (::windows::core::Interface::vtable(self).base__.RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -19577,8 +19577,8 @@ impl ID2D1Factory3 {
         (::windows::core::Interface::vtable(self).base__.base__.RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -19811,8 +19811,8 @@ impl ID2D1Factory4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -20066,8 +20066,8 @@ impl ID2D1Factory5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -20342,8 +20342,8 @@ impl ID2D1Factory6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -20639,8 +20639,8 @@ impl ID2D1Factory7 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), ::core::mem::transmute(propertyxml), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
+    pub unsafe fn RegisterEffectFromString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, classid: *const ::windows::core::GUID, propertyxml: Param1, bindings: &[D2D1_PROPERTY_BINDING], effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(classid), propertyxml.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)), bindings.len() as _, ::core::mem::transmute(effectfactory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -24056,20 +24056,20 @@ impl ID2D1Properties {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetPropertyIndex(&self, name: ::windows::core::PCWSTR) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetPropertyIndex<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPropertyIndex)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn SetValueByName<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, data: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn SetValueByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: Param0, r#type: Param1, data: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueByName)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn SetValue<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, index: u32, r#type: Param1, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetValueByName<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, data: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValueByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn GetValueByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, name: Param0, r#type: Param1, data: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetValueByName)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn GetValue<'a, Param1: ::std::convert::Into<D2D1_PROPERTY_TYPE>>(&self, index: u32, r#type: Param1, data: &mut [u8]) -> ::windows::core::Result<()> {
@@ -25924,9 +25924,9 @@ impl ID2D1SvgDocument {
         (::windows::core::Interface::vtable(self).GetRoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(root))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn FindElementById(&self, id: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgElement> {
+    pub unsafe fn FindElementById<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, id: Param0) -> ::windows::core::Result<ID2D1SvgElement> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindElementById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgElement>(result__)
+        (::windows::core::Interface::vtable(self).FindElementById)(::windows::core::Interface::as_raw(self), id.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgElement>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -25941,9 +25941,9 @@ impl ID2D1SvgDocument {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn CreatePaint<'a, Param0: ::std::convert::Into<D2D1_SVG_PAINT_TYPE>>(&self, painttype: Param0, color: *const Common::D2D1_COLOR_F, id: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgPaint> {
+    pub unsafe fn CreatePaint<'a, Param0: ::std::convert::Into<D2D1_SVG_PAINT_TYPE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, painttype: Param0, color: *const Common::D2D1_COLOR_F, id: Param2) -> ::windows::core::Result<ID2D1SvgPaint> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePaint)(::windows::core::Interface::as_raw(self), painttype.into(), ::core::mem::transmute(color), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgPaint>(result__)
+        (::windows::core::Interface::vtable(self).CreatePaint)(::windows::core::Interface::as_raw(self), painttype.into(), ::core::mem::transmute(color), id.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgPaint>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn CreateStrokeDashArray(&self, dashes: &[D2D1_SVG_LENGTH]) -> ::windows::core::Result<ID2D1SvgStrokeDashArray> {
@@ -26115,14 +26115,14 @@ impl ID2D1SvgElement {
         (::windows::core::Interface::vtable(self).RemoveChild)(::windows::core::Interface::as_raw(self), oldchild.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn CreateChild(&self, tagname: ::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgElement> {
+    pub unsafe fn CreateChild<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, tagname: Param0) -> ::windows::core::Result<ID2D1SvgElement> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateChild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tagname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgElement>(result__)
+        (::windows::core::Interface::vtable(self).CreateChild)(::windows::core::Interface::as_raw(self), tagname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1SvgElement>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAttributeSpecified(&self, name: ::windows::core::PCWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsAttributeSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(inherited)))
+    pub unsafe fn IsAttributeSpecified<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsAttributeSpecified)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(inherited)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn GetSpecifiedAttributeCount(&self) -> u32 {
@@ -26139,8 +26139,8 @@ impl ID2D1SvgElement {
         (::windows::core::Interface::vtable(self).GetSpecifiedAttributeNameLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(namelength), ::core::mem::transmute(inherited)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn RemoveAttribute(&self, name: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)).ok()
+    pub unsafe fn RemoveAttribute<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveAttribute)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn SetTextValue(&self, name: &[u16]) -> ::windows::core::Result<()> {
@@ -26155,33 +26155,33 @@ impl ID2D1SvgElement {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTextValueLength)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn SetAttributeValue<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ID2D1SvgAttribute>>>(&self, name: ::windows::core::PCWSTR, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttributeValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), value.into().abi()).ok()
+    pub unsafe fn SetAttributeValue<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ID2D1SvgAttribute>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAttributeValue)(::windows::core::Interface::as_raw(self), name.into(), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn SetAttributeValue2<'a, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_POD_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttributeValue2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesizeinbytes)).ok()
+    pub unsafe fn SetAttributeValue2<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_POD_TYPE>>(&self, name: Param0, r#type: Param1, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAttributeValue2)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesizeinbytes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn SetAttributeValue3<'a, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_STRING_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, value: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttributeValue3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetAttributeValue3<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_STRING_TYPE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, r#type: Param1, value: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAttributeValue3)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetAttributeValue<T: ::windows::core::Interface>(&self, name: ::windows::core::PCWSTR, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttributeValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    pub unsafe fn GetAttributeValue<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, name: Param0, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAttributeValue)(::windows::core::Interface::as_raw(self), name.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetAttributeValue2<'a, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_POD_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttributeValue2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesizeinbytes)).ok()
+    pub unsafe fn GetAttributeValue2<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_POD_TYPE>>(&self, name: Param0, r#type: Param1, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAttributeValue2)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(value), ::core::mem::transmute(valuesizeinbytes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetAttributeValue3<'a, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_STRING_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1, value: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttributeValue3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
+    pub unsafe fn GetAttributeValue3<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_STRING_TYPE>>(&self, name: Param0, r#type: Param1, value: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAttributeValue3)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetAttributeValueLength<'a, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_STRING_TYPE>>(&self, name: ::windows::core::PCWSTR, r#type: Param1) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAttributeValueLength<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<D2D1_SVG_ATTRIBUTE_STRING_TYPE>>(&self, name: Param0, r#type: Param1) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributeValueLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeValueLength)(::windows::core::Interface::as_raw(self), name.into(), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<ID2D1SvgElement> for ::windows::core::IUnknown {
@@ -26409,8 +26409,8 @@ impl ID2D1SvgPaint {
         (::windows::core::Interface::vtable(self).GetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
-    pub unsafe fn SetId(&self, id: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
+    pub unsafe fn SetId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, id: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     pub unsafe fn GetId(&self, id: &mut [u16]) -> ::windows::core::Result<()> {

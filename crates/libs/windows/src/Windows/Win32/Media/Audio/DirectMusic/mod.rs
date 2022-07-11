@@ -2274,8 +2274,8 @@ impl IDirectMusicCollection {
         (::windows::core::Interface::vtable(self).GetInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpatch), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicInstrument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-    pub unsafe fn EnumInstrument(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: ::windows::core::PCWSTR, dwnamelen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwpatch), ::core::mem::transmute(pwszname), ::core::mem::transmute(dwnamelen)).ok()
+    pub unsafe fn EnumInstrument<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: Param2, dwnamelen: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwpatch), pwszname.into(), ::core::mem::transmute(dwnamelen)).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicCollection> for ::windows::core::IUnknown {

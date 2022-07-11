@@ -321,42 +321,42 @@ pub unsafe fn AddJobW<'a, Param0: ::std::convert::Into<super::super::Foundation:
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddMonitorA(pname: ::windows::core::PCSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn AddMonitorA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddMonitorA(pname: ::windows::core::PCSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddMonitorA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pmonitors)))
+    ::core::mem::transmute(AddMonitorA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pmonitors)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddMonitorW(pname: ::windows::core::PCWSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn AddMonitorW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddMonitorW(pname: ::windows::core::PCWSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddMonitorW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pmonitors)))
+    ::core::mem::transmute(AddMonitorW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pmonitors)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPortA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(pname: ::windows::core::PCSTR, hwnd: Param1, pmonitorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPortA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, hwnd: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPortA(pname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, pmonitorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPortA(::core::mem::transmute(pname), hwnd.into(), ::core::mem::transmute(pmonitorname)))
+    ::core::mem::transmute(AddPortA(pname.into(), hwnd.into(), pmonitorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPortW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(pname: ::windows::core::PCWSTR, hwnd: Param1, pmonitorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPortW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, hwnd: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPortW(pname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, pmonitorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPortW(::core::mem::transmute(pname), hwnd.into(), ::core::mem::transmute(pmonitorname)))
+    ::core::mem::transmute(AddPortW(pname.into(), hwnd.into(), pmonitorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -372,162 +372,162 @@ pub unsafe fn AddPrintDeviceObject<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrintProcessorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, ppathname: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrintProcessorA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, ppathname: Param2, pprintprocessorname: Param3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrintProcessorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, ppathname: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProcessorA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(ppathname), ::core::mem::transmute(pprintprocessorname)))
+    ::core::mem::transmute(AddPrintProcessorA(pname.into(), penvironment.into(), ppathname.into(), pprintprocessorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrintProcessorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, ppathname: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrintProcessorW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, ppathname: Param2, pprintprocessorname: Param3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrintProcessorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, ppathname: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProcessorW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(ppathname), ::core::mem::transmute(pprintprocessorname)))
+    ::core::mem::transmute(AddPrintProcessorW(pname.into(), penvironment.into(), ppathname.into(), pprintprocessorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrintProvidorA(pname: ::windows::core::PCSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrintProvidorA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrintProvidorA(pname: ::windows::core::PCSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProvidorA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pprovidorinfo)))
+    ::core::mem::transmute(AddPrintProvidorA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprovidorinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrintProvidorW(pname: ::windows::core::PCWSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrintProvidorW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrintProvidorW(pname: ::windows::core::PCWSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrintProvidorW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pprovidorinfo)))
+    ::core::mem::transmute(AddPrintProvidorW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprovidorinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterA(pname: ::windows::core::PCSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
+pub unsafe fn AddPrinterA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterA(pname: ::windows::core::PCSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(AddPrinterA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pprinter)))
+    ::core::mem::transmute(AddPrinterA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprinter)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterConnection2A<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pszname: ::windows::core::PCSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterConnection2A<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, pszname: Param1, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterConnection2A(hwnd: super::super::Foundation::HWND, pszname: ::windows::core::PCSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnection2A(hwnd.into(), ::core::mem::transmute(pszname), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pconnectioninfo)))
+    ::core::mem::transmute(AddPrinterConnection2A(hwnd.into(), pszname.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pconnectioninfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterConnection2W<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pszname: ::windows::core::PCWSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterConnection2W<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pszname: Param1, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterConnection2W(hwnd: super::super::Foundation::HWND, pszname: ::windows::core::PCWSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnection2W(hwnd.into(), ::core::mem::transmute(pszname), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pconnectioninfo)))
+    ::core::mem::transmute(AddPrinterConnection2W(hwnd.into(), pszname.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pconnectioninfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterConnectionA(pname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterConnectionA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterConnectionA(pname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnectionA(::core::mem::transmute(pname)))
+    ::core::mem::transmute(AddPrinterConnectionA(pname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterConnectionW(pname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterConnectionW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterConnectionW(pname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterConnectionW(::core::mem::transmute(pname)))
+    ::core::mem::transmute(AddPrinterConnectionW(pname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterDriverA(pname: ::windows::core::PCSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterDriverA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterDriverA(pname: ::windows::core::PCSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo)))
+    ::core::mem::transmute(AddPrinterDriverA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterDriverExA(pname: ::windows::core::PCSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterDriverExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterDriverExA(pname: ::windows::core::PCSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverExA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(lpbdriverinfo), ::core::mem::transmute(dwfilecopyflags)))
+    ::core::mem::transmute(AddPrinterDriverExA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(lpbdriverinfo), ::core::mem::transmute(dwfilecopyflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterDriverExW(pname: ::windows::core::PCWSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterDriverExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterDriverExW(pname: ::windows::core::PCWSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverExW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(lpbdriverinfo), ::core::mem::transmute(dwfilecopyflags)))
+    ::core::mem::transmute(AddPrinterDriverExW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(lpbdriverinfo), ::core::mem::transmute(dwfilecopyflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterDriverW(pname: ::windows::core::PCWSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn AddPrinterDriverW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterDriverW(pname: ::windows::core::PCWSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AddPrinterDriverW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo)))
+    ::core::mem::transmute(AddPrinterDriverW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPrinterW(pname: ::windows::core::PCWSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
+pub unsafe fn AddPrinterW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPrinterW(pname: ::windows::core::PCWSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(AddPrinterW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pprinter)))
+    ::core::mem::transmute(AddPrinterW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprinter)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn AdvancedDocumentPropertiesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1, pdevicename: ::windows::core::PCSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32 {
+pub unsafe fn AdvancedDocumentPropertiesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AdvancedDocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32;
     }
-    ::core::mem::transmute(AdvancedDocumentPropertiesA(hwnd.into(), hprinter.into(), ::core::mem::transmute(pdevicename), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput)))
+    ::core::mem::transmute(AdvancedDocumentPropertiesA(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn AdvancedDocumentPropertiesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1, pdevicename: ::windows::core::PCWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32 {
+pub unsafe fn AdvancedDocumentPropertiesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AdvancedDocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32;
     }
-    ::core::mem::transmute(AdvancedDocumentPropertiesW(hwnd.into(), hprinter.into(), ::core::mem::transmute(pdevicename), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput)))
+    ::core::mem::transmute(AdvancedDocumentPropertiesW(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1692,22 +1692,22 @@ pub unsafe fn CommonPropertySheetUIW<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConfigurePortA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(pname: ::windows::core::PCSTR, hwnd: Param1, pportname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ConfigurePortA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ConfigurePortA(pname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ConfigurePortA(::core::mem::transmute(pname), hwnd.into(), ::core::mem::transmute(pportname)))
+    ::core::mem::transmute(ConfigurePortA(pname.into(), hwnd.into(), pportname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConfigurePortW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(pname: ::windows::core::PCWSTR, hwnd: Param1, pportname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ConfigurePortW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ConfigurePortW(pname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ConfigurePortW(::core::mem::transmute(pname), hwnd.into(), ::core::mem::transmute(pportname)))
+    ::core::mem::transmute(ConfigurePortW(pname.into(), hwnd.into(), pportname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1722,34 +1722,34 @@ pub unsafe fn ConnectToPrinterDlg<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CorePrinterDriverInstalledA(pszserver: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pszserver: Param0, pszenvironment: Param1, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CorePrinterDriverInstalledA(pszserver: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64, pbdriverinstalled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-    CorePrinterDriverInstalledA(::core::mem::transmute(pszserver), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), ::core::mem::transmute(dwldriverversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    CorePrinterDriverInstalledA(pszserver.into(), pszenvironment.into(), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), ::core::mem::transmute(dwldriverversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CorePrinterDriverInstalledW(pszserver: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pszserver: Param0, pszenvironment: Param1, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CorePrinterDriverInstalledW(pszserver: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64, pbdriverinstalled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-    CorePrinterDriverInstalledW(::core::mem::transmute(pszserver), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), ::core::mem::transmute(dwldriverversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    CorePrinterDriverInstalledW(pszserver.into(), pszenvironment.into(), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), ::core::mem::transmute(dwldriverversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param2: ::std::convert::Into<PrintAsyncNotifyUserFilter>, Param3: ::std::convert::Into<PrintAsyncNotifyConversationStyle>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>>(pszname: ::windows::core::PCWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: Param2, econversationstyle: Param3, pcallback: Param4) -> ::windows::core::Result<IPrintAsyncNotifyChannel> {
+pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<PrintAsyncNotifyUserFilter>, Param3: ::std::convert::Into<PrintAsyncNotifyConversationStyle>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>>(pszname: Param0, pnotificationtype: *const ::windows::core::GUID, euserfilter: Param2, econversationstyle: Param3, pcallback: Param4) -> ::windows::core::Result<IPrintAsyncNotifyChannel> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePrintAsyncNotifyChannel(pszname: ::windows::core::PCWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: *mut ::core::ffi::c_void, ppiasynchnotification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreatePrintAsyncNotifyChannel(::core::mem::transmute(pszname), ::core::mem::transmute(pnotificationtype), euserfilter.into(), econversationstyle.into(), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
+    CreatePrintAsyncNotifyChannel(pszname.into(), ::core::mem::transmute(pnotificationtype), euserfilter.into(), econversationstyle.into(), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3667,112 +3667,112 @@ pub const DSPRINT_UPDATE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFormA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pformname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFormA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pformname: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteFormA(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteFormA(hprinter.into(), ::core::mem::transmute(pformname)))
+    ::core::mem::transmute(DeleteFormA(hprinter.into(), pformname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteFormW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pformname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteFormW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pformname: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteFormW(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteFormW(hprinter.into(), ::core::mem::transmute(pformname)))
+    ::core::mem::transmute(DeleteFormW(hprinter.into(), pformname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteJobNamedProperty<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pszname: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn DeleteJobNamedProperty<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, jobid: u32, pszname: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeleteJobNamedProperty(hprinter.into(), ::core::mem::transmute(jobid), ::core::mem::transmute(pszname)))
+    ::core::mem::transmute(DeleteJobNamedProperty(hprinter.into(), ::core::mem::transmute(jobid), pszname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteMonitorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pmonitorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteMonitorA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteMonitorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pmonitorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteMonitorA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pmonitorname)))
+    ::core::mem::transmute(DeleteMonitorA(pname.into(), penvironment.into(), pmonitorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteMonitorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pmonitorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteMonitorW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteMonitorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pmonitorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeleteMonitorW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pmonitorname)))
+    ::core::mem::transmute(DeleteMonitorW(pname.into(), penvironment.into(), pmonitorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePortA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(pname: ::windows::core::PCSTR, hwnd: Param1, pportname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePortA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePortA(pname: ::windows::core::PCSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePortA(::core::mem::transmute(pname), hwnd.into(), ::core::mem::transmute(pportname)))
+    ::core::mem::transmute(DeletePortA(pname.into(), hwnd.into(), pportname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePortW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(pname: ::windows::core::PCWSTR, hwnd: Param1, pportname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePortW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePortW(pname: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND, pportname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePortW(::core::mem::transmute(pname), hwnd.into(), ::core::mem::transmute(pportname)))
+    ::core::mem::transmute(DeletePortW(pname.into(), hwnd.into(), pportname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrintProcessorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrintProcessorA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, pprintprocessorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrintProcessorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProcessorA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pprintprocessorname)))
+    ::core::mem::transmute(DeletePrintProcessorA(pname.into(), penvironment.into(), pprintprocessorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrintProcessorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrintProcessorW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, pprintprocessorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrintProcessorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProcessorW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pprintprocessorname)))
+    ::core::mem::transmute(DeletePrintProcessorW(pname.into(), penvironment.into(), pprintprocessorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrintProvidorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pprintprovidorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrintProvidorA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, pprintprovidorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrintProvidorA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pprintprovidorname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProvidorA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pprintprovidorname)))
+    ::core::mem::transmute(DeletePrintProvidorA(pname.into(), penvironment.into(), pprintprovidorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrintProvidorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pprintprovidorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrintProvidorW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, pprintprovidorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrintProvidorW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pprintprovidorname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrintProvidorW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pprintprovidorname)))
+    ::core::mem::transmute(DeletePrintProvidorW(pname.into(), penvironment.into(), pprintprovidorname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3787,120 +3787,120 @@ pub unsafe fn DeletePrinter<'a, Param0: ::std::convert::Into<super::super::Found
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterConnectionA(pname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrinterConnectionA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterConnectionA(pname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterConnectionA(::core::mem::transmute(pname)))
+    ::core::mem::transmute(DeletePrinterConnectionA(pname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterConnectionW(pname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrinterConnectionW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterConnectionW(pname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterConnectionW(::core::mem::transmute(pname)))
+    ::core::mem::transmute(DeletePrinterConnectionW(pname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pvaluename: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn DeletePrinterDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pvaluename: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataA(hprinter.into(), ::core::mem::transmute(pvaluename)))
+    ::core::mem::transmute(DeletePrinterDataA(hprinter.into(), pvaluename.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn DeletePrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataExA(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(pvaluename)))
+    ::core::mem::transmute(DeletePrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn DeletePrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataExW(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(pvaluename)))
+    ::core::mem::transmute(DeletePrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pvaluename: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn DeletePrinterDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pvaluename: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterDataW(hprinter.into(), ::core::mem::transmute(pvaluename)))
+    ::core::mem::transmute(DeletePrinterDataW(hprinter.into(), pvaluename.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDriverA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pdrivername: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrinterDriverA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDriverA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pdrivername: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pdrivername)))
+    ::core::mem::transmute(DeletePrinterDriverA(pname.into(), penvironment.into(), pdrivername.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDriverExA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pdrivername: ::windows::core::PCSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrinterDriverExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDriverExA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, pdrivername: ::windows::core::PCSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverExA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pdrivername), ::core::mem::transmute(dwdeleteflag), ::core::mem::transmute(dwversionflag)))
+    ::core::mem::transmute(DeletePrinterDriverExA(pname.into(), penvironment.into(), pdrivername.into(), ::core::mem::transmute(dwdeleteflag), ::core::mem::transmute(dwversionflag)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDriverExW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pdrivername: ::windows::core::PCWSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrinterDriverExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDriverExW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pdrivername: ::windows::core::PCWSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverExW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pdrivername), ::core::mem::transmute(dwdeleteflag), ::core::mem::transmute(dwversionflag)))
+    ::core::mem::transmute(DeletePrinterDriverExW(pname.into(), penvironment.into(), pdrivername.into(), ::core::mem::transmute(dwdeleteflag), ::core::mem::transmute(dwversionflag)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn DeletePrinterDriverPackageA(pszserver: ::windows::core::PCSTR, pszinfpath: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
+pub unsafe fn DeletePrinterDriverPackageA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDriverPackageA(pszserver: ::windows::core::PCSTR, pszinfpath: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
     }
-    DeletePrinterDriverPackageA(::core::mem::transmute(pszserver), ::core::mem::transmute(pszinfpath), ::core::mem::transmute(pszenvironment)).ok()
+    DeletePrinterDriverPackageA(pszserver.into(), pszinfpath.into(), pszenvironment.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn DeletePrinterDriverPackageW(pszserver: ::windows::core::PCWSTR, pszinfpath: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn DeletePrinterDriverPackageW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDriverPackageW(pszserver: ::windows::core::PCWSTR, pszinfpath: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    DeletePrinterDriverPackageW(::core::mem::transmute(pszserver), ::core::mem::transmute(pszinfpath), ::core::mem::transmute(pszenvironment)).ok()
+    DeletePrinterDriverPackageW(pszserver.into(), pszinfpath.into(), pszenvironment.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterDriverW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pdrivername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn DeletePrinterDriverW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterDriverW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, pdrivername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeletePrinterDriverW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(pdrivername)))
+    ::core::mem::transmute(DeletePrinterDriverW(pname.into(), penvironment.into(), pdrivername.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3915,22 +3915,22 @@ pub unsafe fn DeletePrinterIC<'a, Param0: ::std::convert::Into<super::super::Fou
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterKeyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn DeletePrinterKeyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pkeyname: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterKeyA(hprinter.into(), ::core::mem::transmute(pkeyname)))
+    ::core::mem::transmute(DeletePrinterKeyA(hprinter.into(), pkeyname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeletePrinterKeyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn DeletePrinterKeyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pkeyname: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeletePrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DeletePrinterKeyW(hprinter.into(), ::core::mem::transmute(pkeyname)))
+    ::core::mem::transmute(DeletePrinterKeyW(hprinter.into(), pkeyname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3955,22 +3955,22 @@ pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DocumentPropertiesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1, pdevicename: ::windows::core::PCSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32 {
+pub unsafe fn DocumentPropertiesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32;
     }
-    ::core::mem::transmute(DocumentPropertiesA(hwnd.into(), hprinter.into(), ::core::mem::transmute(pdevicename), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), ::core::mem::transmute(fmode)))
+    ::core::mem::transmute(DocumentPropertiesA(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), ::core::mem::transmute(fmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DocumentPropertiesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1, pdevicename: ::windows::core::PCWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32 {
+pub unsafe fn DocumentPropertiesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: ::windows::core::PCWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32;
     }
-    ::core::mem::transmute(DocumentPropertiesW(hwnd.into(), hprinter.into(), ::core::mem::transmute(pdevicename), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), ::core::mem::transmute(fmode)))
+    ::core::mem::transmute(DocumentPropertiesW(hwnd.into(), hprinter.into(), pdevicename.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevmodeinput), ::core::mem::transmute(fmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -4752,82 +4752,82 @@ pub unsafe fn EnumJobsW<'a, Param0: ::std::convert::Into<super::super::Foundatio
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumMonitorsA(pname: ::windows::core::PCSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumMonitorsA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumMonitorsA(pname: ::windows::core::PCSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumMonitorsA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pmonitor), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumMonitorsA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pmonitor), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumMonitorsW(pname: ::windows::core::PCWSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumMonitorsW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumMonitorsW(pname: ::windows::core::PCWSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumMonitorsW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pmonitor), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumMonitorsW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pmonitor), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPortsA(pname: ::windows::core::PCSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPortsA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPortsA(pname: ::windows::core::PCSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPortsA(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pport), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPortsA(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pport), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPortsW(pname: ::windows::core::PCWSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPortsW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPortsW(pname: ::windows::core::PCWSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPortsW(::core::mem::transmute(pname), ::core::mem::transmute(level), ::core::mem::transmute(pport), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPortsW(pname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pport), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrintProcessorDatatypesA(pname: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrintProcessorDatatypesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, pprintprocessorname: Param1, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrintProcessorDatatypesA(pname: ::windows::core::PCSTR, pprintprocessorname: ::windows::core::PCSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorDatatypesA(::core::mem::transmute(pname), ::core::mem::transmute(pprintprocessorname), ::core::mem::transmute(level), ::core::mem::transmute(pdatatypes), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrintProcessorDatatypesA(pname.into(), pprintprocessorname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdatatypes), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrintProcessorDatatypesW(pname: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrintProcessorDatatypesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, pprintprocessorname: Param1, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrintProcessorDatatypesW(pname: ::windows::core::PCWSTR, pprintprocessorname: ::windows::core::PCWSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorDatatypesW(::core::mem::transmute(pname), ::core::mem::transmute(pprintprocessorname), ::core::mem::transmute(level), ::core::mem::transmute(pdatatypes), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrintProcessorDatatypesW(pname.into(), pprintprocessorname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdatatypes), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrintProcessorsA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrintProcessorsA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrintProcessorsA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorsA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrintProcessorsA(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrintProcessorsW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrintProcessorsW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrintProcessorsW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintProcessorsW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrintProcessorsW(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4842,22 +4842,22 @@ pub unsafe fn EnumPrinterDataA<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
+pub unsafe fn EnumPrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pkeyname: Param1, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterDataExA(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(penumvalues), ::core::mem::transmute(cbenumvalues), ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues)))
+    ::core::mem::transmute(EnumPrinterDataExA(hprinter.into(), pkeyname.into(), ::core::mem::transmute(penumvalues), ::core::mem::transmute(cbenumvalues), ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCWSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
+pub unsafe fn EnumPrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pkeyname: Param1, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterDataExW(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(penumvalues), ::core::mem::transmute(cbenumvalues), ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues)))
+    ::core::mem::transmute(EnumPrinterDataExW(hprinter.into(), pkeyname.into(), ::core::mem::transmute(penumvalues), ::core::mem::transmute(cbenumvalues), ::core::mem::transmute(pcbenumvalues), ::core::mem::transmute(pnenumvalues)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4872,72 +4872,72 @@ pub unsafe fn EnumPrinterDataW<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrinterDriversA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrinterDriversA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrinterDriversA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrinterDriversA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrinterDriversA(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrinterDriversW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrinterDriversW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrinterDriversW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrinterDriversW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrinterDriversW(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrinterKeyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCSTR, psubkey: ::windows::core::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
+pub unsafe fn EnumPrinterKeyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pkeyname: Param1, psubkey: ::windows::core::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, psubkey: ::windows::core::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterKeyA(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(psubkey), ::core::mem::transmute(cbsubkey), ::core::mem::transmute(pcbsubkey)))
+    ::core::mem::transmute(EnumPrinterKeyA(hprinter.into(), pkeyname.into(), ::core::mem::transmute(psubkey), ::core::mem::transmute(cbsubkey), ::core::mem::transmute(pcbsubkey)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrinterKeyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCWSTR, psubkey: ::windows::core::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
+pub unsafe fn EnumPrinterKeyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pkeyname: Param1, psubkey: ::windows::core::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, psubkey: ::windows::core::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
     }
-    ::core::mem::transmute(EnumPrinterKeyW(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(psubkey), ::core::mem::transmute(cbsubkey), ::core::mem::transmute(pcbsubkey)))
+    ::core::mem::transmute(EnumPrinterKeyW(hprinter.into(), pkeyname.into(), ::core::mem::transmute(psubkey), ::core::mem::transmute(cbsubkey), ::core::mem::transmute(pcbsubkey)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrintersA(flags: u32, name: ::windows::core::PCSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrintersA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(flags: u32, name: Param1, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrintersA(flags: u32, name: ::windows::core::PCSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintersA(::core::mem::transmute(flags), ::core::mem::transmute(name), ::core::mem::transmute(level), ::core::mem::transmute(pprinterenum), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrintersA(::core::mem::transmute(flags), name.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprinterenum), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPrintersW(flags: u32, name: ::windows::core::PCWSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumPrintersW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(flags: u32, name: Param1, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumPrintersW(flags: u32, name: ::windows::core::PCWSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumPrintersW(::core::mem::transmute(flags), ::core::mem::transmute(name), ::core::mem::transmute(level), ::core::mem::transmute(pprinterenum), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
+    ::core::mem::transmute(EnumPrintersW(::core::mem::transmute(flags), name.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprinterenum), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pcreturned)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ExtDeviceMode<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hinst: Param1, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: ::windows::core::PCSTR, pport: ::windows::core::PCSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: ::windows::core::PCSTR, fmode: u32) -> i32 {
+pub unsafe fn ExtDeviceMode<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, hinst: Param1, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: Param3, pport: Param4, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: Param6, fmode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtDeviceMode(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HANDLE, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: ::windows::core::PCSTR, pport: ::windows::core::PCSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: ::windows::core::PCSTR, fmode: u32) -> i32;
     }
-    ::core::mem::transmute(ExtDeviceMode(hwnd.into(), hinst.into(), ::core::mem::transmute(pdevmodeoutput), ::core::mem::transmute(pdevicename), ::core::mem::transmute(pport), ::core::mem::transmute(pdevmodeinput), ::core::mem::transmute(pprofile), ::core::mem::transmute(fmode)))
+    ::core::mem::transmute(ExtDeviceMode(hwnd.into(), hinst.into(), ::core::mem::transmute(pdevmodeoutput), pdevicename.into(), pport.into(), ::core::mem::transmute(pdevmodeinput), pprofile.into(), ::core::mem::transmute(fmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const FG_CANCHANGE: u32 = 128u32;
@@ -5350,12 +5350,12 @@ pub unsafe fn GdiGetPageHandle<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GdiGetSpoolFileHandle(pwszprintername: ::windows::core::PCWSTR, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE {
+pub unsafe fn GdiGetSpoolFileHandle<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pwszprintername: Param0, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GdiGetSpoolFileHandle(pwszprintername: ::windows::core::PCWSTR, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(GdiGetSpoolFileHandle(::core::mem::transmute(pwszprintername), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pwszdocname)))
+    ::core::mem::transmute(GdiGetSpoolFileHandle(pwszprintername.into(), ::core::mem::transmute(pdevmode), pwszdocname.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5399,12 +5399,12 @@ pub unsafe fn GdiStartPageEMF<'a, Param0: ::std::convert::Into<super::super::Fou
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn GenerateCopyFilePaths(pszprintername: ::windows::core::PCWSTR, pszdirectory: ::windows::core::PCWSTR, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: ::windows::core::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: ::windows::core::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32 {
+pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pszprintername: Param0, pszdirectory: Param1, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: ::windows::core::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: ::windows::core::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GenerateCopyFilePaths(pszprintername: ::windows::core::PCWSTR, pszdirectory: ::windows::core::PCWSTR, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: ::windows::core::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: ::windows::core::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(GenerateCopyFilePaths(::core::mem::transmute(pszprintername), ::core::mem::transmute(pszdirectory), ::core::mem::transmute(psplclientinfo), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pszsourcedir), ::core::mem::transmute(pcchsourcedirsize), ::core::mem::transmute(psztargetdir), ::core::mem::transmute(pcchtargetdirsize), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(GenerateCopyFilePaths(pszprintername.into(), pszdirectory.into(), ::core::mem::transmute(psplclientinfo), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pszsourcedir), ::core::mem::transmute(pcchsourcedirsize), ::core::mem::transmute(psztargetdir), ::core::mem::transmute(pcchtargetdirsize), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5419,22 +5419,22 @@ pub unsafe fn GetCPSUIUserData<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCorePrinterDriversA(pszserver: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, pszzcoredriverdependencies: ::windows::core::PCSTR, pcoreprinterdrivers: &mut [CORE_PRINTER_DRIVERA]) -> ::windows::core::Result<()> {
+pub unsafe fn GetCorePrinterDriversA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(pszserver: Param0, pszenvironment: Param1, pszzcoredriverdependencies: Param2, pcoreprinterdrivers: &mut [CORE_PRINTER_DRIVERA]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCorePrinterDriversA(pszserver: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, pszzcoredriverdependencies: ::windows::core::PCSTR, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERA) -> ::windows::core::HRESULT;
     }
-    GetCorePrinterDriversA(::core::mem::transmute(pszserver), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(pszzcoredriverdependencies), pcoreprinterdrivers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pcoreprinterdrivers))).ok()
+    GetCorePrinterDriversA(pszserver.into(), pszenvironment.into(), pszzcoredriverdependencies.into(), pcoreprinterdrivers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pcoreprinterdrivers))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCorePrinterDriversW(pszserver: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, pszzcoredriverdependencies: ::windows::core::PCWSTR, pcoreprinterdrivers: &mut [CORE_PRINTER_DRIVERW]) -> ::windows::core::Result<()> {
+pub unsafe fn GetCorePrinterDriversW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(pszserver: Param0, pszenvironment: Param1, pszzcoredriverdependencies: Param2, pcoreprinterdrivers: &mut [CORE_PRINTER_DRIVERW]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCorePrinterDriversW(pszserver: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, pszzcoredriverdependencies: ::windows::core::PCWSTR, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERW) -> ::windows::core::HRESULT;
     }
-    GetCorePrinterDriversW(::core::mem::transmute(pszserver), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(pszzcoredriverdependencies), pcoreprinterdrivers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pcoreprinterdrivers))).ok()
+    GetCorePrinterDriversW(pszserver.into(), pszenvironment.into(), pszzcoredriverdependencies.into(), pcoreprinterdrivers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pcoreprinterdrivers))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5459,22 +5459,22 @@ pub unsafe fn GetDefaultPrinterW(pszbuffer: ::windows::core::PWSTR, pcchbuffer: 
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFormA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pformname: ::windows::core::PCSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFormA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFormA(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFormA(hprinter.into(), ::core::mem::transmute(pformname), ::core::mem::transmute(level), ::core::mem::transmute(pform), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetFormA(hprinter.into(), pformname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pform), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFormW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pformname: ::windows::core::PCWSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFormW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFormW(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCWSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFormW(hprinter.into(), ::core::mem::transmute(pformname), ::core::mem::transmute(level), ::core::mem::transmute(pform), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetFormW(hprinter.into(), pformname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pform), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5489,32 +5489,32 @@ pub unsafe fn GetJobA<'a, Param0: ::std::convert::Into<super::super::Foundation:
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetJobAttributes(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL {
+pub unsafe fn GetJobAttributes<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pprintername: Param0, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetJobAttributes(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetJobAttributes(::core::mem::transmute(pprintername), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pattributeinfo)))
+    ::core::mem::transmute(GetJobAttributes(pprintername.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pattributeinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetJobAttributesEx(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetJobAttributesEx<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pprintername: Param0, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetJobAttributesEx(pprintername: ::windows::core::PCWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetJobAttributesEx(::core::mem::transmute(pprintername), ::core::mem::transmute(pdevmode), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pattributeinfo), ::core::mem::transmute(nsize), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(GetJobAttributesEx(pprintername.into(), ::core::mem::transmute(pdevmode), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pattributeinfo), ::core::mem::transmute(nsize), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetJobNamedPropertyValue<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pszname: ::windows::core::PCWSTR, pvalue: *mut PrintPropertyValue) -> u32 {
+pub unsafe fn GetJobNamedPropertyValue<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, jobid: u32, pszname: Param2, pvalue: *mut PrintPropertyValue) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetJobNamedPropertyValue(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: ::windows::core::PCWSTR, pvalue: *mut PrintPropertyValue) -> u32;
     }
-    ::core::mem::transmute(GetJobNamedPropertyValue(hprinter.into(), ::core::mem::transmute(jobid), ::core::mem::transmute(pszname), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(GetJobNamedPropertyValue(hprinter.into(), ::core::mem::transmute(jobid), pszname.into(), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5539,32 +5539,32 @@ pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrintOutputInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pszprinter: ::windows::core::PCWSTR, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn GetPrintOutputInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pszprinter: Param1, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrintOutputInfo(hwnd: super::super::Foundation::HWND, pszprinter: ::windows::core::PCWSTR, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    GetPrintOutputInfo(hwnd.into(), ::core::mem::transmute(pszprinter), ::core::mem::transmute(phfile), ::core::mem::transmute(ppszoutputfile)).ok()
+    GetPrintOutputInfo(hwnd.into(), pszprinter.into(), ::core::mem::transmute(phfile), ::core::mem::transmute(ppszoutputfile)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrintProcessorDirectoryA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrintProcessorDirectoryA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrintProcessorDirectoryA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrintProcessorDirectoryA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrintProcessorDirectoryA(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrintProcessorDirectoryW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrintProcessorDirectoryW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrintProcessorDirectoryW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrintProcessorDirectoryW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrintProcessorDirectoryW(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pprintprocessorinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5579,120 +5579,120 @@ pub unsafe fn GetPrinterA<'a, Param0: ::std::convert::Into<super::super::Foundat
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pvaluename: ::windows::core::PCSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
+pub unsafe fn GetPrinterDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataA(hprinter.into(), ::core::mem::transmute(pvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDataA(hprinter.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
+pub unsafe fn GetPrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataExA(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(pvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
+pub unsafe fn GetPrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataExW(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(pvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
+pub unsafe fn GetPrinterDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetPrinterDataW(hprinter.into(), ::core::mem::transmute(pvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDataW(hprinter.into(), pvaluename.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(nsize), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriver2A<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrinterDriver2A<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, hprinter: Param1, penvironment: Param2, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriver2A(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriver2A(hwnd.into(), hprinter.into(), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDriver2A(hwnd.into(), hprinter.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriver2W<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrinterDriver2W<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, hprinter: Param1, penvironment: Param2, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriver2W(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriver2W(hwnd.into(), hprinter.into(), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDriver2W(hwnd.into(), hprinter.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriverA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrinterDriverA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriverA(hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverA(hprinter.into(), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDriverA(hprinter.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriverDirectoryA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrinterDriverDirectoryA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriverDirectoryA(pname: ::windows::core::PCSTR, penvironment: ::windows::core::PCSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverDirectoryA(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverdirectory), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDriverDirectoryA(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverdirectory), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriverDirectoryW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrinterDriverDirectoryW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriverDirectoryW(pname: ::windows::core::PCWSTR, penvironment: ::windows::core::PCWSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverDirectoryW(::core::mem::transmute(pname), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverdirectory), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDriverDirectoryW(pname.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverdirectory), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn GetPrinterDriverPackagePathA(pszserver: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, pszlanguage: ::windows::core::PCSTR, pszpackageid: ::windows::core::PCSTR, pszdriverpackagecab: &mut [u8], pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(pszserver: Param0, pszenvironment: Param1, pszlanguage: Param2, pszpackageid: Param3, pszdriverpackagecab: &mut [u8], pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriverPackagePathA(pszserver: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, pszlanguage: ::windows::core::PCSTR, pszpackageid: ::windows::core::PCSTR, pszdriverpackagecab: ::windows::core::PSTR, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetPrinterDriverPackagePathA(::core::mem::transmute(pszserver), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(pszlanguage), ::core::mem::transmute(pszpackageid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdriverpackagecab)), pszdriverpackagecab.len() as _, ::core::mem::transmute(pcchrequiredsize)).ok()
+    GetPrinterDriverPackagePathA(pszserver.into(), pszenvironment.into(), pszlanguage.into(), pszpackageid.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdriverpackagecab)), pszdriverpackagecab.len() as _, ::core::mem::transmute(pcchrequiredsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn GetPrinterDriverPackagePathW(pszserver: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, pszlanguage: ::windows::core::PCWSTR, pszpackageid: ::windows::core::PCWSTR, pszdriverpackagecab: &mut [u16], pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(pszserver: Param0, pszenvironment: Param1, pszlanguage: Param2, pszpackageid: Param3, pszdriverpackagecab: &mut [u16], pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriverPackagePathW(pszserver: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, pszlanguage: ::windows::core::PCWSTR, pszpackageid: ::windows::core::PCWSTR, pszdriverpackagecab: ::windows::core::PWSTR, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetPrinterDriverPackagePathW(::core::mem::transmute(pszserver), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(pszlanguage), ::core::mem::transmute(pszpackageid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdriverpackagecab)), pszdriverpackagecab.len() as _, ::core::mem::transmute(pcchrequiredsize)).ok()
+    GetPrinterDriverPackagePathW(pszserver.into(), pszenvironment.into(), pszlanguage.into(), pszpackageid.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdriverpackagecab)), pszdriverpackagecab.len() as _, ::core::mem::transmute(pcchrequiredsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriverW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetPrinterDriverW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPrinterDriverW(hprinter: super::super::Foundation::HANDLE, penvironment: ::windows::core::PCWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetPrinterDriverW(hprinter.into(), ::core::mem::transmute(penvironment), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
+    ::core::mem::transmute(GetPrinterDriverW(hprinter.into(), penvironment.into(), ::core::mem::transmute(level), ::core::mem::transmute(pdriverinfo), ::core::mem::transmute(cbbuf), ::core::mem::transmute(pcbneeded)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5804,8 +5804,8 @@ impl IAsyncGetSrvReferralCookie {
         (::windows::core::Interface::vtable(self).CancelAsyncCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn FinishAsyncCallWithData(&self, param0: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FinishAsyncCallWithData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
+    pub unsafe fn FinishAsyncCallWithData<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, param0: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FinishAsyncCallWithData)(::windows::core::Interface::as_raw(self), param0.into()).ok()
     }
 }
 impl ::core::convert::From<IAsyncGetSrvReferralCookie> for ::windows::core::IUnknown {
@@ -5949,8 +5949,8 @@ pub struct IBidiAsyncNotifyChannel_Vtbl {
 pub struct IBidiRequest(::windows::core::IUnknown);
 impl IBidiRequest {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetSchema(&self, pszschema: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszschema)).ok()
+    pub unsafe fn SetSchema<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszschema: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSchema)(::windows::core::Interface::as_raw(self), pszschema.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn SetInputData(&self, dwtype: u32, pdata: *const u8, usize: u32) -> ::windows::core::Result<()> {
@@ -6087,20 +6087,20 @@ pub struct IBidiRequestContainer_Vtbl {
 pub struct IBidiSpl(::windows::core::IUnknown);
 impl IBidiSpl {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn BindDevice(&self, pszdevicename: ::windows::core::PCWSTR, dwaccess: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdevicename), ::core::mem::transmute(dwaccess)).ok()
+    pub unsafe fn BindDevice<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszdevicename: Param0, dwaccess: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BindDevice)(::windows::core::Interface::as_raw(self), pszdevicename.into(), ::core::mem::transmute(dwaccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn UnbindDevice(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnbindDevice)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SendRecv<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBidiRequest>>>(&self, pszaction: ::windows::core::PCWSTR, prequest: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendRecv)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszaction), prequest.into().abi()).ok()
+    pub unsafe fn SendRecv<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBidiRequest>>>(&self, pszaction: Param0, prequest: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendRecv)(::windows::core::Interface::as_raw(self), pszaction.into(), prequest.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn MultiSendRecv<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBidiRequestContainer>>>(&self, pszaction: ::windows::core::PCWSTR, prequestcontainer: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MultiSendRecv)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszaction), prequestcontainer.into().abi()).ok()
+    pub unsafe fn MultiSendRecv<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBidiRequestContainer>>>(&self, pszaction: Param0, prequestcontainer: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MultiSendRecv)(::windows::core::Interface::as_raw(self), pszaction.into(), prequestcontainer.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IBidiSpl> for ::windows::core::IUnknown {
@@ -6152,8 +6152,8 @@ pub struct IBidiSpl_Vtbl {
 pub struct IBidiSpl2(::windows::core::IUnknown);
 impl IBidiSpl2 {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn BindDevice(&self, pszdevicename: ::windows::core::PCWSTR, dwaccess: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BindDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdevicename), ::core::mem::transmute(dwaccess)).ok()
+    pub unsafe fn BindDevice<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszdevicename: Param0, dwaccess: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BindDevice)(::windows::core::Interface::as_raw(self), pszdevicename.into(), ::core::mem::transmute(dwaccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn UnbindDevice(&self) -> ::windows::core::Result<()> {
@@ -6998,9 +6998,9 @@ impl IFixedPage {
         (::windows::core::Interface::vtable(self).GetPrintTicket)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPartPrintTicket>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetPagePart(&self, uri: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetPagePart<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, uri: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPagePart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetPagePart)(::windows::core::Interface::as_raw(self), uri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn GetWriteStream(&self) -> ::windows::core::Result<IPrintWriteStream> {
@@ -7016,8 +7016,8 @@ impl IFixedPage {
         (::windows::core::Interface::vtable(self).SetPagePart)(::windows::core::Interface::as_raw(self), punk.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn DeleteResource(&self, uri: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uri)).ok()
+    pub unsafe fn DeleteResource<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, uri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteResource)(::windows::core::Interface::as_raw(self), uri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn GetXpsPartIterator(&self) -> ::windows::core::Result<IXpsPartIterator> {
@@ -7100,18 +7100,18 @@ impl IImgCreateErrorInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetSource(&self, szsource: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szsource)).ok()
+    pub unsafe fn SetSource<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szsource: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSource)(::windows::core::Interface::as_raw(self), szsource.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetDescription(&self, szdescription: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szdescription)).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), szdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetHelpFile(&self, szhelpfile: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHelpFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szhelpfile)).ok()
+    pub unsafe fn SetHelpFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szhelpfile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetHelpFile)(::windows::core::Interface::as_raw(self), szhelpfile.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -7752,8 +7752,8 @@ impl IPartFont {
         (::windows::core::Interface::vtable(self).GetFontProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontenttype), ::core::mem::transmute(pfontoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontContent(&self, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFontContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontenttype)).ok()
+    pub unsafe fn SetFontContent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFontContent)(::windows::core::Interface::as_raw(self), pcontenttype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn SetFontOptions<'a, Param0: ::std::convert::Into<EXpsFontOptions>>(&self, options: Param0) -> ::windows::core::Result<()> {
@@ -7851,8 +7851,8 @@ impl IPartFont2 {
         (::windows::core::Interface::vtable(self).base__.GetFontProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontenttype), ::core::mem::transmute(pfontoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontContent(&self, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFontContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontenttype)).ok()
+    pub unsafe fn SetFontContent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFontContent)(::windows::core::Interface::as_raw(self), pcontenttype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn SetFontOptions<'a, Param0: ::std::convert::Into<EXpsFontOptions>>(&self, options: Param0) -> ::windows::core::Result<()> {
@@ -7966,8 +7966,8 @@ impl IPartImage {
         (::windows::core::Interface::vtable(self).GetImageProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetImageContent(&self, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImageContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontenttype)).ok()
+    pub unsafe fn SetImageContent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetImageContent)(::windows::core::Interface::as_raw(self), pcontenttype.into()).ok()
     }
 }
 impl ::core::convert::From<IPartImage> for ::windows::core::IUnknown {
@@ -8221,8 +8221,8 @@ impl IPartThumbnail {
         (::windows::core::Interface::vtable(self).GetThumbnailProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetThumbnailContent(&self, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetThumbnailContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontenttype)).ok()
+    pub unsafe fn SetThumbnailContent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcontenttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetThumbnailContent)(::windows::core::Interface::as_raw(self), pcontenttype.into()).ok()
     }
 }
 impl ::core::convert::From<IPartThumbnail> for ::windows::core::IUnknown {
@@ -8704,8 +8704,8 @@ impl IPrintAsyncNotifyServerReferral {
         (::windows::core::Interface::vtable(self).AsyncGetServerReferral)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetServerReferral(&self, prmtserverreferral: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerReferral)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prmtserverreferral)).ok()
+    pub unsafe fn SetServerReferral<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, prmtserverreferral: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerReferral)(::windows::core::Interface::as_raw(self), prmtserverreferral.into()).ok()
     }
 }
 impl ::core::convert::From<IPrintAsyncNotifyServerReferral> for ::windows::core::IUnknown {
@@ -8829,8 +8829,8 @@ pub struct IPrintBidiAsyncNotifyRegistration_Vtbl {
 pub struct IPrintClassObjectFactory(::windows::core::IUnknown);
 impl IPrintClassObjectFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetPrintClassObject(&self, pszprintername: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrintClassObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszprintername), ::core::mem::transmute(riid), ::core::mem::transmute(ppnewobject)).ok()
+    pub unsafe fn GetPrintClassObject<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszprintername: Param0, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPrintClassObject)(::windows::core::Interface::as_raw(self), pszprintername.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppnewobject)).ok()
     }
 }
 impl ::core::convert::From<IPrintClassObjectFactory> for ::windows::core::IUnknown {
@@ -8880,9 +8880,9 @@ pub struct IPrintCoreHelper(::windows::core::IUnknown);
 impl IPrintCoreHelper {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetOption(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: ::windows::core::PCSTR) -> ::windows::core::Result<::windows::core::PSTR> {
+    pub unsafe fn GetOption<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: Param2) -> ::windows::core::Result<::windows::core::PSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturerequested), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturerequested.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8891,29 +8891,29 @@ impl IPrintCoreHelper {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumConstrainedOptions<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn WhyConstrained(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn WhyConstrained<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), pszoptionkeyword.into(), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn EnumFeatures(&self, pfeaturelist: *mut *mut *mut ::windows::core::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfeaturelist), ::core::mem::transmute(pdwnumfeatures)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn EnumOptions(&self, pszfeaturekeyword: ::windows::core::PCSTR, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumOptions<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszfeaturekeyword: Param0, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into(), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(ppszdevfontname)).ok()
+    pub unsafe fn GetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), ::core::mem::transmute(ppszdevfontname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, pszdevfontname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(pszdevfontname)).ok()
+    pub unsafe fn SetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, pszdevfontname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), pszdevfontname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn CreateInstanceOfMSXMLObject<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rclsid: *const ::windows::core::GUID, punkouter: Param1, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -8987,9 +8987,9 @@ pub struct IPrintCoreHelperPS(::windows::core::IUnknown);
 impl IPrintCoreHelperPS {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetOption(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: ::windows::core::PCSTR) -> ::windows::core::Result<::windows::core::PSTR> {
+    pub unsafe fn GetOption<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: Param2) -> ::windows::core::Result<::windows::core::PSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturerequested), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturerequested.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8998,45 +8998,45 @@ impl IPrintCoreHelperPS {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumConstrainedOptions<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn WhyConstrained(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn WhyConstrained<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), pszoptionkeyword.into(), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn EnumFeatures(&self, pfeaturelist: *mut *mut *mut ::windows::core::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EnumFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfeaturelist), ::core::mem::transmute(pdwnumfeatures)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn EnumOptions(&self, pszfeaturekeyword: ::windows::core::PCSTR, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumOptions<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszfeaturekeyword: Param0, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into(), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(ppszdevfontname)).ok()
+    pub unsafe fn GetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), ::core::mem::transmute(ppszdevfontname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, pszdevfontname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(pszdevfontname)).ok()
+    pub unsafe fn SetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, pszdevfontname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), pszdevfontname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn CreateInstanceOfMSXMLObject<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rclsid: *const ::windows::core::GUID, punkouter: Param1, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CreateInstanceOfMSXMLObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), punkouter.into().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetGlobalAttribute(&self, pszattribute: ::windows::core::PCSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGlobalAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszattribute), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbsize)).ok()
+    pub unsafe fn GetGlobalAttribute<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszattribute: Param0, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetGlobalAttribute)(::windows::core::Interface::as_raw(self), pszattribute.into(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetFeatureAttribute(&self, pszfeaturekeyword: ::windows::core::PCSTR, pszattribute: ::windows::core::PCSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFeatureAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszattribute), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbsize)).ok()
+    pub unsafe fn GetFeatureAttribute<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszfeaturekeyword: Param0, pszattribute: Param1, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFeatureAttribute)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into(), pszattribute.into(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetOptionAttribute(&self, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, pszattribute: ::windows::core::PCSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOptionAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(pszattribute), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbsize)).ok()
+    pub unsafe fn GetOptionAttribute<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszfeaturekeyword: Param0, pszoptionkeyword: Param1, pszattribute: Param2, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetOptionAttribute)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into(), pszoptionkeyword.into(), pszattribute.into(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbsize)).ok()
     }
 }
 impl ::core::convert::From<IPrintCoreHelperPS> for ::windows::core::IUnknown {
@@ -9103,9 +9103,9 @@ pub struct IPrintCoreHelperUni(::windows::core::IUnknown);
 impl IPrintCoreHelperUni {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetOption(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: ::windows::core::PCSTR) -> ::windows::core::Result<::windows::core::PSTR> {
+    pub unsafe fn GetOption<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: Param2) -> ::windows::core::Result<::windows::core::PSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturerequested), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturerequested.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9114,29 +9114,29 @@ impl IPrintCoreHelperUni {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumConstrainedOptions<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn WhyConstrained(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn WhyConstrained<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), pszoptionkeyword.into(), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn EnumFeatures(&self, pfeaturelist: *mut *mut *mut ::windows::core::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EnumFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfeaturelist), ::core::mem::transmute(pdwnumfeatures)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn EnumOptions(&self, pszfeaturekeyword: ::windows::core::PCSTR, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumOptions<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszfeaturekeyword: Param0, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into(), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(ppszdevfontname)).ok()
+    pub unsafe fn GetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), ::core::mem::transmute(ppszdevfontname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, pszdevfontname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(pszdevfontname)).ok()
+    pub unsafe fn SetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, pszdevfontname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), pszdevfontname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn CreateInstanceOfMSXMLObject<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rclsid: *const ::windows::core::GUID, punkouter: Param1, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -9223,9 +9223,9 @@ pub struct IPrintCoreHelperUni2(::windows::core::IUnknown);
 impl IPrintCoreHelperUni2 {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetOption(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: ::windows::core::PCSTR) -> ::windows::core::Result<::windows::core::PSTR> {
+    pub unsafe fn GetOption<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: Param2) -> ::windows::core::Result<::windows::core::PSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturerequested), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturerequested.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9234,29 +9234,29 @@ impl IPrintCoreHelperUni2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumConstrainedOptions<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), ::core::mem::transmute(pconstrainedoptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn WhyConstrained(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn WhyConstrained<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszfeaturekeyword.into(), pszoptionkeyword.into(), ::core::mem::transmute(ppfoconstraints), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn EnumFeatures(&self, pfeaturelist: *mut *mut *mut ::windows::core::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.EnumFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfeaturelist), ::core::mem::transmute(pdwnumfeatures)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn EnumOptions(&self, pszfeaturekeyword: ::windows::core::PCSTR, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.EnumOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
+    pub unsafe fn EnumOptions<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, pszfeaturekeyword: Param0, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into(), ::core::mem::transmute(poptionlist), ::core::mem::transmute(pdwnumoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(ppszdevfontname)).ok()
+    pub unsafe fn GetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), ::core::mem::transmute(ppszdevfontname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontSubstitution(&self, psztruetypefontname: ::windows::core::PCWSTR, pszdevfontname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFontSubstitution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztruetypefontname), ::core::mem::transmute(pszdevfontname)).ok()
+    pub unsafe fn SetFontSubstitution<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztruetypefontname: Param0, pszdevfontname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFontSubstitution)(::windows::core::Interface::as_raw(self), psztruetypefontname.into(), pszdevfontname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn CreateInstanceOfMSXMLObject<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rclsid: *const ::windows::core::GUID, punkouter: Param1, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -9275,8 +9275,8 @@ impl IPrintCoreHelperUni2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetNamedCommand(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszcommandname: ::windows::core::PCWSTR, ppcommandbytes: *mut *mut u8, pcbcommandsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNamedCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), ::core::mem::transmute(pszcommandname), ::core::mem::transmute(ppcommandbytes), ::core::mem::transmute(pcbcommandsize)).ok()
+    pub unsafe fn GetNamedCommand<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszcommandname: Param2, ppcommandbytes: *mut *mut u8, pcbcommandsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetNamedCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(cbsize), pszcommandname.into(), ::core::mem::transmute(ppcommandbytes), ::core::mem::transmute(pcbcommandsize)).ok()
     }
 }
 impl ::core::convert::From<IPrintCoreHelperUni2> for ::windows::core::IUnknown {
@@ -9358,13 +9358,13 @@ pub struct IPrintCoreHelperUni2_Vtbl {
 pub struct IPrintCoreUI2(::windows::core::IUnknown);
 impl IPrintCoreUI2 {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn DrvGetDriverSetting(&self, pci: *mut ::core::ffi::c_void, feature: ::windows::core::PCSTR, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DrvGetDriverSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pci), ::core::mem::transmute(feature), ::core::mem::transmute(poutput), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pdwoptionsreturned)).ok()
+    pub unsafe fn DrvGetDriverSetting<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, pci: *mut ::core::ffi::c_void, feature: Param1, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DrvGetDriverSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pci), feature.into(), ::core::mem::transmute(poutput), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pdwoptionsreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrvUpgradeRegistrySetting<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, hprinter: Param0, pfeature: ::windows::core::PCSTR, poption: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DrvUpgradeRegistrySetting)(::windows::core::Interface::as_raw(self), hprinter.into(), ::core::mem::transmute(pfeature), ::core::mem::transmute(poption)).ok()
+    pub unsafe fn DrvUpgradeRegistrySetting<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, hprinter: Param0, pfeature: Param1, poption: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DrvUpgradeRegistrySetting)(::windows::core::Interface::as_raw(self), hprinter.into(), pfeature.into(), poption.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn DrvUpdateUISetting(&self, pci: *mut ::core::ffi::c_void, poptitem: *mut ::core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> ::windows::core::Result<()> {
@@ -9383,28 +9383,28 @@ impl IPrintCoreUI2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumConstrainedOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: ::windows::core::PCSTR, pmszconstrainedoptionlist: ::windows::core::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pmszconstrainedoptionlist), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn EnumConstrainedOptions<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pmszconstrainedoptionlist: ::windows::core::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumConstrainedOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into(), ::core::mem::transmute(pmszconstrainedoptionlist), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WhyConstrained(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, pmszreasonlist: ::windows::core::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(pmszreasonlist), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn WhyConstrained<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, pmszreasonlist: ::windows::core::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WhyConstrained)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into(), pszoptionkeyword.into(), ::core::mem::transmute(pmszreasonlist), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetGlobalAttribute(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszattribute: ::windows::core::PCSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGlobalAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszattribute), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn GetGlobalAttribute<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszattribute: Param2, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetGlobalAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszattribute.into(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFeatureAttribute(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszattribute: ::windows::core::PCSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFeatureAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszattribute), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn GetFeatureAttribute<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pszattribute: Param3, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFeatureAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into(), pszattribute.into(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOptionAttribute(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: ::windows::core::PCSTR, pszoptionkeyword: ::windows::core::PCSTR, pszattribute: ::windows::core::PCSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOptionAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pszoptionkeyword), ::core::mem::transmute(pszattribute), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn GetOptionAttribute<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, pszattribute: Param4, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetOptionAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into(), pszoptionkeyword.into(), pszattribute.into(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9413,8 +9413,8 @@ impl IPrintCoreUI2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: ::windows::core::PCSTR, pmszoptionlist: ::windows::core::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszfeaturekeyword), ::core::mem::transmute(pmszoptionlist), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn EnumOptions<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pmszoptionlist: ::windows::core::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into(), ::core::mem::transmute(pmszoptionlist), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9763,13 +9763,13 @@ pub struct IPrintOemCommon_Vtbl {
 pub struct IPrintOemDriverUI(::windows::core::IUnknown);
 impl IPrintOemDriverUI {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn DrvGetDriverSetting(&self, pci: *mut ::core::ffi::c_void, feature: ::windows::core::PCSTR, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DrvGetDriverSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pci), ::core::mem::transmute(feature), ::core::mem::transmute(poutput), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pdwoptionsreturned)).ok()
+    pub unsafe fn DrvGetDriverSetting<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, pci: *mut ::core::ffi::c_void, feature: Param1, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DrvGetDriverSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pci), feature.into(), ::core::mem::transmute(poutput), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded), ::core::mem::transmute(pdwoptionsreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrvUpgradeRegistrySetting<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, hprinter: Param0, pfeature: ::windows::core::PCSTR, poption: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DrvUpgradeRegistrySetting)(::windows::core::Interface::as_raw(self), hprinter.into(), ::core::mem::transmute(pfeature), ::core::mem::transmute(poption)).ok()
+    pub unsafe fn DrvUpgradeRegistrySetting<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, hprinter: Param0, pfeature: Param1, poption: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DrvUpgradeRegistrySetting)(::windows::core::Interface::as_raw(self), hprinter.into(), pfeature.into(), poption.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn DrvUpdateUISetting(&self, pci: *mut ::core::ffi::c_void, poptitem: *mut ::core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> ::windows::core::Result<()> {
@@ -9861,8 +9861,8 @@ impl IPrintOemUI {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn DeviceCapabilitiesA<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, poemuiobj: *mut OEMUIOBJ, hprinter: Param1, pdevicename: ::windows::core::PCWSTR, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceCapabilitiesA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), hprinter.into(), ::core::mem::transmute(pdevicename), ::core::mem::transmute(wcapability), ::core::mem::transmute(poutput), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(dwold), ::core::mem::transmute(dwresult)).ok()
+    pub unsafe fn DeviceCapabilitiesA<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, poemuiobj: *mut OEMUIOBJ, hprinter: Param1, pdevicename: Param2, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeviceCapabilitiesA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), hprinter.into(), pdevicename.into(), ::core::mem::transmute(wcapability), ::core::mem::transmute(poutput), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(dwold), ::core::mem::transmute(dwresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn UpgradePrinter(&self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> ::windows::core::Result<()> {
@@ -9870,8 +9870,8 @@ impl IPrintOemUI {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PrinterEvent<'a, Param3: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, pprintername: ::windows::core::PCWSTR, idriverevent: i32, dwflags: u32, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrinterEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(idriverevent), ::core::mem::transmute(dwflags), lparam.into()).ok()
+    pub unsafe fn PrinterEvent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, pprintername: Param0, idriverevent: i32, dwflags: u32, lparam: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PrinterEvent)(::windows::core::Interface::as_raw(self), pprintername.into(), ::core::mem::transmute(idriverevent), ::core::mem::transmute(dwflags), lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9890,8 +9890,8 @@ impl IPrintOemUI {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateExternalFonts<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, hprinter: Param0, hheap: Param1, pwstrcartridges: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateExternalFonts)(::windows::core::Interface::as_raw(self), hprinter.into(), hheap.into(), ::core::mem::transmute(pwstrcartridges)).ok()
+    pub unsafe fn UpdateExternalFonts<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hprinter: Param0, hheap: Param1, pwstrcartridges: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateExternalFonts)(::windows::core::Interface::as_raw(self), hprinter.into(), hheap.into(), pwstrcartridges.into()).ok()
     }
 }
 impl ::core::convert::From<IPrintOemUI> for ::windows::core::IUnknown {
@@ -10030,8 +10030,8 @@ impl IPrintOemUI2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn DeviceCapabilitiesA<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, poemuiobj: *mut OEMUIOBJ, hprinter: Param1, pdevicename: ::windows::core::PCWSTR, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeviceCapabilitiesA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), hprinter.into(), ::core::mem::transmute(pdevicename), ::core::mem::transmute(wcapability), ::core::mem::transmute(poutput), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(dwold), ::core::mem::transmute(dwresult)).ok()
+    pub unsafe fn DeviceCapabilitiesA<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, poemuiobj: *mut OEMUIOBJ, hprinter: Param1, pdevicename: Param2, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeviceCapabilitiesA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poemuiobj), hprinter.into(), pdevicename.into(), ::core::mem::transmute(wcapability), ::core::mem::transmute(poutput), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(dwold), ::core::mem::transmute(dwresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn UpgradePrinter(&self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> ::windows::core::Result<()> {
@@ -10039,8 +10039,8 @@ impl IPrintOemUI2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PrinterEvent<'a, Param3: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, pprintername: ::windows::core::PCWSTR, idriverevent: i32, dwflags: u32, lparam: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PrinterEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(idriverevent), ::core::mem::transmute(dwflags), lparam.into()).ok()
+    pub unsafe fn PrinterEvent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, pprintername: Param0, idriverevent: i32, dwflags: u32, lparam: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PrinterEvent)(::windows::core::Interface::as_raw(self), pprintername.into(), ::core::mem::transmute(idriverevent), ::core::mem::transmute(dwflags), lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10059,8 +10059,8 @@ impl IPrintOemUI2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateExternalFonts<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, hprinter: Param0, hheap: Param1, pwstrcartridges: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UpdateExternalFonts)(::windows::core::Interface::as_raw(self), hprinter.into(), hheap.into(), ::core::mem::transmute(pwstrcartridges)).ok()
+    pub unsafe fn UpdateExternalFonts<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hprinter: Param0, hheap: Param1, pwstrcartridges: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UpdateExternalFonts)(::windows::core::Interface::as_raw(self), hprinter.into(), hheap.into(), pwstrcartridges.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10403,19 +10403,19 @@ pub struct IPrintPipelinePropertyBag(::windows::core::IUnknown);
 impl IPrintPipelinePropertyBag {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddProperty(&self, pszname: ::windows::core::PCWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pvar)).ok()
+    pub unsafe fn AddProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddProperty)(::windows::core::Interface::as_raw(self), pszname.into(), ::core::mem::transmute(pvar)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteProperty(&self, pszname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).DeleteProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)))
+    pub unsafe fn DeleteProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).DeleteProperty)(::windows::core::Interface::as_raw(self), pszname.into()))
     }
 }
 impl ::core::convert::From<IPrintPipelinePropertyBag> for ::windows::core::IUnknown {
@@ -13122,9 +13122,9 @@ impl IPrintTicketProvider2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub unsafe fn GetPrintDeviceResources<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>>(&self, pszlocalename: ::windows::core::PCWSTR, pprintticket: Param1) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2> {
+    pub unsafe fn GetPrintDeviceResources<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::MsXml::IXMLDOMDocument2>>>(&self, pszlocalename: Param0, pprintticket: Param1) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPrintDeviceResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszlocalename), pprintticket.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>(result__)
+        (::windows::core::Interface::vtable(self).GetPrintDeviceResources)(::windows::core::Interface::as_raw(self), pszlocalename.into(), pprintticket.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>(result__)
     }
 }
 impl ::core::convert::From<IPrintTicketProvider2> for ::windows::core::IUnknown {
@@ -15493,8 +15493,8 @@ impl IXpsDocumentConsumer {
         (::windows::core::Interface::vtable(self).CloseSender)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn GetNewEmptyPart(&self, uri: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void, ppwritestream: *mut ::core::option::Option<IPrintWriteStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNewEmptyPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uri), ::core::mem::transmute(riid), ::core::mem::transmute(ppnewobject), ::core::mem::transmute(ppwritestream)).ok()
+    pub unsafe fn GetNewEmptyPart<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, uri: Param0, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void, ppwritestream: *mut ::core::option::Option<IPrintWriteStream>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetNewEmptyPart)(::windows::core::Interface::as_raw(self), uri.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppnewobject), ::core::mem::transmute(ppwritestream)).ok()
     }
 }
 impl ::core::convert::From<IXpsDocumentConsumer> for ::windows::core::IUnknown {
@@ -16013,21 +16013,21 @@ pub unsafe fn ImpersonatePrinterClient<'a, Param0: ::std::convert::Into<super::s
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn InstallPrinterDriverFromPackageA(pszserver: ::windows::core::PCSTR, pszinfpath: ::windows::core::PCSTR, pszdrivername: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, dwflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn InstallPrinterDriverFromPackageA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(pszserver: Param0, pszinfpath: Param1, pszdrivername: Param2, pszenvironment: Param3, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InstallPrinterDriverFromPackageA(pszserver: ::windows::core::PCSTR, pszinfpath: ::windows::core::PCSTR, pszdrivername: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    InstallPrinterDriverFromPackageA(::core::mem::transmute(pszserver), ::core::mem::transmute(pszinfpath), ::core::mem::transmute(pszdrivername), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(dwflags)).ok()
+    InstallPrinterDriverFromPackageA(pszserver.into(), pszinfpath.into(), pszdrivername.into(), pszenvironment.into(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn InstallPrinterDriverFromPackageW(pszserver: ::windows::core::PCWSTR, pszinfpath: ::windows::core::PCWSTR, pszdrivername: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn InstallPrinterDriverFromPackageW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(pszserver: Param0, pszinfpath: Param1, pszdrivername: Param2, pszenvironment: Param3, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InstallPrinterDriverFromPackageW(pszserver: ::windows::core::PCWSTR, pszinfpath: ::windows::core::PCWSTR, pszdrivername: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    InstallPrinterDriverFromPackageW(::core::mem::transmute(pszserver), ::core::mem::transmute(pszinfpath), ::core::mem::transmute(pszdrivername), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(dwflags)).ok()
+    InstallPrinterDriverFromPackageW(pszserver.into(), pszinfpath.into(), pszdrivername.into(), pszenvironment.into(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -18449,42 +18449,42 @@ pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn OpenPrinter2A(pprintername: ::windows::core::PCSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenPrinter2A<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenPrinter2A(pprintername: ::windows::core::PCSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinter2A(::core::mem::transmute(pprintername), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions)))
+    ::core::mem::transmute(OpenPrinter2A(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn OpenPrinter2W(pprintername: ::windows::core::PCWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenPrinter2W<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenPrinter2W(pprintername: ::windows::core::PCWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinter2W(::core::mem::transmute(pprintername), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions)))
+    ::core::mem::transmute(OpenPrinter2W(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault), ::core::mem::transmute(poptions)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn OpenPrinterA(pprintername: ::windows::core::PCSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenPrinterA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenPrinterA(pprintername: ::windows::core::PCSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinterA(::core::mem::transmute(pprintername), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault)))
+    ::core::mem::transmute(OpenPrinterA(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn OpenPrinterW(pprintername: ::windows::core::PCWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenPrinterW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenPrinterW(pprintername: ::windows::core::PCWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(OpenPrinterW(::core::mem::transmute(pprintername), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault)))
+    ::core::mem::transmute(OpenPrinterW(pprintername.into(), ::core::mem::transmute(phprinter), ::core::mem::transmute(pdefault)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
@@ -22115,22 +22115,22 @@ pub const PrinterExtensionManager: ::windows::core::GUID = ::windows::core::GUID
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrinterMessageBoxA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: ::windows::core::PCSTR, pcaption: ::windows::core::PCSTR, dwtype: u32) -> u32 {
+pub unsafe fn PrinterMessageBoxA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: Param3, pcaption: Param4, dwtype: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PrinterMessageBoxA(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: ::windows::core::PCSTR, pcaption: ::windows::core::PCSTR, dwtype: u32) -> u32;
     }
-    ::core::mem::transmute(PrinterMessageBoxA(hprinter.into(), ::core::mem::transmute(error), hwnd.into(), ::core::mem::transmute(ptext), ::core::mem::transmute(pcaption), ::core::mem::transmute(dwtype)))
+    ::core::mem::transmute(PrinterMessageBoxA(hprinter.into(), ::core::mem::transmute(error), hwnd.into(), ptext.into(), pcaption.into(), ::core::mem::transmute(dwtype)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrinterMessageBoxW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: ::windows::core::PCWSTR, pcaption: ::windows::core::PCWSTR, dwtype: u32) -> u32 {
+pub unsafe fn PrinterMessageBoxW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: Param3, pcaption: Param4, dwtype: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PrinterMessageBoxW(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: ::windows::core::PCWSTR, pcaption: ::windows::core::PCWSTR, dwtype: u32) -> u32;
     }
-    ::core::mem::transmute(PrinterMessageBoxW(hprinter.into(), ::core::mem::transmute(error), hwnd.into(), ::core::mem::transmute(ptext), ::core::mem::transmute(pcaption), ::core::mem::transmute(dwtype)))
+    ::core::mem::transmute(PrinterMessageBoxW(hprinter.into(), ::core::mem::transmute(error), hwnd.into(), ptext.into(), pcaption.into(), ::core::mem::transmute(dwtype)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22202,13 +22202,13 @@ pub unsafe fn ReadPrinter<'a, Param0: ::std::convert::Into<super::super::Foundat
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterForPrintAsyncNotifications<'a, Param2: ::std::convert::Into<PrintAsyncNotifyUserFilter>, Param3: ::std::convert::Into<PrintAsyncNotifyConversationStyle>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>>(pszname: ::windows::core::PCWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: Param2, econversationstyle: Param3, pcallback: Param4) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn RegisterForPrintAsyncNotifications<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<PrintAsyncNotifyUserFilter>, Param3: ::std::convert::Into<PrintAsyncNotifyConversationStyle>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>>(pszname: Param0, pnotificationtype: *const ::windows::core::GUID, euserfilter: Param2, econversationstyle: Param3, pcallback: Param4) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterForPrintAsyncNotifications(pszname: ::windows::core::PCWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: *mut ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    RegisterForPrintAsyncNotifications(::core::mem::transmute(pszname), ::core::mem::transmute(pnotificationtype), euserfilter.into(), econversationstyle.into(), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    RegisterForPrintAsyncNotifications(pszname.into(), ::core::mem::transmute(pnotificationtype), euserfilter.into(), econversationstyle.into(), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22784,42 +22784,42 @@ pub unsafe fn SetCPSUIUserData<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultPrinterA(pszprinter: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDefaultPrinterA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pszprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDefaultPrinterA(pszprinter: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultPrinterA(::core::mem::transmute(pszprinter)))
+    ::core::mem::transmute(SetDefaultPrinterA(pszprinter.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultPrinterW(pszprinter: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDefaultPrinterW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pszprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDefaultPrinterW(pszprinter: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultPrinterW(::core::mem::transmute(pszprinter)))
+    ::core::mem::transmute(SetDefaultPrinterW(pszprinter.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFormA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pformname: ::windows::core::PCSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFormA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFormA(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFormA(hprinter.into(), ::core::mem::transmute(pformname), ::core::mem::transmute(level), ::core::mem::transmute(pform)))
+    ::core::mem::transmute(SetFormA(hprinter.into(), pformname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pform)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFormW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pformname: ::windows::core::PCWSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn SetFormW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFormW(hprinter: super::super::Foundation::HANDLE, pformname: ::windows::core::PCWSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFormW(hprinter.into(), ::core::mem::transmute(pformname), ::core::mem::transmute(level), ::core::mem::transmute(pform)))
+    ::core::mem::transmute(SetFormW(hprinter.into(), pformname.into(), ::core::mem::transmute(level), ::core::mem::transmute(pform)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22854,22 +22854,22 @@ pub unsafe fn SetJobW<'a, Param0: ::std::convert::Into<super::super::Foundation:
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPortA(pname: ::windows::core::PCSTR, pportname: ::windows::core::PCSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn SetPortA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, pportname: Param1, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPortA(pname: ::windows::core::PCSTR, pportname: ::windows::core::PCSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPortA(::core::mem::transmute(pname), ::core::mem::transmute(pportname), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pportinfo)))
+    ::core::mem::transmute(SetPortA(pname.into(), pportname.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pportinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPortW(pname: ::windows::core::PCWSTR, pportname: ::windows::core::PCWSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
+pub unsafe fn SetPortW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, pportname: Param1, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPortW(pname: ::windows::core::PCWSTR, pportname: ::windows::core::PCWSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetPortW(::core::mem::transmute(pname), ::core::mem::transmute(pportname), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pportinfo)))
+    ::core::mem::transmute(SetPortW(pname.into(), pportname.into(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pportinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22884,42 +22884,42 @@ pub unsafe fn SetPrinterA<'a, Param0: ::std::convert::Into<super::super::Foundat
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrinterDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pvaluename: ::windows::core::PCSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
+pub unsafe fn SetPrinterDataA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataA(hprinter.into(), ::core::mem::transmute(pvaluename), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(SetPrinterDataA(hprinter.into(), pvaluename.into(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
+pub unsafe fn SetPrinterDataExA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCSTR, pvaluename: ::windows::core::PCSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataExA(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(pvaluename), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(SetPrinterDataExA(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
+pub unsafe fn SetPrinterDataExW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataExW(hprinter.into(), ::core::mem::transmute(pkeyname), ::core::mem::transmute(pvaluename), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(SetPrinterDataExW(hprinter.into(), pkeyname.into(), pvaluename.into(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPrinterDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprinter: Param0, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
+pub unsafe fn SetPrinterDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hprinter: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
     }
-    ::core::mem::transmute(SetPrinterDataW(hprinter.into(), ::core::mem::transmute(pvaluename), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(SetPrinterDataW(hprinter.into(), pvaluename.into(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22954,12 +22954,12 @@ pub unsafe fn SplPromptUIInUsersSession<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SpoolerCopyFileEvent(pszprintername: ::windows::core::PCWSTR, pszkey: ::windows::core::PCWSTR, dwcopyfileevent: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SpoolerCopyFileEvent<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pszprintername: Param0, pszkey: Param1, dwcopyfileevent: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SpoolerCopyFileEvent(pszprintername: ::windows::core::PCWSTR, pszkey: ::windows::core::PCWSTR, dwcopyfileevent: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SpoolerCopyFileEvent(::core::mem::transmute(pszprintername), ::core::mem::transmute(pszkey), ::core::mem::transmute(dwcopyfileevent)))
+    ::core::mem::transmute(SpoolerCopyFileEvent(pszprintername.into(), pszkey.into(), ::core::mem::transmute(dwcopyfileevent)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23541,22 +23541,22 @@ pub unsafe fn UpdatePrintDeviceObject<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UploadPrinterDriverPackageA<'a, Param4: ::std::convert::Into<super::super::Foundation::HWND>>(pszserver: ::windows::core::PCSTR, pszinfpath: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, dwflags: u32, hwnd: Param4, pszdestinfpath: ::windows::core::PSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<super::super::Foundation::HWND>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2, dwflags: u32, hwnd: Param4, pszdestinfpath: ::windows::core::PSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UploadPrinterDriverPackageA(pszserver: ::windows::core::PCSTR, pszinfpath: ::windows::core::PCSTR, pszenvironment: ::windows::core::PCSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, pszdestinfpath: ::windows::core::PSTR, pcchdestinfpath: *mut u32) -> ::windows::core::HRESULT;
     }
-    UploadPrinterDriverPackageA(::core::mem::transmute(pszserver), ::core::mem::transmute(pszinfpath), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(pszdestinfpath), ::core::mem::transmute(pcchdestinfpath)).ok()
+    UploadPrinterDriverPackageA(pszserver.into(), pszinfpath.into(), pszenvironment.into(), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(pszdestinfpath), ::core::mem::transmute(pcchdestinfpath)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UploadPrinterDriverPackageW<'a, Param4: ::std::convert::Into<super::super::Foundation::HWND>>(pszserver: ::windows::core::PCWSTR, pszinfpath: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, dwflags: u32, hwnd: Param4, pszdestinfpath: ::windows::core::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn UploadPrinterDriverPackageW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<super::super::Foundation::HWND>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2, dwflags: u32, hwnd: Param4, pszdestinfpath: ::windows::core::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UploadPrinterDriverPackageW(pszserver: ::windows::core::PCWSTR, pszinfpath: ::windows::core::PCWSTR, pszenvironment: ::windows::core::PCWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, pszdestinfpath: ::windows::core::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::core::HRESULT;
     }
-    UploadPrinterDriverPackageW(::core::mem::transmute(pszserver), ::core::mem::transmute(pszinfpath), ::core::mem::transmute(pszenvironment), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(pszdestinfpath), ::core::mem::transmute(pcchdestinfpath)).ok()
+    UploadPrinterDriverPackageW(pszserver.into(), pszinfpath.into(), pszenvironment.into(), ::core::mem::transmute(dwflags), hwnd.into(), ::core::mem::transmute(pszdestinfpath), ::core::mem::transmute(pcchdestinfpath)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -23764,12 +23764,12 @@ pub const XPS_FP_USER_TOKEN: &str = "UserSecurityToken";
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn XcvDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hxcv: Param0, pszdataname: ::windows::core::PCWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn XcvDataW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hxcv: Param0, pszdataname: Param1, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn XcvDataW(hxcv: super::super::Foundation::HANDLE, pszdataname: ::windows::core::PCWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(XcvDataW(hxcv.into(), ::core::mem::transmute(pszdataname), ::core::mem::transmute(pinputdata), ::core::mem::transmute(cbinputdata), ::core::mem::transmute(poutputdata), ::core::mem::transmute(cboutputdata), ::core::mem::transmute(pcboutputneeded), ::core::mem::transmute(pdwstatus)))
+    ::core::mem::transmute(XcvDataW(hxcv.into(), pszdataname.into(), ::core::mem::transmute(pinputdata), ::core::mem::transmute(cbinputdata), ::core::mem::transmute(poutputdata), ::core::mem::transmute(cboutputdata), ::core::mem::transmute(pcboutputneeded), ::core::mem::transmute(pdwstatus)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

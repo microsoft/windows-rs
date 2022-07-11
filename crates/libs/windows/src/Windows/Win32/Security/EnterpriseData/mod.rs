@@ -438,12 +438,12 @@ pub struct IProtectionPolicyManagerInterop3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
-pub unsafe fn ProtectFileToEnterpriseIdentity(fileorfolderpath: ::windows::core::PCWSTR, identity: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn ProtectFileToEnterpriseIdentity<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(fileorfolderpath: Param0, identity: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ProtectFileToEnterpriseIdentity(fileorfolderpath: ::windows::core::PCWSTR, identity: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    ProtectFileToEnterpriseIdentity(::core::mem::transmute(fileorfolderpath), ::core::mem::transmute(identity)).ok()
+    ProtectFileToEnterpriseIdentity(fileorfolderpath.into(), identity.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -512,13 +512,13 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpCreateThreadNetworkContext(enterpriseid: ::windows::core::PCWSTR) -> ::windows::core::Result<HTHREAD_NETWORK_CONTEXT> {
+pub unsafe fn SrpCreateThreadNetworkContext<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(enterpriseid: Param0) -> ::windows::core::Result<HTHREAD_NETWORK_CONTEXT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SrpCreateThreadNetworkContext(enterpriseid: ::windows::core::PCWSTR, threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HTHREAD_NETWORK_CONTEXT>::zeroed();
-    SrpCreateThreadNetworkContext(::core::mem::transmute(enterpriseid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HTHREAD_NETWORK_CONTEXT>(result__)
+    SrpCreateThreadNetworkContext(enterpriseid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HTHREAD_NETWORK_CONTEXT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
@@ -542,12 +542,12 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
-pub unsafe fn SrpEnablePermissiveModeFileEncryption(enterpriseid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(enterpriseid: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SrpEnablePermissiveModeFileEncryption(enterpriseid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    SrpEnablePermissiveModeFileEncryption(::core::mem::transmute(enterpriseid)).ok()
+    SrpEnablePermissiveModeFileEncryption(enterpriseid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -601,21 +601,21 @@ pub unsafe fn SrpIsTokenService<'a, Param0: ::std::convert::Into<super::super::F
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(tokenhandle: Param0, enterpriseid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(tokenhandle: Param0, enterpriseid: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SrpSetTokenEnterpriseId(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    SrpSetTokenEnterpriseId(tokenhandle.into(), ::core::mem::transmute(enterpriseid)).ok()
+    SrpSetTokenEnterpriseId(tokenhandle.into(), enterpriseid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
-pub unsafe fn UnprotectFile(fileorfolderpath: ::windows::core::PCWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::core::Result<()> {
+pub unsafe fn UnprotectFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(fileorfolderpath: Param0, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UnprotectFile(fileorfolderpath: ::windows::core::PCWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::core::HRESULT;
     }
-    UnprotectFile(::core::mem::transmute(fileorfolderpath), ::core::mem::transmute(options)).ok()
+    UnprotectFile(fileorfolderpath.into(), ::core::mem::transmute(options)).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

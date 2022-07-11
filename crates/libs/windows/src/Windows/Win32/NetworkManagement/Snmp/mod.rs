@@ -1018,12 +1018,12 @@ pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut ::wind
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
-pub unsafe fn SnmpMgrOpen(lpagentaddress: ::windows::core::PCSTR, lpagentcommunity: ::windows::core::PCSTR, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void {
+pub unsafe fn SnmpMgrOpen<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(lpagentaddress: Param0, lpagentcommunity: Param1, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SnmpMgrOpen(lpagentaddress: ::windows::core::PCSTR, lpagentcommunity: ::windows::core::PCSTR, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(SnmpMgrOpen(::core::mem::transmute(lpagentaddress), ::core::mem::transmute(lpagentcommunity), ::core::mem::transmute(ntimeout), ::core::mem::transmute(nretries)))
+    ::core::mem::transmute(SnmpMgrOpen(lpagentaddress.into(), lpagentcommunity.into(), ::core::mem::transmute(ntimeout), ::core::mem::transmute(nretries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1038,12 +1038,12 @@ pub unsafe fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8,
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrStrToOid(string: ::windows::core::PCSTR, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL {
+pub unsafe fn SnmpMgrStrToOid<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(string: Param0, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SnmpMgrStrToOid(string: ::windows::core::PCSTR, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SnmpMgrStrToOid(::core::mem::transmute(string), ::core::mem::transmute(oid)))
+    ::core::mem::transmute(SnmpMgrStrToOid(string.into(), ::core::mem::transmute(oid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1211,21 +1211,21 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
-pub unsafe fn SnmpStrToEntity(session: isize, string: ::windows::core::PCSTR) -> isize {
+pub unsafe fn SnmpStrToEntity<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(session: isize, string: Param1) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SnmpStrToEntity(session: isize, string: ::windows::core::PCSTR) -> isize;
     }
-    ::core::mem::transmute(SnmpStrToEntity(::core::mem::transmute(session), ::core::mem::transmute(string)))
+    ::core::mem::transmute(SnmpStrToEntity(::core::mem::transmute(session), string.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
-pub unsafe fn SnmpStrToOid(string: ::windows::core::PCSTR, dstoid: *mut smiOID) -> u32 {
+pub unsafe fn SnmpStrToOid<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(string: Param0, dstoid: *mut smiOID) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SnmpStrToOid(string: ::windows::core::PCSTR, dstoid: *mut smiOID) -> u32;
     }
-    ::core::mem::transmute(SnmpStrToOid(::core::mem::transmute(string), ::core::mem::transmute(dstoid)))
+    ::core::mem::transmute(SnmpStrToOid(string.into(), ::core::mem::transmute(dstoid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
@@ -1276,12 +1276,12 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
-pub unsafe fn SnmpUtilDbgPrint<'a, Param0: ::std::convert::Into<SNMP_LOG>>(nloglevel: Param0, szformat: ::windows::core::PCSTR) {
+pub unsafe fn SnmpUtilDbgPrint<'a, Param0: ::std::convert::Into<SNMP_LOG>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(nloglevel: Param0, szformat: Param1) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SnmpUtilDbgPrint(nloglevel: SNMP_LOG, szformat: ::windows::core::PCSTR);
     }
-    SnmpUtilDbgPrint(nloglevel.into(), ::core::mem::transmute(szformat))
+    SnmpUtilDbgPrint(nloglevel.into(), szformat.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]

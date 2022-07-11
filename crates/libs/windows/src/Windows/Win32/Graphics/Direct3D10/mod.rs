@@ -1,22 +1,22 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10CompileEffectFromMemory<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>>(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>>(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CompileEffectFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: *mut ::core::ffi::c_void, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut *mut ::core::ffi::c_void, pperrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10CompileEffectFromMemory(::core::mem::transmute(pdata), ::core::mem::transmute(datalength), ::core::mem::transmute(psrcfilename), ::core::mem::transmute(pdefines), pinclude.into().abi(), ::core::mem::transmute(hlslflags), ::core::mem::transmute(fxflags), ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors)).ok()
+    D3D10CompileEffectFromMemory(::core::mem::transmute(pdata), ::core::mem::transmute(datalength), psrcfilename.into(), ::core::mem::transmute(pdefines), pinclude.into().abi(), ::core::mem::transmute(hlslflags), ::core::mem::transmute(fxflags), ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10CompileShader<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>>(psrcdata: ::windows::core::PCSTR, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, pfunctionname: ::windows::core::PCSTR, pprofile: ::windows::core::PCSTR, flags: u32, ppshader: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10CompileShader<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>, Param5: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<::windows::core::PCSTR>>(psrcdata: Param0, srcdatasize: usize, pfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, pfunctionname: Param5, pprofile: Param6, flags: u32, ppshader: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CompileShader(psrcdata: ::windows::core::PCSTR, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: *mut ::core::ffi::c_void, pfunctionname: ::windows::core::PCSTR, pprofile: ::windows::core::PCSTR, flags: u32, ppshader: *mut *mut ::core::ffi::c_void, pperrormsgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10CompileShader(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(pfilename), ::core::mem::transmute(pdefines), pinclude.into().abi(), ::core::mem::transmute(pfunctionname), ::core::mem::transmute(pprofile), ::core::mem::transmute(flags), ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs)).ok()
+    D3D10CompileShader(psrcdata.into(), ::core::mem::transmute(srcdatasize), pfilename.into(), ::core::mem::transmute(pdefines), pinclude.into().abi(), pfunctionname.into(), pprofile.into(), ::core::mem::transmute(flags), ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -115,13 +115,13 @@ pub unsafe fn D3D10DisassembleEffect<'a, Param0: ::std::convert::Into<::windows:
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[inline]
-pub unsafe fn D3D10DisassembleShader<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(pshader: *const ::core::ffi::c_void, bytecodelength: usize, enablecolorcode: Param2, pcomments: ::windows::core::PCSTR) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
+pub unsafe fn D3D10DisassembleShader<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(pshader: *const ::core::ffi::c_void, bytecodelength: usize, enablecolorcode: Param2, pcomments: Param3) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10DisassembleShader(pshader: *const ::core::ffi::c_void, bytecodelength: usize, enablecolorcode: super::super::Foundation::BOOL, pcomments: ::windows::core::PCSTR, ppdisassembly: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    D3D10DisassembleShader(::core::mem::transmute(pshader), ::core::mem::transmute(bytecodelength), enablecolorcode.into(), ::core::mem::transmute(pcomments), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::ID3DBlob>(result__)
+    D3D10DisassembleShader(::core::mem::transmute(pshader), ::core::mem::transmute(bytecodelength), enablecolorcode.into(), pcomments.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::ID3DBlob>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -197,12 +197,12 @@ pub unsafe fn D3D10GetVertexShaderProfile<'a, Param0: ::std::convert::Into<::win
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D10PreprocessShader<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>>(psrcdata: ::windows::core::PCSTR, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, ppshadertext: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10PreprocessShader<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D::ID3DInclude>>>(psrcdata: Param0, srcdatasize: usize, pfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, ppshadertext: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10PreprocessShader(psrcdata: ::windows::core::PCSTR, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: *mut ::core::ffi::c_void, ppshadertext: *mut *mut ::core::ffi::c_void, pperrormsgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10PreprocessShader(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(pfilename), ::core::mem::transmute(pdefines), pinclude.into().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs)).ok()
+    D3D10PreprocessShader(psrcdata.into(), ::core::mem::transmute(srcdatasize), pfilename.into(), ::core::mem::transmute(pdefines), pinclude.into().abi(), ::core::mem::transmute(ppshadertext), ::core::mem::transmute(pperrormsgs)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -8690,28 +8690,28 @@ impl ID3D10Effect {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetConstantBufferByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetConstantBufferByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetVariableByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetVariableByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetVariableBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetVariableBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetTechniqueByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectTechnique> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTechniqueByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetTechniqueByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectTechnique> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTechniqueByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetTechniqueByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectTechnique> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetTechniqueByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn Optimize(&self) -> ::windows::core::Result<()> {
@@ -8813,20 +8813,20 @@ impl ID3D10EffectBlendVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -8977,20 +8977,20 @@ impl ID3D10EffectConstantBuffer {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -9148,20 +9148,20 @@ impl ID3D10EffectDepthStencilVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -9313,20 +9313,20 @@ impl ID3D10EffectDepthStencilViewVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -9483,20 +9483,20 @@ impl ID3D10EffectMatrixVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -9679,8 +9679,8 @@ impl ID3D10EffectPass {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn Apply(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -9805,20 +9805,20 @@ impl ID3D10EffectRasterizerVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -9970,20 +9970,20 @@ impl ID3D10EffectRenderTargetViewVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -10140,20 +10140,20 @@ impl ID3D10EffectSamplerVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -10301,20 +10301,20 @@ impl ID3D10EffectScalarVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -10529,20 +10529,20 @@ impl ID3D10EffectShaderResourceVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -10699,20 +10699,20 @@ impl ID3D10EffectShaderVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -10896,20 +10896,20 @@ impl ID3D10EffectStringVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -11051,16 +11051,16 @@ impl ID3D10EffectTechnique {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetPassByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectPass> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPassByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetPassByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectPass> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPassByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetPassByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectPass> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPassByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
@@ -11123,12 +11123,12 @@ impl ID3D10EffectType {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberTypeByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberTypeByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectType> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberTypeBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberTypeBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectType> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberName(&self, index: u32) -> ::windows::core::PSTR {
@@ -11201,20 +11201,20 @@ impl ID3D10EffectVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -11362,20 +11362,20 @@ impl ID3D10EffectVectorVariable {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetAnnotationByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetAnnotationByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAnnotationByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberBySemantic(&self, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(semantic)))
+    pub unsafe fn GetMemberBySemantic<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, semantic: Param0) -> ::core::option::Option<ID3D10EffectVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetMemberBySemantic)(::windows::core::Interface::as_raw(self), semantic.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
@@ -11747,12 +11747,12 @@ impl ID3D10InfoQueue {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<D3D10_MESSAGE_CATEGORY>, Param1: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>, Param2: ::std::convert::Into<D3D10_MESSAGE_ID>>(&self, category: Param0, severity: Param1, id: Param2, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<D3D10_MESSAGE_CATEGORY>, Param1: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>, Param2: ::std::convert::Into<D3D10_MESSAGE_ID>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, category: Param0, severity: Param1, id: Param2, pdescription: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>>(&self, severity: Param0, pdescription: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), ::core::mem::transmute(pdescription)).ok()
+    pub unsafe fn AddApplicationMessage<'a, Param0: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, severity: Param0, pdescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12753,8 +12753,8 @@ impl ID3D10ShaderReflection {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetConstantBufferByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetConstantBufferByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -12850,8 +12850,8 @@ impl ID3D10ShaderReflection1 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetConstantBufferByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetConstantBufferByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetConstantBufferByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -12872,14 +12872,14 @@ impl ID3D10ShaderReflection1 {
         (::windows::core::Interface::vtable(self).GetOutputParameterDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameterindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetVariableByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetVariableByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName(&self, name: ::windows::core::PCSTR) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC> {
+    pub unsafe fn GetResourceBindingDescByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::<D3D10_SHADER_INPUT_BIND_DESC>::zeroed();
-        (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_SHADER_INPUT_BIND_DESC>(result__)
+        (::windows::core::Interface::vtable(self).GetResourceBindingDescByName)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_SHADER_INPUT_BIND_DESC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMovInstructionCount(&self) -> ::windows::core::Result<u32> {
@@ -13016,8 +13016,8 @@ impl ID3D10ShaderReflectionConstantBuffer {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetVariableByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetVariableByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetVariableByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
 }
 impl ::core::clone::Clone for ID3D10ShaderReflectionConstantBuffer {
@@ -13066,8 +13066,8 @@ impl ID3D10ShaderReflectionType {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn GetMemberTypeByName(&self, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType> {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name)))
+    pub unsafe fn GetMemberTypeByName<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, name: Param0) -> ::core::option::Option<ID3D10ShaderReflectionType> {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {

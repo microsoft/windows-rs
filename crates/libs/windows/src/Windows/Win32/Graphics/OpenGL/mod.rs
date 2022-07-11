@@ -5549,12 +5549,12 @@ pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglGetProcAddress(param0: ::windows::core::PCSTR) -> super::super::Foundation::PROC {
+pub unsafe fn wglGetProcAddress<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(param0: Param0) -> super::super::Foundation::PROC {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn wglGetProcAddress(param0: ::windows::core::PCSTR) -> super::super::Foundation::PROC;
     }
-    ::core::mem::transmute(wglGetProcAddress(::core::mem::transmute(param0)))
+    ::core::mem::transmute(wglGetProcAddress(param0.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

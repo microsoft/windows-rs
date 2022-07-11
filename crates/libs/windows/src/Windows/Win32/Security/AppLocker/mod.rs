@@ -669,12 +669,12 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: &[SAFER_CODE_PROPERTIES_V2], p
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>>(hlevel: Param0, sztargetpath: ::windows::core::PCWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: ::windows::core::PCWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferRecordEventLogEntry(hlevel.into(), ::core::mem::transmute(sztargetpath), ::core::mem::transmute(lpreserved)))
+    ::core::mem::transmute(SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into(), ::core::mem::transmute(lpreserved)))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -699,12 +699,12 @@ pub unsafe fn SaferSetPolicyInformation<'a, Param1: ::std::convert::Into<SAFER_P
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferiIsExecutableFileType<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(szfullpathname: ::windows::core::PCWSTR, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferiIsExecutableFileType(szfullpathname: ::windows::core::PCWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SaferiIsExecutableFileType(::core::mem::transmute(szfullpathname), bfromshellexecute.into()))
+    ::core::mem::transmute(SaferiIsExecutableFileType(szfullpathname.into(), bfromshellexecute.into()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

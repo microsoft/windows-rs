@@ -1348,21 +1348,21 @@ impl IMXNamespaceManager {
         (::windows::core::Interface::vtable(self).popContext)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn declarePrefix(&self, prefix: ::windows::core::PCWSTR, namespaceuri: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).declarePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prefix), ::core::mem::transmute(namespaceuri)).ok()
+    pub unsafe fn declarePrefix<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, prefix: Param0, namespaceuri: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).declarePrefix)(::windows::core::Interface::as_raw(self), prefix.into(), namespaceuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getDeclaredPrefix(&self, nindex: i32, pwchprefix: ::windows::core::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getDeclaredPrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pwchprefix), ::core::mem::transmute(pcchprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getPrefix(&self, pwsznamespaceuri: ::windows::core::PCWSTR, nindex: i32, pwchprefix: ::windows::core::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getPrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsznamespaceuri), ::core::mem::transmute(nindex), ::core::mem::transmute(pwchprefix), ::core::mem::transmute(pcchprefix)).ok()
+    pub unsafe fn getPrefix<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwsznamespaceuri: Param0, nindex: i32, pwchprefix: ::windows::core::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getPrefix)(::windows::core::Interface::as_raw(self), pwsznamespaceuri.into(), ::core::mem::transmute(nindex), ::core::mem::transmute(pwchprefix), ::core::mem::transmute(pcchprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getURI<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IXMLDOMNode>>>(&self, pwchprefix: ::windows::core::PCWSTR, pcontextnode: Param1, pwchuri: ::windows::core::PWSTR, pcchuri: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchprefix), pcontextnode.into().abi(), ::core::mem::transmute(pwchuri), ::core::mem::transmute(pcchuri)).ok()
+    pub unsafe fn getURI<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IXMLDOMNode>>>(&self, pwchprefix: Param0, pcontextnode: Param1, pwchuri: ::windows::core::PWSTR, pcchuri: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getURI)(::windows::core::Interface::as_raw(self), pwchprefix.into(), pcontextnode.into().abi(), ::core::mem::transmute(pwchuri), ::core::mem::transmute(pcchuri)).ok()
     }
 }
 impl ::core::convert::From<IMXNamespaceManager> for ::windows::core::IUnknown {
@@ -2062,38 +2062,38 @@ impl ISAXAttributes {
         (::windows::core::Interface::vtable(self).getName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(ppwchuri), ::core::mem::transmute(pcchuri), ::core::mem::transmute(ppwchlocalname), ::core::mem::transmute(pcchlocalname), ::core::mem::transmute(ppwchqname), ::core::mem::transmute(pcchqname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getIndexFromName(&self, pwchuri: ::windows::core::PCWSTR, cchuri: i32, pwchlocalname: ::windows::core::PCWSTR, cchlocalname: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn getIndexFromName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchuri: Param0, cchuri: i32, pwchlocalname: Param2, cchlocalname: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).getIndexFromName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchuri), ::core::mem::transmute(cchuri), ::core::mem::transmute(pwchlocalname), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).getIndexFromName)(::windows::core::Interface::as_raw(self), pwchuri.into(), ::core::mem::transmute(cchuri), pwchlocalname.into(), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getIndexFromQName(&self, pwchqname: ::windows::core::PCWSTR, cchqname: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn getIndexFromQName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchqname: Param0, cchqname: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).getIndexFromQName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchqname), ::core::mem::transmute(cchqname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).getIndexFromQName)(::windows::core::Interface::as_raw(self), pwchqname.into(), ::core::mem::transmute(cchqname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(ppwchtype), ::core::mem::transmute(pcchtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getTypeFromName(&self, pwchuri: ::windows::core::PCWSTR, cchuri: i32, pwchlocalname: ::windows::core::PCWSTR, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getTypeFromName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchuri), ::core::mem::transmute(cchuri), ::core::mem::transmute(pwchlocalname), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(ppwchtype), ::core::mem::transmute(pcchtype)).ok()
+    pub unsafe fn getTypeFromName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchuri: Param0, cchuri: i32, pwchlocalname: Param2, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getTypeFromName)(::windows::core::Interface::as_raw(self), pwchuri.into(), ::core::mem::transmute(cchuri), pwchlocalname.into(), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(ppwchtype), ::core::mem::transmute(pcchtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getTypeFromQName(&self, pwchqname: ::windows::core::PCWSTR, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getTypeFromQName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchqname), ::core::mem::transmute(cchqname), ::core::mem::transmute(ppwchtype), ::core::mem::transmute(pcchtype)).ok()
+    pub unsafe fn getTypeFromQName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchqname: Param0, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getTypeFromQName)(::windows::core::Interface::as_raw(self), pwchqname.into(), ::core::mem::transmute(cchqname), ::core::mem::transmute(ppwchtype), ::core::mem::transmute(pcchtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(ppwchvalue), ::core::mem::transmute(pcchvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getValueFromName(&self, pwchuri: ::windows::core::PCWSTR, cchuri: i32, pwchlocalname: ::windows::core::PCWSTR, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getValueFromName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchuri), ::core::mem::transmute(cchuri), ::core::mem::transmute(pwchlocalname), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(ppwchvalue), ::core::mem::transmute(pcchvalue)).ok()
+    pub unsafe fn getValueFromName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchuri: Param0, cchuri: i32, pwchlocalname: Param2, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getValueFromName)(::windows::core::Interface::as_raw(self), pwchuri.into(), ::core::mem::transmute(cchuri), pwchlocalname.into(), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(ppwchvalue), ::core::mem::transmute(pcchvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getValueFromQName(&self, pwchqname: ::windows::core::PCWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getValueFromQName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchqname), ::core::mem::transmute(cchqname), ::core::mem::transmute(ppwchvalue), ::core::mem::transmute(pcchvalue)).ok()
+    pub unsafe fn getValueFromQName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchqname: Param0, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getValueFromQName)(::windows::core::Interface::as_raw(self), pwchqname.into(), ::core::mem::transmute(cchqname), ::core::mem::transmute(ppwchvalue), ::core::mem::transmute(pcchvalue)).ok()
     }
 }
 impl ::core::convert::From<ISAXAttributes> for ::windows::core::IUnknown {
@@ -2166,36 +2166,36 @@ impl ISAXContentHandler {
         (::windows::core::Interface::vtable(self).endDocument)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn startPrefixMapping(&self, pwchprefix: ::windows::core::PCWSTR, cchprefix: i32, pwchuri: ::windows::core::PCWSTR, cchuri: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startPrefixMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchprefix), ::core::mem::transmute(cchprefix), ::core::mem::transmute(pwchuri), ::core::mem::transmute(cchuri)).ok()
+    pub unsafe fn startPrefixMapping<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchprefix: Param0, cchprefix: i32, pwchuri: Param2, cchuri: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).startPrefixMapping)(::windows::core::Interface::as_raw(self), pwchprefix.into(), ::core::mem::transmute(cchprefix), pwchuri.into(), ::core::mem::transmute(cchuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn endPrefixMapping(&self, pwchprefix: ::windows::core::PCWSTR, cchprefix: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).endPrefixMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchprefix), ::core::mem::transmute(cchprefix)).ok()
+    pub unsafe fn endPrefixMapping<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchprefix: Param0, cchprefix: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).endPrefixMapping)(::windows::core::Interface::as_raw(self), pwchprefix.into(), ::core::mem::transmute(cchprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn startElement<'a, Param6: ::std::convert::Into<::windows::core::InParam<'a, ISAXAttributes>>>(&self, pwchnamespaceuri: ::windows::core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: ::windows::core::PCWSTR, cchlocalname: i32, pwchqname: ::windows::core::PCWSTR, cchqname: i32, pattributes: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchnamespaceuri), ::core::mem::transmute(cchnamespaceuri), ::core::mem::transmute(pwchlocalname), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(pwchqname), ::core::mem::transmute(cchqname), pattributes.into().abi()).ok()
+    pub unsafe fn startElement<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ISAXAttributes>>>(&self, pwchnamespaceuri: Param0, cchnamespaceuri: i32, pwchlocalname: Param2, cchlocalname: i32, pwchqname: Param4, cchqname: i32, pattributes: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).startElement)(::windows::core::Interface::as_raw(self), pwchnamespaceuri.into(), ::core::mem::transmute(cchnamespaceuri), pwchlocalname.into(), ::core::mem::transmute(cchlocalname), pwchqname.into(), ::core::mem::transmute(cchqname), pattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn endElement(&self, pwchnamespaceuri: ::windows::core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: ::windows::core::PCWSTR, cchlocalname: i32, pwchqname: ::windows::core::PCWSTR, cchqname: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).endElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchnamespaceuri), ::core::mem::transmute(cchnamespaceuri), ::core::mem::transmute(pwchlocalname), ::core::mem::transmute(cchlocalname), ::core::mem::transmute(pwchqname), ::core::mem::transmute(cchqname)).ok()
+    pub unsafe fn endElement<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchnamespaceuri: Param0, cchnamespaceuri: i32, pwchlocalname: Param2, cchlocalname: i32, pwchqname: Param4, cchqname: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).endElement)(::windows::core::Interface::as_raw(self), pwchnamespaceuri.into(), ::core::mem::transmute(cchnamespaceuri), pwchlocalname.into(), ::core::mem::transmute(cchlocalname), pwchqname.into(), ::core::mem::transmute(cchqname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn characters(&self, pwchchars: ::windows::core::PCWSTR, cchchars: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).characters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchchars), ::core::mem::transmute(cchchars)).ok()
+    pub unsafe fn characters<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchchars: Param0, cchchars: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).characters)(::windows::core::Interface::as_raw(self), pwchchars.into(), ::core::mem::transmute(cchchars)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn ignorableWhitespace(&self, pwchchars: ::windows::core::PCWSTR, cchchars: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ignorableWhitespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchchars), ::core::mem::transmute(cchchars)).ok()
+    pub unsafe fn ignorableWhitespace<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchchars: Param0, cchchars: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ignorableWhitespace)(::windows::core::Interface::as_raw(self), pwchchars.into(), ::core::mem::transmute(cchchars)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn processingInstruction(&self, pwchtarget: ::windows::core::PCWSTR, cchtarget: i32, pwchdata: ::windows::core::PCWSTR, cchdata: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).processingInstruction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchtarget), ::core::mem::transmute(cchtarget), ::core::mem::transmute(pwchdata), ::core::mem::transmute(cchdata)).ok()
+    pub unsafe fn processingInstruction<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchtarget: Param0, cchtarget: i32, pwchdata: Param2, cchdata: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).processingInstruction)(::windows::core::Interface::as_raw(self), pwchtarget.into(), ::core::mem::transmute(cchtarget), pwchdata.into(), ::core::mem::transmute(cchdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn skippedEntity(&self, pwchname: ::windows::core::PCWSTR, cchname: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).skippedEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname)).ok()
+    pub unsafe fn skippedEntity<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).skippedEntity)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname)).ok()
     }
 }
 impl ::core::convert::From<ISAXContentHandler> for ::windows::core::IUnknown {
@@ -2254,12 +2254,12 @@ pub struct ISAXContentHandler_Vtbl {
 pub struct ISAXDTDHandler(::windows::core::IUnknown);
 impl ISAXDTDHandler {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn notationDecl(&self, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).notationDecl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname), ::core::mem::transmute(pwchpublicid), ::core::mem::transmute(cchpublicid), ::core::mem::transmute(pwchsystemid), ::core::mem::transmute(cchsystemid)).ok()
+    pub unsafe fn notationDecl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).notationDecl)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname), pwchpublicid.into(), ::core::mem::transmute(cchpublicid), pwchsystemid.into(), ::core::mem::transmute(cchsystemid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn unparsedEntityDecl(&self, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32, pwchnotationname: ::windows::core::PCWSTR, cchnotationname: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).unparsedEntityDecl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname), ::core::mem::transmute(pwchpublicid), ::core::mem::transmute(cchpublicid), ::core::mem::transmute(pwchsystemid), ::core::mem::transmute(cchsystemid), ::core::mem::transmute(pwchnotationname), ::core::mem::transmute(cchnotationname)).ok()
+    pub unsafe fn unparsedEntityDecl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32, pwchnotationname: Param6, cchnotationname: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).unparsedEntityDecl)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname), pwchpublicid.into(), ::core::mem::transmute(cchpublicid), pwchsystemid.into(), ::core::mem::transmute(cchsystemid), pwchnotationname.into(), ::core::mem::transmute(cchnotationname)).ok()
     }
 }
 impl ::core::convert::From<ISAXDTDHandler> for ::windows::core::IUnknown {
@@ -2309,20 +2309,20 @@ pub struct ISAXDTDHandler_Vtbl {
 pub struct ISAXDeclHandler(::windows::core::IUnknown);
 impl ISAXDeclHandler {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn elementDecl(&self, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchmodel: ::windows::core::PCWSTR, cchmodel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).elementDecl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname), ::core::mem::transmute(pwchmodel), ::core::mem::transmute(cchmodel)).ok()
+    pub unsafe fn elementDecl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32, pwchmodel: Param2, cchmodel: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).elementDecl)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname), pwchmodel.into(), ::core::mem::transmute(cchmodel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn attributeDecl(&self, pwchelementname: ::windows::core::PCWSTR, cchelementname: i32, pwchattributename: ::windows::core::PCWSTR, cchattributename: i32, pwchtype: ::windows::core::PCWSTR, cchtype: i32, pwchvaluedefault: ::windows::core::PCWSTR, cchvaluedefault: i32, pwchvalue: ::windows::core::PCWSTR, cchvalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).attributeDecl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchelementname), ::core::mem::transmute(cchelementname), ::core::mem::transmute(pwchattributename), ::core::mem::transmute(cchattributename), ::core::mem::transmute(pwchtype), ::core::mem::transmute(cchtype), ::core::mem::transmute(pwchvaluedefault), ::core::mem::transmute(cchvaluedefault), ::core::mem::transmute(pwchvalue), ::core::mem::transmute(cchvalue)).ok()
+    pub unsafe fn attributeDecl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>, Param8: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchelementname: Param0, cchelementname: i32, pwchattributename: Param2, cchattributename: i32, pwchtype: Param4, cchtype: i32, pwchvaluedefault: Param6, cchvaluedefault: i32, pwchvalue: Param8, cchvalue: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).attributeDecl)(::windows::core::Interface::as_raw(self), pwchelementname.into(), ::core::mem::transmute(cchelementname), pwchattributename.into(), ::core::mem::transmute(cchattributename), pwchtype.into(), ::core::mem::transmute(cchtype), pwchvaluedefault.into(), ::core::mem::transmute(cchvaluedefault), pwchvalue.into(), ::core::mem::transmute(cchvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn internalEntityDecl(&self, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchvalue: ::windows::core::PCWSTR, cchvalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).internalEntityDecl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname), ::core::mem::transmute(pwchvalue), ::core::mem::transmute(cchvalue)).ok()
+    pub unsafe fn internalEntityDecl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32, pwchvalue: Param2, cchvalue: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).internalEntityDecl)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname), pwchvalue.into(), ::core::mem::transmute(cchvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn externalEntityDecl(&self, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).externalEntityDecl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname), ::core::mem::transmute(pwchpublicid), ::core::mem::transmute(cchpublicid), ::core::mem::transmute(pwchsystemid), ::core::mem::transmute(cchsystemid)).ok()
+    pub unsafe fn externalEntityDecl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).externalEntityDecl)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname), pwchpublicid.into(), ::core::mem::transmute(cchpublicid), pwchsystemid.into(), ::core::mem::transmute(cchsystemid)).ok()
     }
 }
 impl ::core::convert::From<ISAXDeclHandler> for ::windows::core::IUnknown {
@@ -2375,9 +2375,9 @@ pub struct ISAXEntityResolver(::windows::core::IUnknown);
 impl ISAXEntityResolver {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn resolveEntity(&self, pwchpublicid: ::windows::core::PCWSTR, pwchsystemid: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn resolveEntity<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchpublicid: Param0, pwchsystemid: Param1) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).resolveEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchpublicid), ::core::mem::transmute(pwchsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).resolveEntity)(::windows::core::Interface::as_raw(self), pwchpublicid.into(), pwchsystemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<ISAXEntityResolver> for ::windows::core::IUnknown {
@@ -2429,16 +2429,16 @@ pub struct ISAXEntityResolver_Vtbl {
 pub struct ISAXErrorHandler(::windows::core::IUnknown);
 impl ISAXErrorHandler {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn error<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISAXLocator>>>(&self, plocator: Param0, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).error)(::windows::core::Interface::as_raw(self), plocator.into().abi(), ::core::mem::transmute(pwcherrormessage), ::core::mem::transmute(hrerrorcode)).ok()
+    pub unsafe fn error<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISAXLocator>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, plocator: Param0, pwcherrormessage: Param1, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).error)(::windows::core::Interface::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), ::core::mem::transmute(hrerrorcode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn fatalError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISAXLocator>>>(&self, plocator: Param0, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fatalError)(::windows::core::Interface::as_raw(self), plocator.into().abi(), ::core::mem::transmute(pwcherrormessage), ::core::mem::transmute(hrerrorcode)).ok()
+    pub unsafe fn fatalError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISAXLocator>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, plocator: Param0, pwcherrormessage: Param1, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).fatalError)(::windows::core::Interface::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), ::core::mem::transmute(hrerrorcode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn ignorableWarning<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISAXLocator>>>(&self, plocator: Param0, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ignorableWarning)(::windows::core::Interface::as_raw(self), plocator.into().abi(), ::core::mem::transmute(pwcherrormessage), ::core::mem::transmute(hrerrorcode)).ok()
+    pub unsafe fn ignorableWarning<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISAXLocator>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, plocator: Param0, pwcherrormessage: Param1, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ignorableWarning)(::windows::core::Interface::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), ::core::mem::transmute(hrerrorcode)).ok()
     }
 }
 impl ::core::convert::From<ISAXErrorHandler> for ::windows::core::IUnknown {
@@ -2489,20 +2489,20 @@ pub struct ISAXErrorHandler_Vtbl {
 pub struct ISAXLexicalHandler(::windows::core::IUnknown);
 impl ISAXLexicalHandler {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn startDTD(&self, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startDTD)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname), ::core::mem::transmute(pwchpublicid), ::core::mem::transmute(cchpublicid), ::core::mem::transmute(pwchsystemid), ::core::mem::transmute(cchsystemid)).ok()
+    pub unsafe fn startDTD<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).startDTD)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname), pwchpublicid.into(), ::core::mem::transmute(cchpublicid), pwchsystemid.into(), ::core::mem::transmute(cchsystemid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn endDTD(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).endDTD)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn startEntity(&self, pwchname: ::windows::core::PCWSTR, cchname: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname)).ok()
+    pub unsafe fn startEntity<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).startEntity)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn endEntity(&self, pwchname: ::windows::core::PCWSTR, cchname: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).endEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(cchname)).ok()
+    pub unsafe fn endEntity<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, cchname: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).endEntity)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(cchname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn startCDATA(&self) -> ::windows::core::Result<()> {
@@ -2513,8 +2513,8 @@ impl ISAXLexicalHandler {
         (::windows::core::Interface::vtable(self).endCDATA)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn comment(&self, pwchchars: ::windows::core::PCWSTR, cchchars: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).comment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchchars), ::core::mem::transmute(cchchars)).ok()
+    pub unsafe fn comment<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchchars: Param0, cchchars: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).comment)(::windows::core::Interface::as_raw(self), pwchchars.into(), ::core::mem::transmute(cchchars)).ok()
     }
 }
 impl ::core::convert::From<ISAXLexicalHandler> for ::windows::core::IUnknown {
@@ -2638,24 +2638,24 @@ pub struct ISAXLocator_Vtbl {
 pub struct ISAXXMLFilter(::windows::core::IUnknown);
 impl ISAXXMLFilter {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getFeature(&self, pwchname: ::windows::core::PCWSTR) -> ::windows::core::Result<i16> {
+    pub unsafe fn getFeature<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getFeature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.getFeature)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn putFeature(&self, pwchname: ::windows::core::PCWSTR, vfvalue: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.putFeature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(vfvalue)).ok()
+    pub unsafe fn putFeature<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, vfvalue: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.putFeature)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(vfvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, pwchname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.getProperty)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putProperty<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>>(&self, pwchname: ::windows::core::PCWSTR, varvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.putProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), varvalue.into().abi()).ok()
+    pub unsafe fn putProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>>(&self, pwchname: Param0, varvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.putProperty)(::windows::core::Interface::as_raw(self), pwchname.into(), varvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
@@ -2699,8 +2699,8 @@ impl ISAXXMLFilter {
         (::windows::core::Interface::vtable(self).base__.getBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn putBaseURL(&self, pwchbaseurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.putBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchbaseurl)).ok()
+    pub unsafe fn putBaseURL<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchbaseurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.putBaseURL)(::windows::core::Interface::as_raw(self), pwchbaseurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::core::Result<*mut u16> {
@@ -2708,8 +2708,8 @@ impl ISAXXMLFilter {
         (::windows::core::Interface::vtable(self).base__.getSecureBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn putSecureBaseURL(&self, pwchsecurebaseurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.putSecureBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchsecurebaseurl)).ok()
+    pub unsafe fn putSecureBaseURL<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchsecurebaseurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.putSecureBaseURL)(::windows::core::Interface::as_raw(self), pwchsecurebaseurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2717,8 +2717,8 @@ impl ISAXXMLFilter {
         (::windows::core::Interface::vtable(self).base__.parse)(::windows::core::Interface::as_raw(self), varinput.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn parseURL(&self, pwchurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.parseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchurl)).ok()
+    pub unsafe fn parseURL<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.parseURL)(::windows::core::Interface::as_raw(self), pwchurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getParent(&self) -> ::windows::core::Result<ISAXXMLReader> {
@@ -2792,24 +2792,24 @@ pub struct ISAXXMLFilter_Vtbl {
 pub struct ISAXXMLReader(::windows::core::IUnknown);
 impl ISAXXMLReader {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn getFeature(&self, pwchname: ::windows::core::PCWSTR) -> ::windows::core::Result<i16> {
+    pub unsafe fn getFeature<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).getFeature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).getFeature)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn putFeature(&self, pwchname: ::windows::core::PCWSTR, vfvalue: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putFeature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(vfvalue)).ok()
+    pub unsafe fn putFeature<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0, vfvalue: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putFeature)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(vfvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, pwchname: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchname: Param0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).getProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).getProperty)(::windows::core::Interface::as_raw(self), pwchname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putProperty<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>>(&self, pwchname: ::windows::core::PCWSTR, varvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchname), varvalue.into().abi()).ok()
+    pub unsafe fn putProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>>(&self, pwchname: Param0, varvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putProperty)(::windows::core::Interface::as_raw(self), pwchname.into(), varvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
@@ -2853,8 +2853,8 @@ impl ISAXXMLReader {
         (::windows::core::Interface::vtable(self).getBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn putBaseURL(&self, pwchbaseurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchbaseurl)).ok()
+    pub unsafe fn putBaseURL<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchbaseurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putBaseURL)(::windows::core::Interface::as_raw(self), pwchbaseurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::core::Result<*mut u16> {
@@ -2862,8 +2862,8 @@ impl ISAXXMLReader {
         (::windows::core::Interface::vtable(self).getSecureBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn putSecureBaseURL(&self, pwchsecurebaseurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putSecureBaseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchsecurebaseurl)).ok()
+    pub unsafe fn putSecureBaseURL<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchsecurebaseurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putSecureBaseURL)(::windows::core::Interface::as_raw(self), pwchsecurebaseurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2871,8 +2871,8 @@ impl ISAXXMLReader {
         (::windows::core::Interface::vtable(self).parse)(::windows::core::Interface::as_raw(self), varinput.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn parseURL(&self, pwchurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).parseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwchurl)).ok()
+    pub unsafe fn parseURL<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwchurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).parseURL)(::windows::core::Interface::as_raw(self), pwchurl.into()).ok()
     }
 }
 impl ::core::convert::From<ISAXXMLReader> for ::windows::core::IUnknown {
@@ -15936,8 +15936,8 @@ pub struct IXMLHTTPRequest_Vtbl {
 pub struct IXMLHTTPRequest2(::windows::core::IUnknown);
 impl IXMLHTTPRequest2 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn Open<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2Callback>>>(&self, pwszmethod: ::windows::core::PCWSTR, pwszurl: ::windows::core::PCWSTR, pstatuscallback: Param2, pwszusername: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR, pwszproxyusername: ::windows::core::PCWSTR, pwszproxypassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszmethod), ::core::mem::transmute(pwszurl), pstatuscallback.into().abi(), ::core::mem::transmute(pwszusername), ::core::mem::transmute(pwszpassword), ::core::mem::transmute(pwszproxyusername), ::core::mem::transmute(pwszproxypassword)).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2Callback>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszmethod: Param0, pwszurl: Param1, pstatuscallback: Param2, pwszusername: Param3, pwszpassword: Param4, pwszproxyusername: Param5, pwszproxypassword: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), pwszmethod.into(), pwszurl.into(), pstatuscallback.into().abi(), pwszusername.into(), pwszpassword.into(), pwszproxyusername.into(), pwszproxypassword.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15964,8 +15964,8 @@ impl IXMLHTTPRequest2 {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), eproperty.into(), ::core::mem::transmute(ullvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn SetRequestHeader(&self, pwszheader: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequestHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszheader), ::core::mem::transmute(pwszvalue)).ok()
+    pub unsafe fn SetRequestHeader<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszheader: Param0, pwszvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRequestHeader)(::windows::core::Interface::as_raw(self), pwszheader.into(), pwszvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::core::Result<*mut u16> {
@@ -15974,13 +15974,13 @@ impl IXMLHTTPRequest2 {
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCookie(&self, pwszurl: ::windows::core::PCWSTR, pwszname: ::windows::core::PCWSTR, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCookie)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszurl), ::core::mem::transmute(pwszname), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccookies), ::core::mem::transmute(ppcookies)).ok()
+    pub unsafe fn GetCookie<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszurl: Param0, pwszname: Param1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCookie)(::windows::core::Interface::as_raw(self), pwszurl.into(), pwszname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccookies), ::core::mem::transmute(ppcookies)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn GetResponseHeader(&self, pwszheader: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut u16> {
+    pub unsafe fn GetResponseHeader<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszheader: Param0) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetResponseHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszheader), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).GetResponseHeader)(::windows::core::Interface::as_raw(self), pwszheader.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
 }
 impl ::core::convert::From<IXMLHTTPRequest2> for ::windows::core::IUnknown {
@@ -16050,12 +16050,12 @@ pub struct IXMLHTTPRequest2_Vtbl {
 pub struct IXMLHTTPRequest2Callback(::windows::core::IUnknown);
 impl IXMLHTTPRequest2Callback {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn OnRedirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>>(&self, pxhr: Param0, pwszredirecturl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnRedirect)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), ::core::mem::transmute(pwszredirecturl)).ok()
+    pub unsafe fn OnRedirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pxhr: Param0, pwszredirecturl: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnRedirect)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), pwszredirecturl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn OnHeadersAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnHeadersAvailable)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), ::core::mem::transmute(dwstatus), ::core::mem::transmute(pwszstatus)).ok()
+    pub unsafe fn OnHeadersAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnHeadersAvailable)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), ::core::mem::transmute(dwstatus), pwszstatus.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16128,8 +16128,8 @@ pub struct IXMLHTTPRequest2Callback_Vtbl {
 pub struct IXMLHTTPRequest3(::windows::core::IUnknown);
 impl IXMLHTTPRequest3 {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn Open<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2Callback>>>(&self, pwszmethod: ::windows::core::PCWSTR, pwszurl: ::windows::core::PCWSTR, pstatuscallback: Param2, pwszusername: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR, pwszproxyusername: ::windows::core::PCWSTR, pwszproxypassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszmethod), ::core::mem::transmute(pwszurl), pstatuscallback.into().abi(), ::core::mem::transmute(pwszusername), ::core::mem::transmute(pwszpassword), ::core::mem::transmute(pwszproxyusername), ::core::mem::transmute(pwszproxypassword)).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2Callback>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszmethod: Param0, pwszurl: Param1, pstatuscallback: Param2, pwszusername: Param3, pwszpassword: Param4, pwszproxyusername: Param5, pwszproxypassword: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), pwszmethod.into(), pwszurl.into(), pstatuscallback.into().abi(), pwszusername.into(), pwszpassword.into(), pwszproxyusername.into(), pwszproxypassword.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16156,8 +16156,8 @@ impl IXMLHTTPRequest3 {
         (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), eproperty.into(), ::core::mem::transmute(ullvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn SetRequestHeader(&self, pwszheader: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRequestHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszheader), ::core::mem::transmute(pwszvalue)).ok()
+    pub unsafe fn SetRequestHeader<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszheader: Param0, pwszvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRequestHeader)(::windows::core::Interface::as_raw(self), pwszheader.into(), pwszvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::core::Result<*mut u16> {
@@ -16166,17 +16166,17 @@ impl IXMLHTTPRequest3 {
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCookie(&self, pwszurl: ::windows::core::PCWSTR, pwszname: ::windows::core::PCWSTR, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetCookie)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszurl), ::core::mem::transmute(pwszname), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccookies), ::core::mem::transmute(ppcookies)).ok()
+    pub unsafe fn GetCookie<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszurl: Param0, pwszname: Param1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetCookie)(::windows::core::Interface::as_raw(self), pwszurl.into(), pwszname.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pccookies), ::core::mem::transmute(ppcookies)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn GetResponseHeader(&self, pwszheader: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut u16> {
+    pub unsafe fn GetResponseHeader<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszheader: Param0) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetResponseHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszheader), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetResponseHeader)(::windows::core::Interface::as_raw(self), pwszheader.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn SetClientCertificate(&self, pbclientcertificatehash: &[u8], pwszpin: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCertificate)(::windows::core::Interface::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbclientcertificatehash)), ::core::mem::transmute(pwszpin)).ok()
+    pub unsafe fn SetClientCertificate<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pbclientcertificatehash: &[u8], pwszpin: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientCertificate)(::windows::core::Interface::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbclientcertificatehash)), pwszpin.into()).ok()
     }
 }
 impl ::core::convert::From<IXMLHTTPRequest3> for ::windows::core::IUnknown {
@@ -16240,12 +16240,12 @@ pub struct IXMLHTTPRequest3_Vtbl {
 pub struct IXMLHTTPRequest3Callback(::windows::core::IUnknown);
 impl IXMLHTTPRequest3Callback {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn OnRedirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>>(&self, pxhr: Param0, pwszredirecturl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnRedirect)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), ::core::mem::transmute(pwszredirecturl)).ok()
+    pub unsafe fn OnRedirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pxhr: Param0, pwszredirecturl: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnRedirect)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), pwszredirecturl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn OnHeadersAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnHeadersAvailable)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), ::core::mem::transmute(dwstatus), ::core::mem::transmute(pwszstatus)).ok()
+    pub unsafe fn OnHeadersAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXMLHTTPRequest2>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnHeadersAvailable)(::windows::core::Interface::as_raw(self), pxhr.into().abi(), ::core::mem::transmute(dwstatus), pwszstatus.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

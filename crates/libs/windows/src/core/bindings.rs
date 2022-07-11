@@ -1361,12 +1361,12 @@ unsafe impl ::windows::core::Abi for HINSTANCE {
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[inline]
-pub unsafe fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR {
+pub unsafe fn SysAllocStringByteLen<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(::core::mem::transmute(psz), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), ::core::mem::transmute(len)))
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
@@ -1721,20 +1721,20 @@ pub unsafe fn FreeLibrary<'a, Param0: ::std::convert::Into<HINSTANCE>>(hlibmodul
     ::core::mem::transmute(FreeLibrary(hlibmodule.into()))
 }
 #[inline]
-pub unsafe fn GetProcAddress<'a, Param0: ::std::convert::Into<HINSTANCE>>(hmodule: Param0, lpprocname: ::windows::core::PCSTR) -> FARPROC {
+pub unsafe fn GetProcAddress<'a, Param0: ::std::convert::Into<HINSTANCE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hmodule: Param0, lpprocname: Param1) -> FARPROC {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetProcAddress(hmodule: HINSTANCE, lpprocname: ::windows::core::PCSTR) -> FARPROC;
     }
-    ::core::mem::transmute(GetProcAddress(hmodule.into(), ::core::mem::transmute(lpprocname)))
+    ::core::mem::transmute(GetProcAddress(hmodule.into(), lpprocname.into()))
 }
 #[inline]
-pub unsafe fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> ::windows::core::Result<HINSTANCE> {
+pub unsafe fn LoadLibraryA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lplibfilename: Param0) -> ::windows::core::Result<HINSTANCE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> HINSTANCE;
     }
-    let result__ = LoadLibraryA(::core::mem::transmute(lplibfilename));
+    let result__ = LoadLibraryA(lplibfilename.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[inline]
@@ -1862,12 +1862,12 @@ unsafe impl ::windows::core::Abi for HeapHandle {
     type Abi = Self;
 }
 #[inline]
-pub unsafe fn CreateEventA<'a, Param1: ::std::convert::Into<BOOL>, Param2: ::std::convert::Into<BOOL>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: ::windows::core::PCSTR) -> ::windows::core::Result<HANDLE> {
+pub unsafe fn CreateEventA<'a, Param1: ::std::convert::Into<BOOL>, Param2: ::std::convert::Into<BOOL>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> ::windows::core::Result<HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateEventA(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: BOOL, binitialstate: BOOL, lpname: ::windows::core::PCSTR) -> HANDLE;
     }
-    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into(), binitialstate.into(), ::core::mem::transmute(lpname));
+    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into(), binitialstate.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[inline]

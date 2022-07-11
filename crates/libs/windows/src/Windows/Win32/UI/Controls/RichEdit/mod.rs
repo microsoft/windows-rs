@@ -2053,16 +2053,16 @@ impl IRichEditOle {
         (::windows::core::Interface::vtable(self).InsertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpreobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn ConvertObject(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(rclsidnew), ::core::mem::transmute(lpstrusertypenew)).ok()
+    pub unsafe fn ConvertObject<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConvertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(rclsidnew), lpstrusertypenew.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ActivateAs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rclsidas)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetHostNames(&self, lpstrcontainerapp: ::windows::core::PCSTR, lpstrcontainerobj: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpstrcontainerapp), ::core::mem::transmute(lpstrcontainerobj)).ok()
+    pub unsafe fn SetHostNames<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpstrcontainerapp: Param0, lpstrcontainerobj: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHostNames)(::windows::core::Interface::as_raw(self), lpstrcontainerapp.into(), lpstrcontainerobj.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8482,8 +8482,8 @@ impl ITextServices {
         (::windows::core::Interface::vtable(self).TxGetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn TxSetText(&self, psztext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TxSetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztext)).ok()
+    pub unsafe fn TxSetText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TxSetText)(::windows::core::Interface::as_raw(self), psztext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
@@ -8658,8 +8658,8 @@ impl ITextServices2 {
         (::windows::core::Interface::vtable(self).base__.TxGetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn TxSetText(&self, psztext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TxSetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztext)).ok()
+    pub unsafe fn TxSetText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TxSetText)(::windows::core::Interface::as_raw(self), psztext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {

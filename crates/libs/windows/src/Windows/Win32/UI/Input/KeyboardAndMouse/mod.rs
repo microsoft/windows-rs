@@ -996,23 +996,23 @@ impl ::core::default::Default for LIGATURE5 {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<'a, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(pwszklid: ::windows::core::PCSTR, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
+pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(pwszklid: Param0, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadKeyboardLayoutA(pwszklid: ::windows::core::PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
     }
-    let result__ = LoadKeyboardLayoutA(::core::mem::transmute(pwszklid), flags.into());
+    let result__ = LoadKeyboardLayoutA(pwszklid.into(), flags.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<'a, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(pwszklid: ::windows::core::PCWSTR, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
+pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(pwszklid: Param0, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadKeyboardLayoutW(pwszklid: ::windows::core::PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
     }
-    let result__ = LoadKeyboardLayoutW(::core::mem::transmute(pwszklid), flags.into());
+    let result__ = LoadKeyboardLayoutW(pwszklid.into(), flags.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]

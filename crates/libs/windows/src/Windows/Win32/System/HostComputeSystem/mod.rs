@@ -491,12 +491,12 @@ unsafe impl ::windows::core::Abi for HCS_SYSTEM {
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsAttachLayerStorageFilter(layerpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsAttachLayerStorageFilter<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0, layerdata: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsAttachLayerStorageFilter(layerpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsAttachLayerStorageFilter(::core::mem::transmute(layerpath), ::core::mem::transmute(layerdata)).ok()
+    HcsAttachLayerStorageFilter(layerpath.into(), layerdata.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -536,51 +536,51 @@ pub unsafe fn HcsCloseProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>>(pro
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCrashComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsCrashComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCrashComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsCrashComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsCrashComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HcsCreateComputeSystem<'a, Param2: ::std::convert::Into<HCS_OPERATION>>(id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: Param2, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::core::Result<HCS_SYSTEM> {
+pub unsafe fn HcsCreateComputeSystem<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<HCS_OPERATION>>(id: Param0, configuration: Param1, operation: Param2, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::core::Result<HCS_SYSTEM> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCreateComputeSystem(id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
-    HcsCreateComputeSystem(::core::mem::transmute(id), ::core::mem::transmute(configuration), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsCreateComputeSystem(id.into(), configuration.into(), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateComputeSystemInNamespace<'a, Param3: ::std::convert::Into<HCS_OPERATION>>(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: Param3, options: *const HCS_CREATE_OPTIONS) -> ::windows::core::Result<HCS_SYSTEM> {
+pub unsafe fn HcsCreateComputeSystemInNamespace<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<HCS_OPERATION>>(idnamespace: Param0, id: Param1, configuration: Param2, operation: Param3, options: *const HCS_CREATE_OPTIONS) -> ::windows::core::Result<HCS_SYSTEM> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCreateComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: HCS_OPERATION, options: *const HCS_CREATE_OPTIONS, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
-    HcsCreateComputeSystemInNamespace(::core::mem::transmute(idnamespace), ::core::mem::transmute(id), ::core::mem::transmute(configuration), operation.into(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsCreateComputeSystemInNamespace(idnamespace.into(), id.into(), configuration.into(), operation.into(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateEmptyGuestStateFile(gueststatefilepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsCreateEmptyGuestStateFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(gueststatefilepath: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCreateEmptyGuestStateFile(gueststatefilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsCreateEmptyGuestStateFile(::core::mem::transmute(gueststatefilepath)).ok()
+    HcsCreateEmptyGuestStateFile(gueststatefilepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsCreateEmptyRuntimeStateFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(runtimestatefilepath: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsCreateEmptyRuntimeStateFile(::core::mem::transmute(runtimestatefilepath)).ok()
+    HcsCreateEmptyRuntimeStateFile(runtimestatefilepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -594,67 +594,67 @@ pub unsafe fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: 
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HcsCreateProcess<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param2: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, processparameters: ::windows::core::PCWSTR, operation: Param2, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::core::Result<HCS_PROCESS> {
+pub unsafe fn HcsCreateProcess<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, processparameters: Param1, operation: Param2, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::core::Result<HCS_PROCESS> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: ::windows::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_PROCESS>::zeroed();
-    HcsCreateProcess(computesystem.into(), ::core::mem::transmute(processparameters), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
+    HcsCreateProcess(computesystem.into(), processparameters.into(), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsDestroyLayer(layerpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsDestroyLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsDestroyLayer(layerpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsDestroyLayer(::core::mem::transmute(layerpath)).ok()
+    HcsDestroyLayer(layerpath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsDetachLayerStorageFilter(layerpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsDetachLayerStorageFilter<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsDetachLayerStorageFilter(layerpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsDetachLayerStorageFilter(::core::mem::transmute(layerpath)).ok()
+    HcsDetachLayerStorageFilter(layerpath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsEnumerateComputeSystems<'a, Param1: ::std::convert::Into<HCS_OPERATION>>(query: ::windows::core::PCWSTR, operation: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn HcsEnumerateComputeSystems<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<HCS_OPERATION>>(query: Param0, operation: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsEnumerateComputeSystems(query: ::windows::core::PCWSTR, operation: HCS_OPERATION) -> ::windows::core::HRESULT;
     }
-    HcsEnumerateComputeSystems(::core::mem::transmute(query), operation.into()).ok()
+    HcsEnumerateComputeSystems(query.into(), operation.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsEnumerateComputeSystemsInNamespace<'a, Param2: ::std::convert::Into<HCS_OPERATION>>(idnamespace: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, operation: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn HcsEnumerateComputeSystemsInNamespace<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<HCS_OPERATION>>(idnamespace: Param0, query: Param1, operation: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsEnumerateComputeSystemsInNamespace(idnamespace: ::windows::core::PCWSTR, query: ::windows::core::PCWSTR, operation: HCS_OPERATION) -> ::windows::core::HRESULT;
     }
-    HcsEnumerateComputeSystemsInNamespace(::core::mem::transmute(idnamespace), ::core::mem::transmute(query), operation.into()).ok()
+    HcsEnumerateComputeSystemsInNamespace(idnamespace.into(), query.into(), operation.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsExportLayer(layerpath: ::windows::core::PCWSTR, exportfolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsExportLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0, exportfolderpath: Param1, layerdata: Param2, options: Param3) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsExportLayer(layerpath: ::windows::core::PCWSTR, exportfolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsExportLayer(::core::mem::transmute(layerpath), ::core::mem::transmute(exportfolderpath), ::core::mem::transmute(layerdata), ::core::mem::transmute(options)).ok()
+    HcsExportLayer(layerpath.into(), exportfolderpath.into(), layerdata.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsExportLegacyWritableLayer(writablelayermountpath: ::windows::core::PCWSTR, writablelayerfolderpath: ::windows::core::PCWSTR, exportfolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsExportLegacyWritableLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(writablelayermountpath: Param0, writablelayerfolderpath: Param1, exportfolderpath: Param2, layerdata: Param3) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsExportLegacyWritableLayer(writablelayermountpath: ::windows::core::PCWSTR, writablelayerfolderpath: ::windows::core::PCWSTR, exportfolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsExportLegacyWritableLayer(::core::mem::transmute(writablelayermountpath), ::core::mem::transmute(writablelayerfolderpath), ::core::mem::transmute(exportfolderpath), ::core::mem::transmute(layerdata)).ok()
+    HcsExportLegacyWritableLayer(writablelayermountpath.into(), writablelayerfolderpath.into(), exportfolderpath.into(), layerdata.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -677,12 +677,12 @@ pub unsafe fn HcsGetComputeSystemFromOperation<'a, Param0: ::std::convert::Into<
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetComputeSystemProperties<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, propertyquery: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsGetComputeSystemProperties<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, propertyquery: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsGetComputeSystemProperties(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, propertyquery: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsGetComputeSystemProperties(computesystem.into(), operation.into(), ::core::mem::transmute(propertyquery)).ok()
+    HcsGetComputeSystemProperties(computesystem.into(), operation.into(), propertyquery.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -762,126 +762,126 @@ pub unsafe fn HcsGetProcessInfo<'a, Param0: ::std::convert::Into<HCS_PROCESS>, P
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessProperties<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>>(process: Param0, operation: Param1, propertyquery: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsGetProcessProperties<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(process: Param0, operation: Param1, propertyquery: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsGetProcessProperties(process: HCS_PROCESS, operation: HCS_OPERATION, propertyquery: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsGetProcessProperties(process.into(), operation.into(), ::core::mem::transmute(propertyquery)).ok()
+    HcsGetProcessProperties(process.into(), operation.into(), propertyquery.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(runtimefilename: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename: ::windows::core::PCWSTR, processorfeaturesstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    HcsGetProcessorCompatibilityFromSavedState(::core::mem::transmute(runtimefilename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGetServiceProperties(propertyquery: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcsGetServiceProperties<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(propertyquery: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsGetServiceProperties(propertyquery: ::windows::core::PCWSTR, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    HcsGetServiceProperties(::core::mem::transmute(propertyquery), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    HcsGetServiceProperties(propertyquery.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGrantVmAccess(vmid: ::windows::core::PCWSTR, filepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsGrantVmAccess<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(vmid: Param0, filepath: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsGrantVmAccess(vmid: ::windows::core::PCWSTR, filepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsGrantVmAccess(::core::mem::transmute(vmid), ::core::mem::transmute(filepath)).ok()
+    HcsGrantVmAccess(vmid.into(), filepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsGrantVmGroupAccess(filepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsGrantVmGroupAccess<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(filepath: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsGrantVmGroupAccess(filepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsGrantVmGroupAccess(::core::mem::transmute(filepath)).ok()
+    HcsGrantVmGroupAccess(filepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsImportLayer(layerpath: ::windows::core::PCWSTR, sourcefolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsImportLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0, sourcefolderpath: Param1, layerdata: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsImportLayer(layerpath: ::windows::core::PCWSTR, sourcefolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsImportLayer(::core::mem::transmute(layerpath), ::core::mem::transmute(sourcefolderpath), ::core::mem::transmute(layerdata)).ok()
+    HcsImportLayer(layerpath.into(), sourcefolderpath.into(), layerdata.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsInitializeLegacyWritableLayer(writablelayermountpath: ::windows::core::PCWSTR, writablelayerfolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsInitializeLegacyWritableLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(writablelayermountpath: Param0, writablelayerfolderpath: Param1, layerdata: Param2, options: Param3) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsInitializeLegacyWritableLayer(writablelayermountpath: ::windows::core::PCWSTR, writablelayerfolderpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsInitializeLegacyWritableLayer(::core::mem::transmute(writablelayermountpath), ::core::mem::transmute(writablelayerfolderpath), ::core::mem::transmute(layerdata), ::core::mem::transmute(options)).ok()
+    HcsInitializeLegacyWritableLayer(writablelayermountpath.into(), writablelayerfolderpath.into(), layerdata.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsInitializeWritableLayer(writablelayerpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsInitializeWritableLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(writablelayerpath: Param0, layerdata: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsInitializeWritableLayer(writablelayerpath: ::windows::core::PCWSTR, layerdata: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsInitializeWritableLayer(::core::mem::transmute(writablelayerpath), ::core::mem::transmute(layerdata), ::core::mem::transmute(options)).ok()
+    HcsInitializeWritableLayer(writablelayerpath.into(), layerdata.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsModifyComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(computesystem: Param0, operation: Param1, configuration: ::windows::core::PCWSTR, identity: Param3) -> ::windows::core::Result<()> {
+pub unsafe fn HcsModifyComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(computesystem: Param0, operation: Param1, configuration: Param2, identity: Param3) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsModifyComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: ::windows::core::PCWSTR, identity: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    HcsModifyComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(configuration), identity.into()).ok()
+    HcsModifyComputeSystem(computesystem.into(), operation.into(), configuration.into(), identity.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsModifyProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>>(process: Param0, operation: Param1, settings: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsModifyProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(process: Param0, operation: Param1, settings: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsModifyProcess(process: HCS_PROCESS, operation: HCS_OPERATION, settings: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsModifyProcess(process.into(), operation.into(), ::core::mem::transmute(settings)).ok()
+    HcsModifyProcess(process.into(), operation.into(), settings.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsModifyServiceSettings(settings: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn HcsModifyServiceSettings<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(settings: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsModifyServiceSettings(settings: ::windows::core::PCWSTR, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    HcsModifyServiceSettings(::core::mem::transmute(settings), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    HcsModifyServiceSettings(settings.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsOpenComputeSystem(id: ::windows::core::PCWSTR, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM> {
+pub unsafe fn HcsOpenComputeSystem<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(id: Param0, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsOpenComputeSystem(id: ::windows::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
-    HcsOpenComputeSystem(::core::mem::transmute(id), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsOpenComputeSystem(id.into(), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsOpenComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM> {
+pub unsafe fn HcsOpenComputeSystemInNamespace<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(idnamespace: Param0, id: Param1, requestedaccess: u32) -> ::windows::core::Result<HCS_SYSTEM> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsOpenComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
-    HcsOpenComputeSystemInNamespace(::core::mem::transmute(idnamespace), ::core::mem::transmute(id), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsOpenComputeSystemInNamespace(idnamespace.into(), id.into(), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -895,48 +895,48 @@ pub unsafe fn HcsOpenProcess<'a, Param0: ::std::convert::Into<HCS_SYSTEM>>(compu
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsPauseComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsPauseComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsPauseComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsPauseComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsPauseComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsResumeComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsResumeComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsResumeComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsResumeComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsResumeComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsRevokeVmAccess(vmid: ::windows::core::PCWSTR, filepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsRevokeVmAccess<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(vmid: Param0, filepath: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsRevokeVmAccess(vmid: ::windows::core::PCWSTR, filepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsRevokeVmAccess(::core::mem::transmute(vmid), ::core::mem::transmute(filepath)).ok()
+    HcsRevokeVmAccess(vmid.into(), filepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsRevokeVmGroupAccess(filepath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsRevokeVmGroupAccess<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(filepath: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsRevokeVmGroupAccess(filepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsRevokeVmGroupAccess(::core::mem::transmute(filepath)).ok()
+    HcsRevokeVmGroupAccess(filepath.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSaveComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSaveComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSaveComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsSaveComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsSaveComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -977,75 +977,75 @@ pub unsafe fn HcsSetProcessCallback<'a, Param0: ::std::convert::Into<HCS_PROCESS
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsSetupBaseOSLayer<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(layerpath: ::windows::core::PCWSTR, vhdhandle: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSetupBaseOSLayer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0, vhdhandle: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSetupBaseOSLayer(layerpath: ::windows::core::PCWSTR, vhdhandle: super::super::Foundation::HANDLE, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsSetupBaseOSLayer(::core::mem::transmute(layerpath), vhdhandle.into(), ::core::mem::transmute(options)).ok()
+    HcsSetupBaseOSLayer(layerpath.into(), vhdhandle.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetupBaseOSVolume(layerpath: ::windows::core::PCWSTR, volumepath: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSetupBaseOSVolume<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(layerpath: Param0, volumepath: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSetupBaseOSVolume(layerpath: ::windows::core::PCWSTR, volumepath: ::windows::core::PCWSTR, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsSetupBaseOSVolume(::core::mem::transmute(layerpath), ::core::mem::transmute(volumepath), ::core::mem::transmute(options)).ok()
+    HcsSetupBaseOSVolume(layerpath.into(), volumepath.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsShutDownComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsShutDownComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsShutDownComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsShutDownComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsShutDownComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSignalProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>>(process: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSignalProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(process: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSignalProcess(process: HCS_PROCESS, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsSignalProcess(process.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsSignalProcess(process.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsStartComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsStartComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsStartComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsStartComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsStartComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSubmitWerReport(settings: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsSubmitWerReport<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(settings: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSubmitWerReport(settings: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsSubmitWerReport(::core::mem::transmute(settings)).ok()
+    HcsSubmitWerReport(settings.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsTerminateComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>>(computesystem: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsTerminateComputeSystem<'a, Param0: ::std::convert::Into<HCS_SYSTEM>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsTerminateComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsTerminateComputeSystem(computesystem.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsTerminateComputeSystem(computesystem.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsTerminateProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>>(process: Param0, operation: Param1, options: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn HcsTerminateProcess<'a, Param0: ::std::convert::Into<HCS_PROCESS>, Param1: ::std::convert::Into<HCS_OPERATION>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(process: Param0, operation: Param1, options: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsTerminateProcess(process: HCS_PROCESS, operation: HCS_OPERATION, options: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    HcsTerminateProcess(process.into(), operation.into(), ::core::mem::transmute(options)).ok()
+    HcsTerminateProcess(process.into(), operation.into(), options.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]

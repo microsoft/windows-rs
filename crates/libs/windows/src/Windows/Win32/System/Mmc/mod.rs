@@ -1732,9 +1732,9 @@ impl IConsole {
         (::windows::core::Interface::vtable(self).UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), ::core::mem::transmute(hint)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn MessageBox(&self, lpsztext: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, fustyle: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MessageBox<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lpsztext: Param0, lpsztitle: Param1, fustyle: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).MessageBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpsztext), ::core::mem::transmute(lpsztitle), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
@@ -1846,9 +1846,9 @@ impl IConsole2 {
         (::windows::core::Interface::vtable(self).base__.UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), ::core::mem::transmute(hint)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn MessageBox(&self, lpsztext: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, fustyle: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MessageBox<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lpsztext: Param0, lpsztitle: Param1, fustyle: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MessageBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpsztext), ::core::mem::transmute(lpsztitle), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
@@ -1879,8 +1879,8 @@ impl IConsole2 {
         (::windows::core::Interface::vtable(self).IsTaskpadViewPreferred)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetStatusText(&self, pszstatustext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatusText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstatustext)).ok()
+    pub unsafe fn SetStatusText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszstatustext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatusText)(::windows::core::Interface::as_raw(self), pszstatustext.into()).ok()
     }
 }
 impl ::core::convert::From<IConsole2> for ::windows::core::IUnknown {
@@ -1977,9 +1977,9 @@ impl IConsole3 {
         (::windows::core::Interface::vtable(self).base__.base__.UpdateAllViews)(::windows::core::Interface::as_raw(self), lpdataobject.into().abi(), data.into(), ::core::mem::transmute(hint)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn MessageBox(&self, lpsztext: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, fustyle: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MessageBox<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lpsztext: Param0, lpsztitle: Param1, fustyle: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.MessageBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpsztext), ::core::mem::transmute(lpsztitle), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.MessageBox)(::windows::core::Interface::as_raw(self), lpsztext.into(), lpsztitle.into(), ::core::mem::transmute(fustyle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
@@ -2010,8 +2010,8 @@ impl IConsole3 {
         (::windows::core::Interface::vtable(self).base__.IsTaskpadViewPreferred)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetStatusText(&self, pszstatustext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStatusText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszstatustext)).ok()
+    pub unsafe fn SetStatusText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszstatustext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStatusText)(::windows::core::Interface::as_raw(self), pszstatustext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()> {
@@ -2730,8 +2730,8 @@ pub struct IControlbar_Vtbl {
 pub struct IDisplayHelp(::windows::core::IUnknown);
 impl IDisplayHelp {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn ShowTopic(&self, pszhelptopic: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowTopic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszhelptopic)).ok()
+    pub unsafe fn ShowTopic<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszhelptopic: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowTopic)(::windows::core::Interface::as_raw(self), pszhelptopic.into()).ok()
     }
 }
 impl ::core::convert::From<IDisplayHelp> for ::windows::core::IUnknown {
@@ -3116,29 +3116,29 @@ impl IExtendTaskPad {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumTasks<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>>(&self, pdo: Param0, sztaskgroup: ::windows::core::PCWSTR) -> ::windows::core::Result<IEnumTASK> {
+    pub unsafe fn EnumTasks<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pdo: Param0, sztaskgroup: Param1) -> ::windows::core::Result<IEnumTASK> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumTasks)(::windows::core::Interface::as_raw(self), pdo.into().abi(), ::core::mem::transmute(sztaskgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTASK>(result__)
+        (::windows::core::Interface::vtable(self).EnumTasks)(::windows::core::Interface::as_raw(self), pdo.into().abi(), sztaskgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTASK>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn GetTitle(&self, pszgroup: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+    pub unsafe fn GetTitle<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszgroup: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetTitle)(::windows::core::Interface::as_raw(self), pszgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn GetDescriptiveText(&self, pszgroup: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+    pub unsafe fn GetDescriptiveText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszgroup: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDescriptiveText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDescriptiveText)(::windows::core::Interface::as_raw(self), pszgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn GetBackground(&self, pszgroup: ::windows::core::PCWSTR) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT> {
+    pub unsafe fn GetBackground<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszgroup: Param0) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT> {
         let mut result__ = ::core::mem::MaybeUninit::<MMC_TASK_DISPLAY_OBJECT>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackground)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MMC_TASK_DISPLAY_OBJECT>(result__)
+        (::windows::core::Interface::vtable(self).GetBackground)(::windows::core::Interface::as_raw(self), pszgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MMC_TASK_DISPLAY_OBJECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn GetListPadInfo(&self, pszgroup: ::windows::core::PCWSTR) -> ::windows::core::Result<MMC_LISTPAD_INFO> {
+    pub unsafe fn GetListPadInfo<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszgroup: Param0) -> ::windows::core::Result<MMC_LISTPAD_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<MMC_LISTPAD_INFO>::zeroed();
-        (::windows::core::Interface::vtable(self).GetListPadInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MMC_LISTPAD_INFO>(result__)
+        (::windows::core::Interface::vtable(self).GetListPadInfo)(::windows::core::Interface::as_raw(self), pszgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MMC_LISTPAD_INFO>(result__)
     }
 }
 impl ::core::convert::From<IExtendTaskPad> for ::windows::core::IUnknown {
@@ -3252,16 +3252,16 @@ pub struct IExtendView_Vtbl {
 pub struct IHeaderCtrl(::windows::core::IUnknown);
 impl IHeaderCtrl {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn InsertColumn(&self, ncol: i32, title: ::windows::core::PCWSTR, nformat: i32, nwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(title), ::core::mem::transmute(nformat), ::core::mem::transmute(nwidth)).ok()
+    pub unsafe fn InsertColumn<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ncol: i32, title: Param1, nformat: i32, nwidth: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InsertColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into(), ::core::mem::transmute(nformat), ::core::mem::transmute(nwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetColumnText(&self, ncol: i32, title: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(title)).ok()
+    pub unsafe fn SetColumnText<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ncol: i32, title: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3329,16 +3329,16 @@ pub struct IHeaderCtrl_Vtbl {
 pub struct IHeaderCtrl2(::windows::core::IUnknown);
 impl IHeaderCtrl2 {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn InsertColumn(&self, ncol: i32, title: ::windows::core::PCWSTR, nformat: i32, nwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InsertColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(title), ::core::mem::transmute(nformat), ::core::mem::transmute(nwidth)).ok()
+    pub unsafe fn InsertColumn<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ncol: i32, title: Param1, nformat: i32, nwidth: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InsertColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into(), ::core::mem::transmute(nformat), ::core::mem::transmute(nwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DeleteColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetColumnText(&self, ncol: i32, title: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), ::core::mem::transmute(title)).ok()
+    pub unsafe fn SetColumnText<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ncol: i32, title: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetColumnText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncol), title.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3539,12 +3539,12 @@ pub struct IMMCVersionInfo_Vtbl {
 pub struct IMenuButton(::windows::core::IUnknown);
 impl IMenuButton {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn AddButton(&self, idcommand: i32, lpbuttontext: ::windows::core::PCWSTR, lptooltiptext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), ::core::mem::transmute(lpbuttontext), ::core::mem::transmute(lptooltiptext)).ok()
+    pub unsafe fn AddButton<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, idcommand: i32, lpbuttontext: Param1, lptooltiptext: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), lpbuttontext.into(), lptooltiptext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetButton(&self, idcommand: i32, lpbuttontext: ::windows::core::PCWSTR, lptooltiptext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), ::core::mem::transmute(lpbuttontext), ::core::mem::transmute(lptooltiptext)).ok()
+    pub unsafe fn SetButton<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, idcommand: i32, lpbuttontext: Param1, lptooltiptext: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetButton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idcommand), lpbuttontext.into(), lptooltiptext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3603,12 +3603,12 @@ pub struct IMenuButton_Vtbl {
 pub struct IMessageView(::windows::core::IUnknown);
 impl IMessageView {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetTitleText(&self, psztitletext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitleText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psztitletext)).ok()
+    pub unsafe fn SetTitleText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, psztitletext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTitleText)(::windows::core::Interface::as_raw(self), psztitletext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetBodyText(&self, pszbodytext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBodyText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszbodytext)).ok()
+    pub unsafe fn SetBodyText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszbodytext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBodyText)(::windows::core::Interface::as_raw(self), pszbodytext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetIcon<'a, Param0: ::std::convert::Into<IconIdentifier>>(&self, id: Param0) -> ::windows::core::Result<()> {
@@ -3787,8 +3787,8 @@ pub struct IPropertySheetProvider(::windows::core::IUnknown);
 impl IPropertySheetProvider {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertySheet<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>>(&self, title: ::windows::core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: Param3, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreatePropertySheet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(title), ::core::mem::transmute(r#type), ::core::mem::transmute(cookie), pidataobjectm.into().abi(), ::core::mem::transmute(dwoptions)).ok()
+    pub unsafe fn CreatePropertySheet<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>>(&self, title: Param0, r#type: u8, cookie: isize, pidataobjectm: Param3, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreatePropertySheet)(::windows::core::Interface::as_raw(self), title.into(), ::core::mem::transmute(r#type), ::core::mem::transmute(cookie), pidataobjectm.into().abi(), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3990,8 +3990,8 @@ impl IResultData {
         (::windows::core::Interface::vtable(self).Sort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(dwsortoptions), luserparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetDescBarText(&self, desctext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescBarText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desctext)).ok()
+    pub unsafe fn SetDescBarText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, desctext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescBarText)(::windows::core::Interface::as_raw(self), desctext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()> {
@@ -4136,8 +4136,8 @@ impl IResultData2 {
         (::windows::core::Interface::vtable(self).base__.Sort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncolumn), ::core::mem::transmute(dwsortoptions), luserparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn SetDescBarText(&self, desctext: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescBarText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desctext)).ok()
+    pub unsafe fn SetDescBarText<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, desctext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescBarText)(::windows::core::Interface::as_raw(self), desctext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()> {
@@ -4655,8 +4655,8 @@ pub struct ISnapinProperties_Vtbl {
 pub struct ISnapinPropertiesCallback(::windows::core::IUnknown);
 impl ISnapinPropertiesCallback {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn AddPropertyName(&self, pszpropname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPropertyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpropname), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn AddPropertyName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpropname: Param0, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddPropertyName)(::windows::core::Interface::as_raw(self), pszpropname.into(), ::core::mem::transmute(dwflags)).ok()
     }
 }
 impl ::core::convert::From<ISnapinPropertiesCallback> for ::windows::core::IUnknown {
@@ -4705,9 +4705,9 @@ pub struct ISnapinPropertiesCallback_Vtbl {
 pub struct IStringTable(::windows::core::IUnknown);
 impl IStringTable {
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn AddString(&self, pszadd: ::windows::core::PCWSTR) -> ::windows::core::Result<u32> {
+    pub unsafe fn AddString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszadd: Param0) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).AddString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszadd), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AddString)(::windows::core::Interface::as_raw(self), pszadd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> ::windows::core::Result<()> {
@@ -4727,9 +4727,9 @@ impl IStringTable {
         (::windows::core::Interface::vtable(self).DeleteAllStrings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-    pub unsafe fn FindString(&self, pszfind: ::windows::core::PCWSTR) -> ::windows::core::Result<u32> {
+    pub unsafe fn FindString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszfind: Param0) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).FindString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfind), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FindString)(::windows::core::Interface::as_raw(self), pszfind.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

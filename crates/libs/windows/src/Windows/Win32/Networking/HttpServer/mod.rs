@@ -5053,31 +5053,31 @@ impl ::core::default::Default for HTTP_WSK_API_TIMINGS {
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, urlprefix: ::windows::core::PCWSTR, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpAddFragmentToCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpAddFragmentToCache(requestqueuehandle.into(), ::core::mem::transmute(urlprefix), ::core::mem::transmute(datachunk), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(HttpAddFragmentToCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(datachunk), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddUrl<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, fullyqualifiedurl: ::windows::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn HttpAddUrl<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpAddUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: ::windows::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(HttpAddUrl(requestqueuehandle.into(), ::core::mem::transmute(fullyqualifiedurl), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(HttpAddUrl(requestqueuehandle.into(), fullyqualifiedurl.into(), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, urlcontext: u64, reserved: u32) -> u32 {
+pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, urlcontext: u64, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(HttpAddUrlToUrlGroup(::core::mem::transmute(urlgroupid), ::core::mem::transmute(pfullyqualifiedurl), ::core::mem::transmute(urlcontext), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(HttpAddUrlToUrlGroup(::core::mem::transmute(urlgroupid), pfullyqualifiedurl.into(), ::core::mem::transmute(urlcontext), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5130,12 +5130,12 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: ::windows::core::PCWSTR, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn HttpCreateRequestQueue<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(version: HTTPAPI_VERSION, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: ::windows::core::PCWSTR, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(HttpCreateRequestQueue(::core::mem::transmute(version), ::core::mem::transmute(name), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flags), ::core::mem::transmute(requestqueuehandle)))
+    ::core::mem::transmute(HttpCreateRequestQueue(::core::mem::transmute(version), name.into(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flags), ::core::mem::transmute(requestqueuehandle)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5158,12 +5158,12 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpDeclarePush<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<HTTP_VERB>>(requestqueuehandle: Param0, requestid: u64, verb: Param2, path: ::windows::core::PCWSTR, query: ::windows::core::PCSTR, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
+pub unsafe fn HttpDeclarePush<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<HTTP_VERB>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(requestqueuehandle: Param0, requestid: u64, verb: Param2, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpDeclarePush(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: ::windows::core::PCWSTR, query: ::windows::core::PCSTR, headers: *const HTTP_REQUEST_HEADERS) -> u32;
     }
-    ::core::mem::transmute(HttpDeclarePush(requestqueuehandle.into(), ::core::mem::transmute(requestid), verb.into(), ::core::mem::transmute(path), ::core::mem::transmute(query), ::core::mem::transmute(headers)))
+    ::core::mem::transmute(HttpDeclarePush(requestqueuehandle.into(), ::core::mem::transmute(requestid), verb.into(), path.into(), query.into(), ::core::mem::transmute(headers)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5188,22 +5188,22 @@ pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(fullyqualifiedurl: ::windows::core::PCWSTR, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
+pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpFindUrlGroupId(fullyqualifiedurl: ::windows::core::PCWSTR, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32;
     }
-    ::core::mem::transmute(HttpFindUrlGroupId(::core::mem::transmute(fullyqualifiedurl), requestqueuehandle.into(), ::core::mem::transmute(urlgroupid)))
+    ::core::mem::transmute(HttpFindUrlGroupId(fullyqualifiedurl.into(), requestqueuehandle.into(), ::core::mem::transmute(urlgroupid)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, urlprefix: ::windows::core::PCWSTR, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpFlushResponseCache<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpFlushResponseCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpFlushResponseCache(requestqueuehandle.into(), ::core::mem::transmute(urlprefix), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(HttpFlushResponseCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
@@ -5235,12 +5235,12 @@ pub unsafe fn HttpIsFeatureSupported<'a, Param0: ::std::convert::Into<HTTP_FEATU
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpPrepareUrl(reserved: *mut ::core::ffi::c_void, flags: u32, url: ::windows::core::PCWSTR, preparedurl: *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn HttpPrepareUrl<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(reserved: *mut ::core::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpPrepareUrl(reserved: *mut ::core::ffi::c_void, flags: u32, url: ::windows::core::PCWSTR, preparedurl: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(HttpPrepareUrl(::core::mem::transmute(reserved), ::core::mem::transmute(flags), ::core::mem::transmute(url), ::core::mem::transmute(preparedurl)))
+    ::core::mem::transmute(HttpPrepareUrl(::core::mem::transmute(reserved), ::core::mem::transmute(flags), url.into(), ::core::mem::transmute(preparedurl)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5283,12 +5283,12 @@ pub unsafe fn HttpQueryUrlGroupProperty<'a, Param1: ::std::convert::Into<HTTP_SE
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, urlprefix: ::windows::core::PCWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    ::core::mem::transmute(HttpReadFragmentFromCache(requestqueuehandle.into(), ::core::mem::transmute(urlprefix), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(bytesread), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(HttpReadFragmentFromCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(bytesread), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -5323,21 +5323,21 @@ pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::std::convert::Into<supe
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpRemoveUrl<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, fullyqualifiedurl: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn HttpRemoveUrl<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpRemoveUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(HttpRemoveUrl(requestqueuehandle.into(), ::core::mem::transmute(fullyqualifiedurl)))
+    ::core::mem::transmute(HttpRemoveUrl(requestqueuehandle.into(), fullyqualifiedurl.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, flags: u32) -> u32 {
+pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    ::core::mem::transmute(HttpRemoveUrlFromUrlGroup(::core::mem::transmute(urlgroupid), ::core::mem::transmute(pfullyqualifiedurl), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(HttpRemoveUrlFromUrlGroup(::core::mem::transmute(urlgroupid), pfullyqualifiedurl.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

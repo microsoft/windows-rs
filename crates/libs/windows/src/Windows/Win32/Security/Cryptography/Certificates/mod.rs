@@ -2611,21 +2611,21 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupOpenFileW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: Param1, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
     }
-    CertSrvBackupOpenFileW(::core::mem::transmute(hbc), ::core::mem::transmute(pwszattachmentname), ::core::mem::transmute(cbreadhintsize), ::core::mem::transmute(plifilesize)).ok()
+    CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into(), ::core::mem::transmute(cbreadhintsize), ::core::mem::transmute(plifilesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvBackupPrepareW<'a, Param2: ::std::convert::Into<CSBACKUP_TYPE>>(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: Param2, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupPrepareW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<CSBACKUP_TYPE>>(pwszservername: Param0, grbitjet: u32, dwbackupflags: Param2, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvBackupPrepareW(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CertSrvBackupPrepareW(::core::mem::transmute(pwszservername), ::core::mem::transmute(grbitjet), dwbackupflags.into(), ::core::mem::transmute(phbc)).ok()
+    CertSrvBackupPrepareW(pwszservername.into(), ::core::mem::transmute(grbitjet), dwbackupflags.into(), ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2648,12 +2648,12 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CertSrvIsServerOnlineW(pwszservername: ::windows::core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvIsServerOnlineW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwszservername: Param0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvIsServerOnlineW(pwszservername: ::windows::core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    CertSrvIsServerOnlineW(::core::mem::transmute(pwszservername), ::core::mem::transmute(pfserveronline)).ok()
+    CertSrvIsServerOnlineW(pwszservername.into(), ::core::mem::transmute(pfserveronline)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2675,12 +2675,12 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvRestorePrepareW(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestorePrepareW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwszservername: Param0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvRestorePrepareW(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CertSrvRestorePrepareW(::core::mem::transmute(pwszservername), ::core::mem::transmute(dwrestoreflags), ::core::mem::transmute(phbc)).ok()
+    CertSrvRestorePrepareW(pwszservername.into(), ::core::mem::transmute(dwrestoreflags), ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -2693,30 +2693,30 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
     }
-    CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), ::core::mem::transmute(pwszcheckpointfilepath), ::core::mem::transmute(pwszlogpath), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), ::core::mem::transmute(pwszbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
+    CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestoreRegisterW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
     }
-    CertSrvRestoreRegisterW(::core::mem::transmute(hbc), ::core::mem::transmute(pwszcheckpointfilepath), ::core::mem::transmute(pwszlogpath), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), ::core::mem::transmute(pwszbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
+    CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into(), pwszlogpath.into(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
-pub unsafe fn CertSrvServerControlW(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvServerControlW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwszservername: Param0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CertSrvServerControlW(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    CertSrvServerControlW(::core::mem::transmute(pwszservername), ::core::mem::transmute(dwcontrolflags), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
+    CertSrvServerControlW(pwszservername.into(), ::core::mem::transmute(dwcontrolflags), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -11873,17 +11873,17 @@ pub struct ICertRequest3_Vtbl {
 pub struct ICertRequestD(::windows::core::IUnknown);
 impl ICertRequestD {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Request(&self, dwflags: u32, pwszauthority: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), ::core::mem::transmute(pwszattributes), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
+    pub unsafe fn Request<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: u32, pwszauthority: Param1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param4, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pwszauthority.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn GetCACert(&self, fchain: u32, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::Result<CERTTRANSBLOB> {
+    pub unsafe fn GetCACert<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, fchain: u32, pwszauthority: Param1) -> ::windows::core::Result<CERTTRANSBLOB> {
         let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCACert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fchain), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
+        (::windows::core::Interface::vtable(self).GetCACert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fchain), pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Ping(&self, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Ping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszauthority)).ok()
+    pub unsafe fn Ping<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Ping)(::windows::core::Interface::as_raw(self), pwszauthority.into()).ok()
     }
 }
 impl ::core::convert::From<ICertRequestD> for ::windows::core::IUnknown {
@@ -11934,34 +11934,34 @@ pub struct ICertRequestD_Vtbl {
 pub struct ICertRequestD2(::windows::core::IUnknown);
 impl ICertRequestD2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Request(&self, dwflags: u32, pwszauthority: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), ::core::mem::transmute(pwszattributes), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
+    pub unsafe fn Request<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: u32, pwszauthority: Param1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param4, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pwszauthority.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn GetCACert(&self, fchain: u32, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::Result<CERTTRANSBLOB> {
+    pub unsafe fn GetCACert<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, fchain: u32, pwszauthority: Param1) -> ::windows::core::Result<CERTTRANSBLOB> {
         let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCACert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fchain), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCACert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fchain), pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Ping(&self, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Ping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszauthority)).ok()
+    pub unsafe fn Ping<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Ping)(::windows::core::Interface::as_raw(self), pwszauthority.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Request2(&self, pwszauthority: ::windows::core::PCWSTR, dwflags: u32, pwszserialnumber: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Request2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(dwflags), ::core::mem::transmute(pwszserialnumber), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), ::core::mem::transmute(pwszattributes), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbfullresponse), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
+    pub unsafe fn Request2<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszauthority: Param0, dwflags: u32, pwszserialnumber: Param2, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param5, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Request2)(::windows::core::Interface::as_raw(self), pwszauthority.into(), ::core::mem::transmute(dwflags), pwszserialnumber.into(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbfullresponse), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn GetCAProperty(&self, pwszauthority: ::windows::core::PCWSTR, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB> {
+    pub unsafe fn GetCAProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszauthority: Param0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB> {
         let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
-        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
+        (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), pwszauthority.into(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn GetCAPropertyInfo(&self, pwszauthority: ::windows::core::PCWSTR, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCAPropertyInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszauthority), ::core::mem::transmute(pcproperty), ::core::mem::transmute(pctbpropinfo)).ok()
+    pub unsafe fn GetCAPropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszauthority: Param0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCAPropertyInfo)(::windows::core::Interface::as_raw(self), pwszauthority.into(), ::core::mem::transmute(pcproperty), ::core::mem::transmute(pctbpropinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Ping2(&self, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Ping2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszauthority)).ok()
+    pub unsafe fn Ping2<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Ping2)(::windows::core::Interface::as_raw(self), pwszauthority.into()).ok()
     }
 }
 impl ::core::convert::From<ICertRequestD2> for ::windows::core::IUnknown {
@@ -14494,16 +14494,16 @@ pub struct ICspStatuses_Vtbl {
 pub struct IEnroll(::windows::core::IUnknown);
 impl IEnroll {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createFilePKCS10WStr(&self, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, wszpkcs10filename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createFilePKCS10WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dnname), ::core::mem::transmute(usage), ::core::mem::transmute(wszpkcs10filename)).ok()
+    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).createFilePKCS10WStr)(::windows::core::Interface::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn acceptFilePKCS7WStr(&self, wszpkcs7filename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).acceptFilePKCS7WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszpkcs7filename)).ok()
+    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).acceptFilePKCS7WStr)(::windows::core::Interface::as_raw(self), wszpkcs7filename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createPKCS10WStr(&self, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createPKCS10WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dnname), ::core::mem::transmute(usage), ::core::mem::transmute(ppkcs10blob)).ok()
+    pub unsafe fn createPKCS10WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).createPKCS10WStr)(::windows::core::Interface::as_raw(self), dnname.into(), usage.into(), ::core::mem::transmute(ppkcs10blob)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -14543,16 +14543,16 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).MyStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetMyStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMyStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMyStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MyStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetMyStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMyStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMyStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -14567,16 +14567,16 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).CAStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetCAStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCAStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCAStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CAStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetCAStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCAStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCAStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -14591,16 +14591,16 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).RootStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRootStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRootStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRootStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RootStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRootStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRootStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRootStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -14615,16 +14615,16 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).RequestStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRequestStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequestStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRequestStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRequestStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -14639,16 +14639,16 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).ContainerNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwcontainer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetContainerNameWStr(&self, szwcontainer: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContainerNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwcontainer)).ok()
+    pub unsafe fn SetContainerNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetContainerNameWStr)(::windows::core::Interface::as_raw(self), szwcontainer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProviderNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwprovider)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetProviderNameWStr(&self, szwprovider: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwprovider)).ok()
+    pub unsafe fn SetProviderNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProviderNameWStr)(::windows::core::Interface::as_raw(self), szwprovider.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> ::windows::core::Result<()> {
@@ -14737,24 +14737,24 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).SPCFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetSPCFileNameWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSPCFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSPCFileNameWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PVKFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetPVKFileNameWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPVKFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPVKFileNameWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HashAlgorithmWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetHashAlgorithmWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithmWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHashAlgorithmWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14767,12 +14767,12 @@ impl IEnroll {
         (::windows::core::Interface::vtable(self).SetRenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcertcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn AddCertTypeToRequestWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn AddNameValuePairToSignatureWStr(&self, name: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddNameValuePairToSignatureWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddNameValuePairToSignatureWStr)(::windows::core::Interface::as_raw(self), name.into(), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14949,16 +14949,16 @@ pub struct IEnroll_Vtbl {
 pub struct IEnroll2(::windows::core::IUnknown);
 impl IEnroll2 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createFilePKCS10WStr(&self, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, wszpkcs10filename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.createFilePKCS10WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dnname), ::core::mem::transmute(usage), ::core::mem::transmute(wszpkcs10filename)).ok()
+    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.createFilePKCS10WStr)(::windows::core::Interface::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn acceptFilePKCS7WStr(&self, wszpkcs7filename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.acceptFilePKCS7WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszpkcs7filename)).ok()
+    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.acceptFilePKCS7WStr)(::windows::core::Interface::as_raw(self), wszpkcs7filename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createPKCS10WStr(&self, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.createPKCS10WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dnname), ::core::mem::transmute(usage), ::core::mem::transmute(ppkcs10blob)).ok()
+    pub unsafe fn createPKCS10WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.createPKCS10WStr)(::windows::core::Interface::as_raw(self), dnname.into(), usage.into(), ::core::mem::transmute(ppkcs10blob)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -14998,16 +14998,16 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.MyStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetMyStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMyStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMyStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.MyStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetMyStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMyStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMyStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15022,16 +15022,16 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.CAStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetCAStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCAStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCAStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CAStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetCAStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCAStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCAStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15046,16 +15046,16 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.RootStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRootStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRootStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRootStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RootStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRootStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRootStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRootStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15070,16 +15070,16 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.RequestStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRequestStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRequestStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRequestStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRequestStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15094,16 +15094,16 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.ContainerNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwcontainer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetContainerNameWStr(&self, szwcontainer: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContainerNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwcontainer)).ok()
+    pub unsafe fn SetContainerNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetContainerNameWStr)(::windows::core::Interface::as_raw(self), szwcontainer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ProviderNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwprovider)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetProviderNameWStr(&self, szwprovider: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProviderNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwprovider)).ok()
+    pub unsafe fn SetProviderNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetProviderNameWStr)(::windows::core::Interface::as_raw(self), szwprovider.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> ::windows::core::Result<()> {
@@ -15192,24 +15192,24 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SPCFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetSPCFileNameWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSPCFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSPCFileNameWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.PVKFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetPVKFileNameWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPVKFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPVKFileNameWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.HashAlgorithmWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetHashAlgorithmWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHashAlgorithmWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetHashAlgorithmWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15222,12 +15222,12 @@ impl IEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetRenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcertcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn AddCertTypeToRequestWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddCertTypeToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddCertTypeToRequestWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn AddNameValuePairToSignatureWStr(&self, name: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddNameValuePairToSignatureWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddNameValuePairToSignatureWStr)(::windows::core::Interface::as_raw(self), name.into(), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15422,16 +15422,16 @@ pub struct IEnroll2_Vtbl {
 pub struct IEnroll4(::windows::core::IUnknown);
 impl IEnroll4 {
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createFilePKCS10WStr(&self, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, wszpkcs10filename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.createFilePKCS10WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dnname), ::core::mem::transmute(usage), ::core::mem::transmute(wszpkcs10filename)).ok()
+    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.createFilePKCS10WStr)(::windows::core::Interface::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn acceptFilePKCS7WStr(&self, wszpkcs7filename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.acceptFilePKCS7WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszpkcs7filename)).ok()
+    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.acceptFilePKCS7WStr)(::windows::core::Interface::as_raw(self), wszpkcs7filename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createPKCS10WStr(&self, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.createPKCS10WStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dnname), ::core::mem::transmute(usage), ::core::mem::transmute(ppkcs10blob)).ok()
+    pub unsafe fn createPKCS10WStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.createPKCS10WStr)(::windows::core::Interface::as_raw(self), dnname.into(), usage.into(), ::core::mem::transmute(ppkcs10blob)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -15471,16 +15471,16 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.MyStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetMyStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.MyStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetMyStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15495,16 +15495,16 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.CAStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetCAStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.CAStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetCAStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15519,16 +15519,16 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.RootStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRootStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.RootStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRootStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15543,16 +15543,16 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.RequestStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRequestStoreNameWStr(&self, szwname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwname)).ok()
+    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreNameWStr)(::windows::core::Interface::as_raw(self), szwname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.RequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetRequestStoreTypeWStr(&self, szwtype: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwtype)).ok()
+    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreTypeWStr)(::windows::core::Interface::as_raw(self), szwtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
@@ -15567,16 +15567,16 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.ContainerNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwcontainer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetContainerNameWStr(&self, szwcontainer: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContainerNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwcontainer)).ok()
+    pub unsafe fn SetContainerNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetContainerNameWStr)(::windows::core::Interface::as_raw(self), szwcontainer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.ProviderNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwprovider)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetProviderNameWStr(&self, szwprovider: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProviderNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szwprovider)).ok()
+    pub unsafe fn SetProviderNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetProviderNameWStr)(::windows::core::Interface::as_raw(self), szwprovider.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> ::windows::core::Result<()> {
@@ -15665,24 +15665,24 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.SPCFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetSPCFileNameWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetSPCFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetSPCFileNameWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.PVKFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetPVKFileNameWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPVKFileNameWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPVKFileNameWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.HashAlgorithmWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn SetHashAlgorithmWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetHashAlgorithmWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetHashAlgorithmWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15695,12 +15695,12 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.SetRenewalCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcertcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn AddCertTypeToRequestWStr(&self, szw: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddCertTypeToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szw)).ok()
+    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.AddCertTypeToRequestWStr)(::windows::core::Interface::as_raw(self), szw.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn AddNameValuePairToSignatureWStr(&self, name: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddNameValuePairToSignatureWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.AddNameValuePairToSignatureWStr)(::windows::core::Interface::as_raw(self), name.into(), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15818,20 +15818,20 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).binaryBlobToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(ppwszstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn stringToBinaryBlob(&self, flags: i32, pwszstring: ::windows::core::PCWSTR, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stringToBinaryBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pwszstring), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(pdwskip), ::core::mem::transmute(pdwflags)).ok()
+    pub unsafe fn stringToBinaryBlob<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, flags: i32, pwszstring: Param1, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).stringToBinaryBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszstring.into(), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(pdwskip), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn addExtensionToRequestWStr(&self, flags: i32, pwszname: ::windows::core::PCWSTR, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addExtensionToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pwszname), ::core::mem::transmute(pblobvalue)).ok()
+    pub unsafe fn addExtensionToRequestWStr<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, flags: i32, pwszname: Param1, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).addExtensionToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszname.into(), ::core::mem::transmute(pblobvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn addAttributeToRequestWStr(&self, flags: i32, pwszname: ::windows::core::PCWSTR, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addAttributeToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pwszname), ::core::mem::transmute(pblobvalue)).ok()
+    pub unsafe fn addAttributeToRequestWStr<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, flags: i32, pwszname: Param1, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).addAttributeToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszname.into(), ::core::mem::transmute(pblobvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn addNameValuePairToRequestWStr(&self, flags: i32, pwszname: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addNameValuePairToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(pwszname), ::core::mem::transmute(pwszvalue)).ok()
+    pub unsafe fn addNameValuePairToRequestWStr<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, flags: i32, pwszname: Param1, pwszvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).addNameValuePairToRequestWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), pwszname.into(), pwszvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn resetExtensions(&self) -> ::windows::core::Result<()> {
@@ -15842,20 +15842,20 @@ impl IEnroll4 {
         (::windows::core::Interface::vtable(self).resetAttributes)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createRequestWStr<'a, Param0: ::std::convert::Into<CERT_CREATE_REQUEST_FLAGS>>(&self, flags: Param0, pwszdnname: ::windows::core::PCWSTR, pwszusage: ::windows::core::PCWSTR, pblobrequest: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createRequestWStr)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(pwszdnname), ::core::mem::transmute(pwszusage), ::core::mem::transmute(pblobrequest)).ok()
+    pub unsafe fn createRequestWStr<'a, Param0: ::std::convert::Into<CERT_CREATE_REQUEST_FLAGS>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, flags: Param0, pwszdnname: Param1, pwszusage: Param2, pblobrequest: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).createRequestWStr)(::windows::core::Interface::as_raw(self), flags.into(), pwszdnname.into(), pwszusage.into(), ::core::mem::transmute(pblobrequest)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createFileRequestWStr<'a, Param0: ::std::convert::Into<CERT_CREATE_REQUEST_FLAGS>>(&self, flags: Param0, pwszdnname: ::windows::core::PCWSTR, pwszusage: ::windows::core::PCWSTR, pwszrequestfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createFileRequestWStr)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(pwszdnname), ::core::mem::transmute(pwszusage), ::core::mem::transmute(pwszrequestfilename)).ok()
+    pub unsafe fn createFileRequestWStr<'a, Param0: ::std::convert::Into<CERT_CREATE_REQUEST_FLAGS>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, flags: Param0, pwszdnname: Param1, pwszusage: Param2, pwszrequestfilename: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).createFileRequestWStr)(::windows::core::Interface::as_raw(self), flags.into(), pwszdnname.into(), pwszusage.into(), pwszrequestfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn acceptResponseBlob(&self, pblobresponse: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).acceptResponseBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblobresponse)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn acceptFileResponseWStr(&self, pwszresponsefilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).acceptFileResponseWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszresponsefilename)).ok()
+    pub unsafe fn acceptFileResponseWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszresponsefilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).acceptFileResponseWStr)(::windows::core::Interface::as_raw(self), pwszresponsefilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15864,20 +15864,20 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getCertContextFromFileResponseWStr(&self, pwszresponsefilename: ::windows::core::PCWSTR, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getCertContextFromFileResponseWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszresponsefilename), ::core::mem::transmute(ppcertcontext)).ok()
+    pub unsafe fn getCertContextFromFileResponseWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszresponsefilename: Param0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getCertContextFromFileResponseWStr)(::windows::core::Interface::as_raw(self), pwszresponsefilename.into(), ::core::mem::transmute(ppcertcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createPFXWStr(&self, pwszpassword: ::windows::core::PCWSTR, pblobpfx: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createPFXWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszpassword), ::core::mem::transmute(pblobpfx)).ok()
+    pub unsafe fn createPFXWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszpassword: Param0, pblobpfx: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).createPFXWStr)(::windows::core::Interface::as_raw(self), pwszpassword.into(), ::core::mem::transmute(pblobpfx)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn createFilePFXWStr(&self, pwszpassword: ::windows::core::PCWSTR, pwszpfxfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createFilePFXWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszpassword), ::core::mem::transmute(pwszpfxfilename)).ok()
+    pub unsafe fn createFilePFXWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszpassword: Param0, pwszpfxfilename: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).createFilePFXWStr)(::windows::core::Interface::as_raw(self), pwszpassword.into(), pwszpfxfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn setPendingRequestInfoWStr(&self, lrequestid: i32, pwszcadns: ::windows::core::PCWSTR, pwszcaname: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setPendingRequestInfoWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrequestid), ::core::mem::transmute(pwszcadns), ::core::mem::transmute(pwszcaname), ::core::mem::transmute(pwszfriendlyname)).ok()
+    pub unsafe fn setPendingRequestInfoWStr<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lrequestid: i32, pwszcadns: Param1, pwszcaname: Param2, pwszfriendlyname: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setPendingRequestInfoWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrequestid), pwszcadns.into(), pwszcaname.into(), pwszfriendlyname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn enumPendingRequestWStr<'a, Param1: ::std::convert::Into<PENDING_REQUEST_DESIRED_PROPERTY>>(&self, lindex: i32, ldesiredproperty: Param1, ppproperty: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -15897,12 +15897,12 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddCertTypeToRequestWStrEx<'a, Param0: ::std::convert::Into<ADDED_CERT_TYPE>, Param3: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, ltype: Param0, pwszoidorname: ::windows::core::PCWSTR, lmajorversion: i32, fminorversion: Param3, lminorversion: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Interface::as_raw(self), ltype.into(), ::core::mem::transmute(pwszoidorname), ::core::mem::transmute(lmajorversion), fminorversion.into(), ::core::mem::transmute(lminorversion)).ok()
+    pub unsafe fn AddCertTypeToRequestWStrEx<'a, Param0: ::std::convert::Into<ADDED_CERT_TYPE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, ltype: Param0, pwszoidorname: Param1, lmajorversion: i32, fminorversion: Param3, lminorversion: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Interface::as_raw(self), ltype.into(), pwszoidorname.into(), ::core::mem::transmute(lmajorversion), fminorversion.into(), ::core::mem::transmute(lminorversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn getProviderTypeWStr(&self, pwszprovname: ::windows::core::PCWSTR, plprovtype: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProviderTypeWStr)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszprovname), ::core::mem::transmute(plprovtype)).ok()
+    pub unsafe fn getProviderTypeWStr<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszprovname: Param0, plprovtype: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getProviderTypeWStr)(::windows::core::Interface::as_raw(self), pwszprovname.into(), ::core::mem::transmute(plprovtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
     pub unsafe fn addBlobPropertyToCertificateWStr(&self, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
@@ -16613,18 +16613,18 @@ impl INDESPolicy {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn GenerateChallenge(&self, pwsztemplate: ::windows::core::PCWSTR, pwszparams: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
+    pub unsafe fn GenerateChallenge<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwsztemplate: Param0, pwszparams: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateChallenge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsztemplate), ::core::mem::transmute(pwszparams), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GenerateChallenge)(::windows::core::Interface::as_raw(self), pwsztemplate.into(), pwszparams.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VerifyRequest(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: ::windows::core::PCWSTR, pwsztransactionid: ::windows::core::PCWSTR, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VerifyRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbsigningcertencoded), ::core::mem::transmute(pwsztemplate), ::core::mem::transmute(pwsztransactionid), ::core::mem::transmute(pfverified)).ok()
+    pub unsafe fn VerifyRequest<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: Param2, pwsztransactionid: Param3, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VerifyRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbsigningcertencoded), pwsztemplate.into(), pwsztransactionid.into(), ::core::mem::transmute(pfverified)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
-    pub unsafe fn Notify<'a, Param2: ::std::convert::Into<X509SCEPDisposition>>(&self, pwszchallenge: ::windows::core::PCWSTR, pwsztransactionid: ::windows::core::PCWSTR, disposition: Param2, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszchallenge), ::core::mem::transmute(pwsztransactionid), disposition.into(), ::core::mem::transmute(lasthresult), ::core::mem::transmute(pctbissuedcertencoded)).ok()
+    pub unsafe fn Notify<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<X509SCEPDisposition>>(&self, pwszchallenge: Param0, pwsztransactionid: Param1, disposition: Param2, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), pwszchallenge.into(), pwsztransactionid.into(), disposition.into(), ::core::mem::transmute(lasthresult), ::core::mem::transmute(pctbissuedcertencoded)).ok()
     }
 }
 impl ::core::convert::From<INDESPolicy> for ::windows::core::IUnknown {

@@ -4267,51 +4267,51 @@ pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: ::windows::core::PCWSTR, shellid: ::windows::core::PCWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
+pub unsafe fn WSManConnectShell<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, shellid: Param3, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: ::windows::core::PCWSTR, shellid: ::windows::core::PCWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
     }
-    WSManConnectShell(::core::mem::transmute(session), ::core::mem::transmute(flags), ::core::mem::transmute(resourceuri), ::core::mem::transmute(shellid), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
+    WSManConnectShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into(), shellid.into(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: ::windows::core::PCWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
+pub unsafe fn WSManConnectShellCommand<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandid: Param2, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: ::windows::core::PCWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
     }
-    WSManConnectShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(commandid), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
+    WSManConnectShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into(), ::core::mem::transmute(options), ::core::mem::transmute(connectxml), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManCreateSession(apihandle: *const WSMAN_API, connection: ::windows::core::PCWSTR, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32 {
+pub unsafe fn WSManCreateSession<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(apihandle: *const WSMAN_API, connection: Param1, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManCreateSession(apihandle: *const WSMAN_API, connection: ::windows::core::PCWSTR, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32;
     }
-    ::core::mem::transmute(WSManCreateSession(::core::mem::transmute(apihandle), ::core::mem::transmute(connection), ::core::mem::transmute(flags), ::core::mem::transmute(serverauthenticationcredentials), ::core::mem::transmute(proxyinfo), ::core::mem::transmute(session)))
+    ::core::mem::transmute(WSManCreateSession(::core::mem::transmute(apihandle), connection.into(), ::core::mem::transmute(flags), ::core::mem::transmute(serverauthenticationcredentials), ::core::mem::transmute(proxyinfo), ::core::mem::transmute(session)))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: ::windows::core::PCWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
+pub unsafe fn WSManCreateShell<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: ::windows::core::PCWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
     }
-    WSManCreateShell(::core::mem::transmute(session), ::core::mem::transmute(flags), ::core::mem::transmute(resourceuri), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
+    WSManCreateShell(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: ::windows::core::PCWSTR, shellid: ::windows::core::PCWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
+pub unsafe fn WSManCreateShellEx<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, shellid: Param3, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: ::windows::core::PCWSTR, shellid: ::windows::core::PCWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
     }
-    WSManCreateShellEx(::core::mem::transmute(session), ::core::mem::transmute(flags), ::core::mem::transmute(resourceuri), ::core::mem::transmute(shellid), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
+    WSManCreateShellEx(::core::mem::transmute(session), ::core::mem::transmute(flags), resourceuri.into(), shellid.into(), ::core::mem::transmute(startupinfo), ::core::mem::transmute(options), ::core::mem::transmute(createxml), ::core::mem::transmute(r#async), ::core::mem::transmute(shell))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]
@@ -4405,12 +4405,12 @@ impl ::core::fmt::Debug for WSManEnumFlags {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetErrorMessage(apihandle: *const WSMAN_API, flags: u32, languagecode: ::windows::core::PCWSTR, errorcode: u32, message: &mut [u16], messagelengthused: *mut u32) -> u32 {
+pub unsafe fn WSManGetErrorMessage<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(apihandle: *const WSMAN_API, flags: u32, languagecode: Param2, errorcode: u32, message: &mut [u16], messagelengthused: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManGetErrorMessage(apihandle: *const WSMAN_API, flags: u32, languagecode: ::windows::core::PCWSTR, errorcode: u32, messagelength: u32, message: ::windows::core::PWSTR, messagelengthused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WSManGetErrorMessage(::core::mem::transmute(apihandle), ::core::mem::transmute(flags), ::core::mem::transmute(languagecode), ::core::mem::transmute(errorcode), message.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(message)), ::core::mem::transmute(messagelengthused)))
+    ::core::mem::transmute(WSManGetErrorMessage(::core::mem::transmute(apihandle), ::core::mem::transmute(flags), languagecode.into(), ::core::mem::transmute(errorcode), message.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(message)), ::core::mem::transmute(messagelengthused)))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4443,32 +4443,32 @@ pub const WSManInternal: ::windows::core::GUID = ::windows::core::GUID::from_u12
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginAuthzOperationComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManPluginAuthzOperationComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginAuthzOperationComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(userauthorizationcontext), ::core::mem::transmute(errorcode), ::core::mem::transmute(extendederrorinformation)))
+    ::core::mem::transmute(WSManPluginAuthzOperationComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(userauthorizationcontext), ::core::mem::transmute(errorcode), extendederrorinformation.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginAuthzQueryQuotaComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManPluginAuthzQueryQuotaComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginAuthzQueryQuotaComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(quota), ::core::mem::transmute(errorcode), ::core::mem::transmute(extendederrorinformation)))
+    ::core::mem::transmute(WSManPluginAuthzQueryQuotaComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(quota), ::core::mem::transmute(errorcode), extendederrorinformation.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: Param3, userisadministrator: Param4, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::PCWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: Param3, userisadministrator: Param4, errorcode: u32, extendederrorinformation: Param6) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManPluginAuthzUserComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: super::super::Foundation::HANDLE, userisadministrator: super::super::Foundation::BOOL, errorcode: u32, extendederrorinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginAuthzUserComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(userauthorizationcontext), impersonationtoken.into(), userisadministrator.into(), ::core::mem::transmute(errorcode), ::core::mem::transmute(extendederrorinformation)))
+    ::core::mem::transmute(WSManPluginAuthzUserComplete(::core::mem::transmute(senderdetails), ::core::mem::transmute(flags), ::core::mem::transmute(userauthorizationcontext), impersonationtoken.into(), userisadministrator.into(), ::core::mem::transmute(errorcode), extendederrorinformation.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4502,22 +4502,22 @@ pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLU
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginOperationComplete(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn WSManPluginOperationComplete<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManPluginOperationComplete(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(WSManPluginOperationComplete(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), ::core::mem::transmute(errorcode), ::core::mem::transmute(extendedinformation)))
+    ::core::mem::transmute(WSManPluginOperationComplete(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), ::core::mem::transmute(errorcode), extendedinformation.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManPluginReceiveResult(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: ::windows::core::PCWSTR, streamresult: *const WSMAN_DATA, commandstate: ::windows::core::PCWSTR, exitcode: u32) -> u32 {
+pub unsafe fn WSManPluginReceiveResult<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: Param2, streamresult: *const WSMAN_DATA, commandstate: Param4, exitcode: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManPluginReceiveResult(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: ::windows::core::PCWSTR, streamresult: *const WSMAN_DATA, commandstate: ::windows::core::PCWSTR, exitcode: u32) -> u32;
     }
-    ::core::mem::transmute(WSManPluginReceiveResult(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), ::core::mem::transmute(stream), ::core::mem::transmute(streamresult), ::core::mem::transmute(commandstate), ::core::mem::transmute(exitcode)))
+    ::core::mem::transmute(WSManPluginReceiveResult(::core::mem::transmute(requestdetails), ::core::mem::transmute(flags), stream.into(), ::core::mem::transmute(streamresult), commandstate.into(), ::core::mem::transmute(exitcode)))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4659,32 +4659,32 @@ pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flag
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: ::windows::core::PCWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
+pub unsafe fn WSManRunShellCommand<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandline: Param2, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: ::windows::core::PCWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
     }
-    WSManRunShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(commandline), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
+    WSManRunShellCommand(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandline.into(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: ::windows::core::PCWSTR, commandline: ::windows::core::PCWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
+pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandid: Param2, commandline: Param3, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: ::windows::core::PCWSTR, commandline: ::windows::core::PCWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
     }
-    WSManRunShellCommandEx(::core::mem::transmute(shell), ::core::mem::transmute(flags), ::core::mem::transmute(commandid), ::core::mem::transmute(commandline), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
+    WSManRunShellCommandEx(::core::mem::transmute(shell), ::core::mem::transmute(flags), commandid.into(), commandline.into(), ::core::mem::transmute(args), ::core::mem::transmute(options), ::core::mem::transmute(r#async), ::core::mem::transmute(command))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManSendShellInput<'a, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: ::windows::core::PCWSTR, streamdata: *const WSMAN_DATA, endofstream: Param5, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION) {
+pub unsafe fn WSManSendShellInput<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: Param3, streamdata: *const WSMAN_DATA, endofstream: Param5, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: ::windows::core::PCWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION);
     }
-    WSManSendShellInput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), ::core::mem::transmute(streamid), ::core::mem::transmute(streamdata), endofstream.into(), ::core::mem::transmute(r#async), ::core::mem::transmute(sendoperation))
+    WSManSendShellInput(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), streamid.into(), ::core::mem::transmute(streamdata), endofstream.into(), ::core::mem::transmute(r#async), ::core::mem::transmute(sendoperation))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]
@@ -4856,12 +4856,12 @@ impl ::core::fmt::Debug for WSManShellFlag {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: ::windows::core::PCWSTR, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION) {
+pub unsafe fn WSManSignalShell<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: Param3, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: ::windows::core::PCWSTR, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION);
     }
-    WSManSignalShell(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), ::core::mem::transmute(code), ::core::mem::transmute(r#async), ::core::mem::transmute(signaloperation))
+    WSManSignalShell(::core::mem::transmute(shell), ::core::mem::transmute(command), ::core::mem::transmute(flags), code.into(), ::core::mem::transmute(r#async), ::core::mem::transmute(signaloperation))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

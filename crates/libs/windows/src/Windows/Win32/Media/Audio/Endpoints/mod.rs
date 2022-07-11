@@ -851,9 +851,9 @@ pub struct IAudioMeterInformation_Vtbl {
 pub struct IHardwareAudioEngineBase(::windows::core::IUnknown);
 impl IHardwareAudioEngineBase {
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: ::windows::core::PCWSTR, _uconnectorid: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAvailableOffloadConnectorCount<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, _pwstrdeviceid: Param0, _uconnectorid: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(_pwstrdeviceid), ::core::mem::transmute(_uconnectorid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(::windows::core::Interface::as_raw(self), _pwstrdeviceid.into(), ::core::mem::transmute(_uconnectorid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

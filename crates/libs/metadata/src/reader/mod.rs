@@ -1150,7 +1150,7 @@ impl<'a> Reader<'a> {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_non_exclusive_winrt_interface(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_primitive_type_def(&param.ty) && param.array_info == ArrayInfo::None
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -1526,6 +1526,13 @@ impl<'a> Reader<'a> {
     pub fn type_is_in_class_hierarchy(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_in_class_hierarchy(*row),
+            _ => false,
+        }
+    }
+    pub fn type_is_convertible(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_primitive(*row),
+            Type::PCSTR | Type::PCWSTR => true,
             _ => false,
         }
     }

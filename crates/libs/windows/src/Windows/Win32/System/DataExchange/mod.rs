@@ -4,21 +4,21 @@ pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCMD_MASK: i32 = 4080i32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn AddAtomA(lpstring: ::windows::core::PCSTR) -> u16 {
+pub unsafe fn AddAtomA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddAtomA(lpstring: ::windows::core::PCSTR) -> u16;
     }
-    ::core::mem::transmute(AddAtomA(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(AddAtomA(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn AddAtomW(lpstring: ::windows::core::PCWSTR) -> u16 {
+pub unsafe fn AddAtomW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddAtomW(lpstring: ::windows::core::PCWSTR) -> u16;
     }
-    ::core::mem::transmute(AddAtomW(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(AddAtomW(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -907,21 +907,21 @@ pub unsafe fn DdeCreateDataHandle<'a, Param4: ::std::convert::Into<HSZ>>(idinst:
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCreateStringHandleA(idinst: u32, psz: ::windows::core::PCSTR, icodepage: i32) -> HSZ {
+pub unsafe fn DdeCreateStringHandleA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeCreateStringHandleA(idinst: u32, psz: ::windows::core::PCSTR, icodepage: i32) -> HSZ;
     }
-    ::core::mem::transmute(DdeCreateStringHandleA(::core::mem::transmute(idinst), ::core::mem::transmute(psz), ::core::mem::transmute(icodepage)))
+    ::core::mem::transmute(DdeCreateStringHandleA(::core::mem::transmute(idinst), psz.into(), ::core::mem::transmute(icodepage)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeCreateStringHandleW(idinst: u32, psz: ::windows::core::PCWSTR, icodepage: i32) -> HSZ {
+pub unsafe fn DdeCreateStringHandleW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeCreateStringHandleW(idinst: u32, psz: ::windows::core::PCWSTR, icodepage: i32) -> HSZ;
     }
-    ::core::mem::transmute(DdeCreateStringHandleW(::core::mem::transmute(idinst), ::core::mem::transmute(psz), ::core::mem::transmute(icodepage)))
+    ::core::mem::transmute(DdeCreateStringHandleW(::core::mem::transmute(idinst), psz.into(), ::core::mem::transmute(icodepage)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1164,21 +1164,21 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn FindAtomA(lpstring: ::windows::core::PCSTR) -> u16 {
+pub unsafe fn FindAtomA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindAtomA(lpstring: ::windows::core::PCSTR) -> u16;
     }
-    ::core::mem::transmute(FindAtomA(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(FindAtomA(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn FindAtomW(lpstring: ::windows::core::PCWSTR) -> u16 {
+pub unsafe fn FindAtomW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindAtomW(lpstring: ::windows::core::PCWSTR) -> u16;
     }
-    ::core::mem::transmute(FindAtomW(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(FindAtomW(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1297,39 +1297,39 @@ pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: 
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomA(lpstring: ::windows::core::PCSTR) -> u16 {
+pub unsafe fn GlobalAddAtomA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GlobalAddAtomA(lpstring: ::windows::core::PCSTR) -> u16;
     }
-    ::core::mem::transmute(GlobalAddAtomA(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(GlobalAddAtomA(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomExA(lpstring: ::windows::core::PCSTR, flags: u32) -> u16 {
+pub unsafe fn GlobalAddAtomExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GlobalAddAtomExA(lpstring: ::windows::core::PCSTR, flags: u32) -> u16;
     }
-    ::core::mem::transmute(GlobalAddAtomExA(::core::mem::transmute(lpstring), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(GlobalAddAtomExA(lpstring.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomExW(lpstring: ::windows::core::PCWSTR, flags: u32) -> u16 {
+pub unsafe fn GlobalAddAtomExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GlobalAddAtomExW(lpstring: ::windows::core::PCWSTR, flags: u32) -> u16;
     }
-    ::core::mem::transmute(GlobalAddAtomExW(::core::mem::transmute(lpstring), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(GlobalAddAtomExW(lpstring.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalAddAtomW(lpstring: ::windows::core::PCWSTR) -> u16 {
+pub unsafe fn GlobalAddAtomW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GlobalAddAtomW(lpstring: ::windows::core::PCWSTR) -> u16;
     }
-    ::core::mem::transmute(GlobalAddAtomW(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(GlobalAddAtomW(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1342,21 +1342,21 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalFindAtomA(lpstring: ::windows::core::PCSTR) -> u16 {
+pub unsafe fn GlobalFindAtomA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GlobalFindAtomA(lpstring: ::windows::core::PCSTR) -> u16;
     }
-    ::core::mem::transmute(GlobalFindAtomA(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(GlobalFindAtomA(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn GlobalFindAtomW(lpstring: ::windows::core::PCWSTR) -> u16 {
+pub unsafe fn GlobalFindAtomW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpstring: Param0) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GlobalFindAtomW(lpstring: ::windows::core::PCWSTR) -> u16;
     }
-    ::core::mem::transmute(GlobalFindAtomW(::core::mem::transmute(lpstring)))
+    ::core::mem::transmute(GlobalFindAtomW(lpstring.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1966,21 +1966,21 @@ pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super:
 pub const QID_SYNC: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn RegisterClipboardFormatA(lpszformat: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn RegisterClipboardFormatA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpszformat: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterClipboardFormatA(lpszformat: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(RegisterClipboardFormatA(::core::mem::transmute(lpszformat)))
+    ::core::mem::transmute(RegisterClipboardFormatA(lpszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn RegisterClipboardFormatW(lpszformat: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn RegisterClipboardFormatW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpszformat: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterClipboardFormatW(lpszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RegisterClipboardFormatW(::core::mem::transmute(lpszformat)))
+    ::core::mem::transmute(RegisterClipboardFormatW(lpszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
