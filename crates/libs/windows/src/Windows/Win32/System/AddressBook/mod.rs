@@ -4018,12 +4018,12 @@ impl IWABOBJECT_ {
         (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn Backup(&self, lpfilename: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Backup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpfilename)).ok()
+    pub unsafe fn Backup<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpfilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Backup)(::windows::core::Interface::as_raw(self), lpfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn Import(&self, lpwip: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpwip)).ok()
+    pub unsafe fn Import<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpwip: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), lpwip.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4032,23 +4032,23 @@ impl IWABOBJECT_ {
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VCardDisplay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(&self, lpiab: Param0, hwnd: Param1, lpszfilename: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VCardDisplay)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), ::core::mem::transmute(lpszfilename)).ok()
+    pub unsafe fn VCardDisplay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpiab: Param0, hwnd: Param1, lpszfilename: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VCardDisplay)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), lpszfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LDAPUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(&self, lpiab: Param0, hwnd: Param1, ulflags: u32, lpszurl: ::windows::core::PCSTR) -> ::windows::core::Result<IMailUser> {
+    pub unsafe fn LDAPUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpiab: Param0, hwnd: Param1, ulflags: u32, lpszurl: Param3) -> ::windows::core::Result<IMailUser> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).LDAPUrl)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(lpszurl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
+        (::windows::core::Interface::vtable(self).LDAPUrl)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), ::core::mem::transmute(ulflags), lpszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn VCardCreate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IMailUser>>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: ::windows::core::PCSTR, lpmailuser: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VCardCreate)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(lpszvcard), lpmailuser.into().abi()).ok()
+    pub unsafe fn VCardCreate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IMailUser>>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: Param2, lpmailuser: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VCardCreate)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), lpszvcard.into(), lpmailuser.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn VCardRetrieve<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: ::windows::core::PCSTR) -> ::windows::core::Result<IMailUser> {
+    pub unsafe fn VCardRetrieve<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: Param2) -> ::windows::core::Result<IMailUser> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).VCardRetrieve)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(lpszvcard), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
+        (::windows::core::Interface::vtable(self).VCardRetrieve)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), lpszvcard.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4174,12 +4174,12 @@ impl IWABObject {
         (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn Backup(&self, lpfilename: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Backup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpfilename)).ok()
+    pub unsafe fn Backup<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpfilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Backup)(::windows::core::Interface::as_raw(self), lpfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn Import(&self, lpwip: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpwip)).ok()
+    pub unsafe fn Import<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpwip: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), lpwip.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4188,23 +4188,23 @@ impl IWABObject {
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VCardDisplay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(&self, lpiab: Param0, hwnd: Param1, lpszfilename: ::windows::core::PCSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VCardDisplay)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), ::core::mem::transmute(lpszfilename)).ok()
+    pub unsafe fn VCardDisplay<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpiab: Param0, hwnd: Param1, lpszfilename: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VCardDisplay)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), lpszfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LDAPUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(&self, lpiab: Param0, hwnd: Param1, ulflags: u32, lpszurl: ::windows::core::PCSTR) -> ::windows::core::Result<IMailUser> {
+    pub unsafe fn LDAPUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpiab: Param0, hwnd: Param1, ulflags: u32, lpszurl: Param3) -> ::windows::core::Result<IMailUser> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).LDAPUrl)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(lpszurl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
+        (::windows::core::Interface::vtable(self).LDAPUrl)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), hwnd.into(), ::core::mem::transmute(ulflags), lpszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn VCardCreate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IMailUser>>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: ::windows::core::PCSTR, lpmailuser: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VCardCreate)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(lpszvcard), lpmailuser.into().abi()).ok()
+    pub unsafe fn VCardCreate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IMailUser>>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: Param2, lpmailuser: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VCardCreate)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), lpszvcard.into(), lpmailuser.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-    pub unsafe fn VCardRetrieve<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: ::windows::core::PCSTR) -> ::windows::core::Result<IMailUser> {
+    pub unsafe fn VCardRetrieve<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(&self, lpiab: Param0, ulflags: u32, lpszvcard: Param2) -> ::windows::core::Result<IMailUser> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).VCardRetrieve)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(lpszvcard), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
+        (::windows::core::Interface::vtable(self).VCardRetrieve)(::windows::core::Interface::as_raw(self), lpiab.into().abi(), ::core::mem::transmute(ulflags), lpszvcard.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6091,12 +6091,12 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
-pub unsafe fn ScLocalPathFromUNC(lpszunc: ::windows::core::PCSTR, lpszlocal: &[u8]) -> i32 {
+pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpszunc: Param0, lpszlocal: &[u8]) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScLocalPathFromUNC(lpszunc: ::windows::core::PCSTR, lpszlocal: ::windows::core::PCSTR, cchlocal: u32) -> i32;
     }
-    ::core::mem::transmute(ScLocalPathFromUNC(::core::mem::transmute(lpszunc), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszlocal)), lpszlocal.len() as _))
+    ::core::mem::transmute(ScLocalPathFromUNC(lpszunc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszlocal)), lpszlocal.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6120,12 +6120,12 @@ pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseol
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
-pub unsafe fn ScUNCFromLocalPath(lpszlocal: ::windows::core::PCSTR, lpszunc: &[u8]) -> i32 {
+pub unsafe fn ScUNCFromLocalPath<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpszlocal: Param0, lpszunc: &[u8]) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScUNCFromLocalPath(lpszlocal: ::windows::core::PCSTR, lpszunc: ::windows::core::PCSTR, cchunc: u32) -> i32;
     }
-    ::core::mem::transmute(ScUNCFromLocalPath(::core::mem::transmute(lpszlocal), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszunc)), lpszunc.len() as _))
+    ::core::mem::transmute(ScUNCFromLocalPath(lpszlocal.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszunc)), lpszunc.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]

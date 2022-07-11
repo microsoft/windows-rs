@@ -3028,9 +3028,9 @@ impl IMcastAddressAllocation {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateLeaseInfo(&self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const ::windows::core::PWSTR, prequestid: ::windows::core::PCWSTR, pserveraddress: ::windows::core::PCWSTR) -> ::windows::core::Result<IMcastLeaseInfo> {
+    pub unsafe fn CreateLeaseInfo<'a, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(&self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const ::windows::core::PWSTR, prequestid: Param4, pserveraddress: Param5) -> ::windows::core::Result<IMcastLeaseInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLeaseInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(leasestarttime), ::core::mem::transmute(leasestoptime), ::core::mem::transmute(dwnumaddresses), ::core::mem::transmute(ppaddresses), ::core::mem::transmute(prequestid), ::core::mem::transmute(pserveraddress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMcastLeaseInfo>(result__)
+        (::windows::core::Interface::vtable(self).CreateLeaseInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(leasestarttime), ::core::mem::transmute(leasestoptime), ::core::mem::transmute(dwnumaddresses), ::core::mem::transmute(ppaddresses), prequestid.into(), pserveraddress.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMcastLeaseInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21885,42 +21885,42 @@ pub const cbSeverName: u32 = 12u32;
 pub const cbTYPE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineAccept(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineAccept<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineAccept(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineAccept(::core::mem::transmute(hcall), ::core::mem::transmute(lpsuseruserinfo), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineAccept(::core::mem::transmute(hcall), lpsuseruserinfo.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineAddProvider<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
+pub unsafe fn lineAddProvider<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineAddProvider(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineAddProvider(::core::mem::transmute(lpszproviderfilename), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    ::core::mem::transmute(lineAddProvider(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineAddProviderA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
+pub unsafe fn lineAddProviderA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineAddProviderA(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineAddProviderA(::core::mem::transmute(lpszproviderfilename), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    ::core::mem::transmute(lineAddProviderA(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineAddProviderW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszproviderfilename: ::windows::core::PCWSTR, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
+pub unsafe fn lineAddProviderW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineAddProviderW(lpszproviderfilename: ::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineAddProviderW(::core::mem::transmute(lpszproviderfilename), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    ::core::mem::transmute(lineAddProviderW(lpszproviderfilename.into(), hwndowner.into(), ::core::mem::transmute(lpdwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -21942,39 +21942,39 @@ pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionid
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineAnswer(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineAnswer<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineAnswer(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineAnswer(::core::mem::transmute(hcall), ::core::mem::transmute(lpsuseruserinfo), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineAnswer(::core::mem::transmute(hcall), lpsuseruserinfo.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineBlindTransfer(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineBlindTransfer<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineBlindTransfer(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineBlindTransfer(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineBlindTransfer(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineBlindTransferA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineBlindTransferA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineBlindTransferA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineBlindTransferA(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineBlindTransferA(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineBlindTransferW(hcall: u32, lpszdestaddressw: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineBlindTransferW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, lpszdestaddressw: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineBlindTransferW(hcall: u32, lpszdestaddressw: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineBlindTransferW(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddressw), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineBlindTransferW(::core::mem::transmute(hcall), lpszdestaddressw.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22006,62 +22006,62 @@ pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineConfigDialog<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineConfigDialog<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineConfigDialogA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineConfigDialogA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineConfigDialogEdit<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
+pub unsafe fn lineConfigDialogEdit<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogEdit(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
+    ::core::mem::transmute(lineConfigDialogEdit(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineConfigDialogEditA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
+pub unsafe fn lineConfigDialogEditA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogEditA(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
+    ::core::mem::transmute(lineConfigDialogEditA(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineConfigDialogEditW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
+pub unsafe fn lineConfigDialogEditW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogEditW(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
+    ::core::mem::transmute(lineConfigDialogEditW(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineConfigDialogW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn lineConfigDialogW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22075,39 +22075,39 @@ pub unsafe fn lineConfigProvider<'a, Param0: ::std::convert::Into<super::super::
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineCreateAgentA(hline: u32, lpszagentid: ::windows::core::PCSTR, lpszagentpin: ::windows::core::PCSTR, lphagent: *mut u32) -> i32 {
+pub unsafe fn lineCreateAgentA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineCreateAgentA(hline: u32, lpszagentid: ::windows::core::PCSTR, lpszagentpin: ::windows::core::PCSTR, lphagent: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentA(::core::mem::transmute(hline), ::core::mem::transmute(lpszagentid), ::core::mem::transmute(lpszagentpin), ::core::mem::transmute(lphagent)))
+    ::core::mem::transmute(lineCreateAgentA(::core::mem::transmute(hline), lpszagentid.into(), lpszagentpin.into(), ::core::mem::transmute(lphagent)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
+pub unsafe fn lineCreateAgentSessionA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentSessionA(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(lpszagentpin), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
+    ::core::mem::transmute(lineCreateAgentSessionA(::core::mem::transmute(hline), ::core::mem::transmute(hagent), lpszagentpin.into(), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
+pub unsafe fn lineCreateAgentSessionW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentSessionW(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(lpszagentpin), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
+    ::core::mem::transmute(lineCreateAgentSessionW(::core::mem::transmute(hline), ::core::mem::transmute(hagent), lpszagentpin.into(), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineCreateAgentW(hline: u32, lpszagentid: ::windows::core::PCWSTR, lpszagentpin: ::windows::core::PCWSTR, lphagent: *mut u32) -> i32 {
+pub unsafe fn lineCreateAgentW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineCreateAgentW(hline: u32, lpszagentid: ::windows::core::PCWSTR, lpszagentpin: ::windows::core::PCWSTR, lphagent: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineCreateAgentW(::core::mem::transmute(hline), ::core::mem::transmute(lpszagentid), ::core::mem::transmute(lpszagentpin), ::core::mem::transmute(lphagent)))
+    ::core::mem::transmute(lineCreateAgentW(::core::mem::transmute(hline), lpszagentid.into(), lpszagentpin.into(), ::core::mem::transmute(lphagent)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22138,39 +22138,39 @@ pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut 
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineDial(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineDial<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineDial(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineDial(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineDial(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineDialA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineDialA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineDialA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineDialA(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineDialA(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineDialW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineDialW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineDialW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineDialW(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineDialW(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineDrop(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineDrop<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineDrop(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineDrop(::core::mem::transmute(hcall), ::core::mem::transmute(lpsuseruserinfo), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineDrop(::core::mem::transmute(hcall), lpsuseruserinfo.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22201,57 +22201,57 @@ pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u8], lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
+pub unsafe fn lineGatherDigits<'a, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u8], lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGatherDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, ::core::mem::transmute(lpszterminationdigits), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
+    ::core::mem::transmute(lineGatherDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u8], lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
+pub unsafe fn lineGatherDigitsA<'a, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u8], lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGatherDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, ::core::mem::transmute(lpszterminationdigits), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
+    ::core::mem::transmute(lineGatherDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u16], lpszterminationdigits: ::windows::core::PCWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
+pub unsafe fn lineGatherDigitsW<'a, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u16], lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PWSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    ::core::mem::transmute(lineGatherDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, ::core::mem::transmute(lpszterminationdigits), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
+    ::core::mem::transmute(lineGatherDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32 {
+pub unsafe fn lineGenerateDigits<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
     }
-    ::core::mem::transmute(lineGenerateDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), ::core::mem::transmute(lpszdigits), ::core::mem::transmute(dwduration)))
+    ::core::mem::transmute(lineGenerateDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into(), ::core::mem::transmute(dwduration)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32 {
+pub unsafe fn lineGenerateDigitsA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
     }
-    ::core::mem::transmute(lineGenerateDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), ::core::mem::transmute(lpszdigits), ::core::mem::transmute(dwduration)))
+    ::core::mem::transmute(lineGenerateDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into(), ::core::mem::transmute(dwduration)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCWSTR, dwduration: u32) -> i32 {
+pub unsafe fn lineGenerateDigitsW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCWSTR, dwduration: u32) -> i32;
     }
-    ::core::mem::transmute(lineGenerateDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), ::core::mem::transmute(lpszdigits), ::core::mem::transmute(dwduration)))
+    ::core::mem::transmute(lineGenerateDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into(), ::core::mem::transmute(dwduration)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22291,30 +22291,30 @@ pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineGetAddressID<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressID(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), ::core::mem::transmute(lpsaddress), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineGetAddressID(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineGetAddressIDA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressIDA(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), ::core::mem::transmute(lpsaddress), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineGetAddressIDA(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCWSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineGetAddressIDW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCWSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAddressIDW(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), ::core::mem::transmute(lpsaddress), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineGetAddressIDW(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22446,30 +22446,30 @@ pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
+pub unsafe fn lineGetAppPriority<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAppPriority(::core::mem::transmute(lpszappfilename), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    ::core::mem::transmute(lineGetAppPriority(lpszappfilename.into(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
+pub unsafe fn lineGetAppPriorityA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAppPriorityA(::core::mem::transmute(lpszappfilename), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    ::core::mem::transmute(lineGetAppPriorityA(lpszappfilename.into(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
+pub unsafe fn lineGetAppPriorityW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineGetAppPriorityW(::core::mem::transmute(lpszappfilename), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    ::core::mem::transmute(lineGetAppPriorityW(lpszappfilename.into(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22573,30 +22573,30 @@ pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineGetDevConfig<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineGetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineGetDevConfigA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineGetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn lineGetDevConfigW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineGetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22618,57 +22618,57 @@ pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineGetID<'a, Param5: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetID(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineGetID(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineGetIDA<'a, Param5: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetIDA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineGetIDA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn lineGetIDW<'a, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineGetIDW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineGetIDW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32 {
+pub unsafe fn lineGetIcon<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(lineGetIcon(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lphicon)))
+    ::core::mem::transmute(lineGetIcon(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32 {
+pub unsafe fn lineGetIconA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(lineGetIconA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lphicon)))
+    ::core::mem::transmute(lineGetIconA(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32 {
+pub unsafe fn lineGetIconW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(lineGetIconW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lphicon)))
+    ::core::mem::transmute(lineGetIconW(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22852,30 +22852,30 @@ pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslat
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineHandoff(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32 {
+pub unsafe fn lineHandoff<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineHandoff(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
     }
-    ::core::mem::transmute(lineHandoff(::core::mem::transmute(hcall), ::core::mem::transmute(lpszfilename), ::core::mem::transmute(dwmediamode)))
+    ::core::mem::transmute(lineHandoff(::core::mem::transmute(hcall), lpszfilename.into(), ::core::mem::transmute(dwmediamode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineHandoffA(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32 {
+pub unsafe fn lineHandoffA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineHandoffA(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
     }
-    ::core::mem::transmute(lineHandoffA(::core::mem::transmute(hcall), ::core::mem::transmute(lpszfilename), ::core::mem::transmute(dwmediamode)))
+    ::core::mem::transmute(lineHandoffA(::core::mem::transmute(hcall), lpszfilename.into(), ::core::mem::transmute(dwmediamode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineHandoffW(hcall: u32, lpszfilename: ::windows::core::PCWSTR, dwmediamode: u32) -> i32 {
+pub unsafe fn lineHandoffW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineHandoffW(hcall: u32, lpszfilename: ::windows::core::PCWSTR, dwmediamode: u32) -> i32;
     }
-    ::core::mem::transmute(lineHandoffW(::core::mem::transmute(hcall), ::core::mem::transmute(lpszfilename), ::core::mem::transmute(dwmediamode)))
+    ::core::mem::transmute(lineHandoffW(::core::mem::transmute(hcall), lpszfilename.into(), ::core::mem::transmute(dwmediamode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -22889,59 +22889,59 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineInitialize<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32 {
+pub unsafe fn lineInitialize<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     }
-    ::core::mem::transmute(lineInitialize(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpdwnumdevs)))
+    ::core::mem::transmute(lineInitialize(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), ::core::mem::transmute(lpdwnumdevs)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineInitializeExA<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn lineInitializeExA<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineInitializeExA(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpszfriendlyappname), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
+    ::core::mem::transmute(lineInitializeExA(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineInitializeExW<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn lineInitializeExW<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineInitializeExW(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpszfriendlyappname), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
+    ::core::mem::transmute(lineInitializeExW(::core::mem::transmute(lphlineapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+pub unsafe fn lineMakeCall<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineMakeCall(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
+    ::core::mem::transmute(lineMakeCall(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+pub unsafe fn lineMakeCallA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineMakeCallA(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
+    ::core::mem::transmute(lineMakeCallA(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+pub unsafe fn lineMakeCallW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    ::core::mem::transmute(lineMakeCallW(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
+    ::core::mem::transmute(lineMakeCallW(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23017,57 +23017,57 @@ pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32 {
+pub unsafe fn linePark<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(linePark(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), ::core::mem::transmute(lpszdiraddress), ::core::mem::transmute(lpnondiraddress)))
+    ::core::mem::transmute(linePark(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32 {
+pub unsafe fn lineParkA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineParkA(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), ::core::mem::transmute(lpszdiraddress), ::core::mem::transmute(lpnondiraddress)))
+    ::core::mem::transmute(lineParkA(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCWSTR, lpnondiraddress: *mut VARSTRING) -> i32 {
+pub unsafe fn lineParkW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    ::core::mem::transmute(lineParkW(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), ::core::mem::transmute(lpszdiraddress), ::core::mem::transmute(lpnondiraddress)))
+    ::core::mem::transmute(lineParkW(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into(), ::core::mem::transmute(lpnondiraddress)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn linePickup<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(linePickup(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszgroupid)))
+    ::core::mem::transmute(linePickup(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn linePickupA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(linePickupA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszgroupid)))
+    ::core::mem::transmute(linePickupA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, lpszgroupid: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn linePickupW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, lpszgroupid: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(linePickupW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszgroupid)))
+    ::core::mem::transmute(linePickupW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into(), lpszgroupid.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23117,30 +23117,30 @@ pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUES
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineRedirect(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineRedirect<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineRedirect(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineRedirect(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineRedirect(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineRedirectA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineRedirectA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineRedirectA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineRedirectA(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineRedirectA(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineRedirectW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32 {
+pub unsafe fn lineRedirectW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineRedirectW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    ::core::mem::transmute(lineRedirectW(::core::mem::transmute(hcall), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(dwcountrycode)))
+    ::core::mem::transmute(lineRedirectW(::core::mem::transmute(hcall), lpszdestaddress.into(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23190,12 +23190,12 @@ pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn lineSendUserUserInfo<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(lineSendUserUserInfo(::core::mem::transmute(hcall), ::core::mem::transmute(lpsuseruserinfo), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(lineSendUserUserInfo(::core::mem::transmute(hcall), lpsuseruserinfo.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23253,30 +23253,30 @@ pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dw
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32 {
+pub unsafe fn lineSetAppPriority<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppPriority(::core::mem::transmute(lpszappfilename), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpszextensionname), ::core::mem::transmute(dwpriority)))
+    ::core::mem::transmute(lineSetAppPriority(lpszappfilename.into(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into(), ::core::mem::transmute(dwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32 {
+pub unsafe fn lineSetAppPriorityA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppPriorityA(::core::mem::transmute(lpszappfilename), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpszextensionname), ::core::mem::transmute(dwpriority)))
+    ::core::mem::transmute(lineSetAppPriorityA(lpszappfilename.into(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into(), ::core::mem::transmute(dwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCWSTR, dwpriority: u32) -> i32 {
+pub unsafe fn lineSetAppPriorityW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCWSTR, dwpriority: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetAppPriorityW(::core::mem::transmute(lpszappfilename), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpszextensionname), ::core::mem::transmute(dwpriority)))
+    ::core::mem::transmute(lineSetAppPriorityW(lpszappfilename.into(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into(), ::core::mem::transmute(dwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23343,30 +23343,30 @@ pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineSetDevConfig<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineSetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineSetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineSetDevConfigA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineSetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineSetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn lineSetDevConfigW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineSetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(lineSetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23433,30 +23433,30 @@ pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32 {
+pub unsafe fn lineSetTollList<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTollList(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszaddressin), ::core::mem::transmute(dwtolllistoption)))
+    ::core::mem::transmute(lineSetTollList(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressin.into(), ::core::mem::transmute(dwtolllistoption)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32 {
+pub unsafe fn lineSetTollListA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTollListA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszaddressin), ::core::mem::transmute(dwtolllistoption)))
+    ::core::mem::transmute(lineSetTollListA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressin.into(), ::core::mem::transmute(dwtolllistoption)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: ::windows::core::PCWSTR, dwtolllistoption: u32) -> i32 {
+pub unsafe fn lineSetTollListW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: Param2, dwtolllistoption: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: ::windows::core::PCWSTR, dwtolllistoption: u32) -> i32;
     }
-    ::core::mem::transmute(lineSetTollListW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszaddressinw), ::core::mem::transmute(dwtolllistoption)))
+    ::core::mem::transmute(lineSetTollListW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressinw.into(), ::core::mem::transmute(dwtolllistoption)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23532,60 +23532,60 @@ pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
+pub unsafe fn lineTranslateAddress<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    ::core::mem::transmute(lineTranslateAddress(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpszaddressin), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
+    ::core::mem::transmute(lineTranslateAddress(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
+pub unsafe fn lineTranslateAddressA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    ::core::mem::transmute(lineTranslateAddressA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpszaddressin), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
+    ::core::mem::transmute(lineTranslateAddressA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
+pub unsafe fn lineTranslateAddressW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    ::core::mem::transmute(lineTranslateAddressW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpszaddressin), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
+    ::core::mem::transmute(lineTranslateAddressW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineTranslateDialog<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineTranslateDialog<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineTranslateDialog(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into(), ::core::mem::transmute(lpszaddressin)))
+    ::core::mem::transmute(lineTranslateDialog(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into(), lpszaddressin.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineTranslateDialogA<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineTranslateDialogA<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineTranslateDialogA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into(), ::core::mem::transmute(lpszaddressin)))
+    ::core::mem::transmute(lineTranslateDialogA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into(), lpszaddressin.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn lineTranslateDialogW<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn lineTranslateDialogW<'a, Param3: ::std::convert::Into<super::super::Foundation::HWND>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineTranslateDialogW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into(), ::core::mem::transmute(lpszaddressin)))
+    ::core::mem::transmute(lineTranslateDialogW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into(), lpszaddressin.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23607,30 +23607,30 @@ pub unsafe fn lineUnhold(hcall: u32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineUnpark<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineUnpark(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress)))
+    ::core::mem::transmute(lineUnpark(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn lineUnparkA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(lineUnparkA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress)))
+    ::core::mem::transmute(lineUnparkA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn lineUnparkW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(lineUnparkW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), ::core::mem::transmute(lpszdestaddress)))
+    ::core::mem::transmute(lineUnparkW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into()))
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -23713,32 +23713,32 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneConfigDialog<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn phoneConfigDialog<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(phoneConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneConfigDialogA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn phoneConfigDialogA<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(phoneConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneConfigDialogW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn phoneConfigDialogW<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(phoneConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into(), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(phoneConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into(), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23841,57 +23841,57 @@ pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn phoneGetID<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneGetID(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(phoneGetID(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn phoneGetIDA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(phoneGetIDA(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(phoneGetIDA(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn phoneGetIDW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(phoneGetIDW(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(lpszdeviceclass)))
+    ::core::mem::transmute(phoneGetIDW(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32 {
+pub unsafe fn phoneGetIcon<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(phoneGetIcon(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lphicon)))
+    ::core::mem::transmute(phoneGetIcon(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32 {
+pub unsafe fn phoneGetIconA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(phoneGetIconA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lphicon)))
+    ::core::mem::transmute(phoneGetIconA(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32 {
+pub unsafe fn phoneGetIconW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
     }
-    ::core::mem::transmute(phoneGetIconW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lphicon)))
+    ::core::mem::transmute(phoneGetIconW(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -23968,32 +23968,32 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneInitialize<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32 {
+pub unsafe fn phoneInitialize<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     }
-    ::core::mem::transmute(phoneInitialize(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpdwnumdevs)))
+    ::core::mem::transmute(phoneInitialize(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), ::core::mem::transmute(lpdwnumdevs)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneInitializeExA<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn phoneInitializeExA<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(phoneInitializeExA(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpszfriendlyappname), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
+    ::core::mem::transmute(phoneInitializeExA(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn phoneInitializeExW<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
+pub unsafe fn phoneInitializeExW<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     }
-    ::core::mem::transmute(phoneInitializeExW(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpszfriendlyappname), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
+    ::core::mem::transmute(phoneInitializeExW(::core::mem::transmute(lphphoneapp), hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24060,12 +24060,12 @@ pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ff
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: ::windows::core::PCSTR, dwsize: u32) -> i32 {
+pub unsafe fn phoneSetDisplay<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: Param3, dwsize: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    ::core::mem::transmute(phoneSetDisplay(::core::mem::transmute(hphone), ::core::mem::transmute(dwrow), ::core::mem::transmute(dwcolumn), ::core::mem::transmute(lpsdisplay), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(phoneSetDisplay(::core::mem::transmute(hphone), ::core::mem::transmute(dwrow), ::core::mem::transmute(dwcolumn), lpsdisplay.into(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -24175,60 +24175,60 @@ pub unsafe fn tapiRequestDrop<'a, Param0: ::std::convert::Into<super::super::Fou
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn tapiRequestMakeCall(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn tapiRequestMakeCall<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn tapiRequestMakeCall(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMakeCall(::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpszcalledparty), ::core::mem::transmute(lpszcomment)))
+    ::core::mem::transmute(tapiRequestMakeCall(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn tapiRequestMakeCallA(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn tapiRequestMakeCallA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn tapiRequestMakeCallA(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMakeCallA(::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpszcalledparty), ::core::mem::transmute(lpszcomment)))
+    ::core::mem::transmute(tapiRequestMakeCallA(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
-pub unsafe fn tapiRequestMakeCallW(lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn tapiRequestMakeCallW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn tapiRequestMakeCallW(lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMakeCallW(::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpszcalledparty), ::core::mem::transmute(lpszcomment)))
+    ::core::mem::transmute(tapiRequestMakeCallW(lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn tapiRequestMediaCall<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn tapiRequestMediaCall<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<::windows::core::PCSTR>, Param7: ::std::convert::Into<::windows::core::PCSTR>, Param8: ::std::convert::Into<::windows::core::PCSTR>, Param9: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: Param2, lpdeviceid: Param3, dwsize: u32, dwsecure: u32, lpszdestaddress: Param6, lpszappname: Param7, lpszcalledparty: Param8, lpszcomment: Param9) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMediaCall(hwnd.into(), wrequestid.into(), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpszcalledparty), ::core::mem::transmute(lpszcomment)))
+    ::core::mem::transmute(tapiRequestMediaCall(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn tapiRequestMediaCallA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32 {
+pub unsafe fn tapiRequestMediaCallA<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<::windows::core::PCSTR>, Param7: ::std::convert::Into<::windows::core::PCSTR>, Param8: ::std::convert::Into<::windows::core::PCSTR>, Param9: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: Param2, lpdeviceid: Param3, dwsize: u32, dwsecure: u32, lpszdestaddress: Param6, lpszappname: Param7, lpszcalledparty: Param8, lpszcomment: Param9) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMediaCallA(hwnd.into(), wrequestid.into(), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpszcalledparty), ::core::mem::transmute(lpszcomment)))
+    ::core::mem::transmute(tapiRequestMediaCallA(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn tapiRequestMediaCallW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceid: ::windows::core::PCWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn tapiRequestMediaCallW<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>, Param7: ::std::convert::Into<::windows::core::PCWSTR>, Param8: ::std::convert::Into<::windows::core::PCWSTR>, Param9: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: Param2, lpdeviceid: Param3, dwsize: u32, dwsecure: u32, lpszdestaddress: Param6, lpszappname: Param7, lpszcalledparty: Param8, lpszcomment: Param9) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceid: ::windows::core::PCWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(tapiRequestMediaCallW(hwnd.into(), wrequestid.into(), ::core::mem::transmute(lpszdeviceclass), ::core::mem::transmute(lpdeviceid), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), ::core::mem::transmute(lpszdestaddress), ::core::mem::transmute(lpszappname), ::core::mem::transmute(lpszcalledparty), ::core::mem::transmute(lpszcomment)))
+    ::core::mem::transmute(tapiRequestMediaCallW(hwnd.into(), wrequestid.into(), lpszdeviceclass.into(), lpdeviceid.into(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into(), lpszappname.into(), lpszcalledparty.into(), lpszcomment.into()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

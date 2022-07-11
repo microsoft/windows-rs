@@ -10318,8 +10318,8 @@ pub struct IWMPMediaCollection2_Vtbl {
 pub struct IWMPMediaPluginRegistrar(::windows::core::IUnknown);
 impl IWMPMediaPluginRegistrar {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn WMPRegisterPlayerPlugin(&self, pwszfriendlyname: ::windows::core::PCWSTR, pwszdescription: ::windows::core::PCWSTR, pwszuninstallstring: ::windows::core::PCWSTR, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pwszuninstallstring), ::core::mem::transmute(dwpriority), ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid), ::core::mem::transmute(cmediatypes), ::core::mem::transmute(pmediatypes)).ok()
+    pub unsafe fn WMPRegisterPlayerPlugin<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0, pwszdescription: Param1, pwszuninstallstring: Param2, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into(), pwszdescription.into(), pwszuninstallstring.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid), ::core::mem::transmute(cmediatypes), ::core::mem::transmute(pmediatypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn WMPUnRegisterPlayerPlugin(&self, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -13230,13 +13230,13 @@ impl IWMPPluginUI {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty(&self, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(pvarproperty)).ok()
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszname: Param0, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwszname.into(), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProperty(&self, pwszname: ::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(pvarproperty)).ok()
+    pub unsafe fn SetProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszname: Param0, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwszname.into(), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15271,8 +15271,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Rename(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -15280,8 +15280,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetUrl(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl)).ok()
+    pub unsafe fn SetUrl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), pszurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -15294,8 +15294,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Move(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn Move<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -15399,8 +15399,8 @@ impl IXFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstream: Param0, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ::core::mem::transmute(pszurl)).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pstream: Param0, pszurl: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), pstream.into().abi(), pszurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -15603,8 +15603,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Rename(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), pszname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -15612,8 +15612,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetUrl(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl)).ok()
+    pub unsafe fn SetUrl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), pszurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -15626,8 +15626,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Move(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn Move<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -15731,8 +15731,8 @@ impl IXFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstream: Param0, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ::core::mem::transmute(pszurl)).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pstream: Param0, pszurl: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), pstream.into().abi(), pszurl.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -15829,8 +15829,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).Password)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetCredentials(&self, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszusername), ::core::mem::transmute(pszpassword)).ok()
+    pub unsafe fn SetCredentials<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszusername: Param0, pszpassword: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), pszusername.into(), pszpassword.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ClearCredentials(&self) -> ::windows::core::Result<()> {
@@ -15963,8 +15963,8 @@ impl IXFeedEnclosure {
         (::windows::core::Interface::vtable(self).RemoveFile)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetFile(&self, pszdownloadurl: ::windows::core::PCWSTR, pszdownloadfilepath: ::windows::core::PCWSTR, pszdownloadmimetype: ::windows::core::PCWSTR, pszenclosurefilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdownloadurl), ::core::mem::transmute(pszdownloadfilepath), ::core::mem::transmute(pszdownloadmimetype), ::core::mem::transmute(pszenclosurefilename)).ok()
+    pub unsafe fn SetFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszdownloadurl: Param0, pszdownloadfilepath: Param1, pszdownloadmimetype: Param2, pszenclosurefilename: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), pszdownloadurl.into(), pszdownloadfilepath.into(), pszdownloadmimetype.into(), pszenclosurefilename.into()).ok()
     }
 }
 impl ::core::convert::From<IXFeedEnclosure> for ::windows::core::IUnknown {
@@ -16029,32 +16029,32 @@ impl IXFeedEvents {
         (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDeleted(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedDeleted<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedRenamed(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FeedRenamed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedUrlChanged(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedUrlChanged<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedMoved(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FeedMoved<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloading(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedDownloading<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloadCompleted<'a, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, pszpath: ::windows::core::PCWSTR, fde: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), fde.into()).ok()
+    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, pszpath: Param0, fde: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), pszpath.into(), fde.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedItemCountChanged(&self, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(feicfflags)).ok()
+    pub unsafe fn FeedItemCountChanged<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(feicfflags)).ok()
     }
 }
 impl ::core::convert::From<IXFeedEvents> for ::windows::core::IUnknown {
@@ -16120,34 +16120,34 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).Subfolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXFeedsEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreateFeed<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFeed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0, pszurl: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pszurl), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), pszname.into(), pszurl.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreateSubfolder<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateSubfolder<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), pszname.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed(&self, pszname: ::windows::core::PCWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pbfeedexists)).ok()
+    pub unsafe fn ExistsFeed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), pszname.into(), ::core::mem::transmute(pbfeedexists)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsSubfolder(&self, pszname: ::windows::core::PCWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pbsubfolderexists)).ok()
+    pub unsafe fn ExistsSubfolder<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), pszname.into(), ::core::mem::transmute(pbsubfolderexists)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFeed<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFeed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), pszname.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetSubfolder<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn GetSubfolder<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), pszname.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -16159,8 +16159,8 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Rename(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16168,8 +16168,8 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Move(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn Move<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -16274,64 +16274,64 @@ impl IXFeedFolderEvents {
         (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderAdded(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FolderAdded<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderDeleted(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FolderDeleted<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderRenamed(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FolderRenamed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderMovedFrom(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FolderMovedFrom<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderMovedTo(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FolderMovedTo<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderItemCountChanged(&self, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(feicfflags)).ok()
+    pub unsafe fn FolderItemCountChanged<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(feicfflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedAdded(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedAdded<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDeleted(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedDeleted<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedRenamed(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FeedRenamed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedUrlChanged(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedUrlChanged<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedMovedFrom(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FeedMovedFrom<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedMovedTo(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
+    pub unsafe fn FeedMovedTo<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), pszpath.into(), pszoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloading(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn FeedDownloading<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloadCompleted<'a, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, pszpath: ::windows::core::PCWSTR, fde: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), fde.into()).ok()
+    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, pszpath: Param0, fde: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), pszpath.into(), fde.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedItemCountChanged(&self, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(feicfflags)).ok()
+    pub unsafe fn FeedItemCountChanged<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(feicfflags)).ok()
     }
 }
 impl ::core::convert::From<IXFeedFolderEvents> for ::windows::core::IUnknown {
@@ -16782,44 +16782,44 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsSubscribed(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsSubscribed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), pszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn ExistsFeed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFeed<T: ::windows::core::Interface>(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFeed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszpath: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), pszpath.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFeedByUrl<T: ::windows::core::Interface>(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFeedByUrl<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszurl: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), pszurl.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFolder(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn ExistsFolder<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFolder<T: ::windows::core::Interface>(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFolder<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszpath: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), pszpath.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeleteFeed(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn DeleteFeed<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeleteFolder(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
+    pub unsafe fn DeleteFolder<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSync<'a, Param0: ::std::convert::Into<FEEDS_BACKGROUNDSYNC_ACTION>>(&self, fbsa: Param0) -> ::windows::core::Result<()> {

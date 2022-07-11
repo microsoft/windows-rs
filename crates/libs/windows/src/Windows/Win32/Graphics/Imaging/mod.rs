@@ -545,9 +545,9 @@ impl IWICBitmapCodecInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType(&self, wzmimetype: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesMimeType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).MatchesMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzmimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IWICBitmapCodecInfo> for ::windows::core::IUnknown {
@@ -893,9 +893,9 @@ impl IWICBitmapDecoderInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType(&self, wzmimetype: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesMimeType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzmimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1194,9 +1194,9 @@ impl IWICBitmapEncoderInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType(&self, wzmimetype: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesMimeType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzmimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder> {
@@ -1863,8 +1863,8 @@ pub struct IWICBitmapSourceTransform_Vtbl {
 pub struct IWICColorContext(::windows::core::IUnknown);
 impl IWICColorContext {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn InitializeFromFilename(&self, wzfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename)).ok()
+    pub unsafe fn InitializeFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzfilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
@@ -2026,9 +2026,9 @@ pub struct IWICColorTransform_Vtbl {
 pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateDecoderFromFilename<'a, Param3: ::std::convert::Into<WICDecodeOptions>>(&self, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<WICDecodeOptions>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3219,9 +3219,9 @@ pub struct IWICFormatConverterInfo_Vtbl {
 pub struct IWICImagingFactory(::windows::core::IUnknown);
 impl IWICImagingFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateDecoderFromFilename<'a, Param3: ::std::convert::Into<WICDecodeOptions>>(&self, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<WICDecodeOptions>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3968,8 +3968,8 @@ impl IWICMetadataQueryReader {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetMetadataByName(&self, wzname: ::windows::core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn GetMetadataByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzname: Param0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into(), ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4043,8 +4043,8 @@ impl IWICMetadataQueryWriter {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetMetadataByName(&self, wzname: ::windows::core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn GetMetadataByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzname: Param0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into(), ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4054,12 +4054,12 @@ impl IWICMetadataQueryWriter {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetMetadataByName(&self, wzname: ::windows::core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn SetMetadataByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzname: Param0, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into(), ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn RemoveMetadataByName(&self, wzname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname)).ok()
+    pub unsafe fn RemoveMetadataByName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into()).ok()
     }
 }
 impl ::core::convert::From<IWICMetadataQueryWriter> for ::windows::core::IUnknown {
@@ -5579,8 +5579,8 @@ impl IWICStream {
         (::windows::core::Interface::vtable(self).InitializeFromIStream)(::windows::core::Interface::as_raw(self), pistream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn InitializeFromFilename(&self, wzfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(dwdesiredaccess)).ok()
+    pub unsafe fn InitializeFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzfilename: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into(), ::core::mem::transmute(dwdesiredaccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
@@ -7233,22 +7233,22 @@ pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: 
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
-pub unsafe fn WICMapSchemaToName(guidmetadataformat: *const ::windows::core::GUID, pwzschema: ::windows::core::PCWSTR, wzname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WICMapSchemaToName<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(guidmetadataformat: *const ::windows::core::GUID, pwzschema: Param1, wzname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICMapSchemaToName(guidmetadataformat: *const ::windows::core::GUID, pwzschema: ::windows::core::PCWSTR, cchname: u32, wzname: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT;
     }
-    WICMapSchemaToName(::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pwzschema), wzname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzname)), ::core::mem::transmute(pcchactual)).ok()
+    WICMapSchemaToName(::core::mem::transmute(guidmetadataformat), pwzschema.into(), wzname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzname)), ::core::mem::transmute(pcchactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
-pub unsafe fn WICMapShortNameToGuid(wzname: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::GUID> {
+pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(wzname: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICMapShortNameToGuid(wzname: ::windows::core::PCWSTR, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-    WICMapShortNameToGuid(::core::mem::transmute(wzname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    WICMapShortNameToGuid(wzname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]

@@ -380,12 +380,12 @@ impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_VERSION {
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddVirtualDiskParent<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parentpath: ::windows::core::PCWSTR) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn AddVirtualDiskParent<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(virtualdiskhandle: Param0, parentpath: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddVirtualDiskParent(virtualdiskhandle: super::super::Foundation::HANDLE, parentpath: ::windows::core::PCWSTR) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(AddVirtualDiskParent(virtualdiskhandle.into(), ::core::mem::transmute(parentpath)))
+    ::core::mem::transmute(AddVirtualDiskParent(virtualdiskhandle.into(), parentpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -974,12 +974,12 @@ pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateVirtualDisk<'a, Param2: ::std::convert::Into<VIRTUAL_DISK_ACCESS_MASK>, Param3: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>, Param4: ::std::convert::Into<CREATE_VIRTUAL_DISK_FLAG>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: Param2, securitydescriptor: Param3, flags: Param4, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn CreateVirtualDisk<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<VIRTUAL_DISK_ACCESS_MASK>, Param3: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>, Param4: ::std::convert::Into<CREATE_VIRTUAL_DISK_FLAG>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: Param2, securitydescriptor: Param3, flags: Param4, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), ::core::mem::transmute(path), virtualdiskaccessmask.into(), securitydescriptor.into(), flags.into(), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
+    ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into(), virtualdiskaccessmask.into(), securitydescriptor.into(), flags.into(), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -2940,12 +2940,12 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_VERSION {
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenVirtualDisk<'a, Param2: ::std::convert::Into<VIRTUAL_DISK_ACCESS_MASK>, Param3: ::std::convert::Into<OPEN_VIRTUAL_DISK_FLAG>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: Param2, flags: Param3, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn OpenVirtualDisk<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<VIRTUAL_DISK_ACCESS_MASK>, Param3: ::std::convert::Into<OPEN_VIRTUAL_DISK_FLAG>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: Param2, flags: Param3, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(OpenVirtualDisk(::core::mem::transmute(virtualstoragetype), ::core::mem::transmute(path), virtualdiskaccessmask.into(), flags.into(), ::core::mem::transmute(parameters), ::core::mem::transmute(handle)))
+    ::core::mem::transmute(OpenVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into(), virtualdiskaccessmask.into(), flags.into(), ::core::mem::transmute(parameters), ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -3035,12 +3035,12 @@ impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<QUERY_CHANGES_VIRTUAL_DISK_FLAG>>(virtualdiskhandle: Param0, changetrackingid: ::windows::core::PCWSTR, byteoffset: u64, bytelength: u64, flags: Param4, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<QUERY_CHANGES_VIRTUAL_DISK_FLAG>>(virtualdiskhandle: Param0, changetrackingid: Param1, byteoffset: u64, bytelength: u64, flags: Param4, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryChangesVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, changetrackingid: ::windows::core::PCWSTR, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(QueryChangesVirtualDisk(virtualdiskhandle.into(), ::core::mem::transmute(changetrackingid), ::core::mem::transmute(byteoffset), ::core::mem::transmute(bytelength), flags.into(), ::core::mem::transmute(ranges), ::core::mem::transmute(rangecount), ::core::mem::transmute(processedlength)))
+    ::core::mem::transmute(QueryChangesVirtualDisk(virtualdiskhandle.into(), changetrackingid.into(), ::core::mem::transmute(byteoffset), ::core::mem::transmute(bytelength), flags.into(), ::core::mem::transmute(ranges), ::core::mem::transmute(rangecount), ::core::mem::transmute(processedlength)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]

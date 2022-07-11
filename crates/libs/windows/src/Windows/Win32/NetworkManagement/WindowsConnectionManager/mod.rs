@@ -11,13 +11,13 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceContextTableForHostName(hostname: ::windows::core::PCWSTR, proxyname: ::windows::core::PCWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
+pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetInterfaceContextTableForHostName(hostname: ::windows::core::PCWSTR, proxyname: ::windows::core::PCWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut NET_INTERFACE_CONTEXT_TABLE>::zeroed();
-    GetInterfaceContextTableForHostName(::core::mem::transmute(hostname), ::core::mem::transmute(proxyname), ::core::mem::transmute(flags), ::core::mem::transmute(connectionprofilefilterrawdata), ::core::mem::transmute(connectionprofilefilterrawdatasize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut NET_INTERFACE_CONTEXT_TABLE>(result__)
+    GetInterfaceContextTableForHostName(hostname.into(), proxyname.into(), ::core::mem::transmute(flags), ::core::mem::transmute(connectionprofilefilterrawdata), ::core::mem::transmute(connectionprofilefilterrawdatasize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut NET_INTERFACE_CONTEXT_TABLE>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
@@ -98,13 +98,13 @@ pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn OnDemandGetRoutingHint(destinationhostname: ::windows::core::PCWSTR) -> ::windows::core::Result<u32> {
+pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(destinationhostname: Param0) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OnDemandGetRoutingHint(destinationhostname: ::windows::core::PCWSTR, interfaceindex: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    OnDemandGetRoutingHint(::core::mem::transmute(destinationhostname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    OnDemandGetRoutingHint(destinationhostname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -589,12 +589,12 @@ pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofileli
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmQueryProperty<'a, Param2: ::std::convert::Into<WCM_PROPERTY>>(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: Param2, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
+pub unsafe fn WcmQueryProperty<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<WCM_PROPERTY>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: Param2, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcmQueryProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(WcmQueryProperty(::core::mem::transmute(pinterface), ::core::mem::transmute(strprofilename), property.into(), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata)))
+    ::core::mem::transmute(WcmQueryProperty(::core::mem::transmute(pinterface), strprofilename.into(), property.into(), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -608,12 +608,12 @@ pub unsafe fn WcmSetProfileList<'a, Param2: ::std::convert::Into<super::super::F
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmSetProperty<'a, Param2: ::std::convert::Into<WCM_PROPERTY>>(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: Param2, preserved: *mut ::core::ffi::c_void, pbdata: &[u8]) -> u32 {
+pub unsafe fn WcmSetProperty<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<WCM_PROPERTY>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: Param2, preserved: *mut ::core::ffi::c_void, pbdata: &[u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcmSetProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
     }
-    ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), ::core::mem::transmute(strprofilename), property.into(), ::core::mem::transmute(preserved), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))))
+    ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), strprofilename.into(), property.into(), ::core::mem::transmute(preserved), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

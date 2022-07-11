@@ -278,18 +278,18 @@ impl IPrintWorkflowXpsReceiver {
         (::windows::core::Interface::vtable(self).SetDocumentSequencePrintTicket)(::windows::core::Interface::as_raw(self), documentsequenceprintticket.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
-    pub unsafe fn SetDocumentSequenceUri(&self, documentsequenceuri: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentSequenceUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentsequenceuri)).ok()
+    pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDocumentSequenceUri)(::windows::core::Interface::as_raw(self), documentsequenceuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddDocumentData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>>(&self, documentid: u32, documentprintticket: Param1, documenturi: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDocumentData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), documentprintticket.into().abi(), ::core::mem::transmute(documenturi)).ok()
+    pub unsafe fn AddDocumentData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddDocumentData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), documentprintticket.into().abi(), documenturi.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn AddPage<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into().abi(), ::core::mem::transmute(pageuri)).ok()
+    pub unsafe fn AddPage<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into().abi(), pageuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -360,18 +360,18 @@ impl IPrintWorkflowXpsReceiver2 {
         (::windows::core::Interface::vtable(self).base__.SetDocumentSequencePrintTicket)(::windows::core::Interface::as_raw(self), documentsequenceprintticket.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
-    pub unsafe fn SetDocumentSequenceUri(&self, documentsequenceuri: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDocumentSequenceUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentsequenceuri)).ok()
+    pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDocumentSequenceUri)(::windows::core::Interface::as_raw(self), documentsequenceuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddDocumentData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>>(&self, documentid: u32, documentprintticket: Param1, documenturi: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddDocumentData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), documentprintticket.into().abi(), ::core::mem::transmute(documenturi)).ok()
+    pub unsafe fn AddDocumentData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddDocumentData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), documentprintticket.into().abi(), documenturi.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn AddPage<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into().abi(), ::core::mem::transmute(pageuri)).ok()
+    pub unsafe fn AddPage<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into().abi(), pageuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {

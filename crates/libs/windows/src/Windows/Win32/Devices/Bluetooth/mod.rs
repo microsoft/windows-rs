@@ -2745,12 +2745,12 @@ pub unsafe fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PA
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSendAuthenticationResponse<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hradio: Param0, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn BluetoothSendAuthenticationResponse<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hradio: Param0, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(BluetoothSendAuthenticationResponse(hradio.into(), ::core::mem::transmute(pbtdi), ::core::mem::transmute(pszpasskey)))
+    ::core::mem::transmute(BluetoothSendAuthenticationResponse(hradio.into(), ::core::mem::transmute(pbtdi), pszpasskey.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

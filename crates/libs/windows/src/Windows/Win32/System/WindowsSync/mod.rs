@@ -2697,16 +2697,16 @@ pub struct IRecoverableError_Vtbl {
 pub struct IRecoverableErrorData(::windows::core::IUnknown);
 impl IRecoverableErrorData {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn Initialize(&self, pcszitemdisplayname: ::windows::core::PCWSTR, pcszerrordescription: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcszitemdisplayname), ::core::mem::transmute(pcszerrordescription)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcszitemdisplayname: Param0, pcszerrordescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pcszitemdisplayname.into(), pcszerrordescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetItemDisplayName(&self, pszitemdisplayname: ::windows::core::PCWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetItemDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszitemdisplayname), ::core::mem::transmute(pcchitemdisplayname)).ok()
+    pub unsafe fn GetItemDisplayName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszitemdisplayname: Param0, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetItemDisplayName)(::windows::core::Interface::as_raw(self), pszitemdisplayname.into(), ::core::mem::transmute(pcchitemdisplayname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetErrorDescription(&self, pszerrordescription: ::windows::core::PCWSTR, pccherrordescription: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszerrordescription), ::core::mem::transmute(pccherrordescription)).ok()
+    pub unsafe fn GetErrorDescription<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszerrordescription: Param0, pccherrordescription: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetErrorDescription)(::windows::core::Interface::as_raw(self), pszerrordescription.into(), ::core::mem::transmute(pccherrordescription)).ok()
     }
 }
 impl ::core::convert::From<IRecoverableErrorData> for ::windows::core::IUnknown {

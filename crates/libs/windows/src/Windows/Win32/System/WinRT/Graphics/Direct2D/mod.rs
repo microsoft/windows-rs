@@ -118,8 +118,8 @@ impl IGraphicsEffectD2D1Interop {
         (::windows::core::Interface::vtable(self).GetEffectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetNamedPropertyMapping(&self, name: ::windows::core::PCWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
+    pub unsafe fn GetNamedPropertyMapping<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
     pub unsafe fn GetPropertyCount(&self) -> ::windows::core::Result<u32> {

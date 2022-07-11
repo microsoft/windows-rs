@@ -1060,8 +1060,8 @@ pub const IDTB_ZOOM: u32 = 222u32;
 pub struct IITDatabase(::windows::core::IUnknown);
 impl IITDatabase {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn Open(&self, lpszhost: ::windows::core::PCWSTR, lpszmoniker: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpszhost), ::core::mem::transmute(lpszmoniker), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lpszhost: Param0, lpszmoniker: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), lpszhost.into(), lpszmoniker.into(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -1077,8 +1077,8 @@ impl IITDatabase {
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectPersistence<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, lpwszobject: ::windows::core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectPersistence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpwszobject), ::core::mem::transmute(dwobjinstance), ::core::mem::transmute(ppvpersistence), fstream.into()).ok()
+    pub unsafe fn GetObjectPersistence<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, lpwszobject: Param0, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjectPersistence)(::windows::core::Interface::as_raw(self), lpwszobject.into(), ::core::mem::transmute(dwobjinstance), ::core::mem::transmute(ppvpersistence), fstream.into()).ok()
     }
 }
 impl ::core::convert::From<IITDatabase> for ::windows::core::IUnknown {
@@ -1170,8 +1170,8 @@ impl IITPropList {
         (::windows::core::Interface::vtable(self).base__.InitNew)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn Set(&self, propid: u32, lpszwstring: ::windows::core::PCWSTR, dwoperation: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(lpszwstring), ::core::mem::transmute(dwoperation)).ok()
+    pub unsafe fn Set<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, propid: u32, lpszwstring: Param1, dwoperation: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), lpszwstring.into(), ::core::mem::transmute(dwoperation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()> {
@@ -1396,8 +1396,8 @@ impl IITResultSet {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(dwdefaultdata), priority.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn Add2<'a, Param2: ::std::convert::Into<PRIORITY>>(&self, propid: u32, lpszwdefault: ::windows::core::PCWSTR, priority: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(lpszwdefault), priority.into()).ok()
+    pub unsafe fn Add2<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<PRIORITY>>(&self, propid: u32, lpszwdefault: Param1, priority: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), lpszwdefault.into(), priority.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Add3<'a, Param3: ::std::convert::Into<PRIORITY>>(&self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: Param3) -> ::windows::core::Result<()> {
@@ -1416,8 +1416,8 @@ impl IITResultSet {
         (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn Set2(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpwstr)).ok()
+    pub unsafe fn Set2<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Set2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), lpwstr.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()> {
@@ -1589,8 +1589,8 @@ pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 pub struct IITWordWheel(::windows::core::IUnknown);
 impl IITWordWheel {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IITDatabase>>, Param2: ::std::convert::Into<WORD_WHEEL_OPEN_FLAGS>>(&self, lpitdb: Param0, lpszmoniker: ::windows::core::PCWSTR, dwflags: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), lpitdb.into().abi(), ::core::mem::transmute(lpszmoniker), dwflags.into()).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IITDatabase>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<WORD_WHEEL_OPEN_FLAGS>>(&self, lpitdb: Param0, lpszmoniker: Param1, dwflags: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), lpitdb.into().abi(), lpszmoniker.into(), dwflags.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -1703,12 +1703,12 @@ pub struct IITWordWheel_Vtbl {
 pub struct IStemSink(::windows::core::IUnknown);
 impl IStemSink {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn PutAltWord(&self, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwcinbuf), ::core::mem::transmute(cwc)).ok()
+    pub unsafe fn PutAltWord<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), ::core::mem::transmute(cwc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-    pub unsafe fn PutWord(&self, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwcinbuf), ::core::mem::transmute(cwc)).ok()
+    pub unsafe fn PutWord<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into(), ::core::mem::transmute(cwc)).ok()
     }
 }
 impl ::core::convert::From<IStemSink> for ::windows::core::IUnknown {

@@ -6223,12 +6223,12 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Rpc\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
-pub unsafe fn FwpmEngineOpen0(servername: ::windows::core::PCWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmEngineOpen0<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(servername: Param0, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FwpmEngineOpen0(servername: ::windows::core::PCWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(FwpmEngineOpen0(::core::mem::transmute(servername), ::core::mem::transmute(authnservice), ::core::mem::transmute(authidentity), ::core::mem::transmute(session), ::core::mem::transmute(enginehandle)))
+    ::core::mem::transmute(FwpmEngineOpen0(servername.into(), ::core::mem::transmute(authnservice), ::core::mem::transmute(authidentity), ::core::mem::transmute(session), ::core::mem::transmute(enginehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -6391,12 +6391,12 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 #[inline]
-pub unsafe fn FwpmGetAppIdFromFileName0(filename: ::windows::core::PCWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
+pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(filename: Param0, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FwpmGetAppIdFromFileName0(filename: ::windows::core::PCWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
     }
-    ::core::mem::transmute(FwpmGetAppIdFromFileName0(::core::mem::transmute(filename), ::core::mem::transmute(appid)))
+    ::core::mem::transmute(FwpmGetAppIdFromFileName0(filename.into(), ::core::mem::transmute(appid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

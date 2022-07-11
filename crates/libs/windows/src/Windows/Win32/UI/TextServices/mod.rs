@@ -10836,9 +10836,9 @@ pub struct ITfReadingInformationUIElement_Vtbl {
 pub struct ITfReverseConversion(::windows::core::IUnknown);
 impl ITfReverseConversion {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn DoReverseConversion(&self, lpstr: ::windows::core::PCWSTR) -> ::windows::core::Result<ITfReverseConversionList> {
+    pub unsafe fn DoReverseConversion<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, lpstr: Param0) -> ::windows::core::Result<ITfReverseConversionList> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).DoReverseConversion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpstr), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfReverseConversionList>(result__)
+        (::windows::core::Interface::vtable(self).DoReverseConversion)(::windows::core::Interface::as_raw(self), lpstr.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfReverseConversionList>(result__)
     }
 }
 impl ::core::convert::From<ITfReverseConversion> for ::windows::core::IUnknown {

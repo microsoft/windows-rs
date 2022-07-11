@@ -1468,8 +1468,8 @@ pub struct IAudioProcessingObjectConfiguration_Vtbl {
 pub struct IAudioProcessingObjectLoggingService(::windows::core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
-    pub unsafe fn ApoLog<'a, Param0: ::std::convert::Into<APO_LOG_LEVEL>>(&self, level: Param0, format: ::windows::core::PCWSTR) {
-        (::windows::core::Interface::vtable(self).ApoLog)(::windows::core::Interface::as_raw(self), level.into(), ::core::mem::transmute(format))
+    pub unsafe fn ApoLog<'a, Param0: ::std::convert::Into<APO_LOG_LEVEL>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, level: Param0, format: Param1) {
+        (::windows::core::Interface::vtable(self).ApoLog)(::windows::core::Interface::as_raw(self), level.into(), format.into())
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectLoggingService> for ::windows::core::IUnknown {

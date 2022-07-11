@@ -325,9 +325,9 @@ pub struct IStorageFolderHandleAccess(::windows::core::IUnknown);
 impl IStorageFolderHandleAccess {
     #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, Param1: ::std::convert::Into<HANDLE_CREATION_OPTIONS>, Param2: ::std::convert::Into<HANDLE_ACCESS_OPTIONS>, Param3: ::std::convert::Into<HANDLE_SHARING_OPTIONS>, Param4: ::std::convert::Into<HANDLE_OPTIONS>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>>(&self, filename: ::windows::core::PCWSTR, creationoptions: Param1, accessoptions: Param2, sharingoptions: Param3, options: Param4, oplockbreakinghandler: Param5) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<HANDLE_CREATION_OPTIONS>, Param2: ::std::convert::Into<HANDLE_ACCESS_OPTIONS>, Param3: ::std::convert::Into<HANDLE_SHARING_OPTIONS>, Param4: ::std::convert::Into<HANDLE_OPTIONS>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>>(&self, filename: Param0, creationoptions: Param1, accessoptions: Param2, sharingoptions: Param3, options: Param4, oplockbreakinghandler: Param5) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), creationoptions.into(), accessoptions.into(), sharingoptions.into(), options.into(), oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), filename.into(), creationoptions.into(), accessoptions.into(), sharingoptions.into(), options.into(), oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::core::IUnknown {

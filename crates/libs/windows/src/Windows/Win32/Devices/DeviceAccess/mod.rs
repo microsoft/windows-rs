@@ -1,13 +1,13 @@
 pub const CLSID_DeviceIoControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[inline]
-pub unsafe fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync> {
+pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(deviceinterfacepath: Param0, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32, createasync: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateDeviceAccessInstance(::core::mem::transmute(deviceinterfacepath), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
+    CreateDeviceAccessInstance(deviceinterfacepath.into(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 pub const DEV_PORT_1394: u32 = 8u32;

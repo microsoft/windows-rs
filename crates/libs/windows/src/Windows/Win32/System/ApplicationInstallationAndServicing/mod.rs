@@ -770,12 +770,12 @@ pub unsafe fn AddRefActCtx<'a, Param0: ::std::convert::Into<super::super::Founda
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyDeltaA(applyflags: i64, lpsourcename: ::windows::core::PCSTR, lpdeltaname: ::windows::core::PCSTR, lptargetname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyDeltaA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(applyflags: i64, lpsourcename: Param1, lpdeltaname: Param2, lptargetname: Param3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyDeltaA(applyflags: i64, lpsourcename: ::windows::core::PCSTR, lpdeltaname: ::windows::core::PCSTR, lptargetname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApplyDeltaA(::core::mem::transmute(applyflags), ::core::mem::transmute(lpsourcename), ::core::mem::transmute(lpdeltaname), ::core::mem::transmute(lptargetname)))
+    ::core::mem::transmute(ApplyDeltaA(::core::mem::transmute(applyflags), lpsourcename.into(), lpdeltaname.into(), lptargetname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -810,22 +810,22 @@ pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: D
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyDeltaW(applyflags: i64, lpsourcename: ::windows::core::PCWSTR, lpdeltaname: ::windows::core::PCWSTR, lptargetname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyDeltaW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(applyflags: i64, lpsourcename: Param1, lpdeltaname: Param2, lptargetname: Param3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyDeltaW(applyflags: i64, lpsourcename: ::windows::core::PCWSTR, lpdeltaname: ::windows::core::PCWSTR, lptargetname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApplyDeltaW(::core::mem::transmute(applyflags), ::core::mem::transmute(lpsourcename), ::core::mem::transmute(lpdeltaname), ::core::mem::transmute(lptargetname)))
+    ::core::mem::transmute(ApplyDeltaW(::core::mem::transmute(applyflags), lpsourcename.into(), lpdeltaname.into(), lptargetname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileA(patchfilename: ::windows::core::PCSTR, oldfilename: ::windows::core::PCSTR, newfilename: ::windows::core::PCSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyPatchToFileA(patchfilename: ::windows::core::PCSTR, oldfilename: ::windows::core::PCSTR, newfilename: ::windows::core::PCSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApplyPatchToFileA(::core::mem::transmute(patchfilename), ::core::mem::transmute(oldfilename), ::core::mem::transmute(newfilename), ::core::mem::transmute(applyoptionflags)))
+    ::core::mem::transmute(ApplyPatchToFileA(patchfilename.into(), oldfilename.into(), newfilename.into(), ::core::mem::transmute(applyoptionflags)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -860,32 +860,32 @@ pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileExA(patchfilename: ::windows::core::PCSTR, oldfilename: ::windows::core::PCSTR, newfilename: ::windows::core::PCSTR, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyPatchToFileExA(patchfilename: ::windows::core::PCSTR, oldfilename: ::windows::core::PCSTR, newfilename: ::windows::core::PCSTR, applyoptionflags: u32, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApplyPatchToFileExA(::core::mem::transmute(patchfilename), ::core::mem::transmute(oldfilename), ::core::mem::transmute(newfilename), ::core::mem::transmute(applyoptionflags), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+    ::core::mem::transmute(ApplyPatchToFileExA(patchfilename.into(), oldfilename.into(), newfilename.into(), ::core::mem::transmute(applyoptionflags), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileExW(patchfilename: ::windows::core::PCWSTR, oldfilename: ::windows::core::PCWSTR, newfilename: ::windows::core::PCWSTR, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyPatchToFileExW(patchfilename: ::windows::core::PCWSTR, oldfilename: ::windows::core::PCWSTR, newfilename: ::windows::core::PCWSTR, applyoptionflags: u32, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApplyPatchToFileExW(::core::mem::transmute(patchfilename), ::core::mem::transmute(oldfilename), ::core::mem::transmute(newfilename), ::core::mem::transmute(applyoptionflags), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+    ::core::mem::transmute(ApplyPatchToFileExW(patchfilename.into(), oldfilename.into(), newfilename.into(), ::core::mem::transmute(applyoptionflags), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyPatchToFileW(patchfilename: ::windows::core::PCWSTR, oldfilename: ::windows::core::PCWSTR, newfilename: ::windows::core::PCWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyPatchToFileW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyPatchToFileW(patchfilename: ::windows::core::PCWSTR, oldfilename: ::windows::core::PCWSTR, newfilename: ::windows::core::PCWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ApplyPatchToFileW(::core::mem::transmute(patchfilename), ::core::mem::transmute(oldfilename), ::core::mem::transmute(newfilename), ::core::mem::transmute(applyoptionflags)))
+    ::core::mem::transmute(ApplyPatchToFileW(patchfilename.into(), oldfilename.into(), newfilename.into(), ::core::mem::transmute(applyoptionflags)))
 }
 pub const CLSID_EvalCom2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
 pub const CLSID_MsmMerge2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
@@ -973,12 +973,12 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> ::windows::core::Result<
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDeltaA(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: ::windows::core::PCSTR, lptargetname: ::windows::core::PCSTR, lpsourceoptionsname: ::windows::core::PCSTR, lptargetoptionsname: ::windows::core::PCSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDeltaA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<::windows::core::PCSTR>, Param5: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<::windows::core::PCSTR>, Param10: ::std::convert::Into<::windows::core::PCSTR>>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: Param3, lptargetname: Param4, lpsourceoptionsname: Param5, lptargetoptionsname: Param6, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: Param10) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDeltaA(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: ::windows::core::PCSTR, lptargetname: ::windows::core::PCSTR, lpsourceoptionsname: ::windows::core::PCSTR, lptargetoptionsname: ::windows::core::PCSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateDeltaA(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), ::core::mem::transmute(lpsourcename), ::core::mem::transmute(lptargetname), ::core::mem::transmute(lpsourceoptionsname), ::core::mem::transmute(lptargetoptionsname), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), ::core::mem::transmute(lpdeltaname)))
+    ::core::mem::transmute(CreateDeltaA(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), lpsourcename.into(), lptargetname.into(), lpsourceoptionsname.into(), lptargetoptionsname.into(), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), lpdeltaname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -993,22 +993,22 @@ pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, sou
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDeltaW(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: ::windows::core::PCWSTR, lptargetname: ::windows::core::PCWSTR, lpsourceoptionsname: ::windows::core::PCWSTR, lptargetoptionsname: ::windows::core::PCWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDeltaW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>, Param10: ::std::convert::Into<::windows::core::PCWSTR>>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: Param3, lptargetname: Param4, lpsourceoptionsname: Param5, lptargetoptionsname: Param6, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: Param10) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDeltaW(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: ::windows::core::PCWSTR, lptargetname: ::windows::core::PCWSTR, lpsourceoptionsname: ::windows::core::PCWSTR, lptargetoptionsname: ::windows::core::PCWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateDeltaW(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), ::core::mem::transmute(lpsourcename), ::core::mem::transmute(lptargetname), ::core::mem::transmute(lpsourceoptionsname), ::core::mem::transmute(lptargetoptionsname), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), ::core::mem::transmute(lpdeltaname)))
+    ::core::mem::transmute(CreateDeltaW(::core::mem::transmute(filetypeset), ::core::mem::transmute(setflags), ::core::mem::transmute(resetflags), lpsourcename.into(), lptargetname.into(), lpsourceoptionsname.into(), lptargetoptionsname.into(), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime), ::core::mem::transmute(hashalgid), lpdeltaname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileA(oldfilename: ::windows::core::PCSTR, newfilename: ::windows::core::PCSTR, patchfilename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(oldfilename: Param0, newfilename: Param1, patchfilename: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePatchFileA(oldfilename: ::windows::core::PCSTR, newfilename: ::windows::core::PCSTR, patchfilename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreatePatchFileA(::core::mem::transmute(oldfilename), ::core::mem::transmute(newfilename), ::core::mem::transmute(patchfilename), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
+    ::core::mem::transmute(CreatePatchFileA(oldfilename.into(), newfilename.into(), patchfilename.into(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1033,32 +1033,32 @@ pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileExA(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: ::windows::core::PCSTR, patchfilename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileExA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePatchFileExA(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: ::windows::core::PCSTR, patchfilename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), ::core::mem::transmute(newfilename), ::core::mem::transmute(patchfilename), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+    ::core::mem::transmute(CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilename.into(), patchfilename.into(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileExW(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: ::windows::core::PCWSTR, patchfilename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileExW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePatchFileExW(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: ::windows::core::PCWSTR, patchfilename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), ::core::mem::transmute(newfilename), ::core::mem::transmute(patchfilename), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+    ::core::mem::transmute(CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilename.into(), patchfilename.into(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePatchFileW(oldfilename: ::windows::core::PCWSTR, newfilename: ::windows::core::PCWSTR, patchfilename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
+pub unsafe fn CreatePatchFileW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(oldfilename: Param0, newfilename: Param1, patchfilename: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePatchFileW(oldfilename: ::windows::core::PCWSTR, newfilename: ::windows::core::PCWSTR, patchfilename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreatePatchFileW(::core::mem::transmute(oldfilename), ::core::mem::transmute(newfilename), ::core::mem::transmute(patchfilename), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
+    ::core::mem::transmute(CreatePatchFileW(oldfilename.into(), newfilename.into(), patchfilename.into(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const DEFAULT_DISK_ID: u32 = 2u32;
@@ -1636,12 +1636,12 @@ pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtractPatchHeaderToFileA(patchfilename: ::windows::core::PCSTR, patchheaderfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ExtractPatchHeaderToFileA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(patchfilename: Param0, patchheaderfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtractPatchHeaderToFileA(patchfilename: ::windows::core::PCSTR, patchheaderfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtractPatchHeaderToFileA(::core::mem::transmute(patchfilename), ::core::mem::transmute(patchheaderfilename)))
+    ::core::mem::transmute(ExtractPatchHeaderToFileA(patchfilename.into(), patchheaderfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1656,12 +1656,12 @@ pub unsafe fn ExtractPatchHeaderToFileByHandles<'a, Param0: ::std::convert::Into
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtractPatchHeaderToFileW(patchfilename: ::windows::core::PCWSTR, patchheaderfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ExtractPatchHeaderToFileW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(patchfilename: Param0, patchheaderfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtractPatchHeaderToFileW(patchfilename: ::windows::core::PCWSTR, patchheaderfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtractPatchHeaderToFileW(::core::mem::transmute(patchfilename), ::core::mem::transmute(patchheaderfilename)))
+    ::core::mem::transmute(ExtractPatchHeaderToFileW(patchfilename.into(), patchheaderfilename.into()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -1713,22 +1713,22 @@ pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const ::wind
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FindActCtxSectionStringA(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: ::windows::core::PCSTR, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
+pub unsafe fn FindActCtxSectionStringA<'a, Param3: ::std::convert::Into<::windows::core::PCSTR>>(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: Param3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindActCtxSectionStringA(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: ::windows::core::PCSTR, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FindActCtxSectionStringA(::core::mem::transmute(dwflags), ::core::mem::transmute(lpextensionguid), ::core::mem::transmute(ulsectionid), ::core::mem::transmute(lpstringtofind), ::core::mem::transmute(returneddata)))
+    ::core::mem::transmute(FindActCtxSectionStringA(::core::mem::transmute(dwflags), ::core::mem::transmute(lpextensionguid), ::core::mem::transmute(ulsectionid), lpstringtofind.into(), ::core::mem::transmute(returneddata)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn FindActCtxSectionStringW(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: ::windows::core::PCWSTR, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
+pub unsafe fn FindActCtxSectionStringW<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: Param3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindActCtxSectionStringW(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: ::windows::core::PCWSTR, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FindActCtxSectionStringW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpextensionguid), ::core::mem::transmute(ulsectionid), ::core::mem::transmute(lpstringtofind), ::core::mem::transmute(returneddata)))
+    ::core::mem::transmute(FindActCtxSectionStringW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpextensionguid), ::core::mem::transmute(ulsectionid), lpstringtofind.into(), ::core::mem::transmute(returneddata)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1743,12 +1743,12 @@ pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE)
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeltaInfoA(lpdeltaname: ::windows::core::PCSTR, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDeltaInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpdeltaname: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeltaInfoA(lpdeltaname: ::windows::core::PCSTR, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDeltaInfoA(::core::mem::transmute(lpdeltaname), ::core::mem::transmute(lpheaderinfo)))
+    ::core::mem::transmute(GetDeltaInfoA(lpdeltaname.into(), ::core::mem::transmute(lpheaderinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1763,22 +1763,22 @@ pub unsafe fn GetDeltaInfoB(delta: DELTA_INPUT, lpheaderinfo: *mut DELTA_HEADER_
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeltaInfoW(lpdeltaname: ::windows::core::PCWSTR, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDeltaInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpdeltaname: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeltaInfoW(lpdeltaname: ::windows::core::PCWSTR, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDeltaInfoW(::core::mem::transmute(lpdeltaname), ::core::mem::transmute(lpheaderinfo)))
+    ::core::mem::transmute(GetDeltaInfoW(lpdeltaname.into(), ::core::mem::transmute(lpheaderinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeltaSignatureA(filetypeset: i64, hashalgid: u32, lpsourcename: ::windows::core::PCSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDeltaSignatureA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(filetypeset: i64, hashalgid: u32, lpsourcename: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeltaSignatureA(filetypeset: i64, hashalgid: u32, lpsourcename: ::windows::core::PCSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDeltaSignatureA(::core::mem::transmute(filetypeset), ::core::mem::transmute(hashalgid), ::core::mem::transmute(lpsourcename), ::core::mem::transmute(lphash)))
+    ::core::mem::transmute(GetDeltaSignatureA(::core::mem::transmute(filetypeset), ::core::mem::transmute(hashalgid), lpsourcename.into(), ::core::mem::transmute(lphash)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1793,22 +1793,22 @@ pub unsafe fn GetDeltaSignatureB(filetypeset: i64, hashalgid: u32, source: DELTA
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeltaSignatureW(filetypeset: i64, hashalgid: u32, lpsourcename: ::windows::core::PCWSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDeltaSignatureW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(filetypeset: i64, hashalgid: u32, lpsourcename: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeltaSignatureW(filetypeset: i64, hashalgid: u32, lpsourcename: ::windows::core::PCWSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetDeltaSignatureW(::core::mem::transmute(filetypeset), ::core::mem::transmute(hashalgid), ::core::mem::transmute(lpsourcename), ::core::mem::transmute(lphash)))
+    ::core::mem::transmute(GetDeltaSignatureW(::core::mem::transmute(filetypeset), ::core::mem::transmute(hashalgid), lpsourcename.into(), ::core::mem::transmute(lphash)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureA(filename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFilePatchSignatureA(filename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFilePatchSignatureA(::core::mem::transmute(filename), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
+    ::core::mem::transmute(GetFilePatchSignatureA(filename.into(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1833,12 +1833,12 @@ pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::std::convert::Into<sup
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureW(filename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFilePatchSignatureW(filename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFilePatchSignatureW(::core::mem::transmute(filename), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
+    ::core::mem::transmute(GetFilePatchSignatureW(filename.into(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const IACTIONNAME_ADMIN: &str = "ADMIN";
@@ -1896,16 +1896,16 @@ impl ::core::fmt::Debug for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
 pub struct IAssemblyCache(::windows::core::IUnknown);
 impl IAssemblyCache {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: ::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UninstallAssembly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszassemblyname), ::core::mem::transmute(prefdata), ::core::mem::transmute(puldisposition)).ok()
+    pub unsafe fn UninstallAssembly<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: u32, pszassemblyname: Param1, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UninstallAssembly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszassemblyname.into(), ::core::mem::transmute(prefdata), ::core::mem::transmute(puldisposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn QueryAssemblyInfo<'a, Param0: ::std::convert::Into<QUERYASMINFO_FLAGS>>(&self, dwflags: Param0, pszassemblyname: ::windows::core::PCWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryAssemblyInfo)(::windows::core::Interface::as_raw(self), dwflags.into(), ::core::mem::transmute(pszassemblyname), ::core::mem::transmute(pasminfo)).ok()
+    pub unsafe fn QueryAssemblyInfo<'a, Param0: ::std::convert::Into<QUERYASMINFO_FLAGS>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: Param0, pszassemblyname: Param1, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).QueryAssemblyInfo)(::windows::core::Interface::as_raw(self), dwflags.into(), pszassemblyname.into(), ::core::mem::transmute(pasminfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAssemblyCacheItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppasmitem), ::core::mem::transmute(pszassemblyname)).ok()
+    pub unsafe fn CreateAssemblyCacheItem<'a, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateAssemblyCacheItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppasmitem), pszassemblyname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -1913,8 +1913,8 @@ impl IAssemblyCache {
         (::windows::core::Interface::vtable(self).Reserved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: ::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallAssembly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszmanifestfilepath), ::core::mem::transmute(prefdata)).ok()
+    pub unsafe fn InstallAssembly<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: u32, pszmanifestfilepath: Param1, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InstallAssembly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszmanifestfilepath.into(), ::core::mem::transmute(prefdata)).ok()
     }
 }
 impl ::core::convert::From<IAssemblyCache> for ::windows::core::IUnknown {
@@ -1968,8 +1968,8 @@ pub struct IAssemblyCacheItem(::windows::core::IUnknown);
 impl IAssemblyCacheItem {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateStream(&self, dwflags: u32, pszstreamname: ::windows::core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszstreamname), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwformatflags), ::core::mem::transmute(ppistream), ::core::mem::transmute(pulimaxsize)).ok()
+    pub unsafe fn CreateStream<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dwflags: u32, pszstreamname: Param1, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszstreamname.into(), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwformatflags), ::core::mem::transmute(ppistream), ::core::mem::transmute(pulimaxsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()> {
@@ -2047,8 +2047,8 @@ impl IAssemblyName {
         (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(pccdisplayname), ::core::mem::transmute(dwdisplayflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn Reserved<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, refiid: *const ::windows::core::GUID, punkreserved1: Param1, punkreserved2: Param2, szreserved: ::windows::core::PCWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reserved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(refiid), punkreserved1.into().abi(), punkreserved2.into().abi(), ::core::mem::transmute(szreserved), ::core::mem::transmute(llreserved), ::core::mem::transmute(pvreserved), ::core::mem::transmute(cbreserved), ::core::mem::transmute(ppreserved)).ok()
+    pub unsafe fn Reserved<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, refiid: *const ::windows::core::GUID, punkreserved1: Param1, punkreserved2: Param2, szreserved: Param3, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reserved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(refiid), punkreserved1.into().abi(), punkreserved2.into().abi(), szreserved.into(), ::core::mem::transmute(llreserved), ::core::mem::transmute(pvreserved), ::core::mem::transmute(cbreserved), ::core::mem::transmute(ppreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -4652,9 +4652,9 @@ impl IPMDeploymentManager {
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnterprisePolicyIsApplicationAllowed(&self, productid: ::windows::core::GUID, publishername: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn EnterprisePolicyIsApplicationAllowed<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, productid: ::windows::core::GUID, publishername: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).EnterprisePolicyIsApplicationAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(publishername), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).EnterprisePolicyIsApplicationAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), publishername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4667,8 +4667,8 @@ impl IPMDeploymentManager {
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ResolveResourceString(&self, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResolveResourceString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcestring), ::core::mem::transmute(presolvedresourcestring)).ok()
+    pub unsafe fn ResolveResourceString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, resourcestring: Param0, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResolveResourceString)(::windows::core::Interface::as_raw(self), resourcestring.into(), ::core::mem::transmute(presolvedresourcestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn UpdateCapabilitiesForModernApps(&self) -> ::windows::core::Result<()> {
@@ -4869,9 +4869,9 @@ impl IPMEnumerationManager {
         (::windows::core::Interface::vtable(self).get_TaskInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), taskid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMTaskInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn get_TaskInfoEx(&self, productid: ::windows::core::GUID, taskid: ::windows::core::PCWSTR) -> ::windows::core::Result<IPMTaskInfo> {
+    pub unsafe fn get_TaskInfoEx<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, productid: ::windows::core::GUID, taskid: Param1) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_TaskInfoEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(taskid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMTaskInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_TaskInfoEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), taskid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPMTaskInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo> {
@@ -7008,12 +7008,12 @@ pub const IPROPVALUE__CARRYINGNDP_URTUPGRADE: &str = "URTUPGRADE";
 pub struct IValidate(::windows::core::IUnknown);
 impl IValidate {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn OpenDatabase(&self, szdatabase: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenDatabase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szdatabase)).ok()
+    pub unsafe fn OpenDatabase<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szdatabase: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenDatabase)(::windows::core::Interface::as_raw(self), szdatabase.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn OpenCUB(&self, szcubfile: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenCUB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szcubfile)).ok()
+    pub unsafe fn OpenCUB<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szcubfile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenCUB)(::windows::core::Interface::as_raw(self), szcubfile.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CloseDatabase(&self) -> ::windows::core::Result<()> {
@@ -7034,8 +7034,8 @@ impl IValidate {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatusfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-    pub unsafe fn Validate(&self, wzices: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzices)).ok()
+    pub unsafe fn Validate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wzices: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), wzices.into()).ok()
     }
 }
 impl ::core::convert::From<IValidate> for ::windows::core::IUnknown {
@@ -7983,115 +7983,115 @@ pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiAdvertiseProductA(szpackagepath: ::windows::core::PCSTR, szscriptfilepath: ::windows::core::PCSTR, sztransforms: ::windows::core::PCSTR, lgidlanguage: u16) -> u32 {
+pub unsafe fn MsiAdvertiseProductA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiAdvertiseProductA(szpackagepath: ::windows::core::PCSTR, szscriptfilepath: ::windows::core::PCSTR, sztransforms: ::windows::core::PCSTR, lgidlanguage: u16) -> u32;
     }
-    ::core::mem::transmute(MsiAdvertiseProductA(::core::mem::transmute(szpackagepath), ::core::mem::transmute(szscriptfilepath), ::core::mem::transmute(sztransforms), ::core::mem::transmute(lgidlanguage)))
+    ::core::mem::transmute(MsiAdvertiseProductA(szpackagepath.into(), szscriptfilepath.into(), sztransforms.into(), ::core::mem::transmute(lgidlanguage)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiAdvertiseProductExA(szpackagepath: ::windows::core::PCSTR, szscriptfilepath: ::windows::core::PCSTR, sztransforms: ::windows::core::PCSTR, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
+pub unsafe fn MsiAdvertiseProductExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiAdvertiseProductExA(szpackagepath: ::windows::core::PCSTR, szscriptfilepath: ::windows::core::PCSTR, sztransforms: ::windows::core::PCSTR, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32;
     }
-    ::core::mem::transmute(MsiAdvertiseProductExA(::core::mem::transmute(szpackagepath), ::core::mem::transmute(szscriptfilepath), ::core::mem::transmute(sztransforms), ::core::mem::transmute(lgidlanguage), ::core::mem::transmute(dwplatform), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(MsiAdvertiseProductExA(szpackagepath.into(), szscriptfilepath.into(), sztransforms.into(), ::core::mem::transmute(lgidlanguage), ::core::mem::transmute(dwplatform), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiAdvertiseProductExW(szpackagepath: ::windows::core::PCWSTR, szscriptfilepath: ::windows::core::PCWSTR, sztransforms: ::windows::core::PCWSTR, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
+pub unsafe fn MsiAdvertiseProductExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiAdvertiseProductExW(szpackagepath: ::windows::core::PCWSTR, szscriptfilepath: ::windows::core::PCWSTR, sztransforms: ::windows::core::PCWSTR, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32;
     }
-    ::core::mem::transmute(MsiAdvertiseProductExW(::core::mem::transmute(szpackagepath), ::core::mem::transmute(szscriptfilepath), ::core::mem::transmute(sztransforms), ::core::mem::transmute(lgidlanguage), ::core::mem::transmute(dwplatform), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(MsiAdvertiseProductExW(szpackagepath.into(), szscriptfilepath.into(), sztransforms.into(), ::core::mem::transmute(lgidlanguage), ::core::mem::transmute(dwplatform), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiAdvertiseProductW(szpackagepath: ::windows::core::PCWSTR, szscriptfilepath: ::windows::core::PCWSTR, sztransforms: ::windows::core::PCWSTR, lgidlanguage: u16) -> u32 {
+pub unsafe fn MsiAdvertiseProductW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiAdvertiseProductW(szpackagepath: ::windows::core::PCWSTR, szscriptfilepath: ::windows::core::PCWSTR, sztransforms: ::windows::core::PCWSTR, lgidlanguage: u16) -> u32;
     }
-    ::core::mem::transmute(MsiAdvertiseProductW(::core::mem::transmute(szpackagepath), ::core::mem::transmute(szscriptfilepath), ::core::mem::transmute(sztransforms), ::core::mem::transmute(lgidlanguage)))
+    ::core::mem::transmute(MsiAdvertiseProductW(szpackagepath.into(), szscriptfilepath.into(), sztransforms.into(), ::core::mem::transmute(lgidlanguage)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn MsiAdvertiseScriptA<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: ::windows::core::PCSTR, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
+pub unsafe fn MsiAdvertiseScriptA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: Param0, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiAdvertiseScriptA(szscriptfile: ::windows::core::PCSTR, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MsiAdvertiseScriptA(::core::mem::transmute(szscriptfile), ::core::mem::transmute(dwflags), ::core::mem::transmute(phregdata), fremoveitems.into()))
+    ::core::mem::transmute(MsiAdvertiseScriptA(szscriptfile.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(phregdata), fremoveitems.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn MsiAdvertiseScriptW<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: ::windows::core::PCWSTR, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
+pub unsafe fn MsiAdvertiseScriptW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: Param0, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiAdvertiseScriptW(szscriptfile: ::windows::core::PCWSTR, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MsiAdvertiseScriptW(::core::mem::transmute(szscriptfile), ::core::mem::transmute(dwflags), ::core::mem::transmute(phregdata), fremoveitems.into()))
+    ::core::mem::transmute(MsiAdvertiseScriptW(szscriptfile.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(phregdata), fremoveitems.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiApplyMultiplePatchesA(szpatchpackages: ::windows::core::PCSTR, szproductcode: ::windows::core::PCSTR, szpropertieslist: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiApplyMultiplePatchesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(szpatchpackages: Param0, szproductcode: Param1, szpropertieslist: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiApplyMultiplePatchesA(szpatchpackages: ::windows::core::PCSTR, szproductcode: ::windows::core::PCSTR, szpropertieslist: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiApplyMultiplePatchesA(::core::mem::transmute(szpatchpackages), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szpropertieslist)))
+    ::core::mem::transmute(MsiApplyMultiplePatchesA(szpatchpackages.into(), szproductcode.into(), szpropertieslist.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiApplyMultiplePatchesW(szpatchpackages: ::windows::core::PCWSTR, szproductcode: ::windows::core::PCWSTR, szpropertieslist: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiApplyMultiplePatchesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(szpatchpackages: Param0, szproductcode: Param1, szpropertieslist: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiApplyMultiplePatchesW(szpatchpackages: ::windows::core::PCWSTR, szproductcode: ::windows::core::PCWSTR, szpropertieslist: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiApplyMultiplePatchesW(::core::mem::transmute(szpatchpackages), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szpropertieslist)))
+    ::core::mem::transmute(MsiApplyMultiplePatchesW(szpatchpackages.into(), szproductcode.into(), szpropertieslist.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiApplyPatchA<'a, Param2: ::std::convert::Into<INSTALLTYPE>>(szpatchpackage: ::windows::core::PCSTR, szinstallpackage: ::windows::core::PCSTR, einstalltype: Param2, szcommandline: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiApplyPatchA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLTYPE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szpatchpackage: Param0, szinstallpackage: Param1, einstalltype: Param2, szcommandline: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiApplyPatchA(szpatchpackage: ::windows::core::PCSTR, szinstallpackage: ::windows::core::PCSTR, einstalltype: INSTALLTYPE, szcommandline: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiApplyPatchA(::core::mem::transmute(szpatchpackage), ::core::mem::transmute(szinstallpackage), einstalltype.into(), ::core::mem::transmute(szcommandline)))
+    ::core::mem::transmute(MsiApplyPatchA(szpatchpackage.into(), szinstallpackage.into(), einstalltype.into(), szcommandline.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiApplyPatchW<'a, Param2: ::std::convert::Into<INSTALLTYPE>>(szpatchpackage: ::windows::core::PCWSTR, szinstallpackage: ::windows::core::PCWSTR, einstalltype: Param2, szcommandline: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiApplyPatchW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLTYPE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szpatchpackage: Param0, szinstallpackage: Param1, einstalltype: Param2, szcommandline: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiApplyPatchW(szpatchpackage: ::windows::core::PCWSTR, szinstallpackage: ::windows::core::PCWSTR, einstalltype: INSTALLTYPE, szcommandline: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiApplyPatchW(::core::mem::transmute(szpatchpackage), ::core::mem::transmute(szinstallpackage), einstalltype.into(), ::core::mem::transmute(szcommandline)))
+    ::core::mem::transmute(MsiApplyPatchW(szpatchpackage.into(), szinstallpackage.into(), einstalltype.into(), szcommandline.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiBeginTransactionA(szname: ::windows::core::PCSTR, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MsiBeginTransactionA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szname: Param0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiBeginTransactionA(szname: ::windows::core::PCSTR, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiBeginTransactionA(::core::mem::transmute(szname), ::core::mem::transmute(dwtransactionattributes), ::core::mem::transmute(phtransactionhandle), ::core::mem::transmute(phchangeofownerevent)))
+    ::core::mem::transmute(MsiBeginTransactionA(szname.into(), ::core::mem::transmute(dwtransactionattributes), ::core::mem::transmute(phtransactionhandle), ::core::mem::transmute(phchangeofownerevent)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiBeginTransactionW(szname: ::windows::core::PCWSTR, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn MsiBeginTransactionW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szname: Param0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiBeginTransactionW(szname: ::windows::core::PCWSTR, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiBeginTransactionW(::core::mem::transmute(szname), ::core::mem::transmute(dwtransactionattributes), ::core::mem::transmute(phtransactionhandle), ::core::mem::transmute(phchangeofownerevent)))
+    ::core::mem::transmute(MsiBeginTransactionW(szname.into(), ::core::mem::transmute(dwtransactionattributes), ::core::mem::transmute(phtransactionhandle), ::core::mem::transmute(phchangeofownerevent)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8113,75 +8113,75 @@ pub unsafe fn MsiCloseHandle<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hany: 
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiCollectUserInfoA(szproduct: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiCollectUserInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiCollectUserInfoA(szproduct: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiCollectUserInfoA(::core::mem::transmute(szproduct)))
+    ::core::mem::transmute(MsiCollectUserInfoA(szproduct.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiCollectUserInfoW(szproduct: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiCollectUserInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiCollectUserInfoW(szproduct: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiCollectUserInfoW(::core::mem::transmute(szproduct)))
+    ::core::mem::transmute(MsiCollectUserInfoW(szproduct.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiConfigureFeatureA<'a, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, einstallstate: Param2) -> u32 {
+pub unsafe fn MsiConfigureFeatureA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: Param0, szfeature: Param1, einstallstate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiConfigureFeatureA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, einstallstate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiConfigureFeatureA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), einstallstate.into()))
+    ::core::mem::transmute(MsiConfigureFeatureA(szproduct.into(), szfeature.into(), einstallstate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiConfigureFeatureW<'a, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, einstallstate: Param2) -> u32 {
+pub unsafe fn MsiConfigureFeatureW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: Param0, szfeature: Param1, einstallstate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiConfigureFeatureW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, einstallstate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiConfigureFeatureW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), einstallstate.into()))
+    ::core::mem::transmute(MsiConfigureFeatureW(szproduct.into(), szfeature.into(), einstallstate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiConfigureProductA<'a, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCSTR, iinstalllevel: Param1, einstallstate: Param2) -> u32 {
+pub unsafe fn MsiConfigureProductA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: Param0, iinstalllevel: Param1, einstallstate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiConfigureProductA(szproduct: ::windows::core::PCSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiConfigureProductA(::core::mem::transmute(szproduct), iinstalllevel.into(), einstallstate.into()))
+    ::core::mem::transmute(MsiConfigureProductA(szproduct.into(), iinstalllevel.into(), einstallstate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiConfigureProductExA<'a, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCSTR, iinstalllevel: Param1, einstallstate: Param2, szcommandline: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiConfigureProductExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, iinstalllevel: Param1, einstallstate: Param2, szcommandline: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiConfigureProductExA(szproduct: ::windows::core::PCSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiConfigureProductExA(::core::mem::transmute(szproduct), iinstalllevel.into(), einstallstate.into(), ::core::mem::transmute(szcommandline)))
+    ::core::mem::transmute(MsiConfigureProductExA(szproduct.into(), iinstalllevel.into(), einstallstate.into(), szcommandline.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiConfigureProductExW<'a, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCWSTR, iinstalllevel: Param1, einstallstate: Param2, szcommandline: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiConfigureProductExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, iinstalllevel: Param1, einstallstate: Param2, szcommandline: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiConfigureProductExW(szproduct: ::windows::core::PCWSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiConfigureProductExW(::core::mem::transmute(szproduct), iinstalllevel.into(), einstallstate.into(), ::core::mem::transmute(szcommandline)))
+    ::core::mem::transmute(MsiConfigureProductExW(szproduct.into(), iinstalllevel.into(), einstallstate.into(), szcommandline.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiConfigureProductW<'a, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCWSTR, iinstalllevel: Param1, einstallstate: Param2) -> u32 {
+pub unsafe fn MsiConfigureProductW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<INSTALLLEVEL>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: Param0, iinstalllevel: Param1, einstallstate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiConfigureProductW(szproduct: ::windows::core::PCWSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiConfigureProductW(::core::mem::transmute(szproduct), iinstalllevel.into(), einstallstate.into()))
+    ::core::mem::transmute(MsiConfigureProductW(szproduct.into(), iinstalllevel.into(), einstallstate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8194,39 +8194,39 @@ pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiCreateTransformSummaryInfoA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param3: ::std::convert::Into<MSITRANSFORM_ERROR>, Param4: ::std::convert::Into<MSITRANSFORM_VALIDATE>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: ::windows::core::PCSTR, ierrorconditions: Param3, ivalidation: Param4) -> u32 {
+pub unsafe fn MsiCreateTransformSummaryInfoA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<MSITRANSFORM_ERROR>, Param4: ::std::convert::Into<MSITRANSFORM_VALIDATE>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ierrorconditions: Param3, ivalidation: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiCreateTransformSummaryInfoA(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: ::windows::core::PCSTR, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32;
     }
-    ::core::mem::transmute(MsiCreateTransformSummaryInfoA(hdatabase.into(), hdatabasereference.into(), ::core::mem::transmute(sztransformfile), ierrorconditions.into(), ivalidation.into()))
+    ::core::mem::transmute(MsiCreateTransformSummaryInfoA(hdatabase.into(), hdatabasereference.into(), sztransformfile.into(), ierrorconditions.into(), ivalidation.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiCreateTransformSummaryInfoW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param3: ::std::convert::Into<MSITRANSFORM_ERROR>, Param4: ::std::convert::Into<MSITRANSFORM_VALIDATE>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: ::windows::core::PCWSTR, ierrorconditions: Param3, ivalidation: Param4) -> u32 {
+pub unsafe fn MsiCreateTransformSummaryInfoW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<MSITRANSFORM_ERROR>, Param4: ::std::convert::Into<MSITRANSFORM_VALIDATE>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ierrorconditions: Param3, ivalidation: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiCreateTransformSummaryInfoW(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: ::windows::core::PCWSTR, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32;
     }
-    ::core::mem::transmute(MsiCreateTransformSummaryInfoW(hdatabase.into(), hdatabasereference.into(), ::core::mem::transmute(sztransformfile), ierrorconditions.into(), ivalidation.into()))
+    ::core::mem::transmute(MsiCreateTransformSummaryInfoW(hdatabase.into(), hdatabasereference.into(), sztransformfile.into(), ierrorconditions.into(), ivalidation.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseApplyTransformA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<MSITRANSFORM_ERROR>>(hdatabase: Param0, sztransformfile: ::windows::core::PCSTR, ierrorconditions: Param2) -> u32 {
+pub unsafe fn MsiDatabaseApplyTransformA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSITRANSFORM_ERROR>>(hdatabase: Param0, sztransformfile: Param1, ierrorconditions: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseApplyTransformA(hdatabase: MSIHANDLE, sztransformfile: ::windows::core::PCSTR, ierrorconditions: MSITRANSFORM_ERROR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseApplyTransformA(hdatabase.into(), ::core::mem::transmute(sztransformfile), ierrorconditions.into()))
+    ::core::mem::transmute(MsiDatabaseApplyTransformA(hdatabase.into(), sztransformfile.into(), ierrorconditions.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseApplyTransformW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<MSITRANSFORM_ERROR>>(hdatabase: Param0, sztransformfile: ::windows::core::PCWSTR, ierrorconditions: Param2) -> u32 {
+pub unsafe fn MsiDatabaseApplyTransformW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSITRANSFORM_ERROR>>(hdatabase: Param0, sztransformfile: Param1, ierrorconditions: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseApplyTransformW(hdatabase: MSIHANDLE, sztransformfile: ::windows::core::PCWSTR, ierrorconditions: MSITRANSFORM_ERROR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseApplyTransformW(hdatabase.into(), ::core::mem::transmute(sztransformfile), ierrorconditions.into()))
+    ::core::mem::transmute(MsiDatabaseApplyTransformW(hdatabase.into(), sztransformfile.into(), ierrorconditions.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8239,201 +8239,201 @@ pub unsafe fn MsiDatabaseCommit<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hda
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseExportA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, sztablename: ::windows::core::PCSTR, szfolderpath: ::windows::core::PCSTR, szfilename: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiDatabaseExportA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, sztablename: Param1, szfolderpath: Param2, szfilename: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseExportA(hdatabase: MSIHANDLE, sztablename: ::windows::core::PCSTR, szfolderpath: ::windows::core::PCSTR, szfilename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseExportA(hdatabase.into(), ::core::mem::transmute(sztablename), ::core::mem::transmute(szfolderpath), ::core::mem::transmute(szfilename)))
+    ::core::mem::transmute(MsiDatabaseExportA(hdatabase.into(), sztablename.into(), szfolderpath.into(), szfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseExportW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, sztablename: ::windows::core::PCWSTR, szfolderpath: ::windows::core::PCWSTR, szfilename: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiDatabaseExportW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, sztablename: Param1, szfolderpath: Param2, szfilename: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseExportW(hdatabase: MSIHANDLE, sztablename: ::windows::core::PCWSTR, szfolderpath: ::windows::core::PCWSTR, szfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseExportW(hdatabase.into(), ::core::mem::transmute(sztablename), ::core::mem::transmute(szfolderpath), ::core::mem::transmute(szfilename)))
+    ::core::mem::transmute(MsiDatabaseExportW(hdatabase.into(), sztablename.into(), szfolderpath.into(), szfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseGenerateTransformA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: ::windows::core::PCSTR, ireserved1: i32, ireserved2: i32) -> u32 {
+pub unsafe fn MsiDatabaseGenerateTransformA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ireserved1: i32, ireserved2: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseGenerateTransformA(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: ::windows::core::PCSTR, ireserved1: i32, ireserved2: i32) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseGenerateTransformA(hdatabase.into(), hdatabasereference.into(), ::core::mem::transmute(sztransformfile), ::core::mem::transmute(ireserved1), ::core::mem::transmute(ireserved2)))
+    ::core::mem::transmute(MsiDatabaseGenerateTransformA(hdatabase.into(), hdatabasereference.into(), sztransformfile.into(), ::core::mem::transmute(ireserved1), ::core::mem::transmute(ireserved2)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseGenerateTransformW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: ::windows::core::PCWSTR, ireserved1: i32, ireserved2: i32) -> u32 {
+pub unsafe fn MsiDatabaseGenerateTransformW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ireserved1: i32, ireserved2: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseGenerateTransformW(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: ::windows::core::PCWSTR, ireserved1: i32, ireserved2: i32) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseGenerateTransformW(hdatabase.into(), hdatabasereference.into(), ::core::mem::transmute(sztransformfile), ::core::mem::transmute(ireserved1), ::core::mem::transmute(ireserved2)))
+    ::core::mem::transmute(MsiDatabaseGenerateTransformW(hdatabase.into(), hdatabasereference.into(), sztransformfile.into(), ::core::mem::transmute(ireserved1), ::core::mem::transmute(ireserved2)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseGetPrimaryKeysA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, sztablename: ::windows::core::PCSTR, phrecord: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiDatabaseGetPrimaryKeysA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, sztablename: Param1, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseGetPrimaryKeysA(hdatabase: MSIHANDLE, sztablename: ::windows::core::PCSTR, phrecord: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseGetPrimaryKeysA(hdatabase.into(), ::core::mem::transmute(sztablename), ::core::mem::transmute(phrecord)))
+    ::core::mem::transmute(MsiDatabaseGetPrimaryKeysA(hdatabase.into(), sztablename.into(), ::core::mem::transmute(phrecord)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseGetPrimaryKeysW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, sztablename: ::windows::core::PCWSTR, phrecord: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiDatabaseGetPrimaryKeysW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, sztablename: Param1, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseGetPrimaryKeysW(hdatabase: MSIHANDLE, sztablename: ::windows::core::PCWSTR, phrecord: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseGetPrimaryKeysW(hdatabase.into(), ::core::mem::transmute(sztablename), ::core::mem::transmute(phrecord)))
+    ::core::mem::transmute(MsiDatabaseGetPrimaryKeysW(hdatabase.into(), sztablename.into(), ::core::mem::transmute(phrecord)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseImportA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, szfolderpath: ::windows::core::PCSTR, szfilename: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiDatabaseImportA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, szfolderpath: Param1, szfilename: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseImportA(hdatabase: MSIHANDLE, szfolderpath: ::windows::core::PCSTR, szfilename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseImportA(hdatabase.into(), ::core::mem::transmute(szfolderpath), ::core::mem::transmute(szfilename)))
+    ::core::mem::transmute(MsiDatabaseImportA(hdatabase.into(), szfolderpath.into(), szfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseImportW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, szfolderpath: ::windows::core::PCWSTR, szfilename: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiDatabaseImportW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, szfolderpath: Param1, szfilename: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseImportW(hdatabase: MSIHANDLE, szfolderpath: ::windows::core::PCWSTR, szfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseImportW(hdatabase.into(), ::core::mem::transmute(szfolderpath), ::core::mem::transmute(szfilename)))
+    ::core::mem::transmute(MsiDatabaseImportW(hdatabase.into(), szfolderpath.into(), szfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseIsTablePersistentA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, sztablename: ::windows::core::PCSTR) -> MSICONDITION {
+pub unsafe fn MsiDatabaseIsTablePersistentA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, sztablename: Param1) -> MSICONDITION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseIsTablePersistentA(hdatabase: MSIHANDLE, sztablename: ::windows::core::PCSTR) -> MSICONDITION;
     }
-    ::core::mem::transmute(MsiDatabaseIsTablePersistentA(hdatabase.into(), ::core::mem::transmute(sztablename)))
+    ::core::mem::transmute(MsiDatabaseIsTablePersistentA(hdatabase.into(), sztablename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseIsTablePersistentW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, sztablename: ::windows::core::PCWSTR) -> MSICONDITION {
+pub unsafe fn MsiDatabaseIsTablePersistentW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, sztablename: Param1) -> MSICONDITION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseIsTablePersistentW(hdatabase: MSIHANDLE, sztablename: ::windows::core::PCWSTR) -> MSICONDITION;
     }
-    ::core::mem::transmute(MsiDatabaseIsTablePersistentW(hdatabase.into(), ::core::mem::transmute(sztablename)))
+    ::core::mem::transmute(MsiDatabaseIsTablePersistentW(hdatabase.into(), sztablename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseMergeA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiDatabaseMergeA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseMergeA(hdatabase: MSIHANDLE, hdatabasemerge: MSIHANDLE, sztablename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseMergeA(hdatabase.into(), hdatabasemerge.into(), ::core::mem::transmute(sztablename)))
+    ::core::mem::transmute(MsiDatabaseMergeA(hdatabase.into(), hdatabasemerge.into(), sztablename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseMergeW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiDatabaseMergeW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseMergeW(hdatabase: MSIHANDLE, hdatabasemerge: MSIHANDLE, sztablename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseMergeW(hdatabase.into(), hdatabasemerge.into(), ::core::mem::transmute(sztablename)))
+    ::core::mem::transmute(MsiDatabaseMergeW(hdatabase.into(), hdatabasemerge.into(), sztablename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseOpenViewA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, szquery: ::windows::core::PCSTR, phview: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiDatabaseOpenViewA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, szquery: Param1, phview: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseOpenViewA(hdatabase: MSIHANDLE, szquery: ::windows::core::PCSTR, phview: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseOpenViewA(hdatabase.into(), ::core::mem::transmute(szquery), ::core::mem::transmute(phview)))
+    ::core::mem::transmute(MsiDatabaseOpenViewA(hdatabase.into(), szquery.into(), ::core::mem::transmute(phview)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDatabaseOpenViewW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, szquery: ::windows::core::PCWSTR, phview: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiDatabaseOpenViewW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, szquery: Param1, phview: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDatabaseOpenViewW(hdatabase: MSIHANDLE, szquery: ::windows::core::PCWSTR, phview: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiDatabaseOpenViewW(hdatabase.into(), ::core::mem::transmute(szquery), ::core::mem::transmute(phview)))
+    ::core::mem::transmute(MsiDatabaseOpenViewW(hdatabase.into(), szquery.into(), ::core::mem::transmute(phview)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDetermineApplicablePatchesA(szproductpackagepath: ::windows::core::PCSTR, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOA]) -> u32 {
+pub unsafe fn MsiDetermineApplicablePatchesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproductpackagepath: Param0, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOA]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDetermineApplicablePatchesA(szproductpackagepath: ::windows::core::PCSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
     }
-    ::core::mem::transmute(MsiDetermineApplicablePatchesA(::core::mem::transmute(szproductpackagepath), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
+    ::core::mem::transmute(MsiDetermineApplicablePatchesA(szproductpackagepath.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDetermineApplicablePatchesW(szproductpackagepath: ::windows::core::PCWSTR, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOW]) -> u32 {
+pub unsafe fn MsiDetermineApplicablePatchesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproductpackagepath: Param0, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOW]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDetermineApplicablePatchesW(szproductpackagepath: ::windows::core::PCWSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
     }
-    ::core::mem::transmute(MsiDetermineApplicablePatchesW(::core::mem::transmute(szproductpackagepath), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
+    ::core::mem::transmute(MsiDetermineApplicablePatchesW(szproductpackagepath.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDeterminePatchSequenceA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOA]) -> u32 {
+pub unsafe fn MsiDeterminePatchSequenceA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOA]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDeterminePatchSequenceA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
     }
-    ::core::mem::transmute(MsiDeterminePatchSequenceA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
+    ::core::mem::transmute(MsiDeterminePatchSequenceA(szproductcode.into(), szusersid.into(), dwcontext.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDeterminePatchSequenceW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOW]) -> u32 {
+pub unsafe fn MsiDeterminePatchSequenceW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, ppatchinfo: &mut [MSIPATCHSEQUENCEINFOW]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDeterminePatchSequenceW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
     }
-    ::core::mem::transmute(MsiDeterminePatchSequenceW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
+    ::core::mem::transmute(MsiDeterminePatchSequenceW(szproductcode.into(), szusersid.into(), dwcontext.into(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDoActionA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szaction: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiDoActionA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szaction: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDoActionA(hinstall: MSIHANDLE, szaction: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDoActionA(hinstall.into(), ::core::mem::transmute(szaction)))
+    ::core::mem::transmute(MsiDoActionA(hinstall.into(), szaction.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiDoActionW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szaction: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiDoActionW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szaction: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiDoActionW(hinstall: MSIHANDLE, szaction: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiDoActionW(hinstall.into(), ::core::mem::transmute(szaction)))
+    ::core::mem::transmute(MsiDoActionW(hinstall.into(), szaction.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnableLogA<'a, Param0: ::std::convert::Into<INSTALLOGMODE>>(dwlogmode: Param0, szlogfile: ::windows::core::PCSTR, dwlogattributes: u32) -> u32 {
+pub unsafe fn MsiEnableLogA<'a, Param0: ::std::convert::Into<INSTALLOGMODE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(dwlogmode: Param0, szlogfile: Param1, dwlogattributes: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnableLogA(dwlogmode: INSTALLOGMODE, szlogfile: ::windows::core::PCSTR, dwlogattributes: u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnableLogA(dwlogmode.into(), ::core::mem::transmute(szlogfile), ::core::mem::transmute(dwlogattributes)))
+    ::core::mem::transmute(MsiEnableLogA(dwlogmode.into(), szlogfile.into(), ::core::mem::transmute(dwlogattributes)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnableLogW<'a, Param0: ::std::convert::Into<INSTALLOGMODE>>(dwlogmode: Param0, szlogfile: ::windows::core::PCWSTR, dwlogattributes: u32) -> u32 {
+pub unsafe fn MsiEnableLogW<'a, Param0: ::std::convert::Into<INSTALLOGMODE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(dwlogmode: Param0, szlogfile: Param1, dwlogattributes: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnableLogW(dwlogmode: INSTALLOGMODE, szlogfile: ::windows::core::PCWSTR, dwlogattributes: u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnableLogW(dwlogmode.into(), ::core::mem::transmute(szlogfile), ::core::mem::transmute(dwlogattributes)))
+    ::core::mem::transmute(MsiEnableLogW(dwlogmode.into(), szlogfile.into(), ::core::mem::transmute(dwlogattributes)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8455,75 +8455,75 @@ pub unsafe fn MsiEndTransaction<'a, Param0: ::std::convert::Into<MSITRANSACTIONS
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumClientsA(szcomponent: ::windows::core::PCSTR, iproductindex: u32, lpproductbuf: ::windows::core::PSTR) -> u32 {
+pub unsafe fn MsiEnumClientsA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szcomponent: Param0, iproductindex: u32, lpproductbuf: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumClientsA(szcomponent: ::windows::core::PCSTR, iproductindex: u32, lpproductbuf: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(MsiEnumClientsA(::core::mem::transmute(szcomponent), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
+    ::core::mem::transmute(MsiEnumClientsA(szcomponent.into(), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumClientsExA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szcomponent: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwproductindex: u32, szproductbuf: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumClientsExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szcomponent: Param0, szusersid: Param1, dwcontext: Param2, dwproductindex: u32, szproductbuf: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumClientsExA(szcomponent: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumClientsExA(::core::mem::transmute(szcomponent), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwproductindex), ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
+    ::core::mem::transmute(MsiEnumClientsExA(szcomponent.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwproductindex), ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumClientsExW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szcomponent: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwproductindex: u32, szproductbuf: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumClientsExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szcomponent: Param0, szusersid: Param1, dwcontext: Param2, dwproductindex: u32, szproductbuf: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumClientsExW(szcomponent: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumClientsExW(::core::mem::transmute(szcomponent), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwproductindex), ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
+    ::core::mem::transmute(MsiEnumClientsExW(szcomponent.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwproductindex), ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumClientsW(szcomponent: ::windows::core::PCWSTR, iproductindex: u32, lpproductbuf: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MsiEnumClientsW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szcomponent: Param0, iproductindex: u32, lpproductbuf: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumClientsW(szcomponent: ::windows::core::PCWSTR, iproductindex: u32, lpproductbuf: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiEnumClientsW(::core::mem::transmute(szcomponent), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
+    ::core::mem::transmute(MsiEnumClientsW(szcomponent.into(), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentCostsA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: ::windows::core::PCSTR, dwindex: u32, istate: Param3, szdrivebuf: ::windows::core::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
+pub unsafe fn MsiEnumComponentCostsA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: Param1, dwindex: u32, istate: Param3, szdrivebuf: ::windows::core::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumComponentCostsA(hinstall: MSIHANDLE, szcomponent: ::windows::core::PCSTR, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: ::windows::core::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumComponentCostsA(hinstall.into(), ::core::mem::transmute(szcomponent), ::core::mem::transmute(dwindex), istate.into(), ::core::mem::transmute(szdrivebuf), ::core::mem::transmute(pcchdrivebuf), ::core::mem::transmute(picost), ::core::mem::transmute(pitempcost)))
+    ::core::mem::transmute(MsiEnumComponentCostsA(hinstall.into(), szcomponent.into(), ::core::mem::transmute(dwindex), istate.into(), ::core::mem::transmute(szdrivebuf), ::core::mem::transmute(pcchdrivebuf), ::core::mem::transmute(picost), ::core::mem::transmute(pitempcost)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentCostsW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: ::windows::core::PCWSTR, dwindex: u32, istate: Param3, szdrivebuf: ::windows::core::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
+pub unsafe fn MsiEnumComponentCostsW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: Param1, dwindex: u32, istate: Param3, szdrivebuf: ::windows::core::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumComponentCostsW(hinstall: MSIHANDLE, szcomponent: ::windows::core::PCWSTR, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: ::windows::core::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumComponentCostsW(hinstall.into(), ::core::mem::transmute(szcomponent), ::core::mem::transmute(dwindex), istate.into(), ::core::mem::transmute(szdrivebuf), ::core::mem::transmute(pcchdrivebuf), ::core::mem::transmute(picost), ::core::mem::transmute(pitempcost)))
+    ::core::mem::transmute(MsiEnumComponentCostsW(hinstall.into(), szcomponent.into(), ::core::mem::transmute(dwindex), istate.into(), ::core::mem::transmute(szdrivebuf), ::core::mem::transmute(pcchdrivebuf), ::core::mem::transmute(picost), ::core::mem::transmute(pitempcost)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentQualifiersA(szcomponent: ::windows::core::PCSTR, iindex: u32, lpqualifierbuf: ::windows::core::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: ::windows::core::PSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
+pub unsafe fn MsiEnumComponentQualifiersA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szcomponent: Param0, iindex: u32, lpqualifierbuf: ::windows::core::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: ::windows::core::PSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumComponentQualifiersA(szcomponent: ::windows::core::PCSTR, iindex: u32, lpqualifierbuf: ::windows::core::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: ::windows::core::PSTR, pcchapplicationdatabuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumComponentQualifiersA(::core::mem::transmute(szcomponent), ::core::mem::transmute(iindex), ::core::mem::transmute(lpqualifierbuf), ::core::mem::transmute(pcchqualifierbuf), ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf)))
+    ::core::mem::transmute(MsiEnumComponentQualifiersA(szcomponent.into(), ::core::mem::transmute(iindex), ::core::mem::transmute(lpqualifierbuf), ::core::mem::transmute(pcchqualifierbuf), ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentQualifiersW(szcomponent: ::windows::core::PCWSTR, iindex: u32, lpqualifierbuf: ::windows::core::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: ::windows::core::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
+pub unsafe fn MsiEnumComponentQualifiersW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szcomponent: Param0, iindex: u32, lpqualifierbuf: ::windows::core::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: ::windows::core::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumComponentQualifiersW(szcomponent: ::windows::core::PCWSTR, iindex: u32, lpqualifierbuf: ::windows::core::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: ::windows::core::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumComponentQualifiersW(::core::mem::transmute(szcomponent), ::core::mem::transmute(iindex), ::core::mem::transmute(lpqualifierbuf), ::core::mem::transmute(pcchqualifierbuf), ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf)))
+    ::core::mem::transmute(MsiEnumComponentQualifiersW(szcomponent.into(), ::core::mem::transmute(iindex), ::core::mem::transmute(lpqualifierbuf), ::core::mem::transmute(pcchqualifierbuf), ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8536,21 +8536,21 @@ pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: ::windows
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentsExA(szusersid: ::windows::core::PCSTR, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumComponentsExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szusersid: Param0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumComponentsExA(szusersid: ::windows::core::PCSTR, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumComponentsExA(::core::mem::transmute(szusersid), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledcomponentcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
+    ::core::mem::transmute(MsiEnumComponentsExA(szusersid.into(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledcomponentcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentsExW(szusersid: ::windows::core::PCWSTR, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumComponentsExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szusersid: Param0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumComponentsExW(szusersid: ::windows::core::PCWSTR, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumComponentsExW(::core::mem::transmute(szusersid), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledcomponentcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
+    ::core::mem::transmute(MsiEnumComponentsExW(szusersid.into(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledcomponentcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8563,57 +8563,57 @@ pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: ::windows
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumFeaturesA(szproduct: ::windows::core::PCSTR, ifeatureindex: u32, lpfeaturebuf: ::windows::core::PSTR, lpparentbuf: ::windows::core::PSTR) -> u32 {
+pub unsafe fn MsiEnumFeaturesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, ifeatureindex: u32, lpfeaturebuf: ::windows::core::PSTR, lpparentbuf: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumFeaturesA(szproduct: ::windows::core::PCSTR, ifeatureindex: u32, lpfeaturebuf: ::windows::core::PSTR, lpparentbuf: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(MsiEnumFeaturesA(::core::mem::transmute(szproduct), ::core::mem::transmute(ifeatureindex), ::core::mem::transmute(lpfeaturebuf), ::core::mem::transmute(lpparentbuf)))
+    ::core::mem::transmute(MsiEnumFeaturesA(szproduct.into(), ::core::mem::transmute(ifeatureindex), ::core::mem::transmute(lpfeaturebuf), ::core::mem::transmute(lpparentbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumFeaturesW(szproduct: ::windows::core::PCWSTR, ifeatureindex: u32, lpfeaturebuf: ::windows::core::PWSTR, lpparentbuf: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MsiEnumFeaturesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, ifeatureindex: u32, lpfeaturebuf: ::windows::core::PWSTR, lpparentbuf: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumFeaturesW(szproduct: ::windows::core::PCWSTR, ifeatureindex: u32, lpfeaturebuf: ::windows::core::PWSTR, lpparentbuf: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiEnumFeaturesW(::core::mem::transmute(szproduct), ::core::mem::transmute(ifeatureindex), ::core::mem::transmute(lpfeaturebuf), ::core::mem::transmute(lpparentbuf)))
+    ::core::mem::transmute(MsiEnumFeaturesW(szproduct.into(), ::core::mem::transmute(ifeatureindex), ::core::mem::transmute(lpfeaturebuf), ::core::mem::transmute(lpparentbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumPatchesA(szproduct: ::windows::core::PCSTR, ipatchindex: u32, lppatchbuf: ::windows::core::PSTR, lptransformsbuf: ::windows::core::PSTR, pcchtransformsbuf: *mut u32) -> u32 {
+pub unsafe fn MsiEnumPatchesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, ipatchindex: u32, lppatchbuf: ::windows::core::PSTR, lptransformsbuf: ::windows::core::PSTR, pcchtransformsbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumPatchesA(szproduct: ::windows::core::PCSTR, ipatchindex: u32, lppatchbuf: ::windows::core::PSTR, lptransformsbuf: ::windows::core::PSTR, pcchtransformsbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumPatchesA(::core::mem::transmute(szproduct), ::core::mem::transmute(ipatchindex), ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), ::core::mem::transmute(pcchtransformsbuf)))
+    ::core::mem::transmute(MsiEnumPatchesA(szproduct.into(), ::core::mem::transmute(ipatchindex), ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), ::core::mem::transmute(pcchtransformsbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumPatchesExA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows::core::PSTR, sztargetproductcode: ::windows::core::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: ::windows::core::PSTR, pcchtargetusersid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumPatchesExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows::core::PSTR, sztargetproductcode: ::windows::core::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: ::windows::core::PSTR, pcchtargetusersid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumPatchesExA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows::core::PSTR, sztargetproductcode: ::windows::core::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: ::windows::core::PSTR, pcchtargetusersid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumPatchesExA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwfilter), ::core::mem::transmute(dwindex), ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid)))
+    ::core::mem::transmute(MsiEnumPatchesExA(szproductcode.into(), szusersid.into(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwfilter), ::core::mem::transmute(dwindex), ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumPatchesExW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows::core::PWSTR, sztargetproductcode: ::windows::core::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: ::windows::core::PWSTR, pcchtargetusersid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows::core::PWSTR, sztargetproductcode: ::windows::core::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: ::windows::core::PWSTR, pcchtargetusersid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumPatchesExW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows::core::PWSTR, sztargetproductcode: ::windows::core::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: ::windows::core::PWSTR, pcchtargetusersid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumPatchesExW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwfilter), ::core::mem::transmute(dwindex), ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid)))
+    ::core::mem::transmute(MsiEnumPatchesExW(szproductcode.into(), szusersid.into(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwfilter), ::core::mem::transmute(dwindex), ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumPatchesW(szproduct: ::windows::core::PCWSTR, ipatchindex: u32, lppatchbuf: ::windows::core::PWSTR, lptransformsbuf: ::windows::core::PWSTR, pcchtransformsbuf: *mut u32) -> u32 {
+pub unsafe fn MsiEnumPatchesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, ipatchindex: u32, lppatchbuf: ::windows::core::PWSTR, lptransformsbuf: ::windows::core::PWSTR, pcchtransformsbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumPatchesW(szproduct: ::windows::core::PCWSTR, ipatchindex: u32, lppatchbuf: ::windows::core::PWSTR, lptransformsbuf: ::windows::core::PWSTR, pcchtransformsbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumPatchesW(::core::mem::transmute(szproduct), ::core::mem::transmute(ipatchindex), ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), ::core::mem::transmute(pcchtransformsbuf)))
+    ::core::mem::transmute(MsiEnumPatchesW(szproduct.into(), ::core::mem::transmute(ipatchindex), ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), ::core::mem::transmute(pcchtransformsbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8626,21 +8626,21 @@ pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: ::windows::core
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumProductsExA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumProductsExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumProductsExA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows::core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PSTR, pcchsid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumProductsExA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
+    ::core::mem::transmute(MsiEnumProductsExA(szproductcode.into(), szusersid.into(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumProductsExW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32 {
+pub unsafe fn MsiEnumProductsExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumProductsExW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows::core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: ::windows::core::PWSTR, pcchsid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiEnumProductsExW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
+    ::core::mem::transmute(MsiEnumProductsExW(szproductcode.into(), szusersid.into(), ::core::mem::transmute(dwcontext), ::core::mem::transmute(dwindex), ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8653,57 +8653,57 @@ pub unsafe fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: ::windows::core
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumRelatedProductsA(lpupgradecode: ::windows::core::PCSTR, dwreserved: u32, iproductindex: u32, lpproductbuf: ::windows::core::PSTR) -> u32 {
+pub unsafe fn MsiEnumRelatedProductsA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpupgradecode: Param0, dwreserved: u32, iproductindex: u32, lpproductbuf: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumRelatedProductsA(lpupgradecode: ::windows::core::PCSTR, dwreserved: u32, iproductindex: u32, lpproductbuf: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(MsiEnumRelatedProductsA(::core::mem::transmute(lpupgradecode), ::core::mem::transmute(dwreserved), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
+    ::core::mem::transmute(MsiEnumRelatedProductsA(lpupgradecode.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumRelatedProductsW(lpupgradecode: ::windows::core::PCWSTR, dwreserved: u32, iproductindex: u32, lpproductbuf: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MsiEnumRelatedProductsW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpupgradecode: Param0, dwreserved: u32, iproductindex: u32, lpproductbuf: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEnumRelatedProductsW(lpupgradecode: ::windows::core::PCWSTR, dwreserved: u32, iproductindex: u32, lpproductbuf: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiEnumRelatedProductsW(::core::mem::transmute(lpupgradecode), ::core::mem::transmute(dwreserved), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
+    ::core::mem::transmute(MsiEnumRelatedProductsW(lpupgradecode.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(iproductindex), ::core::mem::transmute(lpproductbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEvaluateConditionA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szcondition: ::windows::core::PCSTR) -> MSICONDITION {
+pub unsafe fn MsiEvaluateConditionA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szcondition: Param1) -> MSICONDITION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEvaluateConditionA(hinstall: MSIHANDLE, szcondition: ::windows::core::PCSTR) -> MSICONDITION;
     }
-    ::core::mem::transmute(MsiEvaluateConditionA(hinstall.into(), ::core::mem::transmute(szcondition)))
+    ::core::mem::transmute(MsiEvaluateConditionA(hinstall.into(), szcondition.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEvaluateConditionW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szcondition: ::windows::core::PCWSTR) -> MSICONDITION {
+pub unsafe fn MsiEvaluateConditionW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szcondition: Param1) -> MSICONDITION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiEvaluateConditionW(hinstall: MSIHANDLE, szcondition: ::windows::core::PCWSTR) -> MSICONDITION;
     }
-    ::core::mem::transmute(MsiEvaluateConditionW(hinstall.into(), ::core::mem::transmute(szcondition)))
+    ::core::mem::transmute(MsiEvaluateConditionW(hinstall.into(), szcondition.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiExtractPatchXMLDataA(szpatchpath: ::windows::core::PCSTR, dwreserved: u32, szxmldata: ::windows::core::PSTR, pcchxmldata: *mut u32) -> u32 {
+pub unsafe fn MsiExtractPatchXMLDataA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szpatchpath: Param0, dwreserved: u32, szxmldata: ::windows::core::PSTR, pcchxmldata: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiExtractPatchXMLDataA(szpatchpath: ::windows::core::PCSTR, dwreserved: u32, szxmldata: ::windows::core::PSTR, pcchxmldata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiExtractPatchXMLDataA(::core::mem::transmute(szpatchpath), ::core::mem::transmute(dwreserved), ::core::mem::transmute(szxmldata), ::core::mem::transmute(pcchxmldata)))
+    ::core::mem::transmute(MsiExtractPatchXMLDataA(szpatchpath.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(szxmldata), ::core::mem::transmute(pcchxmldata)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiExtractPatchXMLDataW(szpatchpath: ::windows::core::PCWSTR, dwreserved: u32, szxmldata: ::windows::core::PWSTR, pcchxmldata: *mut u32) -> u32 {
+pub unsafe fn MsiExtractPatchXMLDataW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szpatchpath: Param0, dwreserved: u32, szxmldata: ::windows::core::PWSTR, pcchxmldata: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiExtractPatchXMLDataW(szpatchpath: ::windows::core::PCWSTR, dwreserved: u32, szxmldata: ::windows::core::PWSTR, pcchxmldata: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiExtractPatchXMLDataW(::core::mem::transmute(szpatchpath), ::core::mem::transmute(dwreserved), ::core::mem::transmute(szxmldata), ::core::mem::transmute(pcchxmldata)))
+    ::core::mem::transmute(MsiExtractPatchXMLDataW(szpatchpath.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(szxmldata), ::core::mem::transmute(pcchxmldata)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8734,57 +8734,57 @@ pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::std::convert::Into<MSIHANDLE>>(
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetComponentPathA(szproduct: ::windows::core::PCSTR, szcomponent: ::windows::core::PCSTR, lppathbuf: ::windows::core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
+pub unsafe fn MsiGetComponentPathA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szcomponent: Param1, lppathbuf: ::windows::core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetComponentPathA(szproduct: ::windows::core::PCSTR, szcomponent: ::windows::core::PCSTR, lppathbuf: ::windows::core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiGetComponentPathA(::core::mem::transmute(szproduct), ::core::mem::transmute(szcomponent), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
+    ::core::mem::transmute(MsiGetComponentPathA(szproduct.into(), szcomponent.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetComponentPathExA<'a, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCSTR, szcomponentcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param3, lpoutpathbuffer: ::windows::core::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
+pub unsafe fn MsiGetComponentPathExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: Param0, szcomponentcode: Param1, szusersid: Param2, dwcontext: Param3, lpoutpathbuffer: ::windows::core::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetComponentPathExA(szproductcode: ::windows::core::PCSTR, szcomponentcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: ::windows::core::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiGetComponentPathExA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szcomponentcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(lpoutpathbuffer), ::core::mem::transmute(pcchoutpathbuffer)))
+    ::core::mem::transmute(MsiGetComponentPathExA(szproductcode.into(), szcomponentcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(lpoutpathbuffer), ::core::mem::transmute(pcchoutpathbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetComponentPathExW<'a, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCWSTR, szcomponentcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param3, lpoutpathbuffer: ::windows::core::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
+pub unsafe fn MsiGetComponentPathExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: Param0, szcomponentcode: Param1, szusersid: Param2, dwcontext: Param3, lpoutpathbuffer: ::windows::core::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetComponentPathExW(szproductcode: ::windows::core::PCWSTR, szcomponentcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: ::windows::core::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiGetComponentPathExW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szcomponentcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(lpoutpathbuffer), ::core::mem::transmute(pcchoutpathbuffer)))
+    ::core::mem::transmute(MsiGetComponentPathExW(szproductcode.into(), szcomponentcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(lpoutpathbuffer), ::core::mem::transmute(pcchoutpathbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetComponentPathW(szproduct: ::windows::core::PCWSTR, szcomponent: ::windows::core::PCWSTR, lppathbuf: ::windows::core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
+pub unsafe fn MsiGetComponentPathW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szcomponent: Param1, lppathbuf: ::windows::core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetComponentPathW(szproduct: ::windows::core::PCWSTR, szcomponent: ::windows::core::PCWSTR, lppathbuf: ::windows::core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiGetComponentPathW(::core::mem::transmute(szproduct), ::core::mem::transmute(szcomponent), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
+    ::core::mem::transmute(MsiGetComponentPathW(szproduct.into(), szcomponent.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetComponentStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szcomponent: ::windows::core::PCSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiGetComponentStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szcomponent: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetComponentStateA(hinstall: MSIHANDLE, szcomponent: ::windows::core::PCSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiGetComponentStateA(hinstall.into(), ::core::mem::transmute(szcomponent), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
+    ::core::mem::transmute(MsiGetComponentStateA(hinstall.into(), szcomponent.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetComponentStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szcomponent: ::windows::core::PCWSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiGetComponentStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szcomponent: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetComponentStateW(hinstall: MSIHANDLE, szcomponent: ::windows::core::PCWSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiGetComponentStateW(hinstall.into(), ::core::mem::transmute(szcomponent), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
+    ::core::mem::transmute(MsiGetComponentStateW(hinstall.into(), szcomponent.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8797,149 +8797,149 @@ pub unsafe fn MsiGetDatabaseState<'a, Param0: ::std::convert::Into<MSIHANDLE>>(h
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureCostA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<MSICOSTTREE>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: ::windows::core::PCSTR, icosttree: Param2, istate: Param3, picost: *mut i32) -> u32 {
+pub unsafe fn MsiGetFeatureCostA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSICOSTTREE>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: Param1, icosttree: Param2, istate: Param3, picost: *mut i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureCostA(hinstall: MSIHANDLE, szfeature: ::windows::core::PCSTR, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureCostA(hinstall.into(), ::core::mem::transmute(szfeature), icosttree.into(), istate.into(), ::core::mem::transmute(picost)))
+    ::core::mem::transmute(MsiGetFeatureCostA(hinstall.into(), szfeature.into(), icosttree.into(), istate.into(), ::core::mem::transmute(picost)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureCostW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<MSICOSTTREE>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: ::windows::core::PCWSTR, icosttree: Param2, istate: Param3, picost: *mut i32) -> u32 {
+pub unsafe fn MsiGetFeatureCostW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSICOSTTREE>, Param3: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: Param1, icosttree: Param2, istate: Param3, picost: *mut i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureCostW(hinstall: MSIHANDLE, szfeature: ::windows::core::PCWSTR, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureCostW(hinstall.into(), ::core::mem::transmute(szfeature), icosttree.into(), istate.into(), ::core::mem::transmute(picost)))
+    ::core::mem::transmute(MsiGetFeatureCostW(hinstall.into(), szfeature.into(), icosttree.into(), istate.into(), ::core::mem::transmute(picost)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureInfoA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hproduct: Param0, szfeature: ::windows::core::PCSTR, lpattributes: *mut u32, lptitlebuf: ::windows::core::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: ::windows::core::PSTR, pcchhelpbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetFeatureInfoA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hproduct: Param0, szfeature: Param1, lpattributes: *mut u32, lptitlebuf: ::windows::core::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: ::windows::core::PSTR, pcchhelpbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureInfoA(hproduct: MSIHANDLE, szfeature: ::windows::core::PCSTR, lpattributes: *mut u32, lptitlebuf: ::windows::core::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: ::windows::core::PSTR, pcchhelpbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureInfoA(hproduct.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(lpattributes), ::core::mem::transmute(lptitlebuf), ::core::mem::transmute(pcchtitlebuf), ::core::mem::transmute(lphelpbuf), ::core::mem::transmute(pcchhelpbuf)))
+    ::core::mem::transmute(MsiGetFeatureInfoA(hproduct.into(), szfeature.into(), ::core::mem::transmute(lpattributes), ::core::mem::transmute(lptitlebuf), ::core::mem::transmute(pcchtitlebuf), ::core::mem::transmute(lphelpbuf), ::core::mem::transmute(pcchhelpbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureInfoW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hproduct: Param0, szfeature: ::windows::core::PCWSTR, lpattributes: *mut u32, lptitlebuf: ::windows::core::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: ::windows::core::PWSTR, pcchhelpbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetFeatureInfoW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hproduct: Param0, szfeature: Param1, lpattributes: *mut u32, lptitlebuf: ::windows::core::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: ::windows::core::PWSTR, pcchhelpbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureInfoW(hproduct: MSIHANDLE, szfeature: ::windows::core::PCWSTR, lpattributes: *mut u32, lptitlebuf: ::windows::core::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: ::windows::core::PWSTR, pcchhelpbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureInfoW(hproduct.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(lpattributes), ::core::mem::transmute(lptitlebuf), ::core::mem::transmute(pcchtitlebuf), ::core::mem::transmute(lphelpbuf), ::core::mem::transmute(pcchhelpbuf)))
+    ::core::mem::transmute(MsiGetFeatureInfoW(hproduct.into(), szfeature.into(), ::core::mem::transmute(lpattributes), ::core::mem::transmute(lptitlebuf), ::core::mem::transmute(pcchtitlebuf), ::core::mem::transmute(lphelpbuf), ::core::mem::transmute(pcchhelpbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfeature: ::windows::core::PCSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiGetFeatureStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szfeature: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureStateA(hinstall: MSIHANDLE, szfeature: ::windows::core::PCSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureStateA(hinstall.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
+    ::core::mem::transmute(MsiGetFeatureStateA(hinstall.into(), szfeature.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfeature: ::windows::core::PCWSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiGetFeatureStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szfeature: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureStateW(hinstall: MSIHANDLE, szfeature: ::windows::core::PCWSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureStateW(hinstall.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
+    ::core::mem::transmute(MsiGetFeatureStateW(hinstall.into(), szfeature.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureUsageA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
+pub unsafe fn MsiGetFeatureUsageA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szfeature: Param1, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureUsageA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureUsageA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), ::core::mem::transmute(pdwusecount), ::core::mem::transmute(pwdateused)))
+    ::core::mem::transmute(MsiGetFeatureUsageA(szproduct.into(), szfeature.into(), ::core::mem::transmute(pdwusecount), ::core::mem::transmute(pwdateused)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureUsageW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
+pub unsafe fn MsiGetFeatureUsageW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szfeature: Param1, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureUsageW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureUsageW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), ::core::mem::transmute(pdwusecount), ::core::mem::transmute(pwdateused)))
+    ::core::mem::transmute(MsiGetFeatureUsageW(szproduct.into(), szfeature.into(), ::core::mem::transmute(pdwusecount), ::core::mem::transmute(pwdateused)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureValidStatesA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfeature: ::windows::core::PCSTR, lpinstallstates: *mut u32) -> u32 {
+pub unsafe fn MsiGetFeatureValidStatesA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szfeature: Param1, lpinstallstates: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureValidStatesA(hinstall: MSIHANDLE, szfeature: ::windows::core::PCSTR, lpinstallstates: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureValidStatesA(hinstall.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(lpinstallstates)))
+    ::core::mem::transmute(MsiGetFeatureValidStatesA(hinstall.into(), szfeature.into(), ::core::mem::transmute(lpinstallstates)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFeatureValidStatesW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfeature: ::windows::core::PCWSTR, lpinstallstates: *mut u32) -> u32 {
+pub unsafe fn MsiGetFeatureValidStatesW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szfeature: Param1, lpinstallstates: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFeatureValidStatesW(hinstall: MSIHANDLE, szfeature: ::windows::core::PCWSTR, lpinstallstates: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFeatureValidStatesW(hinstall.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(lpinstallstates)))
+    ::core::mem::transmute(MsiGetFeatureValidStatesW(hinstall.into(), szfeature.into(), ::core::mem::transmute(lpinstallstates)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFileHashA(szfilepath: ::windows::core::PCSTR, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
+pub unsafe fn MsiGetFileHashA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szfilepath: Param0, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFileHashA(szfilepath: ::windows::core::PCSTR, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32;
     }
-    ::core::mem::transmute(MsiGetFileHashA(::core::mem::transmute(szfilepath), ::core::mem::transmute(dwoptions), ::core::mem::transmute(phash)))
+    ::core::mem::transmute(MsiGetFileHashA(szfilepath.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(phash)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFileHashW(szfilepath: ::windows::core::PCWSTR, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
+pub unsafe fn MsiGetFileHashW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szfilepath: Param0, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFileHashW(szfilepath: ::windows::core::PCWSTR, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32;
     }
-    ::core::mem::transmute(MsiGetFileHashW(::core::mem::transmute(szfilepath), ::core::mem::transmute(dwoptions), ::core::mem::transmute(phash)))
+    ::core::mem::transmute(MsiGetFileHashW(szfilepath.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(phash)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MsiGetFileSignatureInformationA(szsignedobjectpath: ::windows::core::PCSTR, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn MsiGetFileSignatureInformationA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szsignedobjectpath: Param0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFileSignatureInformationA(szsignedobjectpath: ::windows::core::PCSTR, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::HRESULT;
     }
-    MsiGetFileSignatureInformationA(::core::mem::transmute(szsignedobjectpath), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppccertcontext), ::core::mem::transmute(pbhashdata), ::core::mem::transmute(pcbhashdata)).ok()
+    MsiGetFileSignatureInformationA(szsignedobjectpath.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppccertcontext), ::core::mem::transmute(pbhashdata), ::core::mem::transmute(pcbhashdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn MsiGetFileSignatureInformationW(szsignedobjectpath: ::windows::core::PCWSTR, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn MsiGetFileSignatureInformationW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szsignedobjectpath: Param0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFileSignatureInformationW(szsignedobjectpath: ::windows::core::PCWSTR, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::HRESULT;
     }
-    MsiGetFileSignatureInformationW(::core::mem::transmute(szsignedobjectpath), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppccertcontext), ::core::mem::transmute(pbhashdata), ::core::mem::transmute(pcbhashdata)).ok()
+    MsiGetFileSignatureInformationW(szsignedobjectpath.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppccertcontext), ::core::mem::transmute(pbhashdata), ::core::mem::transmute(pcbhashdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFileVersionA(szfilepath: ::windows::core::PCSTR, lpversionbuf: ::windows::core::PSTR, pcchversionbuf: *mut u32, lplangbuf: ::windows::core::PSTR, pcchlangbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetFileVersionA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szfilepath: Param0, lpversionbuf: ::windows::core::PSTR, pcchversionbuf: *mut u32, lplangbuf: ::windows::core::PSTR, pcchlangbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFileVersionA(szfilepath: ::windows::core::PCSTR, lpversionbuf: ::windows::core::PSTR, pcchversionbuf: *mut u32, lplangbuf: ::windows::core::PSTR, pcchlangbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFileVersionA(::core::mem::transmute(szfilepath), ::core::mem::transmute(lpversionbuf), ::core::mem::transmute(pcchversionbuf), ::core::mem::transmute(lplangbuf), ::core::mem::transmute(pcchlangbuf)))
+    ::core::mem::transmute(MsiGetFileVersionA(szfilepath.into(), ::core::mem::transmute(lpversionbuf), ::core::mem::transmute(pcchversionbuf), ::core::mem::transmute(lplangbuf), ::core::mem::transmute(pcchlangbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetFileVersionW(szfilepath: ::windows::core::PCWSTR, lpversionbuf: ::windows::core::PWSTR, pcchversionbuf: *mut u32, lplangbuf: ::windows::core::PWSTR, pcchlangbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetFileVersionW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szfilepath: Param0, lpversionbuf: ::windows::core::PWSTR, pcchversionbuf: *mut u32, lplangbuf: ::windows::core::PWSTR, pcchlangbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetFileVersionW(szfilepath: ::windows::core::PCWSTR, lpversionbuf: ::windows::core::PWSTR, pcchversionbuf: *mut u32, lplangbuf: ::windows::core::PWSTR, pcchlangbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetFileVersionW(::core::mem::transmute(szfilepath), ::core::mem::transmute(lpversionbuf), ::core::mem::transmute(pcchversionbuf), ::core::mem::transmute(lplangbuf), ::core::mem::transmute(pcchlangbuf)))
+    ::core::mem::transmute(MsiGetFileVersionW(szfilepath.into(), ::core::mem::transmute(lpversionbuf), ::core::mem::transmute(pcchversionbuf), ::core::mem::transmute(lplangbuf), ::core::mem::transmute(pcchlangbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -8971,329 +8971,329 @@ pub unsafe fn MsiGetMode<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchFileListA(szproductcode: ::windows::core::PCSTR, szpatchpackages: ::windows::core::PCSTR, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiGetPatchFileListA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproductcode: Param0, szpatchpackages: Param1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPatchFileListA(szproductcode: ::windows::core::PCSTR, szpatchpackages: ::windows::core::PCSTR, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiGetPatchFileListA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szpatchpackages), ::core::mem::transmute(pcfiles), ::core::mem::transmute(pphfilerecords)))
+    ::core::mem::transmute(MsiGetPatchFileListA(szproductcode.into(), szpatchpackages.into(), ::core::mem::transmute(pcfiles), ::core::mem::transmute(pphfilerecords)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchFileListW(szproductcode: ::windows::core::PCWSTR, szpatchpackages: ::windows::core::PCWSTR, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiGetPatchFileListW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcode: Param0, szpatchpackages: Param1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPatchFileListW(szproductcode: ::windows::core::PCWSTR, szpatchpackages: ::windows::core::PCWSTR, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiGetPatchFileListW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szpatchpackages), ::core::mem::transmute(pcfiles), ::core::mem::transmute(pphfilerecords)))
+    ::core::mem::transmute(MsiGetPatchFileListW(szproductcode.into(), szpatchpackages.into(), ::core::mem::transmute(pcfiles), ::core::mem::transmute(pphfilerecords)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchInfoA(szpatch: ::windows::core::PCSTR, szattribute: ::windows::core::PCSTR, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetPatchInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szpatch: Param0, szattribute: Param1, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPatchInfoA(szpatch: ::windows::core::PCSTR, szattribute: ::windows::core::PCSTR, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetPatchInfoA(::core::mem::transmute(szpatch), ::core::mem::transmute(szattribute), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetPatchInfoA(szpatch.into(), szattribute.into(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchInfoExA<'a, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>>(szpatchcode: ::windows::core::PCSTR, szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param3, szproperty: ::windows::core::PCSTR, lpvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32 {
+pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(szpatchcode: Param0, szproductcode: Param1, szusersid: Param2, dwcontext: Param3, szproperty: Param4, lpvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPatchInfoExA(szpatchcode: ::windows::core::PCSTR, szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: ::windows::core::PCSTR, lpvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetPatchInfoExA(::core::mem::transmute(szpatchcode), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szproperty), ::core::mem::transmute(lpvalue), ::core::mem::transmute(pcchvalue)))
+    ::core::mem::transmute(MsiGetPatchInfoExA(szpatchcode.into(), szproductcode.into(), szusersid.into(), dwcontext.into(), szproperty.into(), ::core::mem::transmute(lpvalue), ::core::mem::transmute(pcchvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchInfoExW<'a, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>>(szpatchcode: ::windows::core::PCWSTR, szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param3, szproperty: ::windows::core::PCWSTR, lpvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32 {
+pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(szpatchcode: Param0, szproductcode: Param1, szusersid: Param2, dwcontext: Param3, szproperty: Param4, lpvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPatchInfoExW(szpatchcode: ::windows::core::PCWSTR, szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: ::windows::core::PCWSTR, lpvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetPatchInfoExW(::core::mem::transmute(szpatchcode), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szproperty), ::core::mem::transmute(lpvalue), ::core::mem::transmute(pcchvalue)))
+    ::core::mem::transmute(MsiGetPatchInfoExW(szpatchcode.into(), szproductcode.into(), szusersid.into(), dwcontext.into(), szproperty.into(), ::core::mem::transmute(lpvalue), ::core::mem::transmute(pcchvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPatchInfoW(szpatch: ::windows::core::PCWSTR, szattribute: ::windows::core::PCWSTR, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetPatchInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szpatch: Param0, szattribute: Param1, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPatchInfoW(szpatch: ::windows::core::PCWSTR, szattribute: ::windows::core::PCWSTR, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetPatchInfoW(::core::mem::transmute(szpatch), ::core::mem::transmute(szattribute), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetPatchInfoW(szpatch.into(), szattribute.into(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductCodeA(szcomponent: ::windows::core::PCSTR, lpbuf39: ::windows::core::PSTR) -> u32 {
+pub unsafe fn MsiGetProductCodeA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szcomponent: Param0, lpbuf39: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductCodeA(szcomponent: ::windows::core::PCSTR, lpbuf39: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductCodeA(::core::mem::transmute(szcomponent), ::core::mem::transmute(lpbuf39)))
+    ::core::mem::transmute(MsiGetProductCodeA(szcomponent.into(), ::core::mem::transmute(lpbuf39)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductCodeW(szcomponent: ::windows::core::PCWSTR, lpbuf39: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MsiGetProductCodeW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szcomponent: Param0, lpbuf39: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductCodeW(szcomponent: ::windows::core::PCWSTR, lpbuf39: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductCodeW(::core::mem::transmute(szcomponent), ::core::mem::transmute(lpbuf39)))
+    ::core::mem::transmute(MsiGetProductCodeW(szcomponent.into(), ::core::mem::transmute(lpbuf39)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductInfoA(szproduct: ::windows::core::PCSTR, szattribute: ::windows::core::PCSTR, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szattribute: Param1, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductInfoA(szproduct: ::windows::core::PCSTR, szattribute: ::windows::core::PCSTR, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductInfoA(::core::mem::transmute(szproduct), ::core::mem::transmute(szattribute), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetProductInfoA(szproduct.into(), szattribute.into(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductInfoExA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, szproperty: ::windows::core::PCSTR, szvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductInfoExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, szproperty: Param3, szvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductInfoExA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: ::windows::core::PCSTR, szvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductInfoExA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szproperty), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
+    ::core::mem::transmute(MsiGetProductInfoExA(szproductcode.into(), szusersid.into(), dwcontext.into(), szproperty.into(), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductInfoExW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, szproperty: ::windows::core::PCWSTR, szvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductInfoExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, szproperty: Param3, szvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductInfoExW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: ::windows::core::PCWSTR, szvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductInfoExW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szproperty), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
+    ::core::mem::transmute(MsiGetProductInfoExW(szproductcode.into(), szusersid.into(), dwcontext.into(), szproperty.into(), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductInfoFromScriptA(szscriptfile: ::windows::core::PCSTR, lpproductbuf39: ::windows::core::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: ::windows::core::PSTR, pcchnamebuf: *mut u32, lppackagebuf: ::windows::core::PSTR, pcchpackagebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductInfoFromScriptA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szscriptfile: Param0, lpproductbuf39: ::windows::core::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: ::windows::core::PSTR, pcchnamebuf: *mut u32, lppackagebuf: ::windows::core::PSTR, pcchpackagebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductInfoFromScriptA(szscriptfile: ::windows::core::PCSTR, lpproductbuf39: ::windows::core::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: ::windows::core::PSTR, pcchnamebuf: *mut u32, lppackagebuf: ::windows::core::PSTR, pcchpackagebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductInfoFromScriptA(::core::mem::transmute(szscriptfile), ::core::mem::transmute(lpproductbuf39), ::core::mem::transmute(plgidlanguage), ::core::mem::transmute(pdwversion), ::core::mem::transmute(lpnamebuf), ::core::mem::transmute(pcchnamebuf), ::core::mem::transmute(lppackagebuf), ::core::mem::transmute(pcchpackagebuf)))
+    ::core::mem::transmute(MsiGetProductInfoFromScriptA(szscriptfile.into(), ::core::mem::transmute(lpproductbuf39), ::core::mem::transmute(plgidlanguage), ::core::mem::transmute(pdwversion), ::core::mem::transmute(lpnamebuf), ::core::mem::transmute(pcchnamebuf), ::core::mem::transmute(lppackagebuf), ::core::mem::transmute(pcchpackagebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductInfoFromScriptW(szscriptfile: ::windows::core::PCWSTR, lpproductbuf39: ::windows::core::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: ::windows::core::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: ::windows::core::PWSTR, pcchpackagebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductInfoFromScriptW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szscriptfile: Param0, lpproductbuf39: ::windows::core::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: ::windows::core::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: ::windows::core::PWSTR, pcchpackagebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductInfoFromScriptW(szscriptfile: ::windows::core::PCWSTR, lpproductbuf39: ::windows::core::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: ::windows::core::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: ::windows::core::PWSTR, pcchpackagebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductInfoFromScriptW(::core::mem::transmute(szscriptfile), ::core::mem::transmute(lpproductbuf39), ::core::mem::transmute(plgidlanguage), ::core::mem::transmute(pdwversion), ::core::mem::transmute(lpnamebuf), ::core::mem::transmute(pcchnamebuf), ::core::mem::transmute(lppackagebuf), ::core::mem::transmute(pcchpackagebuf)))
+    ::core::mem::transmute(MsiGetProductInfoFromScriptW(szscriptfile.into(), ::core::mem::transmute(lpproductbuf39), ::core::mem::transmute(plgidlanguage), ::core::mem::transmute(pdwversion), ::core::mem::transmute(lpnamebuf), ::core::mem::transmute(pcchnamebuf), ::core::mem::transmute(lppackagebuf), ::core::mem::transmute(pcchpackagebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductInfoW(szproduct: ::windows::core::PCWSTR, szattribute: ::windows::core::PCWSTR, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szattribute: Param1, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductInfoW(szproduct: ::windows::core::PCWSTR, szattribute: ::windows::core::PCWSTR, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductInfoW(::core::mem::transmute(szproduct), ::core::mem::transmute(szattribute), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetProductInfoW(szproduct.into(), szattribute.into(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hproduct: Param0, szproperty: ::windows::core::PCSTR, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hproduct: Param0, szproperty: Param1, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductPropertyA(hproduct: MSIHANDLE, szproperty: ::windows::core::PCSTR, lpvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductPropertyA(hproduct.into(), ::core::mem::transmute(szproperty), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetProductPropertyA(hproduct.into(), szproperty.into(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetProductPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hproduct: Param0, szproperty: ::windows::core::PCWSTR, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetProductPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hproduct: Param0, szproperty: Param1, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetProductPropertyW(hproduct: MSIHANDLE, szproperty: ::windows::core::PCWSTR, lpvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetProductPropertyW(hproduct.into(), ::core::mem::transmute(szproperty), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetProductPropertyW(hproduct.into(), szproperty.into(), ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szname: ::windows::core::PCSTR, szvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szname: Param1, szvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPropertyA(hinstall: MSIHANDLE, szname: ::windows::core::PCSTR, szvaluebuf: ::windows::core::PSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetPropertyA(hinstall.into(), ::core::mem::transmute(szname), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetPropertyA(hinstall.into(), szname.into(), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szname: ::windows::core::PCWSTR, szvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szname: Param1, szvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetPropertyW(hinstall: MSIHANDLE, szname: ::windows::core::PCWSTR, szvaluebuf: ::windows::core::PWSTR, pcchvaluebuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetPropertyW(hinstall.into(), ::core::mem::transmute(szname), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
+    ::core::mem::transmute(MsiGetPropertyW(hinstall.into(), szname.into(), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetShortcutTargetA(szshortcutpath: ::windows::core::PCSTR, szproductcode: ::windows::core::PSTR, szfeatureid: ::windows::core::PSTR, szcomponentcode: ::windows::core::PSTR) -> u32 {
+pub unsafe fn MsiGetShortcutTargetA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szshortcutpath: Param0, szproductcode: ::windows::core::PSTR, szfeatureid: ::windows::core::PSTR, szcomponentcode: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetShortcutTargetA(szshortcutpath: ::windows::core::PCSTR, szproductcode: ::windows::core::PSTR, szfeatureid: ::windows::core::PSTR, szcomponentcode: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(MsiGetShortcutTargetA(::core::mem::transmute(szshortcutpath), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szfeatureid), ::core::mem::transmute(szcomponentcode)))
+    ::core::mem::transmute(MsiGetShortcutTargetA(szshortcutpath.into(), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szfeatureid), ::core::mem::transmute(szcomponentcode)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetShortcutTargetW(szshortcutpath: ::windows::core::PCWSTR, szproductcode: ::windows::core::PWSTR, szfeatureid: ::windows::core::PWSTR, szcomponentcode: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn MsiGetShortcutTargetW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szshortcutpath: Param0, szproductcode: ::windows::core::PWSTR, szfeatureid: ::windows::core::PWSTR, szcomponentcode: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetShortcutTargetW(szshortcutpath: ::windows::core::PCWSTR, szproductcode: ::windows::core::PWSTR, szfeatureid: ::windows::core::PWSTR, szcomponentcode: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiGetShortcutTargetW(::core::mem::transmute(szshortcutpath), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szfeatureid), ::core::mem::transmute(szcomponentcode)))
+    ::core::mem::transmute(MsiGetShortcutTargetW(szshortcutpath.into(), ::core::mem::transmute(szproductcode), ::core::mem::transmute(szfeatureid), ::core::mem::transmute(szcomponentcode)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetSourcePathA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfolder: ::windows::core::PCSTR, szpathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetSourcePathA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetSourcePathA(hinstall: MSIHANDLE, szfolder: ::windows::core::PCSTR, szpathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetSourcePathA(hinstall.into(), ::core::mem::transmute(szfolder), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiGetSourcePathA(hinstall.into(), szfolder.into(), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetSourcePathW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfolder: ::windows::core::PCWSTR, szpathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetSourcePathW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetSourcePathW(hinstall: MSIHANDLE, szfolder: ::windows::core::PCWSTR, szpathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetSourcePathW(hinstall.into(), ::core::mem::transmute(szfolder), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiGetSourcePathW(hinstall.into(), szfolder.into(), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetSummaryInformationA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, szdatabasepath: ::windows::core::PCSTR, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiGetSummaryInformationA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hdatabase: Param0, szdatabasepath: Param1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetSummaryInformationA(hdatabase: MSIHANDLE, szdatabasepath: ::windows::core::PCSTR, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiGetSummaryInformationA(hdatabase.into(), ::core::mem::transmute(szdatabasepath), ::core::mem::transmute(uiupdatecount), ::core::mem::transmute(phsummaryinfo)))
+    ::core::mem::transmute(MsiGetSummaryInformationA(hdatabase.into(), szdatabasepath.into(), ::core::mem::transmute(uiupdatecount), ::core::mem::transmute(phsummaryinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetSummaryInformationW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hdatabase: Param0, szdatabasepath: ::windows::core::PCWSTR, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiGetSummaryInformationW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hdatabase: Param0, szdatabasepath: Param1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetSummaryInformationW(hdatabase: MSIHANDLE, szdatabasepath: ::windows::core::PCWSTR, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiGetSummaryInformationW(hdatabase.into(), ::core::mem::transmute(szdatabasepath), ::core::mem::transmute(uiupdatecount), ::core::mem::transmute(phsummaryinfo)))
+    ::core::mem::transmute(MsiGetSummaryInformationW(hdatabase.into(), szdatabasepath.into(), ::core::mem::transmute(uiupdatecount), ::core::mem::transmute(phsummaryinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetTargetPathA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfolder: ::windows::core::PCSTR, szpathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetTargetPathA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetTargetPathA(hinstall: MSIHANDLE, szfolder: ::windows::core::PCSTR, szpathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetTargetPathA(hinstall.into(), ::core::mem::transmute(szfolder), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiGetTargetPathA(hinstall.into(), szfolder.into(), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetTargetPathW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfolder: ::windows::core::PCWSTR, szpathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiGetTargetPathW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetTargetPathW(hinstall: MSIHANDLE, szfolder: ::windows::core::PCWSTR, szpathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiGetTargetPathW(hinstall.into(), ::core::mem::transmute(szfolder), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiGetTargetPathW(hinstall.into(), szfolder.into(), ::core::mem::transmute(szpathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetUserInfoA(szproduct: ::windows::core::PCSTR, lpusernamebuf: ::windows::core::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: ::windows::core::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: ::windows::core::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
+pub unsafe fn MsiGetUserInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, lpusernamebuf: ::windows::core::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: ::windows::core::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: ::windows::core::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetUserInfoA(szproduct: ::windows::core::PCSTR, lpusernamebuf: ::windows::core::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: ::windows::core::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: ::windows::core::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE;
     }
-    ::core::mem::transmute(MsiGetUserInfoA(::core::mem::transmute(szproduct), ::core::mem::transmute(lpusernamebuf), ::core::mem::transmute(pcchusernamebuf), ::core::mem::transmute(lporgnamebuf), ::core::mem::transmute(pcchorgnamebuf), ::core::mem::transmute(lpserialbuf), ::core::mem::transmute(pcchserialbuf)))
+    ::core::mem::transmute(MsiGetUserInfoA(szproduct.into(), ::core::mem::transmute(lpusernamebuf), ::core::mem::transmute(pcchusernamebuf), ::core::mem::transmute(lporgnamebuf), ::core::mem::transmute(pcchorgnamebuf), ::core::mem::transmute(lpserialbuf), ::core::mem::transmute(pcchserialbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiGetUserInfoW(szproduct: ::windows::core::PCWSTR, lpusernamebuf: ::windows::core::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: ::windows::core::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: ::windows::core::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
+pub unsafe fn MsiGetUserInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, lpusernamebuf: ::windows::core::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: ::windows::core::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: ::windows::core::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiGetUserInfoW(szproduct: ::windows::core::PCWSTR, lpusernamebuf: ::windows::core::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: ::windows::core::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: ::windows::core::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE;
     }
-    ::core::mem::transmute(MsiGetUserInfoW(::core::mem::transmute(szproduct), ::core::mem::transmute(lpusernamebuf), ::core::mem::transmute(pcchusernamebuf), ::core::mem::transmute(lporgnamebuf), ::core::mem::transmute(pcchorgnamebuf), ::core::mem::transmute(lpserialbuf), ::core::mem::transmute(pcchserialbuf)))
+    ::core::mem::transmute(MsiGetUserInfoW(szproduct.into(), ::core::mem::transmute(lpusernamebuf), ::core::mem::transmute(pcchusernamebuf), ::core::mem::transmute(lporgnamebuf), ::core::mem::transmute(pcchorgnamebuf), ::core::mem::transmute(lpserialbuf), ::core::mem::transmute(pcchserialbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiInstallMissingComponentA<'a, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCSTR, szcomponent: ::windows::core::PCSTR, einstallstate: Param2) -> u32 {
+pub unsafe fn MsiInstallMissingComponentA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: Param0, szcomponent: Param1, einstallstate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiInstallMissingComponentA(szproduct: ::windows::core::PCSTR, szcomponent: ::windows::core::PCSTR, einstallstate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiInstallMissingComponentA(::core::mem::transmute(szproduct), ::core::mem::transmute(szcomponent), einstallstate.into()))
+    ::core::mem::transmute(MsiInstallMissingComponentA(szproduct.into(), szcomponent.into(), einstallstate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiInstallMissingComponentW<'a, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: ::windows::core::PCWSTR, szcomponent: ::windows::core::PCWSTR, einstallstate: Param2) -> u32 {
+pub unsafe fn MsiInstallMissingComponentW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(szproduct: Param0, szcomponent: Param1, einstallstate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiInstallMissingComponentW(szproduct: ::windows::core::PCWSTR, szcomponent: ::windows::core::PCWSTR, einstallstate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiInstallMissingComponentW(::core::mem::transmute(szproduct), ::core::mem::transmute(szcomponent), einstallstate.into()))
+    ::core::mem::transmute(MsiInstallMissingComponentW(szproduct.into(), szcomponent.into(), einstallstate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiInstallMissingFileA(szproduct: ::windows::core::PCSTR, szfile: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiInstallMissingFileA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szfile: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiInstallMissingFileA(szproduct: ::windows::core::PCSTR, szfile: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiInstallMissingFileA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfile)))
+    ::core::mem::transmute(MsiInstallMissingFileA(szproduct.into(), szfile.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiInstallMissingFileW(szproduct: ::windows::core::PCWSTR, szfile: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiInstallMissingFileW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szfile: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiInstallMissingFileW(szproduct: ::windows::core::PCWSTR, szfile: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiInstallMissingFileW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfile)))
+    ::core::mem::transmute(MsiInstallMissingFileW(szproduct.into(), szfile.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiInstallProductA(szpackagepath: ::windows::core::PCSTR, szcommandline: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiInstallProductA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szpackagepath: Param0, szcommandline: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiInstallProductA(szpackagepath: ::windows::core::PCSTR, szcommandline: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiInstallProductA(::core::mem::transmute(szpackagepath), ::core::mem::transmute(szcommandline)))
+    ::core::mem::transmute(MsiInstallProductA(szpackagepath.into(), szcommandline.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiInstallProductW(szpackagepath: ::windows::core::PCWSTR, szcommandline: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiInstallProductW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szpackagepath: Param0, szcommandline: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiInstallProductW(szpackagepath: ::windows::core::PCWSTR, szcommandline: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiInstallProductW(::core::mem::transmute(szpackagepath), ::core::mem::transmute(szcommandline)))
+    ::core::mem::transmute(MsiInstallProductW(szpackagepath.into(), szcommandline.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiIsProductElevatedA(szproduct: ::windows::core::PCSTR, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn MsiIsProductElevatedA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiIsProductElevatedA(szproduct: ::windows::core::PCSTR, pfelevated: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MsiIsProductElevatedA(::core::mem::transmute(szproduct), ::core::mem::transmute(pfelevated)))
+    ::core::mem::transmute(MsiIsProductElevatedA(szproduct.into(), ::core::mem::transmute(pfelevated)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiIsProductElevatedW(szproduct: ::windows::core::PCWSTR, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn MsiIsProductElevatedW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiIsProductElevatedW(szproduct: ::windows::core::PCWSTR, pfelevated: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MsiIsProductElevatedW(::core::mem::transmute(szproduct), ::core::mem::transmute(pfelevated)))
+    ::core::mem::transmute(MsiIsProductElevatedW(szproduct.into(), ::core::mem::transmute(pfelevated)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9307,167 +9307,167 @@ pub unsafe fn MsiJoinTransaction<'a, Param0: ::std::convert::Into<MSIHANDLE>>(ht
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiLocateComponentA(szcomponent: ::windows::core::PCSTR, lppathbuf: ::windows::core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
+pub unsafe fn MsiLocateComponentA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szcomponent: Param0, lppathbuf: ::windows::core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiLocateComponentA(szcomponent: ::windows::core::PCSTR, lppathbuf: ::windows::core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiLocateComponentA(::core::mem::transmute(szcomponent), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
+    ::core::mem::transmute(MsiLocateComponentA(szcomponent.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiLocateComponentW(szcomponent: ::windows::core::PCWSTR, lppathbuf: ::windows::core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
+pub unsafe fn MsiLocateComponentW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szcomponent: Param0, lppathbuf: ::windows::core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiLocateComponentW(szcomponent: ::windows::core::PCWSTR, lppathbuf: ::windows::core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiLocateComponentW(::core::mem::transmute(szcomponent), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
+    ::core::mem::transmute(MsiLocateComponentW(szcomponent.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiNotifySidChangeA(poldsid: ::windows::core::PCSTR, pnewsid: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiNotifySidChangeA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(poldsid: Param0, pnewsid: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiNotifySidChangeA(poldsid: ::windows::core::PCSTR, pnewsid: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiNotifySidChangeA(::core::mem::transmute(poldsid), ::core::mem::transmute(pnewsid)))
+    ::core::mem::transmute(MsiNotifySidChangeA(poldsid.into(), pnewsid.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiNotifySidChangeW(poldsid: ::windows::core::PCWSTR, pnewsid: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiNotifySidChangeW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(poldsid: Param0, pnewsid: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiNotifySidChangeW(poldsid: ::windows::core::PCWSTR, pnewsid: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiNotifySidChangeW(::core::mem::transmute(poldsid), ::core::mem::transmute(pnewsid)))
+    ::core::mem::transmute(MsiNotifySidChangeW(poldsid.into(), pnewsid.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenDatabaseA(szdatabasepath: ::windows::core::PCSTR, szpersist: ::windows::core::PCSTR, phdatabase: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenDatabaseA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szdatabasepath: Param0, szpersist: Param1, phdatabase: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenDatabaseA(szdatabasepath: ::windows::core::PCSTR, szpersist: ::windows::core::PCSTR, phdatabase: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenDatabaseA(::core::mem::transmute(szdatabasepath), ::core::mem::transmute(szpersist), ::core::mem::transmute(phdatabase)))
+    ::core::mem::transmute(MsiOpenDatabaseA(szdatabasepath.into(), szpersist.into(), ::core::mem::transmute(phdatabase)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenDatabaseW(szdatabasepath: ::windows::core::PCWSTR, szpersist: ::windows::core::PCWSTR, phdatabase: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenDatabaseW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szdatabasepath: Param0, szpersist: Param1, phdatabase: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenDatabaseW(szdatabasepath: ::windows::core::PCWSTR, szpersist: ::windows::core::PCWSTR, phdatabase: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenDatabaseW(::core::mem::transmute(szdatabasepath), ::core::mem::transmute(szpersist), ::core::mem::transmute(phdatabase)))
+    ::core::mem::transmute(MsiOpenDatabaseW(szdatabasepath.into(), szpersist.into(), ::core::mem::transmute(phdatabase)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenPackageA(szpackagepath: ::windows::core::PCSTR, hproduct: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenPackageA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szpackagepath: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenPackageA(szpackagepath: ::windows::core::PCSTR, hproduct: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenPackageA(::core::mem::transmute(szpackagepath), ::core::mem::transmute(hproduct)))
+    ::core::mem::transmute(MsiOpenPackageA(szpackagepath.into(), ::core::mem::transmute(hproduct)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenPackageExA(szpackagepath: ::windows::core::PCSTR, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenPackageExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szpackagepath: Param0, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenPackageExA(szpackagepath: ::windows::core::PCSTR, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenPackageExA(::core::mem::transmute(szpackagepath), ::core::mem::transmute(dwoptions), ::core::mem::transmute(hproduct)))
+    ::core::mem::transmute(MsiOpenPackageExA(szpackagepath.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(hproduct)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenPackageExW(szpackagepath: ::windows::core::PCWSTR, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenPackageExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szpackagepath: Param0, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenPackageExW(szpackagepath: ::windows::core::PCWSTR, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenPackageExW(::core::mem::transmute(szpackagepath), ::core::mem::transmute(dwoptions), ::core::mem::transmute(hproduct)))
+    ::core::mem::transmute(MsiOpenPackageExW(szpackagepath.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(hproduct)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenPackageW(szpackagepath: ::windows::core::PCWSTR, hproduct: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenPackageW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szpackagepath: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenPackageW(szpackagepath: ::windows::core::PCWSTR, hproduct: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenPackageW(::core::mem::transmute(szpackagepath), ::core::mem::transmute(hproduct)))
+    ::core::mem::transmute(MsiOpenPackageW(szpackagepath.into(), ::core::mem::transmute(hproduct)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenProductA(szproduct: ::windows::core::PCSTR, hproduct: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenProductA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenProductA(szproduct: ::windows::core::PCSTR, hproduct: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenProductA(::core::mem::transmute(szproduct), ::core::mem::transmute(hproduct)))
+    ::core::mem::transmute(MsiOpenProductA(szproduct.into(), ::core::mem::transmute(hproduct)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiOpenProductW(szproduct: ::windows::core::PCWSTR, hproduct: *mut MSIHANDLE) -> u32 {
+pub unsafe fn MsiOpenProductW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiOpenProductW(szproduct: ::windows::core::PCWSTR, hproduct: *mut MSIHANDLE) -> u32;
     }
-    ::core::mem::transmute(MsiOpenProductW(::core::mem::transmute(szproduct), ::core::mem::transmute(hproduct)))
+    ::core::mem::transmute(MsiOpenProductW(szproduct.into(), ::core::mem::transmute(hproduct)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiPreviewBillboardA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hpreview: Param0, szcontrolname: ::windows::core::PCSTR, szbillboard: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiPreviewBillboardA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hpreview: Param0, szcontrolname: Param1, szbillboard: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiPreviewBillboardA(hpreview: MSIHANDLE, szcontrolname: ::windows::core::PCSTR, szbillboard: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiPreviewBillboardA(hpreview.into(), ::core::mem::transmute(szcontrolname), ::core::mem::transmute(szbillboard)))
+    ::core::mem::transmute(MsiPreviewBillboardA(hpreview.into(), szcontrolname.into(), szbillboard.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiPreviewBillboardW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hpreview: Param0, szcontrolname: ::windows::core::PCWSTR, szbillboard: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiPreviewBillboardW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hpreview: Param0, szcontrolname: Param1, szbillboard: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiPreviewBillboardW(hpreview: MSIHANDLE, szcontrolname: ::windows::core::PCWSTR, szbillboard: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiPreviewBillboardW(hpreview.into(), ::core::mem::transmute(szcontrolname), ::core::mem::transmute(szbillboard)))
+    ::core::mem::transmute(MsiPreviewBillboardW(hpreview.into(), szcontrolname.into(), szbillboard.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiPreviewDialogA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hpreview: Param0, szdialogname: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiPreviewDialogA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hpreview: Param0, szdialogname: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiPreviewDialogA(hpreview: MSIHANDLE, szdialogname: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiPreviewDialogA(hpreview.into(), ::core::mem::transmute(szdialogname)))
+    ::core::mem::transmute(MsiPreviewDialogA(hpreview.into(), szdialogname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiPreviewDialogW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hpreview: Param0, szdialogname: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiPreviewDialogW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hpreview: Param0, szdialogname: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiPreviewDialogW(hpreview: MSIHANDLE, szdialogname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiPreviewDialogW(hpreview.into(), ::core::mem::transmute(szdialogname)))
+    ::core::mem::transmute(MsiPreviewDialogW(hpreview.into(), szdialogname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param2: ::std::convert::Into<super::Registry::HKEY>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: ::windows::core::PCSTR, sziconfolder: ::windows::core::PCSTR, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
+pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<super::Registry::HKEY>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: Param0, sziconfolder: Param1, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProcessAdvertiseScriptA(szscriptfile: ::windows::core::PCSTR, sziconfolder: ::windows::core::PCSTR, hregdata: super::Registry::HKEY, fshortcuts: super::super::Foundation::BOOL, fremoveitems: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MsiProcessAdvertiseScriptA(::core::mem::transmute(szscriptfile), ::core::mem::transmute(sziconfolder), hregdata.into(), fshortcuts.into(), fremoveitems.into()))
+    ::core::mem::transmute(MsiProcessAdvertiseScriptA(szscriptfile.into(), sziconfolder.into(), hregdata.into(), fshortcuts.into(), fremoveitems.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param2: ::std::convert::Into<super::Registry::HKEY>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: ::windows::core::PCWSTR, sziconfolder: ::windows::core::PCWSTR, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
+pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::Registry::HKEY>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(szscriptfile: Param0, sziconfolder: Param1, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProcessAdvertiseScriptW(szscriptfile: ::windows::core::PCWSTR, sziconfolder: ::windows::core::PCWSTR, hregdata: super::Registry::HKEY, fshortcuts: super::super::Foundation::BOOL, fremoveitems: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(MsiProcessAdvertiseScriptW(::core::mem::transmute(szscriptfile), ::core::mem::transmute(sziconfolder), hregdata.into(), fshortcuts.into(), fremoveitems.into()))
+    ::core::mem::transmute(MsiProcessAdvertiseScriptW(szscriptfile.into(), sziconfolder.into(), hregdata.into(), fshortcuts.into(), fremoveitems.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -9480,147 +9480,147 @@ pub unsafe fn MsiProcessMessage<'a, Param0: ::std::convert::Into<MSIHANDLE>, Par
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideAssemblyA<'a, Param2: ::std::convert::Into<INSTALLMODE>, Param3: ::std::convert::Into<MSIASSEMBLYINFO>>(szassemblyname: ::windows::core::PCSTR, szappcontext: ::windows::core::PCSTR, dwinstallmode: Param2, dwassemblyinfo: Param3, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideAssemblyA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLMODE>, Param3: ::std::convert::Into<MSIASSEMBLYINFO>>(szassemblyname: Param0, szappcontext: Param1, dwinstallmode: Param2, dwassemblyinfo: Param3, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideAssemblyA(szassemblyname: ::windows::core::PCSTR, szappcontext: ::windows::core::PCSTR, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideAssemblyA(::core::mem::transmute(szassemblyname), ::core::mem::transmute(szappcontext), dwinstallmode.into(), dwassemblyinfo.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideAssemblyA(szassemblyname.into(), szappcontext.into(), dwinstallmode.into(), dwassemblyinfo.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideAssemblyW<'a, Param2: ::std::convert::Into<INSTALLMODE>, Param3: ::std::convert::Into<MSIASSEMBLYINFO>>(szassemblyname: ::windows::core::PCWSTR, szappcontext: ::windows::core::PCWSTR, dwinstallmode: Param2, dwassemblyinfo: Param3, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideAssemblyW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLMODE>, Param3: ::std::convert::Into<MSIASSEMBLYINFO>>(szassemblyname: Param0, szappcontext: Param1, dwinstallmode: Param2, dwassemblyinfo: Param3, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideAssemblyW(szassemblyname: ::windows::core::PCWSTR, szappcontext: ::windows::core::PCWSTR, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideAssemblyW(::core::mem::transmute(szassemblyname), ::core::mem::transmute(szappcontext), dwinstallmode.into(), dwassemblyinfo.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideAssemblyW(szassemblyname.into(), szappcontext.into(), dwinstallmode.into(), dwassemblyinfo.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideComponentA<'a, Param3: ::std::convert::Into<INSTALLMODE>>(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, szcomponent: ::windows::core::PCSTR, dwinstallmode: Param3, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideComponentA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<INSTALLMODE>>(szproduct: Param0, szfeature: Param1, szcomponent: Param2, dwinstallmode: Param3, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideComponentA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, szcomponent: ::windows::core::PCSTR, dwinstallmode: INSTALLMODE, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideComponentA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), ::core::mem::transmute(szcomponent), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideComponentA(szproduct.into(), szfeature.into(), szcomponent.into(), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideComponentW<'a, Param3: ::std::convert::Into<INSTALLMODE>>(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, szcomponent: ::windows::core::PCWSTR, dwinstallmode: Param3, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideComponentW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<INSTALLMODE>>(szproduct: Param0, szfeature: Param1, szcomponent: Param2, dwinstallmode: Param3, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideComponentW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, szcomponent: ::windows::core::PCWSTR, dwinstallmode: INSTALLMODE, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideComponentW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), ::core::mem::transmute(szcomponent), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideComponentW(szproduct.into(), szfeature.into(), szcomponent.into(), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideQualifiedComponentA<'a, Param2: ::std::convert::Into<INSTALLMODE>>(szcategory: ::windows::core::PCSTR, szqualifier: ::windows::core::PCSTR, dwinstallmode: Param2, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideQualifiedComponentA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLMODE>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: Param2, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideQualifiedComponentA(szcategory: ::windows::core::PCSTR, szqualifier: ::windows::core::PCSTR, dwinstallmode: INSTALLMODE, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideQualifiedComponentA(::core::mem::transmute(szcategory), ::core::mem::transmute(szqualifier), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideQualifiedComponentA(szcategory.into(), szqualifier.into(), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param2: ::std::convert::Into<INSTALLMODE>>(szcategory: ::windows::core::PCSTR, szqualifier: ::windows::core::PCSTR, dwinstallmode: Param2, szproduct: ::windows::core::PCSTR, dwunused1: u32, dwunused2: u32, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLMODE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: Param2, szproduct: Param3, dwunused1: u32, dwunused2: u32, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideQualifiedComponentExA(szcategory: ::windows::core::PCSTR, szqualifier: ::windows::core::PCSTR, dwinstallmode: INSTALLMODE, szproduct: ::windows::core::PCSTR, dwunused1: u32, dwunused2: u32, lppathbuf: ::windows::core::PSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideQualifiedComponentExA(::core::mem::transmute(szcategory), ::core::mem::transmute(szqualifier), dwinstallmode.into(), ::core::mem::transmute(szproduct), ::core::mem::transmute(dwunused1), ::core::mem::transmute(dwunused2), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideQualifiedComponentExA(szcategory.into(), szqualifier.into(), dwinstallmode.into(), szproduct.into(), ::core::mem::transmute(dwunused1), ::core::mem::transmute(dwunused2), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param2: ::std::convert::Into<INSTALLMODE>>(szcategory: ::windows::core::PCWSTR, szqualifier: ::windows::core::PCWSTR, dwinstallmode: Param2, szproduct: ::windows::core::PCWSTR, dwunused1: u32, dwunused2: u32, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLMODE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: Param2, szproduct: Param3, dwunused1: u32, dwunused2: u32, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideQualifiedComponentExW(szcategory: ::windows::core::PCWSTR, szqualifier: ::windows::core::PCWSTR, dwinstallmode: INSTALLMODE, szproduct: ::windows::core::PCWSTR, dwunused1: u32, dwunused2: u32, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideQualifiedComponentExW(::core::mem::transmute(szcategory), ::core::mem::transmute(szqualifier), dwinstallmode.into(), ::core::mem::transmute(szproduct), ::core::mem::transmute(dwunused1), ::core::mem::transmute(dwunused2), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideQualifiedComponentExW(szcategory.into(), szqualifier.into(), dwinstallmode.into(), szproduct.into(), ::core::mem::transmute(dwunused1), ::core::mem::transmute(dwunused2), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiProvideQualifiedComponentW<'a, Param2: ::std::convert::Into<INSTALLMODE>>(szcategory: ::windows::core::PCWSTR, szqualifier: ::windows::core::PCWSTR, dwinstallmode: Param2, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
+pub unsafe fn MsiProvideQualifiedComponentW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLMODE>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: Param2, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiProvideQualifiedComponentW(szcategory: ::windows::core::PCWSTR, szqualifier: ::windows::core::PCWSTR, dwinstallmode: INSTALLMODE, lppathbuf: ::windows::core::PWSTR, pcchpathbuf: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiProvideQualifiedComponentW(::core::mem::transmute(szcategory), ::core::mem::transmute(szqualifier), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
+    ::core::mem::transmute(MsiProvideQualifiedComponentW(szcategory.into(), szqualifier.into(), dwinstallmode.into(), ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryComponentStateA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, szcomponentcode: ::windows::core::PCSTR, pdwstate: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiQueryComponentStateA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, szcomponentcode: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryComponentStateA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: ::windows::core::PCSTR, pdwstate: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiQueryComponentStateA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szcomponentcode), ::core::mem::transmute(pdwstate)))
+    ::core::mem::transmute(MsiQueryComponentStateA(szproductcode.into(), szusersid.into(), dwcontext.into(), szcomponentcode.into(), ::core::mem::transmute(pdwstate)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryComponentStateW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, szcomponentcode: ::windows::core::PCWSTR, pdwstate: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiQueryComponentStateW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, szcomponentcode: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryComponentStateW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: ::windows::core::PCWSTR, pdwstate: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiQueryComponentStateW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szcomponentcode), ::core::mem::transmute(pdwstate)))
+    ::core::mem::transmute(MsiQueryComponentStateW(szproductcode.into(), szusersid.into(), dwcontext.into(), szcomponentcode.into(), ::core::mem::transmute(pdwstate)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryFeatureStateA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR) -> INSTALLSTATE {
+pub unsafe fn MsiQueryFeatureStateA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryFeatureStateA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiQueryFeatureStateA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature)))
+    ::core::mem::transmute(MsiQueryFeatureStateA(szproduct.into(), szfeature.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryFeatureStateExA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, szfeature: ::windows::core::PCSTR, pdwstate: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiQueryFeatureStateExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, szfeature: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryFeatureStateExA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, szfeature: ::windows::core::PCSTR, pdwstate: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiQueryFeatureStateExA(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(pdwstate)))
+    ::core::mem::transmute(MsiQueryFeatureStateExA(szproductcode.into(), szusersid.into(), dwcontext.into(), szfeature.into(), ::core::mem::transmute(pdwstate)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryFeatureStateExW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, szfeature: ::windows::core::PCWSTR, pdwstate: *mut INSTALLSTATE) -> u32 {
+pub unsafe fn MsiQueryFeatureStateExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: Param2, szfeature: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryFeatureStateExW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, szfeature: ::windows::core::PCWSTR, pdwstate: *mut INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiQueryFeatureStateExW(::core::mem::transmute(szproductcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(pdwstate)))
+    ::core::mem::transmute(MsiQueryFeatureStateExW(szproductcode.into(), szusersid.into(), dwcontext.into(), szfeature.into(), ::core::mem::transmute(pdwstate)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryFeatureStateW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR) -> INSTALLSTATE {
+pub unsafe fn MsiQueryFeatureStateW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryFeatureStateW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiQueryFeatureStateW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature)))
+    ::core::mem::transmute(MsiQueryFeatureStateW(szproduct.into(), szfeature.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryProductStateA(szproduct: ::windows::core::PCSTR) -> INSTALLSTATE {
+pub unsafe fn MsiQueryProductStateA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryProductStateA(szproduct: ::windows::core::PCSTR) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiQueryProductStateA(::core::mem::transmute(szproduct)))
+    ::core::mem::transmute(MsiQueryProductStateA(szproduct.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiQueryProductStateW(szproduct: ::windows::core::PCWSTR) -> INSTALLSTATE {
+pub unsafe fn MsiQueryProductStateW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiQueryProductStateW(szproduct: ::windows::core::PCWSTR) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiQueryProductStateW(::core::mem::transmute(szproduct)))
+    ::core::mem::transmute(MsiQueryProductStateW(szproduct.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -9706,129 +9706,129 @@ pub unsafe fn MsiRecordSetInteger<'a, Param0: ::std::convert::Into<MSIHANDLE>>(h
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiRecordSetStreamA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hrecord: Param0, ifield: u32, szfilepath: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiRecordSetStreamA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hrecord: Param0, ifield: u32, szfilepath: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiRecordSetStreamA(hrecord: MSIHANDLE, ifield: u32, szfilepath: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiRecordSetStreamA(hrecord.into(), ::core::mem::transmute(ifield), ::core::mem::transmute(szfilepath)))
+    ::core::mem::transmute(MsiRecordSetStreamA(hrecord.into(), ::core::mem::transmute(ifield), szfilepath.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiRecordSetStreamW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hrecord: Param0, ifield: u32, szfilepath: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiRecordSetStreamW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hrecord: Param0, ifield: u32, szfilepath: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiRecordSetStreamW(hrecord: MSIHANDLE, ifield: u32, szfilepath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiRecordSetStreamW(hrecord.into(), ::core::mem::transmute(ifield), ::core::mem::transmute(szfilepath)))
+    ::core::mem::transmute(MsiRecordSetStreamW(hrecord.into(), ::core::mem::transmute(ifield), szfilepath.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiRecordSetStringA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hrecord: Param0, ifield: u32, szvalue: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiRecordSetStringA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hrecord: Param0, ifield: u32, szvalue: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiRecordSetStringA(hrecord: MSIHANDLE, ifield: u32, szvalue: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiRecordSetStringA(hrecord.into(), ::core::mem::transmute(ifield), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiRecordSetStringA(hrecord.into(), ::core::mem::transmute(ifield), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiRecordSetStringW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hrecord: Param0, ifield: u32, szvalue: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiRecordSetStringW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hrecord: Param0, ifield: u32, szvalue: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiRecordSetStringW(hrecord: MSIHANDLE, ifield: u32, szvalue: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiRecordSetStringW(hrecord.into(), ::core::mem::transmute(ifield), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiRecordSetStringW(hrecord.into(), ::core::mem::transmute(ifield), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiReinstallFeatureA<'a, Param2: ::std::convert::Into<REINSTALLMODE>>(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, dwreinstallmode: Param2) -> u32 {
+pub unsafe fn MsiReinstallFeatureA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<REINSTALLMODE>>(szproduct: Param0, szfeature: Param1, dwreinstallmode: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiReinstallFeatureA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, dwreinstallmode: REINSTALLMODE) -> u32;
     }
-    ::core::mem::transmute(MsiReinstallFeatureA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), dwreinstallmode.into()))
+    ::core::mem::transmute(MsiReinstallFeatureA(szproduct.into(), szfeature.into(), dwreinstallmode.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiReinstallFeatureW<'a, Param2: ::std::convert::Into<REINSTALLMODE>>(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, dwreinstallmode: Param2) -> u32 {
+pub unsafe fn MsiReinstallFeatureW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<REINSTALLMODE>>(szproduct: Param0, szfeature: Param1, dwreinstallmode: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiReinstallFeatureW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, dwreinstallmode: REINSTALLMODE) -> u32;
     }
-    ::core::mem::transmute(MsiReinstallFeatureW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), dwreinstallmode.into()))
+    ::core::mem::transmute(MsiReinstallFeatureW(szproduct.into(), szfeature.into(), dwreinstallmode.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiReinstallProductA<'a, Param1: ::std::convert::Into<REINSTALLMODE>>(szproduct: ::windows::core::PCSTR, szreinstallmode: Param1) -> u32 {
+pub unsafe fn MsiReinstallProductA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<REINSTALLMODE>>(szproduct: Param0, szreinstallmode: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiReinstallProductA(szproduct: ::windows::core::PCSTR, szreinstallmode: REINSTALLMODE) -> u32;
     }
-    ::core::mem::transmute(MsiReinstallProductA(::core::mem::transmute(szproduct), szreinstallmode.into()))
+    ::core::mem::transmute(MsiReinstallProductA(szproduct.into(), szreinstallmode.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiReinstallProductW<'a, Param1: ::std::convert::Into<REINSTALLMODE>>(szproduct: ::windows::core::PCWSTR, szreinstallmode: Param1) -> u32 {
+pub unsafe fn MsiReinstallProductW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<REINSTALLMODE>>(szproduct: Param0, szreinstallmode: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiReinstallProductW(szproduct: ::windows::core::PCWSTR, szreinstallmode: REINSTALLMODE) -> u32;
     }
-    ::core::mem::transmute(MsiReinstallProductW(::core::mem::transmute(szproduct), szreinstallmode.into()))
+    ::core::mem::transmute(MsiReinstallProductW(szproduct.into(), szreinstallmode.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiRemovePatchesA<'a, Param2: ::std::convert::Into<INSTALLTYPE>>(szpatchlist: ::windows::core::PCSTR, szproductcode: ::windows::core::PCSTR, euninstalltype: Param2, szpropertylist: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiRemovePatchesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLTYPE>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szpatchlist: Param0, szproductcode: Param1, euninstalltype: Param2, szpropertylist: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiRemovePatchesA(szpatchlist: ::windows::core::PCSTR, szproductcode: ::windows::core::PCSTR, euninstalltype: INSTALLTYPE, szpropertylist: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiRemovePatchesA(::core::mem::transmute(szpatchlist), ::core::mem::transmute(szproductcode), euninstalltype.into(), ::core::mem::transmute(szpropertylist)))
+    ::core::mem::transmute(MsiRemovePatchesA(szpatchlist.into(), szproductcode.into(), euninstalltype.into(), szpropertylist.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiRemovePatchesW<'a, Param2: ::std::convert::Into<INSTALLTYPE>>(szpatchlist: ::windows::core::PCWSTR, szproductcode: ::windows::core::PCWSTR, euninstalltype: Param2, szpropertylist: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiRemovePatchesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLTYPE>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szpatchlist: Param0, szproductcode: Param1, euninstalltype: Param2, szpropertylist: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiRemovePatchesW(szpatchlist: ::windows::core::PCWSTR, szproductcode: ::windows::core::PCWSTR, euninstalltype: INSTALLTYPE, szpropertylist: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiRemovePatchesW(::core::mem::transmute(szpatchlist), ::core::mem::transmute(szproductcode), euninstalltype.into(), ::core::mem::transmute(szpropertylist)))
+    ::core::mem::transmute(MsiRemovePatchesW(szpatchlist.into(), szproductcode.into(), euninstalltype.into(), szpropertylist.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSequenceA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, sztable: ::windows::core::PCSTR, isequencemode: i32) -> u32 {
+pub unsafe fn MsiSequenceA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, sztable: Param1, isequencemode: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSequenceA(hinstall: MSIHANDLE, sztable: ::windows::core::PCSTR, isequencemode: i32) -> u32;
     }
-    ::core::mem::transmute(MsiSequenceA(hinstall.into(), ::core::mem::transmute(sztable), ::core::mem::transmute(isequencemode)))
+    ::core::mem::transmute(MsiSequenceA(hinstall.into(), sztable.into(), ::core::mem::transmute(isequencemode)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSequenceW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, sztable: ::windows::core::PCWSTR, isequencemode: i32) -> u32 {
+pub unsafe fn MsiSequenceW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, sztable: Param1, isequencemode: i32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSequenceW(hinstall: MSIHANDLE, sztable: ::windows::core::PCWSTR, isequencemode: i32) -> u32;
     }
-    ::core::mem::transmute(MsiSequenceW(hinstall.into(), ::core::mem::transmute(sztable), ::core::mem::transmute(isequencemode)))
+    ::core::mem::transmute(MsiSequenceW(hinstall.into(), sztable.into(), ::core::mem::transmute(isequencemode)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetComponentStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: ::windows::core::PCSTR, istate: Param2) -> u32 {
+pub unsafe fn MsiSetComponentStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: Param1, istate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetComponentStateA(hinstall: MSIHANDLE, szcomponent: ::windows::core::PCSTR, istate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiSetComponentStateA(hinstall.into(), ::core::mem::transmute(szcomponent), istate.into()))
+    ::core::mem::transmute(MsiSetComponentStateA(hinstall.into(), szcomponent.into(), istate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetComponentStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: ::windows::core::PCWSTR, istate: Param2) -> u32 {
+pub unsafe fn MsiSetComponentStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szcomponent: Param1, istate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetComponentStateW(hinstall: MSIHANDLE, szcomponent: ::windows::core::PCWSTR, istate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiSetComponentStateW(hinstall.into(), ::core::mem::transmute(szcomponent), istate.into()))
+    ::core::mem::transmute(MsiSetComponentStateW(hinstall.into(), szcomponent.into(), istate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -9859,39 +9859,39 @@ pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter:
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetFeatureAttributesA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfeature: ::windows::core::PCSTR, dwattributes: u32) -> u32 {
+pub unsafe fn MsiSetFeatureAttributesA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szfeature: Param1, dwattributes: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetFeatureAttributesA(hinstall: MSIHANDLE, szfeature: ::windows::core::PCSTR, dwattributes: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSetFeatureAttributesA(hinstall.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(dwattributes)))
+    ::core::mem::transmute(MsiSetFeatureAttributesA(hinstall.into(), szfeature.into(), ::core::mem::transmute(dwattributes)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetFeatureAttributesW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfeature: ::windows::core::PCWSTR, dwattributes: u32) -> u32 {
+pub unsafe fn MsiSetFeatureAttributesW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szfeature: Param1, dwattributes: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetFeatureAttributesW(hinstall: MSIHANDLE, szfeature: ::windows::core::PCWSTR, dwattributes: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSetFeatureAttributesW(hinstall.into(), ::core::mem::transmute(szfeature), ::core::mem::transmute(dwattributes)))
+    ::core::mem::transmute(MsiSetFeatureAttributesW(hinstall.into(), szfeature.into(), ::core::mem::transmute(dwattributes)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetFeatureStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: ::windows::core::PCSTR, istate: Param2) -> u32 {
+pub unsafe fn MsiSetFeatureStateA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: Param1, istate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetFeatureStateA(hinstall: MSIHANDLE, szfeature: ::windows::core::PCSTR, istate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiSetFeatureStateA(hinstall.into(), ::core::mem::transmute(szfeature), istate.into()))
+    ::core::mem::transmute(MsiSetFeatureStateA(hinstall.into(), szfeature.into(), istate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetFeatureStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: ::windows::core::PCWSTR, istate: Param2) -> u32 {
+pub unsafe fn MsiSetFeatureStateW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<INSTALLSTATE>>(hinstall: Param0, szfeature: Param1, istate: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetFeatureStateW(hinstall: MSIHANDLE, szfeature: ::windows::core::PCWSTR, istate: INSTALLSTATE) -> u32;
     }
-    ::core::mem::transmute(MsiSetFeatureStateW(hinstall.into(), ::core::mem::transmute(szfeature), istate.into()))
+    ::core::mem::transmute(MsiSetFeatureStateW(hinstall.into(), szfeature.into(), istate.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -9924,273 +9924,273 @@ pub unsafe fn MsiSetMode<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szname: ::windows::core::PCSTR, szvalue: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSetPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szname: Param1, szvalue: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetPropertyA(hinstall: MSIHANDLE, szname: ::windows::core::PCSTR, szvalue: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSetPropertyA(hinstall.into(), ::core::mem::transmute(szname), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiSetPropertyA(hinstall.into(), szname.into(), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szname: ::windows::core::PCWSTR, szvalue: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSetPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szname: Param1, szvalue: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetPropertyW(hinstall: MSIHANDLE, szname: ::windows::core::PCWSTR, szvalue: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSetPropertyW(hinstall.into(), ::core::mem::transmute(szname), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiSetPropertyW(hinstall.into(), szname.into(), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetTargetPathA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfolder: ::windows::core::PCSTR, szfolderpath: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSetTargetPathA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hinstall: Param0, szfolder: Param1, szfolderpath: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetTargetPathA(hinstall: MSIHANDLE, szfolder: ::windows::core::PCSTR, szfolderpath: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSetTargetPathA(hinstall.into(), ::core::mem::transmute(szfolder), ::core::mem::transmute(szfolderpath)))
+    ::core::mem::transmute(MsiSetTargetPathA(hinstall.into(), szfolder.into(), szfolderpath.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSetTargetPathW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hinstall: Param0, szfolder: ::windows::core::PCWSTR, szfolderpath: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSetTargetPathW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hinstall: Param0, szfolder: Param1, szfolderpath: Param2) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSetTargetPathW(hinstall: MSIHANDLE, szfolder: ::windows::core::PCWSTR, szfolderpath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSetTargetPathW(hinstall.into(), ::core::mem::transmute(szfolder), ::core::mem::transmute(szfolderpath)))
+    ::core::mem::transmute(MsiSetTargetPathW(hinstall.into(), szfolder.into(), szfolderpath.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, dwdiskid: u32, szvolumelabel: ::windows::core::PCSTR, szdiskprompt: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param5: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<::windows::core::PCSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwdiskid: u32, szvolumelabel: Param5, szdiskprompt: Param6) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListAddMediaDiskA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: ::windows::core::PCSTR, szdiskprompt: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListAddMediaDiskA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(szdiskprompt)))
+    ::core::mem::transmute(MsiSourceListAddMediaDiskA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid), szvolumelabel.into(), szdiskprompt.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, dwdiskid: u32, szvolumelabel: ::windows::core::PCWSTR, szdiskprompt: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param5: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwdiskid: u32, szvolumelabel: Param5, szdiskprompt: Param6) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListAddMediaDiskW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: ::windows::core::PCWSTR, szdiskprompt: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListAddMediaDiskW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(szdiskprompt)))
+    ::core::mem::transmute(MsiSourceListAddMediaDiskW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid), szvolumelabel.into(), szdiskprompt.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListAddSourceA(szproduct: ::windows::core::PCSTR, szusername: ::windows::core::PCSTR, dwreserved: u32, szsource: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSourceListAddSourceA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32, szsource: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListAddSourceA(szproduct: ::windows::core::PCSTR, szusername: ::windows::core::PCSTR, dwreserved: u32, szsource: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListAddSourceA(::core::mem::transmute(szproduct), ::core::mem::transmute(szusername), ::core::mem::transmute(dwreserved), ::core::mem::transmute(szsource)))
+    ::core::mem::transmute(MsiSourceListAddSourceA(szproduct.into(), szusername.into(), ::core::mem::transmute(dwreserved), szsource.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListAddSourceExA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, szsource: ::windows::core::PCSTR, dwindex: u32) -> u32 {
+pub unsafe fn MsiSourceListAddSourceExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szsource: Param4, dwindex: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListAddSourceExA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: ::windows::core::PCSTR, dwindex: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListAddSourceExA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szsource), ::core::mem::transmute(dwindex)))
+    ::core::mem::transmute(MsiSourceListAddSourceExA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szsource.into(), ::core::mem::transmute(dwindex)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListAddSourceExW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, szsource: ::windows::core::PCWSTR, dwindex: u32) -> u32 {
+pub unsafe fn MsiSourceListAddSourceExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szsource: Param4, dwindex: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListAddSourceExW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: ::windows::core::PCWSTR, dwindex: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListAddSourceExW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szsource), ::core::mem::transmute(dwindex)))
+    ::core::mem::transmute(MsiSourceListAddSourceExW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szsource.into(), ::core::mem::transmute(dwindex)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListAddSourceW(szproduct: ::windows::core::PCWSTR, szusername: ::windows::core::PCWSTR, dwreserved: u32, szsource: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSourceListAddSourceW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32, szsource: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListAddSourceW(szproduct: ::windows::core::PCWSTR, szusername: ::windows::core::PCWSTR, dwreserved: u32, szsource: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListAddSourceW(::core::mem::transmute(szproduct), ::core::mem::transmute(szusername), ::core::mem::transmute(dwreserved), ::core::mem::transmute(szsource)))
+    ::core::mem::transmute(MsiSourceListAddSourceW(szproduct.into(), szusername.into(), ::core::mem::transmute(dwreserved), szsource.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearAllA(szproduct: ::windows::core::PCSTR, szusername: ::windows::core::PCSTR, dwreserved: u32) -> u32 {
+pub unsafe fn MsiSourceListClearAllA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearAllA(szproduct: ::windows::core::PCSTR, szusername: ::windows::core::PCSTR, dwreserved: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearAllA(::core::mem::transmute(szproduct), ::core::mem::transmute(szusername), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(MsiSourceListClearAllA(szproduct.into(), szusername.into(), ::core::mem::transmute(dwreserved)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearAllExA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32) -> u32 {
+pub unsafe fn MsiSourceListClearAllExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearAllExA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearAllExA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(MsiSourceListClearAllExA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearAllExW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32) -> u32 {
+pub unsafe fn MsiSourceListClearAllExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearAllExW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearAllExW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(MsiSourceListClearAllExW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearAllW(szproduct: ::windows::core::PCWSTR, szusername: ::windows::core::PCWSTR, dwreserved: u32) -> u32 {
+pub unsafe fn MsiSourceListClearAllW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearAllW(szproduct: ::windows::core::PCWSTR, szusername: ::windows::core::PCWSTR, dwreserved: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearAllW(::core::mem::transmute(szproduct), ::core::mem::transmute(szusername), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(MsiSourceListClearAllW(szproduct.into(), szusername.into(), ::core::mem::transmute(dwreserved)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearMediaDiskA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, dwdiskid: u32) -> u32 {
+pub unsafe fn MsiSourceListClearMediaDiskA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwdiskid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearMediaDiskA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearMediaDiskA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid)))
+    ::core::mem::transmute(MsiSourceListClearMediaDiskA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearMediaDiskW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, dwdiskid: u32) -> u32 {
+pub unsafe fn MsiSourceListClearMediaDiskW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwdiskid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearMediaDiskW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearMediaDiskW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid)))
+    ::core::mem::transmute(MsiSourceListClearMediaDiskW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwdiskid)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearSourceA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, szsource: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSourceListClearSourceA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szsource: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearSourceA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearSourceA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szsource)))
+    ::core::mem::transmute(MsiSourceListClearSourceA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szsource.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListClearSourceW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, szsource: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSourceListClearSourceW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szsource: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListClearSourceW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListClearSourceW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szsource)))
+    ::core::mem::transmute(MsiSourceListClearSourceW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szsource.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: ::windows::core::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: ::windows::core::PSTR, pcchdiskprompt: *mut u32) -> u32 {
+pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: ::windows::core::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: ::windows::core::PSTR, pcchdiskprompt: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: ::windows::core::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: ::windows::core::PSTR, pcchdiskprompt: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListEnumMediaDisksA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(pcchvolumelabel), ::core::mem::transmute(szdiskprompt), ::core::mem::transmute(pcchdiskprompt)))
+    ::core::mem::transmute(MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(pcchvolumelabel), ::core::mem::transmute(szdiskprompt), ::core::mem::transmute(pcchdiskprompt)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: ::windows::core::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: ::windows::core::PWSTR, pcchdiskprompt: *mut u32) -> u32 {
+pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: ::windows::core::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: ::windows::core::PWSTR, pcchdiskprompt: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: ::windows::core::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: ::windows::core::PWSTR, pcchdiskprompt: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListEnumMediaDisksW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(pcchvolumelabel), ::core::mem::transmute(szdiskprompt), ::core::mem::transmute(pcchdiskprompt)))
+    ::core::mem::transmute(MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwdiskid), ::core::mem::transmute(szvolumelabel), ::core::mem::transmute(pcchvolumelabel), ::core::mem::transmute(szdiskprompt), ::core::mem::transmute(pcchdiskprompt)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListEnumSourcesA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, dwindex: u32, szsource: ::windows::core::PSTR, pcchsource: *mut u32) -> u32 {
+pub unsafe fn MsiSourceListEnumSourcesA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwindex: u32, szsource: ::windows::core::PSTR, pcchsource: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListEnumSourcesA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: ::windows::core::PSTR, pcchsource: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListEnumSourcesA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(szsource), ::core::mem::transmute(pcchsource)))
+    ::core::mem::transmute(MsiSourceListEnumSourcesA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(szsource), ::core::mem::transmute(pcchsource)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListEnumSourcesW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, dwindex: u32, szsource: ::windows::core::PWSTR, pcchsource: *mut u32) -> u32 {
+pub unsafe fn MsiSourceListEnumSourcesW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, dwindex: u32, szsource: ::windows::core::PWSTR, pcchsource: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListEnumSourcesW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: ::windows::core::PWSTR, pcchsource: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListEnumSourcesW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(szsource), ::core::mem::transmute(pcchsource)))
+    ::core::mem::transmute(MsiSourceListEnumSourcesW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(dwindex), ::core::mem::transmute(szsource), ::core::mem::transmute(pcchsource)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListForceResolutionA(szproduct: ::windows::core::PCSTR, szusername: ::windows::core::PCSTR, dwreserved: u32) -> u32 {
+pub unsafe fn MsiSourceListForceResolutionA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListForceResolutionA(szproduct: ::windows::core::PCSTR, szusername: ::windows::core::PCSTR, dwreserved: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListForceResolutionA(::core::mem::transmute(szproduct), ::core::mem::transmute(szusername), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(MsiSourceListForceResolutionA(szproduct.into(), szusername.into(), ::core::mem::transmute(dwreserved)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListForceResolutionExA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32) -> u32 {
+pub unsafe fn MsiSourceListForceResolutionExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListForceResolutionExA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListForceResolutionExA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(MsiSourceListForceResolutionExA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListForceResolutionExW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32) -> u32 {
+pub unsafe fn MsiSourceListForceResolutionExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListForceResolutionExW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListForceResolutionExW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(MsiSourceListForceResolutionExW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListForceResolutionW(szproduct: ::windows::core::PCWSTR, szusername: ::windows::core::PCWSTR, dwreserved: u32) -> u32 {
+pub unsafe fn MsiSourceListForceResolutionW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListForceResolutionW(szproduct: ::windows::core::PCWSTR, szusername: ::windows::core::PCWSTR, dwreserved: u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListForceResolutionW(::core::mem::transmute(szproduct), ::core::mem::transmute(szusername), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(MsiSourceListForceResolutionW(szproduct.into(), szusername.into(), ::core::mem::transmute(dwreserved)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListGetInfoA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, szproperty: ::windows::core::PCSTR, szvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32 {
+pub unsafe fn MsiSourceListGetInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szproperty: Param4, szvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListGetInfoA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: ::windows::core::PCSTR, szvalue: ::windows::core::PSTR, pcchvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListGetInfoA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szproperty), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
+    ::core::mem::transmute(MsiSourceListGetInfoA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szproperty.into(), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListGetInfoW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, szproperty: ::windows::core::PCWSTR, szvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32 {
+pub unsafe fn MsiSourceListGetInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szproperty: Param4, szvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListGetInfoW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: ::windows::core::PCWSTR, szvalue: ::windows::core::PWSTR, pcchvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListGetInfoW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szproperty), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
+    ::core::mem::transmute(MsiSourceListGetInfoW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szproperty.into(), ::core::mem::transmute(szvalue), ::core::mem::transmute(pcchvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListSetInfoA<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: Param2, dwoptions: u32, szproperty: ::windows::core::PCSTR, szvalue: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSourceListSetInfoA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCSTR>, Param5: ::std::convert::Into<::windows::core::PCSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szproperty: Param4, szvalue: Param5) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListSetInfoA(szproductcodeorpatchcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: ::windows::core::PCSTR, szvalue: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListSetInfoA(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szproperty), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiSourceListSetInfoA(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szproperty.into(), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiSourceListSetInfoW<'a, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>>(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: Param2, dwoptions: u32, szproperty: ::windows::core::PCWSTR, szvalue: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSourceListSetInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<MSIINSTALLCONTEXT>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: Param2, dwoptions: u32, szproperty: Param4, szvalue: Param5) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSourceListSetInfoW(szproductcodeorpatchcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: ::windows::core::PCWSTR, szvalue: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSourceListSetInfoW(::core::mem::transmute(szproductcodeorpatchcode), ::core::mem::transmute(szusersid), dwcontext.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(szproperty), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiSourceListSetInfoW(szproductcodeorpatchcode.into(), szusersid.into(), dwcontext.into(), ::core::mem::transmute(dwoptions), szproperty.into(), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10233,58 +10233,58 @@ pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::std::convert::Into<MSIHANDLE>>
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiSummaryInfoSetPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiSummaryInfoSetPropertyA<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param5: ::std::convert::Into<::windows::core::PCSTR>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: Param5) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSummaryInfoSetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSummaryInfoSetPropertyA(hsummaryinfo.into(), ::core::mem::transmute(uiproperty), ::core::mem::transmute(uidatatype), ::core::mem::transmute(ivalue), ::core::mem::transmute(pftvalue), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiSummaryInfoSetPropertyA(hsummaryinfo.into(), ::core::mem::transmute(uiproperty), ::core::mem::transmute(uidatatype), ::core::mem::transmute(ivalue), ::core::mem::transmute(pftvalue), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsiSummaryInfoSetPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiSummaryInfoSetPropertyW<'a, Param0: ::std::convert::Into<MSIHANDLE>, Param5: ::std::convert::Into<::windows::core::PCWSTR>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: Param5) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiSummaryInfoSetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiSummaryInfoSetPropertyW(hsummaryinfo.into(), ::core::mem::transmute(uiproperty), ::core::mem::transmute(uidatatype), ::core::mem::transmute(ivalue), ::core::mem::transmute(pftvalue), ::core::mem::transmute(szvalue)))
+    ::core::mem::transmute(MsiSummaryInfoSetPropertyW(hsummaryinfo.into(), ::core::mem::transmute(uiproperty), ::core::mem::transmute(uidatatype), ::core::mem::transmute(ivalue), ::core::mem::transmute(pftvalue), szvalue.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiUseFeatureA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR) -> INSTALLSTATE {
+pub unsafe fn MsiUseFeatureA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiUseFeatureA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiUseFeatureA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature)))
+    ::core::mem::transmute(MsiUseFeatureA(szproduct.into(), szfeature.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiUseFeatureExA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
+pub unsafe fn MsiUseFeatureExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(szproduct: Param0, szfeature: Param1, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiUseFeatureExA(szproduct: ::windows::core::PCSTR, szfeature: ::windows::core::PCSTR, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiUseFeatureExA(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), ::core::mem::transmute(dwinstallmode), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(MsiUseFeatureExA(szproduct.into(), szfeature.into(), ::core::mem::transmute(dwinstallmode), ::core::mem::transmute(dwreserved)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiUseFeatureExW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
+pub unsafe fn MsiUseFeatureExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szfeature: Param1, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiUseFeatureExW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiUseFeatureExW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature), ::core::mem::transmute(dwinstallmode), ::core::mem::transmute(dwreserved)))
+    ::core::mem::transmute(MsiUseFeatureExW(szproduct.into(), szfeature.into(), ::core::mem::transmute(dwinstallmode), ::core::mem::transmute(dwreserved)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiUseFeatureW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR) -> INSTALLSTATE {
+pub unsafe fn MsiUseFeatureW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiUseFeatureW(szproduct: ::windows::core::PCWSTR, szfeature: ::windows::core::PCWSTR) -> INSTALLSTATE;
     }
-    ::core::mem::transmute(MsiUseFeatureW(::core::mem::transmute(szproduct), ::core::mem::transmute(szfeature)))
+    ::core::mem::transmute(MsiUseFeatureW(szproduct.into(), szfeature.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -10297,21 +10297,21 @@ pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::std::convert::Into<MSIHANDLE>>(hi
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiVerifyPackageA(szpackagepath: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn MsiVerifyPackageA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(szpackagepath: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiVerifyPackageA(szpackagepath: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(MsiVerifyPackageA(::core::mem::transmute(szpackagepath)))
+    ::core::mem::transmute(MsiVerifyPackageA(szpackagepath.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiVerifyPackageW(szpackagepath: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn MsiVerifyPackageW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(szpackagepath: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MsiVerifyPackageW(szpackagepath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(MsiVerifyPackageW(::core::mem::transmute(szpackagepath)))
+    ::core::mem::transmute(MsiVerifyPackageW(szpackagepath.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -12155,12 +12155,12 @@ impl ::core::ops::Not for QUERYASMINFO_FLAGS {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryActCtxSettingsW<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(dwflags: u32, hactctx: Param1, settingsnamespace: ::windows::core::PCWSTR, settingname: ::windows::core::PCWSTR, pvbuffer: ::windows::core::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryActCtxSettingsW<'a, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(dwflags: u32, hactctx: Param1, settingsnamespace: Param2, settingname: Param3, pvbuffer: ::windows::core::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryActCtxSettingsW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, settingsnamespace: ::windows::core::PCWSTR, settingname: ::windows::core::PCWSTR, pvbuffer: ::windows::core::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryActCtxSettingsW(::core::mem::transmute(dwflags), hactctx.into(), ::core::mem::transmute(settingsnamespace), ::core::mem::transmute(settingname), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(dwbuffer), ::core::mem::transmute(pdwwrittenorrequired)))
+    ::core::mem::transmute(QueryActCtxSettingsW(::core::mem::transmute(dwflags), hactctx.into(), settingsnamespace.into(), settingname.into(), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(dwbuffer), ::core::mem::transmute(pdwwrittenorrequired)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12387,32 +12387,32 @@ pub unsafe fn SfcGetNextProtectedFile<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SfcIsFileProtected<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(rpchandle: Param0, protfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn SfcIsFileProtected<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(rpchandle: Param0, protfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SfcIsFileProtected(rpchandle: super::super::Foundation::HANDLE, protfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SfcIsFileProtected(rpchandle.into(), ::core::mem::transmute(protfilename)))
+    ::core::mem::transmute(SfcIsFileProtected(rpchandle.into(), protfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn SfcIsKeyProtected<'a, Param0: ::std::convert::Into<super::Registry::HKEY>>(keyhandle: Param0, subkeyname: ::windows::core::PCWSTR, keysam: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SfcIsKeyProtected<'a, Param0: ::std::convert::Into<super::Registry::HKEY>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(keyhandle: Param0, subkeyname: Param1, keysam: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SfcIsKeyProtected(keyhandle: super::Registry::HKEY, subkeyname: ::windows::core::PCWSTR, keysam: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SfcIsKeyProtected(keyhandle.into(), ::core::mem::transmute(subkeyname), ::core::mem::transmute(keysam)))
+    ::core::mem::transmute(SfcIsKeyProtected(keyhandle.into(), subkeyname.into(), ::core::mem::transmute(keysam)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SfpVerifyFile(pszfilename: ::windows::core::PCSTR, pszerror: &[u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn SfpVerifyFile<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pszfilename: Param0, pszerror: &[u8]) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SfpVerifyFile(pszfilename: ::windows::core::PCSTR, pszerror: ::windows::core::PCSTR, dwerrsize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SfpVerifyFile(::core::mem::transmute(pszfilename), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszerror)), pszerror.len() as _))
+    ::core::mem::transmute(SfpVerifyFile(pszfilename.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszerror)), pszerror.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -12626,12 +12626,12 @@ pub const TXTLOG_WARNING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TestApplyPatchToFileA(patchfilename: ::windows::core::PCSTR, oldfilename: ::windows::core::PCSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn TestApplyPatchToFileA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(patchfilename: Param0, oldfilename: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TestApplyPatchToFileA(patchfilename: ::windows::core::PCSTR, oldfilename: ::windows::core::PCSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TestApplyPatchToFileA(::core::mem::transmute(patchfilename), ::core::mem::transmute(oldfilename), ::core::mem::transmute(applyoptionflags)))
+    ::core::mem::transmute(TestApplyPatchToFileA(patchfilename.into(), oldfilename.into(), ::core::mem::transmute(applyoptionflags)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12656,12 +12656,12 @@ pub unsafe fn TestApplyPatchToFileByHandles<'a, Param0: ::std::convert::Into<sup
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TestApplyPatchToFileW(patchfilename: ::windows::core::PCWSTR, oldfilename: ::windows::core::PCWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn TestApplyPatchToFileW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(patchfilename: Param0, oldfilename: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TestApplyPatchToFileW(patchfilename: ::windows::core::PCWSTR, oldfilename: ::windows::core::PCWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TestApplyPatchToFileW(::core::mem::transmute(patchfilename), ::core::mem::transmute(oldfilename), ::core::mem::transmute(applyoptionflags)))
+    ::core::mem::transmute(TestApplyPatchToFileW(patchfilename.into(), oldfilename.into(), ::core::mem::transmute(applyoptionflags)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const UIALL: u32 = 32768u32;

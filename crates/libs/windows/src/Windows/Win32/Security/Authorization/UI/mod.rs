@@ -88,8 +88,8 @@ pub struct IEffectivePermission(::windows::core::IUnknown);
 impl IEffectivePermission {
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectivePermission<'a, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>, Param3: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: ::windows::core::PCWSTR, psd: Param3, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEffectivePermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into(), ::core::mem::transmute(pszservername), psd.into(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
+    pub unsafe fn GetEffectivePermission<'a, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: Param2, psd: Param3, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetEffectivePermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into(), pszservername.into(), psd.into(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
 impl ::core::convert::From<IEffectivePermission> for ::windows::core::IUnknown {
@@ -142,11 +142,11 @@ pub struct IEffectivePermission2(::windows::core::IUnknown);
 impl IEffectivePermission2 {
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::std::convert::Into<super::super::super::Foundation::PSID>, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>>(
+    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::std::convert::Into<super::super::super::Foundation::PSID>, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(
         &self,
         psid: Param0,
         pdevicesid: Param1,
-        pszservername: ::windows::core::PCWSTR,
+        pszservername: Param2,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
         pusergroups: *const super::super::TOKEN_GROUPS,
@@ -163,7 +163,7 @@ impl IEffectivePermission2 {
             ::windows::core::Interface::as_raw(self),
             psid.into(),
             pdevicesid.into(),
-            ::core::mem::transmute(pszservername),
+            pszservername.into(),
             ::core::mem::transmute(psecurityobjects),
             ::core::mem::transmute(dwsecurityobjectcount),
             ::core::mem::transmute(pusergroups),

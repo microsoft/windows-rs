@@ -3065,22 +3065,22 @@ pub unsafe fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwf
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustAddDefaultForUsage(pszusageoid: ::windows::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustAddDefaultForUsage<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pszusageoid: Param0, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WintrustAddDefaultForUsage(pszusageoid: ::windows::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustAddDefaultForUsage(::core::mem::transmute(pszusageoid), ::core::mem::transmute(psdefusage)))
+    ::core::mem::transmute(WintrustAddDefaultForUsage(pszusageoid.into(), ::core::mem::transmute(psdefusage)))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustGetDefaultForUsage<'a, Param0: ::std::convert::Into<WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION>>(dwaction: Param0, pszusageoid: ::windows::core::PCSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustGetDefaultForUsage<'a, Param0: ::std::convert::Into<WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(dwaction: Param0, pszusageoid: Param1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: ::windows::core::PCSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustGetDefaultForUsage(dwaction.into(), ::core::mem::transmute(pszusageoid), ::core::mem::transmute(psusage)))
+    ::core::mem::transmute(WintrustGetDefaultForUsage(dwaction.into(), pszusageoid.into(), ::core::mem::transmute(psusage)))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[inline]

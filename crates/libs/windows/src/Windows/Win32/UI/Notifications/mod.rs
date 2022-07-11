@@ -3,8 +3,8 @@
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
     #[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
-    pub unsafe fn Activate(&self, appusermodelid: ::windows::core::PCWSTR, invokedargs: ::windows::core::PCWSTR, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(appusermodelid), ::core::mem::transmute(invokedargs), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), appusermodelid.into(), invokedargs.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
 }
 impl ::core::convert::From<INotificationActivationCallback> for ::windows::core::IUnknown {

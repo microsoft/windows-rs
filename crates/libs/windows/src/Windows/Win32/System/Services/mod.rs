@@ -22,22 +22,46 @@ pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param2: ::std::convert::Into<SERVICE_START_TYPE>, Param3: ::std::convert::Into<SERVICE_ERROR>>(hservice: Param0, dwservicetype: u32, dwstarttype: Param2, dwerrorcontrol: Param3, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfigA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param2: ::std::convert::Into<SERVICE_START_TYPE>, Param3: ::std::convert::Into<SERVICE_ERROR>, Param4: ::std::convert::Into<::windows::core::PCSTR>, Param5: ::std::convert::Into<::windows::core::PCSTR>, Param7: ::std::convert::Into<::windows::core::PCSTR>, Param8: ::std::convert::Into<::windows::core::PCSTR>, Param9: ::std::convert::Into<::windows::core::PCSTR>, Param10: ::std::convert::Into<::windows::core::PCSTR>>(
+    hservice: Param0,
+    dwservicetype: u32,
+    dwstarttype: Param2,
+    dwerrorcontrol: Param3,
+    lpbinarypathname: Param4,
+    lploadordergroup: Param5,
+    lpdwtagid: *mut u32,
+    lpdependencies: Param7,
+    lpservicestartname: Param8,
+    lppassword: Param9,
+    lpdisplayname: Param10,
+) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeServiceConfigA(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeServiceConfigA(hservice.into(), ::core::mem::transmute(dwservicetype), dwstarttype.into(), dwerrorcontrol.into(), ::core::mem::transmute(lpbinarypathname), ::core::mem::transmute(lploadordergroup), ::core::mem::transmute(lpdwtagid), ::core::mem::transmute(lpdependencies), ::core::mem::transmute(lpservicestartname), ::core::mem::transmute(lppassword), ::core::mem::transmute(lpdisplayname)))
+    ::core::mem::transmute(ChangeServiceConfigA(hservice.into(), ::core::mem::transmute(dwservicetype), dwstarttype.into(), dwerrorcontrol.into(), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into(), lpdisplayname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param2: ::std::convert::Into<SERVICE_START_TYPE>, Param3: ::std::convert::Into<SERVICE_ERROR>>(hservice: Param0, dwservicetype: u32, dwstarttype: Param2, dwerrorcontrol: Param3, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfigW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param2: ::std::convert::Into<SERVICE_START_TYPE>, Param3: ::std::convert::Into<SERVICE_ERROR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>, Param7: ::std::convert::Into<::windows::core::PCWSTR>, Param8: ::std::convert::Into<::windows::core::PCWSTR>, Param9: ::std::convert::Into<::windows::core::PCWSTR>, Param10: ::std::convert::Into<::windows::core::PCWSTR>>(
+    hservice: Param0,
+    dwservicetype: u32,
+    dwstarttype: Param2,
+    dwerrorcontrol: Param3,
+    lpbinarypathname: Param4,
+    lploadordergroup: Param5,
+    lpdwtagid: *mut u32,
+    lpdependencies: Param7,
+    lpservicestartname: Param8,
+    lppassword: Param9,
+    lpdisplayname: Param10,
+) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeServiceConfigW(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ChangeServiceConfigW(hservice.into(), ::core::mem::transmute(dwservicetype), dwstarttype.into(), dwerrorcontrol.into(), ::core::mem::transmute(lpbinarypathname), ::core::mem::transmute(lploadordergroup), ::core::mem::transmute(lpdwtagid), ::core::mem::transmute(lpdependencies), ::core::mem::transmute(lpservicestartname), ::core::mem::transmute(lppassword), ::core::mem::transmute(lpdisplayname)))
+    ::core::mem::transmute(ChangeServiceConfigW(hservice.into(), ::core::mem::transmute(dwservicetype), dwstarttype.into(), dwerrorcontrol.into(), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into(), lpdisplayname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -82,23 +106,51 @@ pub unsafe fn ControlServiceExW<'a, Param0: ::std::convert::Into<super::super::S
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param4: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param5: ::std::convert::Into<SERVICE_START_TYPE>, Param6: ::std::convert::Into<SERVICE_ERROR>>(hscmanager: Param0, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR, dwdesiredaccess: u32, dwservicetype: Param4, dwstarttype: Param5, dwerrorcontrol: Param6, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn CreateServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param5: ::std::convert::Into<SERVICE_START_TYPE>, Param6: ::std::convert::Into<SERVICE_ERROR>, Param7: ::std::convert::Into<::windows::core::PCSTR>, Param8: ::std::convert::Into<::windows::core::PCSTR>, Param10: ::std::convert::Into<::windows::core::PCSTR>, Param11: ::std::convert::Into<::windows::core::PCSTR>, Param12: ::std::convert::Into<::windows::core::PCSTR>>(
+    hscmanager: Param0,
+    lpservicename: Param1,
+    lpdisplayname: Param2,
+    dwdesiredaccess: u32,
+    dwservicetype: Param4,
+    dwstarttype: Param5,
+    dwerrorcontrol: Param6,
+    lpbinarypathname: Param7,
+    lploadordergroup: Param8,
+    lpdwtagid: *mut u32,
+    lpdependencies: Param10,
+    lpservicestartname: Param11,
+    lppassword: Param12,
+) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = CreateServiceA(hscmanager.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(dwdesiredaccess), dwservicetype.into(), dwstarttype.into(), dwerrorcontrol.into(), ::core::mem::transmute(lpbinarypathname), ::core::mem::transmute(lploadordergroup), ::core::mem::transmute(lpdwtagid), ::core::mem::transmute(lpdependencies), ::core::mem::transmute(lpservicestartname), ::core::mem::transmute(lppassword));
+    let result__ = CreateServiceA(hscmanager.into(), lpservicename.into(), lpdisplayname.into(), ::core::mem::transmute(dwdesiredaccess), dwservicetype.into(), dwstarttype.into(), dwerrorcontrol.into(), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param4: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param5: ::std::convert::Into<SERVICE_START_TYPE>, Param6: ::std::convert::Into<SERVICE_ERROR>>(hscmanager: Param0, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwservicetype: Param4, dwstarttype: Param5, dwerrorcontrol: Param6, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn CreateServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param5: ::std::convert::Into<SERVICE_START_TYPE>, Param6: ::std::convert::Into<SERVICE_ERROR>, Param7: ::std::convert::Into<::windows::core::PCWSTR>, Param8: ::std::convert::Into<::windows::core::PCWSTR>, Param10: ::std::convert::Into<::windows::core::PCWSTR>, Param11: ::std::convert::Into<::windows::core::PCWSTR>, Param12: ::std::convert::Into<::windows::core::PCWSTR>>(
+    hscmanager: Param0,
+    lpservicename: Param1,
+    lpdisplayname: Param2,
+    dwdesiredaccess: u32,
+    dwservicetype: Param4,
+    dwstarttype: Param5,
+    dwerrorcontrol: Param6,
+    lpbinarypathname: Param7,
+    lploadordergroup: Param8,
+    lpdwtagid: *mut u32,
+    lpdependencies: Param10,
+    lpservicestartname: Param11,
+    lppassword: Param12,
+) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = CreateServiceW(hscmanager.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(dwdesiredaccess), dwservicetype.into(), dwstarttype.into(), dwerrorcontrol.into(), ::core::mem::transmute(lpbinarypathname), ::core::mem::transmute(lploadordergroup), ::core::mem::transmute(lpdwtagid), ::core::mem::transmute(lpdependencies), ::core::mem::transmute(lpservicestartname), ::core::mem::transmute(lppassword));
+    let result__ = CreateServiceW(hscmanager.into(), lpservicename.into(), lpdisplayname.into(), ::core::mem::transmute(dwdesiredaccess), dwservicetype.into(), dwstarttype.into(), dwerrorcontrol.into(), lpbinarypathname.into(), lploadordergroup.into(), ::core::mem::transmute(lpdwtagid), lpdependencies.into(), lpservicestartname.into(), lppassword.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 pub const DOMAIN_JOIN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce20aba_9851_4421_9430_1ddeb766e809);
@@ -374,22 +426,22 @@ pub unsafe fn EnumServicesStatusA<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusExA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_ENUM_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param3: ::std::convert::Into<ENUM_SERVICE_STATE>>(hscmanager: Param0, infolevel: Param1, dwservicetype: Param2, dwservicestate: Param3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusExA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_ENUM_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param3: ::std::convert::Into<ENUM_SERVICE_STATE>, Param9: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, infolevel: Param1, dwservicetype: Param2, dwservicestate: Param3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumServicesStatusExA(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumServicesStatusExA(hscmanager.into(), infolevel.into(), dwservicetype.into(), dwservicestate.into(), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), ::core::mem::transmute(pszgroupname)))
+    ::core::mem::transmute(EnumServicesStatusExA(hscmanager.into(), infolevel.into(), dwservicetype.into(), dwservicestate.into(), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusExW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_ENUM_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param3: ::std::convert::Into<ENUM_SERVICE_STATE>>(hscmanager: Param0, infolevel: Param1, dwservicetype: Param2, dwservicestate: Param3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusExW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_ENUM_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param3: ::std::convert::Into<ENUM_SERVICE_STATE>, Param9: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, infolevel: Param1, dwservicetype: Param2, dwservicestate: Param3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumServicesStatusExW(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumServicesStatusExW(hscmanager.into(), infolevel.into(), dwservicetype.into(), dwservicestate.into(), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), ::core::mem::transmute(pszgroupname)))
+    ::core::mem::transmute(EnumServicesStatusExW(hscmanager.into(), infolevel.into(), dwservicetype.into(), dwservicestate.into(), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -415,42 +467,42 @@ pub unsafe fn GetServiceDirectory<'a, Param0: ::std::convert::Into<SERVICE_STATU
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceDisplayNameA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetServiceDisplayNameA(hscmanager.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(lpcchbuffer)))
+    ::core::mem::transmute(GetServiceDisplayNameA(hscmanager.into(), lpservicename.into(), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(lpcchbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceDisplayNameW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetServiceDisplayNameW(hscmanager.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(lpcchbuffer)))
+    ::core::mem::transmute(GetServiceDisplayNameW(hscmanager.into(), lpservicename.into(), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(lpcchbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceKeyNameA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lpdisplayname: ::windows::core::PCSTR, lpservicename: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceKeyNameA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceKeyNameA(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: ::windows::core::PCSTR, lpservicename: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetServiceKeyNameA(hscmanager.into(), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpcchbuffer)))
+    ::core::mem::transmute(GetServiceKeyNameA(hscmanager.into(), lpdisplayname.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpcchbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceKeyNameW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lpdisplayname: ::windows::core::PCWSTR, lpservicename: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceKeyNameW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceKeyNameW(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: ::windows::core::PCWSTR, lpservicename: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetServiceKeyNameW(hscmanager.into(), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpcchbuffer)))
+    ::core::mem::transmute(GetServiceKeyNameW(hscmanager.into(), lpdisplayname.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpcchbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -541,45 +593,45 @@ pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenSCManagerA(lpmachinename: ::windows::core::PCSTR, lpdatabasename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenSCManagerA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenSCManagerA(lpmachinename: ::windows::core::PCSTR, lpdatabasename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenSCManagerA(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpdatabasename), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenSCManagerA(lpmachinename.into(), lpdatabasename.into(), ::core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenSCManagerW(lpmachinename: ::windows::core::PCWSTR, lpdatabasename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenSCManagerW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenSCManagerW(lpmachinename: ::windows::core::PCWSTR, lpdatabasename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenSCManagerW(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpdatabasename), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenSCManagerW(lpmachinename.into(), lpdatabasename.into(), ::core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lpservicename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenServiceA(hscmanager.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenServiceA(hscmanager.into(), lpservicename.into(), ::core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lpservicename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
     }
-    let result__ = OpenServiceW(hscmanager.into(), ::core::mem::transmute(lpservicename), ::core::mem::transmute(dwdesiredaccess));
+    let result__ = OpenServiceW(hscmanager.into(), lpservicename.into(), ::core::mem::transmute(dwdesiredaccess));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -829,42 +881,42 @@ pub unsafe fn QueryServiceStatusEx<'a, Param0: ::std::convert::Into<super::super
 pub const RPC_INTERFACE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerA(lpservicename: ::windows::core::PCSTR, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerA(lpservicename: ::windows::core::PCSTR, lphandlerproc: *mut ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
     }
-    let result__ = RegisterServiceCtrlHandlerA(::core::mem::transmute(lpservicename), ::core::mem::transmute(lphandlerproc));
+    let result__ = RegisterServiceCtrlHandlerA(lpservicename.into(), ::core::mem::transmute(lphandlerproc));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExA(lpservicename: ::windows::core::PCSTR, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerExA(lpservicename: ::windows::core::PCSTR, lphandlerproc: *mut ::core::ffi::c_void, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
     }
-    let result__ = RegisterServiceCtrlHandlerExA(::core::mem::transmute(lpservicename), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext));
+    let result__ = RegisterServiceCtrlHandlerExA(lpservicename.into(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerExW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: *mut ::core::ffi::c_void, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
     }
-    let result__ = RegisterServiceCtrlHandlerExW(::core::mem::transmute(lpservicename), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext));
+    let result__ = RegisterServiceCtrlHandlerExW(lpservicename.into(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: *mut ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
     }
-    let result__ = RegisterServiceCtrlHandlerW(::core::mem::transmute(lpservicename), ::core::mem::transmute(lphandlerproc));
+    let result__ = RegisterServiceCtrlHandlerW(lpservicename.into(), ::core::mem::transmute(lphandlerproc));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(C)]

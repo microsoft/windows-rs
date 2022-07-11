@@ -3,13 +3,13 @@
 pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-    pub unsafe fn TriggerContentPrefetcherTask(&self, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(packagefullname)).ok()
+    pub unsafe fn TriggerContentPrefetcherTask<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-    pub unsafe fn IsRegisteredForContentPrefetch(&self, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::Result<u8> {
+    pub unsafe fn IsRegisteredForContentPrefetch<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(packagefullname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), packagefullname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {
@@ -14093,13 +14093,13 @@ impl ::core::default::Default for WS_XML_WRITER_TEXT_ENCODING {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pwszrpid: ::windows::core::PCWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION> {
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pwszrpid: Param1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WebAuthNAuthenticatorGetAssertion(hwnd: super::super::Foundation::HWND, pwszrpid: ::windows::core::PCWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion: *mut *mut WEBAUTHN_ASSERTION) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut WEBAUTHN_ASSERTION>::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into(), ::core::mem::transmute(pwszrpid), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_ASSERTION>(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into(), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_ASSERTION>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

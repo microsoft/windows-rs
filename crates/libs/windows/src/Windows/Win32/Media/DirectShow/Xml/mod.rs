@@ -14,8 +14,8 @@ impl IXMLGraphBuilder {
         (::windows::core::Interface::vtable(self).SaveToXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), ::core::mem::transmute(pbstrxml)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
-    pub unsafe fn BuildFromXMLFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>>(&self, pgraph: Param0, wszfilename: ::windows::core::PCWSTR, wszbaseurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BuildFromXMLFile)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), ::core::mem::transmute(wszfilename), ::core::mem::transmute(wszbaseurl)).ok()
+    pub unsafe fn BuildFromXMLFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pgraph: Param0, wszfilename: Param1, wszbaseurl: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BuildFromXMLFile)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), wszfilename.into(), wszbaseurl.into()).ok()
     }
 }
 impl ::core::convert::From<IXMLGraphBuilder> for ::windows::core::IUnknown {

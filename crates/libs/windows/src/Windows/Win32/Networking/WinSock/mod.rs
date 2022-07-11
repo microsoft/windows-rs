@@ -2125,12 +2125,12 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, d
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetAddrInfoExA(pname: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
+pub unsafe fn GetAddrInfoExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, pservicename: Param1, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAddrInfoExA(pname: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
-    ::core::mem::transmute(GetAddrInfoExA(::core::mem::transmute(pname), ::core::mem::transmute(pservicename), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
+    ::core::mem::transmute(GetAddrInfoExA(pname.into(), pservicename.into(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2155,42 +2155,42 @@ pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::S
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetAddrInfoExW(pname: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: *mut super::super::Foundation::HANDLE) -> i32 {
+pub unsafe fn GetAddrInfoExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, pservicename: Param1, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAddrInfoExW(pname: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
-    ::core::mem::transmute(GetAddrInfoExW(::core::mem::transmute(pname), ::core::mem::transmute(pservicename), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lphandle)))
+    ::core::mem::transmute(GetAddrInfoExW(pname.into(), pservicename.into(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lphandle)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAddrInfoW(pnodename: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32 {
+pub unsafe fn GetAddrInfoW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pnodename: Param0, pservicename: Param1, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAddrInfoW(pnodename: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32;
     }
-    ::core::mem::transmute(GetAddrInfoW(::core::mem::transmute(pnodename), ::core::mem::transmute(pservicename), ::core::mem::transmute(phints), ::core::mem::transmute(ppresult)))
+    ::core::mem::transmute(GetAddrInfoW(pnodename.into(), pservicename.into(), ::core::mem::transmute(phints), ::core::mem::transmute(ppresult)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAddressByNameA(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: ::windows::core::PCSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: ::windows::core::PSTR, lpdwaliasbufferlength: *mut u32) -> i32 {
+pub unsafe fn GetAddressByNameA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: Param2, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: ::windows::core::PSTR, lpdwaliasbufferlength: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAddressByNameA(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: ::windows::core::PCSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: ::windows::core::PSTR, lpdwaliasbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetAddressByNameA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpservicetype), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpiprotocols), ::core::mem::transmute(dwresolution), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpcsaddrbuffer), ::core::mem::transmute(lpdwbufferlength), ::core::mem::transmute(lpaliasbuffer), ::core::mem::transmute(lpdwaliasbufferlength)))
+    ::core::mem::transmute(GetAddressByNameA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpservicetype), lpservicename.into(), ::core::mem::transmute(lpiprotocols), ::core::mem::transmute(dwresolution), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpcsaddrbuffer), ::core::mem::transmute(lpdwbufferlength), ::core::mem::transmute(lpaliasbuffer), ::core::mem::transmute(lpdwaliasbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAddressByNameW(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: ::windows::core::PCWSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: ::windows::core::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32 {
+pub unsafe fn GetAddressByNameW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: Param2, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: ::windows::core::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAddressByNameW(dwnamespace: u32, lpservicetype: *const ::windows::core::GUID, lpservicename: ::windows::core::PCWSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: ::windows::core::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetAddressByNameW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpservicetype), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lpiprotocols), ::core::mem::transmute(dwresolution), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpcsaddrbuffer), ::core::mem::transmute(lpdwbufferlength), ::core::mem::transmute(lpaliasbuffer), ::core::mem::transmute(lpdwaliasbufferlength)))
+    ::core::mem::transmute(GetAddressByNameW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpservicetype), lpservicename.into(), ::core::mem::transmute(lpiprotocols), ::core::mem::transmute(dwresolution), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpcsaddrbuffer), ::core::mem::transmute(lpdwbufferlength), ::core::mem::transmute(lpaliasbuffer), ::core::mem::transmute(lpdwaliasbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -2232,40 +2232,40 @@ pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnod
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetServiceA(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: ::windows::core::PCSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
+pub unsafe fn GetServiceA<'a, Param2: ::std::convert::Into<::windows::core::PCSTR>>(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: Param2, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceA(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: ::windows::core::PCSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
     }
-    ::core::mem::transmute(GetServiceA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpguid), ::core::mem::transmute(lpservicename), ::core::mem::transmute(dwproperties), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpserviceasyncinfo)))
+    ::core::mem::transmute(GetServiceA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpguid), lpservicename.into(), ::core::mem::transmute(dwproperties), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpserviceasyncinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetServiceW(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: ::windows::core::PCWSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
+pub unsafe fn GetServiceW<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: Param2, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceW(dwnamespace: u32, lpguid: *const ::windows::core::GUID, lpservicename: ::windows::core::PCWSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
     }
-    ::core::mem::transmute(GetServiceW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpguid), ::core::mem::transmute(lpservicename), ::core::mem::transmute(dwproperties), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpserviceasyncinfo)))
+    ::core::mem::transmute(GetServiceW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpguid), lpservicename.into(), ::core::mem::transmute(dwproperties), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpserviceasyncinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn GetTypeByNameA(lpservicename: ::windows::core::PCSTR, lpservicetype: *mut ::windows::core::GUID) -> i32 {
+pub unsafe fn GetTypeByNameA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpservicename: Param0, lpservicetype: *mut ::windows::core::GUID) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTypeByNameA(lpservicename: ::windows::core::PCSTR, lpservicetype: *mut ::windows::core::GUID) -> i32;
     }
-    ::core::mem::transmute(GetTypeByNameA(::core::mem::transmute(lpservicename), ::core::mem::transmute(lpservicetype)))
+    ::core::mem::transmute(GetTypeByNameA(lpservicename.into(), ::core::mem::transmute(lpservicetype)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn GetTypeByNameW(lpservicename: ::windows::core::PCWSTR, lpservicetype: *mut ::windows::core::GUID) -> i32 {
+pub unsafe fn GetTypeByNameW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpservicename: Param0, lpservicetype: *mut ::windows::core::GUID) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTypeByNameW(lpservicename: ::windows::core::PCWSTR, lpservicetype: *mut ::windows::core::GUID) -> i32;
     }
-    ::core::mem::transmute(GetTypeByNameW(::core::mem::transmute(lpservicename), ::core::mem::transmute(lpservicetype)))
+    ::core::mem::transmute(GetTypeByNameW(lpservicename.into(), ::core::mem::transmute(lpservicetype)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -5342,12 +5342,12 @@ pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringb
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn InetPtonW(family: i32, pszaddrstring: ::windows::core::PCWSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn InetPtonW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(family: i32, pszaddrstring: Param1, paddrbuf: *mut ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InetPtonW(family: i32, pszaddrstring: ::windows::core::PCWSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(InetPtonW(::core::mem::transmute(family), ::core::mem::transmute(pszaddrstring), ::core::mem::transmute(paddrbuf)))
+    ::core::mem::transmute(InetPtonW(::core::mem::transmute(family), pszaddrstring.into(), ::core::mem::transmute(paddrbuf)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const JL_BOTH: u32 = 4u32;
@@ -9259,21 +9259,21 @@ pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: &mut [u16; 1
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlEthernetStringToAddressA(s: ::windows::core::PCSTR, terminator: *mut ::windows::core::PSTR, addr: *mut DL_EUI48) -> i32 {
+pub unsafe fn RtlEthernetStringToAddressA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(s: Param0, terminator: *mut ::windows::core::PSTR, addr: *mut DL_EUI48) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlEthernetStringToAddressA(s: ::windows::core::PCSTR, terminator: *mut ::windows::core::PSTR, addr: *mut DL_EUI48) -> i32;
     }
-    ::core::mem::transmute(RtlEthernetStringToAddressA(::core::mem::transmute(s), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
+    ::core::mem::transmute(RtlEthernetStringToAddressA(s.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlEthernetStringToAddressW(s: ::windows::core::PCWSTR, terminator: *mut ::windows::core::PWSTR, addr: *mut DL_EUI48) -> i32 {
+pub unsafe fn RtlEthernetStringToAddressW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(s: Param0, terminator: *mut ::windows::core::PWSTR, addr: *mut DL_EUI48) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlEthernetStringToAddressW(s: ::windows::core::PCWSTR, terminator: *mut ::windows::core::PWSTR, addr: *mut DL_EUI48) -> i32;
     }
-    ::core::mem::transmute(RtlEthernetStringToAddressW(::core::mem::transmute(s), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
+    ::core::mem::transmute(RtlEthernetStringToAddressW(s.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -9314,42 +9314,42 @@ pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: &mut [u16; 16]) -
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressA<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(s: ::windows::core::PCSTR, strict: Param1, terminator: *mut ::windows::core::PSTR, addr: *mut IN_ADDR) -> i32 {
+pub unsafe fn RtlIpv4StringToAddressA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(s: Param0, strict: Param1, terminator: *mut ::windows::core::PSTR, addr: *mut IN_ADDR) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv4StringToAddressA(s: ::windows::core::PCSTR, strict: super::super::Foundation::BOOLEAN, terminator: *mut ::windows::core::PSTR, addr: *mut IN_ADDR) -> i32;
     }
-    ::core::mem::transmute(RtlIpv4StringToAddressA(::core::mem::transmute(s), strict.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
+    ::core::mem::transmute(RtlIpv4StringToAddressA(s.into(), strict.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressExA<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(addressstring: ::windows::core::PCSTR, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
+pub unsafe fn RtlIpv4StringToAddressExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(addressstring: Param0, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv4StringToAddressExA(addressstring: ::windows::core::PCSTR, strict: super::super::Foundation::BOOLEAN, address: *mut IN_ADDR, port: *mut u16) -> i32;
     }
-    ::core::mem::transmute(RtlIpv4StringToAddressExA(::core::mem::transmute(addressstring), strict.into(), ::core::mem::transmute(address), ::core::mem::transmute(port)))
+    ::core::mem::transmute(RtlIpv4StringToAddressExA(addressstring.into(), strict.into(), ::core::mem::transmute(address), ::core::mem::transmute(port)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressExW<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(addressstring: ::windows::core::PCWSTR, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
+pub unsafe fn RtlIpv4StringToAddressExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(addressstring: Param0, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv4StringToAddressExW(addressstring: ::windows::core::PCWSTR, strict: super::super::Foundation::BOOLEAN, address: *mut IN_ADDR, port: *mut u16) -> i32;
     }
-    ::core::mem::transmute(RtlIpv4StringToAddressExW(::core::mem::transmute(addressstring), strict.into(), ::core::mem::transmute(address), ::core::mem::transmute(port)))
+    ::core::mem::transmute(RtlIpv4StringToAddressExW(addressstring.into(), strict.into(), ::core::mem::transmute(address), ::core::mem::transmute(port)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressW<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(s: ::windows::core::PCWSTR, strict: Param1, terminator: *mut ::windows::core::PWSTR, addr: *mut IN_ADDR) -> i32 {
+pub unsafe fn RtlIpv4StringToAddressW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(s: Param0, strict: Param1, terminator: *mut ::windows::core::PWSTR, addr: *mut IN_ADDR) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv4StringToAddressW(s: ::windows::core::PCWSTR, strict: super::super::Foundation::BOOLEAN, terminator: *mut ::windows::core::PWSTR, addr: *mut IN_ADDR) -> i32;
     }
-    ::core::mem::transmute(RtlIpv4StringToAddressW(::core::mem::transmute(s), strict.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
+    ::core::mem::transmute(RtlIpv4StringToAddressW(s.into(), strict.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -9389,39 +9389,39 @@ pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: &mut [u16; 46]) 
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressA(s: ::windows::core::PCSTR, terminator: *mut ::windows::core::PSTR, addr: *mut IN6_ADDR) -> i32 {
+pub unsafe fn RtlIpv6StringToAddressA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(s: Param0, terminator: *mut ::windows::core::PSTR, addr: *mut IN6_ADDR) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv6StringToAddressA(s: ::windows::core::PCSTR, terminator: *mut ::windows::core::PSTR, addr: *mut IN6_ADDR) -> i32;
     }
-    ::core::mem::transmute(RtlIpv6StringToAddressA(::core::mem::transmute(s), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
+    ::core::mem::transmute(RtlIpv6StringToAddressA(s.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressExA(addressstring: ::windows::core::PCSTR, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
+pub unsafe fn RtlIpv6StringToAddressExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(addressstring: Param0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv6StringToAddressExA(addressstring: ::windows::core::PCSTR, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32;
     }
-    ::core::mem::transmute(RtlIpv6StringToAddressExA(::core::mem::transmute(addressstring), ::core::mem::transmute(address), ::core::mem::transmute(scopeid), ::core::mem::transmute(port)))
+    ::core::mem::transmute(RtlIpv6StringToAddressExA(addressstring.into(), ::core::mem::transmute(address), ::core::mem::transmute(scopeid), ::core::mem::transmute(port)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressExW(addressstring: ::windows::core::PCWSTR, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
+pub unsafe fn RtlIpv6StringToAddressExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(addressstring: Param0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv6StringToAddressExW(addressstring: ::windows::core::PCWSTR, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32;
     }
-    ::core::mem::transmute(RtlIpv6StringToAddressExW(::core::mem::transmute(addressstring), ::core::mem::transmute(address), ::core::mem::transmute(scopeid), ::core::mem::transmute(port)))
+    ::core::mem::transmute(RtlIpv6StringToAddressExW(addressstring.into(), ::core::mem::transmute(address), ::core::mem::transmute(scopeid), ::core::mem::transmute(port)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressW(s: ::windows::core::PCWSTR, terminator: *mut ::windows::core::PWSTR, addr: *mut IN6_ADDR) -> i32 {
+pub unsafe fn RtlIpv6StringToAddressW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(s: Param0, terminator: *mut ::windows::core::PWSTR, addr: *mut IN6_ADDR) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIpv6StringToAddressW(s: ::windows::core::PCWSTR, terminator: *mut ::windows::core::PWSTR, addr: *mut IN6_ADDR) -> i32;
     }
-    ::core::mem::transmute(RtlIpv6StringToAddressW(::core::mem::transmute(s), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
+    ::core::mem::transmute(RtlIpv6StringToAddressW(s.into(), ::core::mem::transmute(terminator), ::core::mem::transmute(addr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SAP_FIELD_ABSENT: u32 = 4294967294u32;
@@ -11482,22 +11482,22 @@ pub const SO_USELOOPBACK: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn SetAddrInfoExA(pname: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
+pub unsafe fn SetAddrInfoExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pname: Param0, pservicename: Param1, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetAddrInfoExA(pname: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
-    ::core::mem::transmute(SetAddrInfoExA(::core::mem::transmute(pname), ::core::mem::transmute(pservicename), ::core::mem::transmute(paddresses), ::core::mem::transmute(dwaddresscount), ::core::mem::transmute(lpblob), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
+    ::core::mem::transmute(SetAddrInfoExA(pname.into(), pservicename.into(), ::core::mem::transmute(paddresses), ::core::mem::transmute(dwaddresscount), ::core::mem::transmute(lpblob), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn SetAddrInfoExW(pname: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
+pub unsafe fn SetAddrInfoExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pname: Param0, pservicename: Param1, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetAddrInfoExW(pname: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
-    ::core::mem::transmute(SetAddrInfoExW(::core::mem::transmute(pname), ::core::mem::transmute(pservicename), ::core::mem::transmute(paddresses), ::core::mem::transmute(dwaddresscount), ::core::mem::transmute(lpblob), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
+    ::core::mem::transmute(SetAddrInfoExW(pname.into(), pservicename.into(), ::core::mem::transmute(paddresses), ::core::mem::transmute(dwaddresscount), ::core::mem::transmute(lpblob), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(lpnspid), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -12873,32 +12873,32 @@ pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::core::GUID
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAAsyncGetHostByAddr<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, addr: ::windows::core::PCSTR, len: i32, r#type: i32, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
+pub unsafe fn WSAAsyncGetHostByAddr<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wmsg: u32, addr: Param2, len: i32, r#type: i32, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAAsyncGetHostByAddr(hwnd: super::super::Foundation::HWND, wmsg: u32, addr: ::windows::core::PCSTR, len: i32, r#type: i32, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WSAAsyncGetHostByAddr(hwnd.into(), ::core::mem::transmute(wmsg), ::core::mem::transmute(addr), ::core::mem::transmute(len), ::core::mem::transmute(r#type), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
+    ::core::mem::transmute(WSAAsyncGetHostByAddr(hwnd.into(), ::core::mem::transmute(wmsg), addr.into(), ::core::mem::transmute(len), ::core::mem::transmute(r#type), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAAsyncGetHostByName<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, name: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
+pub unsafe fn WSAAsyncGetHostByName<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wmsg: u32, name: Param2, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAAsyncGetHostByName(hwnd: super::super::Foundation::HWND, wmsg: u32, name: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WSAAsyncGetHostByName(hwnd.into(), ::core::mem::transmute(wmsg), ::core::mem::transmute(name), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
+    ::core::mem::transmute(WSAAsyncGetHostByName(hwnd.into(), ::core::mem::transmute(wmsg), name.into(), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAAsyncGetProtoByName<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, name: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
+pub unsafe fn WSAAsyncGetProtoByName<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wmsg: u32, name: Param2, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAAsyncGetProtoByName(hwnd: super::super::Foundation::HWND, wmsg: u32, name: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WSAAsyncGetProtoByName(hwnd.into(), ::core::mem::transmute(wmsg), ::core::mem::transmute(name), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
+    ::core::mem::transmute(WSAAsyncGetProtoByName(hwnd.into(), ::core::mem::transmute(wmsg), name.into(), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12913,22 +12913,22 @@ pub unsafe fn WSAAsyncGetProtoByNumber<'a, Param0: ::std::convert::Into<super::s
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAAsyncGetServByName<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, name: ::windows::core::PCSTR, proto: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
+pub unsafe fn WSAAsyncGetServByName<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wmsg: u32, name: Param2, proto: Param3, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAAsyncGetServByName(hwnd: super::super::Foundation::HWND, wmsg: u32, name: ::windows::core::PCSTR, proto: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WSAAsyncGetServByName(hwnd.into(), ::core::mem::transmute(wmsg), ::core::mem::transmute(name), ::core::mem::transmute(proto), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
+    ::core::mem::transmute(WSAAsyncGetServByName(hwnd.into(), ::core::mem::transmute(wmsg), name.into(), proto.into(), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAAsyncGetServByPort<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, port: i32, proto: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
+pub unsafe fn WSAAsyncGetServByPort<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(hwnd: Param0, wmsg: u32, port: i32, proto: Param3, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAAsyncGetServByPort(hwnd: super::super::Foundation::HWND, wmsg: u32, port: i32, proto: ::windows::core::PCSTR, buf: ::windows::core::PSTR, buflen: i32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(WSAAsyncGetServByPort(hwnd.into(), ::core::mem::transmute(wmsg), ::core::mem::transmute(port), ::core::mem::transmute(proto), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
+    ::core::mem::transmute(WSAAsyncGetServByPort(hwnd.into(), ::core::mem::transmute(wmsg), ::core::mem::transmute(port), proto.into(), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13290,22 +13290,22 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::std::convert::Into<SOCKET>>(s: Para
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByNameA<'a, Param0: ::std::convert::Into<SOCKET>>(s: Param0, nodename: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WSAConnectByNameA<'a, Param0: ::std::convert::Into<SOCKET>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(s: Param0, nodename: Param1, servicename: Param2, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAConnectByNameA(s: SOCKET, nodename: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WSAConnectByNameA(s.into(), ::core::mem::transmute(nodename), ::core::mem::transmute(servicename), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(WSAConnectByNameA(s.into(), nodename.into(), servicename.into(), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByNameW<'a, Param0: ::std::convert::Into<SOCKET>>(s: Param0, nodename: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WSAConnectByNameW<'a, Param0: ::std::convert::Into<SOCKET>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(s: Param0, nodename: Param1, servicename: Param2, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAConnectByNameW(s: SOCKET, nodename: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WSAConnectByNameW(s.into(), ::core::mem::transmute(nodename), ::core::mem::transmute(servicename), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(WSAConnectByNameW(s.into(), nodename.into(), servicename.into(), ::core::mem::transmute(localaddresslength), ::core::mem::transmute(localaddress), ::core::mem::transmute(remoteaddresslength), ::core::mem::transmute(remoteaddress), ::core::mem::transmute(timeout), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14987,22 +14987,22 @@ pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAStringToAddressA(addressstring: ::windows::core::PCSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
+pub unsafe fn WSAStringToAddressA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(addressstring: Param0, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAStringToAddressA(addressstring: ::windows::core::PCSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSAStringToAddressA(::core::mem::transmute(addressstring), ::core::mem::transmute(addressfamily), ::core::mem::transmute(lpprotocolinfo), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpaddresslength)))
+    ::core::mem::transmute(WSAStringToAddressA(addressstring.into(), ::core::mem::transmute(addressfamily), ::core::mem::transmute(lpprotocolinfo), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpaddresslength)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSAStringToAddressW(addressstring: ::windows::core::PCWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
+pub unsafe fn WSAStringToAddressW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(addressstring: Param0, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSAStringToAddressW(addressstring: ::windows::core::PCWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSAStringToAddressW(::core::mem::transmute(addressstring), ::core::mem::transmute(addressfamily), ::core::mem::transmute(lpprotocolinfo), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpaddresslength)))
+    ::core::mem::transmute(WSAStringToAddressW(addressstring.into(), ::core::mem::transmute(addressfamily), ::core::mem::transmute(lpprotocolinfo), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpaddresslength)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -15537,72 +15537,72 @@ pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::core::GUID, l
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn WSCInstallNameSpace(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
+pub unsafe fn WSCInstallNameSpace<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallNameSpace(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32;
     }
-    ::core::mem::transmute(WSCInstallNameSpace(::core::mem::transmute(lpszidentifier), ::core::mem::transmute(lpszpathname), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid)))
+    ::core::mem::transmute(WSCInstallNameSpace(lpszidentifier.into(), lpszpathname.into(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn WSCInstallNameSpace32(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
+pub unsafe fn WSCInstallNameSpace32<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallNameSpace32(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32;
     }
-    ::core::mem::transmute(WSCInstallNameSpace32(::core::mem::transmute(lpszidentifier), ::core::mem::transmute(lpszpathname), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid)))
+    ::core::mem::transmute(WSCInstallNameSpace32(lpszidentifier.into(), lpszpathname.into(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn WSCInstallNameSpaceEx(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
+pub unsafe fn WSCInstallNameSpaceEx<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallNameSpaceEx(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32;
     }
-    ::core::mem::transmute(WSCInstallNameSpaceEx(::core::mem::transmute(lpszidentifier), ::core::mem::transmute(lpszpathname), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpproviderspecific)))
+    ::core::mem::transmute(WSCInstallNameSpaceEx(lpszidentifier.into(), lpszpathname.into(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpproviderspecific)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_System_Com\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn WSCInstallNameSpaceEx32(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
+pub unsafe fn WSCInstallNameSpaceEx32<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallNameSpaceEx32(lpszidentifier: ::windows::core::PCWSTR, lpszpathname: ::windows::core::PCWSTR, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32;
     }
-    ::core::mem::transmute(WSCInstallNameSpaceEx32(::core::mem::transmute(lpszidentifier), ::core::mem::transmute(lpszpathname), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpproviderspecific)))
+    ::core::mem::transmute(WSCInstallNameSpaceEx32(lpszidentifier.into(), lpszpathname.into(), ::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwversion), ::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpproviderspecific)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn WSCInstallProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCInstallProvider<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCInstallProvider(::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpszproviderdllpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCInstallProvider(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn WSCInstallProvider64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallProvider64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCInstallProvider64_32(::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpszproviderdllpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCInstallProvider64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn WSCInstallProviderAndChains64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpszproviderdllpath32: ::windows::core::PCWSTR, lpszlspname: ::windows::core::PCWSTR, dwserviceflags: u32, lpprotocolinfolist: &mut [WSAPROTOCOL_INFOW], lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpszproviderdllpath32: Param2, lpszlspname: Param3, dwserviceflags: u32, lpprotocolinfolist: &mut [WSAPROTOCOL_INFOW], lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCInstallProviderAndChains64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpszproviderdllpath32: ::windows::core::PCWSTR, lpszlspname: ::windows::core::PCWSTR, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCInstallProviderAndChains64_32(::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpszproviderdllpath), ::core::mem::transmute(lpszproviderdllpath32), ::core::mem::transmute(lpszlspname), ::core::mem::transmute(dwserviceflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lpdwcatalogentryid), ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCInstallProviderAndChains64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into(), lpszproviderdllpath32.into(), lpszlspname.into(), ::core::mem::transmute(dwserviceflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lpdwcatalogentryid), ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -15653,22 +15653,22 @@ pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::core::GUID
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn WSCUpdateProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCUpdateProvider<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCUpdateProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCUpdateProvider(::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpszproviderdllpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCUpdateProvider(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn WSCUpdateProvider32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCUpdateProvider32<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCUpdateProvider32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCUpdateProvider32(::core::mem::transmute(lpproviderid), ::core::mem::transmute(lpszproviderdllpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCUpdateProvider32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -16814,30 +16814,30 @@ pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn getaddrinfo(pnodename: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, phints: *const ADDRINFOA, ppresult: *mut *mut ADDRINFOA) -> i32 {
+pub unsafe fn getaddrinfo<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(pnodename: Param0, pservicename: Param1, phints: *const ADDRINFOA, ppresult: *mut *mut ADDRINFOA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn getaddrinfo(pnodename: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, phints: *const ADDRINFOA, ppresult: *mut *mut ADDRINFOA) -> i32;
     }
-    ::core::mem::transmute(getaddrinfo(::core::mem::transmute(pnodename), ::core::mem::transmute(pservicename), ::core::mem::transmute(phints), ::core::mem::transmute(ppresult)))
+    ::core::mem::transmute(getaddrinfo(pnodename.into(), pservicename.into(), ::core::mem::transmute(phints), ::core::mem::transmute(ppresult)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn gethostbyaddr(addr: ::windows::core::PCSTR, len: i32, r#type: i32) -> *mut hostent {
+pub unsafe fn gethostbyaddr<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(addr: Param0, len: i32, r#type: i32) -> *mut hostent {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn gethostbyaddr(addr: ::windows::core::PCSTR, len: i32, r#type: i32) -> *mut hostent;
     }
-    ::core::mem::transmute(gethostbyaddr(::core::mem::transmute(addr), ::core::mem::transmute(len), ::core::mem::transmute(r#type)))
+    ::core::mem::transmute(gethostbyaddr(addr.into(), ::core::mem::transmute(len), ::core::mem::transmute(r#type)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn gethostbyname(name: ::windows::core::PCSTR) -> *mut hostent {
+pub unsafe fn gethostbyname<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(name: Param0) -> *mut hostent {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn gethostbyname(name: ::windows::core::PCSTR) -> *mut hostent;
     }
-    ::core::mem::transmute(gethostbyname(::core::mem::transmute(name)))
+    ::core::mem::transmute(gethostbyname(name.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -16870,12 +16870,12 @@ pub unsafe fn getpeername<'a, Param0: ::std::convert::Into<SOCKET>>(s: Param0, n
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn getprotobyname(name: ::windows::core::PCSTR) -> *mut protoent {
+pub unsafe fn getprotobyname<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(name: Param0) -> *mut protoent {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn getprotobyname(name: ::windows::core::PCSTR) -> *mut protoent;
     }
-    ::core::mem::transmute(getprotobyname(::core::mem::transmute(name)))
+    ::core::mem::transmute(getprotobyname(name.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -16888,21 +16888,21 @@ pub unsafe fn getprotobynumber(number: i32) -> *mut protoent {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn getservbyname(name: ::windows::core::PCSTR, proto: ::windows::core::PCSTR) -> *mut servent {
+pub unsafe fn getservbyname<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(name: Param0, proto: Param1) -> *mut servent {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn getservbyname(name: ::windows::core::PCSTR, proto: ::windows::core::PCSTR) -> *mut servent;
     }
-    ::core::mem::transmute(getservbyname(::core::mem::transmute(name), ::core::mem::transmute(proto)))
+    ::core::mem::transmute(getservbyname(name.into(), proto.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn getservbyport(port: i32, proto: ::windows::core::PCSTR) -> *mut servent {
+pub unsafe fn getservbyport<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(port: i32, proto: Param1) -> *mut servent {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn getservbyport(port: i32, proto: ::windows::core::PCSTR) -> *mut servent;
     }
-    ::core::mem::transmute(getservbyport(::core::mem::transmute(port), ::core::mem::transmute(proto)))
+    ::core::mem::transmute(getservbyport(::core::mem::transmute(port), proto.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17003,12 +17003,12 @@ impl ::core::default::Default for in6_pktinfo_ex {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn inet_addr(cp: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn inet_addr<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(cp: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn inet_addr(cp: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(inet_addr(::core::mem::transmute(cp)))
+    ::core::mem::transmute(inet_addr(cp.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -17030,12 +17030,12 @@ pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringb
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn inet_pton(family: i32, pszaddrstring: ::windows::core::PCSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn inet_pton<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>>(family: i32, pszaddrstring: Param1, paddrbuf: *mut ::core::ffi::c_void) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn inet_pton(family: i32, pszaddrstring: ::windows::core::PCSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(inet_pton(::core::mem::transmute(family), ::core::mem::transmute(pszaddrstring), ::core::mem::transmute(paddrbuf)))
+    ::core::mem::transmute(inet_pton(::core::mem::transmute(family), pszaddrstring.into(), ::core::mem::transmute(paddrbuf)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -17724,22 +17724,22 @@ pub unsafe fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exc
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn send<'a, Param0: ::std::convert::Into<SOCKET>, Param3: ::std::convert::Into<SEND_RECV_FLAGS>>(s: Param0, buf: ::windows::core::PCSTR, len: i32, flags: Param3) -> i32 {
+pub unsafe fn send<'a, Param0: ::std::convert::Into<SOCKET>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param3: ::std::convert::Into<SEND_RECV_FLAGS>>(s: Param0, buf: Param1, len: i32, flags: Param3) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn send(s: SOCKET, buf: ::windows::core::PCSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
     }
-    ::core::mem::transmute(send(s.into(), ::core::mem::transmute(buf), ::core::mem::transmute(len), flags.into()))
+    ::core::mem::transmute(send(s.into(), buf.into(), ::core::mem::transmute(len), flags.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sendto<'a, Param0: ::std::convert::Into<SOCKET>>(s: Param0, buf: ::windows::core::PCSTR, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32 {
+pub unsafe fn sendto<'a, Param0: ::std::convert::Into<SOCKET>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(s: Param0, buf: Param1, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn sendto(s: SOCKET, buf: ::windows::core::PCSTR, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32;
     }
-    ::core::mem::transmute(sendto(s.into(), ::core::mem::transmute(buf), ::core::mem::transmute(len), ::core::mem::transmute(flags), ::core::mem::transmute(to), ::core::mem::transmute(tolen)))
+    ::core::mem::transmute(sendto(s.into(), buf.into(), ::core::mem::transmute(len), ::core::mem::transmute(flags), ::core::mem::transmute(to), ::core::mem::transmute(tolen)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -17825,12 +17825,12 @@ impl ::core::default::Default for servent {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn setsockopt<'a, Param0: ::std::convert::Into<SOCKET>>(s: Param0, level: i32, optname: i32, optval: ::windows::core::PCSTR, optlen: i32) -> i32 {
+pub unsafe fn setsockopt<'a, Param0: ::std::convert::Into<SOCKET>, Param3: ::std::convert::Into<::windows::core::PCSTR>>(s: Param0, level: i32, optname: i32, optval: Param3, optlen: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn setsockopt(s: SOCKET, level: i32, optname: i32, optval: ::windows::core::PCSTR, optlen: i32) -> i32;
     }
-    ::core::mem::transmute(setsockopt(s.into(), ::core::mem::transmute(level), ::core::mem::transmute(optname), ::core::mem::transmute(optval), ::core::mem::transmute(optlen)))
+    ::core::mem::transmute(setsockopt(s.into(), ::core::mem::transmute(level), ::core::mem::transmute(optname), optval.into(), ::core::mem::transmute(optlen)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]

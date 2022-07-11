@@ -68,12 +68,12 @@ pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *m
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn ConvertInterfaceAliasToLuid(interfacealias: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
+pub unsafe fn ConvertInterfaceAliasToLuid<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(interfacealias: Param0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ConvertInterfaceAliasToLuid(interfacealias: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    ConvertInterfaceAliasToLuid(::core::mem::transmute(interfacealias), ::core::mem::transmute(interfaceluid)).ok()
+    ConvertInterfaceAliasToLuid(interfacealias.into(), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -148,22 +148,22 @@ pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidA(interfacename: ::windows::core::PCSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
+pub unsafe fn ConvertInterfaceNameToLuidA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(interfacename: Param0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ConvertInterfaceNameToLuidA(interfacename: ::windows::core::PCSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    ConvertInterfaceNameToLuidA(::core::mem::transmute(interfacename), ::core::mem::transmute(interfaceluid)).ok()
+    ConvertInterfaceNameToLuidA(interfacename.into(), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidW(interfacename: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
+pub unsafe fn ConvertInterfaceNameToLuidW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(interfacename: Param0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ConvertInterfaceNameToLuidW(interfacename: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    ConvertInterfaceNameToLuidW(::core::mem::transmute(interfacename), ::core::mem::transmute(interfaceluid)).ok()
+    ConvertInterfaceNameToLuidW(interfacename.into(), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -991,12 +991,12 @@ impl ::core::fmt::Debug for GLOBAL_FILTER {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn GetAdapterIndex(adaptername: ::windows::core::PCWSTR, ifindex: *mut u32) -> u32 {
+pub unsafe fn GetAdapterIndex<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(adaptername: Param0, ifindex: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAdapterIndex(adaptername: ::windows::core::PCWSTR, ifindex: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetAdapterIndex(::core::mem::transmute(adaptername), ::core::mem::transmute(ifindex)))
+    ::core::mem::transmute(GetAdapterIndex(adaptername.into(), ::core::mem::transmute(ifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -10145,12 +10145,12 @@ pub unsafe fn SetJobCompartmentId<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn SetNetworkInformation<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: ::windows::core::PCWSTR) -> super::super::Foundation::NTSTATUS;
     }
-    SetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), ::core::mem::transmute(networkname)).ok()
+    SetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), networkname.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -11500,12 +11500,12 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256])
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn if_nametoindex(interfacename: ::windows::core::PCSTR) -> u32 {
+pub unsafe fn if_nametoindex<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(interfacename: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn if_nametoindex(interfacename: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(if_nametoindex(::core::mem::transmute(interfacename)))
+    ::core::mem::transmute(if_nametoindex(interfacename.into()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]

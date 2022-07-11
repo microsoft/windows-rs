@@ -12828,21 +12828,21 @@ pub unsafe fn SysAddRefString<'a, Param0: ::std::convert::Into<::windows::core::
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR {
+pub unsafe fn SysAllocString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(psz: Param0) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocString(::core::mem::transmute(psz)))
+    ::core::mem::transmute(SysAllocString(psz.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR {
+pub unsafe fn SysAllocStringByteLen<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(::core::mem::transmute(psz), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), ::core::mem::transmute(len)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12864,21 +12864,21 @@ pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::In
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32 {
+pub unsafe fn SysReAllocString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), ::core::mem::transmute(psz)))
+    ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32 {
+pub unsafe fn SysReAllocStringLen<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
     }
-    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), ::core::mem::transmute(psz), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), ::core::mem::transmute(len)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]

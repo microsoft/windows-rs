@@ -59,9 +59,9 @@ pub struct IWsbApplicationAsync_Vtbl {
 pub struct IWsbApplicationBackupSupport(::windows::core::IUnknown);
 impl IWsbApplicationBackupSupport {
     #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
-    pub unsafe fn CheckConsistency(&self, wszwritermetadata: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcomponentlogicalpath: ::windows::core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync> {
+    pub unsafe fn CheckConsistency<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckConsistency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszwritermetadata), ::core::mem::transmute(wszcomponentname), ::core::mem::transmute(wszcomponentlogicalpath), ::core::mem::transmute(cvolumes), ::core::mem::transmute(rgwszsourcevolumepath), ::core::mem::transmute(rgwszsnapshotvolumepath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWsbApplicationAsync>(result__)
+        (::windows::core::Interface::vtable(self).CheckConsistency)(::windows::core::Interface::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), ::core::mem::transmute(cvolumes), ::core::mem::transmute(rgwszsourcevolumepath), ::core::mem::transmute(rgwszsnapshotvolumepath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWsbApplicationAsync>(result__)
     }
 }
 impl ::core::convert::From<IWsbApplicationBackupSupport> for ::windows::core::IUnknown {
@@ -111,13 +111,13 @@ pub struct IWsbApplicationRestoreSupport(::windows::core::IUnknown);
 impl IWsbApplicationRestoreSupport {
     #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PreRestore<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(&self, wszwritermetadata: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcomponentlogicalpath: ::windows::core::PCWSTR, bnorollforward: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreRestore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszwritermetadata), ::core::mem::transmute(wszcomponentname), ::core::mem::transmute(wszcomponentlogicalpath), bnorollforward.into()).ok()
+    pub unsafe fn PreRestore<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, bnorollforward: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PreRestore)(::windows::core::Interface::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), bnorollforward.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PostRestore<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(&self, wszwritermetadata: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcomponentlogicalpath: ::windows::core::PCWSTR, bnorollforward: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PostRestore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszwritermetadata), ::core::mem::transmute(wszcomponentname), ::core::mem::transmute(wszcomponentlogicalpath), bnorollforward.into()).ok()
+    pub unsafe fn PostRestore<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, bnorollforward: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PostRestore)(::windows::core::Interface::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), bnorollforward.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const ::windows::core::PWSTR, rgcomponentlogicalpaths: *const ::windows::core::PWSTR, prgcomponentname: *mut *mut ::windows::core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {

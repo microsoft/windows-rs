@@ -420,8 +420,8 @@ impl IUIFramework {
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadUI<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(&self, instance: Param0, resourcename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadUI)(::windows::core::Interface::as_raw(self), instance.into(), ::core::mem::transmute(resourcename)).ok()
+    pub unsafe fn LoadUI<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, instance: Param0, resourcename: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadUI)(::windows::core::Interface::as_raw(self), instance.into(), resourcename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
     pub unsafe fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {

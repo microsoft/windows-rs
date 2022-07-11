@@ -75,9 +75,9 @@ pub struct IWICImageEncoder_Vtbl {
 pub struct IWICImagingFactory2(::windows::core::IUnknown);
 impl IWICImagingFactory2 {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`*"]
-    pub unsafe fn CreateDecoderFromFilename<'a, Param3: ::std::convert::Into<super::WICDecodeOptions>>(&self, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<super::IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::WICDecodeOptions>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<super::IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

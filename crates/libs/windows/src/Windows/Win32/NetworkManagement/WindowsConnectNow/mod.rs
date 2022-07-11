@@ -83,8 +83,8 @@ impl IWCNDevice {
         (::windows::core::Interface::vtable(self).GetNetworkProfile)(::windows::core::Interface::as_raw(self), wszprofile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszprofile))).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
-    pub unsafe fn SetNetworkProfile(&self, pszprofilexml: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszprofilexml)).ok()
+    pub unsafe fn SetNetworkProfile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszprofilexml: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), pszprofilexml.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()> {

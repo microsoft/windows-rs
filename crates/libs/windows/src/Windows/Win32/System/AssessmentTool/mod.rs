@@ -131,8 +131,8 @@ impl IAccessibleWinSAT {
         (::windows::core::Interface::vtable(self).base__.put_accValue)(::windows::core::Interface::as_raw(self), varchild.into().abi(), szvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-    pub unsafe fn SetAccessiblityData(&self, wsname: ::windows::core::PCWSTR, wsvalue: ::windows::core::PCWSTR, wsdesc: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccessiblityData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wsname), ::core::mem::transmute(wsvalue), ::core::mem::transmute(wsdesc)).ok()
+    pub unsafe fn SetAccessiblityData<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, wsname: Param0, wsvalue: Param1, wsdesc: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccessiblityData)(::windows::core::Interface::as_raw(self), wsname.into(), wsvalue.into(), wsdesc.into()).ok()
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
@@ -227,8 +227,8 @@ pub struct IInitiateWinSATAssessment(::windows::core::IUnknown);
 impl IInitiateWinSATAssessment {
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitiateAssessment<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWinSATInitiateEvents>>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, cmdline: ::windows::core::PCWSTR, pcallbacks: Param1, callerhwnd: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitiateAssessment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cmdline), pcallbacks.into().abi(), callerhwnd.into()).ok()
+    pub unsafe fn InitiateAssessment<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWinSATInitiateEvents>>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, cmdline: Param0, pcallbacks: Param1, callerhwnd: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitiateAssessment)(::windows::core::Interface::as_raw(self), cmdline.into(), pcallbacks.into().abi(), callerhwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -794,12 +794,12 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
 pub struct IWinSATInitiateEvents(::windows::core::IUnknown);
 impl IWinSATInitiateEvents {
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-    pub unsafe fn WinSATComplete(&self, hresult: ::windows::core::HRESULT, strdescription: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WinSATComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hresult), ::core::mem::transmute(strdescription)).ok()
+    pub unsafe fn WinSATComplete<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hresult: ::windows::core::HRESULT, strdescription: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WinSATComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hresult), strdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-    pub unsafe fn WinSATUpdate(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WinSATUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ucurrenttick), ::core::mem::transmute(uticktotal), ::core::mem::transmute(strcurrentstate)).ok()
+    pub unsafe fn WinSATUpdate<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WinSATUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ucurrenttick), ::core::mem::transmute(uticktotal), strcurrentstate.into()).ok()
     }
 }
 impl ::core::convert::From<IWinSATInitiateEvents> for ::windows::core::IUnknown {

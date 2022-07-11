@@ -135,22 +135,22 @@ pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchEnumTag<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hmodule: Param0, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
+pub unsafe fn MatchEnumTag<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MatchEnumTag(hmodule.into(), ::core::mem::transmute(pwcarg), ::core::mem::transmute(dwnumarg), ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
+    ::core::mem::transmute(MatchEnumTag(hmodule.into(), pwcarg.into(), ::core::mem::transmute(dwnumarg), ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchToken(pwszusertoken: ::windows::core::PCWSTR, pwszcmdtoken: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn MatchToken<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MatchToken(pwszusertoken: ::windows::core::PCWSTR, pwszcmdtoken: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MatchToken(::core::mem::transmute(pwszusertoken), ::core::mem::transmute(pwszcmdtoken)))
+    ::core::mem::transmute(MatchToken(pwszusertoken.into(), pwszcmdtoken.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ARG_DELIMITER: &str = "=";
@@ -548,12 +548,12 @@ pub unsafe fn PrintError<'a, Param0: ::std::convert::Into<super::super::Foundati
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
-pub unsafe fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn PrintMessage<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwszformat: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(PrintMessage(::core::mem::transmute(pwszformat)))
+    ::core::mem::transmute(PrintMessage(pwszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

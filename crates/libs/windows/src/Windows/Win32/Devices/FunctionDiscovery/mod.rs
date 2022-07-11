@@ -153,34 +153,34 @@ pub struct IFunctionDiscovery(::windows::core::IUnknown);
 impl IFunctionDiscovery {
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetInstanceCollection<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszcategory: ::windows::core::PCWSTR, pszsubcategory: ::windows::core::PCWSTR, fincludeallsubcategories: Param2) -> ::windows::core::Result<IFunctionInstanceCollection> {
+    pub unsafe fn GetInstanceCollection<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszcategory: Param0, pszsubcategory: Param1, fincludeallsubcategories: Param2) -> ::windows::core::Result<IFunctionInstanceCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInstanceCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszcategory), ::core::mem::transmute(pszsubcategory), fincludeallsubcategories.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstanceCollection>(result__)
+        (::windows::core::Interface::vtable(self).GetInstanceCollection)(::windows::core::Interface::as_raw(self), pszcategory.into(), pszsubcategory.into(), fincludeallsubcategories.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstanceCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetInstance(&self, pszfunctioninstanceidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<IFunctionInstance> {
+    pub unsafe fn GetInstance<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszfunctioninstanceidentity: Param0) -> ::windows::core::Result<IFunctionInstance> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfunctioninstanceidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
+        (::windows::core::Interface::vtable(self).GetInstance)(::windows::core::Interface::as_raw(self), pszfunctioninstanceidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstanceCollectionQuery<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszcategory: ::windows::core::PCWSTR, pszsubcategory: ::windows::core::PCWSTR, fincludeallsubcategories: Param2, pifunctiondiscoverynotification: Param3, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateInstanceCollectionQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszcategory), ::core::mem::transmute(pszsubcategory), fincludeallsubcategories.into(), pifunctiondiscoverynotification.into().abi(), ::core::mem::transmute(pfdqcquerycontext), ::core::mem::transmute(ppifunctioninstancecollectionquery)).ok()
+    pub unsafe fn CreateInstanceCollectionQuery<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszcategory: Param0, pszsubcategory: Param1, fincludeallsubcategories: Param2, pifunctiondiscoverynotification: Param3, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateInstanceCollectionQuery)(::windows::core::Interface::as_raw(self), pszcategory.into(), pszsubcategory.into(), fincludeallsubcategories.into(), pifunctiondiscoverynotification.into().abi(), ::core::mem::transmute(pfdqcquerycontext), ::core::mem::transmute(ppifunctioninstancecollectionquery)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn CreateInstanceQuery<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszfunctioninstanceidentity: ::windows::core::PCWSTR, pifunctiondiscoverynotification: Param1, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateInstanceQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfunctioninstanceidentity), pifunctiondiscoverynotification.into().abi(), ::core::mem::transmute(pfdqcquerycontext), ::core::mem::transmute(ppifunctioninstancequery)).ok()
+    pub unsafe fn CreateInstanceQuery<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszfunctioninstanceidentity: Param0, pifunctiondiscoverynotification: Param1, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateInstanceQuery)(::windows::core::Interface::as_raw(self), pszfunctioninstanceidentity.into(), pifunctiondiscoverynotification.into().abi(), ::core::mem::transmute(pfdqcquerycontext), ::core::mem::transmute(ppifunctioninstancequery)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>>(&self, enumsystemvisibility: Param0, pszcategory: ::windows::core::PCWSTR, pszsubcategory: ::windows::core::PCWSTR, pszcategoryidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<IFunctionInstance> {
+    pub unsafe fn AddInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, enumsystemvisibility: Param0, pszcategory: Param1, pszsubcategory: Param2, pszcategoryidentity: Param3) -> ::windows::core::Result<IFunctionInstance> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddInstance)(::windows::core::Interface::as_raw(self), enumsystemvisibility.into(), ::core::mem::transmute(pszcategory), ::core::mem::transmute(pszsubcategory), ::core::mem::transmute(pszcategoryidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
+        (::windows::core::Interface::vtable(self).AddInstance)(::windows::core::Interface::as_raw(self), enumsystemvisibility.into(), pszcategory.into(), pszsubcategory.into(), pszcategoryidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn RemoveInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>>(&self, enumsystemvisibility: Param0, pszcategory: ::windows::core::PCWSTR, pszsubcategory: ::windows::core::PCWSTR, pszcategoryidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveInstance)(::windows::core::Interface::as_raw(self), enumsystemvisibility.into(), ::core::mem::transmute(pszcategory), ::core::mem::transmute(pszsubcategory), ::core::mem::transmute(pszcategoryidentity)).ok()
+    pub unsafe fn RemoveInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, enumsystemvisibility: Param0, pszcategory: Param1, pszsubcategory: Param2, pszcategoryidentity: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveInstance)(::windows::core::Interface::as_raw(self), enumsystemvisibility.into(), pszcategory.into(), pszsubcategory.into(), pszcategoryidentity.into()).ok()
     }
 }
 impl ::core::convert::From<IFunctionDiscovery> for ::windows::core::IUnknown {
@@ -251,12 +251,12 @@ impl IFunctionDiscoveryNotification {
         (::windows::core::Interface::vtable(self).OnUpdate)(::windows::core::Interface::as_raw(self), enumqueryupdateaction.into(), ::core::mem::transmute(fdqcquerycontext), pifunctioninstance.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn OnError(&self, hr: ::windows::core::HRESULT, fdqcquerycontext: u64, pszprovider: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), ::core::mem::transmute(fdqcquerycontext), ::core::mem::transmute(pszprovider)).ok()
+    pub unsafe fn OnError<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hr: ::windows::core::HRESULT, fdqcquerycontext: u64, pszprovider: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), ::core::mem::transmute(fdqcquerycontext), pszprovider.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn OnEvent(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dweventid), ::core::mem::transmute(fdqcquerycontext), ::core::mem::transmute(pszprovider)).ok()
+    pub unsafe fn OnEvent<'a, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dweventid), ::core::mem::transmute(fdqcquerycontext), pszprovider.into()).ok()
     }
 }
 impl ::core::convert::From<IFunctionDiscoveryNotification> for ::windows::core::IUnknown {
@@ -426,9 +426,9 @@ impl IFunctionDiscoveryProviderFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn CreateInstance<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryProvider>>>(&self, pszsubcategory: ::windows::core::PCWSTR, pszproviderinstanceidentity: ::windows::core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: Param3, pifunctiondiscoveryprovider: Param4) -> ::windows::core::Result<IFunctionInstance> {
+    pub unsafe fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryProvider>>>(&self, pszsubcategory: Param0, pszproviderinstanceidentity: Param1, iproviderinstancecontext: isize, pipropertystore: Param3, pifunctiondiscoveryprovider: Param4) -> ::windows::core::Result<IFunctionInstance> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory), ::core::mem::transmute(pszproviderinstanceidentity), ::core::mem::transmute(iproviderinstancecontext), pipropertystore.into().abi(), pifunctiondiscoveryprovider.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), pszsubcategory.into(), pszproviderinstanceidentity.into(), ::core::mem::transmute(iproviderinstancecontext), pipropertystore.into().abi(), pifunctiondiscoveryprovider.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
     pub unsafe fn CreateFunctionInstanceCollection(&self) -> ::windows::core::Result<IFunctionInstanceCollection> {
@@ -732,8 +732,8 @@ impl IFunctionInstanceCollection {
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Get(&self, pszinstanceidentity: ::windows::core::PCWSTR, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszinstanceidentity), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppifunctioninstance)).ok()
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), pszinstanceidentity.into(), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppifunctioninstance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -825,8 +825,8 @@ pub struct IFunctionInstanceCollection_Vtbl {
 pub struct IFunctionInstanceCollectionQuery(::windows::core::IUnknown);
 impl IFunctionInstanceCollectionQuery {
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn AddQueryConstraint(&self, pszconstraintname: ::windows::core::PCWSTR, pszconstraintvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddQueryConstraint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconstraintname), ::core::mem::transmute(pszconstraintvalue)).ok()
+    pub unsafe fn AddQueryConstraint<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszconstraintname: Param0, pszconstraintvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddQueryConstraint)(::windows::core::Interface::as_raw(self), pszconstraintname.into(), pszconstraintvalue.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -945,16 +945,16 @@ pub struct IFunctionInstanceQuery_Vtbl {
 pub struct IPNPXAssociation(::windows::core::IUnknown);
 impl IPNPXAssociation {
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Associate(&self, pszsubcategory: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Associate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory)).ok()
+    pub unsafe fn Associate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszsubcategory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Associate)(::windows::core::Interface::as_raw(self), pszsubcategory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Unassociate(&self, pszsubcategory: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unassociate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory)).ok()
+    pub unsafe fn Unassociate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszsubcategory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unassociate)(::windows::core::Interface::as_raw(self), pszsubcategory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Delete(&self, pszsubcategory: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory)).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszsubcategory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), pszsubcategory.into()).ok()
     }
 }
 impl ::core::convert::From<IPNPXAssociation> for ::windows::core::IUnknown {
@@ -1005,16 +1005,16 @@ pub struct IPNPXAssociation_Vtbl {
 pub struct IPNPXDeviceAssociation(::windows::core::IUnknown);
 impl IPNPXDeviceAssociation {
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Associate<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszsubcategory: ::windows::core::PCWSTR, pifunctiondiscoverynotification: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Associate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory), pifunctiondiscoverynotification.into().abi()).ok()
+    pub unsafe fn Associate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszsubcategory: Param0, pifunctiondiscoverynotification: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Associate)(::windows::core::Interface::as_raw(self), pszsubcategory.into(), pifunctiondiscoverynotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Unassociate<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszsubcategory: ::windows::core::PCWSTR, pifunctiondiscoverynotification: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unassociate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory), pifunctiondiscoverynotification.into().abi()).ok()
+    pub unsafe fn Unassociate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszsubcategory: Param0, pifunctiondiscoverynotification: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unassociate)(::windows::core::Interface::as_raw(self), pszsubcategory.into(), pifunctiondiscoverynotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Delete<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszsubcategory: ::windows::core::PCWSTR, pifunctiondiscoverynotification: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsubcategory), pifunctiondiscoverynotification.into().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFunctionDiscoveryNotification>>>(&self, pszsubcategory: Param0, pifunctiondiscoverynotification: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), pszsubcategory.into(), pifunctiondiscoverynotification.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IPNPXDeviceAssociation> for ::windows::core::IUnknown {
@@ -1071,8 +1071,8 @@ impl IPropertyStoreCollection {
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Get(&self, pszinstanceidentity: ::windows::core::PCWSTR, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszinstanceidentity), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppipropertystore)).ok()
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszinstanceidentity: Param0, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), pszinstanceidentity.into(), ::core::mem::transmute(pdwindex), ::core::mem::transmute(ppipropertystore)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1337,13 +1337,13 @@ pub struct IProviderPublishing(::windows::core::IUnknown);
 impl IProviderPublishing {
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>>(&self, enumvisibilityflags: Param0, pszsubcategory: ::windows::core::PCWSTR, pszproviderinstanceidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<IFunctionInstance> {
+    pub unsafe fn CreateInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, enumvisibilityflags: Param0, pszsubcategory: Param1, pszproviderinstanceidentity: Param2) -> ::windows::core::Result<IFunctionInstance> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), enumvisibilityflags.into(), ::core::mem::transmute(pszsubcategory), ::core::mem::transmute(pszproviderinstanceidentity), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), enumvisibilityflags.into(), pszsubcategory.into(), pszproviderinstanceidentity.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFunctionInstance>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn RemoveInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>>(&self, enumvisibilityflags: Param0, pszsubcategory: ::windows::core::PCWSTR, pszproviderinstanceidentity: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveInstance)(::windows::core::Interface::as_raw(self), enumvisibilityflags.into(), ::core::mem::transmute(pszsubcategory), ::core::mem::transmute(pszproviderinstanceidentity)).ok()
+    pub unsafe fn RemoveInstance<'a, Param0: ::std::convert::Into<SystemVisibilityFlags>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, enumvisibilityflags: Param0, pszsubcategory: Param1, pszproviderinstanceidentity: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveInstance)(::windows::core::Interface::as_raw(self), enumvisibilityflags.into(), pszsubcategory.into(), pszproviderinstanceidentity.into()).ok()
     }
 }
 impl ::core::convert::From<IProviderPublishing> for ::windows::core::IUnknown {
@@ -1401,9 +1401,9 @@ impl IProviderQueryConstraintCollection {
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-    pub unsafe fn Get(&self, pszconstraintname: ::windows::core::PCWSTR) -> ::windows::core::Result<*mut u16> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszconstraintname: Param0) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconstraintname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), pszconstraintname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
     pub unsafe fn Item(&self, dwindex: u32, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()> {

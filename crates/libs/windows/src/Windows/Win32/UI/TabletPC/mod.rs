@@ -59,12 +59,12 @@ pub unsafe fn AddStroke<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Par
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn AddWordsToWordList<'a, Param0: ::std::convert::Into<HRECOWORDLIST>>(hwl: Param0, pwcwords: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn AddWordsToWordList<'a, Param0: ::std::convert::Into<HRECOWORDLIST>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwl: Param0, pwcwords: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    AddWordsToWordList(hwl.into(), ::core::mem::transmute(pwcwords)).ok()
+    AddWordsToWordList(hwl.into(), pwcwords.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6424,12 +6424,12 @@ impl IInkLineInfo {
         (::windows::core::Interface::vtable(self).GetInkExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pim), ::core::mem::transmute(pnwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: ::windows::core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), ::core::mem::transmute(pwcrecogword), ::core::mem::transmute(pcwcrecogword), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetCandidate<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ncandidatenum: u32, pwcrecogword: Param1, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), pwcrecogword.into(), ::core::mem::transmute(pcwcrecogword), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCandidate(&self, ncandidatenum: u32, strrecogword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), ::core::mem::transmute(strrecogword)).ok()
+    pub unsafe fn SetCandidate<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, ncandidatenum: u32, strrecogword: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), strrecogword.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Recognize(&self) -> ::windows::core::Result<()> {
@@ -13931,12 +13931,12 @@ impl ::core::fmt::Debug for InteractionMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn IsStringSupported<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, wcstring: u32, pwcstring: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn IsStringSupported<'a, Param0: ::std::convert::Into<HRECOCONTEXT>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hrc: Param0, wcstring: u32, pwcstring: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    IsStringSupported(hrc.into(), ::core::mem::transmute(wcstring), ::core::mem::transmute(pwcstring)).ok()
+    IsStringSupported(hrc.into(), ::core::mem::transmute(wcstring), pwcstring.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -14187,12 +14187,12 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn MakeWordList<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0, pbuffer: ::windows::core::PCWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()> {
+pub unsafe fn MakeWordList<'a, Param0: ::std::convert::Into<HRECOGNIZER>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hrec: Param0, pbuffer: Param1, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MakeWordList(hrec: HRECOGNIZER, pbuffer: ::windows::core::PCWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    MakeWordList(hrec.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(phwl)).ok()
+    MakeWordList(hrec.into(), pbuffer.into(), ::core::mem::transmute(phwl)).ok()
 }
 pub const MathInputControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -15136,12 +15136,12 @@ pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::std::convert::Into<HRECOCONT
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetFactoid<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn SetFactoid<'a, Param0: ::std::convert::Into<HRECOCONTEXT>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    SetFactoid(hrc.into(), ::core::mem::transmute(cwcfactoid), ::core::mem::transmute(pwcfactoid)).ok()
+    SetFactoid(hrc.into(), ::core::mem::transmute(cwcfactoid), pwcfactoid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]

@@ -1121,9 +1121,9 @@ impl INetConnection {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn Duplicate(&self, pszwduplicatename: ::windows::core::PCWSTR) -> ::windows::core::Result<INetConnection> {
+    pub unsafe fn Duplicate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszwduplicatename: Param0) -> ::windows::core::Result<INetConnection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Duplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszwduplicatename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetConnection>(result__)
+        (::windows::core::Interface::vtable(self).Duplicate)(::windows::core::Interface::as_raw(self), pszwduplicatename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetConnection>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<*mut NETCON_PROPERTIES> {
@@ -1136,8 +1136,8 @@ impl INetConnection {
         (::windows::core::Interface::vtable(self).GetUiObjectClassId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn Rename(&self, pszwnewname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszwnewname)).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pszwnewname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszwnewname.into()).ok()
     }
 }
 impl ::core::convert::From<INetConnection> for ::windows::core::IUnknown {
@@ -6669,12 +6669,12 @@ pub const NetFwRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[inline]
-pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32 {
+pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(wszservername: Param0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
     }
-    ::core::mem::transmute(NetworkIsolationDiagnoseConnectFailureAndGetInfo(::core::mem::transmute(wszservername), ::core::mem::transmute(netisoerror)))
+    ::core::mem::transmute(NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into(), ::core::mem::transmute(netisoerror)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -6729,12 +6729,12 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::s
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::std::convert::Into<super::super::Foundation::PSID>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(applicationcontainersid: Param0, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: Param4, binaries: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::std::convert::Into<super::super::Foundation::PSID>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(applicationcontainersid: Param0, packagefullname: Param1, packagefolder: Param2, displayname: Param3, bbinariesfullycomputed: Param4, binaries: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const ::windows::core::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
     }
-    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), ::core::mem::transmute(packagefullname), ::core::mem::transmute(packagefolder), ::core::mem::transmute(displayname), bbinariesfullycomputed.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(binaries)), binaries.len() as _).ok()
+    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into(), packagefolder.into(), displayname.into(), bbinariesfullycomputed.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(binaries)), binaries.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

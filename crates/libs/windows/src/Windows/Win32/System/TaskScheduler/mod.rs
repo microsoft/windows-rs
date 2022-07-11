@@ -4267,8 +4267,8 @@ impl IScheduledWorkItem {
         (::windows::core::Interface::vtable(self).GetExitCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetComment(&self, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcomment)).ok()
+    pub unsafe fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszcomment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetComment)(::windows::core::Interface::as_raw(self), pwszcomment.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4276,8 +4276,8 @@ impl IScheduledWorkItem {
         (::windows::core::Interface::vtable(self).GetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCreator(&self, pwszcreator: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCreator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcreator)).ok()
+    pub unsafe fn SetCreator<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszcreator: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCreator)(::windows::core::Interface::as_raw(self), pwszcreator.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4320,8 +4320,8 @@ impl IScheduledWorkItem {
         (::windows::core::Interface::vtable(self).GetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetAccountInformation(&self, pwszaccountname: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszaccountname), ::core::mem::transmute(pwszpassword)).ok()
+    pub unsafe fn SetAccountInformation<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszaccountname: Param0, pwszpassword: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccountInformation)(::windows::core::Interface::as_raw(self), pwszaccountname.into(), pwszpassword.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4828,8 +4828,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetExitCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetComment(&self, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcomment)).ok()
+    pub unsafe fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszcomment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetComment)(::windows::core::Interface::as_raw(self), pwszcomment.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4837,8 +4837,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetComment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCreator(&self, pwszcreator: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCreator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcreator)).ok()
+    pub unsafe fn SetCreator<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszcreator: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCreator)(::windows::core::Interface::as_raw(self), pwszcreator.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4881,8 +4881,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetAccountInformation(&self, pwszaccountname: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszaccountname), ::core::mem::transmute(pwszpassword)).ok()
+    pub unsafe fn SetAccountInformation<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszaccountname: Param0, pwszpassword: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetAccountInformation)(::windows::core::Interface::as_raw(self), pwszaccountname.into(), pwszpassword.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4890,8 +4890,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).base__.GetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetApplicationName(&self, pwszapplicationname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetApplicationName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszapplicationname)).ok()
+    pub unsafe fn SetApplicationName<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszapplicationname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetApplicationName)(::windows::core::Interface::as_raw(self), pwszapplicationname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetApplicationName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4899,8 +4899,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).GetApplicationName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetParameters(&self, pwszparameters: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszparameters)).ok()
+    pub unsafe fn SetParameters<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszparameters: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), pwszparameters.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetParameters(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4908,8 +4908,8 @@ impl ITask {
         (::windows::core::Interface::vtable(self).GetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetWorkingDirectory(&self, pwszworkingdirectory: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszworkingdirectory)).ok()
+    pub unsafe fn SetWorkingDirectory<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszworkingdirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), pwszworkingdirectory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetWorkingDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5872,8 +5872,8 @@ pub struct ITaskNamedValuePair_Vtbl {
 pub struct ITaskScheduler(::windows::core::IUnknown);
 impl ITaskScheduler {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetTargetComputer(&self, pwszcomputer: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszcomputer)).ok()
+    pub unsafe fn SetTargetComputer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszcomputer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetComputer)(::windows::core::Interface::as_raw(self), pwszcomputer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn GetTargetComputer(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5886,26 +5886,26 @@ impl ITaskScheduler {
         (::windows::core::Interface::vtable(self).Enum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWorkItems>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn Activate(&self, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn Activate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszname: Param0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), pwszname.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn Delete(&self, pwszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname)).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), pwszname.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn NewWorkItem(&self, pwsztaskname: ::windows::core::PCWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn NewWorkItem<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwsztaskname: Param0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).NewWorkItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsztaskname), ::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).NewWorkItem)(::windows::core::Interface::as_raw(self), pwsztaskname.into(), ::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn AddWorkItem<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IScheduledWorkItem>>>(&self, pwsztaskname: ::windows::core::PCWSTR, pworkitem: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWorkItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsztaskname), pworkitem.into().abi()).ok()
+    pub unsafe fn AddWorkItem<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IScheduledWorkItem>>>(&self, pwsztaskname: Param0, pworkitem: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddWorkItem)(::windows::core::Interface::as_raw(self), pwsztaskname.into(), pworkitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn IsOfType(&self, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsOfType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(riid)).ok()
+    pub unsafe fn IsOfType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwszname: Param0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsOfType)(::windows::core::Interface::as_raw(self), pwszname.into(), ::core::mem::transmute(riid)).ok()
     }
 }
 impl ::core::convert::From<ITaskScheduler> for ::windows::core::IUnknown {

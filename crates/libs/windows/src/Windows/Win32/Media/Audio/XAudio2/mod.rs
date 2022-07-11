@@ -823,8 +823,8 @@ impl IXAudio2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateMasteringVoice<'a, Param6: ::std::convert::Into<super::AUDIO_STREAM_CATEGORY>>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: ::windows::core::PCWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateMasteringVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppmasteringvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), ::core::mem::transmute(szdeviceid), ::core::mem::transmute(peffectchain), streamcategory.into()).ok()
+    pub unsafe fn CreateMasteringVoice<'a, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<super::AUDIO_STREAM_CATEGORY>>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: Param4, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateMasteringVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppmasteringvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), szdeviceid.into(), ::core::mem::transmute(peffectchain), streamcategory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn StartEngine(&self) -> ::windows::core::Result<()> {

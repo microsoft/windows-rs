@@ -482,15 +482,15 @@ impl IOpcFactory {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePartUri(&self, pwzuri: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcPartUri> {
+    pub unsafe fn CreatePartUri<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pwzuri: Param0) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePartUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwzuri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
+        (::windows::core::Interface::vtable(self).CreatePartUri)(::windows::core::Interface::as_raw(self), pwzuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPartUri>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateStreamOnFile<'a, Param1: ::std::convert::Into<OPC_STREAM_IO_MODE>>(&self, filename: ::windows::core::PCWSTR, iomode: Param1, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
+    pub unsafe fn CreateStreamOnFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<OPC_STREAM_IO_MODE>>(&self, filename: Param0, iomode: Param1, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStreamOnFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), iomode.into(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(dwflagsandattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).CreateStreamOnFile)(::windows::core::Interface::as_raw(self), filename.into(), iomode.into(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(dwflagsandattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreatePackage(&self) -> ::windows::core::Result<IOpcPackage> {
@@ -805,9 +805,9 @@ impl IOpcPartSet {
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>, Param2: ::std::convert::Into<OPC_COMPRESSION_OPTIONS>>(&self, name: Param0, contenttype: ::windows::core::PCWSTR, compressionoptions: Param2) -> ::windows::core::Result<IOpcPart> {
+    pub unsafe fn CreatePart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<OPC_COMPRESSION_OPTIONS>>(&self, name: Param0, contenttype: Param1, compressionoptions: Param2) -> ::windows::core::Result<IOpcPart> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePart)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(contenttype), compressionoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPart>(result__)
+        (::windows::core::Interface::vtable(self).CreatePart)(::windows::core::Interface::as_raw(self), name.into().abi(), contenttype.into(), compressionoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcPart>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1469,9 +1469,9 @@ pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
 pub struct IOpcRelationshipSelectorSet(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn Create<'a, Param0: ::std::convert::Into<OPC_RELATIONSHIP_SELECTOR>>(&self, selector: Param0, selectioncriterion: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationshipSelector> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<OPC_RELATIONSHIP_SELECTOR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, selector: Param0, selectioncriterion: Param1) -> ::windows::core::Result<IOpcRelationshipSelector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), selector.into(), ::core::mem::transmute(selectioncriterion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelector>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), selector.into(), selectioncriterion.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipSelector>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcRelationshipSelector>>>(&self, relationshipselector: Param0) -> ::windows::core::Result<()> {
@@ -1531,25 +1531,25 @@ pub struct IOpcRelationshipSelectorSet_Vtbl {
 pub struct IOpcRelationshipSet(::windows::core::IUnknown);
 impl IOpcRelationshipSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn GetRelationship(&self, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationship> {
+    pub unsafe fn GetRelationship<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRelationship)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
+        (::windows::core::Interface::vtable(self).GetRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateRelationship<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>, Param3: ::std::convert::Into<OPC_URI_TARGET_MODE>>(&self, relationshipidentifier: ::windows::core::PCWSTR, relationshiptype: ::windows::core::PCWSTR, targeturi: Param2, targetmode: Param3) -> ::windows::core::Result<IOpcRelationship> {
+    pub unsafe fn CreateRelationship<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>, Param3: ::std::convert::Into<OPC_URI_TARGET_MODE>>(&self, relationshipidentifier: Param0, relationshiptype: Param1, targeturi: Param2, targetmode: Param3) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRelationship)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier), ::core::mem::transmute(relationshiptype), targeturi.into().abi(), targetmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
+        (::windows::core::Interface::vtable(self).CreateRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into(), relationshiptype.into(), targeturi.into().abi(), targetmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationship>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn DeleteRelationship(&self, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteRelationship)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier)).ok()
+    pub unsafe fn DeleteRelationship<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RelationshipExists(&self, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn RelationshipExists<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, relationshipidentifier: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).RelationshipExists)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshipidentifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).RelationshipExists)(::windows::core::Interface::as_raw(self), relationshipidentifier.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
@@ -1557,9 +1557,9 @@ impl IOpcRelationshipSet {
         (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn GetEnumeratorForType(&self, relationshiptype: ::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
+    pub unsafe fn GetEnumeratorForType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, relationshiptype: Param0) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEnumeratorForType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relationshiptype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).GetEnumeratorForType)(::windows::core::Interface::as_raw(self), relationshiptype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcRelationshipEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1974,9 +1974,9 @@ pub struct IOpcSignaturePartReferenceSet(::windows::core::IUnknown);
 impl IOpcSignaturePartReferenceSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>, Param2: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, parturi: Param0, digestmethod: ::windows::core::PCWSTR, transformmethod: Param2) -> ::windows::core::Result<IOpcSignaturePartReference> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, parturi: Param0, digestmethod: Param1, transformmethod: Param2) -> ::windows::core::Result<IOpcSignaturePartReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), parturi.into().abi(), ::core::mem::transmute(digestmethod), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignaturePartReference>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), parturi.into().abi(), digestmethod.into(), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignaturePartReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSignaturePartReference>>>(&self, partreference: Param0) -> ::windows::core::Result<()> {
@@ -2201,9 +2201,9 @@ pub struct IOpcSignatureReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureReferenceSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>, Param4: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, referenceuri: Param0, referenceid: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, digestmethod: ::windows::core::PCWSTR, transformmethod: Param4) -> ::windows::core::Result<IOpcSignatureReference> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IUri>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, referenceuri: Param0, referenceid: Param1, r#type: Param2, digestmethod: Param3, transformmethod: Param4) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), referenceuri.into().abi(), ::core::mem::transmute(referenceid), ::core::mem::transmute(r#type), ::core::mem::transmute(digestmethod), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureReference>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), referenceuri.into().abi(), referenceid.into(), r#type.into(), digestmethod.into(), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSignatureReference>>>(&self, reference: Param0) -> ::windows::core::Result<()> {
@@ -2428,9 +2428,9 @@ pub struct IOpcSignatureRelationshipReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReferenceSet {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcUri>>, Param2: ::std::convert::Into<OPC_RELATIONSHIPS_SIGNING_OPTION>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOpcRelationshipSelectorSet>>, Param4: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, sourceuri: Param0, digestmethod: ::windows::core::PCWSTR, relationshipsigningoption: Param2, selectorset: Param3, transformmethod: Param4) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOpcUri>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<OPC_RELATIONSHIPS_SIGNING_OPTION>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOpcRelationshipSelectorSet>>, Param4: ::std::convert::Into<OPC_CANONICALIZATION_METHOD>>(&self, sourceuri: Param0, digestmethod: Param1, relationshipsigningoption: Param2, selectorset: Param3, transformmethod: Param4) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), sourceuri.into().abi(), ::core::mem::transmute(digestmethod), relationshipsigningoption.into(), selectorset.into().abi(), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureRelationshipReference>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), sourceuri.into().abi(), digestmethod.into(), relationshipsigningoption.into(), selectorset.into().abi(), transformmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureRelationshipReference>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn CreateRelationshipSelectorSet(&self) -> ::windows::core::Result<IOpcRelationshipSelectorSet> {
@@ -2504,8 +2504,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetSignatureId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetSignatureId(&self, signatureid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signatureid)).ok()
+    pub unsafe fn SetSignatureId<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, signatureid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignatureId)(::windows::core::Interface::as_raw(self), signatureid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetSignatureMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2513,8 +2513,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetSignatureMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetSignatureMethod(&self, signaturemethod: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturemethod)).ok()
+    pub unsafe fn SetSignatureMethod<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, signaturemethod: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignatureMethod)(::windows::core::Interface::as_raw(self), signaturemethod.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetDefaultDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2522,8 +2522,8 @@ impl IOpcSigningOptions {
         (::windows::core::Interface::vtable(self).GetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-    pub unsafe fn SetDefaultDigestMethod(&self, digestmethod: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestmethod)).ok()
+    pub unsafe fn SetDefaultDigestMethod<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, digestmethod: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), digestmethod.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     pub unsafe fn GetCertificateEmbeddingOption(&self) -> ::windows::core::Result<OPC_CERTIFICATE_EMBEDDING_OPTION> {

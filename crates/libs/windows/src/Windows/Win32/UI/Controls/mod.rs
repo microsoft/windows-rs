@@ -1511,22 +1511,22 @@ pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEET
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStatusWindowA<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(style: i32, lpsztext: ::windows::core::PCSTR, hwndparent: Param2, wid: u32) -> super::super::Foundation::HWND {
+pub unsafe fn CreateStatusWindowA<'a, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(style: i32, lpsztext: Param1, hwndparent: Param2, wid: u32) -> super::super::Foundation::HWND {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateStatusWindowA(style: i32, lpsztext: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateStatusWindowA(::core::mem::transmute(style), ::core::mem::transmute(lpsztext), hwndparent.into(), ::core::mem::transmute(wid)))
+    ::core::mem::transmute(CreateStatusWindowA(::core::mem::transmute(style), lpsztext.into(), hwndparent.into(), ::core::mem::transmute(wid)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStatusWindowW<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(style: i32, lpsztext: ::windows::core::PCWSTR, hwndparent: Param2, wid: u32) -> super::super::Foundation::HWND {
+pub unsafe fn CreateStatusWindowW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(style: i32, lpsztext: Param1, hwndparent: Param2, wid: u32) -> super::super::Foundation::HWND {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateStatusWindowW(style: i32, lpsztext: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
     }
-    ::core::mem::transmute(CreateStatusWindowW(::core::mem::transmute(style), ::core::mem::transmute(lpsztext), hwndparent.into(), ::core::mem::transmute(wid)))
+    ::core::mem::transmute(CreateStatusWindowW(::core::mem::transmute(style), lpsztext.into(), hwndparent.into(), ::core::mem::transmute(wid)))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -2664,22 +2664,22 @@ pub unsafe fn DrawShadowText<'a, Param0: ::std::convert::Into<super::super::Grap
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawStatusTextA<'a, Param0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>>(hdc: Param0, lprc: *mut super::super::Foundation::RECT, psztext: ::windows::core::PCSTR, uflags: u32) {
+pub unsafe fn DrawStatusTextA<'a, Param0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>, Param2: ::std::convert::Into<::windows::core::PCSTR>>(hdc: Param0, lprc: *mut super::super::Foundation::RECT, psztext: Param2, uflags: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawStatusTextA(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: ::windows::core::PCSTR, uflags: u32);
     }
-    DrawStatusTextA(hdc.into(), ::core::mem::transmute(lprc), ::core::mem::transmute(psztext), ::core::mem::transmute(uflags))
+    DrawStatusTextA(hdc.into(), ::core::mem::transmute(lprc), psztext.into(), ::core::mem::transmute(uflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawStatusTextW<'a, Param0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>>(hdc: Param0, lprc: *mut super::super::Foundation::RECT, psztext: ::windows::core::PCWSTR, uflags: u32) {
+pub unsafe fn DrawStatusTextW<'a, Param0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hdc: Param0, lprc: *mut super::super::Foundation::RECT, psztext: Param2, uflags: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawStatusTextW(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: ::windows::core::PCWSTR, uflags: u32);
     }
-    DrawStatusTextW(hdc.into(), ::core::mem::transmute(lprc), ::core::mem::transmute(psztext), ::core::mem::transmute(uflags))
+    DrawStatusTextW(hdc.into(), ::core::mem::transmute(lprc), psztext.into(), ::core::mem::transmute(uflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3763,12 +3763,12 @@ pub unsafe fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid:
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeDocumentationProperty(pszthemename: ::windows::core::PCWSTR, pszpropertyname: ::windows::core::PCWSTR, pszvaluebuff: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn GetThemeDocumentationProperty<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pszthemename: Param0, pszpropertyname: Param1, pszvaluebuff: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetThemeDocumentationProperty(pszthemename: ::windows::core::PCWSTR, pszpropertyname: ::windows::core::PCWSTR, pszvaluebuff: ::windows::core::PWSTR, cchmaxvalchars: i32) -> ::windows::core::HRESULT;
     }
-    GetThemeDocumentationProperty(::core::mem::transmute(pszthemename), ::core::mem::transmute(pszpropertyname), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvaluebuff)), pszvaluebuff.len() as _).ok()
+    GetThemeDocumentationProperty(pszthemename.into(), pszpropertyname.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvaluebuff)), pszvaluebuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6295,22 +6295,22 @@ pub unsafe fn ImageList_GetImageInfo<'a, Param0: ::std::convert::Into<HIMAGELIST
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ImageList_LoadImageA<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param6: ::std::convert::Into<super::WindowsAndMessaging::IMAGE_FLAGS>>(hi: Param0, lpbmp: ::windows::core::PCSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: Param6) -> HIMAGELIST {
+pub unsafe fn ImageList_LoadImageA<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param6: ::std::convert::Into<super::WindowsAndMessaging::IMAGE_FLAGS>>(hi: Param0, lpbmp: Param1, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: Param6) -> HIMAGELIST {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ImageList_LoadImageA(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     }
-    ::core::mem::transmute(ImageList_LoadImageA(hi.into(), ::core::mem::transmute(lpbmp), ::core::mem::transmute(cx), ::core::mem::transmute(cgrow), ::core::mem::transmute(crmask), ::core::mem::transmute(utype), uflags.into()))
+    ::core::mem::transmute(ImageList_LoadImageA(hi.into(), lpbmp.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cgrow), ::core::mem::transmute(crmask), ::core::mem::transmute(utype), uflags.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ImageList_LoadImageW<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param6: ::std::convert::Into<super::WindowsAndMessaging::IMAGE_FLAGS>>(hi: Param0, lpbmp: ::windows::core::PCWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: Param6) -> HIMAGELIST {
+pub unsafe fn ImageList_LoadImageW<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<super::WindowsAndMessaging::IMAGE_FLAGS>>(hi: Param0, lpbmp: Param1, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: Param6) -> HIMAGELIST {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     }
-    ::core::mem::transmute(ImageList_LoadImageW(hi.into(), ::core::mem::transmute(lpbmp), ::core::mem::transmute(cx), ::core::mem::transmute(cgrow), ::core::mem::transmute(crmask), ::core::mem::transmute(utype), uflags.into()))
+    ::core::mem::transmute(ImageList_LoadImageW(hi.into(), lpbmp.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cgrow), ::core::mem::transmute(crmask), ::core::mem::transmute(utype), uflags.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -8669,24 +8669,24 @@ pub const LWS_USEVISUALSTYLE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn LoadIconMetric<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param2: ::std::convert::Into<_LI_METRIC>>(hinst: Param0, pszname: ::windows::core::PCWSTR, lims: Param2) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
+pub unsafe fn LoadIconMetric<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<_LI_METRIC>>(hinst: Param0, pszname: Param1, lims: Param2) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadIconMetric(hinst: super::super::Foundation::HINSTANCE, pszname: ::windows::core::PCWSTR, lims: _LI_METRIC, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::WindowsAndMessaging::HICON>::zeroed();
-    LoadIconMetric(hinst.into(), ::core::mem::transmute(pszname), lims.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+    LoadIconMetric(hinst.into(), pszname.into(), lims.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn LoadIconWithScaleDown<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(hinst: Param0, pszname: ::windows::core::PCWSTR, cx: i32, cy: i32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
+pub unsafe fn LoadIconWithScaleDown<'a, Param0: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hinst: Param0, pszname: Param1, cx: i32, cy: i32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadIconWithScaleDown(hinst: super::super::Foundation::HINSTANCE, pszname: ::windows::core::PCWSTR, cx: i32, cy: i32, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::WindowsAndMessaging::HICON>::zeroed();
-    LoadIconWithScaleDown(hinst.into(), ::core::mem::transmute(pszname), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+    LoadIconWithScaleDown(hinst.into(), pszname.into(), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -13721,22 +13721,22 @@ impl ::core::ops::Not for OPEN_THEME_DATA_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenThemeData<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pszclasslist: ::windows::core::PCWSTR) -> isize {
+pub unsafe fn OpenThemeData<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pszclasslist: Param1) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenThemeData(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows::core::PCWSTR) -> isize;
     }
-    ::core::mem::transmute(OpenThemeData(hwnd.into(), ::core::mem::transmute(pszclasslist)))
+    ::core::mem::transmute(OpenThemeData(hwnd.into(), pszclasslist.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenThemeDataEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<OPEN_THEME_DATA_FLAGS>>(hwnd: Param0, pszclasslist: ::windows::core::PCWSTR, dwflags: Param2) -> isize {
+pub unsafe fn OpenThemeDataEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<OPEN_THEME_DATA_FLAGS>>(hwnd: Param0, pszclasslist: Param1, dwflags: Param2) -> isize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenThemeDataEx(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows::core::PCWSTR, dwflags: OPEN_THEME_DATA_FLAGS) -> isize;
     }
-    ::core::mem::transmute(OpenThemeDataEx(hwnd.into(), ::core::mem::transmute(pszclasslist), dwflags.into()))
+    ::core::mem::transmute(OpenThemeDataEx(hwnd.into(), pszclasslist.into(), dwflags.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -16979,12 +16979,12 @@ pub unsafe fn SetWindowFeedbackSetting<'a, Param0: ::std::convert::Into<super::s
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowTheme<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pszsubappname: ::windows::core::PCWSTR, pszsubidlist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn SetWindowTheme<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hwnd: Param0, pszsubappname: Param1, pszsubidlist: Param2) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetWindowTheme(hwnd: super::super::Foundation::HWND, pszsubappname: ::windows::core::PCWSTR, pszsubidlist: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    SetWindowTheme(hwnd.into(), ::core::mem::transmute(pszsubappname), ::core::mem::transmute(pszsubidlist)).ok()
+    SetWindowTheme(hwnd.into(), pszsubappname.into(), pszsubidlist.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17019,12 +17019,12 @@ pub unsafe fn ShowScrollBar<'a, Param0: ::std::convert::Into<super::super::Found
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Str_SetPtrW(ppsz: *mut ::windows::core::PWSTR, psz: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn Str_SetPtrW<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(ppsz: *mut ::windows::core::PWSTR, psz: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Str_SetPtrW(ppsz: *mut ::windows::core::PWSTR, psz: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(Str_SetPtrW(::core::mem::transmute(ppsz), ::core::mem::transmute(psz)))
+    ::core::mem::transmute(Str_SetPtrW(::core::mem::transmute(ppsz), psz.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -21429,13 +21429,13 @@ pub const TV_FIRST: u32 = 4352u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TaskDialog<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param5: ::std::convert::Into<TASKDIALOG_COMMON_BUTTON_FLAGS>>(hwndowner: Param0, hinstance: Param1, pszwindowtitle: ::windows::core::PCWSTR, pszmaininstruction: ::windows::core::PCWSTR, pszcontent: ::windows::core::PCWSTR, dwcommonbuttons: Param5, pszicon: ::windows::core::PCWSTR) -> ::windows::core::Result<i32> {
+pub unsafe fn TaskDialog<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<TASKDIALOG_COMMON_BUTTON_FLAGS>, Param6: ::std::convert::Into<::windows::core::PCWSTR>>(hwndowner: Param0, hinstance: Param1, pszwindowtitle: Param2, pszmaininstruction: Param3, pszcontent: Param4, dwcommonbuttons: Param5, pszicon: Param6) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TaskDialog(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszwindowtitle: ::windows::core::PCWSTR, pszmaininstruction: ::windows::core::PCWSTR, pszcontent: ::windows::core::PCWSTR, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: ::windows::core::PCWSTR, pnbutton: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-    TaskDialog(hwndowner.into(), hinstance.into(), ::core::mem::transmute(pszwindowtitle), ::core::mem::transmute(pszmaininstruction), ::core::mem::transmute(pszcontent), dwcommonbuttons.into(), ::core::mem::transmute(pszicon), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    TaskDialog(hwndowner.into(), hinstance.into(), pszwindowtitle.into(), pszmaininstruction.into(), pszcontent.into(), dwcommonbuttons.into(), pszicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

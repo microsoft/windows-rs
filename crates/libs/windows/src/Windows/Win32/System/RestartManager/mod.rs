@@ -365,12 +365,12 @@ pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmAddFilter<'a, Param4: ::std::convert::Into<RM_FILTER_ACTION>>(dwsessionhandle: u32, strmodulename: ::windows::core::PCWSTR, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: ::windows::core::PCWSTR, filteraction: Param4) -> u32 {
+pub unsafe fn RmAddFilter<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<RM_FILTER_ACTION>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3, filteraction: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RmAddFilter(dwsessionhandle: u32, strmodulename: ::windows::core::PCWSTR, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: ::windows::core::PCWSTR, filteraction: RM_FILTER_ACTION) -> u32;
     }
-    ::core::mem::transmute(RmAddFilter(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(strmodulename), ::core::mem::transmute(pprocess), ::core::mem::transmute(strserviceshortname), filteraction.into()))
+    ::core::mem::transmute(RmAddFilter(::core::mem::transmute(dwsessionhandle), strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into(), filteraction.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
@@ -411,12 +411,12 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnproc
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
-pub unsafe fn RmJoinSession(psessionhandle: *mut u32, strsessionkey: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn RmJoinSession<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(psessionhandle: *mut u32, strsessionkey: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RmJoinSession(psessionhandle: *mut u32, strsessionkey: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RmJoinSession(::core::mem::transmute(psessionhandle), ::core::mem::transmute(strsessionkey)))
+    ::core::mem::transmute(RmJoinSession(::core::mem::transmute(psessionhandle), strsessionkey.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -431,12 +431,12 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: &[::window
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmRemoveFilter(dwsessionhandle: u32, strmodulename: ::windows::core::PCWSTR, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: ::windows::core::PCWSTR) -> u32 {
+pub unsafe fn RmRemoveFilter<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RmRemoveFilter(dwsessionhandle: u32, strmodulename: ::windows::core::PCWSTR, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(RmRemoveFilter(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(strmodulename), ::core::mem::transmute(pprocess), ::core::mem::transmute(strserviceshortname)))
+    ::core::mem::transmute(RmRemoveFilter(::core::mem::transmute(dwsessionhandle), strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
