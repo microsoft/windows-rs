@@ -43,12 +43,18 @@ impl IAdcControllerProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
-    pub fn SetChannelMode<'a, Param0: ::std::convert::Into<ProviderAdcChannelMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChannelMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderAdcChannelMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
-    pub fn IsChannelModeSupported<'a, Param0: ::std::convert::Into<ProviderAdcChannelMode>>(&self, channelmode: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsChannelModeSupported<'a, P0>(&self, channelmode: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ProviderAdcChannelMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();

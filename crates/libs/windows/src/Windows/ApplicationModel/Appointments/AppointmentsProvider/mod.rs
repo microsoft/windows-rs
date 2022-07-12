@@ -19,7 +19,10 @@ impl AddAppointmentOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, P0>(&self, itemid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), itemid.into().abi()).ok() }
     }
@@ -29,7 +32,10 @@ impl AddAppointmentOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportError<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -285,7 +291,10 @@ impl RemoveAppointmentOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportError<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -395,7 +404,10 @@ impl ReplaceAppointmentOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, P0>(&self, itemid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), itemid.into().abi()).ok() }
     }
@@ -405,7 +417,10 @@ impl ReplaceAppointmentOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportError<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }

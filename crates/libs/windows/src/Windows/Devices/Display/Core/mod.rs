@@ -216,7 +216,10 @@ unsafe impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
 pub struct DisplayDevice(::windows::core::IUnknown);
 impl DisplayDevice {
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateScanoutSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplaySource> {
+    pub fn CreateScanoutSource<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplaySource>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -224,7 +227,11 @@ impl DisplayDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreatePrimary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayPrimaryDescription>>>(&self, target: Param0, desc: Param1) -> ::windows::core::Result<DisplaySurface> {
+    pub fn CreatePrimary<'a, P0, P1>(&self, target: P0, desc: P1) -> ::windows::core::Result<DisplaySurface>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayPrimaryDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -241,7 +248,10 @@ impl DisplayDevice {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreatePeriodicFence<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence> {
+    pub fn CreatePeriodicFence<'a, P0>(&self, target: P0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -249,12 +259,19 @@ impl DisplayDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn WaitForVBlank<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>>(&self, source: Param0) -> ::windows::core::Result<()> {
+    pub fn WaitForVBlank<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WaitForVBlank)(::windows::core::Interface::as_raw(this), source.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateSimpleScanout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>>(&self, psource: Param0, psurface: Param1, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout> {
+    pub fn CreateSimpleScanout<'a, P0, P1>(&self, psource: P0, psurface: P1, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -262,7 +279,10 @@ impl DisplayDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsCapabilitySupported<'a, Param0: ::std::convert::Into<DisplayDeviceCapability>>(&self, capability: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsCapabilitySupported<'a, P0>(&self, capability: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<DisplayDeviceCapability>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -271,7 +291,14 @@ impl DisplayDevice {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
-    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>, Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, Error = E4>, E4: ::std::convert::Into<::windows::core::Error>, Param5: ::std::convert::Into<DisplayScanoutOptions>>(&self, source: Param0, surface: Param1, subresourceindex: u32, syncinterval: u32, dirtyrects: Param4, options: Param5) -> ::windows::core::Result<DisplayScanout> {
+    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, P0, P1, P2, E2, P3>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: P3) -> ::windows::core::Result<DisplayScanout>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+        P3: ::std::convert::Into<DisplayScanoutOptions>,
+    {
         let this = &::windows::core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -469,7 +496,10 @@ impl DisplayManager {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryAcquireTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayManagerResult> {
+    pub fn TryAcquireTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayManagerResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<DisplayManagerResult>::zeroed();
@@ -477,7 +507,10 @@ impl DisplayManager {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ReleaseTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<()> {
+    pub fn ReleaseTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReleaseTarget)(::windows::core::Interface::as_raw(this), target.into().abi()).ok() }
     }
@@ -491,7 +524,11 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndReadCurrentState<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
+    pub fn TryAcquireTargetsAndReadCurrentState<'a, P0, E0>(&self, targets: P0) -> ::windows::core::Result<DisplayManagerResultWithState>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -500,7 +537,11 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndCreateEmptyState<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
+    pub fn TryAcquireTargetsAndCreateEmptyState<'a, P0, E0>(&self, targets: P0) -> ::windows::core::Result<DisplayManagerResultWithState>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -509,7 +550,12 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndCreateSubstate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayState>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, existingstate: Param0, targets: Param1) -> ::windows::core::Result<DisplayManagerResultWithState> {
+    pub fn TryAcquireTargetsAndCreateSubstate<'a, P0, P1, E1>(&self, existingstate: P0, targets: P1) -> ::windows::core::Result<DisplayManagerResultWithState>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayState>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -517,7 +563,10 @@ impl DisplayManager {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateDisplayDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayAdapter>>>(&self, adapter: Param0) -> ::windows::core::Result<DisplayDevice> {
+    pub fn CreateDisplayDevice<'a, P0>(&self, adapter: P0) -> ::windows::core::Result<DisplayDevice>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayAdapter>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -526,7 +575,10 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Enabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Enabled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -541,7 +593,10 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Disabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Disabled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -556,7 +611,10 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -571,7 +629,10 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PathsFailedOrInvalidated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PathsFailedOrInvalidated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -595,7 +656,10 @@ impl DisplayManager {
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<DisplayManagerOptions>>(options: Param0) -> ::windows::core::Result<DisplayManager> {
+    pub fn Create<'a, P0>(options: P0) -> ::windows::core::Result<DisplayManager>
+    where
+        P0: ::std::convert::Into<DisplayManagerOptions>,
+    {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayManager>(result__)
@@ -1295,7 +1359,10 @@ impl DisplayModeInfo {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetWireFormatSupportedBitsPerChannel<'a, Param0: ::std::convert::Into<DisplayWireFormatPixelEncoding>>(&self, encoding: Param0) -> ::windows::core::Result<DisplayBitsPerChannel> {
+    pub fn GetWireFormatSupportedBitsPerChannel<'a, P0>(&self, encoding: P0) -> ::windows::core::Result<DisplayBitsPerChannel>
+    where
+        P0: ::std::convert::Into<DisplayWireFormatPixelEncoding>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<DisplayBitsPerChannel>::zeroed();
@@ -1303,7 +1370,10 @@ impl DisplayModeInfo {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsWireFormatSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>>(&self, wireformat: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsWireFormatSupported<'a, P0>(&self, wireformat: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1492,7 +1562,11 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
-    pub fn SetSourceResolution<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSourceResolution<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSourceResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1507,7 +1581,10 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetSourcePixelFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSourcePixelFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSourcePixelFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1535,7 +1612,11 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
-    pub fn SetTargetResolution<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTargetResolution<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTargetResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1550,7 +1631,11 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPresentationRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPresentationRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPresentationRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1565,7 +1650,11 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsInterlaced<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsInterlaced<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<bool>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsInterlaced)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1578,7 +1667,10 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetWireFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWireFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWireFormat)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1591,7 +1683,10 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetRotation<'a, Param0: ::std::convert::Into<DisplayRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<DisplayRotation>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1604,13 +1699,19 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetScaling<'a, Param0: ::std::convert::Into<DisplayPathScaling>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetScaling<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<DisplayPathScaling>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaling)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindModes<'a, Param0: ::std::convert::Into<DisplayModeQueryOptions>>(&self, flags: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
+    pub fn FindModes<'a, P0>(&self, flags: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>
+    where
+        P0: ::std::convert::Into<DisplayModeQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1618,7 +1719,10 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ApplyPropertiesFromMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayModeInfo>>>(&self, moderesult: Param0) -> ::windows::core::Result<()> {
+    pub fn ApplyPropertiesFromMode<'a, P0>(&self, moderesult: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayModeInfo>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ApplyPropertiesFromMode)(::windows::core::Interface::as_raw(this), moderesult.into().abi()).ok() }
     }
@@ -1642,7 +1746,11 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPhysicalPresentationRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPhysicalPresentationRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPhysicalPresentationRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1936,7 +2044,11 @@ impl DisplayPrimaryDescription {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateInstance<'a, Param2: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>, Param3: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>>(width: u32, height: u32, pixelformat: Param2, colorspace: Param3, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
+    pub fn CreateInstance<'a, P0, P1>(width: u32, height: u32, pixelformat: P0, colorspace: P1, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>
+    where
+        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
+        P1: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>,
+    {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, pixelformat.into(), colorspace.into(), isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
@@ -1944,7 +2056,13 @@ impl DisplayPrimaryDescription {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateWithProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>, Param4: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>>(extraproperties: Param0, width: u32, height: u32, pixelformat: Param3, colorspace: Param4, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
+    pub fn CreateWithProperties<'a, P0, E0, P1, P2>(extraproperties: P0, width: u32, height: u32, pixelformat: P1, colorspace: P2, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
+        P2: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>,
+    {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), width, height, pixelformat.into(), colorspace.into(), isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
@@ -2227,7 +2345,10 @@ impl DisplaySource {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>>,
+    {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2388,7 +2509,10 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ConnectTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
+    pub fn ConnectTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayPath>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2396,7 +2520,11 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn ConnectTargetToView<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<DisplayPath> {
+    pub fn ConnectTargetToView<'a, P0, P1>(&self, target: P0, view: P1) -> ::windows::core::Result<DisplayPath>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2404,7 +2532,11 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CanConnectTargetToView<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<bool> {
+    pub fn CanConnectTargetToView<'a, P0, P1>(&self, target: P0, view: P1) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2412,7 +2544,10 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetViewForTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayView> {
+    pub fn GetViewForTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayView>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2420,7 +2555,10 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetPathForTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
+    pub fn GetPathForTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayPath>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2428,12 +2566,18 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn DisconnectTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, target: Param0) -> ::windows::core::Result<()> {
+    pub fn DisconnectTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).DisconnectTarget)(::windows::core::Interface::as_raw(this), target.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryFunctionalize<'a, Param0: ::std::convert::Into<DisplayStateFunctionalizeOptions>>(&self, options: Param0) -> ::windows::core::Result<DisplayStateOperationResult> {
+    pub fn TryFunctionalize<'a, P0>(&self, options: P0) -> ::windows::core::Result<DisplayStateOperationResult>
+    where
+        P0: ::std::convert::Into<DisplayStateFunctionalizeOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2441,7 +2585,10 @@ impl DisplayState {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryApply<'a, Param0: ::std::convert::Into<DisplayStateApplyOptions>>(&self, options: Param0) -> ::windows::core::Result<DisplayStateOperationResult> {
+    pub fn TryApply<'a, P0>(&self, options: P0) -> ::windows::core::Result<DisplayStateOperationResult>
+    where
+        P0: ::std::convert::Into<DisplayStateApplyOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2937,7 +3084,10 @@ impl DisplayTarget {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsSame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsSame<'a, P0>(&self, othertarget: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2945,7 +3095,10 @@ impl DisplayTarget {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0>(&self, othertarget: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3056,17 +3209,27 @@ unsafe impl ::windows::core::RuntimeType for DisplayTargetPersistence {
 pub struct DisplayTask(::windows::core::IUnknown);
 impl DisplayTask {
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetScanout<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayScanout>>>(&self, scanout: Param0) -> ::windows::core::Result<()> {
+    pub fn SetScanout<'a, P0>(&self, scanout: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayScanout>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScanout)(::windows::core::Interface::as_raw(this), scanout.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetWait<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>>(&self, readyfence: Param0, readyfencevalue: u64) -> ::windows::core::Result<()> {
+    pub fn SetWait<'a, P0>(&self, readyfence: P0, readyfencevalue: u64) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWait)(::windows::core::Interface::as_raw(this), readyfence.into().abi(), readyfencevalue).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetSignal<'a, Param0: ::std::convert::Into<DisplayTaskSignalKind>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>>(&self, signalkind: Param0, fence: Param1) -> ::windows::core::Result<()> {
+    pub fn SetSignal<'a, P0, P1>(&self, signalkind: P0, fence: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<DisplayTaskSignalKind>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>,
+    {
         let this = &::windows::core::Interface::cast::<IDisplayTask2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSignal)(::windows::core::Interface::as_raw(this), signalkind.into(), fence.into().abi()).ok() }
     }
@@ -3147,12 +3310,18 @@ impl DisplayTaskPool {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn ExecuteTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>>(&self, task: Param0) -> ::windows::core::Result<()> {
+    pub fn ExecuteTask<'a, P0>(&self, task: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ExecuteTask)(::windows::core::Interface::as_raw(this), task.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryExecuteTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>>(&self, task: Param0) -> ::windows::core::Result<DisplayTaskResult> {
+    pub fn TryExecuteTask<'a, P0>(&self, task: P0) -> ::windows::core::Result<DisplayTaskResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>,
+    {
         let this = &::windows::core::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3371,12 +3540,19 @@ impl DisplayView {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
-    pub fn SetContentResolution<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentResolution<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetPrimaryPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DisplayPath>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrimaryPath<'a, P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayPath>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrimaryPath)(::windows::core::Interface::as_raw(this), path.into().abi()).ok() }
     }
@@ -3506,7 +3682,13 @@ impl DisplayWireFormat {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<DisplayWireFormatPixelEncoding>, Param2: ::std::convert::Into<DisplayWireFormatColorSpace>, Param3: ::std::convert::Into<DisplayWireFormatEotf>, Param4: ::std::convert::Into<DisplayWireFormatHdrMetadata>>(pixelencoding: Param0, bitsperchannel: i32, colorspace: Param2, eotf: Param3, hdrmetadata: Param4) -> ::windows::core::Result<DisplayWireFormat> {
+    pub fn CreateInstance<'a, P0, P1, P2, P3>(pixelencoding: P0, bitsperchannel: i32, colorspace: P1, eotf: P2, hdrmetadata: P3) -> ::windows::core::Result<DisplayWireFormat>
+    where
+        P0: ::std::convert::Into<DisplayWireFormatPixelEncoding>,
+        P1: ::std::convert::Into<DisplayWireFormatColorSpace>,
+        P2: ::std::convert::Into<DisplayWireFormatEotf>,
+        P3: ::std::convert::Into<DisplayWireFormatHdrMetadata>,
+    {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), pixelencoding.into(), bitsperchannel, colorspace.into(), eotf.into(), hdrmetadata.into(), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
@@ -3514,7 +3696,15 @@ impl DisplayWireFormat {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<DisplayWireFormatPixelEncoding>, Param3: ::std::convert::Into<DisplayWireFormatColorSpace>, Param4: ::std::convert::Into<DisplayWireFormatEotf>, Param5: ::std::convert::Into<DisplayWireFormatHdrMetadata>>(extraproperties: Param0, pixelencoding: Param1, bitsperchannel: i32, colorspace: Param3, eotf: Param4, hdrmetadata: Param5) -> ::windows::core::Result<DisplayWireFormat> {
+    pub fn CreateWithProperties<'a, P0, E0, P1, P2, P3, P4>(extraproperties: P0, pixelencoding: P1, bitsperchannel: i32, colorspace: P2, eotf: P3, hdrmetadata: P4) -> ::windows::core::Result<DisplayWireFormat>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<DisplayWireFormatPixelEncoding>,
+        P2: ::std::convert::Into<DisplayWireFormatColorSpace>,
+        P3: ::std::convert::Into<DisplayWireFormatEotf>,
+        P4: ::std::convert::Into<DisplayWireFormatHdrMetadata>,
+    {
         Self::IDisplayWireFormatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), pixelencoding.into(), bitsperchannel, colorspace.into(), eotf.into(), hdrmetadata.into(), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)

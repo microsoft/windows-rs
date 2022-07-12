@@ -31,7 +31,10 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, P0>(&self, level: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<UnifiedPosHealthCheckLevel>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -58,7 +61,11 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RetrieveStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -75,7 +82,10 @@ impl BarcodeScanner {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn IsProfileSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, profile: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsProfileSupported<'a, P0>(&self, profile: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -84,7 +94,10 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -115,7 +128,10 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
@@ -129,7 +145,10 @@ impl BarcodeScanner {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, P0>(connectiontypes: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<PosConnectionTypes>,
+    {
         Self::IBarcodeScannerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -625,7 +644,13 @@ impl BarcodeScannerReport {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(scandatatype: u32, scandata: Param1, scandatalabel: Param2) -> ::windows::core::Result<BarcodeScannerReport> {
+    pub fn CreateInstance<'a, P0, E0, P1, E1>(scandatatype: u32, scandata: P0, scandatalabel: P1) -> ::windows::core::Result<BarcodeScannerReport>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IBarcodeScannerReportFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), scandatatype, scandata.try_into().map_err(|e| e.into())?.abi(), scandatalabel.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<BarcodeScannerReport>(result__)
@@ -1582,7 +1607,10 @@ impl BarcodeSymbologyAttributes {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetDecodeLengthKind<'a, Param0: ::std::convert::Into<BarcodeSymbologyDecodeLengthKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDecodeLengthKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<BarcodeSymbologyDecodeLengthKind>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDecodeLengthKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1747,7 +1775,10 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, P0>(&self, level: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<UnifiedPosHealthCheckLevel>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1756,7 +1787,11 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1765,7 +1800,10 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1788,7 +1826,10 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
@@ -1802,7 +1843,10 @@ impl CashDrawer {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, P0>(connectiontypes: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<PosConnectionTypes>,
+    {
         Self::ICashDrawerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -2088,7 +2132,10 @@ impl CashDrawerCloseAlarm {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AlarmTimeoutExpired<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AlarmTimeoutExpired<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2273,7 +2320,10 @@ pub struct CashDrawerEventSource(::windows::core::IUnknown);
 impl CashDrawerEventSource {
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DrawerClosed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DrawerClosed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2288,7 +2338,10 @@ impl CashDrawerEventSource {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DrawerOpened<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DrawerOpened<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2724,7 +2777,11 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetActiveSymbologiesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, symbologies: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetActiveSymbologiesAsync<'a, P0, E0>(&self, symbologies: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2733,7 +2790,11 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2742,7 +2803,11 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2751,7 +2816,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActiveProfileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, profile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetActiveProfileAsync<'a, P0>(&self, profile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2760,7 +2828,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2775,7 +2846,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggerPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggerPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2790,7 +2864,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggerReleased<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggerReleased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2805,7 +2882,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2820,7 +2900,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImagePreviewReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ImagePreviewReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2835,7 +2918,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2877,7 +2963,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSymbologyAttributesAsync<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, BarcodeSymbologyAttributes>>>(&self, barcodesymbology: u32, attributes: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SetSymbologyAttributesAsync<'a, P0>(&self, barcodesymbology: u32, attributes: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BarcodeSymbologyAttributes>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2913,7 +3002,10 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3157,7 +3249,11 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3166,7 +3262,11 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3175,7 +3275,10 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3190,7 +3293,10 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3441,7 +3547,10 @@ impl ClaimedJournalPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterColorCartridge>,
+    {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3502,7 +3611,10 @@ impl ClaimedJournalPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3666,7 +3778,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3681,7 +3796,11 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3690,7 +3809,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, P0>(&self, level: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<UnifiedPosHealthCheckLevel>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3708,7 +3830,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3766,7 +3891,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateAttributesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayAttributes>>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateAttributesAsync<'a, P0>(&self, attributes: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayAttributes>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3775,7 +3903,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetDescriptorAsync<'a, Param1: ::std::convert::Into<LineDisplayDescriptorState>>(&self, descriptor: u32, descriptorstate: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetDescriptorAsync<'a, P0>(&self, descriptor: u32, descriptorstate: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<LineDisplayDescriptorState>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3802,7 +3933,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3811,7 +3945,12 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<'a, P0, P1, P2>(&self, bitmap: P0, horizontalalignment: P1, verticalalignment: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+        P1: ::std::convert::Into<LineDisplayHorizontalAlignment>,
+        P2: ::std::convert::Into<LineDisplayVerticalAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3820,7 +3959,12 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<'a, P0, P1, P2>(&self, bitmap: P0, horizontalalignment: P1, verticalalignment: P2, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+        P1: ::std::convert::Into<LineDisplayHorizontalAlignment>,
+        P2: ::std::convert::Into<LineDisplayVerticalAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3829,7 +3973,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3844,7 +3991,10 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
@@ -3858,7 +4008,10 @@ impl ClaimedLineDisplay {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, P0>(connectiontypes: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<PosConnectionTypes>,
+    {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -4094,7 +4247,10 @@ impl ClaimedMagneticStripeReader {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetTracksToRead<'a, Param0: ::std::convert::Into<MagneticStripeReaderTrackIds>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTracksToRead<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MagneticStripeReaderTrackIds>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTracksToRead)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4143,7 +4299,10 @@ impl ClaimedMagneticStripeReader {
         unsafe { (::windows::core::Interface::vtable(this).RetainDevice)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetErrorReportingType<'a, Param0: ::std::convert::Into<MagneticStripeReaderErrorReportingType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorReportingType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MagneticStripeReaderErrorReportingType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorReportingType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4176,7 +4335,11 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateKeyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0, keyname: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateKeyAsync<'a, P0, P1>(&self, key: P0, keyname: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4185,7 +4348,11 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4194,7 +4361,11 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4203,7 +4374,10 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BankCardDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BankCardDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4218,7 +4392,10 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AamvaCardDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AamvaCardDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4233,7 +4410,10 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VendorSpecificDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VendorSpecificDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4248,7 +4428,10 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4263,7 +4446,10 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4278,7 +4464,10 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4503,7 +4692,10 @@ impl ClaimedPosPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetMapMode<'a, Param0: ::std::convert::Into<PosPrinterMapMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMapMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterMapMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMapMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4568,7 +4760,11 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4577,7 +4773,11 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4586,7 +4786,10 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4601,7 +4804,10 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4894,7 +5100,10 @@ impl ClaimedReceiptPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterColorCartridge>,
+    {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4955,7 +5164,10 @@ impl ClaimedReceiptPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -5135,7 +5347,10 @@ impl ClaimedSlipPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ChangePrintSide<'a, Param0: ::std::convert::Into<PosPrinterPrintSide>>(&self, printside: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangePrintSide<'a, P0>(&self, printside: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterPrintSide>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ChangePrintSide)(::windows::core::Interface::as_raw(this), printside.into()).ok() }
     }
@@ -5216,7 +5431,10 @@ impl ClaimedSlipPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterColorCartridge>,
+    {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -5277,7 +5495,10 @@ impl ClaimedSlipPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -6788,7 +7009,10 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterColorCartridge>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -6849,7 +7073,10 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, P0>(&self, data: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -8236,12 +8463,18 @@ pub struct IPosPrinterFontProperty_Vtbl {
 pub struct IPosPrinterJob(::windows::core::IUnknown);
 impl IPosPrinterJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
@@ -8445,12 +8678,18 @@ pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
 pub struct IReceiptOrSlipJob(::windows::core::IUnknown);
 impl IReceiptOrSlipJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetBarcodeRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBarcodeRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterRotation>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetPrintRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0, includebitmaps: bool) -> ::windows::core::Result<()> {
+    pub fn SetPrintRotation<'a, P0>(&self, value: P0, includebitmaps: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterRotation>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value.into(), includebitmaps).ok() }
     }
@@ -8462,25 +8701,39 @@ impl IReceiptOrSlipJob {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2) -> ::windows::core::Result<()> {
+    pub fn SetBitmap<'a, P0, P1>(&self, bitmapnumber: u32, bitmap: P0, alignment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<'a, P0, P1>(&self, bitmapnumber: u32, bitmap: P0, alignment: P1, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn SetCustomAlignedBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance, width).ok() }
     }
@@ -8490,51 +8743,85 @@ impl IReceiptOrSlipJob {
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn DrawRuledLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PosPrinterLineDirection>, Param3: ::std::convert::Into<PosPrinterLineStyle>>(&self, positionlist: Param0, linedirection: Param1, linewidth: u32, linestyle: Param3, linecolor: u32) -> ::windows::core::Result<()> {
+    pub fn DrawRuledLine<'a, P0, P1, P2>(&self, positionlist: P0, linedirection: P1, linewidth: u32, linestyle: P2, linecolor: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterLineDirection>,
+        P2: ::std::convert::Into<PosPrinterLineStyle>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection.into(), linewidth, linestyle.into(), linecolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>, Param5: ::std::convert::Into<PosPrinterAlignment>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignment: Param5) -> ::windows::core::Result<()> {
+    pub fn PrintBarcode<'a, P0, P1, P2>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: P1, alignment: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterBarcodeTextPosition>,
+        P2: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcodeCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBarcodeCustomAlign<'a, P0, P1>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: P1, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterBarcodeTextPosition>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1) -> ::windows::core::Result<()> {
+    pub fn PrintBitmap<'a, P0, P1>(&self, bitmap: P0, alignment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<'a, P0, P1>(&self, bitmap: P0, alignment: P1, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<'a, P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
@@ -8821,7 +9108,11 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
 pub struct JournalPrintJob(::windows::core::IUnknown);
 impl JournalPrintJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
+    pub fn Print<'a, P0, P1>(&self, data: P0, printoptions: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
+    {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
     }
@@ -8836,12 +9127,18 @@ impl JournalPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).FeedPaperByMapModeUnit)(::windows::core::Interface::as_raw(this), distance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print2<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
@@ -9266,7 +9563,10 @@ impl LineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
@@ -9288,7 +9588,10 @@ impl LineDisplay {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, P0>(connectiontypes: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<PosConnectionTypes>,
+    {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -9491,7 +9794,10 @@ impl LineDisplayAttributes {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetCurrentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayWindow>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCurrentWindow<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayWindow>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCurrentWindow)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -9839,7 +10145,10 @@ impl LineDisplayCursor {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateAttributesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayCursorAttributes>>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateAttributesAsync<'a, P0>(&self, attributes: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayCursorAttributes>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -9935,7 +10244,10 @@ impl LineDisplayCursorAttributes {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetCursorType<'a, Param0: ::std::convert::Into<LineDisplayCursorType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCursorType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LineDisplayCursorType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCursorType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -10092,7 +10404,11 @@ impl LineDisplayCustomGlyphs {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryRedefineAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, glyphcode: u32, glyphdata: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRedefineAsync<'a, P0, E0>(&self, glyphcode: u32, glyphdata: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10245,7 +10561,10 @@ impl LineDisplayMarquee {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<LineDisplayMarqueeFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LineDisplayMarqueeFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -10281,7 +10600,10 @@ impl LineDisplayMarquee {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryStartScrollingAsync<'a, Param0: ::std::convert::Into<LineDisplayScrollDirection>>(&self, direction: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryStartScrollingAsync<'a, P0>(&self, direction: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<LineDisplayScrollDirection>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10869,7 +11191,11 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LineDisplayTextAttribute>>(&self, text: Param0, displayattribute: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextAsync<'a, P0, P1>(&self, text: P0, displayattribute: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<LineDisplayTextAttribute>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10878,7 +11204,11 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextAtPositionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LineDisplayTextAttribute>>(&self, text: Param0, displayattribute: Param1, startposition: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextAtPositionAsync<'a, P0, P1>(&self, text: P0, displayattribute: P1, startposition: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<LineDisplayTextAttribute>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10887,7 +11217,10 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextNormalAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextNormalAsync<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10896,7 +11229,10 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryScrollTextAsync<'a, Param0: ::std::convert::Into<LineDisplayScrollDirection>>(&self, direction: Param0, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryScrollTextAsync<'a, P0>(&self, direction: P0, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<LineDisplayScrollDirection>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10939,7 +11275,10 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayStoredBitmapAtCursorAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayStoredBitmap>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStoredBitmapAtCursorAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayStoredBitmap>>,
+    {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10948,7 +11287,10 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+    {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10957,7 +11299,12 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<'a, P0, P1, P2>(&self, bitmap: P0, horizontalalignment: P1, verticalalignment: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+        P1: ::std::convert::Into<LineDisplayHorizontalAlignment>,
+        P2: ::std::convert::Into<LineDisplayVerticalAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10966,7 +11313,12 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<'a, P0, P1, P2>(&self, bitmap: P0, horizontalalignment: P1, verticalalignment: P2, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+        P1: ::std::convert::Into<LineDisplayHorizontalAlignment>,
+        P2: ::std::convert::Into<LineDisplayVerticalAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10975,7 +11327,10 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtPointAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0, offsetinpixels: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtPointAsync<'a, P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+    {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10984,7 +11339,10 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<'a, P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+    {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -11120,7 +11478,10 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, P0>(&self, level: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<UnifiedPosHealthCheckLevel>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -11138,7 +11499,11 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RetrieveStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -11155,7 +11520,10 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -11178,7 +11546,10 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
@@ -11192,7 +11563,10 @@ impl MagneticStripeReader {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, P0>(connectiontypes: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<PosConnectionTypes>,
+    {
         Self::IMagneticStripeReaderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -12728,7 +13102,10 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, P0>(&self, level: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<UnifiedPosHealthCheckLevel>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -12737,7 +13114,11 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -12746,7 +13127,10 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -12769,7 +13153,10 @@ impl PosPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetFontProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, typeface: Param0) -> ::windows::core::Result<PosPrinterFontProperty> {
+    pub fn GetFontProperty<'a, P0>(&self, typeface: P0) -> ::windows::core::Result<PosPrinterFontProperty>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -12786,7 +13173,10 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
@@ -12800,7 +13190,10 @@ impl PosPrinter {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, P0>(connectiontypes: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<PosConnectionTypes>,
+    {
         Self::IPosPrinterStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -13650,7 +14043,10 @@ impl PosPrinterPrintOptions {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetTypeFace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTypeFace<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTypeFace)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -13793,7 +14189,10 @@ impl PosPrinterPrintOptions {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetAlignment<'a, Param0: ::std::convert::Into<PosPrinterAlignment>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAlignment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlignment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -14273,12 +14672,18 @@ unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
@@ -14297,12 +14702,18 @@ impl ReceiptPrintJob {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetBarcodeRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBarcodeRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterRotation>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetPrintRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0, includebitmaps: bool) -> ::windows::core::Result<()> {
+    pub fn SetPrintRotation<'a, P0>(&self, value: P0, includebitmaps: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterRotation>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value.into(), includebitmaps).ok() }
     }
@@ -14314,25 +14725,39 @@ impl ReceiptPrintJob {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2) -> ::windows::core::Result<()> {
+    pub fn SetBitmap<'a, P0, P1>(&self, bitmapnumber: u32, bitmap: P0, alignment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<'a, P0, P1>(&self, bitmapnumber: u32, bitmap: P0, alignment: P1, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn SetCustomAlignedBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance, width).ok() }
     }
@@ -14342,46 +14767,77 @@ impl ReceiptPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn DrawRuledLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PosPrinterLineDirection>, Param3: ::std::convert::Into<PosPrinterLineStyle>>(&self, positionlist: Param0, linedirection: Param1, linewidth: u32, linestyle: Param3, linecolor: u32) -> ::windows::core::Result<()> {
+    pub fn DrawRuledLine<'a, P0, P1, P2>(&self, positionlist: P0, linedirection: P1, linewidth: u32, linestyle: P2, linecolor: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterLineDirection>,
+        P2: ::std::convert::Into<PosPrinterLineStyle>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection.into(), linewidth, linestyle.into(), linecolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>, Param5: ::std::convert::Into<PosPrinterAlignment>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignment: Param5) -> ::windows::core::Result<()> {
+    pub fn PrintBarcode<'a, P0, P1, P2>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: P1, alignment: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterBarcodeTextPosition>,
+        P2: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcodeCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBarcodeCustomAlign<'a, P0, P1>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: P1, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterBarcodeTextPosition>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1) -> ::windows::core::Result<()> {
+    pub fn PrintBitmap<'a, P0, P1>(&self, bitmap: P0, alignment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<'a, P0, P1>(&self, bitmap: P0, alignment: P1, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<'a, P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn MarkFeed<'a, Param0: ::std::convert::Into<PosPrinterMarkFeedKind>>(&self, kind: Param0) -> ::windows::core::Result<()> {
+    pub fn MarkFeed<'a, P0>(&self, kind: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterMarkFeedKind>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).MarkFeed)(::windows::core::Interface::as_raw(this), kind.into()).ok() }
     }
@@ -14401,7 +14857,11 @@ impl ReceiptPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).StampPaper)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
+    pub fn Print2<'a, P0, P1>(&self, data: P0, printoptions: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
+    {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
     }
@@ -14915,12 +15375,18 @@ impl ::core::default::Default for SizeUInt32 {
 pub struct SlipPrintJob(::windows::core::IUnknown);
 impl SlipPrintJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
@@ -14939,12 +15405,18 @@ impl SlipPrintJob {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetBarcodeRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBarcodeRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterRotation>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetPrintRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0, includebitmaps: bool) -> ::windows::core::Result<()> {
+    pub fn SetPrintRotation<'a, P0>(&self, value: P0, includebitmaps: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PosPrinterRotation>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value.into(), includebitmaps).ok() }
     }
@@ -14956,25 +15428,39 @@ impl SlipPrintJob {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2) -> ::windows::core::Result<()> {
+    pub fn SetBitmap<'a, P0, P1>(&self, bitmapnumber: u32, bitmap: P0, alignment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<'a, P0, P1>(&self, bitmapnumber: u32, bitmap: P0, alignment: P1, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn SetCustomAlignedBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance, width).ok() }
     }
@@ -14984,46 +15470,78 @@ impl SlipPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn DrawRuledLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PosPrinterLineDirection>, Param3: ::std::convert::Into<PosPrinterLineStyle>>(&self, positionlist: Param0, linedirection: Param1, linewidth: u32, linestyle: Param3, linecolor: u32) -> ::windows::core::Result<()> {
+    pub fn DrawRuledLine<'a, P0, P1, P2>(&self, positionlist: P0, linedirection: P1, linewidth: u32, linestyle: P2, linecolor: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterLineDirection>,
+        P2: ::std::convert::Into<PosPrinterLineStyle>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection.into(), linewidth, linestyle.into(), linecolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>, Param5: ::std::convert::Into<PosPrinterAlignment>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignment: Param5) -> ::windows::core::Result<()> {
+    pub fn PrintBarcode<'a, P0, P1, P2>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: P1, alignment: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterBarcodeTextPosition>,
+        P2: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcodeCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBarcodeCustomAlign<'a, P0, P1>(&self, data: P0, symbology: u32, height: u32, width: u32, textposition: P1, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PosPrinterBarcodeTextPosition>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1) -> ::windows::core::Result<()> {
+    pub fn PrintBitmap<'a, P0, P1>(&self, bitmap: P0, alignment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<'a, P0, P1>(&self, bitmap: P0, alignment: P1, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+        P1: ::std::convert::Into<PosPrinterAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<'a, P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
+    pub fn Print2<'a, P0, P1>(&self, data: P0, printoptions: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>,
+    {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
     }
@@ -15523,7 +16041,12 @@ impl UnifiedPosErrorData {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<UnifiedPosErrorSeverity>, Param2: ::std::convert::Into<UnifiedPosErrorReason>>(message: Param0, severity: Param1, reason: Param2, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData> {
+    pub fn CreateInstance<'a, P0, P1, P2>(message: P0, severity: P1, reason: P2, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<UnifiedPosErrorSeverity>,
+        P2: ::std::convert::Into<UnifiedPosErrorReason>,
+    {
         Self::IUnifiedPosErrorDataFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), message.into().abi(), severity.into(), reason.into(), extendedreason, result__.as_mut_ptr()).from_abi::<UnifiedPosErrorData>(result__)

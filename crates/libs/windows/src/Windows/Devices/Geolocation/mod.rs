@@ -236,14 +236,20 @@ impl GeoboundingBox {
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn CreateWithAltitudeReference<'a, Param2: ::std::convert::Into<AltitudeReferenceSystem>>(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: Param2) -> ::windows::core::Result<GeoboundingBox> {
+    pub fn CreateWithAltitudeReference<'a, P0>(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: P0) -> ::windows::core::Result<GeoboundingBox>
+    where
+        P0: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeoboundingBoxFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReference)(::windows::core::Interface::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem.into(), result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, Param2: ::std::convert::Into<AltitudeReferenceSystem>>(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: Param2, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox> {
+    pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, P0>(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: P0, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>
+    where
+        P0: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeoboundingBoxFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows::core::Interface::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem.into(), spatialreferenceid, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
@@ -251,7 +257,11 @@ impl GeoboundingBox {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryCompute<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(positions: Param0) -> ::windows::core::Result<GeoboundingBox> {
+    pub fn TryCompute<'a, P0, E0>(positions: P0) -> ::windows::core::Result<GeoboundingBox>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryCompute)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
@@ -259,7 +269,12 @@ impl GeoboundingBox {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryComputeWithAltitudeReference<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AltitudeReferenceSystem>>(positions: Param0, altituderefsystem: Param1) -> ::windows::core::Result<GeoboundingBox> {
+    pub fn TryComputeWithAltitudeReference<'a, P0, E0, P1>(positions: P0, altituderefsystem: P1) -> ::windows::core::Result<GeoboundingBox>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryComputeWithAltitudeReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altituderefsystem.into(), result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
@@ -267,7 +282,12 @@ impl GeoboundingBox {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryComputeWithAltitudeReferenceAndSpatialReference<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AltitudeReferenceSystem>>(positions: Param0, altituderefsystem: Param1, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox> {
+    pub fn TryComputeWithAltitudeReferenceAndSpatialReference<'a, P0, E0, P1>(positions: P0, altituderefsystem: P1, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altituderefsystem.into(), spatialreferenceid, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
@@ -417,14 +437,20 @@ impl Geocircle {
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn CreateWithAltitudeReferenceSystem<'a, Param2: ::std::convert::Into<AltitudeReferenceSystem>>(position: BasicGeoposition, radius: f64, altitudereferencesystem: Param2) -> ::windows::core::Result<Geocircle> {
+    pub fn CreateWithAltitudeReferenceSystem<'a, P0>(position: BasicGeoposition, radius: f64, altitudereferencesystem: P0) -> ::windows::core::Result<Geocircle>
+    where
+        P0: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeocircleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), position, radius, altitudereferencesystem.into(), result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<'a, Param2: ::std::convert::Into<AltitudeReferenceSystem>>(position: BasicGeoposition, radius: f64, altitudereferencesystem: Param2, spatialreferenceid: u32) -> ::windows::core::Result<Geocircle> {
+    pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<'a, P0>(position: BasicGeoposition, radius: f64, altitudereferencesystem: P0, spatialreferenceid: u32) -> ::windows::core::Result<Geocircle>
+    where
+        P0: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeocircleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId)(::windows::core::Interface::as_raw(this), position, radius, altitudereferencesystem.into(), spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
@@ -887,7 +913,10 @@ impl Geolocator {
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn SetDesiredAccuracy<'a, Param0: ::std::convert::Into<PositionAccuracy>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDesiredAccuracy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PositionAccuracy>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredAccuracy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -945,7 +974,10 @@ impl Geolocator {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PositionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PositionChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -960,7 +992,10 @@ impl Geolocator {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1011,7 +1046,11 @@ impl Geolocator {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDefaultGeoposition<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultGeoposition<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGeolocatorStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetDefaultGeoposition)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1033,7 +1072,11 @@ impl Geolocator {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDesiredAccuracyInMeters<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDesiredAccuracyInMeters<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredAccuracyInMeters)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1125,7 +1168,11 @@ impl Geopath {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(positions: Param0) -> ::windows::core::Result<Geopath> {
+    pub fn Create<'a, P0, E0>(positions: P0) -> ::windows::core::Result<Geopath>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Geopath>(result__)
@@ -1133,7 +1180,12 @@ impl Geopath {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAltitudeReference<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AltitudeReferenceSystem>>(positions: Param0, altitudereferencesystem: Param1) -> ::windows::core::Result<Geopath> {
+    pub fn CreateWithAltitudeReference<'a, P0, E0, P1>(positions: P0, altitudereferencesystem: P1) -> ::windows::core::Result<Geopath>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altitudereferencesystem.into(), result__.as_mut_ptr()).from_abi::<Geopath>(result__)
@@ -1141,7 +1193,12 @@ impl Geopath {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AltitudeReferenceSystem>>(positions: Param0, altitudereferencesystem: Param1, spatialreferenceid: u32) -> ::windows::core::Result<Geopath> {
+    pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, P0, E0, P1>(positions: P0, altitudereferencesystem: P1, spatialreferenceid: u32) -> ::windows::core::Result<Geopath>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altitudereferencesystem.into(), spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geopath>(result__)
@@ -1278,14 +1335,20 @@ impl Geopoint {
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn CreateWithAltitudeReferenceSystem<'a, Param1: ::std::convert::Into<AltitudeReferenceSystem>>(position: BasicGeoposition, altitudereferencesystem: Param1) -> ::windows::core::Result<Geopoint> {
+    pub fn CreateWithAltitudeReferenceSystem<'a, P0>(position: BasicGeoposition, altitudereferencesystem: P0) -> ::windows::core::Result<Geopoint>
+    where
+        P0: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeopointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), position, altitudereferencesystem.into(), result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<'a, Param1: ::std::convert::Into<AltitudeReferenceSystem>>(position: BasicGeoposition, altitudereferencesystem: Param1, spatialreferenceid: u32) -> ::windows::core::Result<Geopoint> {
+    pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<'a, P0>(position: BasicGeoposition, altitudereferencesystem: P0, spatialreferenceid: u32) -> ::windows::core::Result<Geopoint>
+    where
+        P0: ::std::convert::Into<AltitudeReferenceSystem>,
+    {
         Self::IGeopointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId)(::windows::core::Interface::as_raw(this), position, altitudereferencesystem.into(), spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
@@ -1641,7 +1704,10 @@ impl GeovisitMonitor {
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    pub fn Start<'a, Param0: ::std::convert::Into<VisitMonitoringScope>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Start<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<VisitMonitoringScope>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1652,7 +1718,10 @@ impl GeovisitMonitor {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VisitStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VisitStateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();

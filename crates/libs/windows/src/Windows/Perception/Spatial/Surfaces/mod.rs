@@ -213,7 +213,10 @@ impl SpatialSurfaceInfo {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetBounds<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>> {
+    pub fn TryGetBounds<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -231,7 +234,10 @@ impl SpatialSurfaceInfo {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryComputeLatestMeshWithOptionsAsync<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, SpatialSurfaceMeshOptions>>>(&self, maxtrianglespercubicmeter: f64, options: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
+    pub fn TryComputeLatestMeshWithOptionsAsync<'a, P0>(&self, maxtrianglespercubicmeter: f64, options: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialSurfaceMeshOptions>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -540,7 +546,10 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetVertexPositionFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVertexPositionFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -555,7 +564,10 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetTriangleIndexFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTriangleIndexFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -570,7 +582,10 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetVertexNormalFormat<'a, Param0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVertexNormalFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -700,19 +715,29 @@ impl SpatialSurfaceObserver {
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
-    pub fn SetBoundingVolume<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::SpatialBoundingVolume>>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBoundingVolume<'a, P0>(&self, bounds: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::SpatialBoundingVolume>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolume)(::windows::core::Interface::as_raw(this), bounds.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetBoundingVolumes<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBoundingVolumes<'a, P0, E0>(&self, bounds: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolumes)(::windows::core::Interface::as_raw(this), bounds.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ObservedSurfacesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ObservedSurfacesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();

@@ -4,7 +4,10 @@ pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::
 pub struct ISoftwareBitmapNative(::windows::core::IUnknown);
 impl ISoftwareBitmapNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`*"]
-    pub unsafe fn GetData<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn GetData<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -71,13 +74,23 @@ pub struct ISoftwareBitmapNativeFactory(::windows::core::IUnknown);
 impl ISoftwareBitmapNativeFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
-    pub unsafe fn CreateFromWICBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Graphics::Imaging::IWICBitmap>>, Param1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFromWICBitmap<'a, P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Graphics::Imaging::IWICBitmap>>,
+        P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateFromWICBitmap)(::windows::core::Interface::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateFromMF2DBuffer2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>>, Param4: ::std::convert::Into<super::super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFromMF2DBuffer2<'a, P0, P1, T>(&self, data: P0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>>,
+        P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Interface::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), ::core::mem::transmute(width), ::core::mem::transmute(height), forcereadonly.into(), ::core::mem::transmute(mindisplayaperture), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }

@@ -91,18 +91,30 @@ pub struct IWPCProviderConfig(::windows::core::IUnknown);
 impl IWPCProviderConfig {
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSummary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetUserSummary<'a, P0>(&self, bstrsid: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).GetUserSummary)(::windows::core::Interface::as_raw(self), bstrsid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Configure<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, hwnd: Param0, bstrsid: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Configure<'a, P0, P1>(&self, hwnd: P0, bstrsid: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), hwnd.into(), bstrsid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestOverride<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<WPCFLAG_RESTRICTION>>(&self, hwnd: Param0, bstrpath: Param1, dwflags: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn RequestOverride<'a, P0, P1, P2>(&self, hwnd: P0, bstrpath: P1, dwflags: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<WPCFLAG_RESTRICTION>,
+    {
         (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into(), bstrpath.into().abi(), dwflags.into()).ok()
     }
 }
@@ -363,7 +375,11 @@ impl IWPCWebSettings {
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestURLOverride<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, hwnd: Param0, pcszurl: Param1, ppcszsuburls: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn RequestURLOverride<'a, P0, P1>(&self, hwnd: P0, pcszurl: P1, ppcszsuburls: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
         (::windows::core::Interface::vtable(self).RequestURLOverride)(::windows::core::Interface::as_raw(self), hwnd.into(), pcszurl.into(), ppcszsuburls.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppcszsuburls)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
@@ -438,12 +454,18 @@ impl IWindowsParentalControls {
         (::windows::core::Interface::vtable(self).base__.GetVisibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
-    pub unsafe fn GetUserSettings<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCSettings> {
+    pub unsafe fn GetUserSettings<'a, P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetUserSettings)(::windows::core::Interface::as_raw(self), pcszsid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWPCSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
-    pub unsafe fn GetWebSettings<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCWebSettings> {
+    pub unsafe fn GetWebSettings<'a, P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetWebSettings)(::windows::core::Interface::as_raw(self), pcszsid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWPCWebSettings>(result__)
     }
@@ -452,7 +474,10 @@ impl IWindowsParentalControls {
         (::windows::core::Interface::vtable(self).base__.GetWebFilterInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidid), ::core::mem::transmute(ppszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
-    pub unsafe fn GetGamesSettings<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCGamesSettings> {
+    pub unsafe fn GetGamesSettings<'a, P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCGamesSettings>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetGamesSettings)(::windows::core::Interface::as_raw(self), pcszsid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWPCGamesSettings>(result__)
     }
@@ -523,12 +548,18 @@ impl IWindowsParentalControlsCore {
         (::windows::core::Interface::vtable(self).GetVisibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
-    pub unsafe fn GetUserSettings<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCSettings> {
+    pub unsafe fn GetUserSettings<'a, P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetUserSettings)(::windows::core::Interface::as_raw(self), pcszsid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWPCSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
-    pub unsafe fn GetWebSettings<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, pcszsid: Param0) -> ::windows::core::Result<IWPCWebSettings> {
+    pub unsafe fn GetWebSettings<'a, P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetWebSettings)(::windows::core::Interface::as_raw(self), pcszsid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWPCWebSettings>(result__)
     }

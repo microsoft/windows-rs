@@ -62,14 +62,25 @@ impl Geofence {
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(id: Param0, geoshape: Param1) -> ::windows::core::Result<Geofence> {
+    pub fn Create<'a, P0, P1, E1>(id: P0, geoshape: P1) -> ::windows::core::Result<Geofence>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
-    pub fn CreateWithMonitorStates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<MonitoredGeofenceStates>>(id: Param0, geoshape: Param1, monitoredstates: Param2, singleuse: bool) -> ::windows::core::Result<Geofence> {
+    pub fn CreateWithMonitorStates<'a, P0, P1, E1, P2>(id: P0, geoshape: P1, monitoredstates: P2, singleuse: bool) -> ::windows::core::Result<Geofence>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::Into<MonitoredGeofenceStates>,
+    {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithMonitorStates)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates.into(), singleuse, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
@@ -77,7 +88,13 @@ impl Geofence {
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesAndDwellTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<MonitoredGeofenceStates>>(id: Param0, geoshape: Param1, monitoredstates: Param2, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence> {
+    pub fn CreateWithMonitorStatesAndDwellTime<'a, P0, P1, E1, P2>(id: P0, geoshape: P1, monitoredstates: P2, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::Into<MonitoredGeofenceStates>,
+    {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates.into(), singleuse, dwelltime, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
@@ -85,7 +102,13 @@ impl Geofence {
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<MonitoredGeofenceStates>>(id: Param0, geoshape: Param1, monitoredstates: Param2, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence> {
+    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<'a, P0, P1, E1, P2>(id: P0, geoshape: P1, monitoredstates: P2, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::Into<MonitoredGeofenceStates>,
+    {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates.into(), singleuse, dwelltime, starttime, duration, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
@@ -190,7 +213,10 @@ impl GeofenceMonitor {
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GeofenceStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GeofenceStateChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -214,7 +240,10 @@ impl GeofenceMonitor {
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();

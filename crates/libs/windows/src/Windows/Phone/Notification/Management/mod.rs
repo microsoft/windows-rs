@@ -16,7 +16,11 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn ProcessTriggerDetails<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(pdetails: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessTriggerDetails<'a, P0, E0>(pdetails: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAccessoryNotificationTriggerDetails>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).ProcessTriggerDetails)(::windows::core::Interface::as_raw(this), pdetails.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation_Collections\"`*"]
@@ -39,7 +43,10 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCall)(::windows::core::Interface::as_raw(this), phonecallid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn AcceptPhoneCallOnEndpoint<'a, Param1: ::std::convert::Into<PhoneCallAudioEndpoint>>(phonecallid: u32, endpoint: Param1) -> ::windows::core::Result<()> {
+    pub fn AcceptPhoneCallOnEndpoint<'a, P0>(phonecallid: u32, endpoint: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PhoneCallAudioEndpoint>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallOnEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -47,7 +54,10 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phonecallid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn AcceptPhoneCallWithVideoOnAudioEndpoint<'a, Param1: ::std::convert::Into<PhoneCallAudioEndpoint>>(phonecallid: u32, endpoint: Param1) -> ::windows::core::Result<()> {
+    pub fn AcceptPhoneCallWithVideoOnAudioEndpoint<'a, P0>(phonecallid: u32, endpoint: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PhoneCallAudioEndpoint>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -59,19 +69,33 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).RejectPhoneCallWithText)(::windows::core::Interface::as_raw(this), phonecallid, textresponseid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCall<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(phoneline: ::windows::core::GUID, phonenumber: Param1) -> ::windows::core::Result<()> {
+    pub fn MakePhoneCall<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCall)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallOnAudioEndpoint<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PhoneCallAudioEndpoint>>(phoneline: ::windows::core::GUID, phonenumber: Param1, endpoint: Param2) -> ::windows::core::Result<()> {
+    pub fn MakePhoneCallOnAudioEndpoint<'a, P0, P1>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PhoneCallAudioEndpoint>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallWithVideo<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(phoneline: ::windows::core::GUID, phonenumber: Param1) -> ::windows::core::Result<()> {
+    pub fn MakePhoneCallWithVideo<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PhoneCallAudioEndpoint>>(phoneline: ::windows::core::GUID, phonenumber: Param1, endpoint: Param2) -> ::windows::core::Result<()> {
+    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, P0, P1>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PhoneCallAudioEndpoint>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -98,7 +122,10 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SetPhoneCallAudioEndpoint<'a, Param0: ::std::convert::Into<PhoneCallAudioEndpoint>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPhoneCallAudioEndpoint<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PhoneCallAudioEndpoint>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SetPhoneCallAudioEndpoint)(::windows::core::Interface::as_raw(this), value.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -156,7 +183,10 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn PerformMediaPlaybackCommand<'a, Param0: ::std::convert::Into<PlaybackCommand>>(command: Param0) -> ::windows::core::Result<()> {
+    pub fn PerformMediaPlaybackCommand<'a, P0>(command: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PlaybackCommand>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).PerformMediaPlaybackCommand)(::windows::core::Interface::as_raw(this), command.into()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -189,15 +219,24 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn EnableNotificationsForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<()> {
+    pub fn EnableNotificationsForApplication<'a, P0>(appid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DisableNotificationsForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<()> {
+    pub fn DisableNotificationsForApplication<'a, P0>(appid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNotificationsForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn IsNotificationEnabledForApplication<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsNotificationEnabledForApplication<'a, P0>(appid: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -227,7 +266,10 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetAppIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appid: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn GetAppIcon<'a, P0>(appid: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAppIcon)(::windows::core::Interface::as_raw(this), appid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
@@ -246,7 +288,10 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn ClearToast<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+    pub fn ClearToast<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).ClearToast)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
@@ -289,43 +334,72 @@ impl AccessoryManager {
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFolders<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(emailaccount: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
+    pub fn GetFolders<'a, P0>(emailaccount: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetFolders)(::windows::core::Interface::as_raw(this), emailaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn EnableEmailNotificationEmailAccount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(emailaccount: Param0) -> ::windows::core::Result<()> {
+    pub fn EnableEmailNotificationEmailAccount<'a, P0>(emailaccount: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DisableEmailNotificationEmailAccount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(emailaccount: Param0) -> ::windows::core::Result<()> {
+    pub fn DisableEmailNotificationEmailAccount<'a, P0>(emailaccount: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableEmailNotificationEmailAccount)(::windows::core::Interface::as_raw(this), emailaccount.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EnableEmailNotificationFolderFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(emailaccount: Param0, folders: Param1) -> ::windows::core::Result<()> {
+    pub fn EnableEmailNotificationFolderFilter<'a, P0, P1, E1>(emailaccount: P0, folders: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Interface::as_raw(this), emailaccount.into().abi(), folders.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn UpdateEmailReadStatus<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BinaryId>>>(messageentryid: Param0, isread: bool) -> ::windows::core::Result<()> {
+    pub fn UpdateEmailReadStatus<'a, P0>(messageentryid: P0, isread: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BinaryId>>,
+    {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateEmailReadStatus)(::windows::core::Interface::as_raw(this), messageentryid.into().abi(), isread).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SnoozeAlarmByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+    pub fn SnoozeAlarmByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DismissAlarmByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+    pub fn DismissAlarmByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissAlarmByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SnoozeReminderByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+    pub fn SnoozeReminderByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).SnoozeReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn DismissReminderByInstanceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(instanceid: Param0) -> ::windows::core::Result<()> {
+    pub fn DismissReminderByInstanceId<'a, P0>(instanceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Interface::vtable(this).DismissReminderByInstanceId)(::windows::core::Interface::as_raw(this), instanceid.into().abi()).ok() })
     }
     #[doc(hidden)]

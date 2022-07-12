@@ -1,7 +1,10 @@
 #[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
+pub unsafe fn AcquireDeveloperLicense<'a, P0>(hwndparent: P0) -> ::windows::core::Result<super::super::Foundation::FILETIME>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
@@ -23,7 +26,10 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::F
 #[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveDeveloperLicense<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn RemoveDeveloperLicense<'a, P0>(hwndparent: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RemoveDeveloperLicense(hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT;

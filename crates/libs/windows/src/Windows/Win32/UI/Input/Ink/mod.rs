@@ -54,7 +54,12 @@ pub struct IInkD2DRenderer(::windows::core::IUnknown);
 impl IInkD2DRenderer {
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Draw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, pd2d1devicecontext: Param0, pinkstrokeiterable: Param1, fhighcontrast: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn Draw<'a, P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), fhighcontrast.into()).ok()
     }
 }
@@ -107,7 +112,12 @@ pub struct IInkD2DRenderer_Vtbl {
 pub struct IInkD2DRenderer2(::windows::core::IUnknown);
 impl IInkD2DRenderer2 {
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn Draw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<INK_HIGH_CONTRAST_ADJUSTMENT>>(&self, pd2d1devicecontext: Param0, pinkstrokeiterable: Param1, highcontrastadjustment: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn Draw<'a, P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<INK_HIGH_CONTRAST_ADJUSTMENT>,
+    {
         (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment.into()).ok()
     }
 }
@@ -157,16 +167,26 @@ pub struct IInkD2DRenderer2_Vtbl {
 pub struct IInkDesktopHost(::windows::core::IUnknown);
 impl IInkDesktopHost {
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn QueueWorkItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkHostWorkItem>>>(&self, workitem: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn QueueWorkItem<'a, P0>(&self, workitem: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInkHostWorkItem>>,
+    {
         (::windows::core::Interface::vtable(self).QueueWorkItem)(::windows::core::Interface::as_raw(self), workitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn CreateInkPresenter<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateInkPresenter<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateInkPresenter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn CreateAndInitializeInkPresenter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, T: ::windows::core::Interface>(&self, rootvisual: Param0, width: f32, height: f32) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateAndInitializeInkPresenter<'a, P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Interface::as_raw(self), rootvisual.into().abi(), ::core::mem::transmute(width), ::core::mem::transmute(height), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -269,11 +289,18 @@ pub struct IInkHostWorkItem_Vtbl {
 pub struct IInkPresenterDesktop(::windows::core::IUnknown);
 impl IInkPresenterDesktop {
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn SetRootVisual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, rootvisual: Param0, device: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRootVisual<'a, P0, P1>(&self, rootvisual: P0, device: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetRootVisual)(::windows::core::Interface::as_raw(self), rootvisual.into().abi(), device.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn SetCommitRequestHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkCommitRequestHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCommitRequestHandler<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInkCommitRequestHandler>>,
+    {
         (::windows::core::Interface::vtable(self).SetCommitRequestHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]

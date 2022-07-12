@@ -15,7 +15,12 @@ impl AsyncActionCompletedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncAction>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AsyncStatus>>(&self, asyncinfo: Param0, asyncstatus: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncAction>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AsyncStatus>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
     }
@@ -102,7 +107,12 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionProgressHandl
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, TProgress>>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, TProgress>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), progressinfo.into().abi()).ok() }
     }
@@ -197,7 +207,12 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionWithProgressC
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AsyncStatus>>(&self, asyncinfo: Param0, asyncstatus: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AsyncStatus>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
     }
@@ -292,7 +307,12 @@ impl<TResult: ::windows::core::RuntimeType + 'static> AsyncOperationCompletedHan
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperation<TResult>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AsyncStatus>>(&self, asyncinfo: Param0, asyncstatus: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperation<TResult>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AsyncStatus>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
     }
@@ -388,7 +408,12 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, TProgress>>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, TProgress>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), progressinfo.into().abi()).ok() }
     }
@@ -488,7 +513,12 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<AsyncStatus>>(&self, asyncinfo: Param0, asyncstatus: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<AsyncStatus>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
     }
@@ -664,7 +694,10 @@ impl Deferral {
         unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DeferralCompletedHandler>>>(handler: Param0) -> ::windows::core::Result<Deferral> {
+    pub fn Create<'a, P0>(handler: P0) -> ::windows::core::Result<Deferral>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DeferralCompletedHandler>>,
+    {
         Self::IDeferralFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<Deferral>(result__)
@@ -853,7 +886,11 @@ impl<T: ::windows::core::RuntimeType + 'static> EventHandler<T> {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, T>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
@@ -1012,7 +1049,10 @@ impl ::windows::core::RuntimeName for GuidHelper {
 pub struct IAsyncAction(::windows::core::IUnknown);
 impl IAsyncAction {
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionCompletedHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionCompletedHandler>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1186,7 +1226,10 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn SetProgress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionProgressHandler<TProgress>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionProgressHandler<TProgress>>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1199,7 +1242,10 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionWithProgressCompletedHandler<TProgress>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionWithProgressCompletedHandler<TProgress>>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1485,7 +1531,10 @@ where
     TResult: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationCompletedHandler<TResult>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationCompletedHandler<TResult>>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1667,7 +1716,10 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn SetProgress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationProgressHandler<TResult, TProgress>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationProgressHandler<TResult, TProgress>>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1680,7 +1732,10 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1962,7 +2017,10 @@ pub struct IDeferralFactory_Vtbl {
 pub struct IGetActivationFactory(::windows::core::IUnknown);
 impl IGetActivationFactory {
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn GetActivationFactory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn GetActivationFactory<'a, P0>(&self, activatableclassid: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2174,7 +2232,10 @@ impl IMemoryBufferReference {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<EventRegistrationToken> {
+    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<EventRegistrationToken>::zeroed();
@@ -3987,14 +4048,20 @@ impl PropertyValue {
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn CreateString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateString<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn CreateInspectable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateInspectable<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInspectable)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
@@ -4321,7 +4388,11 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, TSender>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, TResult>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, TSender>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, TResult>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
@@ -4422,14 +4493,20 @@ impl Uri {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn UnescapeComponent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tounescape: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn UnescapeComponent<'a, P0>(tounescape: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUriEscapeStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).UnescapeComponent)(::windows::core::Interface::as_raw(this), tounescape.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn EscapeComponent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(toescape: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn EscapeComponent<'a, P0>(toescape: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUriEscapeStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).EscapeComponent)(::windows::core::Interface::as_raw(this), toescape.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -4556,7 +4633,10 @@ impl Uri {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Equals<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Uri>>>(&self, puri: Param0) -> ::windows::core::Result<bool> {
+    pub fn Equals<'a, P0>(&self, puri: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Uri>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -4564,7 +4644,10 @@ impl Uri {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn CombineUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, relativeuri: Param0) -> ::windows::core::Result<Uri> {
+    pub fn CombineUri<'a, P0>(&self, relativeuri: P0) -> ::windows::core::Result<Uri>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4572,14 +4655,21 @@ impl Uri {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn CreateUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(uri: Param0) -> ::windows::core::Result<Uri> {
+    pub fn CreateUri<'a, P0>(uri: P0) -> ::windows::core::Result<Uri>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUri)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn CreateWithRelativeUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(baseuri: Param0, relativeuri: Param1) -> ::windows::core::Result<Uri> {
+    pub fn CreateWithRelativeUri<'a, P0, P1>(baseuri: P0, relativeuri: P1) -> ::windows::core::Result<Uri>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithRelativeUri)(::windows::core::Interface::as_raw(this), baseuri.into().abi(), relativeuri.into().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
@@ -4726,7 +4816,11 @@ impl WwwFormUrlDecoder {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IWwwFormUrlDecoderEntry>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IWwwFormUrlDecoderEntry>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -4743,7 +4837,10 @@ impl WwwFormUrlDecoder {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn GetFirstValueByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetFirstValueByName<'a, P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -4751,7 +4848,10 @@ impl WwwFormUrlDecoder {
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn CreateWwwFormUrlDecoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(query: Param0) -> ::windows::core::Result<WwwFormUrlDecoder> {
+    pub fn CreateWwwFormUrlDecoder<'a, P0>(query: P0) -> ::windows::core::Result<WwwFormUrlDecoder>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWwwFormUrlDecoder)(::windows::core::Interface::as_raw(this), query.into().abi(), result__.as_mut_ptr()).from_abi::<WwwFormUrlDecoder>(result__)

@@ -134,7 +134,10 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPresentityURI<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -145,7 +148,10 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -156,7 +162,10 @@ impl IRTCBuddy {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -252,7 +261,10 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPresentityURI<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -263,7 +275,10 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -274,7 +289,10 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -319,7 +337,10 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>>(&self, enproperty: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PresenceProperty<'a, P0>(&self, enproperty: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -638,15 +659,24 @@ impl IRTCBuddyGroup {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bstrgroupname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrgroupname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn AddBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn AddBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+    {
         (::windows::core::Interface::vtable(self).AddBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+    {
         (::windows::core::Interface::vtable(self).RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -668,7 +698,10 @@ impl IRTCBuddyGroup {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -880,12 +913,20 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSession<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession> {
+    pub unsafe fn CreateSession<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<IRTCSession>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetListenForIncomingSessions<'a, Param0: ::std::convert::Into<RTC_LISTEN_MODE>>(&self, enlisten: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetListenForIncomingSessions<'a, P0>(&self, enlisten: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_LISTEN_MODE>,
+    {
         (::windows::core::Interface::vtable(self).SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), enlisten.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -900,46 +941,74 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).get_NetworkAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ftcp), ::core::mem::transmute(fexternal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn put_Volume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         (::windows::core::Interface::vtable(self).put_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_Volume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).get_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, fmuted: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn put_AudioMuted<'a, P0>(&self, endevice: P0, fmuted: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         (::windows::core::Interface::vtable(self).put_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(fmuted)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_AudioMuted<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).get_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow<'a, Param0: ::std::convert::Into<RTC_VIDEO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
+    pub unsafe fn get_IVideoWindow<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>
+    where
+        P0: ::std::convert::Into<RTC_VIDEO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).get_IVideoWindow)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, endevice: Param0, bstrdevicename: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PreferredAudioDevice<'a, P0, P1>(&self, endevice: P0, bstrdevicename: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PreferredAudioDevice<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PreferredVolume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         (::windows::core::Interface::vtable(self).put_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_PreferredVolume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).get_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -954,7 +1023,10 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPreferredVideoDevice<'a, P0>(&self, bstrdevicename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetPreferredVideoDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -992,7 +1064,10 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).NetworkQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn StartT120Applet<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn StartT120Applet<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_T120_APPLET>,
+    {
         (::windows::core::Interface::vtable(self).StartT120Applet)(::windows::core::Interface::as_raw(self), enapplet.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1000,7 +1075,10 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).StopT120Applets)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_IsT120AppletRunning<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_IsT120AppletRunning<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<RTC_T120_APPLET>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), enapplet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
@@ -1012,7 +1090,10 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalUserURI<'a, P0>(&self, bstruseruri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetLocalUserURI)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -1023,15 +1104,24 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalUserName<'a, P0>(&self, bstrusername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn PlayRing<'a, Param0: ::std::convert::Into<RTC_RING_TYPE>>(&self, entype: Param0, bplay: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn PlayRing<'a, P0>(&self, entype: P0, bplay: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_RING_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).PlayRing)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(bplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendDTMF<'a, Param0: ::std::convert::Into<RTC_DTMF>>(&self, endtmf: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SendDTMF<'a, P0>(&self, endtmf: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_DTMF>,
+    {
         (::windows::core::Interface::vtable(self).SendDTMF)(::windows::core::Interface::as_raw(self), endtmf.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1200,12 +1290,20 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSession<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession> {
+    pub unsafe fn CreateSession<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<IRTCSession>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetListenForIncomingSessions<'a, Param0: ::std::convert::Into<RTC_LISTEN_MODE>>(&self, enlisten: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetListenForIncomingSessions<'a, P0>(&self, enlisten: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_LISTEN_MODE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), enlisten.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1220,46 +1318,74 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.get_NetworkAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ftcp), ::core::mem::transmute(fexternal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn put_Volume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_Volume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_Volume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, fmuted: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn put_AudioMuted<'a, P0>(&self, endevice: P0, fmuted: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(fmuted)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AudioMuted<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_AudioMuted<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow<'a, Param0: ::std::convert::Into<RTC_VIDEO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
+    pub unsafe fn get_IVideoWindow<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>
+    where
+        P0: ::std::convert::Into<RTC_VIDEO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_IVideoWindow)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, endevice: Param0, bstrdevicename: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PreferredAudioDevice<'a, P0, P1>(&self, endevice: P0, bstrdevicename: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PreferredAudioDevice<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PreferredAudioDevice<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0, lvolume: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PreferredVolume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredVolume<'a, Param0: ::std::convert::Into<RTC_AUDIO_DEVICE>>(&self, endevice: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_PreferredVolume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -1274,7 +1400,10 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPreferredVideoDevice<'a, P0>(&self, bstrdevicename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetPreferredVideoDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -1312,7 +1441,10 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.NetworkQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn StartT120Applet<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn StartT120Applet<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_T120_APPLET>,
+    {
         (::windows::core::Interface::vtable(self).base__.StartT120Applet)(::windows::core::Interface::as_raw(self), enapplet.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1320,7 +1452,10 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.StopT120Applets)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_IsT120AppletRunning<'a, Param0: ::std::convert::Into<RTC_T120_APPLET>>(&self, enapplet: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn get_IsT120AppletRunning<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<RTC_T120_APPLET>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), enapplet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
@@ -1332,7 +1467,10 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalUserURI<'a, P0>(&self, bstruseruri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetLocalUserURI)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -1343,15 +1481,24 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalUserName<'a, P0>(&self, bstrusername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn PlayRing<'a, Param0: ::std::convert::Into<RTC_RING_TYPE>>(&self, entype: Param0, bplay: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn PlayRing<'a, P0>(&self, entype: P0, bplay: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_RING_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.PlayRing)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(bplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendDTMF<'a, Param0: ::std::convert::Into<RTC_DTMF>>(&self, endtmf: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SendDTMF<'a, P0>(&self, endtmf: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_DTMF>,
+    {
         (::windows::core::Interface::vtable(self).base__.SendDTMF)(::windows::core::Interface::as_raw(self), endtmf.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1364,11 +1511,18 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.IsTuned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AnswerMode<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<RTC_ANSWER_MODE>>(&self, entype: Param0, enmode: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_AnswerMode<'a, P0, P1>(&self, entype: P0, enmode: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
+        P1: ::std::convert::Into<RTC_ANSWER_MODE>,
+    {
         (::windows::core::Interface::vtable(self).put_AnswerMode)(::windows::core::Interface::as_raw(self), entype.into(), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AnswerMode<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>>(&self, entype: Param0) -> ::windows::core::Result<RTC_ANSWER_MODE> {
+    pub unsafe fn get_AnswerMode<'a, P0>(&self, entype: P0) -> ::windows::core::Result<RTC_ANSWER_MODE>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_ANSWER_MODE>::zeroed();
         (::windows::core::Interface::vtable(self).get_AnswerMode)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_ANSWER_MODE>(result__)
     }
@@ -1383,12 +1537,18 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrclientname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientName<'a, P0>(&self, bstrclientname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), bstrclientname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientCurVer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrclientcurver: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientCurVer<'a, P0>(&self, bstrclientcurver: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientCurVer)(::windows::core::Interface::as_raw(self), bstrclientcurver.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1397,25 +1557,43 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSessionWithDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCSession2> {
+    pub unsafe fn CreateSessionWithDescription<'a, P0, P1, P2>(&self, bstrcontenttype: P0, bstrsessiondescription: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<IRTCSession2>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateSessionWithDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetSessionDescriptionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCSessionDescriptionManager>>>(&self, psessiondescriptionmanager: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSessionDescriptionManager<'a, P0>(&self, psessiondescriptionmanager: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCSessionDescriptionManager>>,
+    {
         (::windows::core::Interface::vtable(self).SetSessionDescriptionManager)(::windows::core::Interface::as_raw(self), psessiondescriptionmanager.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>, Param1: ::std::convert::Into<RTC_SECURITY_LEVEL>>(&self, ensecuritytype: Param0, ensecuritylevel: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PreferredSecurityLevel<'a, P0, P1>(&self, ensecuritytype: P0, ensecuritylevel: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+        P1: ::std::convert::Into<RTC_SECURITY_LEVEL>,
+    {
         (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ensecuritylevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_PreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
         (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AllowedPorts<'a, Param1: ::std::convert::Into<RTC_LISTEN_MODE>>(&self, ltransport: i32, enlistenmode: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_AllowedPorts<'a, P0>(&self, ltransport: i32, enlistenmode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_LISTEN_MODE>,
+    {
         (::windows::core::Interface::vtable(self).put_AllowedPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltransport), enlistenmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1593,16 +1771,25 @@ pub struct IRTCClientPortManagement(::windows::core::IUnknown);
 impl IRTCClientPortManagement {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartListenAddressAndPort<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn StartListenAddressAndPort<'a, P0>(&self, bstrinternallocaladdress: P0, linternallocalport: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).StartListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StopListenAddressAndPort<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn StopListenAddressAndPort<'a, P0>(&self, bstrinternallocaladdress: P0, linternallocalport: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).StopListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn GetPortRange<'a, Param0: ::std::convert::Into<RTC_PORT_TYPE>>(&self, enporttype: Param0, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPortRange<'a, P0>(&self, enporttype: P0, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_PORT_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetPortRange)(::windows::core::Interface::as_raw(self), enporttype.into(), ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
     }
 }
@@ -1661,17 +1848,26 @@ pub struct IRTCClientPresence(::windows::core::IUnknown);
 impl IRTCClientPresence {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn EnablePresence<'a, P0>(&self, fusestorage: i16, varstorage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).EnablePresence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusestorage), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Export<'a, P0>(&self, varstorage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn Import<'a, P0>(&self, varstorage: P0, freplaceall: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), varstorage.into().abi(), ::core::mem::transmute(freplaceall)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1687,18 +1883,30 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Buddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn get_Buddy<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<IRTCBuddy>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).get_Buddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn AddBuddy<'a, P0, P1, P2, P3>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fpersistent: i16, pprofile: P3, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddBuddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+    {
         (::windows::core::Interface::vtable(self).RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1714,23 +1922,38 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Watcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn get_Watcher<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<IRTCWatcher>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).get_Watcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher<'a, P0, P1, P2>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddWatcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fblocked), ::core::mem::transmute(fpersistent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>>(&self, pwatcher: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveWatcher<'a, P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>,
+    {
         (::windows::core::Interface::vtable(self).RemoveWatcher)(::windows::core::Interface::as_raw(self), pwatcher.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalPresenceInfo<'a, Param0: ::std::convert::Into<RTC_PRESENCE_STATUS>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enstatus: Param0, bstrnotes: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalPresenceInfo<'a, P0, P1>(&self, enstatus: P0, bstrnotes: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_PRESENCE_STATUS>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), enstatus.into(), bstrnotes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1739,7 +1962,10 @@ impl IRTCClientPresence {
         (::windows::core::Interface::vtable(self).OfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetOfferWatcherMode<'a, Param0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOfferWatcherMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>,
+    {
         (::windows::core::Interface::vtable(self).SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1748,7 +1974,10 @@ impl IRTCClientPresence {
         (::windows::core::Interface::vtable(self).PrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPrivacyMode<'a, Param0: ::std::convert::Into<RTC_PRIVACY_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivacyMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_PRIVACY_MODE>,
+    {
         (::windows::core::Interface::vtable(self).SetPrivacyMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
 }
@@ -1846,17 +2075,26 @@ pub struct IRTCClientPresence2(::windows::core::IUnknown);
 impl IRTCClientPresence2 {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn EnablePresence<'a, P0>(&self, fusestorage: i16, varstorage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).base__.EnablePresence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusestorage), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Export<'a, P0>(&self, varstorage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).base__.Export)(::windows::core::Interface::as_raw(self), varstorage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn Import<'a, P0>(&self, varstorage: P0, freplaceall: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).base__.Import)(::windows::core::Interface::as_raw(self), varstorage.into().abi(), ::core::mem::transmute(freplaceall)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1872,18 +2110,30 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Buddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn get_Buddy<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<IRTCBuddy>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Buddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::core::Result<IRTCBuddy> {
+    pub unsafe fn AddBuddy<'a, P0, P1, P2, P3>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fpersistent: i16, pprofile: P3, lflags: i32) -> ::windows::core::Result<IRTCBuddy>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.AddBuddy)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveBuddy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>>(&self, pbuddy: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveBuddy<'a, P0>(&self, pbuddy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddy>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RemoveBuddy)(::windows::core::Interface::as_raw(self), pbuddy.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1899,23 +2149,38 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Watcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn get_Watcher<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<IRTCWatcher>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Watcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher<'a, P0, P1, P2>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.AddWatcher)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fblocked), ::core::mem::transmute(fpersistent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveWatcher<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>>(&self, pwatcher: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveWatcher<'a, P0>(&self, pwatcher: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCWatcher>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RemoveWatcher)(::windows::core::Interface::as_raw(self), pwatcher.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalPresenceInfo<'a, Param0: ::std::convert::Into<RTC_PRESENCE_STATUS>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enstatus: Param0, bstrnotes: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalPresenceInfo<'a, P0, P1>(&self, enstatus: P0, bstrnotes: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_PRESENCE_STATUS>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), enstatus.into(), bstrnotes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1924,7 +2189,10 @@ impl IRTCClientPresence2 {
         (::windows::core::Interface::vtable(self).base__.OfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetOfferWatcherMode<'a, Param0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOfferWatcherMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1933,12 +2201,19 @@ impl IRTCClientPresence2 {
         (::windows::core::Interface::vtable(self).base__.PrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPrivacyMode<'a, Param0: ::std::convert::Into<RTC_PRIVACY_MODE>>(&self, enmode: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivacyMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_PRIVACY_MODE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetPrivacyMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresenceEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, pprofile: Param0, varstorage: Param1, lflags: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnablePresenceEx<'a, P0, P1>(&self, pprofile: P0, varstorage: P1, lflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).EnablePresenceEx)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), varstorage.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1947,12 +2222,20 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrgroupname: Param0, bstrdata: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup> {
+    pub unsafe fn AddGroup<'a, P0, P1, P2>(&self, bstrgroupname: P0, bstrdata: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddGroup)(::windows::core::Interface::as_raw(self), bstrgroupname.into().abi(), bstrdata.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddyGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddyGroup>>>(&self, pgroup: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveGroup<'a, P0>(&self, pgroup: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCBuddyGroup>>,
+    {
         (::windows::core::Interface::vtable(self).RemoveGroup)(::windows::core::Interface::as_raw(self), pgroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -1968,36 +2251,62 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Group<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<IRTCBuddyGroup> {
+    pub unsafe fn get_Group<'a, P0>(&self, bstrgroupname: P0) -> ::windows::core::Result<IRTCBuddyGroup>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).get_Group)(::windows::core::Interface::as_raw(self), bstrgroupname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddyGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcherEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<RTC_WATCHER_STATE>, Param5: ::std::convert::Into<RTC_ACE_SCOPE>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, enstate: Param3, fpersistent: i16, enscope: Param5, pprofile: Param6, lflags: i32) -> ::windows::core::Result<IRTCWatcher2> {
+    pub unsafe fn AddWatcherEx<'a, P0, P1, P2, P3, P4, P5>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, enstate: P3, fpersistent: i16, enscope: P4, pprofile: P5, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<RTC_WATCHER_STATE>,
+        P4: ::std::convert::Into<RTC_ACE_SCOPE>,
+        P5: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddWatcherEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), enstate.into(), ::core::mem::transmute(fpersistent), enscope.into(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_WatcherEx<'a, Param0: ::std::convert::Into<RTC_WATCHER_MATCH_MODE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enmode: Param0, bstrpresentityuri: Param1) -> ::windows::core::Result<IRTCWatcher2> {
+    pub unsafe fn get_WatcherEx<'a, P0, P1>(&self, enmode: P0, bstrpresentityuri: P1) -> ::windows::core::Result<IRTCWatcher2>
+    where
+        P0: ::std::convert::Into<RTC_WATCHER_MATCH_MODE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).get_WatcherEx)(::windows::core::Interface::as_raw(self), enmode.into(), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, enproperty: Param0, bstrproperty: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PresenceProperty<'a, P0, P1>(&self, enproperty: P0, bstrproperty: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), bstrproperty.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>>(&self, enproperty: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PresenceProperty<'a, P0>(&self, enproperty: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresenceData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnamespace: Param0, bstrdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPresenceData<'a, P0, P1>(&self, bstrnamespace: P0, bstrdata: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetPresenceData)(::windows::core::Interface::as_raw(self), bstrnamespace.into().abi(), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -2012,7 +2321,14 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddyEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<RTC_BUDDY_SUBSCRIPTION_TYPE>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, ensubscriptiontype: Param4, pprofile: Param5, lflags: i32) -> ::windows::core::Result<IRTCBuddy2> {
+    pub unsafe fn AddBuddyEx<'a, P0, P1, P2, P3, P4>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fpersistent: i16, ensubscriptiontype: P3, pprofile: P4, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<RTC_BUDDY_SUBSCRIPTION_TYPE>,
+        P4: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddBuddyEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), ensubscriptiontype.into(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy2>(result__)
     }
@@ -2129,16 +2445,25 @@ pub struct IRTCClientProvisioning(::windows::core::IUnknown);
 impl IRTCClientProvisioning {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprofilexml: Param0) -> ::windows::core::Result<IRTCProfile> {
+    pub unsafe fn CreateProfile<'a, P0>(&self, bstrprofilexml: P0) -> ::windows::core::Result<IRTCProfile>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateProfile)(::windows::core::Interface::as_raw(self), bstrprofilexml.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn EnableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnableProfile<'a, P0>(&self, pprofile: P0, lregisterflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).EnableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(lregisterflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn DisableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn DisableProfile<'a, P0>(&self, pprofile: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).DisableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -2154,7 +2479,13 @@ impl IRTCClientProvisioning {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn GetProfile<'a, P0, P1, P2, P3>(&self, bstruseraccount: P0, bstruserpassword: P1, bstruseruri: P2, bstrserver: P3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).GetProfile)(::windows::core::Interface::as_raw(self), bstruseraccount.into().abi(), bstruserpassword.into().abi(), bstruseruri.into().abi(), bstrserver.into().abi(), ::core::mem::transmute(ltransport), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -2225,16 +2556,25 @@ pub struct IRTCClientProvisioning2(::windows::core::IUnknown);
 impl IRTCClientProvisioning2 {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprofilexml: Param0) -> ::windows::core::Result<IRTCProfile> {
+    pub unsafe fn CreateProfile<'a, P0>(&self, bstrprofilexml: P0) -> ::windows::core::Result<IRTCProfile>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateProfile)(::windows::core::Interface::as_raw(self), bstrprofilexml.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCProfile>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn EnableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnableProfile<'a, P0>(&self, pprofile: P0, lregisterflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).base__.EnableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(lregisterflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn DisableProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn DisableProfile<'a, P0>(&self, pprofile: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).base__.DisableProfile)(::windows::core::Interface::as_raw(self), pprofile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -2250,7 +2590,13 @@ impl IRTCClientProvisioning2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn GetProfile<'a, P0, P1, P2, P3>(&self, bstruseraccount: P0, bstruserpassword: P1, bstruseruri: P2, bstrserver: P3, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetProfile)(::windows::core::Interface::as_raw(self), bstruseraccount.into().abi(), bstruserpassword.into().abi(), bstruseruri.into().abi(), bstrserver.into().abi(), ::core::mem::transmute(ltransport), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -2259,7 +2605,10 @@ impl IRTCClientProvisioning2 {
         (::windows::core::Interface::vtable(self).base__.SessionCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn EnableProfileEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pprofile: Param0, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnableProfileEx<'a, P0>(&self, pprofile: P0, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).EnableProfileEx)(::windows::core::Interface::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(lregisterflags), ::core::mem::transmute(lroamingflags)).ok()
     }
 }
@@ -2956,7 +3305,11 @@ pub struct IRTCEventNotification(::windows::core::IUnknown);
 impl IRTCEventNotification {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Event<'a, Param0: ::std::convert::Into<RTC_EVENT>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, rtcevent: Param0, pevent: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Event<'a, P0, P1>(&self, rtcevent: P0, pevent: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_EVENT>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+    {
         (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), rtcevent.into(), pevent.into().abi()).ok()
     }
 }
@@ -3326,7 +3679,10 @@ impl IRTCMediaRequestEvent {
         (::windows::core::Interface::vtable(self).Accept)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_RemotePreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_RemotePreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
         (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
@@ -3713,17 +4069,30 @@ pub struct IRTCPortManager(::windows::core::IUnknown);
 impl IRTCPortManager {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<RTC_PORT_TYPE>>(&self, bstrremoteaddress: Param0, enporttype: Param1, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetMapping<'a, P0, P1>(&self, bstrremoteaddress: P0, enporttype: P1, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<RTC_PORT_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetMapping)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into().abi(), enporttype.into(), ::core::mem::transmute(pbstrinternallocaladdress), ::core::mem::transmute(plinternallocalport), ::core::mem::transmute(pbstrexternallocaladdress), ::core::mem::transmute(plexternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateRemoteAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrremoteaddress: Param0, bstrinternallocaladdress: Param1, linternallocalport: i32, bstrexternallocaladdress: Param3, lexternallocalport: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn UpdateRemoteAddress<'a, P0, P1, P2>(&self, bstrremoteaddress: P0, bstrinternallocaladdress: P1, linternallocalport: i32, bstrexternallocaladdress: P2, lexternallocalport: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).UpdateRemoteAddress)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into().abi(), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport), bstrexternallocaladdress.into().abi(), ::core::mem::transmute(lexternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReleaseMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32, bstrexternallocaladdress: Param2, lexternallocaladdress: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn ReleaseMapping<'a, P0, P1>(&self, bstrinternallocaladdress: P0, linternallocalport: i32, bstrexternallocaladdress: P1, lexternallocaladdress: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).ReleaseMapping)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport), bstrexternallocaladdress.into().abi(), ::core::mem::transmute(lexternallocaladdress)).ok()
     }
 }
@@ -3791,7 +4160,10 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPresentityURI<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -3802,7 +4174,10 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -3813,7 +4188,10 @@ impl IRTCPresenceContact {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -4008,7 +4386,10 @@ impl IRTCPresenceDevice {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty<'a, Param0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>>(&self, enproperty: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_PresenceProperty<'a, P0>(&self, enproperty: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -4306,7 +4687,10 @@ impl IRTCProfile {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_ProviderURI<'a, Param0: ::std::convert::Into<RTC_PROVIDER_URI>>(&self, enuri: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_ProviderURI<'a, P0>(&self, enuri: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_PROVIDER_URI>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_ProviderURI)(::windows::core::Interface::as_raw(self), enuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -4371,7 +4755,12 @@ impl IRTCProfile {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCredentials<'a, P0, P1, P2>(&self, bstruseruri: P0, bstruseraccount: P1, bstrpassword: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi(), bstruseraccount.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -4518,7 +4907,10 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_ProviderURI<'a, Param0: ::std::convert::Into<RTC_PROVIDER_URI>>(&self, enuri: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_ProviderURI<'a, P0>(&self, enuri: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_PROVIDER_URI>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_ProviderURI)(::windows::core::Interface::as_raw(self), enuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -4583,7 +4975,12 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCredentials<'a, P0, P1, P2>(&self, bstruseruri: P0, bstruseraccount: P1, bstrpassword: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetCredentials)(::windows::core::Interface::as_raw(self), bstruseruri.into().abi(), bstruseraccount.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -4604,7 +5001,10 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRealm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrealm: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRealm<'a, P0>(&self, bstrrealm: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetRealm)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -4900,7 +5300,11 @@ impl IRTCReInviteEvent {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Accept<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Accept<'a, P0, P1>(&self, bstrcontenttype: P0, bstrsessiondescription: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).Accept)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -5235,22 +5639,37 @@ impl IRTCSession {
         (::windows::core::Interface::vtable(self).Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn Terminate<'a, Param0: ::std::convert::Into<RTC_TERMINATE_REASON>>(&self, enreason: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Terminate<'a, P0>(&self, enreason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_TERMINATE_REASON>,
+    {
         (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), enreason.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Redirect<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).Redirect)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::core::Result<IRTCParticipant> {
+    pub unsafe fn AddParticipant<'a, P0, P1>(&self, bstraddress: P0, bstrname: P1) -> ::windows::core::Result<IRTCParticipant>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddParticipant)(::windows::core::Interface::as_raw(self), bstraddress.into().abi(), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCParticipant>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>>(&self, pparticipant: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveParticipant<'a, P0>(&self, pparticipant: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>,
+    {
         (::windows::core::Interface::vtable(self).RemoveParticipant)(::windows::core::Interface::as_raw(self), pparticipant.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -5281,11 +5700,18 @@ impl IRTCSession {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn SendMessage<'a, P0, P1>(&self, bstrmessageheader: P0, bstrmessage: P1, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into().abi(), bstrmessage.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendMessageStatus<'a, Param0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>>(&self, enuserstatus: Param0, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn SendMessageStatus<'a, P0>(&self, enuserstatus: P0, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>,
+    {
         (::windows::core::Interface::vtable(self).SendMessageStatus)(::windows::core::Interface::as_raw(self), enuserstatus.into(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -5298,7 +5724,10 @@ impl IRTCSession {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EncryptionKey<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_EncryptionKey<'a, P0>(&self, lmediatype: i32, encryptionkey: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_EncryptionKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), encryptionkey.into().abi()).ok()
     }
 }
@@ -5418,22 +5847,37 @@ impl IRTCSession2 {
         (::windows::core::Interface::vtable(self).base__.Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn Terminate<'a, Param0: ::std::convert::Into<RTC_TERMINATE_REASON>>(&self, enreason: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Terminate<'a, P0>(&self, enreason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_TERMINATE_REASON>,
+    {
         (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self), enreason.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, Param0: ::std::convert::Into<RTC_SESSION_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, entype: Param0, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn Redirect<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).base__.Redirect)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::core::Result<IRTCParticipant> {
+    pub unsafe fn AddParticipant<'a, P0, P1>(&self, bstraddress: P0, bstrname: P1) -> ::windows::core::Result<IRTCParticipant>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.AddParticipant)(::windows::core::Interface::as_raw(self), bstraddress.into().abi(), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCParticipant>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn RemoveParticipant<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>>(&self, pparticipant: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveParticipant<'a, P0>(&self, pparticipant: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCParticipant>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RemoveParticipant)(::windows::core::Interface::as_raw(self), pparticipant.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -5464,11 +5908,18 @@ impl IRTCSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn SendMessage<'a, P0, P1>(&self, bstrmessageheader: P0, bstrmessage: P1, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into().abi(), bstrmessage.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendMessageStatus<'a, Param0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>>(&self, enuserstatus: Param0, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn SendMessageStatus<'a, P0>(&self, enuserstatus: P0, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>,
+    {
         (::windows::core::Interface::vtable(self).base__.SendMessageStatus)(::windows::core::Interface::as_raw(self), enuserstatus.into(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -5481,36 +5932,61 @@ impl IRTCSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EncryptionKey<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_EncryptionKey<'a, P0>(&self, lmediatype: i32, encryptionkey: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_EncryptionKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), encryptionkey.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinfoheader: Param0, bstrinfo: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn SendInfo<'a, P0, P1>(&self, bstrinfoheader: P0, bstrinfo: P1, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SendInfo)(::windows::core::Interface::as_raw(self), bstrinfoheader.into().abi(), bstrinfo.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>, Param1: ::std::convert::Into<RTC_SECURITY_LEVEL>>(&self, ensecuritytype: Param0, ensecuritylevel: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_PreferredSecurityLevel<'a, P0, P1>(&self, ensecuritytype: P0, ensecuritylevel: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+        P1: ::std::convert::Into<RTC_SECURITY_LEVEL>,
+    {
         (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ensecuritylevel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_PreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
         (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn IsSecurityEnabled<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsSecurityEnabled<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AnswerWithSessionDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AnswerWithSessionDescription<'a, P0, P1>(&self, bstrcontenttype: P0, bstrsessiondescription: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).AnswerWithSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReInviteWithSessionDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn ReInviteWithSessionDescription<'a, P0, P1>(&self, bstrcontenttype: P0, bstrsessiondescription: P1, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).ReInviteWithSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
 }
@@ -5598,17 +6074,27 @@ impl IRTCSessionCallControl {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Forward<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrforwardtouri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Forward<'a, P0>(&self, bstrforwardtouri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).Forward)(::windows::core::Interface::as_raw(self), bstrforwardtouri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Refer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrefertouri: Param0, bstrrefercookie: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Refer<'a, P0, P1>(&self, bstrrefertouri: P0, bstrrefercookie: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).Refer)(::windows::core::Interface::as_raw(self), bstrrefertouri.into().abi(), bstrrefercookie.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReferredByURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrreferredbyuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetReferredByURI<'a, P0>(&self, bstrreferredbyuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetReferredByURI)(::windows::core::Interface::as_raw(self), bstrreferredbyuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -5619,7 +6105,10 @@ impl IRTCSessionCallControl {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReferCookie<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrefercookie: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetReferCookie<'a, P0>(&self, bstrrefercookie: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetReferCookie)(::windows::core::Interface::as_raw(self), bstrrefercookie.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -5707,7 +6196,11 @@ pub struct IRTCSessionDescriptionManager(::windows::core::IUnknown);
 impl IRTCSessionDescriptionManager {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EvaluateSessionDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pfapplicationsession: *mut i16) -> ::windows::core::Result<()> {
+    pub unsafe fn EvaluateSessionDescription<'a, P0, P1>(&self, bstrcontenttype: P0, bstrsessiondescription: P1, pfapplicationsession: *mut i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).EvaluateSessionDescription)(::windows::core::Interface::as_raw(self), bstrcontenttype.into().abi(), bstrsessiondescription.into().abi(), ::core::mem::transmute(pfapplicationsession)).ok()
     }
 }
@@ -5990,7 +6483,10 @@ pub struct IRTCSessionOperationCompleteEvent2_Vtbl {
 pub struct IRTCSessionPortManagement(::windows::core::IUnknown);
 impl IRTCSessionPortManagement {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPortManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCPortManager>>>(&self, pportmanager: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPortManager<'a, P0>(&self, pportmanager: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCPortManager>>,
+    {
         (::windows::core::Interface::vtable(self).SetPortManager)(::windows::core::Interface::as_raw(self), pportmanager.into().abi()).ok()
     }
 }
@@ -6175,7 +6671,10 @@ impl IRTCSessionReferredEvent {
         (::windows::core::Interface::vtable(self).Reject)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetReferredSessionState<'a, Param0: ::std::convert::Into<RTC_SESSION_STATE>>(&self, enstate: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetReferredSessionState<'a, P0>(&self, enstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_SESSION_STATE>,
+    {
         (::windows::core::Interface::vtable(self).SetReferredSessionState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
     }
 }
@@ -6397,7 +6896,10 @@ impl IRTCSessionStateChangeEvent2 {
         (::windows::core::Interface::vtable(self).MediaTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_RemotePreferredSecurityLevel<'a, Param0: ::std::convert::Into<RTC_SECURITY_TYPE>>(&self, ensecuritytype: Param0) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_RemotePreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
+    where
+        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
         (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
@@ -6514,7 +7016,11 @@ impl IRTCUserSearch {
         (::windows::core::Interface::vtable(self).CreateQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCUserSearchQuery>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn ExecuteSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRTCUserSearchQuery>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>>(&self, pquery: Param0, pprofile: Param1, lcookie: isize) -> ::windows::core::Result<()> {
+    pub unsafe fn ExecuteSearch<'a, P0, P1>(&self, pquery: P0, pprofile: P1, lcookie: isize) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IRTCUserSearchQuery>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+    {
         (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pquery.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
 }
@@ -6566,12 +7072,19 @@ pub struct IRTCUserSearchQuery(::windows::core::IUnknown);
 impl IRTCUserSearchQuery {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_SearchTerm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_SearchTerm<'a, P0, P1>(&self, bstrname: P0, bstrvalue: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_SearchTerm)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), bstrvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_SearchTerm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_SearchTerm<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_SearchTerm)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -6582,17 +7095,26 @@ impl IRTCUserSearchQuery {
         (::windows::core::Interface::vtable(self).SearchTerms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_SearchPreference<'a, Param0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>>(&self, enpreference: Param0, lvalue: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn put_SearchPreference<'a, P0>(&self, enpreference: P0, lvalue: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>,
+    {
         (::windows::core::Interface::vtable(self).put_SearchPreference)(::windows::core::Interface::as_raw(self), enpreference.into(), ::core::mem::transmute(lvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_SearchPreference<'a, Param0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>>(&self, enpreference: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn get_SearchPreference<'a, P0>(&self, enpreference: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).get_SearchPreference)(::windows::core::Interface::as_raw(self), enpreference.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSearchDomain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdomain: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSearchDomain<'a, P0>(&self, bstrdomain: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetSearchDomain)(::windows::core::Interface::as_raw(self), bstrdomain.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -6670,7 +7192,10 @@ pub struct IRTCUserSearchResult(::windows::core::IUnknown);
 impl IRTCUserSearchResult {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Value<'a, Param0: ::std::convert::Into<RTC_USER_SEARCH_COLUMN>>(&self, encolumn: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_Value<'a, P0>(&self, encolumn: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<RTC_USER_SEARCH_COLUMN>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_Value)(::windows::core::Interface::as_raw(self), encolumn.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -6851,7 +7376,10 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPresentityURI<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -6862,7 +7390,10 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -6873,7 +7404,10 @@ impl IRTCWatcher {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -6891,7 +7425,10 @@ impl IRTCWatcher {
         (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_WATCHER_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetState<'a, Param0: ::std::convert::Into<RTC_WATCHER_STATE>>(&self, enstate: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetState<'a, P0>(&self, enstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_WATCHER_STATE>,
+    {
         (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
     }
 }
@@ -6964,7 +7501,10 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPresentityURI<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpresentityuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPresentityURI<'a, P0>(&self, bstrpresentityuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetPresentityURI)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -6975,7 +7515,10 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
@@ -6986,7 +7529,10 @@ impl IRTCWatcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
@@ -7004,7 +7550,10 @@ impl IRTCWatcher2 {
         (::windows::core::Interface::vtable(self).base__.State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_WATCHER_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetState<'a, Param0: ::std::convert::Into<RTC_WATCHER_STATE>>(&self, enstate: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetState<'a, P0>(&self, enstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RTC_WATCHER_STATE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]

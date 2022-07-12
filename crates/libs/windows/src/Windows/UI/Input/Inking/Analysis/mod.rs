@@ -1727,7 +1727,10 @@ impl InkAnalysisRoot {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindNodes<'a, Param0: ::std::convert::Into<InkAnalysisNodeKind>>(&self, nodekind: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
+    pub fn FindNodes<'a, P0>(&self, nodekind: P0) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>
+    where
+        P0: ::std::convert::Into<InkAnalysisNodeKind>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2067,13 +2070,20 @@ impl InkAnalyzer {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn AddDataForStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
+    pub fn AddDataForStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddDataForStrokes<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
+    pub fn AddDataForStrokes<'a, P0, E0>(&self, strokes: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddDataForStrokes)(::windows::core::Interface::as_raw(this), strokes.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2089,17 +2099,27 @@ impl InkAnalyzer {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveDataForStrokes<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, strokeids: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDataForStrokes<'a, P0, E0>(&self, strokeids: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDataForStrokes)(::windows::core::Interface::as_raw(this), strokeids.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn ReplaceDataForStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
+    pub fn ReplaceDataForStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn SetStrokeDataKind<'a, Param1: ::std::convert::Into<InkAnalysisStrokeKind>>(&self, strokeid: u32, strokekind: Param1) -> ::windows::core::Result<()> {
+    pub fn SetStrokeDataKind<'a, P0>(&self, strokeid: u32, strokekind: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<InkAnalysisStrokeKind>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStrokeDataKind)(::windows::core::Interface::as_raw(this), strokeid, strokekind.into()).ok() }
     }

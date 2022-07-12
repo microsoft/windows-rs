@@ -528,7 +528,10 @@ impl LampArrayBitmapEffect {
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BitmapRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn BitmapRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -542,7 +545,10 @@ impl LampArrayBitmapEffect {
         unsafe { (::windows::core::Interface::vtable(this).RemoveBitmapRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>>(lamparray: Param0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayBitmapEffect> {
+    pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayBitmapEffect>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>,
+    {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayBitmapEffect>(result__)
@@ -663,7 +669,10 @@ impl LampArrayBitmapRequestedEventArgs {
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn UpdateBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>>(&self, bitmap: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdateBitmap<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UpdateBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi()).ok() }
     }
@@ -846,12 +855,18 @@ impl LampArrayBlinkEffect {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetRepetitionMode<'a, Param0: ::std::convert::Into<LampArrayRepetitionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRepetitionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LampArrayRepetitionMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRepetitionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>>(lamparray: Param0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayBlinkEffect> {
+    pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayBlinkEffect>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>,
+    {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayBlinkEffect>(result__)
@@ -1015,12 +1030,18 @@ impl LampArrayColorRampEffect {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetCompletionBehavior<'a, Param0: ::std::convert::Into<LampArrayEffectCompletionBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompletionBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LampArrayEffectCompletionBehavior>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompletionBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>>(lamparray: Param0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayColorRampEffect> {
+    pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayColorRampEffect>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>,
+    {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayColorRampEffect>(result__)
@@ -1162,7 +1183,10 @@ impl LampArrayCustomEffect {
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn UpdateRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1176,7 +1200,10 @@ impl LampArrayCustomEffect {
         unsafe { (::windows::core::Interface::vtable(this).RemoveUpdateRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>>(lamparray: Param0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayCustomEffect> {
+    pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayCustomEffect>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>,
+    {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArrayCustomEffect>(result__)
@@ -1337,7 +1364,11 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn Append<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILampArrayEffect>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, effect: Param0) -> ::windows::core::Result<()> {
+    pub fn Append<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILampArrayEffect>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), effect.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1370,7 +1401,10 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetEffectStartMode<'a, Param0: ::std::convert::Into<LampArrayEffectStartMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEffectStartMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LampArrayEffectStartMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEffectStartMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1396,23 +1430,38 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetRepetitionMode<'a, Param0: ::std::convert::Into<LampArrayRepetitionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRepetitionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LampArrayRepetitionMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRepetitionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartAll<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAll<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartAll)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StopAll<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAll<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StopAll)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PauseAll<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn PauseAll<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Interface::vtable(this).PauseAll)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation_Collections\"`*"]
@@ -1435,7 +1484,11 @@ impl LampArrayEffectPlaylist {
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ILampArrayEffect>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILampArrayEffect>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1718,12 +1771,18 @@ impl LampArraySolidEffect {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetCompletionBehavior<'a, Param0: ::std::convert::Into<LampArrayEffectCompletionBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompletionBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LampArrayEffectCompletionBehavior>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompletionBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>>(lamparray: Param0, lampindexes: &[i32]) -> ::windows::core::Result<LampArraySolidEffect> {
+    pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArraySolidEffect>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::LampArray>>,
+    {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), lamparray.into().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr()), result__.as_mut_ptr()).from_abi::<LampArraySolidEffect>(result__)

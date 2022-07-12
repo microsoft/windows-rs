@@ -80,7 +80,10 @@ pub struct FaceDetector(::windows::core::IUnknown);
 impl FaceDetector {
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>>(&self, image: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
+    pub fn DetectFacesAsync<'a, P0>(&self, image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -89,7 +92,10 @@ impl FaceDetector {
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesWithSearchAreaAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>>(&self, image: Param0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
+    pub fn DetectFacesWithSearchAreaAsync<'a, P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -144,7 +150,10 @@ impl FaceDetector {
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported<'a, Param0: ::std::convert::Into<super::super::Graphics::Imaging::BitmapPixelFormat>>(bitmappixelformat: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsBitmapPixelFormatSupported<'a, P0>(bitmappixelformat: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Imaging::BitmapPixelFormat>,
+    {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -231,7 +240,10 @@ pub struct FaceTracker(::windows::core::IUnknown);
 impl FaceTracker {
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ProcessNextFrameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::VideoFrame>>>(&self, videoframe: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
+    pub fn ProcessNextFrameAsync<'a, P0>(&self, videoframe: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::VideoFrame>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -286,7 +298,10 @@ impl FaceTracker {
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported<'a, Param0: ::std::convert::Into<super::super::Graphics::Imaging::BitmapPixelFormat>>(bitmappixelformat: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsBitmapPixelFormatSupported<'a, P0>(bitmappixelformat: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Imaging::BitmapPixelFormat>,
+    {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)

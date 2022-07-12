@@ -921,7 +921,10 @@ pub struct SpatialGestureRecognizer(::windows::core::IUnknown);
 impl SpatialGestureRecognizer {
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RecognitionStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RecognitionStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -936,7 +939,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RecognitionEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RecognitionEnded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -951,7 +957,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Tapped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Tapped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -966,7 +975,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn HoldStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -981,7 +993,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn HoldCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -996,7 +1011,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn HoldCanceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1011,7 +1029,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1026,7 +1047,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1041,7 +1065,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1056,7 +1083,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationCanceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1071,7 +1101,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1086,7 +1119,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1101,7 +1137,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1116,7 +1155,10 @@ impl SpatialGestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationCanceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1130,7 +1172,10 @@ impl SpatialGestureRecognizer {
         unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCanceled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn CaptureInteraction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SpatialInteraction>>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
+    pub fn CaptureInteraction<'a, P0>(&self, interaction: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialInteraction>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).CaptureInteraction)(::windows::core::Interface::as_raw(this), interaction.into().abi()).ok() }
     }
@@ -1140,7 +1185,10 @@ impl SpatialGestureRecognizer {
         unsafe { (::windows::core::Interface::vtable(this).CancelPendingGestures)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn TrySetGestureSettings<'a, Param0: ::std::convert::Into<SpatialGestureSettings>>(&self, settings: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetGestureSettings<'a, P0>(&self, settings: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<SpatialGestureSettings>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1156,7 +1204,10 @@ impl SpatialGestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<SpatialGestureSettings>>(settings: Param0) -> ::windows::core::Result<SpatialGestureRecognizer> {
+    pub fn Create<'a, P0>(settings: P0) -> ::windows::core::Result<SpatialGestureRecognizer>
+    where
+        P0: ::std::convert::Into<SpatialGestureSettings>,
+    {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), settings.into(), result__.as_mut_ptr()).from_abi::<SpatialGestureRecognizer>(result__)
@@ -1465,7 +1516,10 @@ impl SpatialHoldStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1881,7 +1935,10 @@ impl SpatialInteractionDetectedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1973,7 +2030,10 @@ pub struct SpatialInteractionManager(::windows::core::IUnknown);
 impl SpatialInteractionManager {
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceDetected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceDetected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1988,7 +2048,10 @@ impl SpatialInteractionManager {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceLost<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2003,7 +2066,10 @@ impl SpatialInteractionManager {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2018,7 +2084,10 @@ impl SpatialInteractionManager {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourcePressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourcePressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2033,7 +2102,10 @@ impl SpatialInteractionManager {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceReleased<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceReleased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2048,7 +2120,10 @@ impl SpatialInteractionManager {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InteractionDetected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn InteractionDetected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2063,7 +2138,10 @@ impl SpatialInteractionManager {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Collections\"`, `\"Perception\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
-    pub fn GetDetectedSourcesAtTimestamp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>>(&self, timestamp: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>> {
+    pub fn GetDetectedSourcesAtTimestamp<'a, P0>(&self, timestamp: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2078,7 +2156,10 @@ impl SpatialInteractionManager {
         })
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn IsSourceKindSupported<'a, Param0: ::std::convert::Into<SpatialInteractionSourceKind>>(kind: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsSourceKindSupported<'a, P0>(kind: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<SpatialInteractionSourceKind>,
+    {
         Self::ISpatialInteractionManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -2249,7 +2330,10 @@ impl SpatialInteractionSource {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception\"`*"]
     #[cfg(feature = "Perception")]
-    pub fn TryGetStateAtTimestamp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>>(&self, timestamp: Param0) -> ::windows::core::Result<SpatialInteractionSourceState> {
+    pub fn TryGetStateAtTimestamp<'a, P0>(&self, timestamp: P0) -> ::windows::core::Result<SpatialInteractionSourceState>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>,
+    {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2658,7 +2742,10 @@ pub struct SpatialInteractionSourceProperties(::windows::core::IUnknown);
 impl SpatialInteractionSourceProperties {
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetSourceLossMitigationDirection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn TryGetSourceLossMitigationDirection<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2675,7 +2762,10 @@ impl SpatialInteractionSourceProperties {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialInteractionSourceLocation> {
+    pub fn TryGetLocation<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialInteractionSourceLocation>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2784,7 +2874,10 @@ impl SpatialInteractionSourceState {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2992,7 +3085,10 @@ impl SpatialManipulationCompletedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetCumulativeDelta<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialManipulationDelta> {
+    pub fn TryGetCumulativeDelta<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialManipulationDelta>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3152,7 +3248,10 @@ impl SpatialManipulationStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3236,7 +3335,10 @@ impl SpatialManipulationUpdatedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetCumulativeDelta<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialManipulationDelta> {
+    pub fn TryGetCumulativeDelta<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialManipulationDelta>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3479,7 +3581,10 @@ impl SpatialNavigationStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3791,7 +3896,10 @@ impl SpatialPointerPose {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn TryGetInteractionSourcePose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SpatialInteractionSource>>>(&self, source: Param0) -> ::windows::core::Result<SpatialPointerInteractionSourcePose> {
+    pub fn TryGetInteractionSourcePose<'a, P0>(&self, source: P0) -> ::windows::core::Result<SpatialPointerInteractionSourcePose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialInteractionSource>>,
+    {
         let this = &::windows::core::Interface::cast::<ISpatialPointerPose2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3817,7 +3925,11 @@ impl SpatialPointerPose {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetAtTimestamp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>>(coordinatesystem: Param0, timestamp: Param1) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetAtTimestamp<'a, P0, P1>(coordinatesystem: P0, timestamp: P1) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>,
+    {
         Self::ISpatialPointerPoseStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAtTimestamp)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), timestamp.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
@@ -3980,7 +4092,10 @@ impl SpatialRecognitionStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3988,7 +4103,10 @@ impl SpatialRecognitionStartedEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn IsGesturePossible<'a, Param0: ::std::convert::Into<SpatialGestureSettings>>(&self, gesture: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsGesturePossible<'a, P0>(&self, gesture: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<SpatialGestureSettings>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -4072,7 +4190,10 @@ impl SpatialTappedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<SpatialPointerPose>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

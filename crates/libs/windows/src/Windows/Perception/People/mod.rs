@@ -203,7 +203,10 @@ impl HandMeshObserver {
         unsafe { (::windows::core::Interface::vtable(this).GetTriangleIndices)(::windows::core::Interface::as_raw(this), indices.len() as u32, ::core::mem::transmute_copy(&indices)).ok() }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
-    pub fn GetVertexStateForPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HandPose>>>(&self, handpose: Param0) -> ::windows::core::Result<HandMeshVertexState> {
+    pub fn GetVertexStateForPose<'a, P0>(&self, handpose: P0) -> ::windows::core::Result<HandMeshVertexState>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HandPose>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -440,7 +443,11 @@ pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoint<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>, Param1: ::std::convert::Into<HandJointKind>>(&self, coordinatesystem: Param0, joint: Param1, jointpose: &mut JointPose) -> ::windows::core::Result<bool> {
+    pub fn TryGetJoint<'a, P0, P1>(&self, coordinatesystem: P0, joint: P1, jointpose: &mut JointPose) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>,
+        P1: ::std::convert::Into<HandJointKind>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -449,7 +456,10 @@ impl HandPose {
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoints<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool> {
+    pub fn TryGetJoints<'a, P0>(&self, coordinatesystem: P0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -458,7 +468,11 @@ impl HandPose {
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn GetRelativeJoint<'a, Param0: ::std::convert::Into<HandJointKind>, Param1: ::std::convert::Into<HandJointKind>>(&self, joint: Param0, referencejoint: Param1) -> ::windows::core::Result<JointPose> {
+    pub fn GetRelativeJoint<'a, P0, P1>(&self, joint: P0, referencejoint: P1) -> ::windows::core::Result<JointPose>
+    where
+        P0: ::std::convert::Into<HandJointKind>,
+        P1: ::std::convert::Into<HandJointKind>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<JointPose>::zeroed();

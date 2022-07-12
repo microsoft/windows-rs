@@ -4,7 +4,10 @@ pub struct AudioCaptureEffectsManager(::windows::core::IUnknown);
 impl AudioCaptureEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioCaptureEffectsChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioCaptureEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -186,7 +189,10 @@ impl AudioEffectDefinition {
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<AudioEffectDefinition> {
+    pub fn Create<'a, P0>(activatableclassid: P0) -> ::windows::core::Result<AudioEffectDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
@@ -194,7 +200,12 @@ impl AudioEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<AudioEffectDefinition> {
+    pub fn CreateWithProperties<'a, P0, P1, E1>(activatableclassid: P0, props: P1) -> ::windows::core::Result<AudioEffectDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
@@ -344,7 +355,11 @@ pub struct AudioEffectsManager;
 impl AudioEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Render::AudioRenderCategory>>(deviceid: Param0, category: Param1) -> ::windows::core::Result<AudioRenderEffectsManager> {
+    pub fn CreateAudioRenderEffectsManager<'a, P0, P1>(deviceid: P0, category: P1) -> ::windows::core::Result<AudioRenderEffectsManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<super::Render::AudioRenderCategory>,
+    {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
@@ -352,7 +367,12 @@ impl AudioEffectsManager {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManagerWithMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Render::AudioRenderCategory>, Param2: ::std::convert::Into<super::AudioProcessing>>(deviceid: Param0, category: Param1, mode: Param2) -> ::windows::core::Result<AudioRenderEffectsManager> {
+    pub fn CreateAudioRenderEffectsManagerWithMode<'a, P0, P1, P2>(deviceid: P0, category: P1, mode: P2) -> ::windows::core::Result<AudioRenderEffectsManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<super::Render::AudioRenderCategory>,
+        P2: ::std::convert::Into<super::AudioProcessing>,
+    {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), mode.into(), result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
@@ -360,7 +380,11 @@ impl AudioEffectsManager {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Capture::MediaCategory>>(deviceid: Param0, category: Param1) -> ::windows::core::Result<AudioCaptureEffectsManager> {
+    pub fn CreateAudioCaptureEffectsManager<'a, P0, P1>(deviceid: P0, category: P1) -> ::windows::core::Result<AudioCaptureEffectsManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<super::Capture::MediaCategory>,
+    {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
@@ -368,7 +392,12 @@ impl AudioEffectsManager {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManagerWithMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Capture::MediaCategory>, Param2: ::std::convert::Into<super::AudioProcessing>>(deviceid: Param0, category: Param1, mode: Param2) -> ::windows::core::Result<AudioCaptureEffectsManager> {
+    pub fn CreateAudioCaptureEffectsManagerWithMode<'a, P0, P1, P2>(deviceid: P0, category: P1, mode: P2) -> ::windows::core::Result<AudioCaptureEffectsManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<super::Capture::MediaCategory>,
+        P2: ::std::convert::Into<super::AudioProcessing>,
+    {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), mode.into(), result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
@@ -389,7 +418,10 @@ pub struct AudioRenderEffectsManager(::windows::core::IUnknown);
 impl AudioRenderEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioRenderEffectsChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioRenderEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -529,7 +561,11 @@ impl CompositeVideoFrameContext {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_Editing\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    pub fn GetOverlayForSurface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, surfacetooverlay: Param0) -> ::windows::core::Result<super::Editing::MediaOverlay> {
+    pub fn GetOverlayForSurface<'a, P0, E0>(&self, surfacetooverlay: P0) -> ::windows::core::Result<super::Editing::MediaOverlay>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -844,17 +880,26 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetEncodingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>>(&self, encodingproperties: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEncodingProperties<'a, P0>(&self, encodingproperties: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), encodingproperties.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn ProcessFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProcessAudioFrameContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessFrame<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProcessAudioFrameContext>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close<'a, Param0: ::std::convert::Into<MediaEffectClosedReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
+    pub fn Close<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MediaEffectClosedReason>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
@@ -865,7 +910,11 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1002,17 +1051,28 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, encodingproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
+    pub fn SetEncodingProperties<'a, P0, P1, E1>(&self, encodingproperties: P0, device: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), encodingproperties.into().abi(), device.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn ProcessFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProcessVideoFrameContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessFrame<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProcessVideoFrameContext>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close<'a, Param0: ::std::convert::Into<MediaEffectClosedReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
+    pub fn Close<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MediaEffectClosedReason>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
@@ -1023,7 +1083,11 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1201,17 +1265,28 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, backgroundproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
+    pub fn SetEncodingProperties<'a, P0, P1, E1>(&self, backgroundproperties: P0, device: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), backgroundproperties.into().abi(), device.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn CompositeFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CompositeVideoFrameContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
+    pub fn CompositeFrame<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositeVideoFrameContext>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).CompositeFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close<'a, Param0: ::std::convert::Into<MediaEffectClosedReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
+    pub fn Close<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MediaEffectClosedReason>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
@@ -1222,7 +1297,11 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, P0, E0>(&self, configuration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2023,7 +2102,10 @@ impl VideoCompositorDefinition {
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<VideoCompositorDefinition> {
+    pub fn Create<'a, P0>(activatableclassid: P0) -> ::windows::core::Result<VideoCompositorDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
@@ -2031,7 +2113,12 @@ impl VideoCompositorDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoCompositorDefinition> {
+    pub fn CreateWithProperties<'a, P0, P1, E1>(activatableclassid: P0, props: P1) -> ::windows::core::Result<VideoCompositorDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
@@ -2146,7 +2233,10 @@ impl VideoEffectDefinition {
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<VideoEffectDefinition> {
+    pub fn Create<'a, P0>(activatableclassid: P0) -> ::windows::core::Result<VideoEffectDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
@@ -2154,7 +2244,12 @@ impl VideoEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoEffectDefinition> {
+    pub fn CreateWithProperties<'a, P0, P1, E1>(activatableclassid: P0, props: P1) -> ::windows::core::Result<VideoEffectDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
@@ -2331,7 +2426,10 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetRotation<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::MediaProperties::MediaRotation>,
+    {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2346,13 +2444,19 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetMirror<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaMirroringOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMirror<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::MediaProperties::MediaMirroringOptions>,
+    {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMirror)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Transcoding\"`*"]
     #[cfg(feature = "Media_Transcoding")]
-    pub fn SetProcessingAlgorithm<'a, Param0: ::std::convert::Into<super::Transcoding::MediaVideoProcessingAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProcessingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Transcoding::MediaVideoProcessingAlgorithm>,
+    {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2483,7 +2587,10 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetFrameFormat<'a, Param0: ::std::convert::Into<super::MediaProperties::SphericalVideoFrameFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFrameFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::MediaProperties::SphericalVideoFrameFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2498,7 +2605,10 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Playback\"`*"]
     #[cfg(feature = "Media_Playback")]
-    pub fn SetProjectionMode<'a, Param0: ::std::convert::Into<super::Playback::SphericalVideoProjectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProjectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Playback::SphericalVideoProjectionMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

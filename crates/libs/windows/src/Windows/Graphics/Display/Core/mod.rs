@@ -163,7 +163,10 @@ impl HdmiDisplayInformation {
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetCurrentDisplayModeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>>(&self, mode: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestSetCurrentDisplayModeAsync<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -172,7 +175,11 @@ impl HdmiDisplayInformation {
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetCurrentDisplayModeWithHdrAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>, Param1: ::std::convert::Into<HdmiDisplayHdrOption>>(&self, mode: Param0, hdroption: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestSetCurrentDisplayModeWithHdrAsync<'a, P0, P1>(&self, mode: P0, hdroption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>,
+        P1: ::std::convert::Into<HdmiDisplayHdrOption>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -181,7 +188,11 @@ impl HdmiDisplayInformation {
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>, Param1: ::std::convert::Into<HdmiDisplayHdrOption>>(&self, mode: Param0, hdroption: Param1, hdrmetadata: HdmiDisplayHdr2086Metadata) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<'a, P0, P1>(&self, mode: P0, hdroption: P1, hdrmetadata: HdmiDisplayHdr2086Metadata) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>,
+        P1: ::std::convert::Into<HdmiDisplayHdrOption>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -190,7 +201,10 @@ impl HdmiDisplayInformation {
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DisplayModesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn DisplayModesChanged<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -323,7 +337,10 @@ impl HdmiDisplayMode {
         }
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>>(&self, mode: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0>(&self, mode: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();

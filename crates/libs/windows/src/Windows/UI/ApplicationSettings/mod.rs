@@ -4,7 +4,10 @@ pub struct AccountsSettingsPane(::windows::core::IUnknown);
 impl AccountsSettingsPane {
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccountCommandsRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AccountsSettingsPane, AccountsSettingsPaneCommandsRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AccountCommandsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AccountsSettingsPane, AccountsSettingsPaneCommandsRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -46,7 +49,10 @@ impl AccountsSettingsPane {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn ShowManageAccountsForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowManageAccountsForUserAsync<'a, P0>(user: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+    {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShowManageAccountsForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
@@ -54,7 +60,10 @@ impl AccountsSettingsPane {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn ShowAddAccountForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowAddAccountForUserAsync<'a, P0>(user: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+    {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShowAddAccountForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
@@ -185,7 +194,10 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-    pub fn SetHeaderText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHeaderText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHeaderText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -360,7 +372,10 @@ impl CredentialCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateCredentialCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>>(passwordcredential: Param0) -> ::windows::core::Result<CredentialCommand> {
+    pub fn CreateCredentialCommand<'a, P0>(passwordcredential: P0) -> ::windows::core::Result<CredentialCommand>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
+    {
         Self::ICredentialCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCredentialCommand)(::windows::core::Interface::as_raw(this), passwordcredential.into().abi(), result__.as_mut_ptr()).from_abi::<CredentialCommand>(result__)
@@ -368,7 +383,11 @@ impl CredentialCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateCredentialCommandWithHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, CredentialCommandCredentialDeletedHandler>>>(passwordcredential: Param0, deleted: Param1) -> ::windows::core::Result<CredentialCommand> {
+    pub fn CreateCredentialCommandWithHandler<'a, P0, P1>(passwordcredential: P0, deleted: P1) -> ::windows::core::Result<CredentialCommand>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, CredentialCommandCredentialDeletedHandler>>,
+    {
         Self::ICredentialCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCredentialCommandWithHandler)(::windows::core::Interface::as_raw(this), passwordcredential.into().abi(), deleted.into().abi(), result__.as_mut_ptr()).from_abi::<CredentialCommand>(result__)
@@ -449,7 +468,10 @@ impl CredentialCommandCredentialDeletedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CredentialCommand>>>(&self, command: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, command: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CredentialCommand>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi()).ok() }
     }
@@ -904,7 +926,12 @@ pub struct SettingsCommand(::windows::core::IUnknown);
 impl SettingsCommand {
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn CreateSettingsCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Popups::UICommandInvokedHandler>>>(settingscommandid: Param0, label: Param1, handler: Param2) -> ::windows::core::Result<SettingsCommand> {
+    pub fn CreateSettingsCommand<'a, P0, P1, P2>(settingscommandid: P0, label: P1, handler: P2) -> ::windows::core::Result<SettingsCommand>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Popups::UICommandInvokedHandler>>,
+    {
         Self::ISettingsCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSettingsCommand)(::windows::core::Interface::as_raw(this), settingscommandid.into().abi(), label.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SettingsCommand>(result__)
@@ -929,7 +956,10 @@ impl SettingsCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -944,7 +974,10 @@ impl SettingsCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn SetInvoked<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Popups::UICommandInvokedHandler>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInvoked<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Popups::UICommandInvokedHandler>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInvoked)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -959,7 +992,10 @@ impl SettingsCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1119,7 +1155,10 @@ pub struct SettingsPane(::windows::core::IUnknown);
 impl SettingsPane {
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CommandsRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CommandsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1545,7 +1584,12 @@ impl WebAccountCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWebAccountCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommandInvokedHandler>>, Param2: ::std::convert::Into<SupportedWebAccountActions>>(webaccount: Param0, invoked: Param1, actions: Param2) -> ::windows::core::Result<WebAccountCommand> {
+    pub fn CreateWebAccountCommand<'a, P0, P1, P2>(webaccount: P0, invoked: P1, actions: P2) -> ::windows::core::Result<WebAccountCommand>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommandInvokedHandler>>,
+        P2: ::std::convert::Into<SupportedWebAccountActions>,
+    {
         Self::IWebAccountCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWebAccountCommand)(::windows::core::Interface::as_raw(this), webaccount.into().abi(), invoked.into().abi(), actions.into(), result__.as_mut_ptr()).from_abi::<WebAccountCommand>(result__)
@@ -1626,7 +1670,11 @@ impl WebAccountCommandInvokedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommand>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountInvokedArgs>>>(&self, command: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, P1>(&self, command: P0, args: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommand>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountInvokedArgs>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi(), args.into().abi()).ok() }
     }
@@ -1798,7 +1846,11 @@ impl WebAccountProviderCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWebAccountProviderCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccountProvider>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountProviderCommandInvokedHandler>>>(webaccountprovider: Param0, invoked: Param1) -> ::windows::core::Result<WebAccountProviderCommand> {
+    pub fn CreateWebAccountProviderCommand<'a, P0, P1>(webaccountprovider: P0, invoked: P1) -> ::windows::core::Result<WebAccountProviderCommand>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccountProvider>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountProviderCommandInvokedHandler>>,
+    {
         Self::IWebAccountProviderCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWebAccountProviderCommand)(::windows::core::Interface::as_raw(this), webaccountprovider.into().abi(), invoked.into().abi(), result__.as_mut_ptr()).from_abi::<WebAccountProviderCommand>(result__)
@@ -1879,7 +1931,10 @@ impl WebAccountProviderCommandInvokedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountProviderCommand>>>(&self, command: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, command: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountProviderCommand>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), command.into().abi()).ok() }
     }

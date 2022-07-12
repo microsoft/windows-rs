@@ -16,7 +16,10 @@ impl IWindowsMediaLibrarySharingDevice {
         (::windows::core::Interface::vtable(self).Authorization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WindowsMediaLibrarySharingDeviceAuthorizationStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
-    pub unsafe fn SetAuthorization<'a, Param0: ::std::convert::Into<WindowsMediaLibrarySharingDeviceAuthorizationStatus>>(&self, authorization: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAuthorization<'a, P0>(&self, authorization: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WindowsMediaLibrarySharingDeviceAuthorizationStatus>,
+    {
         (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), authorization.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
@@ -122,7 +125,10 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
+    pub unsafe fn GetProperty<'a, P0>(&self, name: P0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDeviceProperty>(result__)
     }
@@ -316,7 +322,10 @@ impl IWindowsMediaLibrarySharingDevices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, deviceid: Param0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice> {
+    pub unsafe fn GetDevice<'a, P0>(&self, deviceid: P0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), deviceid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDevice>(result__)
     }
@@ -405,7 +414,10 @@ pub struct IWindowsMediaLibrarySharingServices(::windows::core::IUnknown);
 impl IWindowsMediaLibrarySharingServices {
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn showShareMediaCPL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, device: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn showShareMediaCPL<'a, P0>(&self, device: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).showShareMediaCPL)(::windows::core::Interface::as_raw(self), device.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
@@ -425,7 +437,10 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuserHomeMediaSharingLibraryName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, libraryname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetuserHomeMediaSharingLibraryName<'a, P0>(&self, libraryname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetuserHomeMediaSharingLibraryName)(::windows::core::Interface::as_raw(self), libraryname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
@@ -463,7 +478,10 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetinternetMediaSharingSecurityGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, securitygroup: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetinternetMediaSharingSecurityGroup<'a, P0>(&self, securitygroup: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetinternetMediaSharingSecurityGroup)(::windows::core::Interface::as_raw(self), securitygroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
@@ -477,12 +495,19 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setDefaultAuthorization<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, macaddresses: Param0, friendlyname: Param1, authorization: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn setDefaultAuthorization<'a, P0, P1>(&self, macaddresses: P0, friendlyname: P1, authorization: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).setDefaultAuthorization)(::windows::core::Interface::as_raw(self), macaddresses.into().abi(), friendlyname.into().abi(), ::core::mem::transmute(authorization)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setAuthorizationState<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, macaddress: Param0, authorizationstate: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn setAuthorizationState<'a, P0>(&self, macaddress: P0, authorizationstate: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).setAuthorizationState)(::windows::core::Interface::as_raw(self), macaddress.into().abi(), ::core::mem::transmute(authorizationstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]

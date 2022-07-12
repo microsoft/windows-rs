@@ -93,12 +93,18 @@ impl IImageScannerFormatConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsFormatSupported<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsFormatSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -248,12 +254,18 @@ impl IImageScannerSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetAutoCroppingMode<'a, Param0: ::std::convert::Into<ImageScannerAutoCroppingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAutoCroppingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerAutoCroppingMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsAutoCroppingModeSupported<'a, Param0: ::std::convert::Into<ImageScannerAutoCroppingMode>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsAutoCroppingModeSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerAutoCroppingMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -322,12 +334,18 @@ impl IImageScannerSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetColorMode<'a, Param0: ::std::convert::Into<ImageScannerColorMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerColorMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsColorModeSupported<'a, Param0: ::std::convert::Into<ImageScannerColorMode>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsColorModeSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerColorMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -441,12 +459,18 @@ impl IImageScannerSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsFormatSupported<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsFormatSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -614,7 +638,10 @@ impl ImageScanner {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsScanSourceSupported<'a, Param0: ::std::convert::Into<ImageScannerScanSource>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsScanSourceSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerScanSource>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -646,7 +673,10 @@ impl ImageScanner {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsPreviewSupported<'a, Param0: ::std::convert::Into<ImageScannerScanSource>>(&self, scansource: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsPreviewSupported<'a, P0>(&self, scansource: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerScanSource>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -655,7 +685,12 @@ impl ImageScanner {
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ScanPreviewToStreamAsync<'a, Param0: ::std::convert::Into<ImageScannerScanSource>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, scansource: Param0, targetstream: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>> {
+    pub fn ScanPreviewToStreamAsync<'a, P0, P1, E1>(&self, scansource: P0, targetstream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
+    where
+        P0: ::std::convert::Into<ImageScannerScanSource>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -664,7 +699,11 @@ impl ImageScanner {
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ScanFilesToFolderAsync<'a, Param0: ::std::convert::Into<ImageScannerScanSource>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFolder>>>(&self, scansource: Param0, storagefolder: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>> {
+    pub fn ScanFilesToFolderAsync<'a, P0, P1>(&self, scansource: P0, storagefolder: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>
+    where
+        P0: ::std::convert::Into<ImageScannerScanSource>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFolder>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -673,7 +712,10 @@ impl ImageScanner {
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ImageScanner>>(result__)
@@ -775,12 +817,18 @@ impl ImageScannerAutoConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsFormatSupported<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsFormatSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -976,7 +1024,10 @@ impl ImageScannerFeederConfiguration {
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
-    pub fn SetPageSize<'a, Param0: ::std::convert::Into<super::super::Graphics::Printing::PrintMediaSize>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPageSize<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Printing::PrintMediaSize>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPageSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -991,7 +1042,10 @@ impl ImageScannerFeederConfiguration {
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
-    pub fn SetPageOrientation<'a, Param0: ::std::convert::Into<super::super::Graphics::Printing::PrintOrientation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPageOrientation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Printing::PrintOrientation>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPageOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1006,7 +1060,11 @@ impl ImageScannerFeederConfiguration {
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
-    pub fn IsPageSizeSupported<'a, Param0: ::std::convert::Into<super::super::Graphics::Printing::PrintMediaSize>, Param1: ::std::convert::Into<super::super::Graphics::Printing::PrintOrientation>>(&self, pagesize: Param0, pageorientation: Param1) -> ::windows::core::Result<bool> {
+    pub fn IsPageSizeSupported<'a, P0, P1>(&self, pagesize: P0, pageorientation: P1) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Printing::PrintMediaSize>,
+        P1: ::std::convert::Into<super::super::Graphics::Printing::PrintOrientation>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1085,12 +1143,18 @@ impl ImageScannerFeederConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsFormatSupported<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsFormatSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1139,12 +1203,18 @@ impl ImageScannerFeederConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetAutoCroppingMode<'a, Param0: ::std::convert::Into<ImageScannerAutoCroppingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAutoCroppingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerAutoCroppingMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsAutoCroppingModeSupported<'a, Param0: ::std::convert::Into<ImageScannerAutoCroppingMode>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsAutoCroppingModeSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerAutoCroppingMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1213,12 +1283,18 @@ impl ImageScannerFeederConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetColorMode<'a, Param0: ::std::convert::Into<ImageScannerColorMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerColorMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsColorModeSupported<'a, Param0: ::std::convert::Into<ImageScannerColorMode>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsColorModeSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerColorMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1437,12 +1513,18 @@ impl ImageScannerFlatbedConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsFormatSupported<'a, Param0: ::std::convert::Into<ImageScannerFormat>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsFormatSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1491,12 +1573,18 @@ impl ImageScannerFlatbedConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetAutoCroppingMode<'a, Param0: ::std::convert::Into<ImageScannerAutoCroppingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAutoCroppingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerAutoCroppingMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsAutoCroppingModeSupported<'a, Param0: ::std::convert::Into<ImageScannerAutoCroppingMode>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsAutoCroppingModeSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerAutoCroppingMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1565,12 +1653,18 @@ impl ImageScannerFlatbedConfiguration {
         }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn SetColorMode<'a, Param0: ::std::convert::Into<ImageScannerColorMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColorMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ImageScannerColorMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Scanners\"`*"]
-    pub fn IsColorModeSupported<'a, Param0: ::std::convert::Into<ImageScannerColorMode>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsColorModeSupported<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ImageScannerColorMode>,
+    {
         let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();

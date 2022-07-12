@@ -39,7 +39,11 @@ pub struct ContactPickerUI(::windows::core::IUnknown);
 impl ContactPickerUI {
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn AddContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>>(&self, id: Param0, contact: Param1) -> ::windows::core::Result<AddContactResult> {
+    pub fn AddContact<'a, P0, P1>(&self, id: P0, contact: P1) -> ::windows::core::Result<AddContactResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<AddContactResult>::zeroed();
@@ -47,12 +51,18 @@ impl ContactPickerUI {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    pub fn RemoveContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveContact<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveContact)(::windows::core::Interface::as_raw(this), id.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    pub fn ContainsContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<bool> {
+    pub fn ContainsContact<'a, P0>(&self, id: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -78,7 +88,10 @@ impl ContactPickerUI {
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContactRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ContactRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -92,7 +105,10 @@ impl ContactPickerUI {
         unsafe { (::windows::core::Interface::vtable(this).RemoveContactRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    pub fn AddContact2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>>(&self, contact: Param0) -> ::windows::core::Result<AddContactResult> {
+    pub fn AddContact2<'a, P0>(&self, contact: P0) -> ::windows::core::Result<AddContactResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Contact>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<AddContactResult>::zeroed();

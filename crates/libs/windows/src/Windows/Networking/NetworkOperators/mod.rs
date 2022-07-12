@@ -139,7 +139,10 @@ impl ESim {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteProfileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, profileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn DeleteProfileAsync<'a, P0>(&self, profileid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -148,7 +151,10 @@ impl ESim {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DownloadProfileMetadataAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activationcode: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>> {
+    pub fn DownloadProfileMetadataAsync<'a, P0>(&self, activationcode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -166,7 +172,10 @@ impl ESim {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProfileChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ProfileChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -188,7 +197,11 @@ impl ESim {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn DiscoverWithServerAddressAndMatchingId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, serveraddress: Param0, matchingid: Param1) -> ::windows::core::Result<ESimDiscoverResult> {
+    pub fn DiscoverWithServerAddressAndMatchingId<'a, P0, P1>(&self, serveraddress: P0, matchingid: P1) -> ::windows::core::Result<ESimDiscoverResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -206,7 +219,11 @@ impl ESim {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DiscoverWithServerAddressAndMatchingIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, serveraddress: Param0, matchingid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
+    pub fn DiscoverWithServerAddressAndMatchingIdAsync<'a, P0, P1>(&self, serveraddress: P0, matchingid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -706,7 +723,10 @@ impl ESimManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServiceInfoChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ServiceInfoChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).ServiceInfoChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -1026,7 +1046,10 @@ impl ESimProfile {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetNicknameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, newnickname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+    pub fn SetNicknameAsync<'a, P0>(&self, newnickname: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1250,7 +1273,10 @@ impl ESimProfileMetadata {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConfirmInstallWithConfirmationCodeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, confirmationcode: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
+    pub fn ConfirmInstallWithConfirmationCodeAsync<'a, P0>(&self, confirmationcode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1268,7 +1294,10 @@ impl ESimProfileMetadata {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1804,7 +1833,10 @@ impl ESimWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1819,7 +1851,10 @@ impl ESimWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1834,7 +1869,10 @@ impl ESimWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1849,7 +1887,10 @@ impl ESimWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1864,7 +1905,10 @@ impl ESimWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1982,7 +2026,10 @@ pub struct FdnAccessManager;
 impl FdnAccessManager {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestUnlockAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(contactlistid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestUnlockAsync<'a, P0>(contactlistid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IFdnAccessManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RequestUnlockAsync)(::windows::core::Interface::as_raw(this), contactlistid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
@@ -2046,7 +2093,12 @@ impl HotspotAuthenticationContext {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn IssueCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, username: Param0, password: Param1, extraparameters: Param2, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()> {
+    pub fn IssueCredentials<'a, P0, P1, P2>(&self, username: P0, password: P1, extraparameters: P2, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).IssueCredentials)(::windows::core::Interface::as_raw(this), username.into().abi(), password.into().abi(), extraparameters.into().abi(), markasmanualconnectonfailure).ok() }
     }
@@ -2061,13 +2113,22 @@ impl HotspotAuthenticationContext {
         unsafe { (::windows::core::Interface::vtable(this).SkipAuthentication)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn TriggerAttentionRequired<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, packagerelativeapplicationid: Param0, applicationparameters: Param1) -> ::windows::core::Result<()> {
+    pub fn TriggerAttentionRequired<'a, P0, P1>(&self, packagerelativeapplicationid: P0, applicationparameters: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).TriggerAttentionRequired)(::windows::core::Interface::as_raw(this), packagerelativeapplicationid.into().abi(), applicationparameters.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IssueCredentialsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, username: Param0, password: Param1, extraparameters: Param2, markasmanualconnectonfailure: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>> {
+    pub fn IssueCredentialsAsync<'a, P0, P1, P2>(&self, username: P0, password: P1, extraparameters: P2, markasmanualconnectonfailure: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IHotspotAuthenticationContext2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2075,7 +2136,10 @@ impl HotspotAuthenticationContext {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn TryGetAuthenticationContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(eventoken: Param0, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool> {
+    pub fn TryGetAuthenticationContext<'a, P0>(eventoken: P0, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IHotspotAuthenticationContextStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAuthenticationContext)(::windows::core::Interface::as_raw(this), eventoken.into().abi(), context as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -4921,7 +4985,10 @@ impl MobileBroadbandAccount {
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn CreateFromNetworkAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<MobileBroadbandAccount> {
+    pub fn CreateFromNetworkAccountId<'a, P0>(networkaccountid: P0) -> ::windows::core::Result<MobileBroadbandAccount>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccount>(result__)
@@ -5168,7 +5235,10 @@ impl MobileBroadbandAccountWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccountAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AccountAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5183,7 +5253,10 @@ impl MobileBroadbandAccountWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccountUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AccountUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5198,7 +5271,10 @@ impl MobileBroadbandAccountWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccountRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AccountRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5213,7 +5289,10 @@ impl MobileBroadbandAccountWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5228,7 +5307,10 @@ impl MobileBroadbandAccountWatcher {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6956,7 +7038,11 @@ pub struct MobileBroadbandDeviceServiceCommandSession(::windows::core::IUnknown)
 impl MobileBroadbandDeviceServiceCommandSession {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendQueryCommandAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, commandid: u32, data: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>> {
+    pub fn SendQueryCommandAsync<'a, P0, E0>(&self, commandid: u32, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -6965,7 +7051,11 @@ impl MobileBroadbandDeviceServiceCommandSession {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendSetCommandAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, commandid: u32, data: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>> {
+    pub fn SendSetCommandAsync<'a, P0, E0>(&self, commandid: u32, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -7122,7 +7212,11 @@ pub struct MobileBroadbandDeviceServiceDataSession(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceDataSession {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteDataAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn WriteDataAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -7136,7 +7230,10 @@ impl MobileBroadbandDeviceServiceDataSession {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -7555,7 +7652,10 @@ impl MobileBroadbandModem {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsInEmergencyCallModeChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandModem, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn IsInEmergencyCallModeChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandModem, ::windows::core::IInspectable>>>,
+    {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -7576,7 +7676,10 @@ impl MobileBroadbandModem {
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<MobileBroadbandModem> {
+    pub fn FromId<'a, P0>(deviceid: P0) -> ::windows::core::Result<MobileBroadbandModem>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<MobileBroadbandModem>(result__)
@@ -7759,12 +7862,19 @@ impl ::core::convert::From<&MobileBroadbandModemConfiguration> for &::windows::c
 pub struct MobileBroadbandModemIsolation(::windows::core::IUnknown);
 impl MobileBroadbandModemIsolation {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn AddAllowedHost<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>>(&self, host: Param0) -> ::windows::core::Result<()> {
+    pub fn AddAllowedHost<'a, P0>(&self, host: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddAllowedHost)(::windows::core::Interface::as_raw(this), host.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn AddAllowedHostRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>>(&self, first: Param0, last: Param1) -> ::windows::core::Result<()> {
+    pub fn AddAllowedHostRange<'a, P0, P1>(&self, first: P0, last: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddAllowedHostRange)(::windows::core::Interface::as_raw(this), first.into().abi(), last.into().abi()).ok() }
     }
@@ -7787,7 +7897,11 @@ impl MobileBroadbandModemIsolation {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(modemdeviceid: Param0, rulegroupid: Param1) -> ::windows::core::Result<MobileBroadbandModemIsolation> {
+    pub fn Create<'a, P0, P1>(modemdeviceid: P0, rulegroupid: P1) -> ::windows::core::Result<MobileBroadbandModemIsolation>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMobileBroadbandModemIsolationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), modemdeviceid.into().abi(), rulegroupid.into().abi(), result__.as_mut_ptr()).from_abi::<MobileBroadbandModemIsolation>(result__)
@@ -8455,7 +8569,10 @@ impl MobileBroadbandPin {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnableAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, currentpin: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn EnableAsync<'a, P0>(&self, currentpin: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -8464,7 +8581,10 @@ impl MobileBroadbandPin {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DisableAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, currentpin: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn DisableAsync<'a, P0>(&self, currentpin: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -8473,7 +8593,10 @@ impl MobileBroadbandPin {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnterAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, currentpin: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn EnterAsync<'a, P0>(&self, currentpin: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -8482,7 +8605,11 @@ impl MobileBroadbandPin {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ChangeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, currentpin: Param0, newpin: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn ChangeAsync<'a, P0, P1>(&self, currentpin: P0, newpin: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -8491,7 +8618,11 @@ impl MobileBroadbandPin {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnblockAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, pinunblockkey: Param0, newpin: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
+    pub fn UnblockAsync<'a, P0, P1>(&self, pinunblockkey: P0, newpin: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -8813,7 +8944,10 @@ impl MobileBroadbandPinManager {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn GetPin<'a, Param0: ::std::convert::Into<MobileBroadbandPinType>>(&self, pintype: Param0) -> ::windows::core::Result<MobileBroadbandPin> {
+    pub fn GetPin<'a, P0>(&self, pintype: P0) -> ::windows::core::Result<MobileBroadbandPin>
+    where
+        P0: ::std::convert::Into<MobileBroadbandPinType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -9250,7 +9384,10 @@ impl MobileBroadbandSarManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TransmissionStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TransmissionStateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -9283,7 +9420,11 @@ impl MobileBroadbandSarManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetConfigurationAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, antennas: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetConfigurationAsync<'a, P0, E0>(&self, antennas: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -9588,7 +9729,10 @@ impl MobileBroadbandSlotManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SlotInfoChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SlotInfoChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -9603,7 +9747,10 @@ impl MobileBroadbandSlotManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CurrentSlotIndexChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CurrentSlotIndexChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -9903,7 +10050,11 @@ impl MobileBroadbandUiccApp {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetRecordDetailsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, uiccfilepath: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>> {
+    pub fn GetRecordDetailsAsync<'a, P0, E0>(&self, uiccfilepath: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -9912,7 +10063,11 @@ impl MobileBroadbandUiccApp {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadRecordAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, uiccfilepath: Param0, recordindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>> {
+    pub fn ReadRecordAsync<'a, P0, E0>(&self, uiccfilepath: P0, recordindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10548,7 +10703,10 @@ impl NetworkOperatorNotificationEventDetails {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn AuthorizeTethering<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, allow: bool, entitlementfailurereason: Param1) -> ::windows::core::Result<()> {
+    pub fn AuthorizeTethering<'a, P0>(&self, allow: bool, entitlementfailurereason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringEntitlementCheck>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AuthorizeTethering)(::windows::core::Interface::as_raw(this), allow, entitlementfailurereason.into().abi()).ok() }
     }
@@ -10635,7 +10793,10 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn SetSsid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSsid<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSsid)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -10648,12 +10809,18 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn SetPassphrase<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPassphrase<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPassphrase)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn IsBandSupported<'a, Param0: ::std::convert::Into<TetheringWiFiBand>>(&self, band: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsBandSupported<'a, P0>(&self, band: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<TetheringWiFiBand>,
+    {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -10662,7 +10829,10 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsBandSupportedAsync<'a, Param0: ::std::convert::Into<TetheringWiFiBand>>(&self, band: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsBandSupportedAsync<'a, P0>(&self, band: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<TetheringWiFiBand>,
+    {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10678,7 +10848,10 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn SetBand<'a, Param0: ::std::convert::Into<TetheringWiFiBand>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBand<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TetheringWiFiBand>,
+    {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBand)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -10876,7 +11049,10 @@ impl NetworkOperatorTetheringManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConfigureAccessPointAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NetworkOperatorTetheringAccessPointConfiguration>>>(&self, configuration: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ConfigureAccessPointAsync<'a, P0>(&self, configuration: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, NetworkOperatorTetheringAccessPointConfiguration>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -10902,14 +11078,20 @@ impl NetworkOperatorTetheringManager {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn GetTetheringCapability<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<TetheringCapability> {
+    pub fn GetTetheringCapability<'a, P0>(networkaccountid: P0) -> ::windows::core::Result<TetheringCapability>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<TetheringCapability>::zeroed();
             (::windows::core::Interface::vtable(this).GetTetheringCapability)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<TetheringCapability>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn CreateFromNetworkAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
+    pub fn CreateFromNetworkAccountId<'a, P0>(networkaccountid: P0) -> ::windows::core::Result<NetworkOperatorTetheringManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
@@ -10917,7 +11099,10 @@ impl NetworkOperatorTetheringManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn GetTetheringCapabilityFromConnectionProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::ConnectionProfile>>>(profile: Param0) -> ::windows::core::Result<TetheringCapability> {
+    pub fn GetTetheringCapabilityFromConnectionProfile<'a, P0>(profile: P0) -> ::windows::core::Result<TetheringCapability>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::ConnectionProfile>>,
+    {
         Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<TetheringCapability>::zeroed();
             (::windows::core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<TetheringCapability>(result__)
@@ -10925,7 +11110,10 @@ impl NetworkOperatorTetheringManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn CreateFromConnectionProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::ConnectionProfile>>>(profile: Param0) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
+    pub fn CreateFromConnectionProfile<'a, P0>(profile: P0) -> ::windows::core::Result<NetworkOperatorTetheringManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::ConnectionProfile>>,
+    {
         Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromConnectionProfile)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
@@ -10933,7 +11121,11 @@ impl NetworkOperatorTetheringManager {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn CreateFromConnectionProfileWithTargetAdapter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::ConnectionProfile>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>>(profile: Param0, adapter: Param1) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
+    pub fn CreateFromConnectionProfileWithTargetAdapter<'a, P0, P1>(profile: P0, adapter: P1) -> ::windows::core::Result<NetworkOperatorTetheringManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::ConnectionProfile>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>,
+    {
         Self::INetworkOperatorTetheringManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(::windows::core::Interface::as_raw(this), profile.into().abi(), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
@@ -11339,7 +11531,10 @@ pub struct ProvisionedProfile(::windows::core::IUnknown);
 impl ProvisionedProfile {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn UpdateCost<'a, Param0: ::std::convert::Into<super::Connectivity::NetworkCostType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdateCost<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Connectivity::NetworkCostType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UpdateCost)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -11423,7 +11618,10 @@ impl ProvisioningAgent {
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProvisionFromXmlDocumentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, provisioningxmldocument: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>> {
+    pub fn ProvisionFromXmlDocumentAsync<'a, P0>(&self, provisioningxmldocument: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -11431,7 +11629,11 @@ impl ProvisioningAgent {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn GetProvisionedProfile<'a, Param0: ::std::convert::Into<ProfileMediaType>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, mediatype: Param0, profilename: Param1) -> ::windows::core::Result<ProvisionedProfile> {
+    pub fn GetProvisionedProfile<'a, P0, P1>(&self, mediatype: P0, profilename: P1) -> ::windows::core::Result<ProvisionedProfile>
+    where
+        P0: ::std::convert::Into<ProfileMediaType>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -11439,7 +11641,10 @@ impl ProvisioningAgent {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn CreateFromNetworkAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<ProvisioningAgent> {
+    pub fn CreateFromNetworkAccountId<'a, P0>(networkaccountid: P0) -> ::windows::core::Result<ProvisioningAgent>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IProvisioningAgentStaticMethods(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<ProvisioningAgent>(result__)
@@ -11569,7 +11774,10 @@ impl TetheringEntitlementCheckTriggerDetails {
         unsafe { (::windows::core::Interface::vtable(this).AllowTethering)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn DenyTethering<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, entitlementfailurereason: Param0) -> ::windows::core::Result<()> {
+    pub fn DenyTethering<'a, P0>(&self, entitlementfailurereason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).DenyTethering)(::windows::core::Interface::as_raw(this), entitlementfailurereason.into().abi()).ok() }
     }
@@ -11901,12 +12109,18 @@ impl UssdMessage {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn SetPayloadAsText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPayloadAsText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPayloadAsText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn CreateMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(messagetext: Param0) -> ::windows::core::Result<UssdMessage> {
+    pub fn CreateMessage<'a, P0>(messagetext: P0) -> ::windows::core::Result<UssdMessage>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUssdMessageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateMessage)(::windows::core::Interface::as_raw(this), messagetext.into().abi(), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
@@ -12105,7 +12319,10 @@ pub struct UssdSession(::windows::core::IUnknown);
 impl UssdSession {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAndGetReplyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UssdMessage>>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UssdReply>> {
+    pub fn SendMessageAndGetReplyAsync<'a, P0>(&self, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UssdMessage>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -12118,14 +12335,20 @@ impl UssdSession {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn CreateFromNetworkAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<UssdSession> {
+    pub fn CreateFromNetworkAccountId<'a, P0>(networkaccountid: P0) -> ::windows::core::Result<UssdSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn CreateFromNetworkInterfaceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkinterfaceid: Param0) -> ::windows::core::Result<UssdSession> {
+    pub fn CreateFromNetworkInterfaceId<'a, P0>(networkinterfaceid: P0) -> ::windows::core::Result<UssdSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromNetworkInterfaceId)(::windows::core::Interface::as_raw(this), networkinterfaceid.into().abi(), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)

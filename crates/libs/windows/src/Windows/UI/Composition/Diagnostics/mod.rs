@@ -3,22 +3,35 @@
 pub struct CompositionDebugHeatMaps(::windows::core::IUnknown);
 impl CompositionDebugHeatMaps {
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn Hide<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
+    pub fn Hide<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowMemoryUsage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
+    pub fn ShowMemoryUsage<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowOverdraw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>, Param1: ::std::convert::Into<CompositionDebugOverdrawContentKinds>>(&self, subtree: Param0, contentkinds: Param1) -> ::windows::core::Result<()> {
+    pub fn ShowOverdraw<'a, P0, P1>(&self, subtree: P0, contentkinds: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+        P1: ::std::convert::Into<CompositionDebugOverdrawContentKinds>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into().abi(), contentkinds.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowRedraw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
+    pub fn ShowRedraw<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowRedraw)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
@@ -167,7 +180,10 @@ impl CompositionDebugSettings {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn TryGetSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<CompositionDebugSettings> {
+    pub fn TryGetSettings<'a, P0>(compositor: P0) -> ::windows::core::Result<CompositionDebugSettings>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
+    {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetSettings)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<CompositionDebugSettings>(result__)

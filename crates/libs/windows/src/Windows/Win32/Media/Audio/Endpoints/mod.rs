@@ -309,7 +309,10 @@ impl IAudioEndpointOffloadStreamVolume {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Media_KernelStreaming\"`*"]
     #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub unsafe fn SetChannelVolumes<'a, Param2: ::std::convert::Into<super::super::KernelStreaming::AUDIO_CURVE_TYPE>>(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: Param2, pcurveduration: *const i64) -> ::windows::core::Result<()> {
+    pub unsafe fn SetChannelVolumes<'a, P0>(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: P0, pcurveduration: *const i64) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::KernelStreaming::AUDIO_CURVE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetChannelVolumes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32channelcount), ::core::mem::transmute(pf32volumes), u32curvetype.into(), ::core::mem::transmute(pcurveduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
@@ -369,11 +372,17 @@ pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
 pub struct IAudioEndpointVolume(::windows::core::IUnknown);
 impl IAudioEndpointVolume {
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn RegisterControlChangeNotify<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+    {
         (::windows::core::Interface::vtable(self).RegisterControlChangeNotify)(::windows::core::Interface::as_raw(self), pnotify.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn UnregisterControlChangeNotify<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn UnregisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+    {
         (::windows::core::Interface::vtable(self).UnregisterControlChangeNotify)(::windows::core::Interface::as_raw(self), pnotify.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
@@ -419,7 +428,10 @@ impl IAudioEndpointVolume {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMute<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, bmute: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetMute<'a, P0>(&self, bmute: P0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).SetMute)(::windows::core::Interface::as_raw(self), bmute.into(), ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
@@ -573,11 +585,17 @@ pub struct IAudioEndpointVolumeCallback_Vtbl {
 pub struct IAudioEndpointVolumeEx(::windows::core::IUnknown);
 impl IAudioEndpointVolumeEx {
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn RegisterControlChangeNotify<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RegisterControlChangeNotify)(::windows::core::Interface::as_raw(self), pnotify.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn UnregisterControlChangeNotify<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn UnregisterControlChangeNotify<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEndpointVolumeCallback>>,
+    {
         (::windows::core::Interface::vtable(self).base__.UnregisterControlChangeNotify)(::windows::core::Interface::as_raw(self), pnotify.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
@@ -623,7 +641,10 @@ impl IAudioEndpointVolumeEx {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMute<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, bmute: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetMute<'a, P0>(&self, bmute: P0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetMute)(::windows::core::Interface::as_raw(self), bmute.into(), ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
@@ -720,7 +741,10 @@ pub struct IAudioLfxControl(::windows::core::IUnknown);
 impl IAudioLfxControl {
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalEffectsState<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetLocalEffectsState<'a, P0>(&self, benabled: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).SetLocalEffectsState)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
@@ -851,27 +875,44 @@ pub struct IAudioMeterInformation_Vtbl {
 pub struct IHardwareAudioEngineBase(::windows::core::IUnknown);
 impl IHardwareAudioEngineBase {
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn GetAvailableOffloadConnectorCount<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, _pwstrdeviceid: Param0, _uconnectorid: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAvailableOffloadConnectorCount<'a, P0>(&self, _pwstrdeviceid: P0, _uconnectorid: u32) -> ::windows::core::Result<u32>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(::windows::core::Interface::as_raw(self), _pwstrdeviceid.into(), ::core::mem::transmute(_uconnectorid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEngineFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, pdevice: Param0, _brequestdeviceformat: Param1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEngineFormat<'a, P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+        P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).GetEngineFormat)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), _brequestdeviceformat.into(), ::core::mem::transmute(_ppwfxformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-    pub unsafe fn SetEngineDeviceFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>>(&self, pdevice: Param0, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()> {
+    pub unsafe fn SetEngineDeviceFormat<'a, P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+    {
         (::windows::core::Interface::vtable(self).SetEngineDeviceFormat)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(_pwfxformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGfxState<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, pdevice: Param0, _benable: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetGfxState<'a, P0, P1>(&self, pdevice: P0, _benable: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+        P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).SetGfxState)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), _benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetGfxState<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>>(&self, pdevice: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    pub unsafe fn GetGfxState<'a, P0>(&self, pdevice: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMMDevice>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
         (::windows::core::Interface::vtable(self).GetGfxState)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }

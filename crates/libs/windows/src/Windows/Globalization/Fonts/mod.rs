@@ -263,7 +263,10 @@ impl LanguageFontGroup {
         }
     }
     #[doc = "*Required features: `\"Globalization_Fonts\"`*"]
-    pub fn CreateLanguageFontGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<LanguageFontGroup> {
+    pub fn CreateLanguageFontGroup<'a, P0>(languagetag: P0) -> ::windows::core::Result<LanguageFontGroup>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ILanguageFontGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateLanguageFontGroup)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<LanguageFontGroup>(result__)

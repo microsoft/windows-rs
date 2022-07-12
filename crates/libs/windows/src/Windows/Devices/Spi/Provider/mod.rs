@@ -38,7 +38,10 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
 pub struct ISpiControllerProvider(::windows::core::IUnknown);
 impl ISpiControllerProvider {
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
-    pub fn GetDeviceProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProviderSpiConnectionSettings>>>(&self, settings: Param0) -> ::windows::core::Result<ISpiDeviceProvider> {
+    pub fn GetDeviceProvider<'a, P0>(&self, settings: P0) -> ::windows::core::Result<ISpiDeviceProvider>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProviderSpiConnectionSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -352,7 +355,10 @@ impl ProviderSpiConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
-    pub fn SetMode<'a, Param0: ::std::convert::Into<ProviderSpiMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderSpiMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -391,7 +397,10 @@ impl ProviderSpiConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
-    pub fn SetSharingMode<'a, Param0: ::std::convert::Into<ProviderSpiSharingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSharingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderSpiSharingMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

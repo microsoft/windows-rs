@@ -70,7 +70,10 @@ impl AdaptiveNotificationText {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -83,7 +86,10 @@ impl AdaptiveNotificationText {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -184,7 +190,11 @@ impl BadgeNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -199,7 +209,10 @@ impl BadgeNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateBadgeNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0) -> ::windows::core::Result<BadgeNotification> {
+    pub fn CreateBadgeNotification<'a, P0>(content: P0) -> ::windows::core::Result<BadgeNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::IBadgeNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBadgeNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeNotification>(result__)
@@ -318,14 +331,20 @@ impl BadgeUpdateManager {
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateBadgeUpdaterForApplicationWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForApplicationWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<BadgeUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateBadgeUpdaterForSecondaryTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tileid: Param0) -> ::windows::core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForSecondaryTile<'a, P0>(tileid: P0) -> ::windows::core::Result<BadgeUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
@@ -333,7 +352,10 @@ impl BadgeUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, Param0: ::std::convert::Into<BadgeTemplateType>>(r#type: Param0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
+    where
+        P0: ::std::convert::Into<BadgeTemplateType>,
+    {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
@@ -341,7 +363,10 @@ impl BadgeUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<BadgeUpdateManagerForUser> {
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<BadgeUpdateManagerForUser>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+    {
         Self::IBadgeUpdateManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdateManagerForUser>(result__)
@@ -374,7 +399,10 @@ impl BadgeUpdateManagerForUser {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateBadgeUpdaterForApplicationWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, applicationid: Param0) -> ::windows::core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForApplicationWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<BadgeUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -382,7 +410,10 @@ impl BadgeUpdateManagerForUser {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateBadgeUpdaterForSecondaryTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForSecondaryTile<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<BadgeUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -466,7 +497,10 @@ unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
 pub struct BadgeUpdater(::windows::core::IUnknown);
 impl BadgeUpdater {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn Update<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BadgeNotification>>>(&self, notification: Param0) -> ::windows::core::Result<()> {
+    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BadgeNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
     }
@@ -477,13 +511,21 @@ impl BadgeUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, badgecontent: Param0, requestedinterval: Param1) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdate<'a, P0, P1>(&self, badgecontent: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), requestedinterval.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param2: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, badgecontent: Param0, starttime: super::super::Foundation::DateTime, requestedinterval: Param2) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdateAtTime<'a, P0, P1>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), starttime, requestedinterval.into()).ok() }
     }
@@ -2132,7 +2174,11 @@ impl Notification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2145,7 +2191,10 @@ impl Notification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetVisual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NotificationVisual>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVisual<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationVisual>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVisual)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2225,7 +2274,10 @@ impl NotificationBinding {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTemplate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTemplate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2238,7 +2290,10 @@ impl NotificationBinding {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2358,7 +2413,11 @@ impl NotificationData {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNotificationDataWithValuesAndSequenceNumber<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(initialvalues: Param0, sequencenumber: u32) -> ::windows::core::Result<NotificationData> {
+    pub fn CreateNotificationDataWithValuesAndSequenceNumber<'a, P0, E0>(initialvalues: P0, sequencenumber: u32) -> ::windows::core::Result<NotificationData>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(::windows::core::Interface::as_raw(this), initialvalues.try_into().map_err(|e| e.into())?.abi(), sequencenumber, result__.as_mut_ptr()).from_abi::<NotificationData>(result__)
@@ -2366,7 +2425,11 @@ impl NotificationData {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateNotificationDataWithValues<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(initialvalues: Param0) -> ::windows::core::Result<NotificationData> {
+    pub fn CreateNotificationDataWithValues<'a, P0, E0>(initialvalues: P0) -> ::windows::core::Result<NotificationData>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateNotificationDataWithValues)(::windows::core::Interface::as_raw(this), initialvalues.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<NotificationData>(result__)
@@ -2621,7 +2684,10 @@ impl NotificationVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLanguage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2635,7 +2701,10 @@ impl NotificationVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn GetBinding<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, templatename: Param0) -> ::windows::core::Result<NotificationBinding> {
+    pub fn GetBinding<'a, P0>(&self, templatename: P0) -> ::windows::core::Result<NotificationBinding>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2766,7 +2835,11 @@ impl ScheduledTileNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2780,7 +2853,10 @@ impl ScheduledTileNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2793,7 +2869,10 @@ impl ScheduledTileNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2807,7 +2886,10 @@ impl ScheduledTileNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
-    pub fn CreateScheduledTileNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification> {
+    pub fn CreateScheduledTileNotification<'a, P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::IScheduledTileNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateScheduledTileNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), deliverytime, result__.as_mut_ptr()).from_abi::<ScheduledTileNotification>(result__)
@@ -2921,7 +3003,10 @@ impl ScheduledToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2934,7 +3019,10 @@ impl ScheduledToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2947,7 +3035,10 @@ impl ScheduledToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGroup<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2981,7 +3072,10 @@ impl ScheduledToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetNotificationMirroring<'a, Param0: ::std::convert::Into<NotificationMirroring>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNotificationMirroring<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<NotificationMirroring>,
+    {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNotificationMirroring)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2994,7 +3088,10 @@ impl ScheduledToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetRemoteId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3009,13 +3106,20 @@ impl ScheduledToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
-    pub fn CreateScheduledToastNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification> {
+    pub fn CreateScheduledToastNotification<'a, P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateScheduledToastNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), deliverytime, result__.as_mut_ptr()).from_abi::<ScheduledToastNotification>(result__)
@@ -3023,7 +3127,10 @@ impl ScheduledToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
-    pub fn CreateScheduledToastNotificationRecurring<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification> {
+    pub fn CreateScheduledToastNotificationRecurring<'a, P0>(content: P0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateScheduledToastNotificationRecurring)(::windows::core::Interface::as_raw(this), content.into().abi(), deliverytime, snoozeinterval, maximumsnoozecount, result__.as_mut_ptr()).from_abi::<ScheduledToastNotification>(result__)
@@ -3284,7 +3391,11 @@ impl TileFlyoutNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -3299,7 +3410,10 @@ impl TileFlyoutNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileFlyoutNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0) -> ::windows::core::Result<TileFlyoutNotification> {
+    pub fn CreateTileFlyoutNotification<'a, P0>(content: P0) -> ::windows::core::Result<TileFlyoutNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::ITileFlyoutNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTileFlyoutNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<TileFlyoutNotification>(result__)
@@ -3417,14 +3531,20 @@ impl TileFlyoutUpdateManager {
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateTileFlyoutUpdaterForApplicationWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<TileFlyoutUpdater> {
+    pub fn CreateTileFlyoutUpdaterForApplicationWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<TileFlyoutUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateTileFlyoutUpdaterForSecondaryTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tileid: Param0) -> ::windows::core::Result<TileFlyoutUpdater> {
+    pub fn CreateTileFlyoutUpdaterForSecondaryTile<'a, P0>(tileid: P0) -> ::windows::core::Result<TileFlyoutUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTileFlyoutUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<TileFlyoutUpdater>(result__)
@@ -3432,7 +3552,10 @@ impl TileFlyoutUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, Param0: ::std::convert::Into<TileFlyoutTemplateType>>(r#type: Param0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
+    where
+        P0: ::std::convert::Into<TileFlyoutTemplateType>,
+    {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
@@ -3452,7 +3575,10 @@ impl ::windows::core::RuntimeName for TileFlyoutUpdateManager {
 pub struct TileFlyoutUpdater(::windows::core::IUnknown);
 impl TileFlyoutUpdater {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn Update<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, TileFlyoutNotification>>>(&self, notification: Param0) -> ::windows::core::Result<()> {
+    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, TileFlyoutNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
     }
@@ -3463,13 +3589,21 @@ impl TileFlyoutUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, tileflyoutcontent: Param0, requestedinterval: Param1) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdate<'a, P0, P1>(&self, tileflyoutcontent: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), tileflyoutcontent.into().abi(), requestedinterval.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param2: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, tileflyoutcontent: Param0, starttime: super::super::Foundation::DateTime, requestedinterval: Param2) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdateAtTime<'a, P0, P1>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), tileflyoutcontent.into().abi(), starttime, requestedinterval.into()).ok() }
     }
@@ -3562,7 +3696,11 @@ impl TileNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -3576,7 +3714,10 @@ impl TileNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3590,7 +3731,10 @@ impl TileNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0) -> ::windows::core::Result<TileNotification> {
+    pub fn CreateTileNotification<'a, P0>(content: P0) -> ::windows::core::Result<TileNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::ITileNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTileNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<TileNotification>(result__)
@@ -3833,14 +3977,20 @@ impl TileUpdateManager {
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateTileUpdaterForApplicationWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForApplicationWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<TileUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateTileUpdaterForSecondaryTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tileid: Param0) -> ::windows::core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForSecondaryTile<'a, P0>(tileid: P0) -> ::windows::core::Result<TileUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdater>(result__)
@@ -3848,7 +3998,10 @@ impl TileUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, Param0: ::std::convert::Into<TileTemplateType>>(r#type: Param0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
+    where
+        P0: ::std::convert::Into<TileTemplateType>,
+    {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
@@ -3856,7 +4009,10 @@ impl TileUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<TileUpdateManagerForUser> {
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<TileUpdateManagerForUser>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+    {
         Self::ITileUpdateManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdateManagerForUser>(result__)
@@ -3889,7 +4045,10 @@ impl TileUpdateManagerForUser {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateTileUpdaterForApplicationWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, applicationid: Param0) -> ::windows::core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForApplicationWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<TileUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3897,7 +4056,10 @@ impl TileUpdateManagerForUser {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateTileUpdaterForSecondaryTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForSecondaryTile<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<TileUpdater>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3981,7 +4143,10 @@ unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
 pub struct TileUpdater(::windows::core::IUnknown);
 impl TileUpdater {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn Update<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, TileNotification>>>(&self, notification: Param0) -> ::windows::core::Result<()> {
+    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, TileNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
     }
@@ -4004,12 +4169,18 @@ impl TileUpdater {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn AddToSchedule<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledTileNotification>>>(&self, scheduledtile: Param0) -> ::windows::core::Result<()> {
+    pub fn AddToSchedule<'a, P0>(&self, scheduledtile: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledTileNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddToSchedule)(::windows::core::Interface::as_raw(this), scheduledtile.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn RemoveFromSchedule<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledTileNotification>>>(&self, scheduledtile: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveFromSchedule<'a, P0>(&self, scheduledtile: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledTileNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFromSchedule)(::windows::core::Interface::as_raw(this), scheduledtile.into().abi()).ok() }
     }
@@ -4024,13 +4195,21 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, tilecontent: Param0, requestedinterval: Param1) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdate<'a, P0, P1>(&self, tilecontent: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), tilecontent.into().abi(), requestedinterval.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param2: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, tilecontent: Param0, starttime: super::super::Foundation::DateTime, requestedinterval: Param2) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdateAtTime<'a, P0, P1>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), tilecontent.into().abi(), starttime, requestedinterval.into()).ok() }
     }
@@ -4041,13 +4220,23 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartPeriodicUpdateBatch<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, tilecontents: Param0, requestedinterval: Param1) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdateBatch<'a, P0, E0, P1>(&self, tilecontents: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateBatch)(::windows::core::Interface::as_raw(this), tilecontents.try_into().map_err(|e| e.into())?.abi(), requestedinterval.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartPeriodicUpdateBatchAtTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<PeriodicUpdateRecurrence>>(&self, tilecontents: Param0, starttime: super::super::Foundation::DateTime, requestedinterval: Param2) -> ::windows::core::Result<()> {
+    pub fn StartPeriodicUpdateBatchAtTime<'a, P0, E0, P1>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(::windows::core::Interface::as_raw(this), tilecontents.try_into().map_err(|e| e.into())?.abi(), starttime, requestedinterval.into()).ok() }
     }
@@ -4232,7 +4421,10 @@ impl ToastCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4245,7 +4437,10 @@ impl ToastCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetLaunchArgs<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLaunchArgs<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLaunchArgs)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4260,13 +4455,22 @@ impl ToastCollection {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIcon<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIcon)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(collectionid: Param0, displayname: Param1, launchargs: Param2, iconuri: Param3) -> ::windows::core::Result<ToastCollection> {
+    pub fn CreateInstance<'a, P0, P1, P2, P3>(collectionid: P0, displayname: P1, launchargs: P2, iconuri: P3) -> ::windows::core::Result<ToastCollection>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         Self::IToastCollectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), collectionid.into().abi(), displayname.into().abi(), launchargs.into().abi(), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<ToastCollection>(result__)
@@ -4346,7 +4550,10 @@ pub struct ToastCollectionManager(::windows::core::IUnknown);
 impl ToastCollectionManager {
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveToastCollectionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ToastCollection>>>(&self, collection: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveToastCollectionAsync<'a, P0>(&self, collection: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ToastCollection>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4364,7 +4571,10 @@ impl ToastCollectionManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetToastCollectionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, collectionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastCollection>> {
+    pub fn GetToastCollectionAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastCollection>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4373,7 +4583,10 @@ impl ToastCollectionManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveToastCollectionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, collectionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RemoveToastCollectionAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4705,7 +4918,11 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -4720,7 +4937,10 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Dismissed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Dismissed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4735,7 +4955,10 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Activated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Activated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4750,7 +4973,10 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Failed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Failed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4764,7 +4990,10 @@ impl ToastNotification {
         unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4777,7 +5006,10 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGroup<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetGroup)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4811,7 +5043,10 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetNotificationMirroring<'a, Param0: ::std::convert::Into<NotificationMirroring>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNotificationMirroring<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<NotificationMirroring>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotification3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNotificationMirroring)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4824,7 +5059,10 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetRemoteId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotification3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4837,7 +5075,10 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotification4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4850,7 +5091,10 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetPriority<'a, Param0: ::std::convert::Into<ToastNotificationPriority>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ToastNotificationPriority>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotification4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4869,7 +5113,10 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateToastNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>>(content: Param0) -> ::windows::core::Result<ToastNotification> {
+    pub fn CreateToastNotification<'a, P0>(content: P0) -> ::windows::core::Result<ToastNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         Self::IToastNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateToastNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotification>(result__)
@@ -5030,27 +5277,46 @@ impl ::core::convert::From<&ToastNotificationActionTriggerDetail> for &::windows
 pub struct ToastNotificationHistory(::windows::core::IUnknown);
 impl ToastNotificationHistory {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn RemoveGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, group: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveGroup<'a, P0>(&self, group: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGroup)(::windows::core::Interface::as_raw(this), group.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn RemoveGroupWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, group: Param0, applicationid: Param1) -> ::windows::core::Result<()> {
+    pub fn RemoveGroupWithId<'a, P0, P1>(&self, group: P0, applicationid: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGroupWithId)(::windows::core::Interface::as_raw(this), group.into().abi(), applicationid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn RemoveGroupedTagWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tag: Param0, group: Param1, applicationid: Param2) -> ::windows::core::Result<()> {
+    pub fn RemoveGroupedTagWithId<'a, P0, P1, P2>(&self, tag: P0, group: P1, applicationid: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGroupedTagWithId)(::windows::core::Interface::as_raw(this), tag.into().abi(), group.into().abi(), applicationid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn RemoveGroupedTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tag: Param0, group: Param1) -> ::windows::core::Result<()> {
+    pub fn RemoveGroupedTag<'a, P0, P1>(&self, tag: P0, group: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGroupedTag)(::windows::core::Interface::as_raw(this), tag.into().abi(), group.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tag: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, P0>(&self, tag: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), tag.into().abi()).ok() }
     }
@@ -5060,7 +5326,10 @@ impl ToastNotificationHistory {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn ClearWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, applicationid: Param0) -> ::windows::core::Result<()> {
+    pub fn ClearWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClearWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi()).ok() }
     }
@@ -5075,7 +5344,10 @@ impl ToastNotificationHistory {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetHistoryWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, applicationid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
+    pub fn GetHistoryWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -5235,7 +5507,10 @@ impl ToastNotificationManager {
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateToastNotifierWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<ToastNotifier> {
+    pub fn CreateToastNotifierWithId<'a, P0>(applicationid: P0) -> ::windows::core::Result<ToastNotifier>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateToastNotifierWithId)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotifier>(result__)
@@ -5243,7 +5518,10 @@ impl ToastNotificationManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, Param0: ::std::convert::Into<ToastTemplateType>>(r#type: Param0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
+    where
+        P0: ::std::convert::Into<ToastTemplateType>,
+    {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
@@ -5258,14 +5536,20 @@ impl ToastNotificationManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<ToastNotificationManagerForUser> {
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<ToastNotificationManagerForUser>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+    {
         Self::IToastNotificationManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotificationManagerForUser>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn ConfigureNotificationMirroring<'a, Param0: ::std::convert::Into<NotificationMirroring>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureNotificationMirroring<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<NotificationMirroring>,
+    {
         Self::IToastNotificationManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ConfigureNotificationMirroring)(::windows::core::Interface::as_raw(this), value.into()).ok() })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -5312,7 +5596,10 @@ impl ToastNotificationManagerForUser {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn CreateToastNotifierWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, applicationid: Param0) -> ::windows::core::Result<ToastNotifier> {
+    pub fn CreateToastNotifierWithId<'a, P0>(&self, applicationid: P0) -> ::windows::core::Result<ToastNotifier>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -5338,7 +5625,10 @@ impl ToastNotificationManagerForUser {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetToastNotifierForToastCollectionIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, collectionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>> {
+    pub fn GetToastNotifierForToastCollectionIdAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -5347,7 +5637,10 @@ impl ToastNotificationManagerForUser {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetHistoryForToastCollectionIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, collectionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>> {
+    pub fn GetHistoryForToastCollectionIdAsync<'a, P0>(&self, collectionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -5363,7 +5656,10 @@ impl ToastNotificationManagerForUser {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn GetToastCollectionManagerWithAppId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, appid: Param0) -> ::windows::core::Result<ToastCollectionManager> {
+    pub fn GetToastCollectionManagerWithAppId<'a, P0>(&self, appid: P0) -> ::windows::core::Result<ToastCollectionManager>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -5472,12 +5768,18 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationPriority {
 pub struct ToastNotifier(::windows::core::IUnknown);
 impl ToastNotifier {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn Show<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ToastNotification>>>(&self, notification: Param0) -> ::windows::core::Result<()> {
+    pub fn Show<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ToastNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Show)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn Hide<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ToastNotification>>>(&self, notification: Param0) -> ::windows::core::Result<()> {
+    pub fn Hide<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ToastNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
     }
@@ -5490,12 +5792,18 @@ impl ToastNotifier {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn AddToSchedule<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledToastNotification>>>(&self, scheduledtoast: Param0) -> ::windows::core::Result<()> {
+    pub fn AddToSchedule<'a, P0>(&self, scheduledtoast: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledToastNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddToSchedule)(::windows::core::Interface::as_raw(this), scheduledtoast.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn RemoveFromSchedule<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledToastNotification>>>(&self, scheduledtoast: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveFromSchedule<'a, P0>(&self, scheduledtoast: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledToastNotification>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFromSchedule)(::windows::core::Interface::as_raw(this), scheduledtoast.into().abi()).ok() }
     }
@@ -5509,7 +5817,12 @@ impl ToastNotifier {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn UpdateWithTagAndGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0, tag: Param1, group: Param2) -> ::windows::core::Result<NotificationUpdateResult> {
+    pub fn UpdateWithTagAndGroup<'a, P0, P1, P2>(&self, data: P0, tag: P1, group: P2) -> ::windows::core::Result<NotificationUpdateResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<NotificationUpdateResult>::zeroed();
@@ -5517,7 +5830,11 @@ impl ToastNotifier {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn UpdateWithTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0, tag: Param1) -> ::windows::core::Result<NotificationUpdateResult> {
+    pub fn UpdateWithTag<'a, P0, P1>(&self, data: P0, tag: P1) -> ::windows::core::Result<NotificationUpdateResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<NotificationUpdateResult>::zeroed();
@@ -5526,7 +5843,10 @@ impl ToastNotifier {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScheduledToastNotificationShowing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScheduledToastNotificationShowing<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IToastNotifier3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();

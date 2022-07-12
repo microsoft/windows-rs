@@ -7,11 +7,17 @@ pub const CCF_SCESVC_ATTACHMENT_DATA: &str = "CCF_SCESVC_ATTACHMENT_DATA";
 pub struct ISceSvcAttachmentData(::windows::core::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-    pub unsafe fn GetData<'a, Param1: ::std::convert::Into<SCESVC_INFO_TYPE>>(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: Param1, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetData<'a, P0>(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: P0, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SCESVC_INFO_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scesvchandle), scetype.into(), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-    pub unsafe fn Initialize<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ISceSvcAttachmentPersistInfo>>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn Initialize<'a, P0>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: P0, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISceSvcAttachmentPersistInfo>>,
+    {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into().abi(), ::core::mem::transmute(pscesvchandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]

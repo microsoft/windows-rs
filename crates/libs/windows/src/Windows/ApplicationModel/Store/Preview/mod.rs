@@ -442,19 +442,33 @@ pub struct StoreConfiguration;
 impl StoreConfiguration {
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(cataloghardwaremanufacturerid: Param0, catalogstorecontentmodifierid: Param1, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: Param3) -> ::windows::core::Result<()> {
+    pub fn SetSystemConfiguration<'a, P0, P1, P2>(cataloghardwaremanufacturerid: P0, catalogstorecontentmodifierid: P1, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetSystemConfiguration)(::windows::core::Interface::as_raw(this), cataloghardwaremanufacturerid.into().abi(), catalogstorecontentmodifierid.into().abi(), systemconfigurationexpiration, cataloghardwaredescriptor.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-    pub fn SetMobileOperatorConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(mobileoperatorid: Param0, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()> {
+    pub fn SetMobileOperatorConfiguration<'a, P0>(mobileoperatorid: P0, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetMobileOperatorConfiguration)(::windows::core::Interface::as_raw(this), mobileoperatorid.into().abi(), appdownloadlimitinmegabytes, updatedownloadlimitinmegabytes).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-    pub fn SetStoreWebAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountid: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStoreWebAccountId<'a, P0>(webaccountid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetStoreWebAccountId)(::windows::core::Interface::as_raw(this), webaccountid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-    pub fn IsStoreWebAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountid: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsStoreWebAccountId<'a, P0>(webaccountid: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsStoreWebAccountId)(::windows::core::Interface::as_raw(this), webaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -469,7 +483,11 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FilterUnsupportedSystemFeaturesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(systemfeatures: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>> {
+    pub fn FilterUnsupportedSystemFeaturesAsync<'a, P0, E0>(systemfeatures: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IStoreConfigurationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FilterUnsupportedSystemFeaturesAsync)(::windows::core::Interface::as_raw(this), systemfeatures.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>(result__)
@@ -485,7 +503,11 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPurchasePromptingPolicy<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPurchasePromptingPolicy<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IStoreConfigurationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetPurchasePromptingPolicy)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -497,7 +519,10 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn HasStoreWebAccountForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasStoreWebAccountForUser<'a, P0>(user: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).HasStoreWebAccountForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -505,7 +530,10 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetStoreLogDataAsync<'a, Param0: ::std::convert::Into<StoreLogOptions>>(options: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>> {
+    pub fn GetStoreLogDataAsync<'a, P0>(options: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>
+    where
+        P0: ::std::convert::Into<StoreLogOptions>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetStoreLogDataAsync)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>(result__)
@@ -513,12 +541,20 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn SetStoreWebAccountIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, webaccountid: Param1) -> ::windows::core::Result<()> {
+    pub fn SetStoreWebAccountIdForUser<'a, P0, P1>(user: P0, webaccountid: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetStoreWebAccountIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), webaccountid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn IsStoreWebAccountIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, webaccountid: Param1) -> ::windows::core::Result<bool> {
+    pub fn IsStoreWebAccountIdForUser<'a, P0, P1>(user: P0, webaccountid: P1) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsStoreWebAccountIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), webaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -526,7 +562,10 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetPurchasePromptingPolicyForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>> {
+    pub fn GetPurchasePromptingPolicyForUser<'a, P0>(user: P0) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
@@ -534,7 +573,12 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn SetPurchasePromptingPolicyForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(user: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetPurchasePromptingPolicyForUser<'a, P0, P1, E1>(user: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<u32>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPurchasePromptingPolicyForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -546,19 +590,29 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetStoreWebAccountIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetStoreWebAccountIdForUser<'a, P0>(user: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetStoreWebAccountIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-    pub fn SetEnterpriseStoreWebAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(webaccountid: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEnterpriseStoreWebAccountId<'a, P0>(webaccountid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetEnterpriseStoreWebAccountId)(::windows::core::Interface::as_raw(this), webaccountid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn SetEnterpriseStoreWebAccountIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, webaccountid: Param1) -> ::windows::core::Result<()> {
+    pub fn SetEnterpriseStoreWebAccountIdForUser<'a, P0, P1>(user: P0, webaccountid: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetEnterpriseStoreWebAccountIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), webaccountid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -570,7 +624,10 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetEnterpriseStoreWebAccountIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetEnterpriseStoreWebAccountIdForUser<'a, P0>(user: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetEnterpriseStoreWebAccountIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -585,7 +642,10 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn ShouldRestrictToEnterpriseStoreOnlyForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<bool> {
+    pub fn ShouldRestrictToEnterpriseStoreOnlyForUser<'a, P0>(user: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).ShouldRestrictToEnterpriseStoreOnlyForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -613,12 +673,19 @@ impl StoreConfiguration {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-    pub fn PinToDesktop<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(apppackagefamilyname: Param0) -> ::windows::core::Result<()> {
+    pub fn PinToDesktop<'a, P0>(apppackagefamilyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).PinToDesktop)(::windows::core::Interface::as_raw(this), apppackagefamilyname.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn PinToDesktopForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, apppackagefamilyname: Param1) -> ::windows::core::Result<()> {
+    pub fn PinToDesktopForUser<'a, P0, P1>(user: P0, apppackagefamilyname: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStoreConfigurationStatics5(|this| unsafe { (::windows::core::Interface::vtable(this).PinToDesktopForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), apppackagefamilyname.into().abi()).ok() })
     }
     #[doc(hidden)]
@@ -816,7 +883,11 @@ pub struct StorePreview;
 impl StorePreview {
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseByProductIdAndSkuIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(productid: Param0, skuid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>> {
+    pub fn RequestProductPurchaseByProductIdAndSkuIdAsync<'a, P0, P1>(productid: P0, skuid: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStorePreview(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RequestProductPurchaseByProductIdAndSkuIdAsync)(::windows::core::Interface::as_raw(this), productid.into().abi(), skuid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>>(result__)
@@ -1269,7 +1340,11 @@ pub struct WebAuthenticationCoreManagerHelper;
 impl WebAuthenticationCoreManagerHelper {
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>>(request: Param0, uielement: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>> {
+    pub fn RequestTokenWithUIElementHostingAsync<'a, P0, P1>(request: P0, uielement: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
+    {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), uielement.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)
@@ -1277,7 +1352,12 @@ impl WebAuthenticationCoreManagerHelper {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::WebAccount>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>>(request: Param0, webaccount: Param1, uielement: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>> {
+    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::WebAccount>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
+    {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), uielement.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)

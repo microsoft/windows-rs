@@ -45,14 +45,21 @@ pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
 pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
-    pub fn Register<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
+    pub fn Register<'a, P0>(id: P0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
-    pub fn RegisterWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PlatformTelemetryRegistrationSettings>>>(id: Param0, settings: Param1) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
+    pub fn RegisterWithSettings<'a, P0, P1>(id: P0, settings: P1) -> ::windows::core::Result<PlatformTelemetryRegistrationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, PlatformTelemetryRegistrationSettings>>,
+    {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RegisterWithSettings)(::windows::core::Interface::as_raw(this), id.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)

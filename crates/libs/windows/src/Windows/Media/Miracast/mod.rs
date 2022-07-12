@@ -475,7 +475,10 @@ impl MiracastReceiver {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn DisconnectAllAndApplySettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverSettings>>>(&self, settings: Param0) -> ::windows::core::Result<MiracastReceiverApplySettingsResult> {
+    pub fn DisconnectAllAndApplySettings<'a, P0>(&self, settings: P0) -> ::windows::core::Result<MiracastReceiverApplySettingsResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -484,7 +487,10 @@ impl MiracastReceiver {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DisconnectAllAndApplySettingsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverSettings>>>(&self, settings: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>> {
+    pub fn DisconnectAllAndApplySettingsAsync<'a, P0>(&self, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -510,7 +516,10 @@ impl MiracastReceiver {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiver, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiver, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -525,7 +534,10 @@ impl MiracastReceiver {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"ApplicationModel_Core\"`*"]
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn CreateSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::CoreApplicationView>>>(&self, view: Param0) -> ::windows::core::Result<MiracastReceiverSession> {
+    pub fn CreateSession<'a, P0>(&self, view: P0) -> ::windows::core::Result<MiracastReceiverSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::CoreApplicationView>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -534,7 +546,10 @@ impl MiracastReceiver {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn CreateSessionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::CoreApplicationView>>>(&self, view: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSession>> {
+    pub fn CreateSessionAsync<'a, P0>(&self, view: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSession>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::CoreApplicationView>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -547,7 +562,10 @@ impl MiracastReceiver {
         unsafe { (::windows::core::Interface::vtable(this).ClearKnownTransmitters)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn RemoveKnownTransmitter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MiracastTransmitter>>>(&self, transmitter: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveKnownTransmitter<'a, P0>(&self, transmitter: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MiracastTransmitter>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveKnownTransmitter)(::windows::core::Interface::as_raw(this), transmitter.into().abi()).ok() }
     }
@@ -784,12 +802,19 @@ impl MiracastReceiverConnection {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn Disconnect<'a, Param0: ::std::convert::Into<MiracastReceiverDisconnectReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
+    pub fn Disconnect<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MiracastReceiverDisconnectReason>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn DisconnectWithMessage<'a, Param0: ::std::convert::Into<MiracastReceiverDisconnectReason>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, reason: Param0, message: Param1) -> ::windows::core::Result<()> {
+    pub fn DisconnectWithMessage<'a, P0, P1>(&self, reason: P0, message: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MiracastReceiverDisconnectReason>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).DisconnectWithMessage)(::windows::core::Interface::as_raw(this), reason.into(), message.into().abi()).ok() }
     }
@@ -1071,7 +1096,10 @@ impl MiracastReceiverCursorImageChannel {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImageStreamChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ImageStreamChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1086,7 +1114,10 @@ impl MiracastReceiverCursorImageChannel {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PositionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PositionChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1414,13 +1445,19 @@ impl MiracastReceiverGameControllerDevice {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetMode<'a, Param0: ::std::convert::Into<MiracastReceiverGameControllerDeviceUsageMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MiracastReceiverGameControllerDeviceUsageMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1648,7 +1685,10 @@ impl MiracastReceiverKeyboardDevice {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1875,7 +1915,10 @@ impl MiracastReceiverSession {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionCreated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ConnectionCreated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1890,7 +1933,10 @@ impl MiracastReceiverSession {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MediaSourceCreated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MediaSourceCreated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1905,7 +1951,10 @@ impl MiracastReceiverSession {
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Disconnected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Disconnected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2178,7 +2227,10 @@ impl MiracastReceiverSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2191,7 +2243,10 @@ impl MiracastReceiverSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetModelName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetModelName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetModelName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2204,7 +2259,10 @@ impl MiracastReceiverSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetModelNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetModelNumber<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetModelNumber)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2217,7 +2275,10 @@ impl MiracastReceiverSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetAuthorizationMethod<'a, Param0: ::std::convert::Into<MiracastReceiverAuthorizationMethod>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAuthorizationMethod<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MiracastReceiverAuthorizationMethod>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAuthorizationMethod)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2427,13 +2488,19 @@ impl MiracastReceiverStreamControl {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SuggestVideoStreamSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverVideoStreamSettings>>>(&self, settings: Param0) -> ::windows::core::Result<()> {
+    pub fn SuggestVideoStreamSettings<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverVideoStreamSettings>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SuggestVideoStreamSettings)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SuggestVideoStreamSettingsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverVideoStreamSettings>>>(&self, settings: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SuggestVideoStreamSettingsAsync<'a, P0>(&self, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MiracastReceiverVideoStreamSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2660,7 +2727,10 @@ impl MiracastTransmitter {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2673,7 +2743,10 @@ impl MiracastTransmitter {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetAuthorizationStatus<'a, Param0: ::std::convert::Into<MiracastTransmitterAuthorizationStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAuthorizationStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MiracastTransmitterAuthorizationStatus>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAuthorizationStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

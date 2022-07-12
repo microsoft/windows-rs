@@ -419,7 +419,10 @@ pub struct EdgeGesture(::windows::core::IUnknown);
 impl EdgeGesture {
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Starting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Starting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -434,7 +437,10 @@ impl EdgeGesture {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -449,7 +455,10 @@ impl EdgeGesture {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Canceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Canceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -699,7 +708,10 @@ impl GestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn SetGestureSettings<'a, Param0: ::std::convert::Into<GestureSettings>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGestureSettings<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GestureSettings>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGestureSettings)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -912,7 +924,10 @@ impl GestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn CanBeDoubleTap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn CanBeDoubleTap<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -920,23 +935,36 @@ impl GestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn ProcessDownEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessDownEvent<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessDownEvent)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ProcessMoveEvents<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<PointerPoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessMoveEvents<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<PointerPoint>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessMoveEvents)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn ProcessUpEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessUpEvent<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessUpEvent)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn ProcessMouseWheelEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>>(&self, value: Param0, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::core::Result<()> {
+    pub fn ProcessMouseWheelEvent<'a, P0>(&self, value: P0, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PointerPoint>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProcessMouseWheelEvent)(::windows::core::Interface::as_raw(this), value.into().abi(), isshiftkeydown, iscontrolkeydown).ok() }
     }
@@ -952,7 +980,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Tapped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Tapped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -967,7 +998,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RightTapped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RightTapped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -982,7 +1016,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Holding<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Holding<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -997,7 +1034,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Dragging<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Dragging<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1012,7 +1052,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1027,7 +1070,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1042,7 +1088,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationInertiaStarting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationInertiaStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1057,7 +1106,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1072,7 +1124,10 @@ impl GestureRecognizer {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CrossSliding<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CrossSliding<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3043,7 +3098,10 @@ impl InputActivationListener {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InputActivationChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InputActivationChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3286,7 +3344,10 @@ impl KeyboardDeliveryInterceptor {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn KeyDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn KeyDown<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3301,7 +3362,10 @@ impl KeyboardDeliveryInterceptor {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn KeyUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn KeyUp<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4155,7 +4219,11 @@ impl PointerPoint {
         })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn GetCurrentPointTransformed<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IPointerPointTransform>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(pointerid: u32, transform: Param1) -> ::windows::core::Result<PointerPoint> {
+    pub fn GetCurrentPointTransformed<'a, P0, E0>(pointerid: u32, transform: P0) -> ::windows::core::Result<PointerPoint>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPointerPointTransform>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentPointTransformed)(::windows::core::Interface::as_raw(this), pointerid, transform.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PointerPoint>(result__)
@@ -4163,7 +4231,11 @@ impl PointerPoint {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIntermediatePointsTransformed<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IPointerPointTransform>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(pointerid: u32, transform: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
+    pub fn GetIntermediatePointsTransformed<'a, P0, E0>(pointerid: u32, transform: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPointerPointTransform>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetIntermediatePointsTransformed)(::windows::core::Interface::as_raw(this), pointerid, transform.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<PointerPoint>>(result__)
@@ -4691,7 +4763,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScreenContactStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScreenContactStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4706,7 +4781,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScreenContactEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScreenContactEnded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4721,7 +4799,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScreenContactContinued<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScreenContactContinued<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4736,7 +4817,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ControlLost<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ControlLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4751,7 +4835,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RotationChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RotationChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4766,7 +4853,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ButtonClicked<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ButtonClicked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4781,7 +4871,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ControlAcquired<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ControlAcquired<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4796,7 +4889,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ButtonPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ButtonPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4811,7 +4907,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ButtonHolding<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ButtonHolding<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4826,7 +4925,10 @@ impl RadialController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ButtonReleased<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ButtonReleased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5263,7 +5365,11 @@ pub struct RadialControllerConfiguration(::windows::core::IUnknown);
 impl RadialControllerConfiguration {
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetDefaultMenuItems<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buttons: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultMenuItems<'a, P0, E0>(&self, buttons: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultMenuItems)(::windows::core::Interface::as_raw(this), buttons.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -5273,7 +5379,10 @@ impl RadialControllerConfiguration {
         unsafe { (::windows::core::Interface::vtable(this).ResetToDefaultMenuItems)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn TrySelectDefaultMenuItem<'a, Param0: ::std::convert::Into<RadialControllerSystemMenuItemKind>>(&self, r#type: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySelectDefaultMenuItem<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<RadialControllerSystemMenuItemKind>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -5281,7 +5390,10 @@ impl RadialControllerConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn SetActiveControllerWhenMenuIsSuppressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RadialController>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetActiveControllerWhenMenuIsSuppressed<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RadialController>>,
+    {
         let this = &::windows::core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetActiveControllerWhenMenuIsSuppressed)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -5314,7 +5426,10 @@ impl RadialControllerConfiguration {
         })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn SetAppController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RadialController>>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppController<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RadialController>>,
+    {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetAppController)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5535,7 +5650,10 @@ impl RadialControllerMenu {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn SelectMenuItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RadialControllerMenuItem>>>(&self, menuitem: Param0) -> ::windows::core::Result<()> {
+    pub fn SelectMenuItem<'a, P0>(&self, menuitem: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RadialControllerMenuItem>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SelectMenuItem)(::windows::core::Interface::as_raw(this), menuitem.into().abi()).ok() }
     }
@@ -5631,13 +5749,19 @@ impl RadialControllerMenuItem {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Invoked<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Invoked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5652,21 +5776,34 @@ impl RadialControllerMenuItem {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>>(displaytext: Param0, icon: Param1) -> ::windows::core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromIcon<'a, P0, P1>(displaytext: P0, icon: P1) -> ::windows::core::Result<RadialControllerMenuItem>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>,
+    {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIcon)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), icon.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn CreateFromKnownIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<RadialControllerMenuKnownIcon>>(displaytext: Param0, value: Param1) -> ::windows::core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromKnownIcon<'a, P0, P1>(displaytext: P0, value: P1) -> ::windows::core::Result<RadialControllerMenuItem>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<RadialControllerMenuKnownIcon>,
+    {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromKnownIcon)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), value.into(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn CreateFromFontGlyph<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(displaytext: Param0, glyph: Param1, fontfamily: Param2) -> ::windows::core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromFontGlyph<'a, P0, P1, P2>(displaytext: P0, glyph: P1, fontfamily: P2) -> ::windows::core::Result<RadialControllerMenuItem>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromFontGlyph)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), glyph.into().abi(), fontfamily.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
@@ -5674,7 +5811,13 @@ impl RadialControllerMenuItem {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromFontGlyphWithUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(displaytext: Param0, glyph: Param1, fontfamily: Param2, fonturi: Param3) -> ::windows::core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromFontGlyphWithUri<'a, P0, P1, P2, P3>(displaytext: P0, glyph: P1, fontfamily: P2, fonturi: P3) -> ::windows::core::Result<RadialControllerMenuItem>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromFontGlyphWithUri)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), glyph.into().abi(), fontfamily.into().abi(), fonturi.into().abi(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
@@ -6387,7 +6530,10 @@ impl SystemButtonEventController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SystemFunctionButtonPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionButtonPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6402,7 +6548,10 @@ impl SystemButtonEventController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SystemFunctionButtonReleased<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionButtonReleased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6417,7 +6566,10 @@ impl SystemButtonEventController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SystemFunctionLockChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionLockChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6432,7 +6584,10 @@ impl SystemButtonEventController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SystemFunctionLockIndicatorChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SystemFunctionLockIndicatorChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6447,7 +6602,10 @@ impl SystemButtonEventController {
     }
     #[doc = "*Required features: `\"UI_Input\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForDispatcherQueue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::DispatcherQueue>>>(queue: Param0) -> ::windows::core::Result<SystemButtonEventController> {
+    pub fn CreateForDispatcherQueue<'a, P0>(queue: P0) -> ::windows::core::Result<SystemButtonEventController>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::DispatcherQueue>>,
+    {
         Self::ISystemButtonEventControllerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateForDispatcherQueue)(::windows::core::Interface::as_raw(this), queue.into().abi(), result__.as_mut_ptr()).from_abi::<SystemButtonEventController>(result__)

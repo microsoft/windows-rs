@@ -2,7 +2,10 @@
 pub struct ClassicAppManager;
 impl ClassicAppManager {
     #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
-    pub fn FindInstalledApp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appuninstallkey: Param0) -> ::windows::core::Result<InstalledClassicAppInfo> {
+    pub fn FindInstalledApp<'a, P0>(appuninstallkey: P0) -> ::windows::core::Result<InstalledClassicAppInfo>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IClassicAppManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FindInstalledApp)(::windows::core::Interface::as_raw(this), appuninstallkey.into().abi(), result__.as_mut_ptr()).from_abi::<InstalledClassicAppInfo>(result__)

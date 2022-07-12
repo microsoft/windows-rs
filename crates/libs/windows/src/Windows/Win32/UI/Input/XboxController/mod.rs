@@ -389,7 +389,10 @@ impl ::core::fmt::Debug for XINPUT_VIRTUAL_KEY {
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn XInputEnable<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(enable: Param0) {
+pub unsafe fn XInputEnable<'a, P0>(enable: P0)
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn XInputEnable(enable: super::super::super::Foundation::BOOL);

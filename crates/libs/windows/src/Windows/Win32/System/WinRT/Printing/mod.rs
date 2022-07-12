@@ -4,13 +4,21 @@ pub struct IPrintManagerInterop(::windows::core::IUnknown);
 impl IPrintManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowPrintUIForWindowAsync<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn ShowPrintUIForWindowAsync<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -158,7 +166,10 @@ pub struct IPrintWorkflowConfigurationNative_Vtbl {
 pub struct IPrintWorkflowObjectModelSourceFileContentNative(::windows::core::IUnknown);
 impl IPrintWorkflowObjectModelSourceFileContentNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
-    pub unsafe fn StartXpsOMGeneration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IPrintWorkflowXpsReceiver>>>(&self, receiver: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn StartXpsOMGeneration<'a, P0>(&self, receiver: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IPrintWorkflowXpsReceiver>>,
+    {
         (::windows::core::Interface::vtable(self).StartXpsOMGeneration)(::windows::core::Interface::as_raw(self), receiver.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Storage_Xps\"`*"]
@@ -274,21 +285,35 @@ pub struct IPrintWorkflowXpsReceiver(::windows::core::IUnknown);
 impl IPrintWorkflowXpsReceiver {
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>>(&self, documentsequenceprintticket: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDocumentSequencePrintTicket<'a, P0>(&self, documentsequenceprintticket: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>,
+    {
         (::windows::core::Interface::vtable(self).SetDocumentSequencePrintTicket)(::windows::core::Interface::as_raw(self), documentsequenceprintticket.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
-    pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDocumentSequenceUri<'a, P0>(&self, documentsequenceuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetDocumentSequenceUri)(::windows::core::Interface::as_raw(self), documentsequenceuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddDocumentData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddDocumentData<'a, P0, P1>(&self, documentid: u32, documentprintticket: P0, documenturi: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).AddDocumentData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), documentprintticket.into().abi(), documenturi.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn AddPage<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPage<'a, P0, P1>(&self, documentid: u32, pageid: u32, pagereference: P0, pageuri: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).AddPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into().abi(), pageuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
@@ -356,21 +381,35 @@ pub struct IPrintWorkflowXpsReceiver2(::windows::core::IUnknown);
 impl IPrintWorkflowXpsReceiver2 {
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>>(&self, documentsequenceprintticket: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDocumentSequencePrintTicket<'a, P0>(&self, documentsequenceprintticket: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetDocumentSequencePrintTicket)(::windows::core::Interface::as_raw(self), documentsequenceprintticket.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
-    pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDocumentSequenceUri<'a, P0>(&self, documentsequenceuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetDocumentSequenceUri)(::windows::core::Interface::as_raw(self), documentsequenceuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddDocumentData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddDocumentData<'a, P0, P1>(&self, documentid: u32, documentprintticket: P0, documenturi: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Com::IStream>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).base__.AddDocumentData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), documentprintticket.into().abi(), documenturi.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn AddPage<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPage<'a, P0, P1>(&self, documentid: u32, pageid: u32, pagereference: P0, pageuri: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).base__.AddPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into().abi(), pageuri.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`*"]
@@ -444,13 +483,21 @@ pub struct IPrinting3DManagerInterop(::windows::core::IUnknown);
 impl IPrinting3DManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowPrintUIForWindowAsync<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn ShowPrintUIForWindowAsync<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }

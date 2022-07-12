@@ -10,7 +10,10 @@ impl CommunicationBlockingAccessManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsBlockedNumberAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(number: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsBlockedNumberAsync<'a, P0>(number: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsBlockedNumberAsync)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
@@ -18,7 +21,11 @@ impl CommunicationBlockingAccessManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ShowBlockNumbersUI<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(phonenumbers: Param0) -> ::windows::core::Result<bool> {
+    pub fn ShowBlockNumbersUI<'a, P0, E0>(phonenumbers: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).ShowBlockNumbersUI)(::windows::core::Interface::as_raw(this), phonenumbers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -26,7 +33,11 @@ impl CommunicationBlockingAccessManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ShowUnblockNumbersUI<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(phonenumbers: Param0) -> ::windows::core::Result<bool> {
+    pub fn ShowUnblockNumbersUI<'a, P0, E0>(phonenumbers: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).ShowUnblockNumbersUI)(::windows::core::Interface::as_raw(this), phonenumbers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)

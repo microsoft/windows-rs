@@ -150,7 +150,12 @@ impl ::core::default::Default for DAV_CALLBACK_CRED {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavAddConnection<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: Param1, username: Param2, password: Param3, clientcert: *const u8, certsize: u32) -> u32 {
+pub unsafe fn DavAddConnection<'a, P0, P1, P2>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: P0, username: P1, password: P2, clientcert: *const u8, certsize: u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavAddConnection(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, clientcert: *const u8, certsize: u32) -> u32;
@@ -160,7 +165,11 @@ pub unsafe fn DavAddConnection<'a, Param1: ::std::convert::Into<::windows::core:
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavCancelConnectionsToServer<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(lpname: Param0, fforce: Param1) -> u32 {
+pub unsafe fn DavCancelConnectionsToServer<'a, P0, P1>(lpname: P0, fforce: P1) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavCancelConnectionsToServer(lpname: ::windows::core::PCWSTR, fforce: super::super::Foundation::BOOL) -> u32;
@@ -170,7 +179,10 @@ pub unsafe fn DavCancelConnectionsToServer<'a, Param0: ::std::convert::Into<::wi
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavDeleteConnection<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(connectionhandle: Param0) -> u32 {
+pub unsafe fn DavDeleteConnection<'a, P0>(connectionhandle: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32;
@@ -180,7 +192,10 @@ pub unsafe fn DavDeleteConnection<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavFlushFile<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0) -> u32 {
+pub unsafe fn DavFlushFile<'a, P0>(hfile: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32;
@@ -190,7 +205,10 @@ pub unsafe fn DavFlushFile<'a, Param0: ::std::convert::Into<super::super::Founda
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavGetExtendedError<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, exterror: *mut u32, exterrorstring: ::windows::core::PWSTR, cchsize: *mut u32) -> u32 {
+pub unsafe fn DavGetExtendedError<'a, P0>(hfile: P0, exterror: *mut u32, exterrorstring: ::windows::core::PWSTR, cchsize: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: ::windows::core::PWSTR, cchsize: *mut u32) -> u32;
@@ -199,7 +217,10 @@ pub unsafe fn DavGetExtendedError<'a, Param0: ::std::convert::Into<super::super:
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavGetHTTPFromUNCPath<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(uncpath: Param0, url: ::windows::core::PWSTR, lpsize: *mut u32) -> u32 {
+pub unsafe fn DavGetHTTPFromUNCPath<'a, P0>(uncpath: P0, url: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavGetHTTPFromUNCPath(uncpath: ::windows::core::PCWSTR, url: ::windows::core::PWSTR, lpsize: *mut u32) -> u32;
@@ -208,7 +229,10 @@ pub unsafe fn DavGetHTTPFromUNCPath<'a, Param0: ::std::convert::Into<::windows::
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(filename: Param0, lockownername: ::windows::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32 {
+pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, P0>(filename: P0, lockownername: ::windows::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavGetTheLockOwnerOfTheFile(filename: ::windows::core::PCWSTR, lockownername: ::windows::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32;
@@ -217,7 +241,10 @@ pub unsafe fn DavGetTheLockOwnerOfTheFile<'a, Param0: ::std::convert::Into<::win
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavGetUNCFromHTTPPath<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(url: Param0, uncpath: ::windows::core::PWSTR, lpsize: *mut u32) -> u32 {
+pub unsafe fn DavGetUNCFromHTTPPath<'a, P0>(url: P0, uncpath: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavGetUNCFromHTTPPath(url: ::windows::core::PCWSTR, uncpath: ::windows::core::PWSTR, lpsize: *mut u32) -> u32;
@@ -226,7 +253,10 @@ pub unsafe fn DavGetUNCFromHTTPPath<'a, Param0: ::std::convert::Into<::windows::
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavInvalidateCache<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(urlname: Param0) -> u32 {
+pub unsafe fn DavInvalidateCache<'a, P0>(urlname: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DavInvalidateCache(urlname: ::windows::core::PCWSTR) -> u32;

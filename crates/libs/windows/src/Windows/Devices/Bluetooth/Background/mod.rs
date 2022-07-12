@@ -816,7 +816,11 @@ impl RfcommInboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSdpRecord<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSdpRecord<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSdpRecord)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -831,7 +835,10 @@ impl RfcommInboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetLocalServiceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Rfcomm::RfcommServiceId>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocalServiceId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Rfcomm::RfcommServiceId>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalServiceId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -844,7 +851,10 @@ impl RfcommInboundConnectionInformation {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
-    pub fn SetServiceCapabilities<'a, Param0: ::std::convert::Into<super::BluetoothServiceCapabilities>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetServiceCapabilities<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::BluetoothServiceCapabilities>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetServiceCapabilities)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -926,7 +936,10 @@ impl RfcommOutboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetRemoteServiceId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Rfcomm::RfcommServiceId>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteServiceId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Rfcomm::RfcommServiceId>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteServiceId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }

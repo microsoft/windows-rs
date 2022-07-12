@@ -609,7 +609,10 @@ pub const SRP_POLICY_WLDPSCRIPT: &str = "WLDPSCRIPT";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferCloseLevel<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>>(hlevelhandle: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferCloseLevel<'a, P0>(hlevelhandle: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferCloseLevel(hlevelhandle: super::SAFER_LEVEL_HANDLE) -> super::super::Foundation::BOOL;
@@ -619,7 +622,12 @@ pub unsafe fn SaferCloseLevel<'a, Param0: ::std::convert::Into<super::SAFER_LEVE
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>, Param3: ::std::convert::Into<SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS>>(levelhandle: Param0, inaccesstoken: Param1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: Param3, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferComputeTokenFromLevel<'a, P0, P1, P2>(levelhandle: P0, inaccesstoken: P1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: P2, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferComputeTokenFromLevel(levelhandle: super::SAFER_LEVEL_HANDLE, inaccesstoken: super::super::Foundation::HANDLE, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -639,7 +647,11 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferGetLevelInformation<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>, Param1: ::std::convert::Into<SAFER_OBJECT_INFO_CLASS>>(levelhandle: Param0, dwinfotype: Param1, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferGetLevelInformation<'a, P0, P1>(levelhandle: P0, dwinfotype: P1, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P1: ::std::convert::Into<SAFER_OBJECT_INFO_CLASS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferGetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL;
@@ -649,7 +661,10 @@ pub unsafe fn SaferGetLevelInformation<'a, Param0: ::std::convert::Into<super::S
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferGetPolicyInformation<'a, Param1: ::std::convert::Into<SAFER_POLICY_INFO_CLASS>>(dwscopeid: u32, saferpolicyinfoclass: Param1, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferGetPolicyInformation<'a, P0>(dwscopeid: u32, saferpolicyinfoclass: P0, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<SAFER_POLICY_INFO_CLASS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -669,7 +684,11 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: &[SAFER_CODE_PROPERTIES_V2], p
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferRecordEventLogEntry<'a, P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: ::windows::core::PCWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -679,7 +698,11 @@ pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::std::convert::Into<super::S
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferSetLevelInformation<'a, Param0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>, Param1: ::std::convert::Into<SAFER_OBJECT_INFO_CLASS>>(levelhandle: Param0, dwinfotype: Param1, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferSetLevelInformation<'a, P0, P1>(levelhandle: P0, dwinfotype: P1, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
+    P1: ::std::convert::Into<SAFER_OBJECT_INFO_CLASS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL;
@@ -689,7 +712,10 @@ pub unsafe fn SaferSetLevelInformation<'a, Param0: ::std::convert::Into<super::S
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferSetPolicyInformation<'a, Param1: ::std::convert::Into<SAFER_POLICY_INFO_CLASS>>(dwscopeid: u32, saferpolicyinfoclass: Param1, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferSetPolicyInformation<'a, P0>(dwscopeid: u32, saferpolicyinfoclass: P0, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<SAFER_POLICY_INFO_CLASS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -699,7 +725,11 @@ pub unsafe fn SaferSetPolicyInformation<'a, Param1: ::std::convert::Into<SAFER_P
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferiIsExecutableFileType<'a, P0, P1>(szfullpathname: P0, bfromshellexecute: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferiIsExecutableFileType(szfullpathname: ::windows::core::PCWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;

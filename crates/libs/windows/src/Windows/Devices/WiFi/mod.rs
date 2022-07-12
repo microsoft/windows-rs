@@ -235,7 +235,10 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailableNetworksChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable>>>>(&self, args: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailableNetworksChanged<'a, P0>(&self, args: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -250,7 +253,11 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>>(&self, availablenetwork: Param0, reconnectionkind: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectAsync<'a, P0, P1>(&self, availablenetwork: P0, reconnectionkind: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>,
+        P1: ::std::convert::Into<WiFiReconnectionKind>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -259,7 +266,12 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>>(&self, availablenetwork: Param0, reconnectionkind: Param1, passwordcredential: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAsync<'a, P0, P1, P2>(&self, availablenetwork: P0, reconnectionkind: P1, passwordcredential: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>,
+        P1: ::std::convert::Into<WiFiReconnectionKind>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -268,7 +280,13 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAndSsidAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, availablenetwork: Param0, reconnectionkind: Param1, passwordcredential: Param2, ssid: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAndSsidAsync<'a, P0, P1, P2, P3>(&self, availablenetwork: P0, reconnectionkind: P1, passwordcredential: P2, ssid: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>,
+        P1: ::std::convert::Into<WiFiReconnectionKind>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -282,7 +300,10 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetWpsConfigurationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>>(&self, availablenetwork: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>> {
+    pub fn GetWpsConfigurationAsync<'a, P0>(&self, availablenetwork: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>,
+    {
         let this = &::windows::core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -291,7 +312,14 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<WiFiConnectionMethod>>(&self, availablenetwork: Param0, reconnectionkind: Param1, passwordcredential: Param2, ssid: Param3, connectionmethod: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<'a, P0, P1, P2, P3, P4>(&self, availablenetwork: P0, reconnectionkind: P1, passwordcredential: P2, ssid: P3, connectionmethod: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>,
+        P1: ::std::convert::Into<WiFiReconnectionKind>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P4: ::std::convert::Into<WiFiConnectionMethod>,
+    {
         let this = &::windows::core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -315,7 +343,10 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAdapter>>(result__)

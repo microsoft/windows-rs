@@ -162,7 +162,10 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetProviderId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProviderId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProviderId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -175,7 +178,10 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetAccessPointName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAccessPointName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAccessPointName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -188,7 +194,10 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUserName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -201,7 +210,10 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPassword<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPassword)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -227,7 +239,10 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetAuthenticationType<'a, Param0: ::std::convert::Into<CellularApnAuthenticationType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAuthenticationType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CellularApnAuthenticationType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -240,7 +255,10 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetProfileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProfileName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICellularApnContext2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetProfileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -478,7 +496,10 @@ impl ConnectionProfile {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetLocalUsagePerRoamingStates<'a, Param2: ::std::convert::Into<RoamingStates>>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: Param2) -> ::windows::core::Result<DataUsage> {
+    pub fn GetLocalUsagePerRoamingStates<'a, P0>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: P0) -> ::windows::core::Result<DataUsage>
+    where
+        P0: ::std::convert::Into<RoamingStates>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -553,7 +574,10 @@ impl ConnectionProfile {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNetworkUsageAsync<'a, Param2: ::std::convert::Into<DataUsageGranularity>>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: Param2, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
+    pub fn GetNetworkUsageAsync<'a, P0>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: P0, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>
+    where
+        P0: ::std::convert::Into<DataUsageGranularity>,
+    {
         let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -754,7 +778,10 @@ impl ConnectionProfileFilter {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetNetworkCostType<'a, Param0: ::std::convert::Into<NetworkCostType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNetworkCostType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<NetworkCostType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNetworkCostType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -768,7 +795,11 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetServiceProviderGuid<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetServiceProviderGuid<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetServiceProviderGuid)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -783,7 +814,11 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsRoaming<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsRoaming<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsRoaming)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -798,7 +833,11 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsOverDataLimit<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsOverDataLimit<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsOverDataLimit)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -813,7 +852,11 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsBackgroundDataUsageRestricted<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsBackgroundDataUsageRestricted<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -837,7 +880,11 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPurposeGuid<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPurposeGuid<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPurposeGuid)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1106,18 +1153,27 @@ pub struct ConnectivityManager;
 impl ConnectivityManager {
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AcquireConnectionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CellularApnContext>>>(cellularapncontext: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>> {
+    pub fn AcquireConnectionAsync<'a, P0>(cellularapncontext: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CellularApnContext>>,
+    {
         Self::IConnectivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).AcquireConnectionAsync)(::windows::core::Interface::as_raw(this), cellularapncontext.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn AddHttpRoutePolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>>(routepolicy: Param0) -> ::windows::core::Result<()> {
+    pub fn AddHttpRoutePolicy<'a, P0>(routepolicy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>,
+    {
         Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).AddHttpRoutePolicy)(::windows::core::Interface::as_raw(this), routepolicy.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn RemoveHttpRoutePolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>>(routepolicy: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveHttpRoutePolicy<'a, P0>(routepolicy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>,
+    {
         Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveHttpRoutePolicy)(::windows::core::Interface::as_raw(this), routepolicy.into().abi()).ok() })
     }
     #[doc(hidden)]
@@ -2802,7 +2858,10 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetProxyConfigurationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(uri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>> {
+    pub fn GetProxyConfigurationAsync<'a, P0>(uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetProxyConfigurationAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
@@ -2810,7 +2869,12 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSortedEndpointPairs<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<super::HostNameSortOptions>>(destinationlist: Param0, sortoptions: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>> {
+    pub fn GetSortedEndpointPairs<'a, P0, E0, P1>(destinationlist: P0, sortoptions: P1) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<super::HostNameSortOptions>,
+    {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetSortedEndpointPairs)(::windows::core::Interface::as_raw(this), destinationlist.try_into().map_err(|e| e.into())?.abi(), sortoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
@@ -2818,7 +2882,10 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NetworkStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NetworkStatusChangedEventHandler>>>(networkstatushandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn NetworkStatusChanged<'a, P0>(networkstatushandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, NetworkStatusChangedEventHandler>>,
+    {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).NetworkStatusChanged)(::windows::core::Interface::as_raw(this), networkstatushandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -2831,7 +2898,10 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConnectionProfilesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfileFilter>>>(pprofilefilter: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>> {
+    pub fn FindConnectionProfilesAsync<'a, P0>(pprofilefilter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfileFilter>>,
+    {
         Self::INetworkInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FindConnectionProfilesAsync)(::windows::core::Interface::as_raw(this), pprofilefilter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
@@ -3157,7 +3227,10 @@ impl NetworkStatusChangedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
@@ -3693,7 +3766,12 @@ impl RoutePolicy {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn CreateRoutePolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfile>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>, Param2: ::std::convert::Into<super::DomainNameType>>(connectionprofile: Param0, hostname: Param1, r#type: Param2) -> ::windows::core::Result<RoutePolicy> {
+    pub fn CreateRoutePolicy<'a, P0, P1, P2>(connectionprofile: P0, hostname: P1, r#type: P2) -> ::windows::core::Result<RoutePolicy>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfile>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+        P2: ::std::convert::Into<super::DomainNameType>,
+    {
         Self::IRoutePolicyFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRoutePolicy)(::windows::core::Interface::as_raw(this), connectionprofile.into().abi(), hostname.into().abi(), r#type.into(), result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)

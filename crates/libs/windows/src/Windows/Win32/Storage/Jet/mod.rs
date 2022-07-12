@@ -6563,7 +6563,11 @@ pub const JET_wszConfigStoreRelPathSysParamOverride: &str = "SysParamOverride";
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAddColumnA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetAddColumnA<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetAddColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
@@ -6573,7 +6577,11 @@ pub unsafe fn JetAddColumnA<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAddColumnW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetAddColumnW<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetAddColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
@@ -6583,7 +6591,10 @@ pub unsafe fn JetAddColumnW<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAttachDatabase2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
+pub unsafe fn JetAttachDatabase2A<'a, P0>(sesid: P0, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetAttachDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32;
@@ -6593,7 +6604,10 @@ pub unsafe fn JetAttachDatabase2A<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAttachDatabase2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
+pub unsafe fn JetAttachDatabase2W<'a, P0>(sesid: P0, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetAttachDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32;
@@ -6603,7 +6617,10 @@ pub unsafe fn JetAttachDatabase2W<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAttachDatabaseA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, grbit: u32) -> i32 {
+pub unsafe fn JetAttachDatabaseA<'a, P0>(sesid: P0, szfilename: *const i8, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetAttachDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
@@ -6613,7 +6630,10 @@ pub unsafe fn JetAttachDatabaseA<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAttachDatabaseW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, grbit: u32) -> i32 {
+pub unsafe fn JetAttachDatabaseW<'a, P0>(sesid: P0, szfilename: *const u16, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetAttachDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
@@ -6633,7 +6653,10 @@ pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFN
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupInstanceA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
+pub unsafe fn JetBackupInstanceA<'a, P0>(instance: P0, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
@@ -6643,7 +6666,10 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupInstanceW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
+pub unsafe fn JetBackupInstanceW<'a, P0>(instance: P0, szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
@@ -6672,7 +6698,10 @@ pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBeginExternalBackupInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetBeginExternalBackupInstance<'a, P0>(instance: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBeginExternalBackupInstance(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -6682,7 +6711,10 @@ pub unsafe fn JetBeginExternalBackupInstance<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBeginSessionA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const i8, szpassword: *const i8) -> i32 {
+pub unsafe fn JetBeginSessionA<'a, P0>(instance: P0, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const i8, szpassword: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBeginSessionA(instance: super::StructuredStorage::JET_INSTANCE, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const i8, szpassword: *const i8) -> i32;
@@ -6692,7 +6724,10 @@ pub unsafe fn JetBeginSessionA<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBeginSessionW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const u16, szpassword: *const u16) -> i32 {
+pub unsafe fn JetBeginSessionW<'a, P0>(instance: P0, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const u16, szpassword: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBeginSessionW(instance: super::StructuredStorage::JET_INSTANCE, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const u16, szpassword: *const u16) -> i32;
@@ -6702,7 +6737,10 @@ pub unsafe fn JetBeginSessionW<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBeginTransaction<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0) -> i32 {
+pub unsafe fn JetBeginTransaction<'a, P0>(sesid: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBeginTransaction(sesid: super::StructuredStorage::JET_SESID) -> i32;
@@ -6712,7 +6750,10 @@ pub unsafe fn JetBeginTransaction<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBeginTransaction2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetBeginTransaction2<'a, P0>(sesid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBeginTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
@@ -6722,7 +6763,10 @@ pub unsafe fn JetBeginTransaction2<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBeginTransaction3<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, trxid: i64, grbit: u32) -> i32 {
+pub unsafe fn JetBeginTransaction3<'a, P0>(sesid: P0, trxid: i64, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetBeginTransaction3(sesid: super::StructuredStorage::JET_SESID, trxid: i64, grbit: u32) -> i32;
@@ -6732,7 +6776,10 @@ pub unsafe fn JetBeginTransaction3<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCloseDatabase<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, grbit: u32) -> i32 {
+pub unsafe fn JetCloseDatabase<'a, P0>(sesid: P0, dbid: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCloseDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, grbit: u32) -> i32;
@@ -6742,7 +6789,10 @@ pub unsafe fn JetCloseDatabase<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCloseFile<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>>(hffile: Param0) -> i32 {
+pub unsafe fn JetCloseFile<'a, P0>(hffile: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCloseFile(hffile: super::StructuredStorage::JET_HANDLE) -> i32;
@@ -6752,7 +6802,11 @@ pub unsafe fn JetCloseFile<'a, Param0: ::std::convert::Into<super::StructuredSto
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCloseFileInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>, Param1: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>>(instance: Param0, hffile: Param1) -> i32 {
+pub unsafe fn JetCloseFileInstance<'a, P0, P1>(instance: P0, hffile: P1) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCloseFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE) -> i32;
@@ -6762,7 +6816,11 @@ pub unsafe fn JetCloseFileInstance<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCloseTable<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1) -> i32 {
+pub unsafe fn JetCloseTable<'a, P0, P1>(sesid: P0, tableid: P1) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCloseTable(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
@@ -6772,7 +6830,10 @@ pub unsafe fn JetCloseTable<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCommitTransaction<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetCommitTransaction<'a, P0>(sesid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCommitTransaction(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
@@ -6782,7 +6843,10 @@ pub unsafe fn JetCommitTransaction<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetCommitTransaction2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32 {
+pub unsafe fn JetCommitTransaction2<'a, P0>(sesid: P0, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCommitTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32;
@@ -6792,7 +6856,10 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::std::convert::Into<super::Stru
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCompactA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32 {
+pub unsafe fn JetCompactA<'a, P0>(sesid: P0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_A, grbit: u32) -> i32;
@@ -6802,7 +6869,10 @@ pub unsafe fn JetCompactA<'a, Param0: ::std::convert::Into<super::StructuredStor
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCompactW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32 {
+pub unsafe fn JetCompactW<'a, P0>(sesid: P0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_W, grbit: u32) -> i32;
@@ -6812,7 +6882,11 @@ pub unsafe fn JetCompactW<'a, Param0: ::std::convert::Into<super::StructuredStor
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetComputeStats<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1) -> i32 {
+pub unsafe fn JetComputeStats<'a, P0, P1>(sesid: P0, tableid: P1) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetComputeStats(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
@@ -6831,7 +6905,10 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateDatabase2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetCreateDatabase2A<'a, P0>(sesid: P0, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32;
@@ -6841,7 +6918,10 @@ pub unsafe fn JetCreateDatabase2A<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateDatabase2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetCreateDatabase2W<'a, P0>(sesid: P0, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32;
@@ -6851,7 +6931,10 @@ pub unsafe fn JetCreateDatabase2W<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateDatabaseA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetCreateDatabaseA<'a, P0>(sesid: P0, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32;
@@ -6861,7 +6944,10 @@ pub unsafe fn JetCreateDatabaseA<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateDatabaseW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetCreateDatabaseW<'a, P0>(sesid: P0, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
@@ -6871,7 +6957,11 @@ pub unsafe fn JetCreateDatabaseW<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: &[JET_INDEXCREATE_A]) -> i32 {
+pub unsafe fn JetCreateIndex2A<'a, P0, P1>(sesid: P0, tableid: P1, pindexcreate: &[JET_INDEXCREATE_A]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndex2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: u32) -> i32;
@@ -6881,7 +6971,11 @@ pub unsafe fn JetCreateIndex2A<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: &[JET_INDEXCREATE_W]) -> i32 {
+pub unsafe fn JetCreateIndex2W<'a, P0, P1>(sesid: P0, tableid: P1, pindexcreate: &[JET_INDEXCREATE_W]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndex2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_W, cindexcreate: u32) -> i32;
@@ -6891,7 +6985,11 @@ pub unsafe fn JetCreateIndex2W<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex3A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: &[JET_INDEXCREATE2_A]) -> i32 {
+pub unsafe fn JetCreateIndex3A<'a, P0, P1>(sesid: P0, tableid: P1, pindexcreate: &[JET_INDEXCREATE2_A]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndex3A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: u32) -> i32;
@@ -6901,7 +6999,11 @@ pub unsafe fn JetCreateIndex3A<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex3W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: &[JET_INDEXCREATE2_W]) -> i32 {
+pub unsafe fn JetCreateIndex3W<'a, P0, P1>(sesid: P0, tableid: P1, pindexcreate: &[JET_INDEXCREATE2_W]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndex3W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_W, cindexcreate: u32) -> i32;
@@ -6911,7 +7013,11 @@ pub unsafe fn JetCreateIndex3W<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex4A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: &[JET_INDEXCREATE3_A]) -> i32 {
+pub unsafe fn JetCreateIndex4A<'a, P0, P1>(sesid: P0, tableid: P1, pindexcreate: &[JET_INDEXCREATE3_A]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndex4A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_A, cindexcreate: u32) -> i32;
@@ -6921,7 +7027,11 @@ pub unsafe fn JetCreateIndex4A<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex4W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: &[JET_INDEXCREATE3_W]) -> i32 {
+pub unsafe fn JetCreateIndex4W<'a, P0, P1>(sesid: P0, tableid: P1, pindexcreate: &[JET_INDEXCREATE3_W]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndex4W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_W, cindexcreate: u32) -> i32;
@@ -6931,7 +7041,12 @@ pub unsafe fn JetCreateIndex4W<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndexA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>, Param4: ::std::convert::Into<::windows::core::PCSTR>>(sesid: Param0, tableid: Param1, szindexname: *const i8, grbit: u32, szkey: Param4, cbkey: u32, ldensity: u32) -> i32 {
+pub unsafe fn JetCreateIndexA<'a, P0, P1, P2>(sesid: P0, tableid: P1, szindexname: *const i8, grbit: u32, szkey: P2, cbkey: u32, ldensity: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, szkey: ::windows::core::PCSTR, cbkey: u32, ldensity: u32) -> i32;
@@ -6941,7 +7056,12 @@ pub unsafe fn JetCreateIndexA<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndexW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>, Param4: ::std::convert::Into<::windows::core::PCWSTR>>(sesid: Param0, tableid: Param1, szindexname: *const u16, grbit: u32, szkey: Param4, cbkey: u32, ldensity: u32) -> i32 {
+pub unsafe fn JetCreateIndexW<'a, P0, P1, P2>(sesid: P0, tableid: P1, szindexname: *const u16, grbit: u32, szkey: P2, cbkey: u32, ldensity: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, szkey: ::windows::core::PCWSTR, cbkey: u32, ldensity: u32) -> i32;
@@ -6991,7 +7111,10 @@ pub unsafe fn JetCreateInstanceW(pinstance: *mut super::StructuredStorage::JET_I
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+pub unsafe fn JetCreateTableA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
@@ -7001,7 +7124,10 @@ pub unsafe fn JetCreateTableA<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndex2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32 {
+pub unsafe fn JetCreateTableColumnIndex2A<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndex2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32;
@@ -7011,7 +7137,10 @@ pub unsafe fn JetCreateTableColumnIndex2A<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndex2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32 {
+pub unsafe fn JetCreateTableColumnIndex2W<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndex2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32;
@@ -7021,7 +7150,10 @@ pub unsafe fn JetCreateTableColumnIndex2W<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndex3A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32 {
+pub unsafe fn JetCreateTableColumnIndex3A<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndex3A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32;
@@ -7031,7 +7163,10 @@ pub unsafe fn JetCreateTableColumnIndex3A<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndex3W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32 {
+pub unsafe fn JetCreateTableColumnIndex3W<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndex3W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32;
@@ -7041,7 +7176,10 @@ pub unsafe fn JetCreateTableColumnIndex3W<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndex4A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32 {
+pub unsafe fn JetCreateTableColumnIndex4A<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndex4A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32;
@@ -7051,7 +7189,10 @@ pub unsafe fn JetCreateTableColumnIndex4A<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndex4W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32 {
+pub unsafe fn JetCreateTableColumnIndex4W<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndex4W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32;
@@ -7061,7 +7202,10 @@ pub unsafe fn JetCreateTableColumnIndex4W<'a, Param0: ::std::convert::Into<super
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndexA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32 {
+pub unsafe fn JetCreateTableColumnIndexA<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndexA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32;
@@ -7071,7 +7215,10 @@ pub unsafe fn JetCreateTableColumnIndexA<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableColumnIndexW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32 {
+pub unsafe fn JetCreateTableColumnIndexW<'a, P0>(sesid: P0, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableColumnIndexW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32;
@@ -7081,7 +7228,10 @@ pub unsafe fn JetCreateTableColumnIndexW<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+pub unsafe fn JetCreateTableW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetCreateTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
@@ -7091,7 +7241,10 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment2A<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, grbit: u32) -> i32;
@@ -7101,7 +7254,10 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment2W<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, grbit: u32) -> i32;
@@ -7111,7 +7267,10 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment3A<'a, P0>(sesid: P0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
@@ -7121,7 +7280,10 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment3W<'a, P0>(sesid: P0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
@@ -7131,7 +7293,10 @@ pub unsafe fn JetDefragment3W<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragmentA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetDefragmentA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDefragmentA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
@@ -7141,7 +7306,10 @@ pub unsafe fn JetDefragmentA<'a, Param0: ::std::convert::Into<super::StructuredS
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragmentW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetDefragmentW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDefragmentW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
@@ -7151,7 +7319,11 @@ pub unsafe fn JetDefragmentW<'a, Param0: ::std::convert::Into<super::StructuredS
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDelete<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1) -> i32 {
+pub unsafe fn JetDelete<'a, P0, P1>(sesid: P0, tableid: P1) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDelete(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
@@ -7161,7 +7333,11 @@ pub unsafe fn JetDelete<'a, Param0: ::std::convert::Into<super::StructuredStorag
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumn2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, grbit: u32) -> i32 {
+pub unsafe fn JetDeleteColumn2A<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const i8, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteColumn2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, grbit: u32) -> i32;
@@ -7171,7 +7347,11 @@ pub unsafe fn JetDeleteColumn2A<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumn2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, grbit: u32) -> i32 {
+pub unsafe fn JetDeleteColumn2W<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const u16, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteColumn2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, grbit: u32) -> i32;
@@ -7181,7 +7361,11 @@ pub unsafe fn JetDeleteColumn2W<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumnA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8) -> i32 {
+pub unsafe fn JetDeleteColumnA<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8) -> i32;
@@ -7191,7 +7375,11 @@ pub unsafe fn JetDeleteColumnA<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumnW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16) -> i32 {
+pub unsafe fn JetDeleteColumnW<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16) -> i32;
@@ -7201,7 +7389,11 @@ pub unsafe fn JetDeleteColumnW<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteIndexA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8) -> i32 {
+pub unsafe fn JetDeleteIndexA<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8) -> i32;
@@ -7211,7 +7403,11 @@ pub unsafe fn JetDeleteIndexA<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteIndexW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16) -> i32 {
+pub unsafe fn JetDeleteIndexW<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16) -> i32;
@@ -7221,7 +7417,10 @@ pub unsafe fn JetDeleteIndexW<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteTableA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8) -> i32 {
+pub unsafe fn JetDeleteTableA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8) -> i32;
@@ -7231,7 +7430,10 @@ pub unsafe fn JetDeleteTableA<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteTableW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16) -> i32 {
+pub unsafe fn JetDeleteTableW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDeleteTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16) -> i32;
@@ -7241,7 +7443,10 @@ pub unsafe fn JetDeleteTableW<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDetachDatabase2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, grbit: u32) -> i32 {
+pub unsafe fn JetDetachDatabase2A<'a, P0>(sesid: P0, szfilename: *const i8, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDetachDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
@@ -7251,7 +7456,10 @@ pub unsafe fn JetDetachDatabase2A<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDetachDatabase2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, grbit: u32) -> i32 {
+pub unsafe fn JetDetachDatabase2W<'a, P0>(sesid: P0, szfilename: *const u16, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDetachDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
@@ -7261,7 +7469,10 @@ pub unsafe fn JetDetachDatabase2W<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDetachDatabaseA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8) -> i32 {
+pub unsafe fn JetDetachDatabaseA<'a, P0>(sesid: P0, szfilename: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDetachDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8) -> i32;
@@ -7271,7 +7482,10 @@ pub unsafe fn JetDetachDatabaseA<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDetachDatabaseW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16) -> i32 {
+pub unsafe fn JetDetachDatabaseW<'a, P0>(sesid: P0, szfilename: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDetachDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16) -> i32;
@@ -7281,7 +7495,11 @@ pub unsafe fn JetDetachDatabaseW<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDupCursor<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, ptableid: *mut super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32 {
+pub unsafe fn JetDupCursor<'a, P0, P1>(sesid: P0, tableid: P1, ptableid: *mut super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDupCursor(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, ptableid: *mut super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
@@ -7291,7 +7509,10 @@ pub unsafe fn JetDupCursor<'a, Param0: ::std::convert::Into<super::StructuredSto
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDupSession<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, psesid: *mut super::StructuredStorage::JET_SESID) -> i32 {
+pub unsafe fn JetDupSession<'a, P0>(sesid: P0, psesid: *mut super::StructuredStorage::JET_SESID) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetDupSession(sesid: super::StructuredStorage::JET_SESID, psesid: *mut super::StructuredStorage::JET_SESID) -> i32;
@@ -7330,7 +7551,10 @@ pub unsafe fn JetEndExternalBackup() -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEndExternalBackupInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
+pub unsafe fn JetEndExternalBackupInstance<'a, P0>(instance: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetEndExternalBackupInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
@@ -7340,7 +7564,10 @@ pub unsafe fn JetEndExternalBackupInstance<'a, Param0: ::std::convert::Into<supe
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEndExternalBackupInstance2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetEndExternalBackupInstance2<'a, P0>(instance: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetEndExternalBackupInstance2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -7350,7 +7577,10 @@ pub unsafe fn JetEndExternalBackupInstance2<'a, Param0: ::std::convert::Into<sup
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEndSession<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetEndSession<'a, P0>(sesid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetEndSession(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
@@ -7360,7 +7590,11 @@ pub unsafe fn JetEndSession<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEnumerateColumns<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgenumcolumnid: &[JET_ENUMCOLUMNID], pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
+pub unsafe fn JetEnumerateColumns<'a, P0, P1>(sesid: P0, tableid: P1, rgenumcolumnid: &[JET_ENUMCOLUMNID], pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: *mut ::core::ffi::c_void, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
@@ -7370,7 +7604,11 @@ pub unsafe fn JetEnumerateColumns<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEscrowUpdate<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetEscrowUpdate<'a, P0, P1>(sesid: P0, tableid: P1, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetEscrowUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32;
@@ -7419,7 +7657,10 @@ pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
-pub unsafe fn JetFreeBuffer<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(pbbuf: Param0) -> i32 {
+pub unsafe fn JetFreeBuffer<'a, P0>(pbbuf: P0) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetFreeBuffer(pbbuf: ::windows::core::PCSTR) -> i32;
@@ -7438,7 +7679,10 @@ pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *m
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetAttachInfoInstanceA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetAttachInfoInstanceA<'a, P0>(instance: P0, szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetAttachInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7448,7 +7692,10 @@ pub unsafe fn JetGetAttachInfoInstanceA<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetAttachInfoInstanceW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetAttachInfoInstanceW<'a, P0>(instance: P0, szzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetAttachInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7467,7 +7714,11 @@ pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: 
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetBookmark<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetBookmark<'a, P0, P1>(sesid: P0, tableid: P1, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7477,7 +7728,10 @@ pub unsafe fn JetGetBookmark<'a, Param0: ::std::convert::Into<super::StructuredS
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetColumnInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetColumnInfoA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetColumnInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7487,7 +7741,10 @@ pub unsafe fn JetGetColumnInfoA<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetColumnInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetColumnInfoW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetColumnInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7497,7 +7754,11 @@ pub unsafe fn JetGetColumnInfoW<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetCurrentIndexA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *mut i8, cbindexname: u32) -> i32 {
+pub unsafe fn JetGetCurrentIndexA<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *mut i8, cbindexname: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetCurrentIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut i8, cbindexname: u32) -> i32;
@@ -7507,7 +7768,11 @@ pub unsafe fn JetGetCurrentIndexA<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetCurrentIndexW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *mut u16, cbindexname: u32) -> i32 {
+pub unsafe fn JetGetCurrentIndexW<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *mut u16, cbindexname: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetCurrentIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, cbindexname: u32) -> i32;
@@ -7517,7 +7782,11 @@ pub unsafe fn JetGetCurrentIndexW<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetCursorInfo<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetCursorInfo<'a, P0, P1>(sesid: P0, tableid: P1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetCursorInfo(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7545,7 +7814,10 @@ pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetDatabaseInfoA<'a, P0>(sesid: P0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetDatabaseInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7555,7 +7827,10 @@ pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetDatabaseInfoW<'a, P0>(sesid: P0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetDatabaseInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7574,7 +7849,10 @@ pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: 
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetIndexInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetIndexInfoA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetIndexInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
@@ -7584,7 +7862,10 @@ pub unsafe fn JetGetIndexInfoA<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetIndexInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetIndexInfoW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetIndexInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
@@ -7614,7 +7895,10 @@ pub unsafe fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetInstanceMiscInfo<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetInstanceMiscInfo<'a, P0>(instance: P0, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetInstanceMiscInfo(instance: super::StructuredStorage::JET_INSTANCE, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7624,7 +7908,11 @@ pub unsafe fn JetGetInstanceMiscInfo<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetLS<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pls: *mut JET_LS, grbit: u32) -> i32 {
+pub unsafe fn JetGetLS<'a, P0, P1>(sesid: P0, tableid: P1, pls: *mut JET_LS, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetLS(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pls: *mut JET_LS, grbit: u32) -> i32;
@@ -7634,7 +7922,11 @@ pub unsafe fn JetGetLS<'a, Param0: ::std::convert::Into<super::StructuredStorage
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetLock<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetGetLock<'a, P0, P1>(sesid: P0, tableid: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetLock(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
@@ -7653,7 +7945,10 @@ pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) 
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetGetLogInfoInstance2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_A) -> i32 {
+pub unsafe fn JetGetLogInfoInstance2A<'a, P0>(instance: P0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_A) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetLogInfoInstance2A(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_A) -> i32;
@@ -7663,7 +7958,10 @@ pub unsafe fn JetGetLogInfoInstance2A<'a, Param0: ::std::convert::Into<super::St
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetLogInfoInstance2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_W) -> i32 {
+pub unsafe fn JetGetLogInfoInstance2W<'a, P0>(instance: P0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_W) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetLogInfoInstance2W(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_W) -> i32;
@@ -7673,7 +7971,10 @@ pub unsafe fn JetGetLogInfoInstance2W<'a, Param0: ::std::convert::Into<super::St
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetLogInfoInstanceA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetLogInfoInstanceA<'a, P0>(instance: P0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetLogInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7683,7 +7984,10 @@ pub unsafe fn JetGetLogInfoInstanceA<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetLogInfoInstanceW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetLogInfoInstanceW<'a, P0>(instance: P0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetLogInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7702,7 +8006,10 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetObjectInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetObjectInfoA<'a, P0>(sesid: P0, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetObjectInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7712,7 +8019,10 @@ pub unsafe fn JetGetObjectInfoA<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetObjectInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetObjectInfoW<'a, P0>(sesid: P0, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetObjectInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7722,7 +8032,11 @@ pub unsafe fn JetGetObjectInfoW<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetRecordPosition<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precpos: *mut JET_RECPOS, cbrecpos: u32) -> i32 {
+pub unsafe fn JetGetRecordPosition<'a, P0, P1>(sesid: P0, tableid: P1, precpos: *mut JET_RECPOS, cbrecpos: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetRecordPosition(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *mut JET_RECPOS, cbrecpos: u32) -> i32;
@@ -7732,7 +8046,11 @@ pub unsafe fn JetGetRecordPosition<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetRecordSize<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precsize: *mut JET_RECSIZE, grbit: u32) -> i32 {
+pub unsafe fn JetGetRecordSize<'a, P0, P1>(sesid: P0, tableid: P1, precsize: *mut JET_RECSIZE, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetRecordSize(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precsize: *mut JET_RECSIZE, grbit: u32) -> i32;
@@ -7742,7 +8060,11 @@ pub unsafe fn JetGetRecordSize<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetRecordSize2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precsize: *mut JET_RECSIZE2, grbit: u32) -> i32 {
+pub unsafe fn JetGetRecordSize2<'a, P0, P1>(sesid: P0, tableid: P1, precsize: *mut JET_RECSIZE2, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetRecordSize2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precsize: *mut JET_RECSIZE2, grbit: u32) -> i32;
@@ -7752,7 +8074,11 @@ pub unsafe fn JetGetRecordSize2<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetGetSecondaryIndexBookmark<'a, P0, P1>(sesid: P0, tableid: P1, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32;
@@ -7762,7 +8088,10 @@ pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::std::convert::Into<supe
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetSessionParameter<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: &mut [u8], pcbparamactual: *mut u32) -> i32 {
+pub unsafe fn JetGetSessionParameter<'a, P0>(sesid: P0, sesparamid: u32, pvparam: &mut [u8], pcbparamactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *mut ::core::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32;
@@ -7772,7 +8101,11 @@ pub unsafe fn JetGetSessionParameter<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetSystemParameterA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>, Param1: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(instance: Param0, sesid: Param1, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut i8, cbmax: u32) -> i32 {
+pub unsafe fn JetGetSystemParameterA<'a, P0, P1>(instance: P0, sesid: P1, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut i8, cbmax: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetSystemParameterA(instance: super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut i8, cbmax: u32) -> i32;
@@ -7782,7 +8115,11 @@ pub unsafe fn JetGetSystemParameterA<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetSystemParameterW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>, Param1: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(instance: Param0, sesid: Param1, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut u16, cbmax: u32) -> i32 {
+pub unsafe fn JetGetSystemParameterW<'a, P0, P1>(instance: P0, sesid: P1, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut u16, cbmax: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetSystemParameterW(instance: super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut u16, cbmax: u32) -> i32;
@@ -7792,7 +8129,11 @@ pub unsafe fn JetGetSystemParameterW<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableColumnInfoA<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTableColumnInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7802,7 +8143,11 @@ pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableColumnInfoW<'a, P0, P1>(sesid: P0, tableid: P1, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTableColumnInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7812,7 +8157,11 @@ pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableIndexInfoA<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTableIndexInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
@@ -7822,7 +8171,11 @@ pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::std::convert::Into<super::Stru
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableIndexInfoW<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTableIndexInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
@@ -7832,7 +8185,11 @@ pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::std::convert::Into<super::Stru
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableInfoA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableInfoA<'a, P0, P1>(sesid: P0, tableid: P1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTableInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7842,7 +8199,11 @@ pub unsafe fn JetGetTableInfoA<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableInfoW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableInfoW<'a, P0, P1>(sesid: P0, tableid: P1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTableInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
@@ -7861,7 +8222,10 @@ pub unsafe fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) 
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTruncateLogInfoInstanceA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetTruncateLogInfoInstanceA<'a, P0>(instance: P0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTruncateLogInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7871,7 +8235,10 @@ pub unsafe fn JetGetTruncateLogInfoInstanceA<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTruncateLogInfoInstanceW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetTruncateLogInfoInstanceW<'a, P0>(instance: P0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetTruncateLogInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -7881,7 +8248,10 @@ pub unsafe fn JetGetTruncateLogInfoInstanceW<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetVersion<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, pwversion: *mut u32) -> i32 {
+pub unsafe fn JetGetVersion<'a, P0>(sesid: P0, pwversion: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGetVersion(sesid: super::StructuredStorage::JET_SESID, pwversion: *mut u32) -> i32;
@@ -7891,7 +8261,11 @@ pub unsafe fn JetGetVersion<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoBookmark<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32 {
+pub unsafe fn JetGotoBookmark<'a, P0, P1>(sesid: P0, tableid: P1, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGotoBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32;
@@ -7901,7 +8275,11 @@ pub unsafe fn JetGotoBookmark<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoPosition<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precpos: *const JET_RECPOS) -> i32 {
+pub unsafe fn JetGotoPosition<'a, P0, P1>(sesid: P0, tableid: P1, precpos: *const JET_RECPOS) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGotoPosition(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *const JET_RECPOS) -> i32;
@@ -7911,7 +8289,11 @@ pub unsafe fn JetGotoPosition<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoSecondaryIndexBookmark<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32 {
+pub unsafe fn JetGotoSecondaryIndexBookmark<'a, P0, P1>(sesid: P0, tableid: P1, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGotoSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32;
@@ -7921,7 +8303,10 @@ pub unsafe fn JetGotoSecondaryIndexBookmark<'a, Param0: ::std::convert::Into<sup
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGrowDatabase<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32 {
+pub unsafe fn JetGrowDatabase<'a, P0>(sesid: P0, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetGrowDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32;
@@ -7931,7 +8316,10 @@ pub unsafe fn JetGrowDatabase<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetIdle<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetIdle<'a, P0>(sesid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetIdle(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
@@ -7941,7 +8329,11 @@ pub unsafe fn JetIdle<'a, Param0: ::std::convert::Into<super::StructuredStorage:
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetIndexRecordCount<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pcrec: *mut u32, crecmax: u32) -> i32 {
+pub unsafe fn JetIndexRecordCount<'a, P0, P1>(sesid: P0, tableid: P1, pcrec: *mut u32, crecmax: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetIndexRecordCount(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pcrec: *mut u32, crecmax: u32) -> i32;
@@ -7991,7 +8383,10 @@ pub unsafe fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetIntersectIndexes<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, rgindexrange: &[JET_INDEXRANGE], precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32 {
+pub unsafe fn JetIntersectIndexes<'a, P0>(sesid: P0, rgindexrange: &[JET_INDEXRANGE], precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetIntersectIndexes(sesid: super::StructuredStorage::JET_SESID, rgindexrange: *const JET_INDEXRANGE, cindexrange: u32, precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32;
@@ -8001,7 +8396,11 @@ pub unsafe fn JetIntersectIndexes<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetMakeKey<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+pub unsafe fn JetMakeKey<'a, P0, P1>(sesid: P0, tableid: P1, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetMakeKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
@@ -8011,7 +8410,11 @@ pub unsafe fn JetMakeKey<'a, Param0: ::std::convert::Into<super::StructuredStora
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetMove<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, crow: i32, grbit: u32) -> i32 {
+pub unsafe fn JetMove<'a, P0, P1>(sesid: P0, tableid: P1, crow: i32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetMove(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, crow: i32, grbit: u32) -> i32;
@@ -8020,7 +8423,10 @@ pub unsafe fn JetMove<'a, Param0: ::std::convert::Into<super::StructuredStorage:
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
-pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotAbort<'a, P0>(snapid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: u32) -> i32;
@@ -8029,7 +8435,10 @@ pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
-pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotEnd<'a, P0>(snapid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotEnd(snapid: JET_OSSNAPID, grbit: u32) -> i32;
@@ -8039,7 +8448,10 @@ pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(s
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotFreezeA<'a, P0>(snapid: P0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotFreezeA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
@@ -8049,7 +8461,10 @@ pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::std::convert::Into<JET_OSSNAPID
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotFreezeW<'a, P0>(snapid: P0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotFreezeW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
@@ -8059,7 +8474,10 @@ pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::std::convert::Into<JET_OSSNAPID
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOSSnapshotGetFreezeInfoA<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotGetFreezeInfoA<'a, P0>(snapid: P0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotGetFreezeInfoA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
@@ -8069,7 +8487,10 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoA<'a, Param0: ::std::convert::Into<JET_O
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOSSnapshotGetFreezeInfoW<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotGetFreezeInfoW<'a, P0>(snapid: P0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotGetFreezeInfoW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
@@ -8088,7 +8509,11 @@ pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i3
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOSSnapshotPrepareInstance<'a, Param0: ::std::convert::Into<JET_OSSNAPID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(snapid: Param0, instance: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotPrepareInstance<'a, P0, P1>(snapid: P0, instance: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotPrepareInstance(snapid: JET_OSSNAPID, instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -8097,7 +8522,10 @@ pub unsafe fn JetOSSnapshotPrepareInstance<'a, Param0: ::std::convert::Into<JET_
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
-pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotThaw<'a, P0>(snapid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotThaw(snapid: JET_OSSNAPID, grbit: u32) -> i32;
@@ -8106,7 +8534,10 @@ pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
-pub unsafe fn JetOSSnapshotTruncateLog<'a, Param0: ::std::convert::Into<JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotTruncateLog<'a, P0>(snapid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotTruncateLog(snapid: JET_OSSNAPID, grbit: u32) -> i32;
@@ -8116,7 +8547,11 @@ pub unsafe fn JetOSSnapshotTruncateLog<'a, Param0: ::std::convert::Into<JET_OSSN
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOSSnapshotTruncateLogInstance<'a, Param0: ::std::convert::Into<JET_OSSNAPID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(snapid: Param0, instance: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetOSSnapshotTruncateLogInstance<'a, P0, P1>(snapid: P0, instance: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<JET_OSSNAPID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOSSnapshotTruncateLogInstance(snapid: JET_OSSNAPID, instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -8126,7 +8561,10 @@ pub unsafe fn JetOSSnapshotTruncateLogInstance<'a, Param0: ::std::convert::Into<
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenDatabaseA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetOpenDatabaseA<'a, P0>(sesid: P0, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32;
@@ -8136,7 +8574,10 @@ pub unsafe fn JetOpenDatabaseA<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenDatabaseW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetOpenDatabaseW<'a, P0>(sesid: P0, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
@@ -8156,7 +8597,10 @@ pub unsafe fn JetOpenFileA(szfilename: *const i8, phffile: *mut super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
+pub unsafe fn JetOpenFileInstanceA<'a, P0>(instance: P0, szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenFileInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32;
@@ -8166,7 +8610,10 @@ pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
+pub unsafe fn JetOpenFileInstanceW<'a, P0>(instance: P0, szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenFileInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32;
@@ -8186,7 +8633,10 @@ pub unsafe fn JetOpenFileW(szfilename: *const u16, phffile: *mut super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTableA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+pub unsafe fn JetOpenTableA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
@@ -8196,7 +8646,10 @@ pub unsafe fn JetOpenTableA<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTableW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+pub unsafe fn JetOpenTableW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
@@ -8206,7 +8659,10 @@ pub unsafe fn JetOpenTableW<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetOpenTempTable<'a, P0>(sesid: P0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTempTable(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
@@ -8216,7 +8672,10 @@ pub unsafe fn JetOpenTempTable<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetOpenTempTable2<'a, P0>(sesid: P0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTempTable2(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
@@ -8226,7 +8685,10 @@ pub unsafe fn JetOpenTempTable2<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable3<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetOpenTempTable3<'a, P0>(sesid: P0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTempTable3(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
@@ -8236,7 +8698,10 @@ pub unsafe fn JetOpenTempTable3<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, popentemporarytable: *const JET_OPENTEMPORARYTABLE) -> i32 {
+pub unsafe fn JetOpenTemporaryTable<'a, P0>(sesid: P0, popentemporarytable: *const JET_OPENTEMPORARYTABLE) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTemporaryTable(sesid: super::StructuredStorage::JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE) -> i32;
@@ -8246,7 +8711,10 @@ pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::std::convert::Into<super::Stru
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32 {
+pub unsafe fn JetOpenTemporaryTable2<'a, P0>(sesid: P0, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetOpenTemporaryTable2(sesid: super::StructuredStorage::JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32;
@@ -8256,7 +8724,11 @@ pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrepareUpdate<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, prep: u32) -> i32 {
+pub unsafe fn JetPrepareUpdate<'a, P0, P1>(sesid: P0, tableid: P1, prep: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetPrepareUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, prep: u32) -> i32;
@@ -8266,7 +8738,11 @@ pub unsafe fn JetPrepareUpdate<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgindexranges: &[JET_INDEX_RANGE], pcrangespreread: *mut u32, rgcolumnidpreread: &[u32], grbit: u32) -> i32 {
+pub unsafe fn JetPrereadIndexRanges<'a, P0, P1>(sesid: P0, tableid: P1, rgindexranges: &[JET_INDEX_RANGE], pcrangespreread: *mut u32, rgcolumnidpreread: &[u32], grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetPrereadIndexRanges(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgindexranges: *const JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *const u32, ccolumnidpreread: u32, grbit: u32) -> i32;
@@ -8276,7 +8752,11 @@ pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::std::convert::Into<super::Stru
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrereadKeys<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32 {
+pub unsafe fn JetPrereadKeys<'a, P0, P1>(sesid: P0, tableid: P1, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetPrereadKeys(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32;
@@ -8286,7 +8766,10 @@ pub unsafe fn JetPrereadKeys<'a, Param0: ::std::convert::Into<super::StructuredS
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetReadFile<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>>(hffile: Param0, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetReadFile<'a, P0>(hffile: P0, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetReadFile(hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
@@ -8296,7 +8779,11 @@ pub unsafe fn JetReadFile<'a, Param0: ::std::convert::Into<super::StructuredStor
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetReadFileInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>, Param1: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>>(instance: Param0, hffile: Param1, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetReadFileInstance<'a, P0, P1>(instance: P0, hffile: P1, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetReadFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
@@ -8306,7 +8793,11 @@ pub unsafe fn JetReadFileInstance<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRegisterCallback<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cbtyp: u32, pcallback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32 {
+pub unsafe fn JetRegisterCallback<'a, P0, P1>(sesid: P0, tableid: P1, cbtyp: u32, pcallback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
@@ -8316,7 +8807,11 @@ pub unsafe fn JetRegisterCallback<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRenameColumnA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32 {
+pub unsafe fn JetRenameColumnA<'a, P0, P1>(sesid: P0, tableid: P1, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRenameColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32;
@@ -8326,7 +8821,11 @@ pub unsafe fn JetRenameColumnA<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRenameColumnW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32 {
+pub unsafe fn JetRenameColumnW<'a, P0, P1>(sesid: P0, tableid: P1, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRenameColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32;
@@ -8336,7 +8835,10 @@ pub unsafe fn JetRenameColumnW<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRenameTableA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32 {
+pub unsafe fn JetRenameTableA<'a, P0>(sesid: P0, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRenameTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32;
@@ -8346,7 +8848,10 @@ pub unsafe fn JetRenameTableA<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRenameTableW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32 {
+pub unsafe fn JetRenameTableW<'a, P0>(sesid: P0, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRenameTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32;
@@ -8356,7 +8861,10 @@ pub unsafe fn JetRenameTableW<'a, Param0: ::std::convert::Into<super::Structured
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetResetSessionContext<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0) -> i32 {
+pub unsafe fn JetResetSessionContext<'a, P0>(sesid: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetResetSessionContext(sesid: super::StructuredStorage::JET_SESID) -> i32;
@@ -8366,7 +8874,11 @@ pub unsafe fn JetResetSessionContext<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetResetTableSequential<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetResetTableSequential<'a, P0, P1>(sesid: P0, tableid: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetResetTableSequential(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
@@ -8376,7 +8888,10 @@ pub unsafe fn JetResetTableSequential<'a, Param0: ::std::convert::Into<super::St
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetResizeDatabase<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetResizeDatabase<'a, P0>(sesid: P0, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetResizeDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32;
@@ -8416,7 +8931,10 @@ pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreInstanceA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
+pub unsafe fn JetRestoreInstanceA<'a, P0>(instance: P0, sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRestoreInstanceA(instance: super::StructuredStorage::JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: *mut ::core::ffi::c_void) -> i32;
@@ -8426,7 +8944,10 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreInstanceW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
+pub unsafe fn JetRestoreInstanceW<'a, P0>(instance: P0, sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRestoreInstanceW(instance: super::StructuredStorage::JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: *mut ::core::ffi::c_void) -> i32;
@@ -8446,7 +8967,11 @@ pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRetrieveColumn<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32 {
+pub unsafe fn JetRetrieveColumn<'a, P0, P1>(sesid: P0, tableid: P1, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRetrieveColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32;
@@ -8456,7 +8981,11 @@ pub unsafe fn JetRetrieveColumn<'a, Param0: ::std::convert::Into<super::Structur
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRetrieveColumns<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pretrievecolumn: &mut [JET_RETRIEVECOLUMN]) -> i32 {
+pub unsafe fn JetRetrieveColumns<'a, P0, P1>(sesid: P0, tableid: P1, pretrievecolumn: &mut [JET_RETRIEVECOLUMN]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRetrieveColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pretrievecolumn: *mut JET_RETRIEVECOLUMN, cretrievecolumn: u32) -> i32;
@@ -8466,7 +8995,11 @@ pub unsafe fn JetRetrieveColumns<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRetrieveKey<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetRetrieveKey<'a, P0, P1>(sesid: P0, tableid: P1, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRetrieveKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32;
@@ -8476,7 +9009,10 @@ pub unsafe fn JetRetrieveKey<'a, Param0: ::std::convert::Into<super::StructuredS
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRollback<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetRollback<'a, P0>(sesid: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetRollback(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
@@ -8486,7 +9022,11 @@ pub unsafe fn JetRollback<'a, Param0: ::std::convert::Into<super::StructuredStor
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSeek<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetSeek<'a, P0, P1>(sesid: P0, tableid: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSeek(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
@@ -8496,7 +9036,11 @@ pub unsafe fn JetSeek<'a, Param0: ::std::convert::Into<super::StructuredStorage:
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumn<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32 {
+pub unsafe fn JetSetColumn<'a, P0, P1>(sesid: P0, tableid: P1, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32;
@@ -8506,7 +9050,10 @@ pub unsafe fn JetSetColumn<'a, Param0: ::std::convert::Into<super::StructuredSto
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+pub unsafe fn JetSetColumnDefaultValueA<'a, P0>(sesid: P0, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetColumnDefaultValueA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
@@ -8516,7 +9063,10 @@ pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+pub unsafe fn JetSetColumnDefaultValueW<'a, P0>(sesid: P0, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetColumnDefaultValueW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
@@ -8526,7 +9076,11 @@ pub unsafe fn JetSetColumnDefaultValueW<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumns<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, psetcolumn: &[JET_SETCOLUMN]) -> i32 {
+pub unsafe fn JetSetColumns<'a, P0, P1>(sesid: P0, tableid: P1, psetcolumn: &[JET_SETCOLUMN]) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, psetcolumn: *const JET_SETCOLUMN, csetcolumn: u32) -> i32;
@@ -8536,7 +9090,11 @@ pub unsafe fn JetSetColumns<'a, Param0: ::std::convert::Into<super::StructuredSt
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex2A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, grbit: u32) -> i32 {
+pub unsafe fn JetSetCurrentIndex2A<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const i8, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndex2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32) -> i32;
@@ -8546,7 +9104,11 @@ pub unsafe fn JetSetCurrentIndex2A<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex2W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, grbit: u32) -> i32 {
+pub unsafe fn JetSetCurrentIndex2W<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const u16, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndex2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32) -> i32;
@@ -8556,7 +9118,11 @@ pub unsafe fn JetSetCurrentIndex2W<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex3A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, grbit: u32, itagsequence: u32) -> i32 {
+pub unsafe fn JetSetCurrentIndex3A<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const i8, grbit: u32, itagsequence: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndex3A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, itagsequence: u32) -> i32;
@@ -8566,7 +9132,11 @@ pub unsafe fn JetSetCurrentIndex3A<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex3W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32 {
+pub unsafe fn JetSetCurrentIndex3W<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndex3W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32;
@@ -8576,7 +9146,11 @@ pub unsafe fn JetSetCurrentIndex3W<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex4A<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32 {
+pub unsafe fn JetSetCurrentIndex4A<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndex4A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32;
@@ -8586,7 +9160,11 @@ pub unsafe fn JetSetCurrentIndex4A<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex4W<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32 {
+pub unsafe fn JetSetCurrentIndex4W<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const u16, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndex4W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32;
@@ -8596,7 +9174,11 @@ pub unsafe fn JetSetCurrentIndex4W<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndexA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8) -> i32 {
+pub unsafe fn JetSetCurrentIndexA<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8) -> i32;
@@ -8606,7 +9188,11 @@ pub unsafe fn JetSetCurrentIndexA<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndexW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16) -> i32 {
+pub unsafe fn JetSetCurrentIndexW<'a, P0, P1>(sesid: P0, tableid: P1, szindexname: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCurrentIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16) -> i32;
@@ -8616,7 +9202,11 @@ pub unsafe fn JetSetCurrentIndexW<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCursorFilter<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgcolumnfilters: &[JET_INDEX_COLUMN], grbit: u32) -> i32 {
+pub unsafe fn JetSetCursorFilter<'a, P0, P1>(sesid: P0, tableid: P1, rgcolumnfilters: &[JET_INDEX_COLUMN], grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetCursorFilter(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgcolumnfilters: *const JET_INDEX_COLUMN, ccolumnfilters: u32, grbit: u32) -> i32;
@@ -8626,7 +9216,10 @@ pub unsafe fn JetSetCursorFilter<'a, Param0: ::std::convert::Into<super::Structu
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32 {
+pub unsafe fn JetSetDatabaseSizeA<'a, P0>(sesid: P0, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetDatabaseSizeA(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32;
@@ -8636,7 +9229,10 @@ pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32 {
+pub unsafe fn JetSetDatabaseSizeW<'a, P0>(sesid: P0, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetDatabaseSizeW(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32;
@@ -8646,7 +9242,11 @@ pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::std::convert::Into<super::Struct
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetIndexRange<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableidsrc: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetSetIndexRange<'a, P0, P1>(sesid: P0, tableidsrc: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetIndexRange(sesid: super::StructuredStorage::JET_SESID, tableidsrc: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
@@ -8656,7 +9256,12 @@ pub unsafe fn JetSetIndexRange<'a, Param0: ::std::convert::Into<super::Structure
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetLS<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>, Param2: ::std::convert::Into<JET_LS>>(sesid: Param0, tableid: Param1, ls: Param2, grbit: u32) -> i32 {
+pub unsafe fn JetSetLS<'a, P0, P1, P2>(sesid: P0, tableid: P1, ls: P2, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+    P2: ::std::convert::Into<JET_LS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetLS(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, ls: JET_LS, grbit: u32) -> i32;
@@ -8666,7 +9271,11 @@ pub unsafe fn JetSetLS<'a, Param0: ::std::convert::Into<super::StructuredStorage
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetSessionContext<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_API_PTR>>(sesid: Param0, ulcontext: Param1) -> i32 {
+pub unsafe fn JetSetSessionContext<'a, P0, P1>(sesid: P0, ulcontext: P1) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_API_PTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetSessionContext(sesid: super::StructuredStorage::JET_SESID, ulcontext: super::StructuredStorage::JET_API_PTR) -> i32;
@@ -8676,7 +9285,10 @@ pub unsafe fn JetSetSessionContext<'a, Param0: ::std::convert::Into<super::Struc
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetSessionParameter<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32 {
+pub unsafe fn JetSetSessionParameter<'a, P0>(sesid: P0, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32;
@@ -8686,7 +9298,11 @@ pub unsafe fn JetSetSessionParameter<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetSystemParameterA<'a, Param1: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param3: ::std::convert::Into<super::StructuredStorage::JET_API_PTR>>(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: Param1, paramid: u32, lparam: Param3, szparam: *const i8) -> i32 {
+pub unsafe fn JetSetSystemParameterA<'a, P0, P1>(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: P0, paramid: u32, lparam: P1, szparam: *const i8) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_API_PTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetSystemParameterA(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const i8) -> i32;
@@ -8696,7 +9312,11 @@ pub unsafe fn JetSetSystemParameterA<'a, Param1: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetSystemParameterW<'a, Param1: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param3: ::std::convert::Into<super::StructuredStorage::JET_API_PTR>>(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: Param1, paramid: u32, lparam: Param3, szparam: *const u16) -> i32 {
+pub unsafe fn JetSetSystemParameterW<'a, P0, P1>(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: P0, paramid: u32, lparam: P1, szparam: *const u16) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_API_PTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetSystemParameterW(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const u16) -> i32;
@@ -8706,7 +9326,11 @@ pub unsafe fn JetSetSystemParameterW<'a, Param1: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetTableSequential<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
+pub unsafe fn JetSetTableSequential<'a, P0, P1>(sesid: P0, tableid: P1, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetSetTableSequential(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
@@ -8725,7 +9349,10 @@ pub unsafe fn JetStopBackup() -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetStopBackupInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
+pub unsafe fn JetStopBackupInstance<'a, P0>(instance: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetStopBackupInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
@@ -8744,7 +9371,10 @@ pub unsafe fn JetStopService() -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetStopServiceInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
+pub unsafe fn JetStopServiceInstance<'a, P0>(instance: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetStopServiceInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
@@ -8754,7 +9384,10 @@ pub unsafe fn JetStopServiceInstance<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetStopServiceInstance2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetStopServiceInstance2<'a, P0>(instance: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetStopServiceInstance2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -8764,7 +9397,10 @@ pub unsafe fn JetStopServiceInstance2<'a, Param0: ::std::convert::Into<super::St
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetTerm<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
+pub unsafe fn JetTerm<'a, P0>(instance: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetTerm(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
@@ -8774,7 +9410,10 @@ pub unsafe fn JetTerm<'a, Param0: ::std::convert::Into<super::StructuredStorage:
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetTerm2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
+pub unsafe fn JetTerm2<'a, P0>(instance: P0, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetTerm2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -8793,7 +9432,10 @@ pub unsafe fn JetTruncateLog() -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetTruncateLogInstance<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
+pub unsafe fn JetTruncateLogInstance<'a, P0>(instance: P0) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_INSTANCE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetTruncateLogInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
@@ -8803,7 +9445,12 @@ pub unsafe fn JetTruncateLogInstance<'a, Param0: ::std::convert::Into<super::Str
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetUnregisterCallback<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>, Param3: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>>(sesid: Param0, tableid: Param1, cbtyp: u32, hcallbackid: Param3) -> i32 {
+pub unsafe fn JetUnregisterCallback<'a, P0, P1, P2>(sesid: P0, tableid: P1, cbtyp: u32, hcallbackid: P2) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+    P2: ::std::convert::Into<super::StructuredStorage::JET_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetUnregisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, hcallbackid: super::StructuredStorage::JET_HANDLE) -> i32;
@@ -8813,7 +9460,11 @@ pub unsafe fn JetUnregisterCallback<'a, Param0: ::std::convert::Into<super::Stru
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetUpdate<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetUpdate<'a, P0, P1>(sesid: P0, tableid: P1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32;
@@ -8823,7 +9474,11 @@ pub unsafe fn JetUpdate<'a, Param0: ::std::convert::Into<super::StructuredStorag
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetUpdate2<'a, Param0: ::std::convert::Into<super::StructuredStorage::JET_SESID>, Param1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetUpdate2<'a, P0, P1>(sesid: P0, tableid: P1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32
+where
+    P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
+    P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JetUpdate2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32;

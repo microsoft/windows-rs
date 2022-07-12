@@ -375,7 +375,11 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsip_Submit_Command<'a, Param1: ::std::convert::Into<TBS_COMMAND_LOCALITY>, Param2: ::std::convert::Into<TBS_COMMAND_PRIORITY>>(hcontext: *const ::core::ffi::c_void, locality: Param1, priority: Param2, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
+pub unsafe fn Tbsip_Submit_Command<'a, P0, P1>(hcontext: *const ::core::ffi::c_void, locality: P0, priority: P1, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<TBS_COMMAND_LOCALITY>,
+    P1: ::std::convert::Into<TBS_COMMAND_PRIORITY>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32;

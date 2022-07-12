@@ -3,7 +3,11 @@ pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
     #[doc = "*Required features: `\"Gaming_Input_Preview\"`, `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetParentProviderId<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Custom::IGameControllerProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetParentProviderId<'a, P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Custom::IGameControllerProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetParentProviderId)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -11,7 +15,11 @@ impl GameControllerProviderInfo {
     }
     #[doc = "*Required features: `\"Gaming_Input_Preview\"`, `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetProviderId<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Custom::IGameControllerProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetProviderId<'a, P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Custom::IGameControllerProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetProviderId)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)

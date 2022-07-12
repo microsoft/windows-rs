@@ -208,7 +208,10 @@ impl OnlineIdAuthenticator {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AuthenticateUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, OnlineIdServiceTicketRequest>>>(&self, request: Param0) -> ::windows::core::Result<UserAuthenticationOperation> {
+    pub fn AuthenticateUserAsync<'a, P0>(&self, request: P0) -> ::windows::core::Result<UserAuthenticationOperation>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, OnlineIdServiceTicketRequest>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -217,7 +220,12 @@ impl OnlineIdAuthenticator {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AuthenticateUserAsyncAdvanced<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<CredentialPromptType>>(&self, requests: Param0, credentialprompttype: Param1) -> ::windows::core::Result<UserAuthenticationOperation> {
+    pub fn AuthenticateUserAsyncAdvanced<'a, P0, E0, P1>(&self, requests: P0, credentialprompttype: P1) -> ::windows::core::Result<UserAuthenticationOperation>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<CredentialPromptType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -437,14 +445,21 @@ impl OnlineIdServiceTicketRequest {
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-    pub fn CreateOnlineIdServiceTicketRequest<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(service: Param0, policy: Param1) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
+    pub fn CreateOnlineIdServiceTicketRequest<'a, P0, P1>(service: P0, policy: P1) -> ::windows::core::Result<OnlineIdServiceTicketRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequest)(::windows::core::Interface::as_raw(this), service.into().abi(), policy.into().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdServiceTicketRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-    pub fn CreateOnlineIdServiceTicketRequestAdvanced<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(service: Param0) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
+    pub fn CreateOnlineIdServiceTicketRequestAdvanced<'a, P0>(service: P0) -> ::windows::core::Result<OnlineIdServiceTicketRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(::windows::core::Interface::as_raw(this), service.into().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdServiceTicketRequest>(result__)
@@ -530,7 +545,10 @@ impl OnlineIdSystemAuthenticator {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdSystemAuthenticatorForUser>(result__)
@@ -551,7 +569,10 @@ pub struct OnlineIdSystemAuthenticatorForUser(::windows::core::IUnknown);
 impl OnlineIdSystemAuthenticatorForUser {
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTicketAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, OnlineIdServiceTicketRequest>>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>> {
+    pub fn GetTicketAsync<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, OnlineIdServiceTicketRequest>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -860,7 +881,10 @@ pub struct SignOutUserOperation(::windows::core::IUnknown);
 impl SignOutUserOperation {
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::AsyncActionCompletedHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::AsyncActionCompletedHandler>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
@@ -1118,7 +1142,10 @@ impl UserAuthenticationOperation {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }

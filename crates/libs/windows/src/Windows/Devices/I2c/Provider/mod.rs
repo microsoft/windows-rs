@@ -3,7 +3,10 @@
 pub struct II2cControllerProvider(::windows::core::IUnknown);
 impl II2cControllerProvider {
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
-    pub fn GetDeviceProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProviderI2cConnectionSettings>>>(&self, settings: Param0) -> ::windows::core::Result<II2cDeviceProvider> {
+    pub fn GetDeviceProvider<'a, P0>(&self, settings: P0) -> ::windows::core::Result<II2cDeviceProvider>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProviderI2cConnectionSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -381,7 +384,10 @@ impl ProviderI2cConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
-    pub fn SetBusSpeed<'a, Param0: ::std::convert::Into<ProviderI2cBusSpeed>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBusSpeed<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderI2cBusSpeed>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBusSpeed)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -394,7 +400,10 @@ impl ProviderI2cConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
-    pub fn SetSharingMode<'a, Param0: ::std::convert::Into<ProviderI2cSharingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSharingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderI2cSharingMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

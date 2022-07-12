@@ -493,7 +493,10 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendOutputReportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidOutputReport>>>(&self, outputreport: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendOutputReportAsync<'a, P0>(&self, outputreport: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidOutputReport>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -502,7 +505,10 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendFeatureReportAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidFeatureReport>>>(&self, featurereport: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendFeatureReportAsync<'a, P0>(&self, featurereport: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidFeatureReport>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -511,7 +517,10 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetBooleanControlDescriptions<'a, Param0: ::std::convert::Into<HidReportType>>(&self, reporttype: Param0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
+    pub fn GetBooleanControlDescriptions<'a, P0>(&self, reporttype: P0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>
+    where
+        P0: ::std::convert::Into<HidReportType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -520,7 +529,10 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNumericControlDescriptions<'a, Param0: ::std::convert::Into<HidReportType>>(&self, reporttype: Param0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
+    pub fn GetNumericControlDescriptions<'a, P0>(&self, reporttype: P0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>
+    where
+        P0: ::std::convert::Into<HidReportType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -529,7 +541,10 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InputReportReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>>>(&self, reporthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InputReportReceived<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -558,7 +573,11 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::super::Storage::FileAccessMode>>(deviceid: Param0, accessmode: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>> {
+    pub fn FromIdAsync<'a, P0, P1>(deviceid: P0, accessmode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<super::super::Storage::FileAccessMode>,
+    {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
@@ -677,7 +696,11 @@ impl HidFeatureReport {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -690,7 +713,10 @@ impl HidFeatureReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetBooleanControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -706,7 +732,10 @@ impl HidFeatureReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetNumericControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -824,7 +853,10 @@ impl HidInputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetBooleanControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -840,7 +872,10 @@ impl HidInputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetNumericControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1337,7 +1372,11 @@ impl HidOutputReport {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1350,7 +1389,10 @@ impl HidOutputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetBooleanControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1366,7 +1408,10 @@ impl HidOutputReport {
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
-    pub fn GetNumericControlByDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>>(&self, controldescription: Param0) -> ::windows::core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

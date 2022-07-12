@@ -176,7 +176,10 @@ impl DnssdServiceInstance {
         }
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
-    pub fn SetDnssdServiceInstanceName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDnssdServiceInstanceName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDnssdServiceInstanceName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -189,7 +192,10 @@ impl DnssdServiceInstance {
         }
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
-    pub fn SetHostName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHostName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHostName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -243,7 +249,10 @@ impl DnssdServiceInstance {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn RegisterStreamSocketListenerAsync1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::StreamSocketListener>>>(&self, socket: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
+    pub fn RegisterStreamSocketListenerAsync1<'a, P0>(&self, socket: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::StreamSocketListener>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -252,7 +261,11 @@ impl DnssdServiceInstance {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`, `\"Networking_Connectivity\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterStreamSocketListenerAsync2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::StreamSocketListener>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Connectivity::NetworkAdapter>>>(&self, socket: Param0, adapter: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
+    pub fn RegisterStreamSocketListenerAsync2<'a, P0, P1>(&self, socket: P0, adapter: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::StreamSocketListener>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Connectivity::NetworkAdapter>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -261,7 +274,10 @@ impl DnssdServiceInstance {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn RegisterDatagramSocketAsync1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::DatagramSocket>>>(&self, socket: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
+    pub fn RegisterDatagramSocketAsync1<'a, P0>(&self, socket: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::DatagramSocket>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -270,7 +286,11 @@ impl DnssdServiceInstance {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`, `\"Networking_Connectivity\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterDatagramSocketAsync2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::DatagramSocket>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Connectivity::NetworkAdapter>>>(&self, socket: Param0, adapter: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
+    pub fn RegisterDatagramSocketAsync2<'a, P0, P1>(&self, socket: P0, adapter: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::DatagramSocket>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Connectivity::NetworkAdapter>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -278,7 +298,11 @@ impl DnssdServiceInstance {
         }
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>>(dnssdserviceinstancename: Param0, hostname: Param1, port: u16) -> ::windows::core::Result<DnssdServiceInstance> {
+    pub fn Create<'a, P0, P1>(dnssdserviceinstancename: P0, hostname: P1, port: u16) -> ::windows::core::Result<DnssdServiceInstance>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>,
+    {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), dnssdserviceinstancename.into().abi(), hostname.into().abi(), port, result__.as_mut_ptr()).from_abi::<DnssdServiceInstance>(result__)
@@ -418,7 +442,10 @@ impl DnssdServiceInstanceCollection {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DnssdServiceInstance>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DnssdServiceInstance>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -578,7 +605,10 @@ pub struct DnssdServiceWatcher(::windows::core::IUnknown);
 impl DnssdServiceWatcher {
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -593,7 +623,10 @@ impl DnssdServiceWatcher {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -608,7 +641,10 @@ impl DnssdServiceWatcher {
     }
     #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
