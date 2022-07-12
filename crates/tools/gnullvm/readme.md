@@ -5,4 +5,4 @@ The Windows umbrella lib (targeting mingw-w64 LLVM tooling) is generated using t
 2. Execute: `pacman -Syuu --noconfirm` (repeat until no further updates available)
 3. Execute `pacman --needed -S mingw-w64-clang-x86_64-toolchain`
 4. Navigate to crate root
-5. Execute: `PATH=$(cygpath -u $USERPROFILE)/.cargo/bin:$PATH cargo run -p tool_gnullvm --target x86_64-pc-windows-gnu -- all`
+5. Execute: `PATH=$(cygpath -u $USERPROFILE)/.cargo/bin:$PATH cargo +nightly run -p tool_gnullvm --target x86_64-pc-windows-gnullvm -Z build-std -- all`
