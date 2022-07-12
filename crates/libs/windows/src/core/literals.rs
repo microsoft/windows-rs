@@ -40,7 +40,8 @@ macro_rules! w {
                     &{ buffer }
                 };
                 const HEADER: ::windows::core::HSTRING_HEADER = ::windows::core::HSTRING_HEADER { flags: 0x11, len: (OUTPUT_LEN - 1) as u32, padding1: 0, padding2: 0, ptr: OUTPUT.as_ptr() };
-                unsafe { ::std::mem::transmute(&HEADER) }
+                // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
+                unsafe { ::std::mem::transmute::<&::windows::core::HSTRING_HEADER, ::windows::core::HSTRING>(&HEADER) }
             }
         };
         &RESULT
