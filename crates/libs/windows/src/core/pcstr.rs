@@ -2,39 +2,53 @@ use super::*;
 
 /// A pointer to a constant null-terminated string of 8-bit Windows (ANSI) characters.
 #[repr(transparent)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub struct PCSTR(pub *const u8);
 
 impl PCSTR {
+    /// Construct a new `PCSTR` from a raw pointer
+    pub const fn from_raw(ptr: *const u8) -> Self {
+        Self(ptr)
+    }
+
+    /// Construct a null `PCSTR`
+    pub fn null() -> Self {
+        Self(core::ptr::null())
+    }
+
+    /// Returns a raw pointer to the `PCSTR`
+    pub fn as_ptr(&self) -> *const u8 {
+        self.0
+    }
+
+    /// Checks whether the `PCSTR` is null
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
-}
 
-impl ::core::default::Default for PCSTR {
-    fn default() -> Self {
-        Self(::core::ptr::null())
+    /// String data without the trailing 0
+    ///
+    /// # Safety
+    ///
+    /// The `PCSTR`'s pointer needs to valid for reads up until and including the next `\0`.
+    pub unsafe fn as_bytes(&self) -> &[u8] {
+        let mut len = 0;
+        let mut cursor = self.0;
+        while cursor.read() != 0 {
+            len += 1;
+            cursor = cursor.add(1);
+        }
+
+        std::slice::from_raw_parts(self.0, len)
     }
-}
 
-impl ::core::clone::Clone for PCSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-impl ::core::marker::Copy for PCSTR {}
-
-impl ::core::cmp::PartialEq for PCSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-
-impl ::core::cmp::Eq for PCSTR {}
-
-impl ::core::fmt::Debug for PCSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PCSTR").field(&self.0).finish()
+    /// Copy the `PCSTR` into a Rust `String`.
+    ///
+    /// # Safety
+    ///
+    /// See the safety information for `PCSTR::as_bytes`.
+    pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf8Error> {
+        String::from_utf8(self.as_bytes().into())
     }
 }
 
@@ -46,6 +60,6 @@ unsafe impl Abi for PCSTR {
 // with some Windows APIs.
 impl From<Option<PCSTR>> for PCSTR {
     fn from(from: Option<PCSTR>) -> Self {
-        from.unwrap_or_else(|| Self::default())
+        from.unwrap_or_else(Self::null)
     }
 }

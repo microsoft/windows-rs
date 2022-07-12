@@ -2,34 +2,56 @@ use super::*;
 
 /// A pointer to a constant null-terminated string of 16-bit Unicode characters.
 #[repr(transparent)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub struct PCWSTR(pub *const u16);
+
 impl PCWSTR {
+    /// Construct a new `PCWSTR` from a raw pointer
+    pub const fn from_raw(ptr: *const u16) -> Self {
+        Self(ptr)
+    }
+
+    /// Construct a null `PCWSTR`
+    pub fn null() -> Self {
+        Self(core::ptr::null())
+    }
+
+    /// Returns a raw pointer to the `PCWSTR`
+    pub fn as_ptr(&self) -> *const u16 {
+        self.0
+    }
+
+    /// Checks whether the `PCWSTR` is null
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
-}
-impl ::core::default::Default for PCWSTR {
-    fn default() -> Self {
-        Self(::core::ptr::null())
+
+    /// String data without the trailing 0
+    ///
+    /// # Safety
+    ///
+    /// The `PCWSTR`'s pointer needs to valid for reads up until and including the next `\0`.
+    pub unsafe fn as_wide(&self) -> &[u16] {
+        let mut len = 0;
+        let mut cursor = self.0;
+        while cursor.read() != 0 {
+            len += 1;
+            cursor = cursor.add(1);
+        }
+
+        std::slice::from_raw_parts(self.0, len)
+    }
+
+    /// Copy the `PCWSTR` into a Rust `String`.
+    ///
+    /// # Safety
+    ///
+    /// See the safety information for `PCWSTR::as_wide`.
+    pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf16Error> {
+        String::from_utf16(self.as_wide())
     }
 }
-impl ::core::clone::Clone for PCWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for PCWSTR {}
-impl ::core::cmp::PartialEq for PCWSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PCWSTR {}
-impl ::core::fmt::Debug for PCWSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PCWSTR").field(&self.0).finish()
-    }
-}
+
 unsafe impl Abi for PCWSTR {
     type Abi = Self;
 }
@@ -44,6 +66,6 @@ impl From<&HSTRING> for PCWSTR {
 // with some Windows APIs.
 impl From<Option<PCWSTR>> for PCWSTR {
     fn from(from: Option<PCWSTR>) -> Self {
-        from.unwrap_or_else(|| Self::default())
+        from.unwrap_or_else(Self::null)
     }
 }
