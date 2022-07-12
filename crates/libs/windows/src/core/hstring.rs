@@ -38,7 +38,7 @@ impl HSTRING {
         unsafe { core::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
-    #[doc(hidden)]
+    /// Returns a raw pointer to the `HSTRING` buffer.
     pub fn as_ptr(&self) -> *const u16 {
         if self.is_empty() {
             const EMPTY: [u16; 1] = [0];
