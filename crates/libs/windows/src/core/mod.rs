@@ -16,6 +16,7 @@ mod hresult;
 mod hstring;
 mod inspectable;
 mod interface;
+mod literals;
 mod param;
 mod pcstr;
 mod pcwstr;
@@ -52,6 +53,8 @@ pub use hresult::*;
 pub use hstring::*;
 pub use inspectable::*;
 pub use interface::*;
+#[doc(hidden)]
+pub use literals::*;
 pub use param::*;
 pub use pcstr::*;
 pub use pcwstr::*;

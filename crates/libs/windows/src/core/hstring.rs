@@ -9,7 +9,7 @@ impl HSTRING {
     /// Create an empty `HSTRING`.
     ///
     /// This function does not allocate memory.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self(core::ptr::null_mut())
     }
 
@@ -30,12 +30,18 @@ impl HSTRING {
 
     /// Get the string as 16-bit wide characters (wchars).
     pub fn as_wide(&self) -> &[u16] {
-        if self.is_empty() {
-            return &[];
-        }
+        unsafe { core::slice::from_raw_parts(self.as_ptr(), self.len()) }
+    }
 
-        let header = self.0;
-        unsafe { core::slice::from_raw_parts((*header).data, (*header).len as usize) }
+    /// Returns a raw pointer to the `HSTRING` buffer.
+    pub fn as_ptr(&self) -> *const u16 {
+        if self.is_empty() {
+            const EMPTY: [u16; 1] = [0];
+            EMPTY.as_ptr()
+        } else {
+            let header = self.0;
+            unsafe { (*header).data }
+        }
     }
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
@@ -114,14 +120,9 @@ impl Drop for HSTRING {
 
         unsafe {
             let header = std::mem::replace(&mut self.0, core::ptr::null_mut());
-            // This flag indicates a "fast pass" string created by some languages where the
-            // header is allocated on the stack. "Fast pass" strings can only ever be used
-            // as non-owned input params and as such `drop` will never be called. This check
-            // just ensures the Rust translation never accidentally modeled "fast pass" input
-            // params as owned `HSTRING` types which would be a bug in the translation.
-            debug_assert!((*header).flags & REFERENCE_FLAG == 0);
-
-            if (*header).count.release() == 0 {
+            // REFERENCE_FLAG indicates a string backed by static or stack memory that is
+            // thus not reference-counted and does not need to be freed.
+            if (*header).flags & REFERENCE_FLAG == 0 && (*header).count.release() == 0 {
                 heap_free(header as *mut core::ffi::c_void);
             }
         }
@@ -133,7 +134,7 @@ unsafe impl Sync for HSTRING {}
 
 impl core::fmt::Display for HSTRING {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        use ::core::fmt::Write;
+        use core::fmt::Write;
         for c in core::char::decode_utf16(self.as_wide().iter().cloned()) {
             f.write_char(c.map_err(|_| core::fmt::Error)?)?
         }
