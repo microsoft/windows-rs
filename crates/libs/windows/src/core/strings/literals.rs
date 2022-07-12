@@ -2,7 +2,7 @@
 #[macro_export]
 macro_rules! s {
     ($s:literal) => {
-        ::windows::core::PCSTR(::std::concat!($s, '\0').as_ptr())
+        ::windows::core::PCSTR::from_raw(::std::concat!($s, '\0').as_ptr())
     };
 }
 
