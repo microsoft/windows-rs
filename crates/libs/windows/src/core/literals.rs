@@ -6,6 +6,8 @@ macro_rules! s {
     };
 }
 
+/// A literal UTF-16 wide string.
+///
 /// Converts the literal UTF-8 string into a UTF-16 string adding a terminator and then wrapping
 /// that in an HSTRING reference so that it can be used for calling both WinRT APIs expecting an
 /// HSTRING as well as Win32 APIs expecting a PCWSTR.
