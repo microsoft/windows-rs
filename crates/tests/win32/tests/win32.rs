@@ -92,7 +92,7 @@ fn constant() {
 #[test]
 fn function() -> windows::core::Result<()> {
     unsafe {
-        let event = CreateEventW(core::ptr::null(), true, false, PCWSTR(core::ptr::null()))?;
+        let event = CreateEventW(core::ptr::null(), true, false, PCWSTR::null())?;
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
@@ -180,7 +180,7 @@ fn onecore_imports() -> windows::core::Result<()> {
     unsafe {
         HasExpandedResources()?;
 
-        let uri = CreateUri(PCWSTR(windows::core::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr()), URI_CREATE_FLAGS::default(), 0)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), 0)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
@@ -197,8 +197,7 @@ fn onecore_imports() -> windows::core::Result<()> {
 #[test]
 fn interface() -> windows::core::Result<()> {
     unsafe {
-        let uri = HSTRING::from("http://kennykerr.ca");
-        let uri = CreateUri(PCWSTR(uri.as_wide().as_ptr()), URI_CREATE_FLAGS::default(), 0)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), 0)?;
 
         let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");
@@ -210,55 +209,32 @@ fn interface() -> windows::core::Result<()> {
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);
-        assert!(BOOL(789) == a.unwrap()(HWND(123), PCSTR("hello a\0".as_ptr()), HANDLE(456)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123), s!("hello a"), HANDLE(456)));
 
         let a: PROPENUMPROCW = Some(callback_w);
-        assert!(BOOL(789) == a.unwrap()(HWND(123), PCWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr()), HANDLE(456)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123), w!("hello w").into(), HANDLE(456)));
     }
 }
 
 extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BOOL {
-    unsafe {
         assert!(param0.0 == 123);
         assert!(param2.0 == 456);
-        let mut len = 0;
-        let mut end = param1.0;
 
-        loop {
-            if *end == 0 {
-                break;
-            }
-
-            len += 1;
-            end = end.add(1);
-        }
-
-        let s = String::from_utf8_lossy(core::slice::from_raw_parts(param1.0 as *const u8, len)).into_owned();
+    let s = unsafe {
+        param1.to_string().unwrap()
+    };
         assert!(s == "hello a");
         BOOL(789)
-    }
 }
 
 extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> BOOL {
-    unsafe {
         assert!(param0.0 == 123);
         assert!(param2.0 == 456);
-        let mut len = 0;
-        let mut end = param1.0;
-
-        loop {
-            if *end == 0 {
-                break;
-            }
-
-            len += 1;
-            end = end.add(1);
-        }
-
-        let s = String::from_utf16_lossy(core::slice::from_raw_parts(param1.0, len));
+    let s = unsafe {
+        param1.to_string().unwrap()
+    };
         assert!(s == "hello w");
         BOOL(789)
-    }
 }
 
 #[test]

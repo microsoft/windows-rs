@@ -43,7 +43,7 @@ fn main() -> Result<()> {
                 // Get the replacement as a widestring and convert to a Rust String
                 let replacement = unsafe { error.Replacement()? };
 
-                println!("Replace: {} with {}", substring, unsafe { read_to_string(replacement) });
+                println!("Replace: {} with {}", substring, unsafe { replacement.to_string().unwrap() });
 
                 unsafe { CoTaskMemFree(replacement.0 as *mut _) };
             }
@@ -71,20 +71,4 @@ fn main() -> Result<()> {
         }
     }
     Ok(())
-}
-
-unsafe fn read_to_string(ptr: PWSTR) -> String {
-    let mut len = 0usize;
-    let mut cursor = ptr;
-    loop {
-        let val = cursor.0.read();
-        if val == 0 {
-            break;
-        }
-        len += 1;
-        cursor = PWSTR(cursor.0.add(1));
-    }
-
-    let slice = std::slice::from_raw_parts(ptr.0, len);
-    String::from_utf16(slice).unwrap()
 }
