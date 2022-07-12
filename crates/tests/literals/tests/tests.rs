@@ -27,6 +27,8 @@ fn test() {
 fn into() {
     let a = w!("");
     assert!(a.is_empty());
+    assert!(!a.as_ptr().is_null());
+    assert!(a.as_wide().is_empty());
     let b: PCWSTR = a.into();
     // Even though an empty HSTRING is internally represented by a null pointer, the PCWSTR
     // will still be a non-null pointer to a null terminated empty string.
