@@ -36,6 +36,6 @@ unsafe impl Abi for PCWSTR {
 
 impl From<&HSTRING> for PCWSTR {
     fn from(hstring: &HSTRING) -> Self {
-        Self(hstring.as_wide().as_ptr())
+        Self(hstring.as_ptr())
     }
 }

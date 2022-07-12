@@ -30,12 +30,7 @@ impl HSTRING {
 
     /// Get the string as 16-bit wide characters (wchars).
     pub fn as_wide(&self) -> &[u16] {
-        if self.is_empty() {
-            return &[];
-        }
-
-        let header = self.0;
-        unsafe { core::slice::from_raw_parts((*header).data, (*header).len as usize) }
+        unsafe { core::slice::from_raw_parts(self.as_ptr(), self.len()) }
     }
 
     /// Returns a raw pointer to the `HSTRING` buffer.
@@ -139,7 +134,7 @@ unsafe impl Sync for HSTRING {}
 
 impl core::fmt::Display for HSTRING {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        use ::core::fmt::Write;
+        use core::fmt::Write;
         for c in core::char::decode_utf16(self.as_wide().iter().cloned()) {
             f.write_char(c.map_err(|_| core::fmt::Error)?)?
         }

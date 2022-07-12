@@ -23,6 +23,23 @@ fn test() {
     assert_hstring(w!("\u{10ffff}"), &[0xDBFF, 0xDFFF, 0]); // Largest Unicode code point
 }
 
+#[test]
+fn into() {
+    let a = w!("");
+    assert!(a.is_empty());
+    let b: PCWSTR = a.into();
+    // Even though an empty HSTRING is internally represented by a null pointer, the PCWSTR
+    // will still be a non-null pointer to a null terminated empty string.
+    assert!(!b.0.is_null());
+    assert_eq!(0, unsafe { wcslen(b) });
+
+    let a = w!("123");
+    assert!(!a.is_empty());
+    let b: PCWSTR = a.into();
+    assert!(!b.0.is_null());
+    assert_eq!(3, unsafe { wcslen(b) });
+}
+
 fn assert_utf8(left: PCSTR, right: &[u8]) {
     let len = unsafe { strlen(left) };
     assert_eq!(len, right.len() - 1);
