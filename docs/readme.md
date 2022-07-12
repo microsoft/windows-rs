@@ -15,7 +15,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.38.0"
+version = "0.39.0"
 features = [
     "Data_Xml_Dom",
     "Win32_Foundation",
@@ -35,7 +35,7 @@ use windows::{
 
 fn main() -> Result<()> {
     let doc = XmlDocument::new()?;
-    doc.LoadXml("<html>hello world</html>")?;
+    doc.LoadXml(w!("<html>hello world</html>"))?;
 
     let root = doc.DocumentElement()?;
     assert!(root.NodeName()? == "html");
@@ -47,7 +47,8 @@ fn main() -> Result<()> {
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        MessageBoxA(None, "Text", "Caption", MB_OK);
+        MessageBoxA(None, s!("Ansi"), s!("Caption"), MB_OK);
+        MessageBoxW(None, w!("Wide"), w!("Caption"), MB_OK);
     }
 
     Ok(())
