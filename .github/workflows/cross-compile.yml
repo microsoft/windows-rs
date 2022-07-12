@@ -36,6 +36,13 @@ jobs:
 
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
+        if: contains(matrix.target, 'gnullvm') == false
+
+      - name: Add nightly toolchain with rust-src
+        run: |
+          rustup default ${{ matrix.version }}
+          rustup component add rust-src
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
 
       - name: Install gcc-mingw-w64-x86-64
         run: sudo apt-get install -y gcc-mingw-w64-x86-64
@@ -69,4 +76,4 @@ jobs:
           if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
             throw "Failed to find test_win32 executable."
           }
-        if: contains(matrix.target, 'gnullvm')
+        if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
