@@ -42,8 +42,10 @@ unsafe impl Abi for PCSTR {
     type Abi = Self;
 }
 
+// This just ensures that `None` can be used for optional PCSTR parameters, which can be quite common
+// with some Windows APIs.
 impl From<Option<PCSTR>> for PCSTR {
     fn from(from: Option<PCSTR>) -> Self {
-        from.unwrap_or_else(||Self::default())
+        from.unwrap_or_else(|| Self::default())
     }
 }
