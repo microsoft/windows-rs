@@ -11,7 +11,7 @@ fn main() -> Result<()> {
     let factory: ISpellCheckerFactory = unsafe { CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)? };
 
     // Make sure that the "en-US" locale is supported
-    let locale = PCWSTR::from(&"en-US".into());
+    let locale = w!("en-US");
     let supported = unsafe { factory.IsSupported(locale)? };
     supported.expect("en-US is supported");
 

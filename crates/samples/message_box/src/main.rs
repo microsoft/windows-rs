@@ -1,5 +1,5 @@
+use windows::core::*;
 use windows::Win32::UI::WindowsAndMessaging::*;
-use windows::*;
 
 fn main() {
     unsafe {

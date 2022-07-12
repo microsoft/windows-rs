@@ -1,5 +1,5 @@
+use windows::core::*;
 use windows::Data::Xml::Dom::XmlDocument;
-use windows::*;
 
 fn main() -> windows::core::Result<()> {
     let doc = XmlDocument::new()?;
