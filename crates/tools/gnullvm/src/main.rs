@@ -63,7 +63,7 @@ EXPORTS
     )
     .unwrap();
 
-    for (function, _) in functions {
+    for function in functions.keys() {
         def.write_all(format!("{}\n", function).as_bytes()).unwrap();
     }
 
