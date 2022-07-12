@@ -62,7 +62,6 @@ pub const fn decode_utf8(bytes: &[u8], mut pos: usize) -> Option<(u32, usize)> {
         let ch2 = bytes[pos] as u32;
         pos += 1;
         if (ch2 & 0xc0) != 0x80 {
-            assert!(false);
             return None;
         }
         let result: u32 = ((ch & 0x1f) << 6) | (ch2 & 0x3f);
