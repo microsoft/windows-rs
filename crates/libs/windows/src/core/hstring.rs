@@ -126,7 +126,7 @@ impl Drop for HSTRING {
         unsafe {
             let header = std::mem::replace(&mut self.0, core::ptr::null_mut());
             // REFERENCE_FLAG indicates a string backed by static or stack memory that is
-            // thus not reference-counted and does not need to be free.
+            // thus not reference-counted and does not need to be freed.
             if (*header).flags & REFERENCE_FLAG == 0 && (*header).count.release() == 0 {
                 heap_free(header as *mut core::ffi::c_void);
             }
